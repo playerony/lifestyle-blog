@@ -1,0 +1,23 @@
+{
+  "name": "lifestyle-blog",
+  "version": "1.0.0",
+  "description": "It's a code of my personal blog about lifestyle",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playerony/lifestyle-blog.git"
+  },
+  "keywords": [
+    "lifestyle",
+    "blog"
+  ],
+  "author": "Paweł Wojtasiński",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/playerony/lifestyle-blog/issues"
+  },
+  "homepage": "https://github.com/playerony/lifestyle-blog#readme"
+}
