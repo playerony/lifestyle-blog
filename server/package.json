@@ -4,7 +4,8 @@
   "description": "It's a server code of my personal blog about lifestyle",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node index.js"
+    "start": "nodemon --exec babel-node index.js",
+    "sequelize": "node_modules/.bin/sequelize"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,10 @@
     "express-graphql": "^0.9.0",
     "graphql": "^14.4.2",
     "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "pg": "^7.11.0",
+    "sequelize": "^5.10.1",
+    "sequelize-cli": "^5.5.0"
   }
 }
