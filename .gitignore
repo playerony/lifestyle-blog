@@ -1,5 +1,5 @@
 node_modules
-dev.js
 .idea/
-package-lock.json
-database.json
+
+.env
+server/.env
