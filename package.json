@@ -27,7 +27,6 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "braces": "^3.0.2",
     "concurrently": "^5.0.2"
   }
 }
