@@ -12,6 +12,7 @@
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "resolveJsonModule": true,
+    "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
     "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,

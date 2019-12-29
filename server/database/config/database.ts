@@ -3,7 +3,7 @@ import * as path from 'path'
 
 import keys from '../../config/keys'
 
-const modelsPath = path.join(__dirname, '../models')
+const modelsPath = path.join(__dirname, '../model')
 
 export default () =>
   new Sequelize({
