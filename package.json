@@ -4,7 +4,8 @@
   "description": "It's a code of my personal blog about lifestyle",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "server": "npm run server --prefix server",
+    "start": "concurrently \"npm run server\""
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,9 @@
     "@babel/preset-env": "^7.7.7",
     "prettier": "^1.19.1",
     "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "braces": "^3.0.2",
+    "concurrently": "^5.0.2"
   }
 }

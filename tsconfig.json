@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6", 
     "module": "CommonJS", 
-    "moduleResolution": "node",  
+    "moduleResolution": "Node",  
     "strict": true,  
     "noImplicitAny": true,
     "importHelpers": true,
