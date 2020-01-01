@@ -1,31 +1,24 @@
 {
   "compilerOptions": {
-    "target": "es6", 
+    "target": "ESNext", 
     "module": "CommonJS", 
     "moduleResolution": "Node",  
     "strict": true,  
     "noImplicitAny": true,
-    "importHelpers": true,
-    "removeComments": true,  
     "noUnusedLocals": true,
-    "noImplicitThis": true,
     "strictNullChecks": true,
     "noImplicitReturns": true,
-    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": [
-      "es2017",
-      "dom",
-      "esnext"
-    ],
+    "baseUrl": ".",
+    "paths": {
+      "@server/*": ["./*"],
+      "@config/*": ["./config/*"],
+      "@database/*": ["./database/*"],
+      "@model/*": ["./database/model/*"]
+    },
   },
-  "include": [
-    "server/**/*",
-    "client/**/*",
-  ],
   "exclude": [
     "node_modules"
   ]

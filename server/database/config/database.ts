@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize-typescript'
-import * as path from 'path'
+import path from 'path'
 
-import keys from '../../config/keys'
+import keys from '@config/keys'
 
 const modelsPath = path.join(__dirname, '../model')
 

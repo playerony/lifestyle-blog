@@ -2,9 +2,8 @@
   "name": "lifestyle-blog",
   "version": "1.0.0",
   "description": "It's a code of my personal blog about lifestyle",
-  "main": "index.js",
   "scripts": {
-    "server": "npm run server --prefix server",
+    "server": "npm start --prefix server",
     "start": "concurrently \"npm run server\""
   },
   "repository": {
@@ -22,9 +21,7 @@
   },
   "homepage": "https://github.com/playerony/lifestyle-blog#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.7.7",
-    "prettier": "^1.19.1",
-    "typescript": "^3.7.4"
+    "prettier": "^1.19.1"
   },
   "dependencies": {
     "concurrently": "^5.0.2"
