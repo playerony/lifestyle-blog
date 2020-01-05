@@ -10,7 +10,7 @@ const buildGraphQLSchema = async (): Promise<GraphQLSchema> =>
     nullableByDefault: true
   })
 
-export default async () => {
+export default async (): Promise<ApolloServer> => {
   const schema = await buildGraphQLSchema()
 
   return new ApolloServer({

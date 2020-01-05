@@ -1,6 +1,5 @@
-import initializeApp from './app'
-;(async () => {
-  const app = await initializeApp()
+;(async (): Promise<void> => {
+  const app = await require('./app').default()
 
   app.listen(app.get('port'), () => {
     console.log(`\nServer listening on port ${app.get('port')}`)

@@ -1,13 +1,13 @@
-import express from 'express'
+import express, { Express } from 'express'
 
 import apolloServer from './apolloServer'
-import hasAllValuesDefined from '@utility/hasAllValuesDefined'
+import hasAllValuesDefined, { IInputData } from '@utility/hasAllValuesDefined'
 
-import { sequelize } from '@config/sequelize'
 import keys from '@config/keys'
+import { sequelize } from '@config/sequelize'
 
 const checkEnvKeys = (): void => {
-  const result = hasAllValuesDefined(keys as any)
+  const result = hasAllValuesDefined(keys as IInputData)
   if (!result) {
     throw Error('Not all environment variables have been defined.')
   }
@@ -22,7 +22,7 @@ const connectWithDatabase = async (): Promise<void> => {
   console.info(`Connected to ${sequelize.options.database} database.`)
 }
 
-export default async () => {
+export default async (): Promise<Express> => {
   checkEnvKeys()
 
   const app = express()
