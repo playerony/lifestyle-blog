@@ -13,7 +13,7 @@ describe('keys Object', () => {
     process.env = OLD_ENV
   })
 
-  test('will receive all process.env variables', () => {
+  it('will receive all process.env variables', () => {
     process.env.DATABASE_NAME = 'database_name'
     process.env.DATABASE_USER = 'database_user'
     process.env.DATABASE_PASSWORD = 'database_password'

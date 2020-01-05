@@ -9,10 +9,5 @@ export const sequelize = new Sequelize({
   password: keys.databasePassword,
   storage: '',
   host: keys.databaseServer,
-  port: keys.databasePort,
-  dialectOptions: {
-    encrypt: true,
-    requestTimeout: 50000,
-    packetSize: 32768
-  }
+  port: keys.databasePort
 })
