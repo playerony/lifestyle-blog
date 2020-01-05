@@ -1,7 +1,5 @@
 import { Sequelize } from 'sequelize-typescript'
 
-import * as models from '../model'
-
 import keys from '@config/keys'
 
 export const sequelize = new Sequelize({
@@ -10,7 +8,6 @@ export const sequelize = new Sequelize({
   username: keys.databaseUser,
   password: keys.databasePassword,
   storage: '',
-  modelPaths: Object.keys(models),
   host: keys.databaseServer,
   port: keys.databasePort,
   dialectOptions: {

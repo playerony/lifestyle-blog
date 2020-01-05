@@ -35,13 +35,7 @@ export class UserAddResult {
   user!: UserModel
 }
 
-export class User extends Model {
-  userId!: number
-  login!: string
-  password!: string
-  createdAt!: Date
-  updatedAt!: Date
-}
+export class User extends Model {}
 
 User.init(
   {
@@ -53,5 +47,5 @@ User.init(
     login: STRING(50),
     password: STRING(100)
   },
-  { sequelize, modelName: 'User' }
+  { sequelize }
 )

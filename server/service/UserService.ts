@@ -1,15 +1,19 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-import { User, UserAddModel, UserAddResult } from '@model/User'
+import { User, UserModel, UserAddModel, UserAddResult } from '@model/User'
 
 import keys from '@config/keys'
 
 export default class UserService {
   async signup({ login, password }: UserAddModel): Promise<UserAddResult> {
-    const hashPassword = await bcrypt.hash(password, keys.hashSalt!)
+    const foundUser: UserModel = await User.findOne<any>({ where: { login } })
+    if (foundUser) {
+      throw new Error('User with this login already exists.')
+    }
 
-    const createdUser = await User.create({
+    const hashPassword = await bcrypt.hash(password, keys.hashSalt!)
+    const createdUser: UserModel = await User.create<any>({
       login,
       password: hashPassword
     })
@@ -23,8 +27,7 @@ export default class UserService {
   }
 
   async login({ login, password }: UserAddModel): Promise<UserAddResult> {
-    const foundUser = await User.findOne({ where: { login } })
-
+    const foundUser: UserModel = await User.findOne<any>({ where: { login } })
     if (!foundUser) {
       throw new Error('No such user found')
     }
