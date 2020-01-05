@@ -10,7 +10,8 @@
         "@config": "./config",
         "@model": "./model",
         "@resolver": "./resolver",
-        "@service": "./service"
+        "@service": "./service",
+        "@utility": "./utility"
       }
     }],
     "babel-plugin-transform-typescript-metadata",

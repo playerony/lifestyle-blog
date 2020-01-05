@@ -1,8 +1,19 @@
 import express from 'express'
 
-import keys from '@config/keys'
 import apolloServer from './apolloServer'
-import { sequelize } from '@server/config/sequelize'
+import hasAllValuesDefined from '@utility/hasAllValuesDefined'
+
+import { sequelize } from '@config/sequelize'
+import keys from '@config/keys'
+
+const checkEnvKeys = (): void => {
+  const result = hasAllValuesDefined(keys as any)
+  if (!result) {
+    throw Error('Not all environment variables have been defined.')
+  }
+
+  console.info('Environment variables have been defined successfully.')
+}
 
 const connectWithDatabase = async (): Promise<void> => {
   await sequelize.authenticate()
@@ -12,10 +23,10 @@ const connectWithDatabase = async (): Promise<void> => {
 }
 
 export default async () => {
-  const { appPort } = keys
+  checkEnvKeys()
 
   const app = express()
-  app.set('port', appPort || 3000)
+  app.set('port', keys.appPort)
 
   try {
     await connectWithDatabase()

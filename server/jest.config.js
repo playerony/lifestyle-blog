@@ -5,6 +5,7 @@ module.exports = {
     '@config/(.*)': '<rootDir>/config/$1',
     '@model/(.*)': '<rootDir>/model/$1',
     '@resolver/(.*)': '<rootDir>/resolver/$1',
-    '@service/(.*)': '<rootDir>/service/$1'
+    '@service/(.*)': '<rootDir>/service/$1',
+    '@utility/(.*)': '<rootDir>/utility/$1'
   }
 }
