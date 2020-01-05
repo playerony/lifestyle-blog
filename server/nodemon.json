@@ -2,8 +2,7 @@
   "ignore": [
     "node_modules"
   ],
-  "watch": [
-    "."
-  ],
-  "exec": "babel-node --extensions \".ts\" index.ts"
+  "watch": ["."],
+  "exec": "babel-node --extensions \".ts\" index.ts",
+  "ext": "ts"
 }

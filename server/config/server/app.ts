@@ -2,20 +2,20 @@ import express from 'express'
 
 import keys from '@config/keys'
 import apolloServer from './apolloServer'
-import createDB from '@database/config/database'
+import { sequelize } from '@server/config/sequelize'
 
 const connectWithDatabase = async (): Promise<void> => {
-  const database = await createDB()
-  await database.authenticate()
+  await sequelize.authenticate()
+  await sequelize.sync()
 
-  console.info(`Connected to ${database.options.database} database.`)
+  console.info(`Connected to ${sequelize.options.database} database.`)
 }
 
 export default async () => {
-  const { databasePort } = keys
+  const { appPort } = keys
 
   const app = express()
-  app.set('port', databasePort || 3000)
+  app.set('port', appPort || 3000)
 
   try {
     await connectWithDatabase()

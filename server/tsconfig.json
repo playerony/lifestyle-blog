@@ -9,14 +9,16 @@
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
       "@server/*": ["./*"],
       "@config/*": ["./config/*"],
-      "@database/*": ["./database/*"],
-      "@model/*": ["./database/model/*"]
+      "@model/*": ["./model/*"],
+      "@resolver/*": ["./resolver/*"],
+      "@service/*": ["./service/*"]
     },
   },
   "exclude": [

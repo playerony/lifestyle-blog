@@ -1,6 +1,6 @@
 {
   "presets": ["@babel/preset-typescript", ["@babel/preset-env", {
-    "targets": {"node": 4}
+    "targets": {"node": "current"}
   }]],
   "plugins": [
     ["module-resolver", {
@@ -8,10 +8,12 @@
       "alias": {
         "@server": ".",
         "@config": "./config",
-        "@database": "./database",
-        "@model": "./database/model"
+        "@model": "./model",
+        "@resolver": "./resolver",
+        "@service": "./service"
       }
     }],
+    "babel-plugin-transform-typescript-metadata",
     ["@babel/plugin-proposal-decorators", {
       "legacy": true
     }],

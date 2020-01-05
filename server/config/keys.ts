@@ -4,6 +4,10 @@ interface IKeys {
   databasePassword?: string
   databaseServer?: string
   databasePort?: number
+
+  hashSalt?: number
+  appSecret?: string
+  appPort?: string
 }
 
 const config: IKeys = {
@@ -11,7 +15,11 @@ const config: IKeys = {
   databaseUser: process.env.DATABASE_USER,
   databasePassword: process.env.DATABASE_PASSWORD,
   databaseServer: process.env.DATABASE_SERVER,
-  databasePort: Number(process.env.DATABASE_PORT)
+  databasePort: Number(process.env.DATABASE_PORT),
+
+  hashSalt: Number(process.env.HASH_SALT),
+  appSecret: process.env.APP_SECRET,
+  appPort: process.env.APP_PORT
 }
 
 export default config
