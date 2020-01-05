@@ -23,6 +23,7 @@ describe('sequelize Instance', () => {
     expect(sequelize.options).toBeDefined()
     expect(sequelize.options.port).toEqual(3100)
     expect(sequelize.options.dialect).toEqual('postgres')
+    expect(sequelize.options.storage).toEqual(':memory:')
     expect(sequelize.options.database).toEqual('database_name')
     expect(sequelize.options.username).toEqual('database_user')
     expect(sequelize.options.password).toEqual('database_password')
