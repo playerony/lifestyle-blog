@@ -1,10 +1,10 @@
 import express, { Express } from 'express'
 
-import apolloServer from './apolloServer'
-import hasAllValuesDefined, { IInputData } from '@utility/hasAllValuesDefined'
-
 import keys from '@config/keys'
+import apolloServer from './apolloServer'
 import { sequelize } from '@config/sequelize'
+
+import hasAllValuesDefined, { IInputData } from '@utility/hasAllValuesDefined'
 
 const checkEnvKeys = (): void => {
   const result = hasAllValuesDefined(keys as IInputData)
