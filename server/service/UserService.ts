@@ -1,7 +1,8 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-import { User, UserModel, UserAddModel, UserAddResult } from '@model/User'
+import { User, UserAddModel } from '@model/User'
+import { UserModel, UserAddResult } from '@type/User'
 
 import keys from '@config/keys'
 
