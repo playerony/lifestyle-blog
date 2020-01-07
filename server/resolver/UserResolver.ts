@@ -1,6 +1,6 @@
 import { Resolver, Query, Arg } from 'type-graphql'
 
-import { UserAddResult } from '@model/User'
+import { UserAddResult } from '@type/User'
 
 import UserService from '@server/service/UserService'
 

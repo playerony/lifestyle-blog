@@ -19,7 +19,8 @@
       "@model/*": ["./model/*"],
       "@resolver/*": ["./resolver/*"],
       "@service/*": ["./service/*"],
-      "@utility/*": ["./utility/*"]
+      "@utility/*": ["./utility/*"],
+      "@type/*": ["./type/*"]
     },
   },
   "exclude": [
