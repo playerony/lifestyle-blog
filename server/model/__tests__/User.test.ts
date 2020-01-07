@@ -6,8 +6,6 @@ jest.mock('sequelize', () => {
     public static init = jest.fn()
   }
 
-  Model.init = jest.fn()
-
   return {
     Model,
     DataTypes,
