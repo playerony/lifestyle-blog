@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize-typescript'
+import { Sequelize } from 'sequelize'
 
 import keys from '@config/keys'
 
