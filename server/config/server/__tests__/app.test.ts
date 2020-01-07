@@ -1,8 +1,32 @@
 import { Express } from 'express'
 
+jest.mock('sequelize', () => {
+  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+
+  class Sequelize {
+    public authenticate = jest.fn()
+    public sync = jest.fn()
+  }
+
+  class Model {
+    public static init = jest.fn()
+  }
+
+  return {
+    Model,
+    DataTypes,
+    Sequelize
+  }
+})
+
 describe('app Configuration', () => {
   const OLD_ENV = process.env
   let appConfig: () => Express
+
+  beforeAll(() => {
+    console.warn = jest.fn()
+    console.info = jest.fn()
+  })
 
   beforeEach(() => {
     jest.resetModules()
@@ -43,5 +67,21 @@ describe('app Configuration', () => {
     const result = await appConfig()
 
     expect(result.locals.settings.port).toEqual('3200')
+  })
+
+  describe('database configuration', () => {
+    it('should authenticate connection with database', async () => {
+      await appConfig()
+      const { sequelize } = require('../../sequelize')
+
+      expect(sequelize.authenticate).toBeCalled()
+    })
+
+    it('should synchronize models with database', async () => {
+      await appConfig()
+      const { sequelize } = require('../../sequelize')
+
+      expect(sequelize.sync).toBeCalled()
+    })
   })
 })
