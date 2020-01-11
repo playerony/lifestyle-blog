@@ -9,5 +9,5 @@ module.exports = {
     '@utility/(.*)': '<rootDir>/utility/$1',
     '@type/(.*)': '<rootDir>/type/$1'
   },
-  setupFiles: ['./config/jest-setup-file.ts']
+  setupFiles: ['./config/jestSetupFile.ts']
 }
