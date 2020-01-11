@@ -1,6 +1,6 @@
 import Check from './Check'
 
-interface IData {
+export interface IData {
   [key: string]: any
 }
 

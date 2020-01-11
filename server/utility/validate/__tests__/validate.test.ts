@@ -1,29 +1,30 @@
-import Check from '../Check'
-import Validator from '../index'
+import { validate, check } from '../index'
 
-describe('Validator class', () => {
+describe('validate Functions', () => {
   it('should throw an error', () => {
     try {
-      new Validator({}).check()
+      validate({}).check()
     } catch (e) {
       expect(e.message).toEqual('Check list was not provided.')
     }
   })
 
   it('should return empty object', () => {
-    const result = new Validator({}).setCheckList([new Check('name')]).check()
+    const result = validate({})
+      .setCheckList([check('name')])
+      .check()
 
     expect(result).toEqual({})
   })
 
   it('should return errors for each field', () => {
-    const result = new Validator({ login: 'testLogin', password: 'Maselko123' })
+    const result = validate({ login: 'testLogin', password: 'Maselko123' })
       .setCheckList([
-        new Check('login')
+        check('login')
           .isExist()
           .isString()
           .isMinLength(6),
-        new Check('password')
+        check('password')
           .isExist()
           .isString()
           .isMinLength(6)
