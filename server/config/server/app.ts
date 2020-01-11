@@ -2,8 +2,8 @@ import express, { Express } from 'express'
 
 import keys from '@config/keys'
 import apolloServer from './apolloServer'
-import { sequelize } from '@config/sequelize'
 
+import { info, error } from '@utility/logger'
 import hasAllValuesDefined, { IInputData } from '@utility/hasAllValuesDefined'
 
 const checkEnvKeys = (): void => {
@@ -12,30 +12,21 @@ const checkEnvKeys = (): void => {
     throw Error('Not all environment variables have been defined.')
   }
 
-  console.info('Environment variables have been defined successfully.')
-}
-
-const connectWithDatabase = async (): Promise<void> => {
-  await sequelize.authenticate()
-  await sequelize.sync()
-
-  console.info(`Connected to ${sequelize.options.database} database.`)
+  info('Environment variables have been defined successfully.')
 }
 
 export default async (): Promise<Express> => {
-  checkEnvKeys()
-
   const app = express()
-  app.set('port', keys.appPort)
 
   try {
-    await connectWithDatabase()
+    checkEnvKeys()
+    app.set('port', keys.appPort)
 
     const server = await apolloServer()
 
     server.applyMiddleware({ app })
   } catch (e) {
-    console.warn(e.toString())
+    error(e.toString())
   }
 
   return app

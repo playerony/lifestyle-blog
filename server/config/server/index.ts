@@ -1,8 +1,13 @@
+import configureDatabase from '@config/database'
+import initializeApp from './app'
+import { info } from '@utility/logger'
 ;(async (): Promise<void> => {
-  const app = await require('./app').default()
+  await configureDatabase()
+
+  const app = await initializeApp()
 
   app.listen(app.get('port'), () => {
-    console.log(`\nServer listening on port ${app.get('port')}`)
-    console.log('Press CTRL-C to stop\n')
+    info(`Server listening on port ${app.get('port')}`)
+    info('Press CTRL-C to stop\n')
   })
 })()

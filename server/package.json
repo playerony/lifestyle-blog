@@ -65,12 +65,15 @@
     "jest-express": "^1.10.1",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
+    "pg-native": "^3.0.0",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^5.10.1",
     "sequelize-mock": "^0.10.2",
     "sequelize-test-helpers": "^1.2.2",
     "sinon": "^8.0.4",
     "type-graphql": "^0.17.6",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "winston": "^3.2.1",
+    "winston-transport": "^4.3.0"
   }
 }

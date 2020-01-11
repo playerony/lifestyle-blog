@@ -2,22 +2,17 @@ import { Model, DataTypes } from 'sequelize'
 
 import { sequelize } from '@server/config/database/sequelize'
 
-export class UserAddModel {
-  login!: string
-  password!: string
-}
+export class Log extends Model {}
 
-export class User extends Model {}
-
-User.init(
+Log.init(
   {
-    userId: {
+    logId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
-    login: DataTypes.STRING(50),
-    password: DataTypes.STRING(100)
+    level: DataTypes.STRING(10),
+    message: DataTypes.STRING(3000)
   },
   { sequelize }
 )
