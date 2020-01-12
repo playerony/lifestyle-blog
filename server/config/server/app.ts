@@ -13,7 +13,7 @@ export default async (): Promise<Express> => {
 
     server.applyMiddleware({ app })
   } catch (e) {
-    console.error(e.String())
+    console.error(e.toString())
   }
 
   return app

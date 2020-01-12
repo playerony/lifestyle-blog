@@ -1,9 +1,10 @@
-import checkEnvKeys from './checkEnvKeys'
+import checkEnvironment from './checkEnvironment'
 import database from './database'
 import server from './server'
 ;(async () => {
   try {
-    checkEnvKeys()
+    checkEnvironment()
+
     await database()
     await server()
   } catch (e) {

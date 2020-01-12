@@ -7,5 +7,5 @@ export default (): void => {
     throw Error('Not all environment variables have been defined.')
   }
 
-  console.warn('Environment variables have been defined successfully.')
+  console.info('Environment variables have been defined successfully.')
 }
