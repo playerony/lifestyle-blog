@@ -72,8 +72,6 @@
     "sequelize-test-helpers": "^1.2.2",
     "sinon": "^8.0.4",
     "type-graphql": "^0.17.6",
-    "typescript": "^3.7.4",
-    "winston": "^3.2.1",
-    "winston-transport": "^4.3.0"
+    "typescript": "^3.7.4"
   }
 }
