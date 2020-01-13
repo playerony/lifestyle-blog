@@ -4,6 +4,10 @@ export interface IData {
   [key: string]: any
 }
 
+export interface IError {
+  [key: string]: Array<string>
+}
+
 class Validation {
   private data: IData
   private checkList?: Check[]
@@ -18,9 +22,9 @@ class Validation {
     return this
   }
 
-  public check() {
+  public check(): IError {
     if (!this.checkList) {
-      return new Error('Check list was not provided.')
+      throw new Error('Check list was not provided.')
     }
 
     return this.checkList.reduce((result, check) => {

@@ -1,4 +1,4 @@
-import { validate, check } from '../index'
+import { validate, check, isValid } from '../index'
 
 describe('validate Functions', () => {
   it('should throw an error', () => {
@@ -15,6 +15,24 @@ describe('validate Functions', () => {
       .check()
 
     expect(result).toEqual({})
+  })
+
+  describe('isValid Function', () => {
+    it('should return false when object is not valid', () => {
+      const result = validate({ value: '1@' })
+        .setCheckList([check('value').isLetter()])
+        .check()
+
+      expect(isValid(result)).toBeFalsy()
+    })
+
+    it('should return true when object is valid', () => {
+      const result = validate({ value: '1a' })
+        .setCheckList([check('value').isLetter()])
+        .check()
+
+      expect(isValid(result)).toBeTruthy()
+    })
   })
 
   it('should return errors for each field', () => {
