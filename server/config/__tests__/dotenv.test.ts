@@ -7,7 +7,7 @@ describe('dotenv Configuration', () => {
     dotenv.config = jest.fn()
   })
 
-  it('should call config function without parameters', () => {
+  it('should call a config function without parameters', () => {
     require('../dotenv')
 
     expect(dotenv.config).toBeCalledTimes(1)

@@ -7,7 +7,7 @@ import synchronizeModel from '../synchronizeModel'
 import createDatabaseConnection from '../createDatabaseConnection'
 
 describe('database Configuration', () => {
-  it('to have been called', async () => {
+  it('should call the appropriate functions', async () => {
     require('../index').default()
 
     await waitForExpect(() => {

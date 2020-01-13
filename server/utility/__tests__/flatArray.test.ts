@@ -1,7 +1,7 @@
 import flatArray from '../flatArray'
 
 describe('flatArray Function', () => {
-  describe('should return empty array', () => {
+  describe('should return an empty array', () => {
     it('if array is not defined', () => {
       const result = flatArray(undefined)
 

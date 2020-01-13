@@ -35,12 +35,10 @@ describe('app Configuration', () => {
     expect(result.locals.settings.port).toEqual('3200')
   })
 
-  it('should prepare server configuration', async () => {
+  it('should prepare a server configuration', async () => {
     appConfig()
     await apolloServer()
 
-    await waitForExpect(() => {
-      expect(apolloServer).toHaveBeenCalled()
-    })
+    await waitForExpect(() => expect(apolloServer).toHaveBeenCalled())
   })
 })

@@ -9,7 +9,7 @@ import database from '../database'
 import checkEnvironment from '../checkEnvironment'
 
 describe('app Configuration', () => {
-  it('to have been called', async () => {
+  it('should call the appropriate functions', async () => {
     require('../app').default
 
     await waitForExpect(() => {

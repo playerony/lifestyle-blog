@@ -21,7 +21,7 @@ describe('checkEnvironment Function', () => {
     process.env = OLD_ENV
   })
 
-  it('should throw an error if environment variables are not defined', () => {
+  it('should throw an error when environment variables are changed', () => {
     process.env.APP_SECRET = undefined
 
     try {
@@ -33,7 +33,7 @@ describe('checkEnvironment Function', () => {
     }
   })
 
-  it('should show a message if environment variables are defined', () => {
+  it('should show a message when environment variables are defined', () => {
     console.info = jest.fn()
     require('../checkEnvironment').default()
 

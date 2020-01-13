@@ -44,7 +44,7 @@ describe('hasAllValuesDefined Function', () => {
     })
   })
 
-  it('should return true when all object values are defined', () => {
+  it('should return a true value when all object values are defined', () => {
     const data: IInputData = {
       stringValue: 'Test',
       nullValue: 123,

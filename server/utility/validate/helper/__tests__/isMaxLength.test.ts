@@ -7,7 +7,7 @@ describe('isMaxLength Function', () => {
     expect(isMaxLength([1, 2, 3], 5)).toBeTruthy()
   })
 
-  describe('shouldn`t pass', () => {
+  describe('should not pass', () => {
     it('if passed data`s length is too low', () => {
       expect(isMaxLength('Test', 3)).toBeFalsy()
       expect(isMaxLength([1, 2], 1)).toBeFalsy()

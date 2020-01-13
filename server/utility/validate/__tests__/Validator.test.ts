@@ -10,7 +10,7 @@ describe('Validator class', () => {
     }
   })
 
-  it('should return empty object', () => {
+  it('should return an empty object', () => {
     const result = new Validator({}).setCheckList([new Check('name')]).check()
 
     expect(result).toEqual({})

@@ -1,7 +1,7 @@
 import getErrorMessage from '../getErrorMessage'
 
 describe('getErrorMessage Function', () => {
-  it('should return default error message', () => {
+  it('should return a default error message', () => {
     expect(getErrorMessage('isArray')).toEqual(
       'Provided value is not an array.'
     )

@@ -9,7 +9,7 @@ describe('validate Functions', () => {
     }
   })
 
-  it('should return empty object', () => {
+  it('should return an empty object', () => {
     const result = validate({})
       .setCheckList([check('name')])
       .check()
