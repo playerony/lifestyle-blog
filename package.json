@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "It's a code of my personal blog about lifestyle",
   "scripts": {
+    "admin": "npm start --prefix admin",
     "server": "npm start --prefix server",
-    "start": "concurrently \"npm run server\""
+    "start": "concurrently \"npm run server\" \"npm run admin\""
   },
   "repository": {
     "type": "git",

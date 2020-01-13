@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+		"noImplicitAny": true,
+		"target": "ESNext",
+		"lib": ["es5", "es6", "dom"],
+		"jsx": "react",
+		"allowJs": true,
+		"moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "@admin/*": ["./*"],
+      "@config/*": ["./config/*"],
+      "@component/*": ["./component/*"]
+    },
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+  
