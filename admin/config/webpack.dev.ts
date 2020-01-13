@@ -1,6 +1,8 @@
 import * as webpack from 'webpack'
 import * as HtmlWebPackPlugin from 'html-webpack-plugin'
 
+import alias from './alias'
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './index.html'
 })
@@ -9,6 +11,7 @@ const config: webpack.Configuration = {
   mode: 'development',
   entry: './index.tsx',
   resolve: {
+    alias,
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
 

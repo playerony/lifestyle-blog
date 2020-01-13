@@ -2,6 +2,8 @@ import * as path from 'path'
 import * as webpack from 'webpack'
 import * as HtmlWebPackPlugin from 'html-webpack-plugin'
 
+import alias from './alias'
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './index.html',
   filename: './index.html'
@@ -15,6 +17,7 @@ const config: webpack.Configuration = {
     filename: 'bundle.js'
   },
   resolve: {
+    alias,
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
   module: {
