@@ -6,7 +6,8 @@
     "module": "CommonJS", 
 		"lib": ["esnext", "dom"],
     "moduleResolution": "Node",
-    "strict": true,  
+    "strict": true,
+    "skipLibCheck": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
@@ -19,7 +20,8 @@
     "paths": {
       "@admin/*": ["./*"],
       "@config/*": ["./config/*"],
-      "@component/*": ["./component/*"]
+      "@component/*": ["./component/*"],
+      "@style/*": ["./style/*"]
     },
   },
   "exclude": [

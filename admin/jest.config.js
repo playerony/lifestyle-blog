@@ -15,6 +15,7 @@ module.exports = {
   moduleNameMapper: {
     '@admin/(.*)': '<rootDir>/$1',
     '@config/(.*)': '<rootDir>/config/$1',
-    '@component/(.*)': '<rootDir>/component/$1'
+    '@component/(.*)': '<rootDir>/component/$1',
+    '@style/(.*)': '<rootDir>/style/$1'
   }
 }
