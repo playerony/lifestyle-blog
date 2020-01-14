@@ -1,7 +1,11 @@
 import { ThemedStyledProps } from 'styled-components'
 
 interface ITheme {
+  baseFontSize: number
   color: {
+    [key: string]: string
+  }
+  font: {
     [key: string]: string
   }
 }
@@ -9,6 +13,7 @@ interface ITheme {
 export type ThemeProps<P> = ThemedStyledProps<P, ITheme>
 
 const theme: ITheme = {
+  baseFontSize: 16,
   color: {
     purple500: '#ccccff',
 
@@ -26,6 +31,10 @@ const theme: ITheme = {
     gray700: '#999999',
 
     white: '#ffffff'
+  },
+  font: {
+    normal: "'HelveticaNeue', Helvetica, Arial, sans-serif",
+    bold: "'HelveticaNeueBold', Helvetica, Arial, sans-serif"
   }
 }
 
