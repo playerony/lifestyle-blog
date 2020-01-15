@@ -1,19 +1,12 @@
-import { ThemedStyledProps } from 'styled-components'
+import theme from '../theme'
 
-interface ITheme {
-  baseFontSize: number
-  color: {
-    [key: string]: string
-  }
-  font: {
-    normal: string
-    bold: string
-  }
-}
+describe('theme Object', () => {
+  it('should return proper object', () => {
+    expect(theme).toEqual(THEME)
+  })
+})
 
-export type ThemeProps<P> = ThemedStyledProps<P, ITheme>
-
-const theme: ITheme = {
+const THEME = {
   baseFontSize: 16,
   color: {
     purple500: '#ccccff',
@@ -39,5 +32,3 @@ const theme: ITheme = {
     bold: "'HelveticaNeueBold', Helvetica, Arial, sans-serif"
   }
 }
-
-export default theme
