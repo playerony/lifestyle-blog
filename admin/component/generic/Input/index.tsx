@@ -4,17 +4,13 @@ import IInput from './IInput'
 import {
   StyledInputWrapper,
   StyledInputLabel,
+  StyledErrorLabel,
   StyledInput
 } from './styledComponent'
 
-export const renderLabel = (
-  value: string | null | undefined
-): JSX.Element | null => (value ? <label>{value}</label> : null)
-
 export const Input = ({
   label,
-  status,
-  errorMsg,
+  errorMessage,
   onBlur,
   onFocus,
   type = 'text',
@@ -38,10 +34,12 @@ export const Input = ({
     }
   }
 
+  const isError = Boolean(errorMessage)
+
   return (
     <StyledInputWrapper>
       {label && (
-        <StyledInputLabel status={status} isFocus={isFocus}>
+        <StyledInputLabel isError={isError} isFocus={isFocus}>
           {label}
         </StyledInputLabel>
       )}
@@ -49,8 +47,10 @@ export const Input = ({
         type={type}
         onFocus={handleFocus}
         onBlur={handleBlur}
+        isError={isError}
         {...restProps}
       />
+      <StyledErrorLabel>{errorMessage}</StyledErrorLabel>
     </StyledInputWrapper>
   )
 }

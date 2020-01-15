@@ -10,7 +10,10 @@ const GlobalStyle = createGlobalStyle`
 
   label {
     font-size: ${getRem(12)};
-    color: ${({ theme }: ThemeProps<{}>) => theme.color.gray700};
+  }
+
+  p {
+    font-size: ${getRem(14)};
   }
 `
 

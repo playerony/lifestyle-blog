@@ -19,6 +19,7 @@ const theme: ITheme = {
 
     blue500: '#48adf1',
     blue700: '#0094ff',
+    blue800: '#274f6f',
 
     red500: '#ff516d',
 

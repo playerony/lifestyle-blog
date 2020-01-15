@@ -3,7 +3,12 @@ import alias from '../alias'
 describe('alias Configuration', () => {
   it('should return three defined paths', () => {
     expect(alias).toBeDefined()
-    expect(Object.keys(alias)).toEqual(['@admin', '@component', '@config'])
+    expect(Object.keys(alias)).toEqual([
+      '@admin',
+      '@component',
+      '@config',
+      '@style'
+    ])
   })
 
   describe('paths', () => {
@@ -17,6 +22,10 @@ describe('alias Configuration', () => {
 
     it('should return proper value for @component property', () => {
       expect(alias['@component'].search('component')).toBeTruthy()
+    })
+
+    it('should return proper value for @style property', () => {
+      expect(alias['@style'].search('style')).toBeTruthy()
     })
   })
 })
