@@ -6,6 +6,7 @@ import getRem from './helper/getRem'
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${({ theme }: ThemeProps<{}>) => theme.font.normal};
+    background-color: ${({ theme }: ThemeProps<{}>) => theme.color.blue100};
   }
 
   label {

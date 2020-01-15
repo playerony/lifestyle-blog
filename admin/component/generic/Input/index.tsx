@@ -6,7 +6,7 @@ import {
   StyledInputLabel,
   StyledErrorLabel,
   StyledInput
-} from './styledComponent'
+} from './Input.style'
 
 export const Input = ({
   label,

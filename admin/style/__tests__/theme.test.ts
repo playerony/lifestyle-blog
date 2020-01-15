@@ -11,6 +11,7 @@ const THEME = {
   color: {
     purple500: '#ccccff',
 
+    blue100: '#f8fbff',
     blue500: '#48adf1',
     blue700: '#0094ff',
     blue800: '#274f6f',
