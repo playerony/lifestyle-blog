@@ -9,6 +9,7 @@ describe('theme Object', () => {
 const THEME = {
   baseFontSize: 16,
   color: {
+    purple200: '#dbe3f4',
     purple500: '#ccccff',
 
     blue100: '#f8fbff',
