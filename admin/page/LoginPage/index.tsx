@@ -1,5 +1,13 @@
 import React from 'react'
 
-const LoginPage = (): JSX.Element => <h1>Login Page</h1>
+import LoginForm from '@component/LoginPage/LoginForm'
+
+import { StyledContentWrapper } from './LoginPage.style'
+
+const LoginPage = (): JSX.Element => (
+  <StyledContentWrapper>
+    <LoginForm />
+  </StyledContentWrapper>
+)
 
 export default LoginPage

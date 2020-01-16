@@ -16,6 +16,12 @@ const GlobalStyle = createGlobalStyle`
   p {
     font-size: ${getRem(14)};
   }
+
+  h1 {
+    font-size: ${getRem(36)};
+    color: ${({ theme }: ThemeProps<{}>) => theme.color.black};
+    font-family: ${({ theme }: ThemeProps<{}>) => theme.font.bold};
+  }
 `
 
 export default GlobalStyle

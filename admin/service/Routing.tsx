@@ -14,6 +14,9 @@ const Routing = (): JSX.Element => (
       <Route path={routeList.loginPageUrl}>
         <LoginPage />
       </Route>
+      <Route path="*">
+        <h1>No match</h1>
+      </Route>
     </Switch>
   </BrowserRouter>
 )

@@ -1,6 +1,9 @@
 import { ThemedStyledProps } from 'styled-components'
 
 interface ITheme {
+  paddingSmall: number
+  paddingMedium: number
+  paddingBig: number
   baseFontSize: number
   color: {
     [key: string]: string
@@ -14,6 +17,9 @@ interface ITheme {
 export type ThemeProps<P> = ThemedStyledProps<P, ITheme>
 
 const theme: ITheme = {
+  paddingSmall: 20,
+  paddingMedium: 40,
+  paddingBig: 60,
   baseFontSize: 16,
   color: {
     purple200: '#dbe3f4',
@@ -34,7 +40,8 @@ const theme: ITheme = {
     gray600: '#979797',
     gray700: '#999999',
 
-    white: '#ffffff'
+    white: '#ffffff',
+    black: '#111933'
   },
   font: {
     normal: "'HelveticaNeue', Helvetica, Arial, sans-serif",

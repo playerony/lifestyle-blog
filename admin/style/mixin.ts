@@ -93,3 +93,9 @@ export const alignItems = (align: string): FlattenSimpleInterpolation => css`
   -ms-flex-align: ${align};
   align-items: ${align};
 `
+
+export const boxShadow = (shadow: string) => css`
+  -webkit-box-shadow: ${shadow};
+  -moz-box-shadow: ${shadow};
+  box-shadow: ${shadow};
+`

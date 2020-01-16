@@ -14,7 +14,6 @@ const config: webpack.Configuration = {
     alias,
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
-
   module: {
     rules: [{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' }]
   },
