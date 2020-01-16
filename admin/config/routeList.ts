@@ -1,6 +1,6 @@
 const BASE_URL = '/admin'
 
 export default {
-  baseUrl: '/admin',
+  baseUrl: BASE_URL,
   loginPageUrl: `${BASE_URL}/login`
 }

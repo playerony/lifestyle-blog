@@ -1,4 +1,3 @@
-import webpack from 'webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 import alias from './alias'
@@ -7,9 +6,17 @@ const htmlPlugin = new HtmlWebPackPlugin({
   template: './index.html'
 })
 
-const config: webpack.Configuration = {
+const config = {
   mode: 'development',
   entry: './index.tsx',
+  output: {
+    publicPath: '/admin'
+  },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: '.',
+    hot: true
+  },
   resolve: {
     alias,
     extensions: ['.ts', '.tsx', '.js', '.json']

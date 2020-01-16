@@ -8,14 +8,11 @@ import routeList from '@config/routeList'
 const Routing = (): JSX.Element => (
   <BrowserRouter>
     <Switch>
-      <Route exact={true} path="/">
+      <Route exact={true} path={routeList.baseUrl}>
         <Redirect to={routeList.loginPageUrl} />
       </Route>
       <Route path={routeList.loginPageUrl}>
         <LoginPage />
-      </Route>
-      <Route path="*">
-        <h1>No match</h1>
       </Route>
     </Switch>
   </BrowserRouter>
