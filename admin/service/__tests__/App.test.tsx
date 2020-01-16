@@ -9,7 +9,7 @@ import theme from '@style/theme'
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
 
-describe('App Component', () => {
+describe('App Service', () => {
   it('should render', () => {
     const wrapper = mountComponent(<App />)
 

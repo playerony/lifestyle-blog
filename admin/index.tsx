@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import App from '@page/App'
+import App from '@service/App'
 
 ReactDOM.render(<App />, document.getElementById('root'))

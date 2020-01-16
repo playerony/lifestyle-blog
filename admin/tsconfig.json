@@ -23,6 +23,7 @@
       "@page/*": ["./page/*"],
       "@style/*": ["./style/*"],
       "@config/*": ["./config/*"],
+      "@service/*": ["./service/*"],
       "@component/*": ["./component/*"]
     },
   },

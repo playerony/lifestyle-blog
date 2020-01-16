@@ -1,7 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import LoadingPage from './LoadingPage'
+import Routing from './Routing'
 
 import theme from '@style/theme'
 import ResetStyle from '@style/ResetStyle'
@@ -12,7 +12,7 @@ const App = (): JSX.Element => (
     <>
       <ResetStyle />
       <GlobalStyle />
-      <LoadingPage />
+      <Routing />
     </>
   </ThemeProvider>
 )
