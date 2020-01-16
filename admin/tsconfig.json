@@ -20,9 +20,10 @@
     "baseUrl": ".",
     "paths": {
       "@admin/*": ["./*"],
+      "@page/*": ["./page/*"],
+      "@style/*": ["./style/*"],
       "@config/*": ["./config/*"],
-      "@component/*": ["./component/*"],
-      "@style/*": ["./style/*"]
+      "@component/*": ["./component/*"]
     },
   },
   "exclude": [

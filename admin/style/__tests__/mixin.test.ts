@@ -1,9 +1,12 @@
 import {
+  flexbox,
   animation,
   transform,
   transition,
+  alignItems,
   borderRadius,
   transformStyle,
+  justifyContent,
   linearGradient,
   transformOrigin
 } from '../mixin'
@@ -155,6 +158,56 @@ describe('mixin Functions', () => {
         '50px',
         ';\n  transform-style: ',
         '50px',
+        ';\n'
+      ])
+    })
+  })
+
+  describe('flexbox Function', () => {
+    it('should return proper data', () => {
+      const result = flexbox()
+
+      expect(result).toEqual([
+        '\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: -webkit-flex;\n  display: flex;\n'
+      ])
+    })
+  })
+
+  describe('alignItems Function', () => {
+    it('should return proper data', () => {
+      const result = alignItems('center')
+
+      expect(result).toEqual([
+        '\n  -webkit-align-items: ',
+        'center',
+        ';\n  -moz-align-items: ',
+        'center',
+        ';\n  -ms-align-items: ',
+        'center',
+        ';\n  -ms-flex-align: ',
+        'center',
+        ';\n  align-items: ',
+        'center',
+        ';\n'
+      ])
+    })
+  })
+
+  describe('justifyContent Function', () => {
+    it('should return proper data', () => {
+      const result = justifyContent('center')
+
+      expect(result).toEqual([
+        '\n  -webkit-justify-content: ',
+        'center',
+        ';\n  -moz-justify-content: ',
+        'center',
+        ';\n  -ms-justify-content: ',
+        'center',
+        ';\n  justify-content: ',
+        'center',
+        ';\n  -ms-flex-pack: ',
+        'center',
         ';\n'
       ])
     })

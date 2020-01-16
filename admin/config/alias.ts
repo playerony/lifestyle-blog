@@ -2,7 +2,8 @@ import * as path from 'path'
 
 export default {
   '@admin': path.resolve(__dirname, '../'),
-  '@component': path.resolve(__dirname, '../component/'),
+  '@page': path.resolve(__dirname, '../page/'),
+  '@style': path.resolve(__dirname, '../style/'),
   '@config': path.resolve(__dirname, '../config/'),
-  '@style': path.resolve(__dirname, '../style/')
+  '@component': path.resolve(__dirname, '../component/')
 }

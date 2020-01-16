@@ -1,4 +1,4 @@
-export default (color: string, amount: number) => {
+export default (color: string, amount: number): string => {
   let usePound = false
 
   if (color[0] == '#') {

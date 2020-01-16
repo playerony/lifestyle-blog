@@ -24,7 +24,9 @@ export const linearGradient = (
   `
 }
 
-export const transform = (transforms: string) => css`
+export const transform = (
+  transforms: string
+): FlattenSimpleInterpolation => css`
   -webkit-transform: ${transforms};
   -moz-transform: ${transforms};
   -ms-transform: ${transforms};
@@ -32,7 +34,9 @@ export const transform = (transforms: string) => css`
   transform: ${transforms};
 `
 
-export const transformStyle = (style: string) => css`
+export const transformStyle = (
+  style: string
+): FlattenSimpleInterpolation => css`
   -webkit-transform-style: ${style};
   -moz-transform-style: ${style};
   -ms-transform-style: ${style};
@@ -40,7 +44,9 @@ export const transformStyle = (style: string) => css`
   transform-style: ${style};
 `
 
-export const transformOrigin = (origin: string) => css`
+export const transformOrigin = (
+  origin: string
+): FlattenSimpleInterpolation => css`
   -webkit-transform-origin: ${origin};
   -moz-transform-origin: ${origin};
   -ms-transform-origin: ${origin};
@@ -48,7 +54,7 @@ export const transformOrigin = (origin: string) => css`
   transform-origin: ${origin};
 `
 
-export const animation = (animation: string) => css`
+export const animation = (animation: string): FlattenSimpleInterpolation => css`
   -webkit-animation: ${animation};
   -moz-animation: ${animation};
   -ms-animation: ${animation};
@@ -56,8 +62,34 @@ export const animation = (animation: string) => css`
   animation: ${animation};
 `
 
-export const borderRadius = (radius: string) => css`
+export const borderRadius = (radius: string): FlattenSimpleInterpolation => css`
   border-radius: ${radius};
   -moz-border-radius: ${radius};
   -webkit-border-radius: ${radius};
+`
+
+export const flexbox = (): FlattenSimpleInterpolation => css`
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+`
+
+export const justifyContent = (
+  justify: string
+): FlattenSimpleInterpolation => css`
+  -webkit-justify-content: ${justify};
+  -moz-justify-content: ${justify};
+  -ms-justify-content: ${justify};
+  justify-content: ${justify};
+  -ms-flex-pack: ${justify};
+`
+
+export const alignItems = (align: string): FlattenSimpleInterpolation => css`
+  -webkit-align-items: ${align};
+  -moz-align-items: ${align};
+  -ms-align-items: ${align};
+  -ms-flex-align: ${align};
+  align-items: ${align};
 `
