@@ -11,7 +11,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 const config: webpack.Configuration = {
   mode: 'production',
-  entry: './src/index.tsx',
+  entry: './index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
