@@ -1,7 +1,7 @@
 import alias from '../alias'
 
 describe('alias Configuration', () => {
-  it('should return three defined paths', () => {
+  it('should return six defined paths', () => {
     expect(alias).toBeDefined()
 
     expect(Object.keys(alias)).toEqual([
