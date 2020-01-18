@@ -28,6 +28,7 @@ describe('app Configuration', () => {
     delete process.env.NODE_ENV
 
     process.env.APP_PORT = '3200'
+    process.env.ADMIN_URL = 'localhost'
 
     appConfig = require('../app').default
   })
@@ -48,7 +49,7 @@ describe('app Configuration', () => {
     await waitForExpect(() =>
       expect(applyMiddlewareMock).toHaveBeenCalledWith({
         app: { set: setMock },
-        cors: { credentials: true, origin: 'http://localhost:8080' }
+        cors: { credentials: true, origin: 'localhost' }
       })
     )
   })

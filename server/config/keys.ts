@@ -8,6 +8,8 @@ interface IKeys {
   hashSalt?: number
   appSecret?: string
   appPort?: string
+
+  adminUrl?: string
 }
 
 const config: IKeys = {
@@ -19,7 +21,9 @@ const config: IKeys = {
 
   hashSalt: Number(process.env.HASH_SALT),
   appSecret: process.env.APP_SECRET,
-  appPort: process.env.APP_PORT
+  appPort: process.env.APP_PORT,
+
+  adminUrl: process.env.ADMIN_URL
 }
 
 export default config

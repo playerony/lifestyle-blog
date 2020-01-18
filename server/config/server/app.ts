@@ -14,7 +14,7 @@ export default async (): Promise<Express> => {
     server.applyMiddleware({
       app,
       cors: {
-        origin: 'http://localhost:8080',
+        origin: keys.adminUrl,
         credentials: true
       }
     })
