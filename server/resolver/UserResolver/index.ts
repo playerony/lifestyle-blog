@@ -4,6 +4,8 @@ import { UserAddResult } from '@type/User'
 
 import UserService from '@server/service/UserService'
 
+import { loginValidation, signupValidation } from './UserResolver.validator'
+
 @Resolver()
 export default class UserResolver {
   private userService: UserService
@@ -17,6 +19,10 @@ export default class UserResolver {
     @Arg('login', type => String!) login: string,
     @Arg('password', type => String!) password: string
   ): Promise<UserAddResult> {
+    const requestData = { login, password }
+
+    signupValidation(requestData)
+
     return await this.userService.signup({ login, password })
   }
 
@@ -25,6 +31,10 @@ export default class UserResolver {
     @Arg('login', type => String!) login: string,
     @Arg('password', type => String!) password: string
   ): Promise<UserAddResult> {
-    return await this.userService.login({ login, password })
+    const requestData = { login, password }
+
+    loginValidation(requestData)
+
+    return await this.userService.login(requestData)
   }
 }

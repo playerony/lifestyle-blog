@@ -16,8 +16,14 @@ User.init(
       primaryKey: true,
       autoIncrement: true
     },
-    login: DataTypes.STRING(50),
-    password: DataTypes.STRING(100)
+    login: {
+      type: DataTypes.STRING(50),
+      allowNull: false
+    },
+    password: {
+      type: DataTypes.STRING(100),
+      allowNull: false
+    }
   },
   { sequelize }
 )

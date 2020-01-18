@@ -1,3 +1,13 @@
+export interface ILoginData {
+  login: string
+  password: string
+}
+
+export interface IError {
+  [key: string]: Array<string>
+}
+
 export default interface ILoginForm {
-  onClick: (loginData: { login: string; password: string }) => void
+  errorData: IError
+  onClick: (loginData: ILoginData) => void
 }
