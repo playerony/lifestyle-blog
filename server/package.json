@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon",
     "lint": "eslint --ext=ts .",
-    "test": "jest --no-cache ."
+    "test": "jest --no-env --no-cache ."
   },
   "repository": {
     "type": "git",
