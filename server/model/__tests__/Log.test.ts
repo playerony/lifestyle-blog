@@ -1,9 +1,12 @@
-jest.mock('sequelize', () => {
-  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
-  class Sequelize {}
+class Sequelize {}
+
+const initMock = jest.fn()
+
+jest.doMock('sequelize', () => {
   class Model {
-    public static init = jest.fn()
+    public static init = initMock
   }
 
   return {
@@ -13,15 +16,11 @@ jest.mock('sequelize', () => {
   }
 })
 
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
-
-class Sequelize {}
-
 describe('Log Model', () => {
   it('should call Log.init with the correct parameters', () => {
-    const { Log } = require('../Log')
+    require('../Log')
 
-    expect(Log.init).toBeCalledWith(
+    expect(initMock).toBeCalledWith(
       {
         logId: {
           type: DataTypes.INTEGER,

@@ -1,9 +1,12 @@
-jest.mock('sequelize', () => {
-  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
-  class Sequelize {}
+class Sequelize {}
+
+const initMock = jest.fn()
+
+jest.doMock('sequelize', () => {
   class Model {
-    public static init = jest.fn()
+    public static init = initMock
   }
 
   return {
@@ -13,23 +16,25 @@ jest.mock('sequelize', () => {
   }
 })
 
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
-
-class Sequelize {}
-
 describe('User Model', () => {
   it('should call User.init with the correct parameters', () => {
-    const { User } = require('../User')
+    require('../User')
 
-    expect(User.init).toBeCalledWith(
+    expect(initMock).toBeCalledWith(
       {
         userId: {
           type: DataTypes.INTEGER,
           primaryKey: true,
           autoIncrement: true
         },
-        login: DataTypes.STRING(50),
-        password: DataTypes.STRING(100)
+        login: {
+          type: DataTypes.STRING(50),
+          allowNull: false
+        },
+        password: {
+          type: DataTypes.STRING(100),
+          allowNull: false
+        }
       },
       {
         sequelize: new Sequelize()
