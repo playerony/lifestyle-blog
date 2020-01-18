@@ -34,7 +34,7 @@ describe('Logger Class', () => {
     process.env = OLD_ENV
   })
 
-  describe('console Function', () => {
+  describe('Logger.console Function', () => {
     const consoleMock = jest.fn()
     console.warn = consoleMock
 
@@ -53,6 +53,19 @@ describe('Logger Class', () => {
       Logger.console('Test Message', 'warn')
 
       expect(consoleMock).not.toHaveBeenCalled()
+    })
+  })
+
+  describe('Logger.database Function', () => {
+    it('should send db log', () => {
+      const Logger = require('../Logger').default
+
+      Logger.database('Test Message', 'warn')
+
+      expect(createMock).toHaveBeenCalledWith({
+        level: 'warn',
+        message: 'Test Message'
+      })
     })
   })
 })
