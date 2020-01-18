@@ -19,7 +19,7 @@ export default async (): Promise<Express> => {
       }
     })
   } catch (e) {
-    console.error(e.toString())
+    throw new Error(e)
   }
 
   return app

@@ -1,15 +1,20 @@
 import { Express } from 'express'
 import waitForExpect from 'wait-for-expect'
 
-jest.mock('../apolloServer', () => {
+const setMock = jest.fn()
+const applyMiddlewareMock = jest.fn()
+
+jest.doMock('../apolloServer', () => {
   class Server {
-    public applyMiddleware: Function = jest.fn()
+    public applyMiddleware: Function = applyMiddlewareMock
   }
 
   return jest.fn().mockImplementation(() => new Server())
 })
 
-import apolloServer from '../apolloServer'
+jest.doMock('express', () => () => ({
+  set: setMock
+}))
 
 describe('app Configuration', () => {
   const OLD_ENV = process.env
@@ -17,6 +22,8 @@ describe('app Configuration', () => {
 
   beforeEach(() => {
     jest.resetModules()
+    jest.setTimeout(30000)
+
     process.env = { ...OLD_ENV }
     delete process.env.NODE_ENV
 
@@ -29,16 +36,20 @@ describe('app Configuration', () => {
     process.env = OLD_ENV
   })
 
-  it('should set properly app port', async () => {
-    const result = await appConfig()
+  it('should set an app port defined as enviroment variable', async () => {
+    await appConfig()
 
-    expect(result.locals.settings.port).toEqual('3200')
+    expect(setMock).toHaveBeenCalledWith('port', '3200')
   })
 
   it('should prepare a server configuration', async () => {
-    appConfig()
-    await apolloServer()
+    await appConfig()
 
-    await waitForExpect(() => expect(apolloServer).toHaveBeenCalled())
+    await waitForExpect(() =>
+      expect(applyMiddlewareMock).toHaveBeenCalledWith({
+        app: { set: setMock },
+        cors: { credentials: true, origin: 'http://localhost:8080' }
+      })
+    )
   })
 })
