@@ -1,4 +1,4 @@
-import { Resolver, Query, Arg } from 'type-graphql'
+import { Resolver, Query, Mutation, Arg } from 'type-graphql'
 
 import { UserAddResult } from '@type/User'
 
@@ -20,7 +20,7 @@ export default class UserResolver {
     return await this.userService.signup({ login, password })
   }
 
-  @Query(type => UserAddResult)
+  @Mutation(type => UserAddResult)
   async login(
     @Arg('login', type => String!) login: string,
     @Arg('password', type => String!) password: string

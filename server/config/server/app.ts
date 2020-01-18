@@ -11,7 +11,13 @@ export default async (): Promise<Express> => {
 
     const server = await apolloServer()
 
-    server.applyMiddleware({ app })
+    server.applyMiddleware({
+      app,
+      cors: {
+        origin: 'http://localhost:8080',
+        credentials: true
+      }
+    })
   } catch (e) {
     console.error(e.toString())
   }
