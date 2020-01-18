@@ -24,7 +24,7 @@ class Validation {
 
   public check(): IError {
     if (!this.checkList) {
-      throw new Error('Check list was not provided.')
+      throw Error('Check list was not provided.')
     }
 
     return this.checkList.reduce((result, check) => {

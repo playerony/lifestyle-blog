@@ -8,6 +8,6 @@ import server from './server'
     await database()
     await server()
   } catch (e) {
-    console.error(e.toString())
+    throw Error(e)
   }
 })()

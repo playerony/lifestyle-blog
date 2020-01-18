@@ -1,4 +1,6 @@
 interface IKeys {
+  nodeEnv?: string
+
   databaseName?: string
   databaseUser?: string
   databasePassword?: string
@@ -13,6 +15,8 @@ interface IKeys {
 }
 
 const config: IKeys = {
+  nodeEnv: process.env.NODE_ENV || 'development',
+
   databaseName: process.env.DATABASE_NAME,
   databaseUser: process.env.DATABASE_USER,
   databasePassword: process.env.DATABASE_PASSWORD,

@@ -3,6 +3,8 @@ import express, { Express } from 'express'
 import keys from '@config/keys'
 import apolloServer from './apolloServer'
 
+import Logger from '@utility/Logger'
+
 export default async (): Promise<Express> => {
   const app = express()
 
@@ -19,7 +21,9 @@ export default async (): Promise<Express> => {
       }
     })
   } catch (e) {
-    throw new Error(e)
+    Logger.database(e)
+
+    throw Error(e)
   }
 
   return app
