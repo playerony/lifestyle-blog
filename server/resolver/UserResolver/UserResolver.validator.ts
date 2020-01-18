@@ -1,5 +1,6 @@
 import { UserAddModel } from '@model/User'
 
+import ValidationError from '@utility/ValidationError'
 import { check, validate, isValid } from '@utility/validate'
 
 export const loginValidation = (data: UserAddModel): void => {
@@ -17,7 +18,7 @@ export const loginValidation = (data: UserAddModel): void => {
     .check()
 
   if (!isValid(validationResult)) {
-    throw new Error(JSON.stringify(validationResult))
+    throw new ValidationError(validationResult)
   }
 }
 
@@ -40,6 +41,6 @@ export const signupValidation = (data: UserAddModel): void => {
     .check()
 
   if (!isValid(validationResult)) {
-    throw validationResult
+    throw new ValidationError(validationResult)
   }
 }
