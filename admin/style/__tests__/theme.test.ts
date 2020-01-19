@@ -7,6 +7,9 @@ describe('theme Object', () => {
 })
 
 const THEME = {
+  paddingSmall: 20,
+  paddingMedium: 40,
+  paddingBig: 60,
   baseFontSize: 16,
   color: {
     purple200: '#dbe3f4',
@@ -27,7 +30,8 @@ const THEME = {
     gray600: '#979797',
     gray700: '#999999',
 
-    white: '#ffffff'
+    white: '#ffffff',
+    black: '#111933'
   },
   font: {
     normal: "'HelveticaNeue', Helvetica, Arial, sans-serif",
