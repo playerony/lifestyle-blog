@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { Injectable } from '@decorators/di'
 
 import { User, UserAddModel } from '@model/User'
 import { UserModel, UserAddResult } from '@type/User'
@@ -8,6 +9,7 @@ import ValidationError from '@utility/ValidationError'
 
 import keys from '@config/keys'
 
+@Injectable()
 export default class UserService {
   async signup({ login, password }: UserAddModel): Promise<UserAddResult> {
     const foundUser: UserModel = await User.findOne<any>({ where: { login } })

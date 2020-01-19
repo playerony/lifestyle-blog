@@ -1,4 +1,5 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql'
+import { Inject } from '@decorators/di'
 
 import { UserAddResult } from '@type/User'
 
@@ -11,11 +12,7 @@ import { loginValidation, signupValidation } from './UserResolver.validator'
 
 @Resolver()
 export default class UserResolver {
-  private userService: UserService
-
-  constructor() {
-    this.userService = new UserService()
-  }
+  constructor(@Inject(UserService) private userService: UserService) {}
 
   @Query(type => UserAddResult)
   async signup(
