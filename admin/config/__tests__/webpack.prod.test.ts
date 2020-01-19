@@ -3,7 +3,14 @@ jest.mock('path', () => ({
   join: jest.fn()
 }))
 
+jest.mock('dotenv-webpack', () => {
+  class DotenvMock {}
+
+  return DotenvMock
+})
+
 import path from 'path'
+import Dotenv from 'dotenv-webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 import alias from '../alias'
@@ -33,5 +40,5 @@ const WEBPACK_CONFIGURATION = {
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
   module: { rules: [{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' }] },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, new Dotenv()]
 }
