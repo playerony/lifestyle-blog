@@ -35,7 +35,7 @@ describe('UserService Service', () => {
 
   describe('signup Method', () => {
     it('should throw an error if user exist', async () => {
-      setupSequelizeMock(foundUserMock, createUserMock)
+      setupSequelizeMock()
 
       const UserService = require('../UserService').default
       const userService = new UserService()
@@ -49,11 +49,8 @@ describe('UserService Service', () => {
       }
     })
 
-    it('should return token and create user data', async () => {
-      setupSequelizeMock(
-        jest.fn().mockImplementation(() => undefined),
-        createUserMock
-      )
+    it('should return token and created user data', async () => {
+      setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
 
       const UserService = require('../UserService').default
       const userService = new UserService()
@@ -67,6 +64,55 @@ describe('UserService Service', () => {
 
       expect(isProperToken).toBeTruthy()
       expect(result.user).toEqual(USER_MOCK)
+    })
+  })
+
+  describe('login Method', () => {
+    it('should throw an error if user does not exist', async () => {
+      setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
+
+      const UserService = require('../UserService').default
+      const userService = new UserService()
+
+      try {
+        await userService.login({ login: 'test', password: 'test' })
+      } catch (e) {
+        expect(e.message).toEqual('{"login":["No such user found"]}')
+      }
+    })
+
+    it('should throw an error if user password is invalid', async () => {
+      setupSequelizeMock(
+        jest.fn().mockImplementation(() => ({ ...USER_MOCK, password: 'test' }))
+      )
+
+      const UserService = require('../UserService').default
+      const userService = new UserService()
+
+      try {
+        await userService.login({ login: 'test', password: 'test' })
+      } catch (e) {
+        expect(e.message).toEqual('{"password":["Invalid password"]}')
+      }
+    })
+
+    it('should return token', async () => {
+      setupSequelizeMock(() => ({
+        ...USER_MOCK,
+        password: '$2a$12$yvqyghC8.XQdKz7DYa9/XeUgErrNsUCA/RkpfyNFodLQPcw1i2bZ2'
+      }))
+
+      const UserService = require('../UserService').default
+      const userService = new UserService()
+
+      const result = await userService.login({
+        login: 'test',
+        password: 'test'
+      })
+
+      const isProperToken = bcrypt.compare(USER_MOCK.password, result.token)
+
+      expect(isProperToken).toBeTruthy()
     })
   })
 })
