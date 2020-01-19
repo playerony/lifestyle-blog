@@ -2,7 +2,10 @@ import { Resolver, Query, Mutation, Arg } from 'type-graphql'
 
 import { UserAddResult } from '@type/User'
 
-import UserService from '@server/service/UserService'
+import UserService from '@service/UserService'
+
+import Logger from '@utility/Logger'
+import ValidationError from '@utility/ValidationError'
 
 import { loginValidation, signupValidation } from './UserResolver.validator'
 
@@ -21,9 +24,20 @@ export default class UserResolver {
   ): Promise<UserAddResult> {
     const requestData = { login, password }
 
-    signupValidation(requestData)
+    try {
+      signupValidation(requestData)
 
-    return await this.userService.signup({ login, password })
+      return await this.userService.signup(requestData)
+    } catch (e) {
+      if (e instanceof ValidationError) {
+        Logger.database(e.message)
+
+        throw Error(e.message)
+      }
+
+      Logger.database(e.toString())
+      throw Error(e.toString())
+    }
   }
 
   @Mutation(type => UserAddResult)
@@ -33,8 +47,19 @@ export default class UserResolver {
   ): Promise<UserAddResult> {
     const requestData = { login, password }
 
-    loginValidation(requestData)
+    try {
+      loginValidation(requestData)
 
-    return await this.userService.login(requestData)
+      return await this.userService.login(requestData)
+    } catch (e) {
+      if (e instanceof ValidationError) {
+        Logger.database(e.message)
+
+        throw Error(e.message)
+      }
+
+      Logger.database(e.toString())
+      throw Error(e.toString())
+    }
   }
 }
