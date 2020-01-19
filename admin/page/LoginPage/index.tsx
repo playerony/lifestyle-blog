@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import LoginForm from '@component/LoginPage/LoginForm'
 
-import useLoginMutation from '../../mutation/loginMutation'
+import useLoginMutation from '@hook/useLoginMutation'
 
 import { IError } from '@component/LoginPage/LoginForm/ILoginForm'
 

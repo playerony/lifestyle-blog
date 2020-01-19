@@ -14,6 +14,7 @@ module.exports = {
   setupFilesAfterEnv: ['<rootDir>/config/enzyme.ts'],
   moduleNameMapper: {
     '@admin/(.*)': '<rootDir>/$1',
+    '@hook/(.*)': '<rootDir>/hook/$1',
     '@page/(.*)': '<rootDir>/page/$1',
     '@style/(.*)': '<rootDir>/style/$1',
     '@config/(.*)': '<rootDir>/config/$1',
