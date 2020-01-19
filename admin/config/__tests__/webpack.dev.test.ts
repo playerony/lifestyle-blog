@@ -1,3 +1,10 @@
+jest.mock('dotenv-webpack', () => {
+  class DotenvMock {}
+
+  return DotenvMock
+})
+
+import Dotenv from 'dotenv-webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 import alias from '../alias'
@@ -17,11 +24,16 @@ const WEBPACK_CONFIGURATION = {
   mode: 'development',
   entry: './index.tsx',
   output: { publicPath: '/admin' },
-  devServer: { historyApiFallback: true, contentBase: '.', hot: true },
+  devServer: {
+    historyApiFallback: true,
+    contentBase: '.',
+    port: 3200,
+    hot: true
+  },
   resolve: {
     alias,
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
   module: { rules: [{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' }] },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, new Dotenv()]
 }
