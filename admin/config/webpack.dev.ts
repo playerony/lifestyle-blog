@@ -16,6 +16,7 @@ const config = {
   devServer: {
     historyApiFallback: true,
     contentBase: '.',
+    port: 3200,
     hot: true
   },
   resolve: {
