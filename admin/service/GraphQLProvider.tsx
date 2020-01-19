@@ -4,10 +4,12 @@ import { HttpLink } from 'apollo-link-http'
 import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloProvider as ApolloHooksProvider } from '@apollo/react-hooks'
+import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
+
+import keys from '@config/keys'
 
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3100/graphql'
+  uri: `${keys.serverUrl}/graphql`
 })
 
 const client = new ApolloClient({
@@ -21,7 +23,7 @@ interface IGraphQLProviderProps {
 
 const GraphQLProvider = ({ children }: IGraphQLProviderProps): JSX.Element => (
   <ApolloProvider client={client}>
-    <ApolloHooksProvider client={client}>{children}</ApolloHooksProvider>
+    <ApolloHookProvider client={client}>{children}</ApolloHookProvider>
   </ApolloProvider>
 )
 

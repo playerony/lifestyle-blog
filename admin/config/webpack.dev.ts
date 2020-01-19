@@ -1,3 +1,4 @@
+import Dotenv from 'dotenv-webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 import alias from './alias'
@@ -24,7 +25,7 @@ const config = {
   module: {
     rules: [{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' }]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin, new Dotenv()]
 }
 
 export default config

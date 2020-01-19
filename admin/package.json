@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/dotenv-webpack": "^1.7.0",
+    "dotenv-webpack": "^1.7.0",
     "graphql": "^14.5.8",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
