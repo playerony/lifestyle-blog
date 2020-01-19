@@ -27,7 +27,7 @@ describe('app Configuration', () => {
     process.env = { ...OLD_ENV }
     delete process.env.NODE_ENV
 
-    process.env.APP_PORT = '3200'
+    process.env.SERVER_PORT = '3200'
     process.env.ADMIN_URL = 'localhost'
 
     appConfig = require('../app').default

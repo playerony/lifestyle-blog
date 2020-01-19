@@ -9,7 +9,7 @@ export default async (): Promise<Express> => {
   const app = express()
 
   try {
-    app.set('port', keys.appPort)
+    app.set('port', keys.serverPort)
 
     const server = await apolloServer()
 

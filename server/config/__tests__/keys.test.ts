@@ -23,7 +23,7 @@ describe('keys Object', () => {
     process.env.DATABASE_PORT = '3100'
     process.env.HASH_SALT = '12'
     process.env.APP_SECRET = 'secret_key'
-    process.env.APP_PORT = '3000'
+    process.env.SERVER_PORT = '3000'
     process.env.ADMIN_URL = 'url'
 
     const keys = require('../keys').default
