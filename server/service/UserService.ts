@@ -1,10 +1,10 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
-import { Injectable } from '@decorators/di'
 
 import { User, UserAddModel } from '@model/User'
 import { UserModel, UserAddResult } from '@type/User'
 
+import { Injectable } from '@utility/injector'
 import ValidationError from '@utility/ValidationError'
 
 import keys from '@config/keys'

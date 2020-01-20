@@ -1,18 +1,21 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql'
-import { Inject } from '@decorators/di'
 
 import { UserAddResult } from '@type/User'
 
 import UserService from '@service/UserService'
 
 import Logger from '@utility/Logger'
+import { Injector, Injectable } from '@utility/injector'
 import ValidationError from '@utility/ValidationError'
 
 import { loginValidation, signupValidation } from './UserResolver.validator'
 
 @Resolver()
+@Injectable()
 export default class UserResolver {
-  constructor(@Inject(UserService) private userService: UserService) {}
+  constructor(
+    private userService: UserService = Injector.resolve(UserService)
+  ) {}
 
   @Query(type => UserAddResult)
   async signup(
