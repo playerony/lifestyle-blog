@@ -14,6 +14,7 @@ export const Input = ({
   onBlur,
   onFocus,
   type = 'text',
+  autoComplete = 'off',
   ...restProps
 }: IInput): JSX.Element => {
   const [isFocus, setIsFocus] = useState<boolean>(false)
@@ -45,6 +46,7 @@ export const Input = ({
       )}
       <StyledInput
         type={type}
+        autoComplete={autoComplete}
         onFocus={handleFocus}
         onBlur={handleBlur}
         isError={isError}

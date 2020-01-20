@@ -8,6 +8,10 @@ import { IError } from '@component/LoginPage/LoginForm/ILoginForm'
 
 import { StyledContentWrapper } from './LoginPage.style'
 
+const saveUserData = (token: string): void => {
+  localStorage.setItem('AUTH_TOKEN', token)
+}
+
 const LoginPage = (): JSX.Element => {
   const login = useLoginMutation()
 
@@ -15,6 +19,12 @@ const LoginPage = (): JSX.Element => {
 
   const handleLogin = async (loginData: { login: string, password: string }): Promise<void> => {
     const response = await login(loginData)
+
+    if (!Boolean(response.errors)) {
+      const token = response.data.login.token
+
+      saveUserData(token)
+    }
 
     setErrorData(Boolean(response.errors) ? response.errors : {})
   }

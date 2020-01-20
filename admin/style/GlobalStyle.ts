@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
+    font-weight: bold;
     font-size: ${getRem(36)};
     color: ${({ theme }: ThemeProps<{}>) => theme.color.black};
     font-family: ${({ theme }: ThemeProps<{}>) => theme.font.bold};
