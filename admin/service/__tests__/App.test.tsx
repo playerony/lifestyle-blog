@@ -1,18 +1,17 @@
-import * as React from 'react'
-import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from '../App'
+class HttpLink {
+  constructor(object: object) { }
+}
 
-import theme from '@style/theme'
+jest.doMock('apollo-link-http', () => ({ HttpLink }))
 
-const mountComponent = (element: React.ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+describe('App Component', () => {
+  it('render without crashing', () => {
+    const App = require('../App').default
+    const div = document.createElement('div');
 
-describe('App Service', () => {
-  it('should render', () => {
-    const wrapper = mountComponent(<App />)
-
-    expect(wrapper).toBeDefined()
+    ReactDOM.render(<App />, div);
   })
 })
