@@ -5,9 +5,9 @@ import keys from '@config/keys'
 
 const CookieConverter = Cookie.withConverter({
   read: value =>
-    CryptoJS.AES.decrypt(value as string, keys.cryptrKey!).toString(),
+    CryptoJS.AES.decrypt(value as string, keys.cryptoKey!).toString(),
   write: value =>
-    CryptoJS.AES.encrypt(value as string, keys.cryptrKey!).toString()
+    CryptoJS.AES.encrypt(value as string, keys.cryptoKey!).toString()
 })
 
 class Memory {
