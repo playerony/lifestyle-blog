@@ -7,6 +7,8 @@ import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
 
+import Memory from '@utility/Memory'
+
 import keys from '@config/keys'
 
 const httpLink = new HttpLink({
@@ -14,7 +16,7 @@ const httpLink = new HttpLink({
 })
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('AUTH_TOKEN')
+  const token = Memory.get('AUTH_TOKEN')
 
   return {
     headers: {

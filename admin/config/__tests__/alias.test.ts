@@ -11,6 +11,7 @@ describe('alias Configuration', () => {
       '@style',
       '@config',
       '@service',
+      '@utility',
       '@component'
     ])
   })
@@ -34,6 +35,10 @@ describe('alias Configuration', () => {
 
     it('should return proper value for @service property', () => {
       expect(alias['@service'].search('service')).toBeTruthy()
+    })
+
+    it('should return proper value for @utility property', () => {
+      expect(alias['@utility'].search('utility')).toBeTruthy()
     })
 
     it('should return proper value for @page property', () => {

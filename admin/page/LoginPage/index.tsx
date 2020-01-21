@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import LoginForm from '@component/LoginPage/LoginForm'
+import { IError } from '@component/LoginPage/LoginForm/ILoginForm'
 
 import useLoginMutation from '@hook/useLoginMutation'
 
-import { IError } from '@component/LoginPage/LoginForm/ILoginForm'
+import Memory from '@utility/Memory'
+import routeList from '@config/routeList'
 
 import { StyledContentWrapper } from './LoginPage.style'
 
-const saveUserData = (token: string): void => {
-  localStorage.setItem('AUTH_TOKEN', token)
-}
-
 const LoginPage = (): JSX.Element => {
+  const history = useHistory()
   const login = useLoginMutation()
 
   const [errorData, setErrorData] = useState<IError>({})
@@ -23,7 +23,8 @@ const LoginPage = (): JSX.Element => {
     if (!Boolean(response.errors)) {
       const token = response.data.login.token
 
-      saveUserData(token)
+      Memory.set('AUTH_TOKEN', token)
+      history.push(routeList.dashboardPageUrl)
     }
 
     setErrorData(Boolean(response.errors) ? response.errors : {})
