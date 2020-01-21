@@ -6,9 +6,10 @@ import IPrivateRoute from './IPrivateRoute'
 import Memory from '../Memory'
 
 import routeList from '@config/routeList'
+import { AUTH_TOKEN } from '@config/constant'
 
 const isAuthenticated = (): boolean =>
-  Boolean(Memory.get('AUTH_TOKEN'))
+  Boolean(Memory.get(AUTH_TOKEN))
 
 const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element => (
   <Route

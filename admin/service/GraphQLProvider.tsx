@@ -10,13 +10,14 @@ import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
 import Memory from '@utility/Memory'
 
 import keys from '@config/keys'
+import { AUTH_TOKEN } from '@config/constant'
 
 const httpLink = new HttpLink({
   uri: `${keys.serverUrl}/graphql`
 })
 
 const authLink = setContext((_, { headers }) => {
-  const token = Memory.get('AUTH_TOKEN')
+  const token = Memory.get(AUTH_TOKEN)
 
   return {
     headers: {

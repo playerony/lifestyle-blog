@@ -7,7 +7,9 @@ import { IError } from '@component/LoginPage/LoginForm/ILoginForm'
 import useLoginMutation from '@hook/useLoginMutation'
 
 import Memory from '@utility/Memory'
+
 import routeList from '@config/routeList'
+import { AUTH_TOKEN } from '@config/constant'
 
 import { StyledContentWrapper } from './LoginPage.style'
 
@@ -23,7 +25,7 @@ const LoginPage = (): JSX.Element => {
     if (!Boolean(response.errors)) {
       const token = response.data.login.token
 
-      Memory.set('AUTH_TOKEN', token)
+      Memory.set(AUTH_TOKEN, token)
       history.push(routeList.dashboardPageUrl)
     }
 
