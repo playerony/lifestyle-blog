@@ -5,17 +5,13 @@ import { UserAddResult } from '@type/User'
 import UserService from '@service/UserService'
 
 import Logger from '@utility/Logger'
-import { Injector, Injectable } from '@utility/injector'
 import ValidationError from '@utility/ValidationError'
 
 import { loginValidation, signupValidation } from './UserResolver.validator'
 
 @Resolver()
-@Injectable()
 export default class UserResolver {
-  constructor(
-    private userService: UserService = Injector.resolve(UserService)
-  ) {}
+  constructor(private userService: UserService = new UserService()) {}
 
   @Query(type => UserAddResult)
   async signup(
