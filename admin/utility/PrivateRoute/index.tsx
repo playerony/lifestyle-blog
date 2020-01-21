@@ -26,6 +26,6 @@ const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element =>
         )
     }
   />
-);
+)
 
 export default PrivateRoute
