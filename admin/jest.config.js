@@ -19,6 +19,7 @@ module.exports = {
     '@style/(.*)': '<rootDir>/style/$1',
     '@config/(.*)': '<rootDir>/config/$1',
     '@service/(.*)': '<rootDir>/service/$1',
+    '@utility/(.*)': '<rootDir>/utility/$1',
     '@component/(.*)': '<rootDir>/component/$1'
   }
 }
