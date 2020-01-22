@@ -2,6 +2,7 @@ import React from 'react'
 import { ApolloLink } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http'
 import { ApolloClient } from 'apollo-client'
+import { RetryLink } from 'apollo-link-retry'
 import { ApolloProvider } from 'react-apollo'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -16,6 +17,18 @@ const httpLink = new HttpLink({
   uri: `${keys.serverUrl}/graphql`
 })
 
+const retryLink = new RetryLink({
+  delay: {
+    initial: 300,
+    max: Infinity,
+    jitter: true
+  },
+  attempts: {
+    max: 2,
+    retryIf: (error: string) => !Boolean(error)
+  }
+})
+
 const authLink = setContext((_, { headers }) => {
   const token = Memory.get(AUTH_TOKEN)
 
@@ -28,7 +41,7 @@ const authLink = setContext((_, { headers }) => {
 })
 
 const client = new ApolloClient({
-  link: ApolloLink.from([authLink.concat(httpLink)]),
+  link: ApolloLink.from([retryLink, authLink.concat(httpLink)]),
   cache: new InMemoryCache()
 })
 
