@@ -13,6 +13,7 @@ module.exports = {
   preset: 'ts-jest',
   setupFilesAfterEnv: ['<rootDir>/config/enzyme.ts'],
   moduleNameMapper: {
+    '@asset/(.*)': '<rootDir>/../asset/*',
     '@admin/(.*)': '<rootDir>/$1',
     '@hook/(.*)': '<rootDir>/hook/$1',
     '@page/(.*)': '<rootDir>/page/$1',

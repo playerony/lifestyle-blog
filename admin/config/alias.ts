@@ -1,6 +1,7 @@
 import * as path from 'path'
 
 export default {
+  '@asset': path.resolve(__dirname, '../../asset/'),
   '@admin': path.resolve(__dirname, '../'),
   '@hook': path.resolve(__dirname, '../hook/'),
   '@page': path.resolve(__dirname, '../page/'),

@@ -19,6 +19,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
+      "@asset/*": ["../asset/*"],
       "@admin/*": ["./*"],
       "@hook/*": ["./hook/*"],
       "@page/*": ["./page/*"],
