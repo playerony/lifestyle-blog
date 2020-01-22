@@ -22,6 +22,10 @@ class Memory {
   ): void {
     CookieConverter.set(name, value, options)
   }
+
+  public static remove(name: string): void {
+    CookieConverter.remove(name)
+  }
 }
 
 export default Memory
