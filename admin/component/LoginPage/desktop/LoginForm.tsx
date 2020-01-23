@@ -1,9 +1,9 @@
 import React, { useState, ChangeEvent } from 'react'
 
 import Input from '@component/generic/Input'
-import ContentWrapper from '../ContentWrapper'
+import ContentWrapper from './ContentWrapper'
 
-import ILoginForm, { ILoginData } from './ILoginForm'
+import ILoginForm, { ILoginData } from '../common/ILoginForm'
 
 const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
   const [loginData, setLoginData] = useState<ILoginData>({ login: '', password: '' })

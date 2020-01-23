@@ -1,6 +1,6 @@
 import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 
-import { ILoginData } from '@component/LoginPage/LoginForm/ILoginForm'
+import { ILoginData } from '@component/LoginPage/common/ILoginForm'
 
 import { LOGIN_MUTATION_QUERY } from './useLoginMutation.query'
 

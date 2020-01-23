@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import LoginForm from '@component/LoginPage/LoginForm'
-import LogoWrapper from '@component/LoginPage/LogoWrapper'
-import { IError } from '@component/LoginPage/LoginForm/ILoginForm'
+import LoginPage from '@component/LoginPage'
+import { IError } from '@component/LoginPage/common/ILoginForm'
 
 import useLoginMutation from '@hook/useLoginMutation'
 
@@ -35,8 +34,7 @@ const Login = (): JSX.Element => {
 
   return (
     <StyledContentWrapper>
-      <LogoWrapper />
-      <LoginForm errorData={errorData} onClick={handleLogin} />
+      <LoginPage errorData={errorData} onClick={handleLogin} />
     </StyledContentWrapper>
   )
 }
