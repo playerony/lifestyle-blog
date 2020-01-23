@@ -7,6 +7,10 @@ describe('theme Object', () => {
 })
 
 const THEME = {
+  largeScreen: 1919,
+  mediumScreen: 1367,
+  smallScreen: 1023,
+  mobileScreen: 750,
   paddingSmall: 20,
   paddingMedium: 40,
   paddingBig: 60,

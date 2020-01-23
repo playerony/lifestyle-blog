@@ -1,6 +1,10 @@
 import { ThemedStyledProps } from 'styled-components'
 
 interface ITheme {
+  largeScreen: number
+  mediumScreen: number
+  smallScreen: number
+  mobileScreen: number
   paddingSmall: number
   paddingMedium: number
   paddingBig: number
@@ -17,6 +21,10 @@ interface ITheme {
 export type ThemeProps<P> = ThemedStyledProps<P, ITheme>
 
 const theme: ITheme = {
+  largeScreen: 1919,
+  mediumScreen: 1367,
+  smallScreen: 1023,
+  mobileScreen: 750,
   paddingSmall: 20,
   paddingMedium: 40,
   paddingBig: 60,

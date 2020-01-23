@@ -39,6 +39,11 @@ const WEBPACK_CONFIGURATION = {
     alias,
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
-  module: { rules: [{ test: /\.tsx?$/, loader: 'awesome-typescript-loader' }] },
+  module: {
+    rules: [
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      { test: /\.svg$/, loader: 'svg-sprite-loader' }
+    ]
+  },
   plugins: [htmlPlugin, new Dotenv()]
 }

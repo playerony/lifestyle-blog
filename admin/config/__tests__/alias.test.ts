@@ -5,6 +5,7 @@ describe('alias Configuration', () => {
     expect(alias).toBeDefined()
 
     expect(Object.keys(alias)).toEqual([
+      '@asset',
       '@admin',
       '@hook',
       '@page',
@@ -17,6 +18,10 @@ describe('alias Configuration', () => {
   })
 
   describe('paths', () => {
+    it('should return proper value for @asset property', () => {
+      expect(alias['@asset'].search('asset')).toBeTruthy()
+    })
+
     it('should return proper value for @admin property', () => {
       expect(alias['@admin'].search('admin')).toBeTruthy()
     })
