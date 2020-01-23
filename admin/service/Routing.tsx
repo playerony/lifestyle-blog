@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import LoginPage from '@page/LoginPage'
-import DashboardPage from '@page/DashboardPage'
+import LoginPage from '@page/Login'
+import DashboardPage from '@page/Dashboard'
 
 import PrivateRoute from '@utility/PrivateRoute'
 

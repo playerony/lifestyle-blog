@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import LoadingPage from '@page/LoadingPage'
+import LoadingPage from '@page/Loading'
 
 import Routing from './Routing'
 import GraphQLProvider from './GraphQLProvider'

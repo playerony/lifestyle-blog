@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import LoadingPage from '../LoadingPage'
+import LoadingPage from '../Loading'
 import Loader from '@component/common/Loader'
 
 describe('LoadingPage Component', () => {

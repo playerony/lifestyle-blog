@@ -12,9 +12,9 @@ import Memory from '@utility/Memory'
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
 
-import { StyledContentWrapper } from './LoginPage.style'
+import { StyledContentWrapper } from './Login.style'
 
-const LoginPage = (): JSX.Element => {
+const Login = (): JSX.Element => {
   const history = useHistory()
   const login = useLoginMutation()
 
@@ -41,4 +41,4 @@ const LoginPage = (): JSX.Element => {
   )
 }
 
-export default LoginPage
+export default Login

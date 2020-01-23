@@ -5,8 +5,8 @@ import { MemoryRouter } from 'react-router';
 
 import routeList from '@config/routeList'
 
-jest.mock('../../page/LoginPage', () => LoginPageMock)
-jest.mock('../../page/DashboardPage', () => DashboardPageMock)
+jest.mock('../../page/Login', () => LoginPageMock)
+jest.mock('../../page/Dashboard', () => DashboardPageMock)
 jest.doMock('../../utility/PrivateRoute', () => Route)
 
 jest.mock('react-router-dom', () => {

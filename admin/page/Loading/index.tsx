@@ -2,12 +2,12 @@ import React from 'react'
 
 import Loader from '@component/common/Loader'
 
-import { LoaderWrapper } from './LoadingPage.style'
+import { LoaderWrapper } from './Loading.style'
 
-const LoadingPage = (): JSX.Element => (
+const Loading = (): JSX.Element => (
   <LoaderWrapper>
     <Loader />
   </LoaderWrapper>
 )
 
-export default LoadingPage
+export default Loading
