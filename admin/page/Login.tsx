@@ -11,8 +11,6 @@ import Memory from '@utility/Memory'
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
 
-import { StyledContentWrapper } from './Login.style'
-
 const Login = (): JSX.Element => {
   const history = useHistory()
   const login = useLoginMutation()
@@ -32,11 +30,7 @@ const Login = (): JSX.Element => {
     setErrorData(Boolean(response.errors) ? response.errors : {})
   }
 
-  return (
-    <StyledContentWrapper>
-      <LoginPage errorData={errorData} onClick={handleLogin} />
-    </StyledContentWrapper>
-  )
+  return <LoginPage errorData={errorData} onClick={handleLogin} />
 }
 
 export default Login

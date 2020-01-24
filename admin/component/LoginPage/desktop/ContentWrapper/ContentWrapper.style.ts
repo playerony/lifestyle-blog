@@ -5,6 +5,7 @@ import { borderRadius, boxShadow } from '@style/mixin'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
+  position: absolute;
   padding: ${({ theme }: ThemeProps<{}>) => theme.paddingMedium}px;
   padding-top: ${({ theme }: ThemeProps<{}>) => theme.paddingMedium - 5}px;
   padding-bottom: ${({ theme }: ThemeProps<{}>) => theme.paddingMedium - 23}px;
