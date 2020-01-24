@@ -2,12 +2,13 @@ import React, { useState, ChangeEvent } from 'react'
 
 import Input from '@component/generic/Input'
 
-import ILoginForm, { ILoginData } from '../../common/ILoginForm'
+import ILoginForm from './ILoginForm'
+import ILoginRequest from '@type/ILoginRequest'
 
 import { StyledWrapper } from './LoginForm.style'
 
 const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
-  const [loginData, setLoginData] = useState<ILoginData>({ login: '', password: '' })
+  const [loginData, setLoginData] = useState<ILoginRequest>({ login: '', password: '' })
 
   const onInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     setLoginData(previousLoginData => ({ ...previousLoginData, [name]: value }))

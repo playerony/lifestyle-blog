@@ -1,3 +1,3 @@
-import ILoginForm from './common/ILoginForm'
+import ILoginForm from './desktop/LoginForm/ILoginForm'
 
 export default interface ILoginPage extends ILoginForm {}

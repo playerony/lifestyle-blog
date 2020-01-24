@@ -3,6 +3,7 @@ import * as path from 'path'
 export default {
   '@asset': path.resolve(__dirname, '../../asset/'),
   '@admin': path.resolve(__dirname, '../'),
+  '@type': path.resolve(__dirname, '../type/'),
   '@hook': path.resolve(__dirname, '../hook/'),
   '@page': path.resolve(__dirname, '../page/'),
   '@style': path.resolve(__dirname, '../style/'),

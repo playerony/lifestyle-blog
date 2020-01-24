@@ -1,13 +1,13 @@
 import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 
-import { ILoginData } from '@component/LoginPage/common/ILoginForm'
-
 import { LOGIN_MUTATION_QUERY } from './useLoginMutation.query'
+
+import ILoginRequest from '@type/ILoginRequest'
 
 const useLoginMutation = () => {
   const [loginMutation] = useMutation(LOGIN_MUTATION_QUERY)
 
-  return async (loginData: ILoginData) => {
+  return async (loginData: ILoginRequest) => {
     const result = await loginMutation({
       variables: { ...loginData },
       errorPolicy: 'all'

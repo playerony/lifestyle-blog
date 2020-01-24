@@ -7,6 +7,7 @@ describe('alias Configuration', () => {
     expect(Object.keys(alias)).toEqual([
       '@asset',
       '@admin',
+      '@type',
       '@hook',
       '@page',
       '@style',
@@ -52,6 +53,10 @@ describe('alias Configuration', () => {
 
     it('should return proper value for @hook property', () => {
       expect(alias['@hook'].search('hook')).toBeTruthy()
+    })
+
+    it('should return proper value for @type property', () => {
+      expect(alias['@type'].search('type')).toBeTruthy()
     })
   })
 })

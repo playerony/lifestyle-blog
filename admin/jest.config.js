@@ -18,6 +18,7 @@ module.exports = {
 
     '@asset/(.*)': '<rootDir>/../asset/*',
     '@admin/(.*)': '<rootDir>/$1',
+    '@type/(.*)': '<rootDir>/type/$1',
     '@hook/(.*)': '<rootDir>/hook/$1',
     '@page/(.*)': '<rootDir>/page/$1',
     '@style/(.*)': '<rootDir>/style/$1',

@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import LoginPage from '@component/LoginPage'
-import { IError } from '@component/LoginPage/common/ILoginForm'
 
 import useLoginMutation from '@hook/useLoginMutation'
+
+import IResponseError from '@type/IResponseError'
 
 import Memory from '@utility/Memory'
 
@@ -15,7 +16,7 @@ const Login = (): JSX.Element => {
   const history = useHistory()
   const login = useLoginMutation()
 
-  const [errorData, setErrorData] = useState<IError>({})
+  const [errorData, setErrorData] = useState<IResponseError>({})
 
   const handleLogin = async (loginData: { login: string, password: string }): Promise<void> => {
     const response = await login(loginData)

@@ -22,6 +22,7 @@
       "@asset/*": ["../asset/*"],
       "@admin/*": ["./*"],
       "@hook/*": ["./hook/*"],
+      "@type/*": ["./type/*"],
       "@page/*": ["./page/*"],
       "@style/*": ["./style/*"],
       "@config/*": ["./config/*"],
