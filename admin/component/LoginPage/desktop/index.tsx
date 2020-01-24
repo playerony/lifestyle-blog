@@ -6,7 +6,8 @@ import LogoWrapper from './LogoWrapper'
 
 import ILoginPage from '../ILoginPage'
 
-import { StyledContentWrapper, StyledAnimation } from './LoginPage.style'
+import { StyledContentWrapper } from './LoginPage.style'
+import StyledFadeAnimation from '@style/animation/fade'
 
 const LOGO_TIMEOUT = 5000
 
@@ -23,7 +24,7 @@ const LoginPage = (props: ILoginPage): JSX.Element => {
 
   return (
     <StyledContentWrapper>
-      <StyledAnimation>
+      <StyledFadeAnimation>
         <TransitionGroup>
           <CSSTransition
             key={showLogo ? 'logo' : 'login'}
@@ -34,7 +35,7 @@ const LoginPage = (props: ILoginPage): JSX.Element => {
             {showLogo ? <LogoWrapper /> : <LoginForm {...props} />}
           </CSSTransition>
         </TransitionGroup>
-      </StyledAnimation>
+      </StyledFadeAnimation>
     </StyledContentWrapper>
   )
 }

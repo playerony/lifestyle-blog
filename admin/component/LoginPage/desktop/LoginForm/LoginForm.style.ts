@@ -10,6 +10,7 @@ export const StyledWrapper = styled.div`
   padding-top: ${({ theme }: ThemeProps<{}>) => theme.paddingMedium - 5}px;
   padding-bottom: ${({ theme }: ThemeProps<{}>) => theme.paddingMedium - 23}px;
   background-color: ${({ theme }: ThemeProps<{}>) => theme.color.white};
+
   ${borderRadius('12px')}
   ${transform('translate(-50%, -50%)')}
   ${boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')}

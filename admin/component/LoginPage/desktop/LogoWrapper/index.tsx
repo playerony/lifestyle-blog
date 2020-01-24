@@ -1,15 +1,13 @@
 import React from 'react'
 
-import ContentWrapper from '../ContentWrapper'
-
-import { StyledLogo } from './LogoWrapper.style'
+import { StyledWrapper } from './LogoWrapper.style'
 
 const LogoWrapper = (): JSX.Element => (
-  <ContentWrapper>
-    <StyledLogo>
+  <StyledWrapper>
+    <svg>
       <use xlinkHref="#logo" />
-    </StyledLogo>
-  </ContentWrapper>
+    </svg>
+  </StyledWrapper>
 )
 
 export default LogoWrapper

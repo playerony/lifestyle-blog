@@ -1,9 +1,10 @@
 import React, { useState, ChangeEvent } from 'react'
 
 import Input from '@component/generic/Input'
-import ContentWrapper from './ContentWrapper'
 
-import ILoginForm, { ILoginData } from '../common/ILoginForm'
+import ILoginForm, { ILoginData } from '../../common/ILoginForm'
+
+import { StyledWrapper } from './LoginForm.style'
 
 const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
   const [loginData, setLoginData] = useState<ILoginData>({ login: '', password: '' })
@@ -19,8 +20,10 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
     return ''
   }
 
+  const handleSubmit = (): void => onClick(loginData)
+
   return (
-    < ContentWrapper >
+    <StyledWrapper>
       <h1>Login</h1>
       <Input label="Login" errorMessage={getFieldError('login')} name="login" onChange={onInputChange} placeholder="What is your username?" />
       <Input
@@ -31,8 +34,8 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
         onChange={onInputChange}
         placeholder="What is your password?"
       />
-      <button onClick={() => onClick(loginData)}>Login</button>
-    </ContentWrapper >
+      <button onClick={handleSubmit}>Login</button>
+    </StyledWrapper>
   )
 }
 
