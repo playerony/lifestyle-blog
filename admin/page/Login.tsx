@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom'
 
 import LoginPage from '@component/LoginPage'
 
-import useLoginMutation from '@hook/useLoginMutation'
+import useLoginMutation from '@hook/LoginPage/useLoginMutation'
 
-import IResponseError from '@type/IResponseError'
+import IResponseError from '@type/common/IResponseError'
 
 import Memory from '@utility/Memory'
 

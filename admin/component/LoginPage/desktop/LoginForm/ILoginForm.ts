@@ -1,5 +1,5 @@
-import ILoginRequest from '@type/ILoginRequest'
-import IResponseError from '@type/IResponseError'
+import ILoginRequest from '@type/LoginPage/ILoginRequest'
+import IResponseError from '@type/common/IResponseError'
 
 export default interface ILoginForm {
   errorData: IResponseError

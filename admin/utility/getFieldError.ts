@@ -1,4 +1,4 @@
-import IResponseError from '@type/IResponseError'
+import IResponseError from '@type/common/IResponseError'
 
 export default (errorData: IResponseError, fieldName: string): string => {
   const fieldErrorList = errorData[fieldName]

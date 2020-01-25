@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react'
 import Input from '@component/generic/Input'
 
 import ILoginPage from '../ILoginPage'
-import ILoginRequest from '@type/ILoginRequest'
+import ILoginRequest from '@type/LoginPage/ILoginRequest'
 
 import getFieldError from '@utility/getFieldError'
 
