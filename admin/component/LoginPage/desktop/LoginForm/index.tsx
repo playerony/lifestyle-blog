@@ -15,7 +15,7 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
   const onInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     setLoginData(previousLoginData => ({ ...previousLoginData, [name]: value }))
 
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement>): void => {
+  const handleButtonClick = (event: MouseEvent<HTMLButtonElement>): void => {
     event.preventDefault()
 
     onClick(loginData)
@@ -42,7 +42,7 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
           placeholder="What is your password?"
           errorMessage={getFieldError(errorData, 'password')}
         />
-        <StyledButton onClick={handleSubmit}>
+        <StyledButton onClick={handleButtonClick}>
           <svg>
             <use xlinkHref="#left-arrow-button" />
           </svg>

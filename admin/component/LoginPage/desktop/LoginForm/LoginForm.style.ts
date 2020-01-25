@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 import { StyledInputWrapper as Input } from '@component/generic/Input/Input.style'
 
-import { ThemeProps } from '@style/theme'
 import {
   borderRadius,
   boxShadow,
@@ -11,6 +10,7 @@ import {
   flexbox,
   justifyContent
 } from '@style/mixin'
+import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
@@ -30,8 +30,8 @@ export const StyledHeader = styled.h1`
 `
 
 export const StyledInputWrapper = styled.section`
-${flexbox()}
-${justifyContent('space-between')}
+  ${flexbox()}
+  ${justifyContent('space-between')}
 
   & > ${Input} {
     width: 80%;
