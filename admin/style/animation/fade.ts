@@ -2,34 +2,48 @@ import styled from 'styled-components'
 
 import { transition } from '../mixin'
 
-export default styled.div`
-  .fade-appear {
+interface IFadeAnimation {
+  animationName: string
+  animationDuration: string
+}
+
+export default styled.div<IFadeAnimation>`
+  .${({ animationName }: IFadeAnimation) => animationName}-appear {
     opacity: 0;
     z-index: 1;
   }
-  .fade-appear.fade-appear-active {
+  .${({ animationName }: IFadeAnimation) => animationName}-appear.${({
+      animationName
+    }: IFadeAnimation) => animationName}-appear-active {
     opacity: 1;
-    ${transition('opacity 300ms linear')}
+    ${({ animationDuration }: IFadeAnimation) =>
+      transition(`opacity ${animationDuration} linear`)}
   }
 
-  .fade-enter {
+  .${({ animationName }: IFadeAnimation) => animationName}-enter {
     opacity: 0;
     z-index: 1;
   }
-  .fade-enter.fade-enter-active {
+  .${({ animationName }: IFadeAnimation) => animationName}-enter.${({
+      animationName
+    }: IFadeAnimation) => animationName}-enter-active {
     opacity: 1;
-    ${transition('opacity 300ms linear')}
+    ${({ animationDuration }: IFadeAnimation) =>
+      transition(`opacity ${animationDuration} linear`)}
   }
 
-  .fade-exit {
+  .${({ animationName }: IFadeAnimation) => animationName}-exit {
     opacity: 1;
     z-index: 0;
   }
-  .fade-exit.fade-exit-active {
+  .${({ animationName }: IFadeAnimation) => animationName}-exit.${({
+      animationName
+    }: IFadeAnimation) => animationName}-exit-active {
     opacity: 0;
-    ${transition('opacity 300ms linear')}
+    ${({ animationDuration }: IFadeAnimation) =>
+      transition(`opacity ${animationDuration} linear`)}
   }
-  .fade-exit-done {
+  .${({ animationName }: IFadeAnimation) => animationName}-exit-done {
     opacity: 0;
   }
 `
