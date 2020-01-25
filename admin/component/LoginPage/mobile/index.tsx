@@ -5,6 +5,8 @@ import Input from '@component/generic/Input'
 import ILoginPage from '../ILoginPage'
 import ILoginRequest from '@type/ILoginRequest'
 
+import getFieldError from '@utility/getFieldError'
+
 import { StyledContentWrapper, StyledForm } from './LoginPage.style'
 
 const LoginPage = ({ onClick, errorData }: ILoginPage): JSX.Element => {
@@ -13,16 +15,9 @@ const LoginPage = ({ onClick, errorData }: ILoginPage): JSX.Element => {
   const onInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     setLoginData(previousLoginData => ({ ...previousLoginData, [name]: value }))
 
-  const getFieldError = (name: string): string => {
-    if (Boolean(errorData[name])) {
-      return errorData[name][0]
-    }
-
-    return ''
-  }
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
+
     onClick(loginData)
   }
 
@@ -31,21 +26,21 @@ const LoginPage = ({ onClick, errorData }: ILoginPage): JSX.Element => {
       <svg>
         <use xlinkHref="#logo" />
       </svg>
-      <StyledForm onSubmit={handleSubmit} target="_self">
+      <StyledForm onSubmit={handleSubmit}>
         <Input
-          label="Login"
-          errorMessage={getFieldError('login')}
           name="login"
+          label="Login"
           onChange={onInputChange}
           placeholder="What is your username?"
+          errorMessage={getFieldError(errorData, 'login')}
         />
         <Input
+          name="password"
           type="password"
           label="Password"
-          errorMessage={getFieldError('password')}
-          name="password"
           onChange={onInputChange}
           placeholder="What is your password?"
+          errorMessage={getFieldError(errorData, 'password')}
         />
         <Input type="submit" style={{ display: 'none' }} />
       </StyledForm>
