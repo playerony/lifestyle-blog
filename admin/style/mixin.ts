@@ -94,6 +94,15 @@ export const alignItems = (align: string): FlattenSimpleInterpolation => css`
   align-items: ${align};
 `
 
+export const flexDirection = (
+  direction: string
+): FlattenSimpleInterpolation => css`
+  -webkit-flex-direction: ${direction};
+  -moz-flex-direction: ${direction};
+  -ms-flex-direction: ${direction};
+  flex-direction: ${direction};
+`
+
 export const boxShadow = (shadow: string) => css`
   -webkit-box-shadow: ${shadow};
   -moz-box-shadow: ${shadow};
