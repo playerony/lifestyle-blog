@@ -2,7 +2,7 @@ import { MutableRefObject, useEffect, useRef } from 'react'
 
 const useEventListener = <K extends keyof WindowEventMap>(
   eventName: K,
-  handler: (this: Window, ev: WindowEventMap[K]) => void,
+  handler: (this: Window, event: WindowEventMap[K]) => void,
   element: Window = window
 ): void => {
   const savedHandler: MutableRefObject<Function | undefined> = useRef()
