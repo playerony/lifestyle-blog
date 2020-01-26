@@ -28,7 +28,7 @@ export default class UserResolver {
       if (e instanceof ValidationError) {
         Logger.database(e.message)
 
-        throw Error(e.message)
+        throw e
       }
 
       Logger.database(e.toString())
@@ -51,7 +51,7 @@ export default class UserResolver {
       if (e instanceof ValidationError) {
         Logger.database(e.message)
 
-        throw Error(e.message)
+        throw e
       }
 
       Logger.database(e.toString())
