@@ -27,14 +27,22 @@ const Login = (): JSX.Element => {
   const handleLogin = async (loginData: ILoginRequest): Promise<void> => {
     const response = await login(loginData)
 
+    if (!response) {
+      return
+    }
+
     if (!Boolean(response.errors)) {
-      const token = response.data.login.token
+      const token = response?.data?.login?.token
 
       Memory.set(AUTH_TOKEN, token)
       history.push(routeList.dashboardPageUrl)
     }
 
-    setErrorData(Boolean(response.errors) ? response.errors : initialErrorData)
+    setErrorData(
+      Boolean(response.errors)
+        ? response.errors! as TResponseError<ILoginRequest>
+        : initialErrorData
+    )
   }
 
   return <LoginPage errorData={errorData} onClick={handleLogin} />
