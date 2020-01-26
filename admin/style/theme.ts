@@ -25,10 +25,13 @@ const theme: ITheme = {
   mediumScreen: 1367,
   smallScreen: 1023,
   mobileScreen: 750,
+
   paddingSmall: 20,
   paddingMedium: 40,
   paddingBig: 60,
+
   baseFontSize: 16,
+
   color: {
     purple200: '#dbe3f4',
     purple500: '#ccccff',

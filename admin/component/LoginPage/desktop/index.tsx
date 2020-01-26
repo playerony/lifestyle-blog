@@ -10,6 +10,8 @@ import { StyledContentWrapper } from './LoginPage.style'
 import StyledFadeAnimation from '@style/animation/fade'
 
 const LOGO_TIMEOUT = 2000
+const ANIMATION_DURATION = 400
+const ANIMATION_NAME = 'desktop_login_page_fade'
 
 const LoginPage = (props: ILoginPage): JSX.Element => {
   const [showLogo, setShowLogo] = useState<boolean>(true)
@@ -24,13 +26,19 @@ const LoginPage = (props: ILoginPage): JSX.Element => {
 
   return (
     <StyledContentWrapper>
-      <StyledFadeAnimation animationDuration="300ms" animationName="fade">
+      <StyledFadeAnimation
+        exit={true}
+        enter={true}
+        appear={true}
+        animationName={ANIMATION_NAME}
+        animationDuration={`${ANIMATION_DURATION}ms`}
+      >
         <TransitionGroup>
           <CSSTransition
-            key={showLogo ? 'logo' : 'login'}
-            classNames="fade"
             appear={showLogo}
-            timeout={300}
+            classNames={ANIMATION_NAME}
+            timeout={ANIMATION_DURATION}
+            key={showLogo ? 'logo' : 'login'}
           >
             {showLogo ? <LogoWrapper /> : <LoginForm {...props} />}
           </CSSTransition>

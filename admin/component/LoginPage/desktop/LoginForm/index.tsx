@@ -1,3 +1,4 @@
+import { isEqual } from 'lodash'
 import React, { useState, ChangeEvent, MouseEvent } from 'react'
 
 import Input from '@component/generic/Input'
@@ -9,8 +10,11 @@ import getFieldError from '@utility/getFieldError'
 
 import { StyledHeader, StyledWrapper, StyledInputWrapper, StyledButton } from './LoginForm.style'
 
+const initialState: ILoginRequest = { login: '', password: '' }
+
 const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
-  const [loginData, setLoginData] = useState<ILoginRequest>({ login: '', password: '' })
+  const [loginData, setLoginData] = useState<ILoginRequest>(initialState)
+  const [requestLoginData, setRequestLoginData] = useState<ILoginRequest>(initialState)
 
   const onInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     setLoginData(previousLoginData => ({ ...previousLoginData, [name]: value }))
@@ -19,7 +23,10 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
     event.preventDefault()
 
     onClick(loginData)
+    setRequestLoginData(loginData)
   }
+
+  const isButtonDisabled = (): boolean => isEqual(loginData, requestLoginData)
 
   return (
     <StyledWrapper>
@@ -42,7 +49,10 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
           placeholder="What is your password?"
           errorMessage={getFieldError(errorData, 'password')}
         />
-        <StyledButton onClick={handleButtonClick}>
+        <StyledButton
+          onClick={handleButtonClick}
+          disabled={isButtonDisabled()}
+        >
           <svg>
             <use xlinkHref="#left-arrow-button" />
           </svg>

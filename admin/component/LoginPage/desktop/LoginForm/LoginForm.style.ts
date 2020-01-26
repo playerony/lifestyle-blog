@@ -66,4 +66,17 @@ export const StyledButton = styled.button`
       fill: ${({ theme }: ThemeProps<{}>) => theme.color.blue700};
     }
   }
+
+  &:disabled {
+    background-color: ${({ theme }: ThemeProps<{}>) => theme.color.gray500};
+
+    &:focus,
+    &:hover {
+      border-color: ${({ theme }: ThemeProps<{}>) => theme.color.gray700};
+
+      & > svg {
+        fill: ${({ theme }: ThemeProps<{}>) => theme.color.gray700};
+      }
+    }
+  }
 `
