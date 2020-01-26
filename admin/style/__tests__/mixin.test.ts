@@ -7,8 +7,10 @@ import {
   borderRadius,
   transformStyle,
   justifyContent,
+  flexDirection,
   linearGradient,
-  transformOrigin
+  transformOrigin,
+  boxShadow
 } from '../mixin'
 
 describe('mixin Functions', () => {
@@ -208,6 +210,40 @@ describe('mixin Functions', () => {
         'center',
         ';\n  -ms-flex-pack: ',
         'center',
+        ';\n'
+      ])
+    })
+  })
+
+  describe('flexDirection Function', () => {
+    it('should return proper data', () => {
+      const result = flexDirection('row')
+
+      expect(result).toEqual([
+        '\n  -webkit-flex-direction: ',
+        'row',
+        ';\n  -moz-flex-direction: ',
+        'row',
+        ';\n  -ms-flex-direction: ',
+        'row',
+        ';\n  flex-direction: ',
+        'row',
+        ';\n'
+      ])
+    })
+  })
+
+  describe('boxShadow Function', () => {
+    it('should return proper data', () => {
+      const result = boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')
+
+      expect(result).toEqual([
+        '\n  -webkit-box-shadow: ',
+        '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
+        ';\n  -moz-box-shadow: ',
+        '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
+        ';\n  box-shadow: ',
+        '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
         ';\n'
       ])
     })
