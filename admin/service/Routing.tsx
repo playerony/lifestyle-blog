@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import LoginPage from '@page/Login'
 import ArtileListPage from '@page/ArticleList'
+import ArticleCreatePage from '@page/ArticleCreate'
 
 import PrivateRoute from '@utility/PrivateRoute'
 
@@ -19,6 +20,9 @@ const Routing = (): JSX.Element => (
       </Route>
       <PrivateRoute path={routeList.article.list}>
         <ArtileListPage />
+      </PrivateRoute>
+      <PrivateRoute path={routeList.article.create}>
+        <ArticleCreatePage />
       </PrivateRoute>
     </Switch>
   </BrowserRouter>

@@ -7,6 +7,8 @@ import routeList from '@config/routeList'
 
 jest.mock('../../page/Login', () => LoginPageMock)
 jest.mock('../../page/ArticleList', () => ArticleListPageMock)
+jest.mock('../../page/ArticleCreate', () => ArticleCreatePageMock)
+
 jest.doMock('../../utility/PrivateRoute', () => Route)
 
 jest.mock('react-router-dom', () => {
@@ -20,7 +22,7 @@ jest.mock('react-router-dom', () => {
 })
 
 describe('Routing Service', () => {
-  it('should render DashboardPage as default', () => {
+  it('should render ArticleListPage as default', () => {
     const Routing = require('../Routing').default
 
     const wrapper = mount(
@@ -56,7 +58,7 @@ describe('Routing Service', () => {
     expect(wrapper.find(LoginPageMock)).toHaveLength(1)
   })
 
-  it('should render DashboardPage', () => {
+  it('should render ArticleListPage', () => {
     const Routing = require('../Routing').default
 
     const wrapper = mount(
@@ -67,8 +69,22 @@ describe('Routing Service', () => {
 
     expect(wrapper.find(ArticleListPageMock)).toHaveLength(1)
   })
+
+  it('should render ArticleCreatePage', () => {
+    const Routing = require('../Routing').default
+
+    const wrapper = mount(
+      <MemoryRouter initialEntries={[routeList.article.create]}>
+        <Routing />
+      </MemoryRouter>
+    )
+
+    expect(wrapper.find(ArticleCreatePageMock)).toHaveLength(1)
+  })
 })
 
 const LoginPageMock = (): JSX.Element => <div>Login Page</div>
 
 const ArticleListPageMock = (): JSX.Element => <div>Article List Page</div>
+
+const ArticleCreatePageMock = (): JSX.Element => <div>Article Create Page</div>
