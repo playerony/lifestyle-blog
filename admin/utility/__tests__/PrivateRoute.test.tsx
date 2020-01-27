@@ -21,7 +21,7 @@ describe('PrivateRoute Component', () => {
     const PrivateRoute = require('../PrivateRoute').default
 
     const wrapper = mount(
-      <MemoryRouter initialEntries={[routeList.dashboardPageUrl]}>
+      <MemoryRouter initialEntries={[routeList.article.list]}>
         <PrivateRoute>
           <ComponentMock />
         </PrivateRoute>
@@ -36,7 +36,7 @@ describe('PrivateRoute Component', () => {
     const PrivateRoute = require('../PrivateRoute').default
 
     const enzymeWrapper = mount(
-      <MemoryRouter initialEntries={[routeList.dashboardPageUrl]}>
+      <MemoryRouter initialEntries={[routeList.article.list]}>
         <PrivateRoute>
           <ComponentMock />
         </PrivateRoute>

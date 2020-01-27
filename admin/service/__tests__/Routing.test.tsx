@@ -6,7 +6,7 @@ import { MemoryRouter } from 'react-router';
 import routeList from '@config/routeList'
 
 jest.mock('../../page/Login', () => LoginPageMock)
-jest.mock('../../page/Dashboard', () => DashboardPageMock)
+jest.mock('../../page/ArticleList', () => ArticleListPageMock)
 jest.doMock('../../utility/PrivateRoute', () => Route)
 
 jest.mock('react-router-dom', () => {
@@ -29,7 +29,7 @@ describe('Routing Service', () => {
       </MemoryRouter>
     )
 
-    expect(wrapper.find(DashboardPageMock)).toHaveLength(1)
+    expect(wrapper.find(ArticleListPageMock)).toHaveLength(1)
   })
 
   it('should render any route', () => {
@@ -60,15 +60,15 @@ describe('Routing Service', () => {
     const Routing = require('../Routing').default
 
     const wrapper = mount(
-      <MemoryRouter initialEntries={[routeList.dashboardPageUrl]}>
+      <MemoryRouter initialEntries={[routeList.article.list]}>
         <Routing />
       </MemoryRouter>
     )
 
-    expect(wrapper.find(DashboardPageMock)).toHaveLength(1)
+    expect(wrapper.find(ArticleListPageMock)).toHaveLength(1)
   })
 })
 
 const LoginPageMock = (): JSX.Element => <div>Login Page</div>
 
-const DashboardPageMock = (): JSX.Element => <div>Dashboard Page</div>
+const ArticleListPageMock = (): JSX.Element => <div>Article List Page</div>

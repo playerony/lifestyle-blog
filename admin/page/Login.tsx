@@ -35,7 +35,7 @@ const Login = (): JSX.Element => {
       const token = response?.data?.login?.token
 
       Memory.set(AUTH_TOKEN, token)
-      history.push(routeList.dashboardPageUrl)
+      history.push(routeList.article.list)
     }
 
     setErrorData(
