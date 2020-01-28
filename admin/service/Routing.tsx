@@ -13,7 +13,7 @@ const Routing = (): JSX.Element => (
   <BrowserRouter>
     <Switch>
       <Route exact={true} path={routeList.baseUrl}>
-        <Redirect to={routeList.article.list} />
+        <Redirect to={routeList.article.create} />
       </Route>
       <Route path={routeList.loginPageUrl}>
         <LoginPage />

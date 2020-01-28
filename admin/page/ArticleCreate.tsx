@@ -1,5 +1,7 @@
 import React from 'react'
 
-const ArticleCreate = (): JSX.Element => <h1>Article Create</h1>
+import ArticleCreatePage from '@component/ArticleCreatePage'
+
+const ArticleCreate = (): JSX.Element => <ArticleCreatePage />
 
 export default ArticleCreate
