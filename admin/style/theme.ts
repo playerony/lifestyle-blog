@@ -47,6 +47,8 @@ const theme: ITheme = {
     green500: '#48f1b4',
     green600: '#02d57c',
 
+    gray300: '#eeeeee',
+    gray400: '#666666',
     gray500: '#c9c9c9',
     gray600: '#979797',
     gray700: '#999999',

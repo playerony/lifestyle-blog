@@ -1,12 +1,12 @@
 import React, { useRef, useState, useEffect, KeyboardEvent } from 'react'
-import { Editor, EditorState, RichUtils, DraftHandleValue } from 'draft-js'
+import { Editor, EditorState, RichUtils, DraftHandleValue, ContentBlock } from 'draft-js'
 
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
 
 import IEditorInput from './IEditorInput'
 
-import { StyledWrapper, StyledLabel } from './EditorInput.style'
+import { StyledWrapper, StyledLabel, StyledEditorWrapper } from './EditorInput.style'
 
 const EditorInput = ({ label }: IEditorInput): JSX.Element => {
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
@@ -42,6 +42,21 @@ const EditorInput = ({ label }: IEditorInput): JSX.Element => {
   const toggleInlineStyle = (inlineStyle: string): void =>
     setEditorState(RichUtils.toggleInlineStyle(editorState, inlineStyle))
 
+  const getBlockStyle = (block: ContentBlock): string => {
+    switch (block.getType()) {
+      case 'blockquote':
+        return 'DraftEditor-blockquote'
+
+      case 'align-left':
+      case 'align-right':
+      case 'align-center':
+        return `DraftEditor-${block.getType()}`
+
+      default:
+        return ''
+    }
+  }
+
   return (
     <StyledWrapper>
       {label && <StyledLabel>{label}</StyledLabel>}
@@ -53,16 +68,17 @@ const EditorInput = ({ label }: IEditorInput): JSX.Element => {
         editorState={editorState}
         onToggle={toggleInlineStyle}
       />
-      <div onClick={focus}>
+      <StyledEditorWrapper onClick={focus}>
         <Editor
           onTab={onTab}
           ref={editorRef}
           spellCheck={true}
+          blockStyleFn={getBlockStyle}
           editorState={editorState}
           onChange={setEditorState}
           handleKeyCommand={handleKeyCommand}
         />
-      </div>
+      </StyledEditorWrapper>
     </StyledWrapper>
   )
 }

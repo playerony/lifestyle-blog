@@ -29,3 +29,41 @@ export const StyledLabel = styled.p`
     `${theme.color.white} 100%`
   )}
 `
+
+export const StyledEditorWrapper = styled.div`
+  .DraftEditor-blockquote {
+    font-style: italic;
+    color: ${({ theme }: ThemeProps) => theme.color.gray400};
+    margin: ${({ theme }: ThemeProps) => theme.paddingSmall}px 0;
+    border-left: 5px solid ${({ theme }: ThemeProps) => theme.color.gray300};
+    padding: ${({ theme }: ThemeProps) => theme.paddingSmall / 2}px
+      ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+  }
+
+  .public-DraftStyleDefault-ul {
+    list-style: disc;
+    margin-left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+  }
+
+  .public-DraftStyleDefault-ol {
+    list-style: decimal;
+    margin-left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+  }
+
+  .public-DraftStyleDefault-pre {
+    padding: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+    background-color: ${({ theme }: ThemeProps) => theme.color.gray300};
+  }
+
+  .DraftEditor-align-left {
+    text-align: left;
+  }
+
+  .DraftEditor-align-right {
+    text-align: right;
+  }
+
+  .DraftEditor-align-center {
+    text-align: center;
+  }
+`
