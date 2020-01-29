@@ -1,9 +1,14 @@
 import React, { useRef, useState, useEffect, KeyboardEvent } from 'react'
 import { Editor, EditorState, RichUtils, DraftHandleValue } from 'draft-js'
 
-import StyleControl from './StyleControl'
+import BlockTypeControl from './BlockTypeControl'
+import InlineStyleControl from './InlineStyleControl'
 
-const EditorInput = (): JSX.Element => {
+import IEditorInput from './IEditorInput'
+
+import { StyledWrapper, StyledLabel } from './EditorInput.style'
+
+const EditorInput = ({ label }: IEditorInput): JSX.Element => {
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
 
   const editorRef = useRef<Editor>(null)
@@ -38,11 +43,15 @@ const EditorInput = (): JSX.Element => {
     setEditorState(RichUtils.toggleInlineStyle(editorState, inlineStyle))
 
   return (
-    <div>
-      <StyleControl
+    <StyledWrapper>
+      {label && <StyledLabel>{label}</StyledLabel>}
+      <BlockTypeControl
         editorState={editorState}
-        toggleBlockType={toggleBlockType}
-        toggleInlineStyle={toggleInlineStyle}
+        onToggle={toggleBlockType}
+      />
+      <InlineStyleControl
+        editorState={editorState}
+        onToggle={toggleInlineStyle}
       />
       <div onClick={focus}>
         <Editor
@@ -51,21 +60,11 @@ const EditorInput = (): JSX.Element => {
           spellCheck={true}
           editorState={editorState}
           onChange={setEditorState}
-          customStyleMap={styleMap}
           handleKeyCommand={handleKeyCommand}
         />
       </div>
-    </div>
+    </StyledWrapper>
   )
-}
-
-const styleMap = {
-  CODE: {
-    backgroundColor: 'rgba(0, 0, 0, 0.05)',
-    fontFamily: '"Inconsolata", "Menlo", "Consolas", monospace',
-    fontSize: 16,
-    padding: 2
-  }
 }
 
 export default EditorInput

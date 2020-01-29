@@ -1,10 +1,12 @@
 import React from 'react'
 
 import EditorInput from './EditorInput'
+import Input from '@component/generic/Input'
 
 const ArticleCreatePage = (): JSX.Element => (
   <div>
-    <EditorInput />
+    <Input label="Title" />
+    <EditorInput label="Content" />
   </div>
 )
 

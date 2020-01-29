@@ -15,12 +15,12 @@ interface IStyledInputLabelProps {
   isError: boolean
 }
 
-export const StyledInputLabel = styled.label<IStyledInputLabelProps>`
+export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
   position: absolute;
   top: -8px;
   left: 15px;
   padding: 3px;
-  color: ${({ theme }: ThemeProps<{}>) => theme.color.gray700};
+  color: ${({ theme }: ThemeProps) => theme.color.gray700};
 
   ${borderRadius('5px')}
   ${transition('all 0.5s linear')}
@@ -55,6 +55,7 @@ export const StyledInput = styled.input<IStyledInputProps>`
   color: ${({ theme }: ThemeProps<IInput>) => theme.color.blue800};
   background-color: ${({ theme }: ThemeProps<IInput>) => theme.color.white};
   border: 2px solid ${({ theme }: ThemeProps<IInput>) => theme.color.gray700};
+
   ${borderRadius('4px')}
   ${transition('all 0.5s linear')}
 

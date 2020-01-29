@@ -103,6 +103,13 @@ export const flexDirection = (
   flex-direction: ${direction};
 `
 
+export const flexWrap = (wrap: string): FlattenSimpleInterpolation => css`
+  -webkit-flex-wrap: ${wrap};
+  -moz-flex-wrap: ${wrap};
+  -ms-flex-wrap: ${wrap};
+  flex-wrap: ${wrap};
+`
+
 export const boxShadow = (shadow: string) => css`
   -webkit-box-shadow: ${shadow};
   -moz-box-shadow: ${shadow};

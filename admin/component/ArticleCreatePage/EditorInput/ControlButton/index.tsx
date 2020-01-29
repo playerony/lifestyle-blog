@@ -2,7 +2,9 @@ import React, { MouseEvent } from 'react'
 
 import IControlButton from './IControlButton'
 
-const ControlButton = ({ label, style, onToggle }: IControlButton): JSX.Element => {
+import { StyledButton } from './ControlButton.style'
+
+const ControlButton = ({ label, style, active, onToggle }: IControlButton): JSX.Element => {
   const onMouseDown = (event: MouseEvent<HTMLSpanElement>): void => {
     event.preventDefault()
 
@@ -10,9 +12,9 @@ const ControlButton = ({ label, style, onToggle }: IControlButton): JSX.Element 
   }
 
   return (
-    <span onMouseDown={onMouseDown}>
+    <StyledButton active={active} onMouseDown={onMouseDown}>
       {label}
-    </span>
+    </StyledButton>
   )
 }
 
