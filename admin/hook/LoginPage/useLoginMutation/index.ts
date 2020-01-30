@@ -6,7 +6,7 @@ import { LOGIN_MUTATION_QUERY } from './useLoginMutation.query'
 import IResult from './IResult'
 import ILoginRequest from '@type/LoginPage/ILoginRequest'
 
-const useLoginMutation = () => {
+const useLoginMutation = (): Function => {
   const [loginMutation] = useMutation(LOGIN_MUTATION_QUERY)
 
   return async (

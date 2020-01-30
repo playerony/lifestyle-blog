@@ -8,6 +8,7 @@ import { ApolloProvider } from 'react-apollo'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { onError, ErrorResponse } from 'apollo-link-error'
+import { createUploadLink } from 'apollo-upload-client'
 import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
 
 import Memory from '@utility/Memory'
@@ -16,6 +17,10 @@ import keys from '@config/keys'
 import { AUTH_TOKEN } from '@config/constant'
 
 const httpLink = new HttpLink({
+  uri: `${keys.serverUrl}/graphql`
+})
+
+const uploadLink = createUploadLink({
   uri: `${keys.serverUrl}/graphql`
 })
 
@@ -54,8 +59,15 @@ const authLink = setContext((_, { headers }) => {
   }
 })
 
+const link = ApolloLink.from([
+  errorLink,
+  retryLink,
+  authLink.concat(uploadLink),
+  authLink.concat(httpLink)
+])
+
 const client = new ApolloClient({
-  link: ApolloLink.from([errorLink, retryLink, authLink.concat(httpLink)]),
+  link,
   cache: new InMemoryCache()
 })
 
