@@ -15,6 +15,9 @@ export default async (): Promise<ApolloServer> => {
   const schema = await buildGraphQLSchema()
 
   return new ApolloServer({
-    schema
+    schema,
+    context: ({ req }) => ({
+      token: req?.headers?.authorization || ''
+    })
   })
 }
