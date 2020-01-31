@@ -6,6 +6,8 @@ import ImageService from '@service/ImageService'
 import { File } from '@type/File'
 import Context from '@type/Context'
 
+import getUserId from '@utility/getUserId'
+
 @Resolver()
 export default class ImageResolver {
   constructor(private imageService: ImageService = new ImageService()) { }
@@ -16,6 +18,9 @@ export default class ImageResolver {
     @Arg('file', type => GraphQLUpload) file: FileUpload
   ): Promise<File> {
     console.warn(context)
+    const userId = getUserId(context)
+
+    console.warn(userId)
 
     return await this.imageService.upload(file)
   }

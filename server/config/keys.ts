@@ -8,6 +8,7 @@ interface IKeys {
   databasePort?: number
 
   hashSalt?: number
+  jwtPrefix?: string
   appSecret?: string
   serverPort?: string
 
@@ -24,6 +25,7 @@ const config: IKeys = {
   databasePort: Number(process.env.DATABASE_PORT),
 
   hashSalt: Number(process.env.HASH_SALT),
+  jwtPrefix: process.env.JWT_PREFIX,
   appSecret: process.env.APP_SECRET,
   serverPort: process.env.SERVER_PORT,
 

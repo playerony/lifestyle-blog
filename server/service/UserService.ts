@@ -44,6 +44,7 @@ export default class UserService {
     }
 
     const token = jwt.sign({ userId: foundUser.userId }, keys.appSecret!)
+    console.warn(token)
 
     return {
       token,
