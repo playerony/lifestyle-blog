@@ -4,7 +4,7 @@ import { Resolver, Mutation, Arg, Ctx } from 'type-graphql'
 import ImageService from '@service/ImageService'
 
 import Context from '@type/Context'
-import { ImageModel } from '@type/Image'
+import { ImageAddResult } from '@type/Image'
 
 import getUserId from '@utility/getUserId'
 
@@ -12,11 +12,11 @@ import getUserId from '@utility/getUserId'
 export default class ImageResolver {
   constructor(private imageService: ImageService = new ImageService()) { }
   
-  @Mutation(type => ImageModel)
+  @Mutation(type => ImageAddResult)
   async upload(
     @Ctx() context: Context,
     @Arg('file', type => GraphQLUpload) file: FileUpload
-  ): Promise<ImageModel> {
+  ): Promise<ImageAddResult> {
     const userId = getUserId(context)
 
     return await this.imageService.upload(file, userId)
