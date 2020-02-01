@@ -10,6 +10,9 @@ export class CategoryModel extends Model {
   name?: string
 
   @Field()
+  description?: string
+
+  @Field()
   createdAt?: Date
 
   @Field()
@@ -23,4 +26,7 @@ export class CategoryRecordResult {
 
   @Field()
   name!: string
+
+  @Field()
+  description!: string
 }
