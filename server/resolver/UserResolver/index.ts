@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Arg } from 'type-graphql'
 
-import { UserAddResult } from '@type/User'
-
 import UserService from '@service/UserService'
+
+import { UserAddResult } from '@type/User'
 
 import Logger from '@utility/Logger'
 import ValidationError from '@utility/ValidationError'

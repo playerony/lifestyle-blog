@@ -3,22 +3,35 @@ import { Resolver, Mutation, Arg, Ctx } from 'type-graphql'
 
 import ImageService from '@service/ImageService'
 
-import { File } from '@type/File'
 import Context from '@type/Context'
+import { ImageUploadResult } from '@type/Image'
 
+import Logger from '@utility/Logger'
 import getUserId from '@utility/getUserId'
+import ValidationError from '@utility/ValidationError'
 
 @Resolver()
 export default class ImageResolver {
   constructor(private imageService: ImageService = new ImageService()) { }
   
-  @Mutation(type => File)
+  @Mutation(type => ImageUploadResult)
   async upload(
     @Ctx() context: Context,
     @Arg('file', type => GraphQLUpload) file: FileUpload
-  ): Promise<File> {
-    const userId = getUserId(context)
+  ): Promise<ImageUploadResult> {
+    try {
+      const userId = getUserId(context)
 
-    return await this.imageService.upload(file, userId)
+      return await this.imageService.upload(file, userId)
+    } catch (e) {
+      if (e instanceof ValidationError) {
+        Logger.database(e.message)
+
+        throw e
+      }
+
+      Logger.database(e.toString())
+      throw Error(e.toString())
+    }
   }
 }
