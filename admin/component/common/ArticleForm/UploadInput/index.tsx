@@ -10,11 +10,11 @@ const UploadInput = (): JSX.Element => {
   const [selectedFile, setSelectedFile] = useState<File>()
   const [errorMessage, setErrorMessage] = useState<string>('')
 
-  const upload = uploadMutation()
+  const uploadImage = uploadMutation()
 
   useEffect(() => {
     if (selectedFile) {
-      upload(selectedFile)
+      uploadImage(selectedFile)
     }
   }, [selectedFile])
 

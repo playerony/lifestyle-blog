@@ -45,8 +45,6 @@ const EditorInput = ({ label }: IEditorInput): JSX.Element => {
   const getBlockStyle = (block: ContentBlock): string => {
     switch (block.getType()) {
       case 'blockquote':
-        return 'DraftEditor-blockquote'
-
       case 'align-left':
       case 'align-right':
       case 'align-center':
