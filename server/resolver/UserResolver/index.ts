@@ -20,20 +20,9 @@ export default class UserResolver {
   ): Promise<UserAddResult> {
     const requestData = { login, password }
 
-    try {
-      signupValidation(requestData)
+    signupValidation(requestData)
 
-      return await this.userService.signup(requestData)
-    } catch (e) {
-      if (e instanceof ValidationError) {
-        Logger.database(e.message)
-
-        throw e
-      }
-
-      Logger.database(e.toString())
-      throw Error(e.toString())
-    }
+    return await this.userService.signup(requestData)
   }
 
   @Mutation(type => UserAddResult)
@@ -43,19 +32,8 @@ export default class UserResolver {
   ): Promise<UserAddResult> {
     const requestData = { login, password }
 
-    try {
-      loginValidation(requestData)
+    loginValidation(requestData)
 
-      return await this.userService.login(requestData)
-    } catch (e) {
-      if (e instanceof ValidationError) {
-        Logger.database(e.message)
-
-        throw e
-      }
-
-      Logger.database(e.toString())
-      throw Error(e.toString())
-    }
+    return await this.userService.login(requestData)
   }
 }

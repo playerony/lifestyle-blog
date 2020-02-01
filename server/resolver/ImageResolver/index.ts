@@ -19,19 +19,8 @@ export default class ImageResolver {
     @Ctx() context: Context,
     @Arg('file', type => GraphQLUpload) file: FileUpload
   ): Promise<ImageUploadResult> {
-    try {
-      const userId = getUserId(context)
+    const userId = getUserId(context)
 
-      return await this.imageService.upload(file, userId)
-    } catch (e) {
-      if (e instanceof ValidationError) {
-        Logger.database(e.message)
-
-        throw e
-      }
-
-      Logger.database(e.toString())
-      throw Error(e.toString())
-    }
+    return await this.imageService.upload(file, userId)
   }
 }
