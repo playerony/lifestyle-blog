@@ -13,7 +13,7 @@ export default class ImageResolver {
   constructor(private imageService: ImageService = new ImageService()) { }
   
   @Mutation(type => ImageAddResult)
-  async upload(
+  async uploadImage(
     @Ctx() context: Context,
     @Arg('file', type => GraphQLUpload) file: FileUpload
   ): Promise<ImageAddResult> {
