@@ -1,21 +1,22 @@
+import { Model } from 'sequelize'
 import { Field, ObjectType } from 'type-graphql'
 
 @ObjectType()
-export class UserModel {
+export class UserModel extends Model {
   @Field()
-  userId!: number
+  userId?: number
 
   @Field()
-  login!: string
+  login?: string
 
   @Field()
-  password!: string
+  password?: string
 
   @Field()
-  createdAt!: Date
+  createdAt?: Date
 
   @Field()
-  updatedAt!: Date
+  updatedAt?: Date
 }
 
 @ObjectType()

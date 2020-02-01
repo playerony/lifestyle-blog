@@ -2,15 +2,12 @@ import { Model } from 'sequelize'
 import { Field, ObjectType } from 'type-graphql'
 
 @ObjectType()
-export class ImageModel extends Model {
+export class CategoryModel extends Model {
   @Field()
-  imageId?: number
+  categoryId?: number
 
   @Field()
-  userId?: number
-
-  @Field()
-  filename?: string
+  name?: string
 
   @Field()
   createdAt?: Date
@@ -20,10 +17,10 @@ export class ImageModel extends Model {
 }
 
 @ObjectType()
-export class ImageAddResult {
+export class CategoryRecordResult {
   @Field()
-  imageId!: number
+  categoryId!: number
 
   @Field()
-  filename!: string
+  name!: string
 }
