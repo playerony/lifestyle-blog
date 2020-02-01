@@ -17,11 +17,8 @@ export default class ImageResolver {
     @Ctx() context: Context,
     @Arg('file', type => GraphQLUpload) file: FileUpload
   ): Promise<File> {
-    console.warn(context)
     const userId = getUserId(context)
 
-    console.warn(userId)
-
-    return await this.imageService.upload(file)
+    return await this.imageService.upload(file, userId)
   }
 }

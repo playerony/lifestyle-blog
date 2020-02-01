@@ -8,7 +8,7 @@ import { File } from '@type/File'
 import generateString from '@utility/generateString'
 
 export default class UserService {
-  async upload(file: FileUpload): Promise<File> {
+  async upload(file: FileUpload, userId: number): Promise<File> {
     const filenameExtensionRegexp = /(?:\.([^.]+))?$/
 
     const { createReadStream, filename } = file
@@ -20,7 +20,7 @@ export default class UserService {
 
     fileStream.pipe(fs.createWriteStream(`${__dirname}/../../asset/upload/${newFilename}`))
 
-    await Image.create({ filename: newFilename })
+    await Image.create({ filename: newFilename, userId })
 
     return {
         id: 1,

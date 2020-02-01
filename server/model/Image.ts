@@ -1,6 +1,8 @@
 import { Model, DataTypes } from 'sequelize'
 
-import { sequelize } from '@server/config/database/sequelize'
+import { User } from './User'
+
+import { sequelize } from '@config/database/sequelize'
 
 export class Image extends Model {}
 
@@ -11,10 +13,23 @@ Image.init(
       primaryKey: true,
       autoIncrement: true
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        key: 'userId',
+        model: User
+      },
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
+    },
     filename: {
       type: DataTypes.STRING(100),
+      unique: true,
       allowNull: false
     }
   },
   { sequelize }
 )
+
+Image.belongsTo(User, { as: 'user', foreignKey: 'userId' })
