@@ -22,7 +22,7 @@ export default ({ token }: Context): number => {
   }
 
   const decodedToken = jwt.verify(tokenSplitResult[1], keys.appSecret!) as { userId: number }
-  if (!decodedToken || !decodedToken.userId) {
+  if (!decodedToken?.userId) {
     throw new AuthenticationError(AUTHENTICATION_ERROR_MESSAGE)
   }
 
