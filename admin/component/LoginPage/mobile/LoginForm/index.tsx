@@ -3,7 +3,7 @@ import React, { useState, ChangeEvent, FormEvent } from 'react'
 
 import Input from '@component/generic/Input'
 
-import { ILoginFormProps } from './LoginForm.type'
+import { ILoginProps } from '../../LoginPage.type'
 import ILoginRequest from '@type/LoginPage/ILoginRequest'
 
 import getFieldError from '@utility/getFieldError'
@@ -12,7 +12,7 @@ import { StyledContentWrapper, StyledForm } from './LoginForm.style'
 
 const initialState: ILoginRequest = { login: '', password: '' }
 
-const LoginForm = ({ errorData, onClick }: ILoginFormProps): JSX.Element => {
+const LoginForm = ({ errorData, onClick }: ILoginProps): JSX.Element => {
   const [loginData, setLoginData] = useState<ILoginRequest>(initialState)
   const [requestLoginData, setRequestLoginData] = useState<ILoginRequest>(initialState)
 

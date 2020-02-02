@@ -4,7 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import LoginForm from './LoginForm'
 import LogoWrapper from './LogoWrapper'
 
-import ILoginPage from '../ILoginPage'
+import { ILoginProps } from '../LoginPage.type'
 
 import { StyledContentWrapper } from './LoginPage.style'
 import StyledFadeAnimation from '@style/animation/fade'
@@ -13,7 +13,7 @@ const LOGO_TIMEOUT = 2000
 const ANIMATION_DURATION = 400
 const ANIMATION_NAME = 'desktop_login_page_fade'
 
-const LoginPage = (props: ILoginPage): JSX.Element => {
+const LoginPage = (props: ILoginProps): JSX.Element => {
   const [showLogo, setShowLogo] = useState<boolean>(true)
 
   useEffect(() => {
