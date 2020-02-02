@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ArticleForm from '@component/common/ArticleForm'
+import ArticleForm from '../common/ArticleForm'
 
 const ArticleCreatePage = (): JSX.Element => <ArticleForm />
 

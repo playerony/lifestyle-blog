@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ArticleListPage from '@component/ArticleListPage'
+import ArticleListPage from '@component/article/ArticleListPage'
 
 const ArticleList = (): JSX.Element => <ArticleListPage />
 

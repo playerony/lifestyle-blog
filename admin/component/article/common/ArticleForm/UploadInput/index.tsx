@@ -2,7 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react'
 
 import Input from '@component/generic/Input'
 
-import useUploadMutation from '@hook/common/ArticleForm/useUploadMutation'
+import useUploadMutation from '@hook/article/useUploadMutation'
 
 const IMAGE_TYPES = ['image/jpeg', 'image/png']
 

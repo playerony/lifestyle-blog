@@ -4,7 +4,7 @@ import Select from '@component/generic/Select'
 
 import ICategory from '@type/article/ICategory'
 
-import useCategoryList from '@hook/common/ArticleForm/useCategoryList'
+import useCategoryList from '@hook/article/useCategoryList'
 
 const CategorySelect = (): JSX.Element => {
   const { data, loading } = useCategoryList()
