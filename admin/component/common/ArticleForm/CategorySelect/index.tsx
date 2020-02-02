@@ -2,7 +2,7 @@ import React from 'react'
 
 import Select from '@component/generic/Select'
 
-import ICategory from '@type/common/ICategory'
+import ICategory from '@type/article/ICategory'
 
 import useCategoryList from '@hook/common/ArticleForm/useCategoryList'
 
@@ -14,7 +14,8 @@ const CategorySelect = (): JSX.Element => {
       return []
     }
 
-    return data.map(({ categoryId, name }: ICategory) => ({ label: name, value: categoryId.toString() }))
+    return data.map(({ categoryId, name }: ICategory) =>
+      ({ label: name, value: categoryId.toString() }))
   }
 
   return (
