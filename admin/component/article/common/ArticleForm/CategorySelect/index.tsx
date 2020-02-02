@@ -1,15 +1,18 @@
 import React from 'react'
+import { ValueType } from 'react-select'
 
 import Select from '@component/generic/Select'
 
 import ICategory from '@type/article/ICategory'
+import { ICategorySelectProps } from './CategorySelect.type'
+import { IOption } from '@component/generic/Select/Select.type'
 
 import useCategoryList from '@hook/article/useCategoryList'
 
-const CategorySelect = (): JSX.Element => {
+const CategorySelect = ({ onChange }: ICategorySelectProps): JSX.Element => {
   const { data, loading } = useCategoryList()
 
-  const getOptions = (data: ICategory[]): { label: string, value: string }[] => {
+  const getOptionList = (data: ICategory[]): IOption[] => {
     if (!data) {
       return []
     }
@@ -18,11 +21,25 @@ const CategorySelect = (): JSX.Element => {
       ({ label: name, value: categoryId.toString() }))
   }
 
+  const handleChange = (value: ValueType<IOption>): void => {
+    let result: number[] = []
+
+    if (value && Array.isArray(value)) {
+      result =
+        value
+        .map(({ value }: IOption) => Number(value))
+        .filter(Boolean)
+    }
+
+    onChange(result)
+  }
+
   return (
     <Select
       isMulti={true}
       isLoading={loading}
-      options={getOptions(data)}
+      onChange={handleChange}
+      options={getOptionList(data)}
     />
   )
 }
