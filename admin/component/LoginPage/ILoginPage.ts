@@ -1,3 +1,3 @@
-import ILoginForm from './desktop/LoginForm/ILoginForm'
+import { ILoginFormProps } from './desktop/LoginForm/LoginForm.type'
 
-export default interface ILoginPage extends ILoginForm {}
+export default interface ILoginPage extends ILoginFormProps {}

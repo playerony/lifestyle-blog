@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
-import IInput from './IInput'
+import { IInputProps } from './Input.type'
+
 import {
   StyledInputWrapper,
   StyledInputLabel,
@@ -16,7 +17,7 @@ export const Input = ({
   type = 'text',
   autoComplete = 'off',
   ...restProps
-}: IInput): JSX.Element => {
+}: IInputProps): JSX.Element => {
   const [isFocus, setIsFocus] = useState<boolean>(false)
 
   const handleFocus = (event: React.FocusEvent<HTMLInputElement>): void => {

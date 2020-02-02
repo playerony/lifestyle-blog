@@ -2,13 +2,13 @@ import React from 'react'
 
 import ControlButton from '../ControlButton'
 
-import IBlockTypeControl from './IBlockTypeControl'
+import { IInlineStyleControlProps } from './BlockTypeControl.type'
 
 import { StyledLabel, StyledListWrapper } from './BlockTypeControl.style'
 
 import BLOCK_TYPE_LIST from './blockTypeList'
 
-const BlockTypeControl = ({ editorState, onToggle }: IBlockTypeControl): JSX.Element => {
+const BlockTypeControl = ({ editorState, onToggle }: IInlineStyleControlProps): JSX.Element => {
   const selection = editorState.getSelection()
   const blockType =
     editorState

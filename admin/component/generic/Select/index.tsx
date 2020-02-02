@@ -1,8 +1,8 @@
 import React from 'react'
 import CustomSelect from 'react-select';
 
-import ISelect from './ISelect'
+import { ISelectProps } from './Select.type'
 
-const Select = (props: ISelect): JSX.Element => <CustomSelect {...props} />
+const Select = (props: ISelectProps): JSX.Element => <CustomSelect {...props} />
 
 export default React.memo(Select)

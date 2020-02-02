@@ -3,7 +3,7 @@ import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 
 import { LOGIN_MUTATION_QUERY } from './useLoginMutation.query'
 
-import IResult from './IResult'
+import { IResult } from './useLoginMutation.type'
 import ILoginRequest from '@type/LoginPage/ILoginRequest'
 
 const useLoginMutation = (): Function => {

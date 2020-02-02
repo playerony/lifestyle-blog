@@ -1,10 +1,10 @@
 import React, { MouseEvent } from 'react'
 
-import IControlButton from './IControlButton'
+import { IControlButtonProps } from './ControlButton.type'
 
 import { StyledButton } from './ControlButton.style'
 
-const ControlButton = ({ label, style, active, onToggle }: IControlButton): JSX.Element => {
+const ControlButton = ({ label, style, active, onToggle }: IControlButtonProps): JSX.Element => {
   const onMouseDown = (event: MouseEvent<HTMLSpanElement>): void => {
     event.preventDefault()
 

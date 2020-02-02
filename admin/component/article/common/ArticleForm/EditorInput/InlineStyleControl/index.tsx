@@ -2,13 +2,13 @@ import React from 'react'
 
 import ControlButton from '../ControlButton'
 
-import IInlineStyleControl from './IInlineStyleControl'
+import { IInlineStyleControlProps } from './InlineStyleControl.type'
 
 import { StyledLabel, StyledListWrapper } from './InlineStyleControl.style'
 
 import INLINE_STYLE_LIST from './inlineStyleList'
 
-const InlineStyleControl = ({ editorState, onToggle }: IInlineStyleControl): JSX.Element => {
+const InlineStyleControl = ({ editorState, onToggle }: IInlineStyleControlProps): JSX.Element => {
   const currentStyle = editorState.getCurrentInlineStyle()
 
   const renderInlineStyleList = (): JSX.Element[] =>

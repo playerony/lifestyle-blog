@@ -1,9 +1,7 @@
 import styled, { css } from 'styled-components'
 
-import IInput from './IInput'
-
-import { transition, linearGradient, borderRadius } from '@style/mixin'
 import theme, { ThemeProps } from '@style/theme'
+import { transition, linearGradient, borderRadius } from '@style/mixin'
 
 export const StyledInputWrapper = styled.div`
   position: relative;
@@ -52,19 +50,19 @@ export const StyledInput = styled.input<IStyledInputProps>`
   height: 46px;
   width: calc(100% - 20px);
   padding-left: 15px;
-  color: ${({ theme }: ThemeProps<IInput>) => theme.color.blue800};
-  background-color: ${({ theme }: ThemeProps<IInput>) => theme.color.white};
-  border: 2px solid ${({ theme }: ThemeProps<IInput>) => theme.color.gray700};
+  color: ${({ theme }: ThemeProps) => theme.color.blue800};
+  background-color: ${({ theme }: ThemeProps) => theme.color.white};
+  border: 2px solid ${({ theme }: ThemeProps) => theme.color.gray700};
 
   ${borderRadius('4px')}
   ${transition('all 0.5s linear')}
 
   &::placeholder {
-    color: ${({ theme }: ThemeProps<IInput>) => theme.color.gray500};
+    color: ${({ theme }: ThemeProps) => theme.color.gray500};
   }
 
   &:focus {
-    border-color: ${({ theme }: ThemeProps<IInput>) => theme.color.blue700};
+    border-color: ${({ theme }: ThemeProps) => theme.color.blue700};
   }
 
   ${({ isError }: IStyledInputProps) =>
@@ -81,5 +79,5 @@ export const StyledInput = styled.input<IStyledInputProps>`
 export const StyledErrorLabel = styled.p`
   height: 20px;
   padding: 3px 0 0 18px;
-  color: ${({ theme }: ThemeProps<IInput>) => theme.color.red500};
+  color: ${({ theme }: ThemeProps) => theme.color.red500};
 `

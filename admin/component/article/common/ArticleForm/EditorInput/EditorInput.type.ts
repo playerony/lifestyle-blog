@@ -1,4 +1,4 @@
-export default interface IEditorInput {
+export interface IEditorInputProps {
   label?: string
   errorMessage?: string
 }

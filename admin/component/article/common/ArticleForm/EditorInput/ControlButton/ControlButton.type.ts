@@ -1,4 +1,4 @@
-export default interface IControlButton {
+export interface IControlButtonProps {
   label: string
   active: boolean
   style: string

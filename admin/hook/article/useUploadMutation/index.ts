@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/react-hooks'
 
-import IResult from './IResult'
+import { IResult } from './useUploadMutation.type'
 
 import { UPLOAD_MUTATION_QUERY } from './useUploadMutation.query'
 

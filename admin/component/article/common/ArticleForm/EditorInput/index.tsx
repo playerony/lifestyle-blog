@@ -4,11 +4,11 @@ import { Editor, EditorState, RichUtils, DraftHandleValue, ContentBlock } from '
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
 
-import IEditorInput from './IEditorInput'
+import { IEditorInputProps } from './EditorInput.type'
 
 import { StyledWrapper, StyledLabel, StyledEditorWrapper } from './EditorInput.style'
 
-const EditorInput = ({ label }: IEditorInput): JSX.Element => {
+const EditorInput = ({ label }: IEditorInputProps): JSX.Element => {
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
 
   const editorRef = useRef<Editor>(null)
