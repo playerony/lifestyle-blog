@@ -2,8 +2,8 @@ import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import LoginPage from '@page/Login'
-import ArtileListPage from '@page/ArticleList'
-import ArticleCreatePage from '@page/ArticleCreate'
+import ArtileListPage from '@page/article/ArticleList'
+import ArticleCreatePage from '@page/article/ArticleCreate'
 
 import PrivateRoute from '@utility/PrivateRoute'
 

@@ -7,8 +7,8 @@ import { RetryLink } from 'apollo-link-retry'
 import { ApolloProvider } from 'react-apollo'
 import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
-import { onError, ErrorResponse } from 'apollo-link-error'
 import { createUploadLink } from 'apollo-upload-client'
+import { onError, ErrorResponse } from 'apollo-link-error'
 import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
 
 import Memory from '@utility/Memory'
@@ -62,8 +62,8 @@ const authLink = setContext((_, { headers }) => {
 const link = ApolloLink.from([
   errorLink,
   retryLink,
-  authLink.concat(uploadLink),
-  authLink.concat(httpLink)
+  authLink.concat(httpLink),
+  authLink.concat(uploadLink)
 ])
 
 const client = new ApolloClient({
