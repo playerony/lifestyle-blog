@@ -2,11 +2,14 @@ import React, { useState, useEffect, ChangeEvent } from 'react'
 
 import Input from '@component/generic/Input'
 
+import { IUploadInputProps } from './UploadInput.type'
+import { IResult } from '@hook/article/useUploadMutation/useUploadMutation.type'
+
 import useUploadMutation from '@hook/article/useUploadMutation'
 
-const IMAGE_TYPES = ['image/jpeg', 'image/png']
+const IMAGE_TYPES = ['image/jpeg']
 
-const UploadInput = (): JSX.Element => {
+const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
   const [selectedFile, setSelectedFile] = useState<File>()
   const [errorMessage, setErrorMessage] = useState<string>('')
 
@@ -15,6 +18,9 @@ const UploadInput = (): JSX.Element => {
   useEffect(() => {
     if (selectedFile) {
       uploadImage(selectedFile)
+        .then((result: { uploadImage: IResult }) =>
+          onChange(result.uploadImage.imageId || null)
+        )
     }
   }, [selectedFile])
 
@@ -37,7 +43,7 @@ const UploadInput = (): JSX.Element => {
         setErrorMessage('')
         setSelectedFile(file)
       } else {
-        setErrorMessage('Unsupported format. Please upload jpg/png file.')
+        setErrorMessage('Unsupported format. Please upload jpg file.')
       }
     }
 

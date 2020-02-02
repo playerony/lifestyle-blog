@@ -8,6 +8,7 @@ import CategorySelect from './CategorySelect'
 import { IState } from './ArticleForm.type'
 
 const initialState: IState = {
+  imageId: null,
   categoryIdList: []
 }
 
@@ -19,12 +20,17 @@ const ArticleForm = (): JSX.Element => {
 
   const handleCategoryChange = (categoryIdList: number[]): void =>
     changeState({ categoryIdList })
+  
+  const handleImageChange = (imageId: number | null): void =>
+    changeState({ imageId })
+  
+  console.warn(state)
 
   return (
     <div>
       <Input label="Title" />
       <CategorySelect onChange={handleCategoryChange} />
-      <UploadInput />
+      <UploadInput onChange={handleImageChange} />
       <EditorInput label="Content" />
     </div>
   )

@@ -62,8 +62,8 @@ const authLink = setContext((_, { headers }) => {
 const link = ApolloLink.from([
   errorLink,
   retryLink,
-  authLink.concat(httpLink),
-  authLink.concat(uploadLink)
+  authLink.concat(uploadLink),
+  authLink.concat(httpLink)
 ])
 
 const client = new ApolloClient({
