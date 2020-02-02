@@ -9,7 +9,7 @@ export default class CategoryResolver {
   constructor(private categoryService: CategoryService = new CategoryService()) { }
   
   @Query(type => [CategoryRecordResult])
-  async getCategoryList(): Promise<CategoryRecordResult[]> {
+  async categoryList(): Promise<CategoryRecordResult[]> {
     return await this.categoryService.findAll()
   }
 }

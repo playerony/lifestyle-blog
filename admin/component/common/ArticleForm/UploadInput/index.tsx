@@ -2,7 +2,7 @@ import React, { useState, useEffect, ChangeEvent } from 'react'
 
 import Input from '@component/generic/Input'
 
-import uploadMutation from '@hook/ArticlePage/useUploadMutation'
+import useUploadMutation from '@hook/common/ArticleForm/useUploadMutation'
 
 const IMAGE_TYPES = ['image/jpeg', 'image/png']
 
@@ -10,7 +10,7 @@ const UploadInput = (): JSX.Element => {
   const [selectedFile, setSelectedFile] = useState<File>()
   const [errorMessage, setErrorMessage] = useState<string>('')
 
-  const uploadImage = uploadMutation()
+  const uploadImage = useUploadMutation()
 
   useEffect(() => {
     if (selectedFile) {
