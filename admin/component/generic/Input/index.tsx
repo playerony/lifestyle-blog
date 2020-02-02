@@ -10,9 +10,9 @@ import {
 
 export const Input = ({
   label,
-  errorMessage,
   onBlur,
   onFocus,
+  errorMessage,
   type = 'text',
   autoComplete = 'off',
   ...restProps
@@ -46,10 +46,10 @@ export const Input = ({
       )}
       <StyledInput
         type={type}
-        autoComplete={autoComplete}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
         isError={isError}
+        onBlur={handleBlur}
+        onFocus={handleFocus}
+        autoComplete={autoComplete}
         {...restProps}
       />
       <StyledErrorLabel>{errorMessage}</StyledErrorLabel>

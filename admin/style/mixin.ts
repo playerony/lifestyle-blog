@@ -110,8 +110,15 @@ export const flexWrap = (wrap: string): FlattenSimpleInterpolation => css`
   flex-wrap: ${wrap};
 `
 
-export const boxShadow = (shadow: string) => css`
+export const boxShadow = (shadow: string): FlattenSimpleInterpolation => css`
   -webkit-box-shadow: ${shadow};
   -moz-box-shadow: ${shadow};
   box-shadow: ${shadow};
+`
+
+export const appearance = (value: string): FlattenSimpleInterpolation => css`
+  -webkit-appearance: ${value};
+  -moz-appearance: ${value};
+  -ms-appearance: ${value};
+  appearance: ${value};
 `
