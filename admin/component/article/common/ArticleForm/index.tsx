@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 
 import EditorInput from './EditorInput'
 import UploadInput from './UploadInput'
@@ -8,7 +8,9 @@ import CategorySelect from './CategorySelect'
 import { IState } from './ArticleForm.type'
 
 const initialState: IState = {
+  title: '',
   imageId: null,
+  description: '',
   categoryIdList: []
 }
 
@@ -24,11 +26,21 @@ const ArticleForm = (): JSX.Element => {
   const handleImageChange = (imageId: number | null): void =>
     changeState({ imageId })
   
-  console.warn(state)
+  const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
+    changeState({ [name]: value })
 
   return (
     <div>
-      <Input label="Title" />
+      <Input
+        name="title"
+        label="Title"
+        onChange={handleInputChange}
+      />
+      <Input
+        name="description"
+        label="Description"
+        onChange={handleInputChange}
+      />
       <CategorySelect onChange={handleCategoryChange} />
       <UploadInput onChange={handleImageChange} />
       <EditorInput label="Content" />
