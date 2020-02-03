@@ -44,7 +44,6 @@ export const StyledButton = styled.div`
   cursor: pointer;
   font-size: ${getRem(32)};
 
-
   ${flexbox()}
   ${alignItems('center')}
   ${justifyContent('center')}
