@@ -34,7 +34,7 @@ const ArticleForm = (): JSX.Element => {
     changeState({ [name]: value })
 
   return (
-    <div>
+    <>
       <Input
         name="title"
         label="Title"
@@ -48,7 +48,7 @@ const ArticleForm = (): JSX.Element => {
       <CategorySelect onChange={handleCategoryChange} />
       <UploadInput onChange={handleImageChange} />
       <EditorInput label="Content" onChange={handleContentChange} />
-    </div>
+    </>
   )
 }
 

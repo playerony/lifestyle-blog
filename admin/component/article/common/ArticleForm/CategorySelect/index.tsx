@@ -28,7 +28,6 @@ const CategorySelect = ({ onChange }: ICategorySelectProps): JSX.Element => {
       result =
         value
         .map(({ value }: IOption) => Number(value))
-        .filter(Boolean)
     }
 
     onChange(result)
@@ -37,6 +36,7 @@ const CategorySelect = ({ onChange }: ICategorySelectProps): JSX.Element => {
   return (
     <Select
       isMulti={true}
+      label="Category"
       isLoading={loading}
       onChange={handleChange}
       options={getOptionList(data)}
