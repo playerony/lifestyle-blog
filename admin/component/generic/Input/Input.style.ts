@@ -15,9 +15,9 @@ interface IStyledInputLabelProps {
 
 export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
   position: absolute;
-  top: -8px;
-  left: 15px;
+  top: -10px;
   padding: 3px;
+  left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
   color: ${({ theme }: ThemeProps) => theme.color.gray700};
 
   ${borderRadius('5px')}
@@ -29,13 +29,13 @@ export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
     `${theme.color.white} 100%`
   )}
 
-  ${({ isFocus }: IStyledInputLabelProps) =>
+  ${({ isFocus, theme }: ThemeProps<IStyledInputLabelProps>) =>
     isFocus &&
     css`
       color: ${theme.color.blue700};
     `}
 
-  ${({ isError }: IStyledInputLabelProps) =>
+  ${({ isError, theme }: ThemeProps<IStyledInputLabelProps>) =>
     isError &&
     css`
       color: ${theme.color.red500};
@@ -49,8 +49,8 @@ interface IStyledInputProps {
 export const StyledInput = styled.input<IStyledInputProps>`
   height: 46px;
   width: calc(100% - 20px);
-  padding-left: 15px;
   color: ${({ theme }: ThemeProps) => theme.color.blue800};
+  padding-left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
   background-color: ${({ theme }: ThemeProps) => theme.color.white};
   border: 2px solid ${({ theme }: ThemeProps) => theme.color.gray700};
 
@@ -65,7 +65,7 @@ export const StyledInput = styled.input<IStyledInputProps>`
     border-color: ${({ theme }: ThemeProps) => theme.color.blue700};
   }
 
-  ${({ isError }: IStyledInputProps) =>
+  ${({ isError, theme }: ThemeProps<IStyledInputProps>) =>
     isError &&
     css`
       border-color: ${theme.color.red500};
@@ -78,6 +78,6 @@ export const StyledInput = styled.input<IStyledInputProps>`
 
 export const StyledErrorLabel = styled.p`
   height: 20px;
-  padding: 3px 0 0 18px;
+  padding: 3px 0 0 23px;
   color: ${({ theme }: ThemeProps) => theme.color.red500};
 `
