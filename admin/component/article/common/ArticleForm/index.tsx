@@ -9,6 +9,7 @@ import { IState } from './ArticleForm.type'
 
 const initialState: IState = {
   title: '',
+  content: '',
   imageId: null,
   description: '',
   categoryIdList: []
@@ -25,6 +26,9 @@ const ArticleForm = (): JSX.Element => {
   
   const handleImageChange = (imageId: number | null): void =>
     changeState({ imageId })
+  
+  const handleContentChange = (content: string): void =>
+    changeState({ content })
   
   const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     changeState({ [name]: value })
@@ -43,7 +47,7 @@ const ArticleForm = (): JSX.Element => {
       />
       <CategorySelect onChange={handleCategoryChange} />
       <UploadInput onChange={handleImageChange} />
-      <EditorInput label="Content" />
+      <EditorInput label="Content" onChange={handleContentChange} />
     </div>
   )
 }

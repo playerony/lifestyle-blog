@@ -1,5 +1,13 @@
 import React, { useRef, useState, useEffect, KeyboardEvent } from 'react'
-import { Editor, EditorState, RichUtils, DraftHandleValue, ContentBlock } from 'draft-js'
+import {
+  Editor,
+  RichUtils,
+  EditorState,
+  ContentBlock,
+  convertToRaw,
+  DraftHandleValue
+} from 'draft-js'
+import draftToHTML from 'draftjs-to-html'
 
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
@@ -8,7 +16,7 @@ import { IEditorInputProps } from './EditorInput.type'
 
 import { StyledWrapper, StyledLabel, StyledEditorWrapper } from './EditorInput.style'
 
-const EditorInput = ({ label }: IEditorInputProps): JSX.Element => {
+const EditorInput = ({ label, onChange }: IEditorInputProps): JSX.Element => {
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
 
   const editorRef = useRef<Editor>(null)
@@ -18,6 +26,13 @@ const EditorInput = ({ label }: IEditorInputProps): JSX.Element => {
   useEffect(() => {
     focus()
   }, []);
+
+  useEffect(() => {
+    const rawContentState = convertToRaw(editorState.getCurrentContent())
+    const htmlContent = draftToHTML(rawContentState)
+
+    onChange(htmlContent)
+  }, [editorState])
 
   const handleKeyCommand = (command: string): DraftHandleValue => {
     const newState = RichUtils.handleKeyCommand(editorState, command)
