@@ -23,27 +23,27 @@ const ImageUploader = ({
   const handleButtonClick = (): void | null =>
     inputRef.current && inputRef.current.click()
   
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
-      event.persist()
-  
-      const reader: FileReader = new FileReader();
-  
-      let file: File
-      if (!event?.target?.files) {
-        return
-      }
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
+    event.persist()
 
-      file = event.target.files[0]
-  
-      reader.onloadend = () => {
-        if (accept === file.type) {
-          onUpload(file)
-          setPreviewContent(String(reader.result))
-        }
-      }
-  
-      reader.readAsDataURL(file);
+    const reader: FileReader = new FileReader();
+
+    let file: File
+    if (!event?.target?.files) {
+      return
     }
+
+    file = event.target.files[0]
+
+    reader.onloadend = () => {
+      if (accept === file.type) {
+        onUpload(file)
+        setPreviewContent(String(reader.result))
+      }
+    }
+
+    reader.readAsDataURL(file);
+  }
 
   return (
     <StyledWrapper>
