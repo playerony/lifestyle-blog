@@ -3,7 +3,7 @@ import CustomSelect from 'react-select'
 
 import { ISelectProps } from './Select.type'
 
-import { StyledWrapper, StyledSelectLabel } from './Select.style'
+import { StyledWrapper, StyledSelectLabel, StyledErrorLabel } from './Select.style'
 
 const Select = ({
   label,
@@ -33,7 +33,7 @@ const Select = ({
   const isError = Boolean(errorMessage)
 
   return (
-    <StyledWrapper>
+    <StyledWrapper isError={isError}>
       {label && (
         <StyledSelectLabel isError={isError} isFocus={isFocus}>
           {label}
@@ -45,6 +45,7 @@ const Select = ({
         classNamePrefix="select"
         {...restProps}
       />
+      <StyledErrorLabel>{errorMessage}</StyledErrorLabel>
     </StyledWrapper>
   )
 }
