@@ -3,3 +3,8 @@ declare module '*.svg' {
   export const ReactComponent: any
   export default content
 }
+
+declare module '*.jpg' {
+  const content: any
+  export default content
+}

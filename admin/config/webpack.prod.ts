@@ -25,7 +25,8 @@ const config: webpack.Configuration = {
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      { test: /\.svg$/, loader: 'svg-sprite-loader' }
+      { test: /\.svg$/, loader: 'svg-sprite-loader' },
+      { test: /\.(jpg|png)$/, loader: 'url-loader' }
     ]
   },
   plugins: [htmlPlugin, new Dotenv()]

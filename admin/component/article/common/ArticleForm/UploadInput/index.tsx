@@ -1,17 +1,27 @@
-import React, { useState, useEffect, ChangeEvent } from 'react'
-
-import Input from '@component/generic/Input'
+import React, { useRef, useState, useEffect, ChangeEvent } from 'react'
 
 import { IUploadInputProps } from './UploadInput.type'
 import { IResult } from '@hook/article/useUploadMutation/useUploadMutation.type'
 
 import useUploadMutation from '@hook/article/useUploadMutation'
 
-const IMAGE_TYPES = ['image/jpeg']
+import {
+  StyledInput,
+  StyledImage,
+  StyledButton,
+  StyledWrapper,
+  StyledContentWrapper
+} from './UploadInput.style'
+
+import defaultImage from '@asset/image/default.jpg'
+
+const ACCEPT_TYPE = 'image/jpeg'
 
 const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
+  const inputRef = useRef<HTMLInputElement>(null)
+
   const [selectedFile, setSelectedFile] = useState<File>()
-  const [errorMessage, setErrorMessage] = useState<string>('')
+  const [previewContent, setPreviewContent] = useState<string>(defaultImage)
 
   const uploadImage = useUploadMutation()
 
@@ -33,17 +43,13 @@ const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
     if (event?.target?.files) {
       file = event.target.files[0]
     } else {
-      setErrorMessage('You should choose at least on file')
-
       return
     }
 
     reader.onloadend = () => {
-      if (IMAGE_TYPES.includes(file.type)) {
-        setErrorMessage('')
+      if (ACCEPT_TYPE === file.type) {
         setSelectedFile(file)
-      } else {
-        setErrorMessage('Unsupported format. Please upload jpg file.')
+        setPreviewContent(String(reader.result))
       }
     }
 
@@ -51,12 +57,18 @@ const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
   }
 
   return (
-    <Input
-      type="file"
-      label="File Upload"
-      errorMessage={errorMessage}
-      onChange={handleInputChange}
-    />
+    <StyledWrapper>
+      <StyledContentWrapper>
+        <StyledImage src={previewContent} />
+        <StyledButton onClick={() => inputRef.current?.click()}>+</StyledButton>
+      </StyledContentWrapper>
+      <StyledInput
+        type="file"
+        ref={inputRef}
+        accept={ACCEPT_TYPE}
+        onChange={handleInputChange}
+      />
+    </StyledWrapper>
   )
 }
 
