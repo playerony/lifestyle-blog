@@ -8,6 +8,8 @@ jest.mock('sequelize', () => {
   class Model {
     public static init = jest.fn()
     public static sync = jest.fn()
+    public static hasMany = jest.fn()
+    public static belongsTo = jest.fn()
   }
 
   return {
