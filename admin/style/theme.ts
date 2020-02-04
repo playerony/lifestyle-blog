@@ -44,6 +44,7 @@ const theme: ITheme = {
     red500: '#ff516d',
 
     green200: '#ccffcf',
+    green400: '#32f4cd',
     green500: '#48f1b4',
     green600: '#02d57c',
 

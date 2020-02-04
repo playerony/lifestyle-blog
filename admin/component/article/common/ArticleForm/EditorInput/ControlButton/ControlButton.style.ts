@@ -15,7 +15,7 @@ export const StyledButton = styled.label<IStyledButton>`
 
   ${transition('color 0.5s linear')}
 
-  ${({ active, theme }: ThemeProps & IStyledButton) =>
+  ${({ active, theme }: ThemeProps<IStyledButton>) =>
     active &&
     css`
       color: ${theme.color.gray700};

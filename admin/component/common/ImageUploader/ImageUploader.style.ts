@@ -4,6 +4,7 @@ import {
   flexbox,
   boxShadow,
   alignItems,
+  transition,
   borderRadius,
   justifyContent
 } from '@style/mixin'
@@ -26,6 +27,7 @@ export const StyledContentWrapper = styled.div`
   width: 100%;
   max-width: 500px;
   background-color: ${({ theme }: ThemeProps) => theme.color.white};
+  margin-bottom: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
 
   ${borderRadius('4px')}
   ${boxShadow('0 2px 8px 0 rgba(0, 0, 0, 0.16)')}
@@ -43,8 +45,15 @@ export const StyledButton = styled.div`
   height: 75px;
   cursor: pointer;
   font-size: ${getRem(32)};
+  background-color: ${({ theme }: ThemeProps) => theme.color.green400};
 
   ${flexbox()}
   ${alignItems('center')}
   ${justifyContent('center')}
+  ${borderRadius('0 0 4px 4px')}
+  ${transition('background-color 0.5s linear')}
+
+  &:hover {
+    background-color: ${({ theme }: ThemeProps) => theme.color.blue500};
+  }
 `

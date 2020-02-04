@@ -23,11 +23,8 @@ const CategorySelect = ({ onChange }: ICategorySelectProps): JSX.Element => {
 
   const handleChange = (value: ValueType<IOption>): void => {
     let result: number[] = []
-
     if (value && Array.isArray(value)) {
-      result =
-        value
-        .map(({ value }: IOption) => Number(value))
+      result = value.map(({ value }: IOption) => Number(value))
     }
 
     onChange(result)
