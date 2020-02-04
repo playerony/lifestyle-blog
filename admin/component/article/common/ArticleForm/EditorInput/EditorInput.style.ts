@@ -31,6 +31,8 @@ export const StyledLabel = styled.p`
 `
 
 export const StyledEditorWrapper = styled.div`
+  margin-top: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+
   .DraftEditor-blockquote {
     font-style: italic;
     color: ${({ theme }: ThemeProps) => theme.color.gray400};
@@ -53,17 +55,5 @@ export const StyledEditorWrapper = styled.div`
   .public-DraftStyleDefault-pre {
     padding: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
     background-color: ${({ theme }: ThemeProps) => theme.color.gray300};
-  }
-
-  .DraftEditor-align-left {
-    text-align: left;
-  }
-
-  .DraftEditor-align-right {
-    text-align: right;
-  }
-
-  .DraftEditor-align-center {
-    text-align: center;
   }
 `

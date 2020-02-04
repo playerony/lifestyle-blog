@@ -17,15 +17,11 @@ import { IEditorInputProps } from './EditorInput.type'
 import { StyledWrapper, StyledLabel, StyledEditorWrapper } from './EditorInput.style'
 
 const EditorInput = ({ label, onChange }: IEditorInputProps): JSX.Element => {
-  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
-
   const editorRef = useRef<Editor>(null)
 
-  const focus = (): null | void => editorRef.current && editorRef.current?.focus()
+  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
 
-  useEffect(() => {
-    focus()
-  }, []);
+  const focus = (): null | void => editorRef.current && editorRef.current.focus()
 
   useEffect(() => {
     const rawContentState = convertToRaw(editorState.getCurrentContent())
@@ -60,10 +56,7 @@ const EditorInput = ({ label, onChange }: IEditorInputProps): JSX.Element => {
   const getBlockStyle = (block: ContentBlock): string => {
     switch (block.getType()) {
       case 'blockquote':
-      case 'align-left':
-      case 'align-right':
-      case 'align-center':
-        return `DraftEditor-${block.getType()}`
+        return `DraftEditor-blockquote`
 
       default:
         return ''

@@ -8,8 +8,5 @@ export default [
   { label: 'Blockquote', style: 'blockquote' },
   { label: 'UL', style: 'unordered-list-item' },
   { label: 'OL', style: 'ordered-list-item' },
-  { label: 'Code Block', style: 'code-block' },
-  { label: 'Align left', style: 'align-left' },
-  { label: 'Align right', style: 'align-right' },
-  { label: 'Align center', style: 'align-center' }
+  { label: 'Code Block', style: 'code-block' }
 ]

@@ -1,6 +1,6 @@
 export interface IControlButtonProps {
   label: string
-  active: boolean
   style: string
+  active: boolean
   onToggle: (style: string) => void
 }
