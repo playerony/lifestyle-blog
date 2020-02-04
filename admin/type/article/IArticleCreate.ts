@@ -1,4 +1,4 @@
-export interface IState {
+export default interface IArticleCreate {
   title: string
   content: string
   description: string

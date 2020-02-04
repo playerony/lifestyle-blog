@@ -6,9 +6,11 @@ import Input from '@component/generic/Input'
 import CategorySelect from './CategorySelect'
 import Button from '@component/generic/Button'
 
-import { IState } from './ArticleForm.type'
+import useCreate from '@hook/article/useCreate'
 
-const initialState: IState = {
+import IArticleCreate from '@type/article/IArticleCreate'
+
+const initialState: IArticleCreate = {
   title: '',
   content: '',
   imageId: null,
@@ -17,9 +19,11 @@ const initialState: IState = {
 }
 
 const ArticleForm = (): JSX.Element => {
-  const [state, setState] = useState<IState>(initialState)
+  const [state, setState] = useState<IArticleCreate>(initialState)
 
-  const changeState = (value: Partial<IState>): void =>
+  const createArticle = useCreate()
+
+  const changeState = (value: Partial<IArticleCreate>): void =>
     setState({ ...state, ...value })
 
   const handleCategoryChange = (categoryIdList: number[]): void =>
@@ -49,7 +53,7 @@ const ArticleForm = (): JSX.Element => {
       <CategorySelect onChange={handleCategoryChange} />
       <UploadInput onChange={handleImageChange} />
       <EditorInput label="Content" onChange={handleContentChange} />
-      <Button floating={true}>+</Button>
+      <Button floating={true} onClick={() => createArticle(state)}>+</Button>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import { Resolver, Mutation, Args, Ctx } from 'type-graphql'
+import { Resolver, Mutation, Arg, Ctx } from 'type-graphql'
 
 import ArticleService from '@service/ArticleService'
 
@@ -14,7 +14,7 @@ export default class ArticleResolver {
   @Mutation(type => ArticleCreateResult)
   async createArticle(
     @Ctx() context: Context,
-    @Args() article: ArticleCreateRequest
+    @Arg('article', type => ArticleCreateRequest!) article: ArticleCreateRequest
   ): Promise<ArticleCreateResult> {
     const userId = getUserId(context)
 
