@@ -50,11 +50,11 @@ export const StyledButton = styled.button<IButtonProps>`
   }
 
   &:disabled {
-    background-color: ${({ theme }: ThemeProps<{}>) => theme.color.gray500};
+    background-color: ${({ theme }: ThemeProps) => theme.color.gray500};
 
     &:focus,
     &:hover {
-      background-color: ${({ theme }: ThemeProps<{}>) => theme.color.gray500};
+      background-color: ${({ theme }: ThemeProps) => theme.color.gray500};
     }
   }
 `

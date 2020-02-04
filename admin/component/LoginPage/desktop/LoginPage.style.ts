@@ -7,7 +7,7 @@ export const StyledContentWrapper = styled.div`
   width: 100%;
   height: 100vh;
   position: relative;
-  background-color: ${({ theme }: ThemeProps<{}>) => theme.color.black};
+  background-color: ${({ theme }: ThemeProps) => theme.color.black};
   
   ${flexbox()}
   ${alignItems('center')}

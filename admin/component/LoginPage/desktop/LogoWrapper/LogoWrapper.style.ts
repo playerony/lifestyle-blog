@@ -13,8 +13,8 @@ import {
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
-  padding: ${({ theme }: ThemeProps<{}>) => theme.paddingBig}px 0;
-  background-color: ${({ theme }: ThemeProps<{}>) => theme.color.white};
+  padding: ${({ theme }: ThemeProps) => theme.paddingBig}px 0;
+  background-color: ${({ theme }: ThemeProps) => theme.color.white};
 
   ${flexbox()}
   ${alignItems('center')}

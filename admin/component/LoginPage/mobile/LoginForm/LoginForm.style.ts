@@ -21,6 +21,6 @@ export const StyledContentWrapper = styled.div`
 
 export const StyledForm = styled.form`
   width: calc(
-    100% - ${({ theme }: ThemeProps<{}>) => theme.paddingMedium * 2}px
+    100% - ${({ theme }: ThemeProps) => theme.paddingMedium * 2}px
   );
 `
