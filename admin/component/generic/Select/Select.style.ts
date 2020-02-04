@@ -5,6 +5,7 @@ import theme, { ThemeProps } from '@style/theme'
 import { borderRadius, transition, linearGradient } from '@style/mixin'
 
 export const StyledWrapper = styled.div`
+  margin-top: 5px;
   position: relative;
 `
 

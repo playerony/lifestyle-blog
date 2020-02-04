@@ -4,8 +4,8 @@ import theme, { ThemeProps } from '@style/theme'
 import { transition, linearGradient, borderRadius } from '@style/mixin'
 
 export const StyledInputWrapper = styled.div`
-  position: relative;
   margin-top: 5px;
+  position: relative;
 `
 
 interface IStyledInputLabelProps {
@@ -14,9 +14,9 @@ interface IStyledInputLabelProps {
 }
 
 export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
-  position: absolute;
   top: -10px;
   padding: 3px;
+  position: absolute;
   left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
   color: ${({ theme }: ThemeProps) => theme.color.gray700};
 
@@ -48,7 +48,7 @@ interface IStyledInputProps {
 
 export const StyledInput = styled.input<IStyledInputProps>`
   height: 46px;
-  width: calc(100% - 20px);
+  width: calc(100% - 25px);
   color: ${({ theme }: ThemeProps) => theme.color.blue800};
   padding-left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
   background-color: ${({ theme }: ThemeProps) => theme.color.white};
