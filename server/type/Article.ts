@@ -1,5 +1,5 @@
 import { Model } from 'sequelize'
-import { Field, ObjectType } from 'type-graphql'
+import { Int, Field, ObjectType, ArgsType } from 'type-graphql'
 
 @ObjectType()
 export class ArticleModel extends Model {
@@ -28,7 +28,7 @@ export class ArticleModel extends Model {
   updatedAt?: Date
 }
 
-@ObjectType()
+@ArgsType()
 export class ArticleCreateRequest {
   @Field()
   imageId?: number
@@ -42,7 +42,7 @@ export class ArticleCreateRequest {
   @Field()
   content?: string
 
-  @Field()
+  @Field(type => [Int])
   categoryIdList?: number[]
 }
 
