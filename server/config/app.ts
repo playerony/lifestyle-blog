@@ -1,6 +1,7 @@
-import checkEnvironment from './checkEnvironment'
-import database from './database'
 import server from './server'
+import database from './database'
+import checkEnvironment from './checkEnvironment'
+
 ;(async () => {
   try {
     checkEnvironment()

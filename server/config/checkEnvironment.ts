@@ -1,4 +1,5 @@
 import keys from '@config/keys'
+
 import hasAllValuesDefined, { IInputData } from '@utility/hasAllValuesDefined'
 
 export default (): void => {

@@ -1,6 +1,6 @@
-jest.mock('../checkEnvironment')
-jest.mock('../database')
 jest.mock('../server')
+jest.mock('../database')
+jest.mock('../checkEnvironment')
 
 import waitForExpect from 'wait-for-expect'
 
@@ -13,9 +13,9 @@ describe('app Configuration', () => {
     require('../app').default
 
     await waitForExpect(() => {
-      expect(checkEnvironment).toHaveBeenCalled()
-      expect(database).toHaveBeenCalled()
       expect(server).toHaveBeenCalled()
+      expect(database).toHaveBeenCalled()
+      expect(checkEnvironment).toHaveBeenCalled()
     })
   })
 })
