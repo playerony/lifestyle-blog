@@ -45,6 +45,7 @@ export const StyledButton = styled.div`
   height: 75px;
   cursor: pointer;
   font-size: ${getRem(32)};
+  color: ${({ theme }: ThemeProps) => theme.color.white};
   background-color: ${({ theme }: ThemeProps) => theme.color.green400};
 
   ${flexbox()}
