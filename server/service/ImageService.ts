@@ -1,12 +1,12 @@
-import { FileUpload } from 'graphql-upload'
 import fs from 'fs'
+import { FileUpload } from 'graphql-upload'
 
 import { Image } from '@model/Image'
 
 import { ImageModel, ImageAddResult } from '@type/Image'
 
 import generateString from '@utility/generateString'
-import getMimetypeExtension from '@server/utility/getMimetypeExtension'
+import getMimetypeExtension from '@utility/getMimetypeExtension'
 
 export default class ImageService {
   async upload(file: FileUpload, userId: number): Promise<ImageAddResult> {
