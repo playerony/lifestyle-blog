@@ -11,8 +11,21 @@ Log.init(
       primaryKey: true,
       autoIncrement: true
     },
-    level: DataTypes.STRING(10),
-    message: DataTypes.STRING(3000)
+    level: {
+      type: DataTypes.STRING(10),
+      allowNull: false,
+      validate: {
+        max: 10,
+        notEmpty: true
+      }
+    },
+    message: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notEmpty: true
+      }
+    }
   },
   { sequelize }
 )

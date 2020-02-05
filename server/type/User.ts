@@ -27,3 +27,8 @@ export class UserAddResult {
   @Field()
   user!: UserModel
 }
+
+export class UserAddModel {
+  login!: string
+  password!: string
+}

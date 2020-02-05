@@ -2,11 +2,6 @@ import { Model, DataTypes } from 'sequelize'
 
 import { sequelize } from '@config/database/sequelize'
 
-export class UserAddModel {
-  login!: string
-  password!: string
-}
-
 export class User extends Model {}
 
 User.init(
