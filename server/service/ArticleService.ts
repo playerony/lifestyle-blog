@@ -12,17 +12,19 @@ export default class ArticleService {
     { categoryIdList, ...articleData }: ArticleCreateRequest,
     userId: number
   ): Promise<ArticleCreateResult> {
+    Article.afterCreate<ArticleModel>(async article => {
+      await ArticleCategory.bulkCreate(
+        categoryIdList!.map(categoryId => ({
+          articleId: article.articleId,
+          categoryId
+        }))
+      )
+    })
+
     const createdArticle = await Article.create<ArticleModel>({
       ...articleData,
       userId
     })
-
-    await ArticleCategory.bulkCreate(
-      categoryIdList!.map(categoryId => ({
-        articleId: createdArticle.articleId,
-        categoryId
-      }))
-    )
 
     return {
       articleId: createdArticle.articleId!
