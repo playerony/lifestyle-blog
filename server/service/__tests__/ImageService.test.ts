@@ -33,6 +33,20 @@ describe('ImageService Service', () => {
       expect(pipeFunctionMock).toHaveBeenCalled()
       expect(result).toEqual({ imageId: 1, filename: 'example.jpeg' })
     })
+
+    it('should throw an error', async () => {
+      try {
+        const ImageService = require('../ImageService').default
+        const imageService = new ImageService()
+
+        await imageService.upload(
+          { ...FILE_MOCK, mimetype: 'wrong_mimtype' },
+          1
+        )
+      } catch (e) {
+        expect(e.message.includes('Provided mimetype is wrong.')).toBeTruthy()
+      }
+    })
   })
 })
 
