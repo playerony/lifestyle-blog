@@ -14,11 +14,19 @@ Category.init(
     name: {
       type: DataTypes.STRING(20),
       unique: true,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        max: 20,
+        notEmpty: true
+      }
     },
     description: {
       type: DataTypes.STRING(100),
-      allowNull: true
+      allowNull: true,
+      validate: {
+        max: 100,
+        notEmpty: true
+      }
     }
   },
   { sequelize }
