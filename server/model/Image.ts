@@ -26,7 +26,11 @@ Image.init(
     filename: {
       type: DataTypes.STRING(100),
       unique: true,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        max: 100,
+        notEmpty: true
+      }
     }
   },
   { sequelize }
