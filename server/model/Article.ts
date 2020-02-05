@@ -37,15 +37,26 @@ Article.init(
     title: {
       type: DataTypes.STRING(30),
       unique: true,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        max: 30,
+        notEmpty: true
+      }
     },
     description: {
       type: DataTypes.STRING(100),
-      allowNull: false
+      allowNull: false,
+      validate: {
+        max: 100,
+        notEmpty: true
+      }
     },
     content: {
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        min: 160
+      }
     }
   },
   { sequelize }
