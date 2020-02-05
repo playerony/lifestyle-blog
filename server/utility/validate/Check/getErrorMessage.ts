@@ -1,13 +1,14 @@
 type TFunctionName =
   | 'isArray'
-  | 'isBigLetter'
   | 'isDigit'
   | 'isExist'
+  | 'isEqual'
+  | 'isString'
   | 'isLetter'
+  | 'isBigLetter'
   | 'isMaxLength'
   | 'isMinLength'
   | 'isSpecialCharacter'
-  | 'isString'
 
 interface IFunctionParameterList {
   length: number
@@ -28,13 +29,14 @@ export default (
 const messageList = (
   functionParameters?: IFunctionParameterList
 ): { [key in TFunctionName]: string } => ({
-  isArray: 'Provided value is not an array.',
-  isDigit: 'Provided value does not contain any digit.',
+  isEqual: 'Provided values are not same.',
   isExist: 'Provided value does not exist.',
+  isArray: 'Provided value is not an array.',
   isString: 'Provided value is not a string.',
+  isDigit: 'Provided value does not contain any digit.',
   isLetter: 'Provided value does not contain any letter.',
   isBigLetter: 'Provided value does not contain any big letter.',
+  isSpecialCharacter: 'Provided value does not contain any special character.',
   isMaxLength: `Provided value's length is longer than ${functionParameters?.length}.`,
-  isMinLength: `Provided value's length is shorter than ${functionParameters?.length}.`,
-  isSpecialCharacter: 'Provided value does not contain any special character.'
+  isMinLength: `Provided value's length is shorter than ${functionParameters?.length}.`
 })

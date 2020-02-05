@@ -12,8 +12,8 @@ export default class ImageService {
   async upload(file: FileUpload, userId: number): Promise<ImageAddResult> {
     const { createReadStream, mimetype } = file
 
-    const fileExtension = getMimetypeExtension(mimetype)
-    const newFilename = `${generateString()}_${new Date().getTime()}.${fileExtension}`
+    const extension = getMimetypeExtension(mimetype)
+    const newFilename = `${generateString()}_${new Date().getTime()}.${extension}`
 
     const fileStream = createReadStream()
     fileStream.pipe(

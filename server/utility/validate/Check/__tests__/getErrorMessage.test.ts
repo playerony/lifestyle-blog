@@ -27,6 +27,7 @@ describe('getErrorMessage Function', () => {
     expect(getErrorMessage('isSpecialCharacter')).toEqual(
       'Provided value does not contain any special character.'
     )
+    expect(getErrorMessage('isEqual')).toEqual('Provided values are not same.')
   })
 
   it('should return passed message from parameter', () => {

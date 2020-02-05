@@ -12,13 +12,11 @@ export const uploadImageValidation = (data: FileUpload): void => {
       check('mimetype')
         .isExist()
         .isString()
-        .isMinLength(5)
-        .isMaxLength(10),
+        .isEqual('image/jpeg'),
       check('encoding')
         .isExist()
         .isString()
-        .isMinLength(4)
-        .isMaxLength(4),
+        .isEqual('7bit'),
       check('createReadStream').isExist()
     ])
     .check()

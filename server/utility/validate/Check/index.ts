@@ -1,6 +1,7 @@
 import isArray from '../helper/isArray'
 import isDigit from '../helper/isDigit'
 import isExist from '../helper/isExist'
+import isEqual from '../helper/isEqual'
 import isString from '../helper/isString'
 import isLetter from '../helper/isLetter'
 import isBigLetter from '../helper/isBigLetter'
@@ -54,6 +55,16 @@ class Check {
     this._validatorList.push({
       function: isExist,
       errorMessage: getErrorMessage('isExist', errorMessage)
+    })
+
+    return this
+  }
+
+  public isEqual(value: any, errorMessage?: string): Check {
+    this._validatorList.push({
+      function: isEqual,
+      argumentList: [value],
+      errorMessage: getErrorMessage('isEqual', errorMessage)
     })
 
     return this
