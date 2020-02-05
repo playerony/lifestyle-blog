@@ -6,13 +6,13 @@ import { Image } from '@model/Image'
 import { ImageModel, ImageAddResult } from '@type/Image'
 
 import generateString from '@utility/generateString'
-import getFilenameExtension from '@server/utility/getMimetypeExtension'
+import getMimetypeExtension from '@server/utility/getMimetypeExtension'
 
 export default class ImageService {
   async upload(file: FileUpload, userId: number): Promise<ImageAddResult> {
-    const { createReadStream, filename } = file
+    const { createReadStream, mimetype } = file
 
-    const fileExtension = getFilenameExtension(filename)
+    const fileExtension = getMimetypeExtension(mimetype)
     const newFilename = `${generateString()}_${new Date().getTime()}.${fileExtension}`
 
     const fileStream = createReadStream()
