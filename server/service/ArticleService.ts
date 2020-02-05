@@ -17,12 +17,12 @@ export default class ArticleService {
       userId
     })
 
-    await categoryIdList!.map(async categoryId => {
-      await ArticleCategory.create({
+    await ArticleCategory.bulkCreate(
+      categoryIdList!.map(categoryId => ({
         articleId: createdArticle.articleId,
         categoryId
-      })
-    })
+      }))
+    )
 
     return {
       articleId: createdArticle.articleId!
