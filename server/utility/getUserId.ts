@@ -5,7 +5,7 @@ import Context from '@type/Context'
 
 import keys from '@config/keys'
 
-const AUTHENTICATION_ERROR_MESSAGE = 'Authentication Error'
+const AUTHENTICATION_ERROR_MESSAGE = 'Authentication Error.'
 
 export default ({ token }: Context): number => {
   if (!token) {
@@ -17,6 +17,7 @@ export default ({ token }: Context): number => {
     throw new AuthenticationError(AUTHENTICATION_ERROR_MESSAGE)
   }
 
+  console.warn(tokenSplitResult, keys.jwtPrefix)
   if (tokenSplitResult[0] !== keys.jwtPrefix) {
     throw new AuthenticationError(AUTHENTICATION_ERROR_MESSAGE)
   }
@@ -25,6 +26,7 @@ export default ({ token }: Context): number => {
     userId: number
   }
 
+  console.warn(decodedToken)
   if (!decodedToken?.userId) {
     throw new AuthenticationError(AUTHENTICATION_ERROR_MESSAGE)
   }
