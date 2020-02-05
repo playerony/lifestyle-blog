@@ -25,10 +25,18 @@ describe('synchronizeModel Configuration', () => {
   it('should synchronize models with database', async () => {
     await synchronizeModel()
 
-    const { User } = require('@model/User')
     const { Log } = require('@model/Log')
+    const { User } = require('@model/User')
+    const { Image } = require('@model/Image')
+    const { Article } = require('@model/Article')
+    const { Category } = require('@model/Category')
+    const { ArticleCategory } = require('@model/ArticleCategory')
 
-    expect(User.sync).toBeCalled()
     expect(Log.sync).toBeCalled()
+    expect(User.sync).toBeCalled()
+    expect(Image.sync).toBeCalled()
+    expect(Article.sync).toBeCalled()
+    expect(Category.sync).toBeCalled()
+    expect(ArticleCategory.sync).toBeCalled()
   })
 })

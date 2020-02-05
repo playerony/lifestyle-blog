@@ -1,11 +1,11 @@
 interface IKeys {
   nodeEnv?: string
 
+  databasePort?: number
   databaseName?: string
   databaseUser?: string
-  databasePassword?: string
   databaseServer?: string
-  databasePort?: number
+  databasePassword?: string
 
   hashSalt?: number
   jwtPrefix?: string
@@ -20,14 +20,14 @@ const config: IKeys = {
 
   databaseName: process.env.DATABASE_NAME,
   databaseUser: process.env.DATABASE_USER,
-  databasePassword: process.env.DATABASE_PASSWORD,
   databaseServer: process.env.DATABASE_SERVER,
   databasePort: Number(process.env.DATABASE_PORT),
+  databasePassword: process.env.DATABASE_PASSWORD,
 
-  hashSalt: Number(process.env.HASH_SALT),
   jwtPrefix: process.env.JWT_PREFIX,
   appSecret: process.env.APP_SECRET,
   serverPort: process.env.SERVER_PORT,
+  hashSalt: Number(process.env.HASH_SALT),
 
   adminUrl: process.env.ADMIN_URL
 }

@@ -9,5 +9,5 @@ class LoggingExtension extends GraphQLExtension {
     }
   }
 }
-  
+
 export default LoggingExtension
