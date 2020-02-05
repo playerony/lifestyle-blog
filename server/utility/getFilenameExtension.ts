@@ -9,7 +9,9 @@ export default (filename: string): string => {
 
   const result = filenameExtensionRegexp.exec(filename)
   if (!result?.length || result.length != 2) {
-    throw new ValidationError('Provided filename value do not contain extension.')
+    throw new ValidationError(
+      'Provided filename value do not contain extension.'
+    )
   }
 
   return result[1]
