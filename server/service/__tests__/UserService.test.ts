@@ -1,5 +1,5 @@
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 import bcrypt from 'bcryptjs'
+const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
 import { UserModel } from '@type/User'
 
@@ -60,7 +60,7 @@ describe('UserService Service', () => {
         password: 'test'
       })
 
-      const isProperToken = bcrypt.compare(USER_MOCK.password, result.token)
+      const isProperToken = bcrypt.compare(USER_MOCK.password!, result.token)
 
       expect(isProperToken).toBeTruthy()
       expect(result.user).toEqual(USER_MOCK)
@@ -110,14 +110,14 @@ describe('UserService Service', () => {
         password: 'test'
       })
 
-      const isProperToken = bcrypt.compare(USER_MOCK.password, result.token)
+      const isProperToken = bcrypt.compare(USER_MOCK.password!, result.token)
 
       expect(isProperToken).toBeTruthy()
     })
   })
 })
 
-const USER_MOCK: UserModel = {
+const USER_MOCK: Partial<UserModel> = {
   userId: 1,
   login: 'admin',
   password: 'admin',
