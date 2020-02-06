@@ -1,5 +1,5 @@
-import React, { useState, FocusEvent } from 'react'
 import CustomSelect from 'react-select'
+import React, { useState, FocusEvent } from 'react'
 
 import { ISelectProps } from './Select.type'
 
