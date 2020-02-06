@@ -1,6 +1,18 @@
-import { createGlobalStyle } from 'styled-components'
+const createGlobalStyleMock = jest.fn()
 
-const ResetStyle = createGlobalStyle`
+jest.doMock('styled-components', () => ({
+  createGlobalStyle: createGlobalStyleMock
+}))
+
+describe('ResetStyle Component', () => {
+  it('should call with proper styles', () => {
+    require('../ResetStyle')
+
+    expect(createGlobalStyleMock).toHaveBeenCalledWith(RESET_STYLE_MOCK)
+  })
+})
+
+const RESET_STYLE_MOCK = [`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -243,6 +255,4 @@ const ResetStyle = createGlobalStyle`
     color: #000;
     padding: 0.2em 0;
   }
-`
-
-export default ResetStyle
+`]
