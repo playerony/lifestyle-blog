@@ -3,7 +3,7 @@ import { ValueType } from 'react-select'
 
 import Select from '@component/generic/Select'
 
-import ICategory from '@type/article/ICategory'
+import ICategory from '@type/category/ICategory'
 import { ICategorySelectProps } from './CategorySelect.type'
 import { IOption } from '@component/generic/Select/Select.type'
 

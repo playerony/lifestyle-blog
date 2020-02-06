@@ -1,7 +1,7 @@
 import { QueryResult } from 'react-apollo'
 import { useQuery } from '@apollo/react-hooks'
 
-import ICategory from '@type/article/ICategory'
+import ICategory from '@type/category/ICategory'
 
 import { CATEGORY_LIST_QUERY } from './useCategoryList.query'
 
