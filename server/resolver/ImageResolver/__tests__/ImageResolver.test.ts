@@ -20,7 +20,7 @@ const _ImageService = Substitute.for<ImageService>()
 
 let resolver: ImageResolver
 
-describe('UserResolver Resolver', () => {
+describe('ImageResolver Resolver', () => {
   beforeEach(() => {
     resolver = new ImageResolver(_ImageService)
   })
