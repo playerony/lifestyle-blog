@@ -1,13 +1,13 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { Route } from 'react-router-dom'
-import { MemoryRouter } from 'react-router';
+import { MemoryRouter } from 'react-router'
 
 import routeList from '@config/routeList'
 
 jest.mock('../../page/Login', () => LoginPageMock)
-jest.mock('../../page/ArticleList', () => ArticleListPageMock)
-jest.mock('../../page/ArticleCreate', () => ArticleCreatePageMock)
+jest.mock('../../page/article/ArticleList', () => ArticleListPageMock)
+jest.mock('../../page/article/ArticleCreate', () => ArticleCreatePageMock)
 
 jest.doMock('../../utility/PrivateRoute', () => Route)
 

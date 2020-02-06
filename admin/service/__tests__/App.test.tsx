@@ -6,12 +6,17 @@ class HttpLink {
   constructor(object: object) { }
 }
 
+class UploadLink {
+  constructor() { }
+}
+
 class ApolloLinkMock {
   public concat(object: object) { return new ApolloLink() }
 }
 
 jest.doMock('apollo-link-http', () => ({ HttpLink }))
 jest.doMock('apollo-link-context', () => ({ setContext: () => new ApolloLinkMock() }))
+jest.doMock('apollo-upload-client', () => ({ createUploadLink: () => new UploadLink() }))
 
 describe('App Component', () => {
   it('render without crashing', () => {
