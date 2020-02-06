@@ -20,32 +20,38 @@ describe('Input Component', () => {
     it('should not render', () => {
       const wrapper = mountComponent(<Input />)
 
-      expect(wrapper.find('label').length).toEqual(0)
+      expect(wrapper.find('p').length).toEqual(1)
     })
 
     it('should render', () => {
       const label = 'Label text'
       const wrapper = mountComponent(<Input label={label} />)
 
-      expect(wrapper.find('label').props()).toBeDefined()
-      expect(wrapper.find('label').props().children).toEqual('Label text')
+      const elementProps = wrapper.find('p').first().props()
+
+      expect(elementProps).toBeDefined()
+      expect(elementProps.children).toEqual('Label text')
     })
   })
 
-  describe('p element', () => {
+  describe('error label element', () => {
     it('should render at default', () => {
       const wrapper = mountComponent(<Input />)
 
-      expect(wrapper.find('p').props()).toBeDefined()
-      expect(wrapper.find('p').props().children).toEqual(undefined)
+      const elementProps = wrapper.find('p').last().props()
+
+      expect(elementProps).toBeDefined()
+      expect(elementProps.children).toEqual(undefined)
     })
 
     it('should render with content', () => {
       const errorMessage = 'Error text'
       const wrapper = mountComponent(<Input errorMessage={errorMessage} />)
 
-      expect(wrapper.find('p').props()).toBeDefined()
-      expect(wrapper.find('p').props().children).toEqual(errorMessage)
+      const elementProps = wrapper.find('p').last().props()
+
+      expect(elementProps).toBeDefined()
+      expect(elementProps.children).toEqual(errorMessage)
     })
   })
 
@@ -60,8 +66,8 @@ describe('Input Component', () => {
     })
 
     it('should pass input props', () => {
-      const placeholder = 'placeholder'
       const onClick = jest.fn()
+      const placeholder = 'placeholder'
 
       const wrapper = mountComponent(
         <Input placeholder={placeholder} onClick={onClick} />
