@@ -5,13 +5,13 @@ describe('alias Configuration', () => {
     expect(alias).toBeDefined()
 
     expect(Object.keys(alias)).toEqual([
-      '@asset',
       '@admin',
       '@type',
       '@hook',
       '@page',
       '@style',
       '@config',
+      '@asset',
       '@service',
       '@utility',
       '@component'

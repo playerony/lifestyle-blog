@@ -14,9 +14,9 @@ const config: webpack.Configuration = {
   mode: 'production',
   entry: './index.tsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/admin',
     filename: 'bundle.js',
-    publicPath: '/admin'
+    path: path.resolve(__dirname, 'dist')
   },
   resolve: {
     alias,
@@ -24,9 +24,9 @@ const config: webpack.Configuration = {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
+      { test: /\.(jpg|png)$/, loader: 'url-loader' },
       { test: /\.svg$/, loader: 'svg-sprite-loader' },
-      { test: /\.(jpg|png)$/, loader: 'url-loader' }
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]
   },
   plugins: [htmlPlugin, new Dotenv()]

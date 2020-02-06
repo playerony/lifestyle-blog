@@ -25,10 +25,10 @@ const WEBPACK_CONFIGURATION = {
   entry: './index.tsx',
   output: { publicPath: '/admin' },
   devServer: {
-    historyApiFallback: true,
-    contentBase: '.',
+    hot: true,
     port: 3200,
-    hot: true
+    contentBase: '.',
+    historyApiFallback: true
   },
   resolve: {
     alias,
@@ -36,8 +36,9 @@ const WEBPACK_CONFIGURATION = {
   },
   module: {
     rules: [
-      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      { test: /\.svg$/, loader: 'svg-sprite-loader' }
+      { test: /\.(jpg|png)$/, loader: 'url-loader' },
+      { test: /\.svg$/, loader: 'svg-sprite-loader' },
+      { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]
   },
   plugins: [htmlPlugin, new Dotenv()]
