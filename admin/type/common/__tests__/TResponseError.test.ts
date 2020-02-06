@@ -5,7 +5,7 @@ describe('TResponseError Interface', () => {
     expect(Object.keys(objectMock)).toHaveLength(1)
   })
 
-  it('has a login parameter', () => {
+  it('has a test parameter', () => {
     expect(objectMock.test).toEqual(['Example string'])
   })
 })

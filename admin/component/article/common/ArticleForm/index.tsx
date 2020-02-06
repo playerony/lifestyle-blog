@@ -8,7 +8,7 @@ import Button from '@component/generic/Button'
 
 import useCreate from '@hook/article/useCreate'
 
-import IArticleCreate from '@type/article/IArticleCreate'
+import IArticleCreate from '@type/article/IArticleSave'
 
 const initialState: IArticleCreate = {
   title: '',

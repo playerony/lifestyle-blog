@@ -5,11 +5,11 @@ describe('ILoginForm Interface', () => {
     expect(Object.keys(objectMock)).toHaveLength(2)
   })
 
-  it('has a login parameter', () => {
+  it('has a errorData parameter', () => {
     expect(objectMock.errorData).toEqual({ login: [], password: [] })
   })
 
-  it('has a password parameter', () => {
+  it('has a onClick parameter', () => {
     expect(objectMock.onClick).toBeDefined()
   })
 })

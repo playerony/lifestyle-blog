@@ -1,4 +1,4 @@
-export default interface IArticleCreate {
+export default interface IArticleSave {
   title: string
   content: string
   description: string

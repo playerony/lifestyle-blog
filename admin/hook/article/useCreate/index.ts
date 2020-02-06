@@ -1,7 +1,7 @@
 import { useMutation } from '@apollo/react-hooks'
 
 import { IResult } from './useCreate.type'
-import IArticleCreate from '@type/article/IArticleCreate'
+import IArticleCreate from '@type/article/IArticleSave'
 
 import { CREATE_ARTICLE_QUERY } from './useCreate.query'
 

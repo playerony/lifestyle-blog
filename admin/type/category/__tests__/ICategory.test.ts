@@ -5,11 +5,11 @@ describe('ICategory Interface', () => {
     expect(Object.keys(objectMock)).toHaveLength(2)
   })
 
-  it('has a login parameter', () => {
+  it('has a categoryId parameter', () => {
     expect(objectMock.categoryId).toEqual(1)
   })
 
-  it('has a password parameter', () => {
+  it('has a name parameter', () => {
     expect(objectMock.name).toEqual('Category name')
   })
 })
