@@ -1,7 +1,10 @@
 import {
   flexbox,
+  flexWrap,
   animation,
+  boxShadow,
   transform,
+  appearance,
   transition,
   alignItems,
   borderRadius,
@@ -9,8 +12,7 @@ import {
   justifyContent,
   flexDirection,
   linearGradient,
-  transformOrigin,
-  boxShadow
+  transformOrigin
 } from '../mixin'
 
 describe('mixin Functions', () => {
@@ -244,6 +246,42 @@ describe('mixin Functions', () => {
         '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
         ';\n  box-shadow: ',
         '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
+        ';\n'
+      ])
+    })
+  })
+
+  describe('flexWrap Function', () => {
+    it('should return proper data', () => {
+      const result = flexWrap('wrap')
+
+      expect(result).toEqual([
+        '\n  -webkit-flex-wrap: ',
+        'wrap',
+        ';\n  -moz-flex-wrap: ',
+        'wrap',
+        ';\n  -ms-flex-wrap: ',
+        'wrap',
+        ';\n  flex-wrap: ',
+        'wrap',
+        ';\n'
+      ])
+    })
+  })
+
+  describe('appearance Function', () => {
+    it('should return proper data', () => {
+      const result = appearance('none')
+
+      expect(result).toEqual([
+        '\n  -webkit-appearance: ',
+        'none',
+        ';\n  -moz-appearance: ',
+        'none',
+        ';\n  -ms-appearance: ',
+        'none',
+        ';\n  appearance: ',
+        'none',
         ';\n'
       ])
     })
