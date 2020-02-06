@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import LoginPage from '@component/LoginPage'
 
-import useLoginMutation from '@hook/LoginPage/useLoginMutation'
+import useLoginMutation from '@hook/login/useLoginMutation'
 
 import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'
