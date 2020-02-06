@@ -7,7 +7,7 @@ import ICategory from '@type/category/ICategory'
 import { ICategorySelectProps } from './CategorySelect.type'
 import { IOption } from '@component/generic/Select/Select.type'
 
-import useCategoryList from '@hook/article/useCategoryList'
+import useCategoryList from '@hook/category/useCategoryList'
 
 const CategorySelect = ({ onChange }: ICategorySelectProps): JSX.Element => {
   const { data, loading } = useCategoryList()
