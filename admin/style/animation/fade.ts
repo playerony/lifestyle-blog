@@ -27,38 +27,38 @@ export default styled.div<IFadeAnimation>`
       }
     `}
 
-    ${({ enter }: IFadeAnimation) =>
-      Boolean(enter) &&
-      css`
-        .${({ animationName }: IFadeAnimation) => animationName}-enter {
-          opacity: 0;
-          z-index: 1;
-        }
-        .${({ animationName }: IFadeAnimation) => animationName}-enter.${({
-            animationName
-          }: IFadeAnimation) => animationName}-enter-active {
-          opacity: 1;
-          ${({ animationDuration }: IFadeAnimation) =>
-            transition(`opacity ${animationDuration} linear`)}
-        }
-      `}
+  ${({ enter }: IFadeAnimation) =>
+    Boolean(enter) &&
+    css`
+      .${({ animationName }: IFadeAnimation) => animationName}-enter {
+        opacity: 0;
+        z-index: 1;
+      }
+      .${({ animationName }: IFadeAnimation) => animationName}-enter.${({
+          animationName
+        }: IFadeAnimation) => animationName}-enter-active {
+        opacity: 1;
+        ${({ animationDuration }: IFadeAnimation) =>
+          transition(`opacity ${animationDuration} linear`)}
+      }
+    `}
 
-      ${({ exit }: IFadeAnimation) =>
-        Boolean(exit) &&
-        css`
-          .${({ animationName }: IFadeAnimation) => animationName}-exit {
-            opacity: 1;
-            z-index: 0;
-          }
-          .${({ animationName }: IFadeAnimation) => animationName}-exit.${({
-              animationName
-            }: IFadeAnimation) => animationName}-exit-active {
-            opacity: 0;
-            ${({ animationDuration }: IFadeAnimation) =>
-              transition(`opacity ${animationDuration} linear`)}
-          }
-          .${({ animationName }: IFadeAnimation) => animationName}-exit-done {
-            opacity: 0;
-          }
-        `}
+  ${({ exit }: IFadeAnimation) =>
+    Boolean(exit) &&
+    css`
+      .${({ animationName }: IFadeAnimation) => animationName}-exit {
+        opacity: 1;
+        z-index: 0;
+      }
+      .${({ animationName }: IFadeAnimation) => animationName}-exit.${({
+          animationName
+        }: IFadeAnimation) => animationName}-exit-active {
+        opacity: 0;
+        ${({ animationDuration }: IFadeAnimation) =>
+          transition(`opacity ${animationDuration} linear`)}
+      }
+      .${({ animationName }: IFadeAnimation) => animationName}-exit-done {
+        opacity: 0;
+      }
+    `}
 `
