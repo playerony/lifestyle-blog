@@ -1,3 +1,4 @@
+// @ts-ignore
 const createGlobalStyleMock = jest.fn()
 
 jest.doMock('styled-components', () => ({
@@ -12,7 +13,8 @@ describe('ResetStyle Component', () => {
   })
 })
 
-const RESET_STYLE_MOCK = [`
+const RESET_STYLE_MOCK = [
+  `
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -255,4 +257,5 @@ const RESET_STYLE_MOCK = [`
     color: #000;
     padding: 0.2em 0;
   }
-`]
+`
+]
