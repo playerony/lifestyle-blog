@@ -7,6 +7,8 @@ import { ArticleCreateRequest, ArticleCreateResult } from '@type/Article'
 
 import getUserId from '@utility/getUserId'
 
+import { createArticleValidation } from './ArticleResolver.validator'
+
 @Resolver()
 export default class ArticleResolver {
   constructor(private articleService: ArticleService = new ArticleService()) {}
@@ -17,6 +19,8 @@ export default class ArticleResolver {
     @Arg('article', type => ArticleCreateRequest!) article: ArticleCreateRequest
   ): Promise<ArticleCreateResult> {
     const userId = getUserId(context)
+
+    createArticleValidation(article)
 
     return await this.articleService.create(article, userId)
   }
