@@ -3,14 +3,14 @@ import { CSSTransition } from 'react-transition-group'
 
 import LoginForm from './LoginForm'
 
-import { ILoginProps } from '../LoginPage.type'
+import ILoginForm from '@type/login/ILoginForm'
 
 import StyledFadeAnimation from '@style/animation/fade'
 
 const ANIMATION_DURATION = 500
 const ANIMATION_NAME = 'mobile_login_page_fade'
 
-const LoginPage = (props: ILoginProps): JSX.Element => (
+const LoginPage = (props: ILoginForm): JSX.Element => (
   <StyledFadeAnimation
     exit={true}
     enter={true}

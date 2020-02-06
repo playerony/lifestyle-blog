@@ -4,7 +4,7 @@ import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 import { LOGIN_MUTATION_QUERY } from './useLoginMutation.query'
 
 import { IResult } from './useLoginMutation.type'
-import ILoginRequest from '@type/LoginPage/ILoginRequest'
+import ILoginRequest from '@type/login/ILoginRequest'
 
 const useLoginMutation = (): Function => {
   const [loginMutation] = useMutation(LOGIN_MUTATION_QUERY)

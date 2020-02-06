@@ -5,8 +5,8 @@ import LoginPage from '@component/LoginPage'
 
 import useLoginMutation from '@hook/LoginPage/useLoginMutation'
 
+import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'
-import ILoginRequest from '@type/LoginPage/ILoginRequest'
 
 import Memory from '@utility/Memory'
 
