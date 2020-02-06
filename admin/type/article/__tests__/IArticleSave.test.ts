@@ -1,7 +1,7 @@
 import IArticleSave from '../IArticleSave'
 
 describe('IArticleSave Interface', () => {
-  it('should contain two parameters', () => {
+  it('should contain five parameters', () => {
     expect(Object.keys(objectMock)).toHaveLength(5)
   })
 
