@@ -6,11 +6,11 @@ import Input from '@component/generic/Input'
 import CategorySelect from './CategorySelect'
 import Button from '@component/generic/Button'
 
-import useCreate from '@hook/article/useCreate'
+import useCreate from '@hook/article/useCreateMutation'
 
-import IArticleCreate from '@type/article/IArticleSave'
+import IArticleSave from '@type/article/IArticleSave'
 
-const initialState: IArticleCreate = {
+const initialState: IArticleSave = {
   title: '',
   content: '',
   imageId: null,
@@ -19,11 +19,11 @@ const initialState: IArticleCreate = {
 }
 
 const ArticleForm = (): JSX.Element => {
-  const [state, setState] = useState<IArticleCreate>(initialState)
+  const [state, setState] = useState<IArticleSave>(initialState)
 
   const createArticle = useCreate()
 
-  const changeState = (value: Partial<IArticleCreate>): void =>
+  const changeState = (value: Partial<IArticleSave>): void =>
     setState({ ...state, ...value })
 
   const handleCategoryChange = (categoryIdList: number[]): void =>
