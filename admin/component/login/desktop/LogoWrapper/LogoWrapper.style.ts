@@ -13,7 +13,8 @@ import {
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
-  padding: ${({ theme }: ThemeProps) => theme.paddingBig}px 0;
+  padding: ${({ theme }: ThemeProps) =>
+    `${theme.paddingBig}px ${theme.paddingMedium}px`};
   background-color: ${({ theme }: ThemeProps) => theme.color.white};
 
   ${flexbox()}
