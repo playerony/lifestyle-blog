@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 import LoginForm from './LoginForm'
 import LogoWrapper from './LogoWrapper'
 
 import ILoginForm from '@type/login/ILoginForm'
+
+import useTimeout from '@hook/utility/useTimeout'
 
 import { StyledContentWrapper } from './LoginPage.style'
 import StyledFadeAnimation from '@style/animation/fade'
@@ -16,13 +18,7 @@ const ANIMATION_NAME = 'desktop_login_page_fade'
 const LoginPage = (props: ILoginForm): JSX.Element => {
   const [showLogo, setShowLogo] = useState<boolean>(true)
 
-  useEffect(() => {
-    let timer = setTimeout(() => setShowLogo(false), LOGO_TIMEOUT)
-
-    return () => {
-      clearTimeout(timer)
-    }
-  }, [])
+  useTimeout(() => setShowLogo(false), LOGO_TIMEOUT)
 
   return (
     <StyledContentWrapper>
