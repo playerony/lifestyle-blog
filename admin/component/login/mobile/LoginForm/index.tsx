@@ -38,7 +38,7 @@ const LoginForm = ({ errorData, onClick }: ILoginForm): JSX.Element => {
           name="login"
           label="Login"
           onChange={handleInputChange}
-          placeholder="What is your username?"
+          placeholder="What is your login?"
           errorMessage={getFieldError(errorData, 'login')}
         />
         <Input
