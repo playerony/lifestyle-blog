@@ -12,11 +12,11 @@ const ACCEPT_TYPE = 'image/jpeg'
 const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
   const uploadImage = useUploadMutation()
 
-  const onUpload = (selectedFile: File): void =>
+  const onUpload = (selectedFile: File): Promise<void> =>
     uploadImage(selectedFile)
-      .then((result: { uploadImage: IResult }) =>
-        onChange(result.uploadImage.imageId || null)
-      )
+      .then((result: IResult) => {
+        onChange(result.imageId || null)
+      })
 
   return (
     <ImageUploader

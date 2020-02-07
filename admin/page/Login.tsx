@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-import LoginPage from '@component/LoginPage'
+import LoginPageMobile from '@component/login/mobile'
+import LoginPageDesktop from '@component/login/desktop'
 
 import useLoginMutation from '@hook/login/useLoginMutation'
 
@@ -9,6 +10,7 @@ import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'
 
 import Memory from '@utility/Memory'
+import isMobile from '@utility/isMobile'
 
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
@@ -45,7 +47,10 @@ const Login = (): JSX.Element => {
     )
   }
 
-  return <LoginPage errorData={errorData} onClick={handleLogin} />
+  return React.createElement(
+    isMobile() ? LoginPageMobile : LoginPageDesktop,
+    { errorData, onClick: handleLogin }
+  )
 }
 
 export default Login
