@@ -30,7 +30,7 @@ describe('useUploadMutation Hook', () => {
       if (!data) {
         expect(data).toEqual(undefined)
       } else {
-        expect(data).toEqual(UPLOAD_IMAGE_RESULT_DATA.uploadImage)
+        expect(data).toEqual({ data: UPLOAD_IMAGE_RESULT_DATA })
         done()
       }
 
