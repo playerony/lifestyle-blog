@@ -9,7 +9,7 @@ import useUploadMutation from '@hook/article/useUploadMutation'
 const ACCEPT_TYPE = 'image/jpeg'
 const ERROR_MESSAGE = 'Something went wrong.'
 
-const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
+const UploadInput = ({ imageUrl, onChange }: IUploadInputProps): JSX.Element => {
   const [errorMessage, setErrorMessage] = useState<string>('')
 
   const uploadImage = useUploadMutation()
@@ -36,6 +36,7 @@ const UploadInput = ({ onChange }: IUploadInputProps): JSX.Element => {
 
   return (
     <ImageUploader
+      imageUrl={imageUrl}
       onUpload={onUpload}
       accept={ACCEPT_TYPE}
       errorMessage={errorMessage}
