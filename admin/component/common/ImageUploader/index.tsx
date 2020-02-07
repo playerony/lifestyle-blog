@@ -7,6 +7,7 @@ import {
   StyledImage,
   StyledButton,
   StyledWrapper,
+  StyledErrorLabel,
   StyledContentWrapper
 } from './ImageUploader.style'
 
@@ -15,6 +16,7 @@ import defaultImage from '@asset/image/default.jpg'
 const ImageUploader = ({
   accept,
   onUpload,
+  errorMessage,
   imageUrl = defaultImage
 }: IImageUploaderProps): JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null)
@@ -22,7 +24,7 @@ const ImageUploader = ({
 
   const handleButtonClick = (): void | null =>
     inputRef.current && inputRef.current.click()
-  
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     event.persist()
 
@@ -45,12 +47,15 @@ const ImageUploader = ({
     reader.readAsDataURL(file);
   }
 
+  const isError = Boolean(errorMessage)
+
   return (
     <StyledWrapper>
-      <StyledContentWrapper>
+      <StyledContentWrapper isError={isError}>
         <StyledImage src={previewContent} />
         <StyledButton onClick={handleButtonClick}>+</StyledButton>
       </StyledContentWrapper>
+      <StyledErrorLabel>{errorMessage}</StyledErrorLabel>
       <StyledInput
         type="file"
         ref={inputRef}

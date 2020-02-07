@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import {
   flexbox,
@@ -6,6 +6,7 @@ import {
   alignItems,
   transition,
   borderRadius,
+  flexDirection,
   justifyContent
 } from '@style/mixin'
 import getRem from '@style/helper/getRem'
@@ -16,28 +17,40 @@ export const StyledWrapper = styled.div`
   position: relative;
 
   ${flexbox()}
-  ${justifyContent('center')}
+  ${alignItems('center')}
+  ${flexDirection('column')}
 `
 
 export const StyledInput = styled.input`
   display: none;
 `
 
-export const StyledContentWrapper = styled.div`
+interface IStyledContentWrapperProps {
+  isError: boolean
+}
+
+export const StyledContentWrapper = styled.div<IStyledContentWrapperProps>`
   width: 100%;
   max-width: 500px;
   background-color: ${({ theme }: ThemeProps) => theme.color.white};
-  margin-bottom: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
 
   ${borderRadius('4px')}
   ${boxShadow('0 2px 8px 0 rgba(0, 0, 0, 0.16)')}
+
+  ${({ isError, theme }: ThemeProps<IStyledContentWrapperProps>) =>
+    isError &&
+    css`
+      border: 4px solid ${theme.color.red500};
+    `}
 `
 
 export const StyledImage = styled.img`
   width: 100%;
   height: 275px;
-  outline : none;
+  outline: none;
   object-fit: cover;
+
+  ${borderRadius('4px 4px 0 0')}
 `
 
 export const StyledButton = styled.div`
@@ -57,4 +70,10 @@ export const StyledButton = styled.div`
   &:hover {
     background-color: ${({ theme }: ThemeProps) => theme.color.blue500};
   }
+`
+
+export const StyledErrorLabel = styled.p`
+  height: 20px;
+  padding: 3px 0 0 23px;
+  color: ${({ theme }: ThemeProps) => theme.color.red500};
 `
