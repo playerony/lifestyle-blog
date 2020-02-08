@@ -2,13 +2,13 @@ import React from 'react'
 
 import ControlButton from '../ControlButton'
 
-import { IInlineStyleControlProps } from './BlockTypeControl.type'
+import { IBlockTypeControlProps } from './BlockTypeControl.type'
 
 import { StyledLabel, StyledListWrapper } from './BlockTypeControl.style'
 
 import BLOCK_TYPE_LIST from './blockTypeList'
 
-const BlockTypeControl = ({ editorState, onToggle }: IInlineStyleControlProps): JSX.Element => {
+const BlockTypeControl = ({ editorState, onToggle }: IBlockTypeControlProps): JSX.Element => {
   const selection = editorState.getSelection()
   const blockType =
     editorState
@@ -20,10 +20,10 @@ const BlockTypeControl = ({ editorState, onToggle }: IInlineStyleControlProps): 
     BLOCK_TYPE_LIST.map(({ label, style }) => (
       <ControlButton
         key={label}
-        active={style === blockType}
         label={label}
-        onToggle={onToggle}
         style={style}
+        onToggle={onToggle}
+        active={style === blockType}
       />
     ))
 
