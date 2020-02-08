@@ -56,6 +56,7 @@ const ArticleForm = (): JSX.Element => {
         label="Content"
         errorMessage="Error"
         onChange={handleContentChange}
+        initialValue="<p>Initial HTML text</p>"
       />
       <Button floating={true} onClick={() => createArticle(state)}>+</Button>
     </>

@@ -10,9 +10,11 @@ import {
   EditorState,
   ContentBlock,
   convertToRaw,
+  ContentState,
   DraftHandleValue
 } from 'draft-js'
 import draftToHTML from 'draftjs-to-html'
+import htmlToDraft from 'html-to-draftjs'
 
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
@@ -26,15 +28,29 @@ import {
   StyledEditorWrapper
 } from './EditorInput.style'
 
+const getInitialState = (initialValue?: string): EditorState => {
+  if (!Boolean(initialValue)) {
+    return EditorState.createEmpty()
+  }
+
+  const blockListFromHTML = htmlToDraft(initialValue!)
+
+  const { contentBlocks, entityMap } = blockListFromHTML;
+  const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
+
+  return EditorState.createWithContent(contentState);
+}
+
 const EditorInput = ({
   label,
   onBlur,
   onFocus,
   onChange,
-  errorMessage
+  errorMessage,
+  initialValue
 }: IEditorInputProps): JSX.Element => {
-  const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
   const [isFocus, setIsFocus] = useState<boolean>(false)
+  const [editorState, setEditorState] = useState<EditorState>(getInitialState(initialValue))
 
   const handleFocus = (event: SyntheticEvent): void => {
     setIsFocus(true)
@@ -110,7 +126,7 @@ const EditorInput = ({
           editorState={editorState}
           onToggle={toggleInlineStyle}
         />
-        <StyledEditorWrapper onClick={focus}>
+        <StyledEditorWrapper>
           <Editor
             onTab={onTab}
             spellCheck={true}
