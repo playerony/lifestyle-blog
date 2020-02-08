@@ -4,9 +4,8 @@ import getBlockStyle from '../getBlockStyle'
 
 const getContentBlock = (type: string): ContentBlock => {
   const contentBlock = new ContentBlock()
-  contentBlock.set('type', type)
 
-  return contentBlock
+  return new ContentBlock(contentBlock.set('type', type))
 }
 
 describe('getBlockStyle', () => {
@@ -18,6 +17,8 @@ describe('getBlockStyle', () => {
   })
 
   it('should return className', () => {
-    expect(getBlockStyle(getContentBlock('blockquote'))).toEqual('')
+    expect(getBlockStyle(getContentBlock('blockquote'))).toEqual(
+      'DraftEditor-blockquote'
+    )
   })
 })
