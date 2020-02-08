@@ -8,18 +8,18 @@ import {
   Editor,
   RichUtils,
   EditorState,
-  ContentBlock,
   convertToRaw,
-  ContentState,
   DraftHandleValue
 } from 'draft-js'
 import draftToHTML from 'draftjs-to-html'
-import htmlToDraft from 'html-to-draftjs'
 
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
 
 import { IEditorInputProps } from './EditorInput.type'
+
+import getBlockStyle from './getBlockStyle'
+import getInitialState from './getInitialState'
 
 import {
   StyledLabel,
@@ -27,19 +27,6 @@ import {
   StyledErrorLabel,
   StyledEditorWrapper
 } from './EditorInput.style'
-
-const getInitialState = (initialValue?: string): EditorState => {
-  if (!Boolean(initialValue)) {
-    return EditorState.createEmpty()
-  }
-
-  const blockListFromHTML = htmlToDraft(initialValue!)
-
-  const { contentBlocks, entityMap } = blockListFromHTML;
-  const contentState = ContentState.createFromBlockArray(contentBlocks, entityMap);
-
-  return EditorState.createWithContent(contentState);
-}
 
 const EditorInput = ({
   label,
@@ -51,6 +38,13 @@ const EditorInput = ({
 }: IEditorInputProps): JSX.Element => {
   const [isFocus, setIsFocus] = useState<boolean>(false)
   const [editorState, setEditorState] = useState<EditorState>(getInitialState(initialValue))
+
+  useEffect(() => {
+    const rawContentState = convertToRaw(editorState.getCurrentContent())
+    const htmlContent = draftToHTML(rawContentState)
+
+    onChange(htmlContent)
+  }, [editorState])
 
   const handleFocus = (event: SyntheticEvent): void => {
     setIsFocus(true)
@@ -68,18 +62,10 @@ const EditorInput = ({
     }
   }
 
-  useEffect(() => {
-    const rawContentState = convertToRaw(editorState.getCurrentContent())
-    const htmlContent = draftToHTML(rawContentState)
-
-    onChange(htmlContent)
-  }, [editorState])
-
   const handleKeyCommand = (command: string): DraftHandleValue => {
     const newState = RichUtils.handleKeyCommand(editorState, command)
     if (newState) {
       setEditorState(newState)
-
       return 'handled'
     }
 
@@ -97,16 +83,6 @@ const EditorInput = ({
 
   const toggleInlineStyle = (inlineStyle: string): void =>
     setEditorState(RichUtils.toggleInlineStyle(editorState, inlineStyle))
-
-  const getBlockStyle = (block: ContentBlock): string => {
-    switch (block.getType()) {
-      case 'blockquote':
-        return `DraftEditor-blockquote`
-
-      default:
-        return ''
-    }
-  }
 
   const isError = Boolean(errorMessage)
 
