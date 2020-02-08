@@ -1,9 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-import { borderRadius, transition, linearGradient } from '@style/mixin'
 import theme, { ThemeProps } from '@style/theme'
+import { borderRadius, transition, linearGradient } from '@style/mixin'
 
-export const StyledWrapper = styled.div`
+interface IStyledWrapperProps {
+  isError: boolean
+  isFocus: boolean
+}
+
+export const StyledWrapper = styled.div<IStyledWrapperProps>`
   margin-top: 5px;
   min-height: 500px;
   position: relative;
@@ -12,9 +17,27 @@ export const StyledWrapper = styled.div`
   border: 2px solid ${({ theme }: ThemeProps) => theme.color.gray700};
 
   ${borderRadius('4px')}
+  ${transition('all 0.5s linear')}
+
+  ${({ isFocus, theme }: ThemeProps<IStyledWrapperProps>) =>
+    isFocus &&
+    css`
+      border-color: ${theme.color.blue700};
+    `}
+
+  ${({ isError, theme }: ThemeProps<IStyledWrapperProps>) =>
+    isError &&
+    css`
+      border-color: ${theme.color.red500};
+    `}
 `
 
-export const StyledLabel = styled.p`
+interface IStyledLabelProps {
+  isError: boolean
+  isFocus: boolean
+}
+
+export const StyledLabel = styled.p<IStyledLabelProps>`
   top: -12px;
   padding: 3px;
   position: absolute;
@@ -29,6 +52,19 @@ export const StyledLabel = styled.p`
     `${theme.color.white} 0`,
     `${theme.color.white} 100%`
   )}
+  
+
+  ${({ isFocus, theme }: ThemeProps<IStyledLabelProps>) =>
+    isFocus &&
+    css`
+      color: ${theme.color.blue700};
+    `}
+
+  ${({ isError, theme }: ThemeProps<IStyledLabelProps>) =>
+    isError &&
+    css`
+      color: ${theme.color.red500};
+    `}
 `
 
 export const StyledEditorWrapper = styled.div`
@@ -61,4 +97,10 @@ export const StyledEditorWrapper = styled.div`
     padding: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
     background-color: ${({ theme }: ThemeProps) => theme.color.gray300};
   }
+`
+
+export const StyledErrorLabel = styled.p`
+  height: 20px;
+  padding: 3px 0 0 23px;
+  color: ${({ theme }: ThemeProps) => theme.color.red500};
 `

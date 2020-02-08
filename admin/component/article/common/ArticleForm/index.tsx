@@ -52,7 +52,11 @@ const ArticleForm = (): JSX.Element => {
       />
       <CategorySelect onChange={handleCategoryChange} />
       <UploadInput onChange={handleImageChange} />
-      <EditorInput label="Content" onChange={handleContentChange} />
+      <EditorInput
+        label="Content"
+        errorMessage="Error"
+        onChange={handleContentChange}
+      />
       <Button floating={true} onClick={() => createArticle(state)}>+</Button>
     </>
   )

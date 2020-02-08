@@ -1,4 +1,9 @@
-import React, { useRef, useState, useEffect, KeyboardEvent } from 'react'
+import React, {
+  useState,
+  useEffect,
+  KeyboardEvent,
+  SyntheticEvent
+} from 'react'
 import {
   Editor,
   RichUtils,
@@ -14,14 +19,38 @@ import InlineStyleControl from './InlineStyleControl'
 
 import { IEditorInputProps } from './EditorInput.type'
 
-import { StyledWrapper, StyledLabel, StyledEditorWrapper } from './EditorInput.style'
+import {
+  StyledLabel,
+  StyledWrapper,
+  StyledErrorLabel,
+  StyledEditorWrapper
+} from './EditorInput.style'
 
-const EditorInput = ({ label, onChange }: IEditorInputProps): JSX.Element => {
-  const editorRef = useRef<Editor>(null)
-
+const EditorInput = ({
+  label,
+  onBlur,
+  onFocus,
+  onChange,
+  errorMessage
+}: IEditorInputProps): JSX.Element => {
   const [editorState, setEditorState] = useState<EditorState>(EditorState.createEmpty())
+  const [isFocus, setIsFocus] = useState<boolean>(false)
 
-  const focus = (): null | void => editorRef.current && editorRef.current.focus()
+  const handleFocus = (event: SyntheticEvent): void => {
+    setIsFocus(true)
+
+    if (onFocus) {
+      onFocus(event)
+    }
+  }
+
+  const handleBlur = (event: SyntheticEvent): void => {
+    setIsFocus(false)
+
+    if (onBlur) {
+      onBlur(event)
+    }
+  }
 
   useEffect(() => {
     const rawContentState = convertToRaw(editorState.getCurrentContent())
@@ -63,29 +92,39 @@ const EditorInput = ({ label, onChange }: IEditorInputProps): JSX.Element => {
     }
   }
 
+  const isError = Boolean(errorMessage)
+
   return (
-    <StyledWrapper>
-      {label && <StyledLabel>{label}</StyledLabel>}
-      <BlockTypeControl
-        editorState={editorState}
-        onToggle={toggleBlockType}
-      />
-      <InlineStyleControl
-        editorState={editorState}
-        onToggle={toggleInlineStyle}
-      />
-      <StyledEditorWrapper onClick={focus}>
-        <Editor
-          onTab={onTab}
-          ref={editorRef}
-          spellCheck={true}
+    <>
+      <StyledWrapper isError={isError} isFocus={isFocus}>
+        {label && (
+          <StyledLabel isError={isError} isFocus={isFocus}>
+            {label}
+          </StyledLabel>
+        )}
+        <BlockTypeControl
           editorState={editorState}
-          onChange={setEditorState}
-          blockStyleFn={getBlockStyle}
-          handleKeyCommand={handleKeyCommand}
+          onToggle={toggleBlockType}
         />
-      </StyledEditorWrapper>
-    </StyledWrapper>
+        <InlineStyleControl
+          editorState={editorState}
+          onToggle={toggleInlineStyle}
+        />
+        <StyledEditorWrapper onClick={focus}>
+          <Editor
+            onTab={onTab}
+            spellCheck={true}
+            onBlur={handleBlur}
+            onFocus={handleFocus}
+            editorState={editorState}
+            onChange={setEditorState}
+            blockStyleFn={getBlockStyle}
+            handleKeyCommand={handleKeyCommand}
+          />
+        </StyledEditorWrapper>
+      </StyledWrapper>
+      <StyledErrorLabel>{errorMessage}</StyledErrorLabel>
+    </>
   )
 }
 
