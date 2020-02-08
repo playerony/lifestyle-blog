@@ -12,15 +12,16 @@ const InlineStyleControl = ({ editorState, onToggle }: IInlineStyleControlProps)
   const currentStyle = editorState.getCurrentInlineStyle()
 
   const renderInlineStyleList = (): JSX.Element[] =>
-    INLINE_STYLE_LIST.map(({ label, style }) => (
-      <ControlButton
-        key={label}
-        active={currentStyle.has(style)}
-        label={label}
-        onToggle={onToggle}
-        style={style}
-      />
-    ))
+    React.Children.toArray(
+      INLINE_STYLE_LIST.map(({ label, style }) => (
+        <ControlButton
+          active={currentStyle.has(style)}
+          label={label}
+          onToggle={onToggle}
+          style={style}
+        />
+      ))
+    )
 
   return (
     <>
