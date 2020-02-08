@@ -79,9 +79,9 @@ const EditorInput = ({ label, onChange }: IEditorInputProps): JSX.Element => {
           onTab={onTab}
           ref={editorRef}
           spellCheck={true}
-          blockStyleFn={getBlockStyle}
           editorState={editorState}
           onChange={setEditorState}
+          blockStyleFn={getBlockStyle}
           handleKeyCommand={handleKeyCommand}
         />
       </StyledEditorWrapper>

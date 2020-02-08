@@ -5,6 +5,7 @@ import theme, { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
   margin-top: 5px;
+  min-height: 500px;
   position: relative;
   padding: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
   background-color: ${({ theme }: ThemeProps) => theme.color.white};
@@ -14,9 +15,9 @@ export const StyledWrapper = styled.div`
 `
 
 export const StyledLabel = styled.p`
-  position: absolute;
   top: -12px;
   padding: 3px;
+  position: absolute;
   left: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
   color: ${({ theme }: ThemeProps) => theme.color.gray700};
 
@@ -32,6 +33,10 @@ export const StyledLabel = styled.p`
 
 export const StyledEditorWrapper = styled.div`
   margin-top: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+
+  .DraftEditor-root {
+    min-height: 500px;
+  }
 
   .DraftEditor-blockquote {
     font-style: italic;
