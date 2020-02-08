@@ -8,7 +8,7 @@ const getContentBlock = (type: string): ContentBlock => {
   return new ContentBlock(contentBlock.set('type', type))
 }
 
-describe('getBlockStyle', () => {
+describe('getBlockStyle Function', () => {
   it('should return empty string', () => {
     expect(getBlockStyle(getContentBlock(''))).toEqual('')
     expect(getBlockStyle(getContentBlock('xd'))).toEqual('')

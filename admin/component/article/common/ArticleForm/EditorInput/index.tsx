@@ -1,9 +1,3 @@
-import React, {
-  useState,
-  useEffect,
-  KeyboardEvent,
-  SyntheticEvent
-} from 'react'
 import {
   Editor,
   RichUtils,
@@ -12,6 +6,7 @@ import {
   DraftHandleValue
 } from 'draft-js'
 import draftToHTML from 'draftjs-to-html'
+import React, { useState, useEffect } from 'react'
 
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
@@ -46,7 +41,7 @@ const EditorInput = ({
     onChange(htmlContent)
   }, [editorState])
 
-  const handleFocus = (event: SyntheticEvent): void => {
+  const handleFocus = (event: React.SyntheticEvent): void => {
     setIsFocus(true)
 
     if (onFocus) {
@@ -54,7 +49,7 @@ const EditorInput = ({
     }
   }
 
-  const handleBlur = (event: SyntheticEvent): void => {
+  const handleBlur = (event: React.SyntheticEvent): void => {
     setIsFocus(false)
 
     if (onBlur) {
@@ -72,7 +67,7 @@ const EditorInput = ({
     return 'not-handled'
   }
 
-  const onTab = (event: KeyboardEvent): void => {
+  const onTab = (event: React.KeyboardEvent): void => {
     const maxDepth = 4
 
     setEditorState(RichUtils.onTab(event, editorState, maxDepth))
