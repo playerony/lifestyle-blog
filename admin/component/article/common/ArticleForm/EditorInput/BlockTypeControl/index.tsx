@@ -17,15 +17,16 @@ const BlockTypeControl = ({ editorState, onToggle }: IBlockTypeControlProps): JS
       .getType()
 
   const renderBlockTypeList = (): JSX.Element[] =>
-    BLOCK_TYPE_LIST.map(({ label, style }) => (
-      <ControlButton
-        key={label}
-        label={label}
-        style={style}
-        onToggle={onToggle}
-        active={style === blockType}
-      />
-    ))
+    React.Children.toArray(
+      BLOCK_TYPE_LIST.map(({ label, style }) => (
+        <ControlButton
+          label={label}
+          style={style}
+          onToggle={onToggle}
+          active={style === blockType}
+        />
+      ))
+    )
 
   return (
     <>
