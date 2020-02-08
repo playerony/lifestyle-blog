@@ -1,11 +1,8 @@
 import { ContentBlock } from 'draft-js'
 
-export default (block: ContentBlock): string => {
-  switch (block.getType()) {
-    case 'blockquote':
-      return `DraftEditor-blockquote`
-
-    default:
-      return ''
-  }
+const blockTypeClassName: { [key: string]: string } = {
+  blockquote: 'DraftEditor-blockquote'
 }
+
+export default (block: ContentBlock): string =>
+  blockTypeClassName[block.getType()] || ''
