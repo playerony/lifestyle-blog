@@ -20,6 +20,10 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
 
 describe('CategorySelect Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   beforeEach(() => {
     (useCategoryList as jest.Mock).mockImplementation(useCategoryListMock)
   })
