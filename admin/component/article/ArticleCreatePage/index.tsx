@@ -10,7 +10,7 @@ const ArticleCreatePage = ({ onCreate, errorData }: IArticleCreatePageProps): JS
   <StyledWrapper>
     <StyledHeader>
       Adding a new article
-      </StyledHeader>
+    </StyledHeader>
     <ArticleForm
       onSave={onCreate}
       errorData={errorData}
