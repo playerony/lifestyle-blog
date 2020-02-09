@@ -32,7 +32,7 @@ describe('useCreateMutation Hook', () => {
       if (!data) {
         expect(data).toEqual(undefined)
       } else {
-        expect(data).toEqual(CREATE_ARTICLE_RESULT_DATA.createArticle)
+        expect(data.data).toEqual(CREATE_ARTICLE_RESULT_DATA)
         done()
       }
 
