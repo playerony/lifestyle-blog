@@ -6,9 +6,10 @@ import Input from '@component/generic/Input'
 import CategorySelect from './CategorySelect'
 import Button from '@component/generic/Button'
 
-import useCreate from '@hook/article/useCreateMutation'
-
 import IArticleSave from '@type/article/IArticleSave'
+import { IArticleFormProps } from './ArticleForm.type'
+
+import getFieldError from '@utility/getFieldError'
 
 const initialState: IArticleSave = {
   title: '',
@@ -18,10 +19,8 @@ const initialState: IArticleSave = {
   categoryIdList: []
 }
 
-const ArticleForm = (): JSX.Element => {
+const ArticleForm = ({ onSave, errorData }: IArticleFormProps): JSX.Element => {
   const [state, setState] = useState<IArticleSave>(initialState)
-
-  const createArticle = useCreate()
 
   const changeState = (value: Partial<IArticleSave>): void =>
     setState({ ...state, ...value })
@@ -38,27 +37,40 @@ const ArticleForm = (): JSX.Element => {
   const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     changeState({ [name]: value })
 
+  const handleArticleSave = (): void => onSave(state)
+
   return (
     <>
       <Input
         name="title"
         label="Title"
         onChange={handleInputChange}
+        errorMessage={getFieldError<IArticleSave>(errorData, 'title')}
       />
       <Input
         name="description"
         label="Description"
         onChange={handleInputChange}
+        errorMessage={getFieldError<IArticleSave>(errorData, 'description')}
       />
-      <CategorySelect onChange={handleCategoryChange} />
-      <UploadInput onChange={handleImageChange} />
+      <CategorySelect
+        onChange={handleCategoryChange}
+        errorMessage={getFieldError<IArticleSave>(errorData, 'categoryIdList')}
+      />
+      <UploadInput
+        onChange={handleImageChange}
+      />
       <EditorInput
         label="Content"
-        errorMessage="Error"
         onChange={handleContentChange}
-        initialValue="<p>Initial HTML text</p>"
+        errorMessage={getFieldError<IArticleSave>(errorData, 'content')}
       />
-      <Button floating={true} onClick={() => createArticle(state)}>+</Button>
+      <Button
+        floating={true}
+        onClick={handleArticleSave}
+      >
+        +
+      </Button>
     </>
   )
 }

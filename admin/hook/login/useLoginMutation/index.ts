@@ -13,8 +13,8 @@ const useLoginMutation = () => {
     loginData: ILoginRequest
   ): Promise<IResult | ExecutionResult | void> => {
     const result = await loginMutation({
-      variables: { ...loginData },
-      errorPolicy: 'all'
+      errorPolicy: 'all',
+      variables: { ...loginData }
     } as MutationHookOptions)
 
     if (!result.errors) {
