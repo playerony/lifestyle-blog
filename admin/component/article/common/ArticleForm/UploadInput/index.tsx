@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import ImageUploader from '@component/common/ImageUploader'
 
@@ -8,8 +8,14 @@ import useUploadMutation from '@hook/article/useUploadMutation'
 
 import { IMAGE_ACCEPT_TYPE, IMAGE_UPLOAD_ERROR_MESSAGE } from '@config/constant'
 
-const UploadInput = ({ imageUrl, onChange }: IUploadInputProps): JSX.Element => {
-  const [errorMessage, setErrorMessage] = useState<string>('')
+const UploadInput = ({
+  imageUrl,
+  onChange,
+  errorMessage: error,
+}: IUploadInputProps): JSX.Element => {
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(error)
+
+  useEffect(() => { setErrorMessage(error) }, [error])
 
   const uploadImage = useUploadMutation()
 

@@ -59,6 +59,7 @@ const ArticleForm = ({ onSave, errorData }: IArticleFormProps): JSX.Element => {
       />
       <UploadInput
         onChange={handleImageChange}
+        errorMessage={getFieldError<IArticleSave>(errorData, 'imageId')}
       />
       <EditorInput
         label="Content"

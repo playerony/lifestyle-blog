@@ -26,8 +26,8 @@ describe('UploadInput Component', () => {
 
     const imageUploaderProps = wrapper.find(ImageUploader).props()
     expect(imageUploaderProps.onUpload).toBeDefined()
-    expect(imageUploaderProps.errorMessage).toEqual('')
     expect(imageUploaderProps.imageUrl).not.toBeDefined()
     expect(imageUploaderProps.accept).toEqual('image/jpeg')
+    expect(imageUploaderProps.errorMessage).toBeUndefined()
   })
 })
