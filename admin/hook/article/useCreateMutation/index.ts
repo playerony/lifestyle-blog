@@ -6,6 +6,8 @@ import IArticleSave from '@type/article/IArticleSave'
 
 import { CREATE_ARTICLE_QUERY } from './useCreateMutation.query'
 
+import { VALIDATION_ERROR } from '@config/constant'
+
 const useCreateMutation = () => {
   const [createArticleMutation] = useMutation(CREATE_ARTICLE_QUERY)
 
@@ -21,7 +23,7 @@ const useCreateMutation = () => {
       return result
     }
 
-    if (result.errors[0].extensions?.code !== 'VALIDATION_ERROR') {
+    if (result.errors[0].extensions?.code !== VALIDATION_ERROR) {
       return
     }
 

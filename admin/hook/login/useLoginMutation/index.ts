@@ -6,6 +6,8 @@ import { LOGIN_MUTATION_QUERY } from './useLoginMutation.query'
 import { IResult } from './useLoginMutation.type'
 import ILoginRequest from '@type/login/ILoginRequest'
 
+import { VALIDATION_ERROR } from '@config/constant'
+
 const useLoginMutation = () => {
   const [loginMutation] = useMutation(LOGIN_MUTATION_QUERY)
 
@@ -21,7 +23,7 @@ const useLoginMutation = () => {
       return result
     }
 
-    if (result.errors[0].extensions?.code !== 'VALIDATION_ERROR') {
+    if (result.errors[0].extensions?.code !== VALIDATION_ERROR) {
       return
     }
 

@@ -27,8 +27,6 @@ const ArticleCreate = (): JSX.Element => {
       return
     }
 
-    console.warn(response)
-
     setErrorData(
       Boolean(response.errors)
         ? response.errors! as TResponseError<IArticleSave>
