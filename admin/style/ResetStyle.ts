@@ -173,8 +173,6 @@ const ResetStyle = createGlobalStyle`
   input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
-    height: 13px;
-    width: 13px;
   }
 
   input[type="search"] {
