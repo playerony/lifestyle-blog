@@ -1,19 +1,17 @@
 import React from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import LoginPageMobile from '..'
 import LoginForm from '../LoginForm'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'
 
-import theme from '@style/theme'
-
 const onClickMock = jest.fn()
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('LoginPageMobile Component', () => {
   it('should render', () => {

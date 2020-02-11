@@ -1,16 +1,15 @@
 import React from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import ImageUploader from '../ImageUploader'
-import { IImageUploaderProps } from '../ImageUploader/ImageUploader.type'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
-import theme from '@style/theme'
+import { IImageUploaderProps } from '../ImageUploader/ImageUploader.type'
 
 import { IMAGE_ACCEPT_TYPE } from '@config/constant'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('ImageUploader Component', () => {
   it('should render', () => {

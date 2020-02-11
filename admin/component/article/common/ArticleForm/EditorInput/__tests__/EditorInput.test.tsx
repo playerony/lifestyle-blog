@@ -1,16 +1,14 @@
 import { Editor } from 'draft-js'
 import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import EditorInput from '..'
 import BlockTypeControl from '../BlockTypeControl'
 import InlineStyleControl from '../InlineStyleControl'
-
-import theme from '@style/theme'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('EditorInput Component', () => {
   it('should render', () => {

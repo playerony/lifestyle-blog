@@ -10,7 +10,7 @@ import {
   justifyContent
 } from '@style/mixin'
 import getRem from '@style/helper/getRem'
-import { ThemeProps } from '@style/theme'
+import { ThemeProps } from '@admin/style/theme'
 
 export const StyledWrapper = styled.div`
   width: 100%;
@@ -32,7 +32,7 @@ interface IStyledContentWrapperProps {
 export const StyledContentWrapper = styled.div<IStyledContentWrapperProps>`
   width: 100%;
   max-width: 500px;
-  background-color: ${({ theme }: ThemeProps) => theme.color.white};
+  background-color: ${({ theme }: ThemeProps) => theme.variable.color.white};
 
   ${borderRadius('4px')}
   ${boxShadow('0 2px 8px 0 rgba(0, 0, 0, 0.16)')}
@@ -40,7 +40,7 @@ export const StyledContentWrapper = styled.div<IStyledContentWrapperProps>`
   ${({ isError, theme }: ThemeProps<IStyledContentWrapperProps>) =>
     isError &&
     css`
-      border: 4px solid ${theme.color.red500};
+      border: 4px solid ${theme.variable.color.red500};
     `}
 `
 
@@ -58,8 +58,8 @@ export const StyledButton = styled.div`
   height: 75px;
   cursor: pointer;
   font-size: ${getRem(32)};
-  color: ${({ theme }: ThemeProps) => theme.color.white};
-  background-color: ${({ theme }: ThemeProps) => theme.color.green400};
+  color: ${({ theme }: ThemeProps) => theme.variable.color.white};
+  background-color: ${({ theme }: ThemeProps) => theme.variable.color.green400};
 
   ${flexbox()}
   ${alignItems('center')}
@@ -68,12 +68,12 @@ export const StyledButton = styled.div`
   ${transition('background-color 0.5s linear')}
 
   &:hover {
-    background-color: ${({ theme }: ThemeProps) => theme.color.blue500};
+    background-color: ${({ theme }: ThemeProps) => theme.variable.color.blue500};
   }
 `
 
 export const StyledErrorLabel = styled.p`
   height: 20px;
   padding: 3px 0 0 23px;
-  color: ${({ theme }: ThemeProps) => theme.color.red500};
+  color: ${({ theme }: ThemeProps) => theme.variable.color.red500};
 `

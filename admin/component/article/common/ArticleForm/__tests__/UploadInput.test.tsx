@@ -1,16 +1,14 @@
 import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import UploadInput from '../UploadInput'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 import ImageUploader from '@component/common/ImageUploader'
-
-import theme from '@style/theme'
 
 jest.mock('../../../../../hook/article/useUploadMutation')
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('UploadInput Component', () => {
   it('should render', () => {

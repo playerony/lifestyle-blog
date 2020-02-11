@@ -10,14 +10,14 @@ interface IStyledButton {
 export const StyledButton = styled.label<IStyledButton>`
   cursor: pointer;
   margin-bottom: 5px;
-  color: ${({ theme }: ThemeProps) => theme.color.black};
-  margin-right: ${({ theme }: ThemeProps) => theme.paddingSmall}px;
+  color: ${({ theme }: ThemeProps) => theme.variable.color.black};
+  margin-right: ${({ theme }: ThemeProps) => theme.variable.paddingSmall}px;
 
   ${transition('color 0.5s linear')}
 
   ${({ active, theme }: ThemeProps<IStyledButton>) =>
     active &&
     css`
-      color: ${theme.color.gray700};
+      color: ${theme.variable.color.gray700};
     `}
 `

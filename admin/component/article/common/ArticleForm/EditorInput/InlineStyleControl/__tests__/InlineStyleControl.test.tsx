@@ -1,17 +1,15 @@
 import { EditorState } from 'draft-js'
 import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import InlineStyleControl from '..'
 import ControlButton from '../../ControlButton'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import { IInlineStyleControlProps } from '../InlineStyleControl.type'
 
-import theme from '@style/theme'
-
 const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('InlineStyleControl Component', () => {
   it('should render', () => {

@@ -1,12 +1,11 @@
 import React, { Suspense } from 'react'
-import { ThemeProvider } from 'styled-components'
 
 import LoadingPage from '@page/Loading'
 
 import Routing from './Routing'
+import ThemeProvider from './ThemeProvider'
 import GraphQLProvider from './GraphQLProvider'
 
-import theme from '@style/theme'
 import ResetStyle from '@style/ResetStyle'
 import GlobalStyle from '@style/GlobalStyle'
 
@@ -14,7 +13,7 @@ import './SVG'
 
 const App = (): JSX.Element => (
   <GraphQLProvider>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider>
       <Suspense fallback={<LoadingPage />}>
         <ResetStyle />
         <GlobalStyle />

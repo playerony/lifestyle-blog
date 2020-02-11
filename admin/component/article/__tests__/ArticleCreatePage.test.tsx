@@ -1,20 +1,18 @@
 import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import ArticleForm from '../common/ArticleForm'
 import ArticleCreatePage from '../ArticleCreatePage'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
-
-import theme from '@style/theme'
 
 jest.mock('../../../hook/article/useUploadMutation')
 jest.mock('../../../hook/category/useCategoryList', () => () => ({ data: [], loading: true }))
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 const onCreateMock = jest.fn()
 

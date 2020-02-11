@@ -1,14 +1,12 @@
 import React from 'react'
 import CustomSelect from 'react-select'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import Select from '../Select'
-
-import theme from '@style/theme'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('Select Component', () => {
   it('should render', () => {

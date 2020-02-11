@@ -1,12 +1,6 @@
-import theme from '../theme'
+import { IVariable } from './variable.type'
 
-describe('theme Object', () => {
-  it('should return proper object', () => {
-    expect(theme).toEqual(THEME)
-  })
-})
-
-const THEME = {
+const variable: IVariable = {
   largeScreen: 1919,
   mediumScreen: 1367,
   smallScreen: 1023,
@@ -39,6 +33,7 @@ const THEME = {
     gray500: '#c9c9c9',
     gray600: '#979797',
     gray700: '#999999',
+    gray900: '$33393e',
 
     white: '#ffffff',
     black: '#111933'
@@ -48,3 +43,5 @@ const THEME = {
     bold: "'HelveticaNeueBold', Helvetica, Arial, sans-serif"
   }
 }
+
+export default variable
