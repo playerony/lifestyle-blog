@@ -3,15 +3,17 @@ import { ThemeProvider as Provider } from 'styled-components'
 
 import { IThemeProviderProps } from './ThemeProvider.type'
 
-import Memory from '@utility/Memory'
+import { useTheme } from '../ThemeManager'
 
 import getTheme from '@style/theme'
 import variable from '@style/variable'
+import { EMode } from '@style/theme/theme.type'
 
-import { COLOR_MODE } from '@config/constant'
 
 const ThemeProvider = ({ children }: IThemeProviderProps): JSX.Element => {
-  const selectedTheme = getTheme(Number(Memory.get(COLOR_MODE)))
+  const { mode } = useTheme()
+
+  const selectedTheme = getTheme(mode as EMode)
 
   console.warn(selectedTheme)
 

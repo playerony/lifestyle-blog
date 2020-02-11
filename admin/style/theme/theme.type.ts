@@ -8,6 +8,6 @@ export interface ITheme {
 }
 
 export enum EMode {
-  LIGHT,
-  DARK
+  LIGHT = 'LIGHT',
+  DARK = 'DARK'
 }

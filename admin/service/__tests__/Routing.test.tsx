@@ -26,7 +26,7 @@ describe('Routing Service', () => {
     const Routing = require('../Routing').default
 
     const wrapper = mount(
-      <MemoryRouter initialEntries={[routeList.baseUrl]}>
+      <MemoryRouter initialEntries={[routeList.base]}>
         <Routing />
       </MemoryRouter>
     )
