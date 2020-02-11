@@ -1,15 +1,13 @@
 import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 
 import ControlButton from '../ControlButton'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import { IControlButtonProps } from '../ControlButton/ControlButton.type'
 
-import theme from '@style/theme'
-
 const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('ControlButton Component', () => {
   it('should render', () => {

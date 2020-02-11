@@ -1,26 +1,12 @@
-import { ThemedStyledProps } from 'styled-components'
+import variable from '../variable'
 
-interface ITheme {
-  largeScreen: number
-  mediumScreen: number
-  smallScreen: number
-  mobileScreen: number
-  paddingSmall: number
-  paddingMedium: number
-  paddingBig: number
-  baseFontSize: number
-  color: {
-    [key: string]: string
-  }
-  font: {
-    normal: string
-    bold: string
-  }
-}
+describe('variable Object', () => {
+  it('should return proper object', () => {
+    expect(variable).toEqual(VARIABLE)
+  })
+})
 
-export type ThemeProps<P = {}> = ThemedStyledProps<P, ITheme>
-
-const theme: ITheme = {
+const VARIABLE = {
   largeScreen: 1919,
   mediumScreen: 1367,
   smallScreen: 1023,
@@ -62,5 +48,3 @@ const theme: ITheme = {
     bold: "'HelveticaNeueBold', Helvetica, Arial, sans-serif"
   }
 }
-
-export default theme

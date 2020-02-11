@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 
-import { ThemeProps } from '@style/theme'
 import {
   borderRadius,
   boxShadow,
@@ -9,13 +8,14 @@ import {
   alignItems,
   justifyContent
 } from '@style/mixin'
+import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
   padding: ${({ theme }: ThemeProps) =>
-    `${theme.paddingBig}px ${theme.paddingMedium}px`};
-  background-color: ${({ theme }: ThemeProps) => theme.color.white};
+    `${theme.variable.paddingBig}px ${theme.variable.paddingMedium}px`};
+  background-color: ${({ theme }: ThemeProps) => theme.variable.color.white};
 
   ${flexbox()}
   ${alignItems('center')}

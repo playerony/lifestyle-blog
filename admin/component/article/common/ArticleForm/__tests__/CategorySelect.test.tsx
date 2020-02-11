@@ -1,23 +1,21 @@
 import { mount, ReactWrapper } from 'enzyme'
-import { ThemeProvider } from 'styled-components'
 import { act } from '@testing-library/react-hooks'
 import React, { useState, ReactElement } from 'react'
 
 import Select from '@component/generic/Select'
 import CategorySelect from '../CategorySelect'
+import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import ICategory from '@type/category/ICategory'
 
 import useTimeout from '@hook/utility/useTimeout'
 import useCategoryList from '@hook/category/useCategoryList'
 
-import theme from '@style/theme'
-
 jest.useFakeTimers()
 jest.mock('../../../../../hook/category/useCategoryList')
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(<ThemeProvider theme={theme}>{element}</ThemeProvider>)
+  mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('CategorySelect Component', () => {
   beforeAll(() => {

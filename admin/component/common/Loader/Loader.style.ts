@@ -1,44 +1,46 @@
 import styled from 'styled-components'
 
-import getLightenDarkenColor from '@style/helper/getLightenDarkenColor'
 import {
   transform,
   transformOrigin,
   transformStyle,
   animation
 } from '@style/mixin'
-import theme from '@style/theme'
+import { ThemeProps } from '@style/theme'
+import getLightenDarkenColor from '@style/helper/getLightenDarkenColor'
 
 const SIZE = 32
 const DURATION = '800ms'
 
 export const StyledBoxList = styled.div`
-  height: ${SIZE * 2}px;
-  width: ${SIZE * 3}px;
   position: relative;
+  width: ${SIZE * 3}px;
+  height: ${SIZE * 2}px;
   margin-top: ${SIZE * -1.5}px;
+
   ${transformOrigin('50% 50%')}
   ${transformStyle('preserve-3d')}
   ${transform('rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px)')}
 `
 
 export const StyledBox = styled.div`
-  width: ${SIZE}px;
-  height: ${SIZE}px;
   top: 0;
   left: 0;
+  width: ${SIZE}px;
+  height: ${SIZE}px;
   position: absolute;
   ${transformStyle('preserve-3d')}
 
   & > div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: ${theme.color.blue500};
     top: auto;
-    right: auto;
-    bottom: auto;
     left: auto;
+    width: 100%;
+    right: auto;
+    height: 100%;
+    bottom: auto;
+    position: absolute;
+    background: ${({ theme }: ThemeProps) => theme.variable.color.blue500};
+
     ${transform(`rotateY(0deg) rotateX(0deg) translateZ(${SIZE / 2}px)`)}
 
     &:nth-child(1) {
@@ -48,19 +50,24 @@ export const StyledBox = styled.div`
 
     &:nth-child(2) {
       right: 0;
-      background: ${getLightenDarkenColor(theme.color.blue500, -30)};
+      background: ${({ theme }: ThemeProps) =>
+        getLightenDarkenColor(theme.variable.color.blue500, -30)};
+
       ${transform(`rotateY(90deg) rotateX(0deg) translateZ(${SIZE / 2}px)`)}
     }
 
     &:nth-child(3) {
-      background: ${getLightenDarkenColor(theme.color.blue500, -10)};
+      background: ${({ theme }: ThemeProps) =>
+        getLightenDarkenColor(theme.variable.color.blue500, -10)};
+
       ${transform(`rotateY(90deg) rotateX(-90deg) translateZ(${SIZE / 2}px)`)}
     }
 
     &:nth-child(4) {
       top: 0;
       left: 0;
-      background: ${theme.color.purple200};
+      background: ${({ theme }: ThemeProps) => theme.variable.color.purple200};
+
       ${transform(
         `rotateY(-180deg) rotateX(-180deg) translateZ(${SIZE * -3}px)`
       )}

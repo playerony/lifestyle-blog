@@ -1,3 +1,3 @@
-import theme from '@style/theme'
+import variable from '@admin/style/variable'
 
-export default (): boolean => document.body.clientWidth < theme.mobileScreen
+export default (): boolean => document.body.clientWidth < variable.mobileScreen

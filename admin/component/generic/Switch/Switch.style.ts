@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { ThemeProps } from '@style/theme'
+import { ThemeProps } from '@admin/style/theme'
 import {
   boxShadow,
   transition,
@@ -17,7 +17,7 @@ export const StyledCircle = styled.div`
   width: 27px;
   height: 27px;
   position: relative;
-  background: ${({ theme }: ThemeProps) => theme.color.white};
+  background: ${({ theme }: ThemeProps) => theme.variable.color.white};
 
   ${borderRadius('50px')}
   ${transition('all 500ms')}
@@ -33,7 +33,7 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
   height: 32px;
   font-size: 20px;
   position: relative;
-  background: ${({ theme }: ThemeProps) => theme.color.blue500};
+  background: ${({ theme }: ThemeProps) => theme.variable.color.blue500};
 
   ${borderRadius('50px')}
   ${transition('background 500ms linear')}
@@ -41,7 +41,7 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
   ${({ isChecked, theme }: ThemeProps<IStyledWrapperProps>) =>
     isChecked &&
     css`
-      background: ${theme.color.green400};
+      background: ${theme.variable.color.green400};
 
       & > ${StyledCircle} {
         left: 22px;
