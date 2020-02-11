@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Switch from '@component/generic/Switch'
 import ArticleForm from '../common/ArticleForm'
 
 import { IArticleCreatePageProps } from './ArticleCreatePage.type'
@@ -16,7 +15,6 @@ const ArticleCreatePage = ({ onCreate, errorData }: IArticleCreatePageProps): JS
       onSave={onCreate}
       errorData={errorData}
     />
-    <Switch />
   </StyledWrapper>
 )
 

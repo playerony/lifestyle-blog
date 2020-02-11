@@ -16,7 +16,7 @@ const Switch = ({
     setChecked(prev => !prev)
 
     if (onChange) {
-      onChange(checked)
+      onChange(!checked)
     }
   }
 
