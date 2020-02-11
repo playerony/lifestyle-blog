@@ -1,41 +1,50 @@
 import styled, { css } from 'styled-components'
 
 import { ThemeProps } from '@style/theme'
-import { borderRadius, transition, boxShadow, transform } from '@style/mixin'
+import {
+  boxShadow,
+  transition,
+  borderRadius
+} from '@style/mixin'
 
 interface IStyledWrapperProps {
   isChecked: boolean
 }
 
 export const StyledCircle = styled.div`
-  width: 28px;
-  height: 28px;
-  background-color: ${({ theme }: ThemeProps) => theme.color.white};
+  top: 2px;
+  left: 2px;
+  width: 27px;
+  height: 27px;
+  position: relative;
+  background: ${({ theme }: ThemeProps) => theme.color.white};
 
   ${borderRadius('50px')}
-  ${transition('all 300ms')}
+  ${transition('all 500ms')}
   ${boxShadow(`
     0 3px 1px 0 rgba(0, 0, 0, 0.1),
     0 1px 1px 0 rgba(0, 0, 0, 0.16),
-    0 3px 8px 0 rgba(0, 0, 0, 0.15)`)}
+    0 3px 8px 0 rgba(0, 0, 0, 0.15)
+  `)}
 `
 
 export const StyledWrapper = styled.div<IStyledWrapperProps>`
-  font-size: 20px;
-  height: 32px;
   width: 52px;
-  background-color: ${({ theme }: ThemeProps) => theme.color.white};
-  border: 2px solid ${({ theme }: ThemeProps) => theme.color.gray300};
+  height: 32px;
+  font-size: 20px;
+  position: relative;
+  background: ${({ theme }: ThemeProps) => theme.color.blue500};
 
   ${borderRadius('50px')}
+  ${transition('background 500ms linear')}
 
-  ${({ isChecked }: IStyledWrapperProps) =>
+  ${({ isChecked, theme }: ThemeProps<IStyledWrapperProps>) =>
     isChecked &&
     css`
-      background-color: red;
+      background: ${theme.color.green400};
 
       & > ${StyledCircle} {
-        ${transform('translate3d(calc(100% - 8px), 0, 0)')}
+        left: 22px;
       }
     `}
 `
