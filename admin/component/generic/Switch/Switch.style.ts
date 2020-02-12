@@ -8,8 +8,8 @@ interface IStyledWrapperProps {
 }
 
 export const StyledCircle = styled.div`
-  top: 2px;
-  left: 2px;
+  top: 3px;
+  left: 3px;
   width: 27px;
   height: 27px;
   position: relative;
@@ -40,7 +40,7 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
       background: ${variable.color.green400};
 
       & > ${StyledCircle} {
-        left: 22px;
+        left: 23px;
       }
     `}
 `
