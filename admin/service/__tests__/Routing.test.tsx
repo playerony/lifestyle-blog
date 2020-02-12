@@ -6,6 +6,7 @@ import { MemoryRouter } from 'react-router'
 import routeList from '@config/routeList'
 
 jest.mock('../../page/Login', () => LoginPageMock)
+jest.mock('../../component/common/Header', () => HeaderMock)
 jest.mock('../../page/article/ArticleList', () => ArticleListPageMock)
 jest.mock('../../page/article/ArticleCreate', () => ArticleCreatePageMock)
 
@@ -82,6 +83,8 @@ describe('Routing Service', () => {
     expect(wrapper.find(ArticleCreatePageMock)).toHaveLength(1)
   })
 })
+
+const HeaderMock = (): JSX.Element => <div>Header</div>
 
 const LoginPageMock = (): JSX.Element => <div>Login Page</div>
 
