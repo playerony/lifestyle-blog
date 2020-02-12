@@ -2,9 +2,9 @@ import React from 'react'
 
 import Switch from '@component/generic/Switch'
 
-import { StyledWrapper } from './Header.style'
+import useTheme from '@hook/utility/useTheme'
 
-import { useTheme } from '@service/ThemeManager'
+import { StyledWrapper } from './Header.style'
 
 const Header = (): JSX.Element => {
   const { toggle } = useTheme()

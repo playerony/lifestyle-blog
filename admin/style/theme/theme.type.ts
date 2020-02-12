@@ -6,8 +6,3 @@ export interface ITheme {
     background: string
   }
 }
-
-export enum EMode {
-  LIGHT = 'LIGHT',
-  DARK = 'DARK'
-}

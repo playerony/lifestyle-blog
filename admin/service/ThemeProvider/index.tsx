@@ -1,26 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider as Provider } from 'styled-components'
 
+import EThemeMode from '@type/common/EThemeMode'
 import { IThemeProviderProps } from './ThemeProvider.type'
 
-import { useTheme } from '../ThemeManager'
+import { ManageThemeContext } from '@context/ManageTheme'
 
 import getTheme from '@style/theme'
-import variable from '@style/variable'
-import { EMode } from '@style/theme/theme.type'
-
 
 const ThemeProvider = ({ children }: IThemeProviderProps): JSX.Element => {
-  const { mode } = useTheme()
+  const [themeMode, setThemeMode] = useState(EThemeMode.LIGHT)
 
-  const selectedTheme = getTheme(mode as EMode)
+  const toggle = (): void => {
+    const mode = themeMode === EThemeMode.DARK ? EThemeMode.LIGHT : EThemeMode.DARK
 
-  console.warn(selectedTheme)
+    setThemeMode(mode)
+  }
+
+  const selectedTheme = getTheme(themeMode)
 
   return (
-    <Provider theme={{ variable, mode: selectedTheme }}>
-      {children}
-    </Provider>
+    <ManageThemeContext.Provider value={{ mode: themeMode, toggle }}>
+      <Provider theme={{ selectedTheme }}>
+        {children}
+      </Provider>
+    </ManageThemeContext.Provider>
   )
 }
 
