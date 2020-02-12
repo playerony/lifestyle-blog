@@ -8,6 +8,7 @@ export default {
   '@style': path.resolve(__dirname, '../style/'),
   '@config': path.resolve(__dirname, '../config/'),
   '@asset': path.resolve(__dirname, '../../asset/'),
+  '@context': path.resolve(__dirname, '../context/'),
   '@service': path.resolve(__dirname, '../service/'),
   '@utility': path.resolve(__dirname, '../utility/'),
   '@component': path.resolve(__dirname, '../component/')

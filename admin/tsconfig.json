@@ -26,6 +26,7 @@
       "@page/*": ["./page/*"],
       "@style/*": ["./style/*"],
       "@config/*": ["./config/*"],
+      "@context/*": ["./context/*"],
       "@utility/*": ["./utility/*"],
       "@service/*": ["./service/*"],
       "@component/*": ["./component/*"]
