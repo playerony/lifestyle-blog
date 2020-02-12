@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import React, { useContext } from 'react'
 
-import ManageThemeContext from '../ManageTheme'
+import { ManageThemeContext } from '../ManageTheme'
 
 import EThemeMode from '@type/common/EThemeMode'
 

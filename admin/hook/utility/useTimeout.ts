@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useRef } from 'react'
 
-function useTimeout(callback: Function, delay: number): void {
+const useTimeout = (callback: Function, delay: number): void => {
   const savedCallback: MutableRefObject<Function | undefined> = useRef()
 
   useEffect(() => {

@@ -8,6 +8,4 @@ const initialData: IManageTheme = {
   toggle: (checked: boolean) => { }
 }
 
-const ManageThemeContext: Context<IManageTheme> = createContext(initialData)
-
-export default ManageThemeContext
+export const ManageThemeContext: Context<IManageTheme> = createContext(initialData)
