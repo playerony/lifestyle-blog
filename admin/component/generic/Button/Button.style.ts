@@ -9,8 +9,8 @@ import {
   borderRadius,
   justifyContent
 } from '@style/mixin'
+import variable from '@style/variable'
 import getRem from '@style/helper/getRem'
-import { ThemeProps } from '@admin/style/theme'
 
 export const StyledButton = styled.button<IButtonProps>`
   width: 100%;
@@ -18,8 +18,8 @@ export const StyledButton = styled.button<IButtonProps>`
   max-width: 500px;
   position: relative;
   font-size: ${getRem(32)};
-  color: ${({ theme }: ThemeProps) => theme.variable.color.white};
-  background-color: ${({ theme }: ThemeProps) => theme.variable.color.green400};
+  color: ${variable.color.white};
+  background-color: ${variable.color.green400};
 
   ${flexbox()}
   ${borderRadius('4px')}
@@ -27,34 +27,34 @@ export const StyledButton = styled.button<IButtonProps>`
   ${justifyContent('center')}
   ${transition('background-color 0.5s linear')}
 
-  ${({ marginTop, theme }: ThemeProps<IButtonProps>) =>
+  ${({ marginTop }: IButtonProps) =>
     marginTop &&
     css`
-      margin-top: ${theme.variable.paddingSmall}px;
+      margin-top: ${variable.paddingSmall}px;
     `}
     
-  ${({ floating, theme }: ThemeProps<IButtonProps>) =>
+  ${({ floating }: IButtonProps) =>
     floating &&
     css`
       width: 100px;
       height: 100px;
       position: fixed;
-      right: ${theme.variable.paddingSmall}px;
-      bottom: ${theme.variable.paddingSmall}px;
+      right: ${variable.paddingSmall}px;
+      bottom: ${variable.paddingSmall}px;
 
       ${borderRadius('50px')}
     `}
 
   &:hover {
-    background-color: ${({ theme }: ThemeProps) => theme.variable.color.blue500};
+    background-color: ${variable.color.blue500};
   }
 
   &:disabled {
-    background-color: ${({ theme }: ThemeProps) => theme.variable.color.gray500};
+    background-color: ${variable.color.gray500};
 
     &:focus,
     &:hover {
-      background-color: ${({ theme }: ThemeProps) => theme.variable.color.gray500};
+      background-color: ${variable.color.gray500};
     }
   }
 `
