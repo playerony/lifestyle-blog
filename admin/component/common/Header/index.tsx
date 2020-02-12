@@ -4,7 +4,7 @@ import Switch from '@component/generic/Switch'
 
 import useTheme from '@hook/utility/useTheme'
 
-import { StyledWrapper, SwitchWrapper } from './Header.style'
+import { StyledWrapper, SwitchWrapper, StyledSunIcon, StyledMoonIcon } from './Header.style'
 
 const Header = (): JSX.Element => {
   const { toggle } = useTheme()
@@ -15,13 +15,13 @@ const Header = (): JSX.Element => {
         <use xlinkHref="#logo" />
       </svg>
       <SwitchWrapper>
-        <svg>
+        <StyledSunIcon>
           <use xlinkHref="#sun" />
-        </svg>
+        </StyledSunIcon>
         <Switch onChange={toggle} />
-        <svg>
+        <StyledMoonIcon>
           <use xlinkHref="#moon" />
-        </svg>
+        </StyledMoonIcon>
       </SwitchWrapper>
     </StyledWrapper>
   )
