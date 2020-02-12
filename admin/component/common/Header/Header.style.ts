@@ -1,23 +1,36 @@
 import styled from 'styled-components'
 
 import variable from '@style/variable'
-import { flexbox, alignItems, boxShadow, justifyContent } from '@style/mixin'
+import { ThemeProps } from '@style/theme'
+import {
+  flexbox,
+  boxShadow,
+  alignItems,
+  transition,
+  justifyContent
+} from '@style/mixin'
 
 export const StyledWrapper = styled.header`
   z-index: 5;
   position: fixed;
-  padding: ${variable.paddingSmall}px ${variable.paddingBig}px;
-  background-color: ${variable.color.white};
   width: calc(100% - ${variable.paddingBig * 2}px);
+  padding: ${variable.paddingSmall}px ${variable.paddingBig}px;
+  background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${flexbox()}
   ${justifyContent('space-between')}
+  ${transition('background-color 500ms linear')}
   ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
 `
 
 export const SwitchWrapper = styled.div`
   ${flexbox()}
   ${alignItems('center')}
+
+  > svg {
+    ${transition('fill 500ms linear')}
+    fill: ${({ theme }: ThemeProps) => theme.color.icon};
+  }
 `
 
 export const StyledLogoIcon = styled.svg`

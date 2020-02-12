@@ -33,7 +33,7 @@ const variable: IVariable = {
     gray500: '#c9c9c9',
     gray600: '#979797',
     gray700: '#999999',
-    gray900: '$33393e',
+    gray900: '#33393e',
 
     white: '#ffffff',
     black: '#111933'

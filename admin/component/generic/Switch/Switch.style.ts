@@ -28,6 +28,7 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
   width: 52px;
   height: 32px;
   font-size: 20px;
+  cursor: pointer;
   position: relative;
   background: ${variable.color.blue500};
 
