@@ -6,7 +6,7 @@ import {
   justifyContent,
   flexDirection
 } from '@style/mixin'
-import { ThemeProps } from '@admin/style/theme'
+import variable from '@style/variable'
 
 export const StyledContentWrapper = styled.div`
   width: 100%;
@@ -21,6 +21,6 @@ export const StyledContentWrapper = styled.div`
 
 export const StyledForm = styled.form`
   width: calc(
-    100% - ${({ theme }: ThemeProps) => theme.variable.paddingMedium * 2}px
+    100% - ${variable.paddingMedium * 2}px
   );
 `

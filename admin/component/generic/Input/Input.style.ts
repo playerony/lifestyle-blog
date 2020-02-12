@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { ThemeProps } from '@admin/style/theme'
+import variable from '@style/variable'
 import { transition, linearGradient, borderRadius } from '@style/mixin'
 
 export const StyledInputWrapper = styled.div`
@@ -17,29 +17,29 @@ export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
   top: -10px;
   padding: 3px;
   position: absolute;
-  left: ${({ theme }: ThemeProps) => theme.variable.paddingSmall}px;
-  color: ${({ theme }: ThemeProps) => theme.variable.color.gray700};
+  left: ${variable.paddingSmall}px;
+  color: ${variable.color.gray700};
 
   ${borderRadius('5px')}
   ${transition('all 0.5s linear')}
 
-  ${({ theme }: ThemeProps) => linearGradient(
+  ${linearGradient(
     '180deg',
     `rgba(0, 0, 0, 0) 44%`,
-    `${theme.variable.color.white} 0`,
-    `${theme.variable.color.white} 100%`
+    `${variable.color.white} 0`,
+    `${variable.color.white} 100%`
   )}
 
-  ${({ isFocus, theme }: ThemeProps<IStyledInputLabelProps>) =>
+  ${({ isFocus }: IStyledInputLabelProps) =>
     isFocus &&
     css`
-      color: ${theme.variable.color.blue700};
+      color: ${variable.color.blue700};
     `}
 
-  ${({ isError, theme }: ThemeProps<IStyledInputLabelProps>) =>
+  ${({ isError }: IStyledInputLabelProps) =>
     isError &&
     css`
-      color: ${theme.variable.color.red500};
+      color: ${variable.color.red500};
     `}
 `
 
@@ -50,29 +50,29 @@ interface IStyledInputProps {
 export const StyledInput = styled.input<IStyledInputProps>`
   height: 46px;
   width: calc(100% - 25px);
-  color: ${({ theme }: ThemeProps) => theme.variable.color.blue800};
-  padding-left: ${({ theme }: ThemeProps) => theme.variable.paddingSmall}px;
-  background-color: ${({ theme }: ThemeProps) => theme.variable.color.white};
-  border: 2px solid ${({ theme }: ThemeProps) => theme.variable.color.gray700};
+  color: ${variable.color.blue800};
+  padding-left: ${variable.paddingSmall}px;
+  background-color: ${variable.color.white};
+  border: 2px solid ${variable.color.gray700};
 
   ${borderRadius('4px')}
   ${transition('all 0.5s linear')}
 
   &::placeholder {
-    color: ${({ theme }: ThemeProps) => theme.variable.color.gray500};
+    color: ${variable.color.gray500};
   }
 
   &:focus {
-    border-color: ${({ theme }: ThemeProps) => theme.variable.color.blue700};
+    border-color: ${variable.color.blue700};
   }
 
-  ${({ isError, theme }: ThemeProps<IStyledInputProps>) =>
+  ${({ isError }: IStyledInputProps) =>
     isError &&
     css`
-      border-color: ${theme.variable.color.red500};
+      border-color: ${variable.color.red500};
 
       &:focus {
-        border-color: ${theme.variable.color.red500};
+        border-color: ${variable.color.red500};
       }
     `}
 `
@@ -80,5 +80,5 @@ export const StyledInput = styled.input<IStyledInputProps>`
 export const StyledErrorLabel = styled.p`
   height: 20px;
   padding: 3px 0 0 23px;
-  color: ${({ theme }: ThemeProps) => theme.variable.color.red500};
+  color: ${variable.color.red500};
 `

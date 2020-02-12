@@ -17,11 +17,11 @@ const ThemeProvider = ({ children }: IThemeProviderProps): JSX.Element => {
     setThemeMode(mode)
   }
 
-  const selectedTheme = getTheme(themeMode)
+  const theme = getTheme(themeMode)
 
   return (
     <ManageThemeContext.Provider value={{ mode: themeMode, toggle }}>
-      <Provider theme={{ selectedTheme }}>
+      <Provider theme={{ ...theme }}>
         {children}
       </Provider>
     </ManageThemeContext.Provider>

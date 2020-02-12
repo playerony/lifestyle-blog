@@ -10,15 +10,15 @@ import {
   flexbox,
   justifyContent
 } from '@style/mixin'
-import { ThemeProps } from '@admin/style/theme'
+import variable from '@style/variable'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
-  padding: ${({ theme }: ThemeProps) => theme.variable.paddingMedium}px;
-  background-color: ${({ theme }: ThemeProps) => theme.variable.color.white};
-  padding-top: ${({ theme }: ThemeProps) => theme.variable.paddingMedium - 5}px;
-  padding-bottom: ${({ theme }: ThemeProps) => theme.variable.paddingMedium - 23}px;
+  padding: ${variable.paddingMedium}px;
+  background-color: ${variable.color.white};
+  padding-top: ${variable.paddingMedium - 5}px;
+  padding-bottom: ${variable.paddingMedium - 23}px;
 
   ${borderRadius('12px')}
   ${transform('translate(-50%, -50%)')}
@@ -26,7 +26,7 @@ export const StyledWrapper = styled.div`
 `
 
 export const StyledHeader = styled.h1`
-  padding-bottom: ${({ theme }: ThemeProps) => theme.variable.paddingSmall}px;
+  padding-bottom: ${variable.paddingSmall}px;
 `
 
 export const StyledInputWrapper = styled.section`
@@ -44,7 +44,7 @@ export const StyledButton = styled.button`
   max-width: 48px;
   min-height: 48px;
   max-height: 48px;
-  border: 2px solid ${({ theme }: ThemeProps) => theme.variable.color.gray700};
+  border: 2px solid ${variable.color.gray700};
 
   ${borderRadius('50px')}
   ${transition('all 0.5s linear')}
@@ -52,7 +52,7 @@ export const StyledButton = styled.button`
   & > svg {
     width: 12px;
     height: 12px;
-    fill: ${({ theme }: ThemeProps) => theme.variable.color.gray700};
+    fill: ${variable.color.gray700};
 
     ${transform('rotate(180deg)')}
     ${transition('all 0.5s linear')}
@@ -60,22 +60,22 @@ export const StyledButton = styled.button`
 
   &:focus,
   &:hover {
-    border-color: ${({ theme }: ThemeProps) => theme.variable.color.blue700};
+    border-color: ${variable.color.blue700};
 
     & > svg {
-      fill: ${({ theme }: ThemeProps) => theme.variable.color.blue700};
+      fill: ${variable.color.blue700};
     }
   }
 
   &:disabled {
-    background-color: ${({ theme }: ThemeProps) => theme.variable.color.gray500};
+    background-color: ${variable.color.gray500};
 
     &:focus,
     &:hover {
-      border-color: ${({ theme }: ThemeProps) => theme.variable.color.gray700};
+      border-color: ${variable.color.gray700};
 
       & > svg {
-        fill: ${({ theme }: ThemeProps) => theme.variable.color.gray700};
+        fill: ${variable.color.gray700};
       }
     }
   }

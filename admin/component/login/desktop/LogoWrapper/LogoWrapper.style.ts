@@ -8,14 +8,13 @@ import {
   alignItems,
   justifyContent
 } from '@style/mixin'
-import { ThemeProps } from '@style/theme'
+import variable from '@style/variable'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
-  padding: ${({ theme }: ThemeProps) =>
-    `${theme.variable.paddingBig}px ${theme.variable.paddingMedium}px`};
-  background-color: ${({ theme }: ThemeProps) => theme.variable.color.white};
+  background-color: ${variable.color.white};
+  padding: ${`${variable.paddingBig}px ${variable.paddingMedium}px`};
 
   ${flexbox()}
   ${alignItems('center')}
