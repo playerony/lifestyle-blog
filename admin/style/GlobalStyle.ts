@@ -1,13 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
-import { ThemeProps } from './theme'
 import getRem from './helper/getRem'
 import variable from '@style/variable'
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${variable.font.normal};
-    background-color: ${({ theme }: ThemeProps) => theme.color.background};
+    background-color: ${variable.color.background};
   }
 
   label {
