@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { ThemeProps } from '@admin/style/theme'
+import variable from '@style/variable'
 
 export const StyledWrapper = styled.div`
-  padding: ${({ theme }: ThemeProps) => theme.variable.paddingBig}px;
+  padding: ${variable.paddingBig}px;
 `
 
 export const StyledHeader = styled.h1`
-  padding-bottom: ${({ theme }: ThemeProps) => theme.variable.paddingMedium}px;
+  padding-bottom: ${variable.paddingMedium}px;
 `
