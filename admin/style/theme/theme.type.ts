@@ -3,6 +3,8 @@ export interface ITheme {
     card: string
     text: string
     icon: string
+    input: string
+    border: string
     background: string
   }
 }

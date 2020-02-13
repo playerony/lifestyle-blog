@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import variable from '@style/variable'
+import { ThemeProps } from '@style/theme'
 import { transition, linearGradient, borderRadius } from '@style/mixin'
 
 export const StyledInputWrapper = styled.div`
@@ -18,16 +19,17 @@ export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
   padding: 3px;
   position: absolute;
   left: ${variable.paddingSmall}px;
-  color: ${variable.color.gray700};
+  background-position: 0 0;
+  color: ${({ theme }: ThemeProps) => theme.color.border};
 
   ${borderRadius('5px')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
 
-  ${linearGradient(
+  ${({ theme }: ThemeProps) => linearGradient(
     '180deg',
     `rgba(0, 0, 0, 0) 44%`,
-    `${variable.color.white} 0`,
-    `${variable.color.white} 100%`
+    `${theme.color.input} 0`,
+    `${theme.color.input} 100%`
   )}
 
   ${({ isFocus }: IStyledInputLabelProps) =>
@@ -50,13 +52,13 @@ interface IStyledInputProps {
 export const StyledInput = styled.input<IStyledInputProps>`
   height: 46px;
   width: calc(100% - 25px);
-  color: ${variable.color.blue800};
   padding-left: ${variable.paddingSmall}px;
-  background-color: ${variable.color.white};
-  border: 2px solid ${variable.color.gray700};
+  color: ${({ theme }: ThemeProps) => theme.color.text};
+  background-color: ${({ theme }: ThemeProps) => theme.color.input};
+  border: 2px solid ${({ theme }: ThemeProps) => theme.color.border};
 
   ${borderRadius('4px')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
 
   &::placeholder {
     color: ${variable.color.gray500};
@@ -64,6 +66,8 @@ export const StyledInput = styled.input<IStyledInputProps>`
 
   &:focus {
     border-color: ${variable.color.blue700};
+
+    ${transition('border-color 500ms linear')}
   }
 
   ${({ isError }: IStyledInputProps) =>
