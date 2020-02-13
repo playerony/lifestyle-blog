@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import variable from '@style/variable'
-import { ThemeProps } from '@style/theme'
 import {
   flexbox,
   boxShadow,
@@ -9,6 +7,8 @@ import {
   transition,
   justifyContent
 } from '@style/mixin'
+import variable from '@style/variable'
+import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.header`
   width: calc(100% - ${variable.paddingBig * 2}px);
@@ -16,6 +16,7 @@ export const StyledWrapper = styled.header`
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${flexbox()}
+  ${alignItems('center')}
   ${justifyContent('space-between')}
   ${transition('background-color 500ms linear')}
   ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
@@ -47,4 +48,13 @@ export const StyledMoonIcon = styled.svg`
   width: 35px;
   height: 35px;
   padding-left: 3px;
+`
+
+export const StyledLogoutIcon = styled.svg`
+  width: 30px;
+  height: 40px;
+  cursor: pointer;
+  fill: ${({ theme }: ThemeProps) => theme.color.icon};
+
+  ${transition('fill 500ms linear')}
 `
