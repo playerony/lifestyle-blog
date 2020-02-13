@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import variable from '@style/variable'
+import { ThemeProps } from '@style/theme'
 import { borderRadius, transition, linearGradient } from '@style/mixin'
 
 interface IStyledWrapperProps {
@@ -13,11 +14,11 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
   min-height: 500px;
   position: relative;
   padding: ${variable.paddingSmall}px;
-  background-color: ${variable.color.white};
-  border: 2px solid ${variable.color.gray700};
+  background-color: ${({ theme }: ThemeProps) => theme.color.input};
+  border: 2px solid ${({ theme }: ThemeProps) => theme.color.border};
 
   ${borderRadius('4px')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
 
   ${({ isFocus }: IStyledWrapperProps) =>
     isFocus &&
@@ -42,15 +43,16 @@ export const StyledLabel = styled.p<IStyledLabelProps>`
   padding: 3px;
   position: absolute;
   left: ${variable.paddingSmall}px;
-  color: ${variable.color.gray700};
+  color: ${({ theme }: ThemeProps) => theme.color.border};
 
   ${borderRadius('5px')}
-  ${transition('all 0.5s linear')}
-  ${linearGradient(
+  ${transition('all 500ms linear')}
+  
+  ${({ theme }: ThemeProps) => linearGradient(
     '180deg',
     `rgba(0, 0, 0, 0) 44%`,
-    `${variable.color.white} 0`,
-    `${variable.color.white} 100%`
+    `${theme.color.input} 0`,
+    `${theme.color.input} 100%`
   )}
 
   ${({ isFocus }: IStyledLabelProps) =>

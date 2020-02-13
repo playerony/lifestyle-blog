@@ -15,10 +15,12 @@ const GlobalStyle = createGlobalStyle`
 
   label {
     font-size: ${getRem(20)};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
   }
 
   p {
     font-size: ${getRem(14)};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
   }
 
   h1 {

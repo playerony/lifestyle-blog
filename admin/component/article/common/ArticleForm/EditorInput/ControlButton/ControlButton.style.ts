@@ -10,10 +10,9 @@ interface IStyledButton {
 export const StyledButton = styled.label<IStyledButton>`
   cursor: pointer;
   margin-bottom: 5px;
-  color: ${variable.color.black};
   margin-right: ${variable.paddingSmall}px;
 
-  ${transition('color 0.5s linear')}
+  ${transition('color 500ms linear')}
 
   ${({ active }: IStyledButton) =>
     active &&
