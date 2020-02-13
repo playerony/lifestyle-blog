@@ -5,7 +5,7 @@ jest.doMock('../../hook/login/useLoginMutation', () =>
 jest.doMock('../../component/login/mobile', () => LoginPageMobile)
 
 jest.mock('react-router-dom', () => {
-  const originalModule = jest.requireActual('react-router-dom');
+  const originalModule = jest.requireActual('react-router-dom')
 
   return {
     __esModule: true,
