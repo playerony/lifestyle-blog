@@ -2,7 +2,7 @@ import * as constant from '../constant'
 
 describe('constant defuned variable list', () => {
   it('should contain four values', () => {
-    expect(Object.keys(constant)).toHaveLength(4)
+    expect(Object.keys(constant)).toHaveLength(5)
   })
 
   it('should have defined AUTH_TOKEN property', () => {
@@ -19,5 +19,9 @@ describe('constant defuned variable list', () => {
 
   it('should have defined VALIDATION_ERROR property', () => {
     expect(constant.VALIDATION_ERROR).toEqual('VALIDATION_ERROR')
+  })
+
+  it('should have defined UNAUTHENTICATED property', () => {
+    expect(constant.UNAUTHENTICATED).toEqual('UNAUTHENTICATED')
   })
 })
