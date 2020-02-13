@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import variable from '@style/variable'
 import getRem from '@style/helper/getRem'
+import { ThemeProps } from '@style/theme'
 import { borderRadius, transition, linearGradient } from '@style/mixin'
 
 export const StyledWrapper = styled.div`
@@ -19,17 +20,17 @@ export const StyledSelectLabel = styled.p<IStyledSelectLabelProps>`
   z-index: 2;
   padding: 3px;
   position: absolute;
-  color: ${variable.color.gray700};
   left: ${variable.paddingSmall}px;
+  color: ${({ theme }: ThemeProps) => theme.color.border};
 
   ${borderRadius('5px')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
 
-  ${linearGradient(
+  ${({ theme }: ThemeProps) => linearGradient(
     '180deg',
     `rgba(0, 0, 0, 0) 44%`,
-    `${variable.color.white} 0`,
-    `${variable.color.white} 100%`
+    `${theme.color.input} 0`,
+    `${theme.color.input} 100%`
   )}
 
   ${({ isFocus }: IStyledSelectLabelProps) =>
@@ -54,9 +55,10 @@ export const StyledSelectWrapper = styled.div<IStyledSelectWrapperProps>`
     &__control {
       width: 100%;
       min-height: 50px;
-      border: 2px solid ${variable.color.gray700};
+      background-color: ${({ theme }: ThemeProps) => theme.color.input};
+      border: 2px solid ${({ theme }: ThemeProps) => theme.color.border};
 
-      ${transition('border-color 0.5s linear')}
+      ${transition('all 500ms linear')}
 
       ${({ isError }: IStyledSelectWrapperProps) =>
         isError &&
