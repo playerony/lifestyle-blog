@@ -11,8 +11,6 @@ import {
 } from '@style/mixin'
 
 export const StyledWrapper = styled.header`
-  z-index: 5;
-  position: fixed;
   width: calc(100% - ${variable.paddingBig * 2}px);
   padding: ${variable.paddingSmall}px ${variable.paddingBig}px;
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
