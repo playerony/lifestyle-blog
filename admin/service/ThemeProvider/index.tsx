@@ -11,8 +11,8 @@ import getTheme from '@style/theme'
 const ThemeProvider = ({ children }: IThemeProviderProps): JSX.Element => {
   const [themeMode, setThemeMode] = useState(EThemeMode.LIGHT)
 
-  const toggle = (): void => {
-    const mode = themeMode === EThemeMode.DARK ? EThemeMode.LIGHT : EThemeMode.DARK
+  const toggle = (checked: boolean): void => {
+    const mode = checked ? EThemeMode.DARK : EThemeMode.LIGHT
 
     setThemeMode(mode)
   }
