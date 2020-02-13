@@ -12,6 +12,7 @@ describe('alias Configuration', () => {
       '@style',
       '@config',
       '@asset',
+      '@context',
       '@service',
       '@utility',
       '@component'
@@ -57,6 +58,10 @@ describe('alias Configuration', () => {
 
     it('should return proper value for @type property', () => {
       expect(alias['@type'].search('type')).toBeTruthy()
+    })
+
+    it('should return proper value for @context property', () => {
+      expect(alias['@context'].search('context')).toBeTruthy()
     })
   })
 })
