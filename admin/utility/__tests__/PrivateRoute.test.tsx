@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 
 import routeList from '@config/routeList'
 
-const createMemoryMock = (token: string | null) => {
+const createMemoryMock = (token: string | null): typeof jest => {
   let memoryGetMock = jest.fn().mockImplementationOnce(() => token)
 
   class MemoryMock {

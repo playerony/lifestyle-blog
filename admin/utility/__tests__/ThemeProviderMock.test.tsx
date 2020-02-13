@@ -4,13 +4,13 @@ import { ThemeProviderProps } from 'styled-components'
 
 const themeMock = jest.fn()
 jest.doMock('styled-components', () => ({
-  ThemeProviderMock
+  ThemeProvider
 }))
 
 describe('ThemeProviderMock Component', () => {
   it('should render', () => {
-    const ThemeProvider = require('../ThemeProviderMock').default
-    const wrapper = shallow(<Component />, { wrappingComponent: ThemeProvider })
+    const ThemeProviderMock = require('../ThemeProviderMock').default
+    const wrapper = shallow(<Component />, { wrappingComponent: ThemeProviderMock })
 
     expect(wrapper.exists()).toBeTruthy()
   })
@@ -25,7 +25,7 @@ describe('ThemeProviderMock Component', () => {
 
 const Component = (): JSX.Element => <h1>Element</h1>
 
-const ThemeProviderMock = ({ theme, children }: ThemeProviderProps<{}>): JSX.Element => {
+const ThemeProvider = ({ theme, children }: ThemeProviderProps<{}>): JSX.Element => {
   themeMock(theme)
 
   return children as JSX.Element

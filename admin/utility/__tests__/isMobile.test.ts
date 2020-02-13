@@ -1,10 +1,8 @@
-describe('isMobile Function', () => {
-  beforeAll(() => {
-    jest.mock('../../style/theme', () => ({
-      mobileScreen: 500
-    }))
-  })
+jest.mock('../../style/theme', () => ({
+  mobileScreen: 500
+}))
 
+describe('isMobile Function', () => {
   it('should detect mobile screen', () => {
     jest
       .spyOn(document.body, 'clientWidth', 'get')
