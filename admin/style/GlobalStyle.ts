@@ -1,12 +1,16 @@
 import { createGlobalStyle } from 'styled-components'
 
+import variable from './variable'
+import { ThemeProps } from './theme'
 import getRem from './helper/getRem'
-import variable from '@style/variable'
+import { transition } from './mixin'
 
 const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${variable.font.normal};
-    background-color: ${variable.color.background};
+    background-color: ${({ theme }: ThemeProps) => theme.color.background};
+
+    ${transition('background-color 500ms linear')}
   }
 
   label {
@@ -20,43 +24,55 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-weight: bold;
     font-size: ${getRem(32)};
-    color: ${variable.color.black};
     font-family: ${variable.font.bold};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${transition('color 500ms linear')}
   }
 
   h2 {
     font-weight: bold;
     font-size: ${getRem(24)};
-    color: ${variable.color.black};
     font-family: ${variable.font.bold};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${transition('color 500ms linear')}
   }
 
   h3 {
     font-weight: bold;
     font-size: ${getRem(19)};
-    color: ${variable.color.black};
     font-family: ${variable.font.bold};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${transition('color 500ms linear')}
   }
 
   h4 {
     font-weight: bold;
     font-size: ${getRem(16)};
-    color: ${variable.color.black};
     font-family: ${variable.font.bold};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${transition('color 500ms linear')}
   }
 
   h5 {
     font-weight: bold;
     font-size: ${getRem(13)};
-    color: ${variable.color.black};
     font-family: ${variable.font.bold};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${transition('color 500ms linear')}
   }
 
   h6 {
     font-weight: bold;
     font-size: ${getRem(11)};
-    color: ${variable.color.black};
     font-family: ${variable.font.bold};
+    color: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${transition('color 500ms linear')}
   }
 `
 
