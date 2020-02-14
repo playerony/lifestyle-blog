@@ -23,7 +23,7 @@ jest.mock('react-router-dom', () => {
 })
 
 describe('Routing Service', () => {
-  it('should render ArticleCreatePage as default', () => {
+  it('should render ArticleListPageMock as default', () => {
     const Routing = require('../Routing').default
 
     const wrapper = mount(
@@ -32,7 +32,7 @@ describe('Routing Service', () => {
       </MemoryRouter>
     )
 
-    expect(wrapper.find(ArticleCreatePageMock)).toHaveLength(1)
+    expect(wrapper.find(ArticleListPageMock)).toHaveLength(1)
   })
 
   it('should render any route', () => {

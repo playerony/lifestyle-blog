@@ -24,7 +24,6 @@ describe('ArticleCreate Page', () => {
     const articleCreatePageProps = wrapper.find(ArticleCreatePage).props()
     expect(articleCreatePageProps.onCreate).toBeDefined()
     expect(articleCreatePageProps.errorData).toEqual(ERROR_DATA)
-
   })
 })
 
