@@ -4,7 +4,7 @@ import { mount } from 'enzyme'
 import LoadingPage from '../Loading'
 import Loader from '@component/common/Loader'
 
-describe('LoadingPage Component', () => {
+describe('Loading Page', () => {
   it('should render', () => {
     const wrapper = mount(<LoadingPage />)
 
