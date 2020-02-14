@@ -1,11 +1,26 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
-import ArticleListPageMobile from './mobile'
-import ArticleListPageDesktop from './desktop'
+import Button from '@component/generic/Button'
 
-import isMobile from '@utility/isMobile'
+import routeList from '@config/routeList'
 
-const ArticleListPage = (): JSX.Element =>
-  React.createElement(isMobile() ? ArticleListPageMobile : ArticleListPageDesktop)
+const ArticleListPage = (): JSX.Element => {
+  const history = useHistory()
+
+  const handleRedirect = (): void =>
+    history.push(routeList.article.create)
+
+  return (
+    <>
+      <Button
+        floating={true}
+        onClick={handleRedirect}
+      >
+        +
+      </Button>
+    </>
+  )
+}
 
 export default ArticleListPage
