@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
 import { mount } from 'enzyme'
+import React, { useState, useEffect } from 'react'
 import { MockedProvider } from '@apollo/react-testing'
 
 import useLoginMutation from '../useLoginMutation'
+
 import { LOGIN_MUTATION_QUERY } from '../useLoginMutation/useLoginMutation.query'
 
 describe('useLoginMutation Hook', () => {
@@ -37,7 +38,7 @@ describe('useLoginMutation Hook', () => {
     }
 
     mount(
-      <MockedProvider mocks={LOGIN_MOCKS}>
+      <MockedProvider mocks={LOGIN_MOCK}>
         <Component />
       </MockedProvider>
     )
@@ -55,7 +56,7 @@ const LOGIN_RESULT_DATA = {
   ]
 }
 
-const LOGIN_MOCKS = [
+const LOGIN_MOCK = [
   {
     request: {
       query: LOGIN_MUTATION_QUERY,

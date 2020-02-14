@@ -8,7 +8,7 @@ const useTimeout = (callback: Function, delay: number): void => {
   }, [callback])
 
   useEffect(() => {
-    const tick = () => {
+    const tick = (): void => {
       if (savedCallback?.current) {
         savedCallback.current()
       }
