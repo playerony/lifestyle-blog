@@ -20,7 +20,5 @@ export const StyledContentWrapper = styled.div`
 `
 
 export const StyledForm = styled.form`
-  width: calc(
-    100% - ${variable.paddingMedium * 2}px
-  );
+  width: calc(100% - ${variable.paddingMedium * 2}px);
 `

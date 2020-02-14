@@ -10,8 +10,8 @@ import {
   flexbox,
   justifyContent
 } from '@style/mixin'
-import { ThemeProps } from '@style/theme'
 import variable from '@style/variable'
+import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;

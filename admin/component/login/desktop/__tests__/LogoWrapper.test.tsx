@@ -2,6 +2,7 @@ import React from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import LogoWrapper from '../LogoWrapper'
+
 import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>

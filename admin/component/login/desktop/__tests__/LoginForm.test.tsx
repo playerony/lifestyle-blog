@@ -3,6 +3,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import LoginForm from '../LoginForm'
 import Input from '@component/generic/Input'
+
 import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import ILoginRequest from '@type/login/ILoginRequest'
@@ -27,7 +28,7 @@ describe('LoginForm Component', () => {
   })
 
   describe('inputs', () => {
-    it('should render three inputs', () => {
+    it('should render two inputs', () => {
       const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
       expect(wrapper.find(Input)).toHaveLength(2)
@@ -40,8 +41,8 @@ describe('LoginForm Component', () => {
       expect(inputProps.name).toEqual('login')
       expect(inputProps.label).toEqual('Login')
       expect(inputProps.onChange).toBeDefined()
-      expect(inputProps.placeholder).toEqual('What is your login?')
       expect(inputProps.errorMessage).toEqual('error message')
+      expect(inputProps.placeholder).toEqual('What is your login?')
     })
 
     it('should render password input', () => {

@@ -19,9 +19,8 @@ export const StyledWrapper = styled.div`
 
   ${flexbox()}
   ${alignItems('center')}
-  ${justifyContent('center')}
-
   ${borderRadius('12px')}
+  ${justifyContent('center')}
   ${transform('translate(-50%, -50%)')}
   ${boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')}
 `
