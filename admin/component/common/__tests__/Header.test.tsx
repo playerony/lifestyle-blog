@@ -29,6 +29,7 @@ describe('Header Component', () => {
   it('should render svg logo', () => {
     const wrapper = mountComponent(<Header />)
 
+    expect(wrapper.find('svg').first().props().onClick).toBeDefined()
     expect(wrapper.find('use').first().props().xlinkHref).toEqual('#logo')
   })
 
