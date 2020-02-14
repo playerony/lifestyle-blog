@@ -7,5 +7,6 @@ export const StyledWrapper = styled.div`
 `
 
 export const StyledHeader = styled.h1`
+  text-align: center;
   padding-bottom: ${variable.paddingMedium}px;
 `
