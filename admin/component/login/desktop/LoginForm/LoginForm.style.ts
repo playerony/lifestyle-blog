@@ -10,15 +10,16 @@ import {
   flexbox,
   justifyContent
 } from '@style/mixin'
+import { ThemeProps } from '@style/theme'
 import variable from '@style/variable'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
   padding: ${variable.paddingMedium}px;
-  background-color: ${variable.color.white};
   padding-top: ${variable.paddingMedium - 5}px;
   padding-bottom: ${variable.paddingMedium - 23}px;
+  background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('12px')}
   ${transform('translate(-50%, -50%)')}
@@ -45,6 +46,7 @@ export const StyledButton = styled.button`
   min-height: 48px;
   max-height: 48px;
   border: 2px solid ${variable.color.gray700};
+  background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('50px')}
   ${transition('all 0.5s linear')}

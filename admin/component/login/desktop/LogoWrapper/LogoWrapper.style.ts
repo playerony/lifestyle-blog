@@ -9,11 +9,12 @@ import {
   justifyContent
 } from '@style/mixin'
 import variable from '@style/variable'
+import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
   min-width: 500px;
   position: absolute;
-  background-color: ${variable.color.white};
+  background-color: ${({ theme }: ThemeProps) => theme.color.card};
   padding: ${`${variable.paddingBig}px ${variable.paddingMedium}px`};
 
   ${flexbox()}
