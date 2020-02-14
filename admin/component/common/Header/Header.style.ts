@@ -35,6 +35,7 @@ export const SwitchWrapper = styled.div`
 export const StyledLogoIcon = styled.svg`
   width: 40px;
   height: 60px;
+  cursor: pointer;
 `
 
 export const StyledSunIcon = styled.svg`

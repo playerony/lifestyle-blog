@@ -23,6 +23,8 @@ const Header = (): JSX.Element => {
   const history = useHistory()
   const { toggle } = useTheme()
 
+  const handleLogoClick = (): void => history.push(routeList.base)
+
   const handleLogout = (): void => {
     Memory.remove(AUTH_TOKEN)
     history.push(routeList.base)
@@ -30,7 +32,7 @@ const Header = (): JSX.Element => {
 
   return (
     <StyledWrapper>
-      <StyledLogoIcon>
+      <StyledLogoIcon onClick={handleLogoClick}>
         <use xlinkHref="#logo" />
       </StyledLogoIcon>
       <SwitchWrapper>
