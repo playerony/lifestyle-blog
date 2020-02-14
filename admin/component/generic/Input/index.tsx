@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 import { IInputProps } from './Input.type'
 
 import {
-  StyledInputWrapper,
-  StyledInputLabel,
+  StyledInput,
   StyledErrorLabel,
-  StyledInput
+  StyledInputLabel,
+  StyledInputWrapper,
 } from './Input.style'
 
 export const Input = ({

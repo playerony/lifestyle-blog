@@ -2,6 +2,7 @@ import React from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import Input from '../Input'
+
 import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
@@ -11,7 +12,7 @@ describe('Input Component', () => {
   it('should render', () => {
     const wrapper = mountComponent(<Input />)
 
-    expect(wrapper).toBeDefined()
+    expect(wrapper.exists()).toBeTruthy()
   })
 
   describe('label element', () => {

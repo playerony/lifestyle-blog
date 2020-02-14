@@ -26,12 +26,13 @@ export const StyledSelectLabel = styled.p<IStyledSelectLabelProps>`
   ${borderRadius('5px')}
   ${transition('all 500ms linear')}
 
-  ${({ theme }: ThemeProps) => linearGradient(
-    '180deg',
-    `rgba(0, 0, 0, 0) 44%`,
-    `${theme.color.input} 0`,
-    `${theme.color.input} 100%`
-  )}
+  ${({ theme }: ThemeProps) =>
+    linearGradient(
+      '180deg',
+      `rgba(0, 0, 0, 0) 44%`,
+      `${theme.color.input} 0`,
+      `${theme.color.input} 100%`
+    )}
 
   ${({ isFocus }: IStyledSelectLabelProps) =>
     isFocus &&

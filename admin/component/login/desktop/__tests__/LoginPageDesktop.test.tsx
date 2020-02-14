@@ -17,6 +17,10 @@ const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('LoginPageDesktop Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
     const wrapper = mountComponent(<LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />)
 

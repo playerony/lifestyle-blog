@@ -18,19 +18,20 @@ export const StyledInputLabel = styled.p<IStyledInputLabelProps>`
   top: -10px;
   padding: 3px;
   position: absolute;
-  left: ${variable.paddingSmall}px;
   background-position: 0 0;
+  left: ${variable.paddingSmall}px;
   color: ${({ theme }: ThemeProps) => theme.color.border};
 
   ${borderRadius('5px')}
   ${transition('all 500ms linear')}
 
-  ${({ theme }: ThemeProps) => linearGradient(
-    '180deg',
-    `rgba(0, 0, 0, 0) 44%`,
-    `${theme.color.input} 0`,
-    `${theme.color.input} 100%`
-  )}
+  ${({ theme }: ThemeProps) =>
+    linearGradient(
+      '180deg',
+      `rgba(0, 0, 0, 0) 44%`,
+      `${theme.color.input} 0`,
+      `${theme.color.input} 100%`
+    )}
 
   ${({ isFocus }: IStyledInputLabelProps) =>
     isFocus &&

@@ -2,6 +2,7 @@ import React from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import Button from '../Button'
+
 import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
@@ -11,12 +12,12 @@ describe('Button Component', () => {
   it('should render', () => {
     const wrapper = mountComponent(<Button />)
 
-    expect(wrapper).toBeDefined()
+    expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render with new optional parameters', () => {
     const wrapper = mountComponent(<Button floating={true} marginTop={true} />)
 
-    expect(wrapper).toBeDefined()
+    expect(wrapper.exists()).toBeTruthy()
   })
 })
