@@ -76,7 +76,15 @@ describe('Article Model', () => {
         }
       },
       {
-        sequelize: new Sequelize()
+        sequelize: new Sequelize(),
+        scopes: {
+          withImage: {
+            include: ['image']
+          },
+          withCategoryList: {
+            include: ['categoryList']
+          }
+        }
       }
     )
   })

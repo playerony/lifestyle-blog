@@ -59,7 +59,17 @@ Article.init(
       }
     }
   },
-  { sequelize }
+  {
+    sequelize,
+    scopes: {
+      withImage: {
+        include: ['image']
+      },
+      withCategoryList: {
+        include: ['categoryList']
+      }
+    }
+  }
 )
 
 Article.belongsTo(User, { as: 'user', foreignKey: 'userId' })

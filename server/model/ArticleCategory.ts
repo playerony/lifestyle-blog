@@ -27,14 +27,14 @@ ArticleCategory.init(
 )
 
 Article.belongsToMany(Category, {
-  as: 'categories',
+  as: 'categoryList',
   through: ArticleCategory,
   foreignKey: 'articleId',
   otherKey: 'categoryId'
 })
 
 Category.belongsToMany(Article, {
-  as: 'articles',
+  as: 'articleList',
   through: ArticleCategory,
   foreignKey: 'categoryId',
   otherKey: 'articleId'
