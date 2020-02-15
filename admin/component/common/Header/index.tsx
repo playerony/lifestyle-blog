@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom'
 
 import Switch from '@component/generic/Switch'
 
+import EThemeMode from '@type/common/EThemeMode'
+
 import useTheme from '@hook/utility/useTheme'
 
 import Memory from '@utility/Memory'
@@ -21,7 +23,7 @@ import {
 
 const Header = (): JSX.Element => {
   const history = useHistory()
-  const { toggle } = useTheme()
+  const { mode, toggle } = useTheme()
 
   const handleLogoClick = (): void => history.push(routeList.base)
 
@@ -39,7 +41,7 @@ const Header = (): JSX.Element => {
         <StyledSunIcon>
           <use xlinkHref="#sun" />
         </StyledSunIcon>
-        <Switch onChange={toggle} />
+        <Switch initialValue={mode === EThemeMode.DARK} onChange={toggle} />
         <StyledMoonIcon>
           <use xlinkHref="#moon" />
         </StyledMoonIcon>

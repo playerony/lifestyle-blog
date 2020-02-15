@@ -57,6 +57,6 @@ describe('Header Component', () => {
 
     expect(wrapper.exists(Switch)).toBeTruthy()
     expect(wrapper.find(Switch).props().onChange).toBeDefined()
-    expect(wrapper.find(Switch).props().initialValue).not.toBeDefined()
+    expect(wrapper.find(Switch).props().initialValue).toBeFalsy()
   })
 })
