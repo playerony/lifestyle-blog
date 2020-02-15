@@ -22,6 +22,7 @@ export default async (): Promise<ApolloServer> => {
     schema,
     context: ({ req }) => ({
       ipAddress: req.ip,
+      userAgent: req.headers['user-agent'],
       token: req?.headers?.authorization || ''
     }),
     extensions: [() => new LoggingExtension()]
