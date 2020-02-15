@@ -21,6 +21,10 @@ Visitor.init(
         isIP: true,
         notEmpty: true
       }
+    },
+    userAgent: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   },
   { sequelize }

@@ -13,6 +13,9 @@ export class VisitorModel extends Model {
   ipAddress?: string
 
   @Field()
+  userAgent?: string
+
+  @Field()
   createdAt?: Date
 
   @Field()
