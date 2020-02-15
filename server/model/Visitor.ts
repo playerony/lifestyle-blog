@@ -15,7 +15,6 @@ Visitor.init(
     },
     articleId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         key: 'articleId',
         model: Article
