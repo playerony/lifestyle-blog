@@ -1,9 +1,9 @@
 import { Model, DataTypes } from 'sequelize'
 
+import { sequelize } from '@config/database/sequelize'
+
 import { Article } from './Article'
 import { Category } from './Category'
-
-import { sequelize } from '@config/database/sequelize'
 
 export class ArticleCategory extends Model {}
 
@@ -16,30 +16,26 @@ ArticleCategory.init(
     },
     articleId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Article,
-        key: 'articleId'
-      }
+      allowNull: false
     },
     categoryId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Category,
-        key: 'categoryId'
-      }
+      allowNull: false
     }
   },
   { sequelize }
 )
 
-ArticleCategory.hasMany(Article, {
-  as: 'articles',
-  foreignKey: 'articleId'
+Article.belongsToMany(Category, {
+  as: 'categories',
+  through: ArticleCategory,
+  foreignKey: 'articleId',
+  otherKey: 'categoryId'
 })
 
-ArticleCategory.hasMany(Category, {
-  as: 'categories',
-  foreignKey: 'categoryId'
+Category.belongsToMany(Article, {
+  as: 'articles',
+  through: ArticleCategory,
+  foreignKey: 'categoryId',
+  otherKey: 'articleId'
 })
