@@ -30,4 +30,8 @@ export default class ArticleService {
       articleId: createdArticle.articleId!
     }
   }
+
+  async findAll(): Promise<ArticleModel[]> {
+    return Article.scope(['withImage', 'withCategoryList']).findAll<ArticleModel>()
+  }
 }

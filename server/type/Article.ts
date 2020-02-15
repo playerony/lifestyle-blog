@@ -1,6 +1,9 @@
 import { Model } from 'sequelize'
 import { Int, Field, ObjectType, InputType } from 'type-graphql'
 
+import { ImageModel } from './Image'
+import { CategoryModel } from './Category'
+
 @ObjectType()
 export class ArticleModel extends Model {
   @Field()
@@ -20,6 +23,12 @@ export class ArticleModel extends Model {
 
   @Field()
   content?: string
+
+  @Field(type => ImageModel)
+  image?: ImageModel
+
+  @Field(type => [CategoryModel])
+  caregoryList?: CategoryModel[]
 
   @Field()
   createdAt?: Date
