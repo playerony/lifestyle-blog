@@ -9,9 +9,9 @@ jest.doMock('sequelize', () => {
 
   class Model {
     public static init = jest.fn()
-    public static hasMany = jest.fn()
     public static belongsTo = jest.fn()
     public static afterCreate = jest.fn()
+    public static belongsToMany = jest.fn()
     public static bulkCreate = bulkCreateMock
     public static create = jest.fn().mockImplementation(() => ARTICLE_MOCK)
   }
