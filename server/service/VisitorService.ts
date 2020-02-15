@@ -1,15 +1,17 @@
 import { Visitor } from '@model/Visitor'
 
+import Context from '@type/Context'
 import { VisitorModel } from '@type/Visitor'
 
 export default class VisitorService {
   async create(
     articleId: number | null,
-    ipAddress: string
+    { userAgent, ipAddress }: Context
   ): Promise<VisitorModel | null> {
     const foundVisitor = await Visitor.findOne<VisitorModel>({
       where: {
         articleId,
+        userAgent,
         ipAddress
       }
     })
@@ -18,7 +20,7 @@ export default class VisitorService {
       return null
     }
 
-    return Visitor.create<VisitorModel>({ articleId, ipAddress })
+    return Visitor.create<VisitorModel>({ articleId, userAgent, ipAddress })
   }
 
   async findAll(): Promise<VisitorModel[]> {
