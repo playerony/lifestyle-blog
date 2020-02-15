@@ -1,6 +1,6 @@
 export interface IImageUploaderProps {
   imageUrl?: string
-  accept: string
   errorMessage?: string
+  accept: string
   onUpload: (file: File) => void
 }

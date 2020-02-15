@@ -2,6 +2,7 @@ import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import ImageUploader from '../ImageUploader'
+
 import ThemeProviderMock from '@utility/ThemeProviderMock'
 
 import { IImageUploaderProps } from '../ImageUploader/ImageUploader.type'
