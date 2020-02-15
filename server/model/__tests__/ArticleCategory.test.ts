@@ -7,8 +7,8 @@ const initMock = jest.fn()
 jest.doMock('sequelize', () => {
   class Model {
     public static init = initMock
-    public static hasMany = jest.fn()
     public static belongsTo = jest.fn()
+    public static belongsToMany = jest.fn()
   }
 
   return {
@@ -21,10 +21,9 @@ jest.doMock('sequelize', () => {
 describe('ArticleCategory Model', () => {
   it('should call ArticleCategory.init with the correct parameters', () => {
     require('../ArticleCategory')
-    const { Article } = require('../Article')
-    const { Category } = require('../Category')
 
-    expect(initMock).toBeCalledWith(
+    expect(initMock).toHaveBeenNthCalledWith(
+      5,
       {
         articleCategoryId: {
           type: DataTypes.INTEGER,
@@ -33,19 +32,11 @@ describe('ArticleCategory Model', () => {
         },
         articleId: {
           type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: Article,
-            key: 'articleId'
-          }
+          allowNull: false
         },
         categoryId: {
           type: DataTypes.INTEGER,
-          allowNull: false,
-          references: {
-            model: Category,
-            key: 'categoryId'
-          }
+          allowNull: false
         }
       },
       {
