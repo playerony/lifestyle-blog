@@ -20,4 +20,8 @@ export default class VisitorService {
 
     return Visitor.create<VisitorModel>({ articleId, ipAddress })
   }
+
+  async findAll(): Promise<VisitorModel[]> {
+    return Visitor.findAll<VisitorModel>()
+  }
 }

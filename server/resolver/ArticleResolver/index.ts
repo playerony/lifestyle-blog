@@ -34,14 +34,14 @@ export default class ArticleResolver {
   }
 
   @Query(type => [ArticleModel])
-  async getArticleList(@Ctx() context: Context): Promise<ArticleModel[]> {
+  async articleList(@Ctx() context: Context): Promise<ArticleModel[]> {
     await this.visitorService.create(null, context.ipAddress)
 
     return this.articleService.findAll()
   }
 
   @Query(type => ArticleModel)
-  async getArticleById(
+  async articleById(
     @Ctx() context: Context,
     @Arg('articleId', type => Int) articleId: number
   ): Promise<ArticleModel | null> {
