@@ -1,7 +1,5 @@
 import { Model, DataTypes } from 'sequelize'
 
-import { Article } from './Article'
-
 import { sequelize } from '@config/database/sequelize'
 
 export class Visitor extends Model {}
@@ -14,13 +12,7 @@ Visitor.init(
       autoIncrement: true
     },
     articleId: {
-      type: DataTypes.INTEGER,
-      references: {
-        key: 'articleId',
-        model: Article
-      },
-      onUpdate: 'CASCADE',
-      onDelete: 'CASCADE'
+      type: DataTypes.INTEGER
     },
     ipAddress: {
       type: DataTypes.STRING(50),

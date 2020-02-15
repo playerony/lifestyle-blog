@@ -31,7 +31,7 @@ export default class ArticleService {
     }
   }
 
-  async findByArticleId(articleId: number): Promise<ArticleModel | null> {
+  async findById(articleId: number): Promise<ArticleModel | null> {
     return Article.scope(['withImage', 'withCategoryList']).findOne<
       ArticleModel
     >({

@@ -1,9 +1,14 @@
-import { Resolver, Mutation, Arg, Ctx } from 'type-graphql'
+import { Resolver, Mutation, Query, Arg, Ctx, Int } from 'type-graphql'
 
 import ArticleService from '@service/ArticleService'
+import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
-import { ArticleCreateRequest, ArticleCreateResult } from '@type/Article'
+import {
+  ArticleModel,
+  ArticleCreateRequest,
+  ArticleCreateResult
+} from '@type/Article'
 
 import getUserId from '@utility/getUserId'
 
@@ -11,7 +16,10 @@ import { createArticleValidation } from './ArticleResolver.validator'
 
 @Resolver()
 export default class ArticleResolver {
-  constructor(private articleService: ArticleService = new ArticleService()) {}
+  constructor(
+    private articleService: ArticleService = new ArticleService(),
+    private visitorService: VisitorService = new VisitorService()
+  ) {}
 
   @Mutation(type => ArticleCreateResult)
   async createArticle(
@@ -22,6 +30,23 @@ export default class ArticleResolver {
 
     createArticleValidation(article)
 
-    return await this.articleService.create(article, userId)
+    return this.articleService.create(article, userId)
+  }
+
+  @Query(type => [ArticleModel])
+  async getArticleList(@Ctx() context: Context): Promise<ArticleModel[]> {
+    await this.visitorService.create(null, context.ipAddress)
+
+    return this.articleService.findAll()
+  }
+
+  @Query(type => ArticleModel)
+  async getArticleById(
+    @Ctx() context: Context,
+    @Arg('articleId', type => Int) articleId: number
+  ): Promise<ArticleModel | null> {
+    await this.visitorService.create(articleId, context.ipAddress)
+
+    return this.articleService.findById(articleId)
   }
 }
