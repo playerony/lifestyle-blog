@@ -14,18 +14,19 @@ describe('Check Class', () => {
       .isBigLetter()
       .isDigit()
       .isExist()
+      .isNumber()
       .isLetter()
       .isMaxLength(5)
       .isMinLength(1)
       .isSpecialCharacter()
       .isString()
 
-    expect(check.validatorList.length).toEqual(9)
+    expect(check.validatorList.length).toEqual(10)
     expect(check.validatorList[2].function).toBeDefined()
     expect(check.validatorList[2].errorMessage).toBeDefined()
     expect(check.validatorList[2].argumentList).not.toBeDefined()
 
-    expect(check.validatorList[6].argumentList).toEqual([1])
+    expect(check.validatorList[7].argumentList).toEqual([1])
   })
 
   it('should attach passed error message', () => {

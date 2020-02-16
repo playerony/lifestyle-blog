@@ -27,3 +27,13 @@ export const createArticleValidation = (data: ArticleCreateRequest): void => {
     throw new ValidationError(validationResult)
   }
 }
+
+export const articleByIdValidation = (articleId: number): void => {
+  const validationResult = validate({ articleId })
+    .setCheckList([check('articleId').isExist()])
+    .check()
+
+  if (!isValid(validationResult)) {
+    throw new ValidationError(validationResult)
+  }
+}

@@ -5,6 +5,7 @@ type TFunctionName =
   | 'isEqual'
   | 'isString'
   | 'isLetter'
+  | 'isNumber'
   | 'isBigLetter'
   | 'isMaxLength'
   | 'isMinLength'
@@ -33,6 +34,7 @@ const messageList = (
   isExist: 'Provided value does not exist.',
   isArray: 'Provided value is not an array.',
   isString: 'Provided value is not a string.',
+  isNumber: 'Provided value is not a number.',
   isDigit: 'Provided value does not contain any digit.',
   isLetter: 'Provided value does not contain any letter.',
   isBigLetter: 'Provided value does not contain any big letter.',

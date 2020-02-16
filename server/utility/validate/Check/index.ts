@@ -4,6 +4,7 @@ import isExist from '../helper/isExist'
 import isEqual from '../helper/isEqual'
 import isString from '../helper/isString'
 import isLetter from '../helper/isLetter'
+import isNumber from '../helper/isNumber'
 import isBigLetter from '../helper/isBigLetter'
 import isMaxLength from '../helper/isMaxLength'
 import isMinLength from '../helper/isMinLength'
@@ -83,6 +84,15 @@ class Check {
     this._validatorList.push({
       function: isLetter,
       errorMessage: getErrorMessage('isLetter', errorMessage)
+    })
+
+    return this
+  }
+
+  public isNumber(errorMessage?: string): Check {
+    this._validatorList.push({
+      function: isNumber,
+      errorMessage: getErrorMessage('isNumber', errorMessage)
     })
 
     return this
