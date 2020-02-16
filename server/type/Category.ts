@@ -20,6 +20,24 @@ export class CategoryModel extends Model {
 }
 
 @ObjectType()
+export class CategoryType {
+  @Field()
+  categoryId?: number
+
+  @Field()
+  name?: string
+
+  @Field()
+  description?: string
+
+  @Field()
+  createdAt?: Date
+
+  @Field()
+  updatedAt?: Date
+}
+
+@ObjectType()
 export class CategoryRecordResult {
   @Field()
   categoryId!: number
