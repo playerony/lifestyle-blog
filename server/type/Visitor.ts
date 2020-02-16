@@ -21,3 +21,24 @@ export class VisitorModel extends Model {
   @Field()
   updatedAt?: Date
 }
+
+@ObjectType()
+export class VisitorAddResult {
+  @Field()
+  visitorId?: number
+
+  @Field()
+  articleId?: number
+
+  @Field()
+  ipAddress?: string
+
+  @Field()
+  userAgent?: string
+
+  @Field()
+  createdAt?: Date
+
+  @Field()
+  updatedAt?: Date
+}
