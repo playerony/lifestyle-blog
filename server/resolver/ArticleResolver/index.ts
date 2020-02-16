@@ -6,13 +6,16 @@ import VisitorService from '@service/VisitorService'
 import Context from '@type/Context'
 import {
   ArticleModel,
-  ArticleCreateRequest,
-  ArticleCreateResult
+  ArticleCreateResult,
+  ArticleCreateRequest
 } from '@type/Article'
 
 import getUserId from '@utility/getUserId'
 
-import { createArticleValidation } from './ArticleResolver.validator'
+import {
+  articleByIdValidation,
+  createArticleValidation
+} from './ArticleResolver.validator'
 
 @Resolver()
 export default class ArticleResolver {
@@ -45,6 +48,8 @@ export default class ArticleResolver {
     @Ctx() context: Context,
     @Arg('articleId', type => Int) articleId: number
   ): Promise<ArticleModel | null> {
+    articleByIdValidation(articleId)
+
     await this.visitorService.create(articleId, context)
 
     return this.articleService.findById(articleId)

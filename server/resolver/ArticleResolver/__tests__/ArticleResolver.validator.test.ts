@@ -1,4 +1,7 @@
-import { createArticleValidation } from '../ArticleResolver.validator'
+import {
+  articleByIdValidation,
+  createArticleValidation
+} from '../ArticleResolver.validator'
 
 describe('ArticleResolver.validator Functions', () => {
   describe('createArticleValidation Function', () => {
@@ -13,7 +16,10 @@ describe('ArticleResolver.validator Functions', () => {
         } catch (e) {
           const { imageId } = JSON.parse(e.message)
 
-          expect(imageId).toEqual(['Provided value does not exist.'])
+          expect(imageId).toEqual([
+            'Provided value does not exist.',
+            'Provided value is not a number.'
+          ])
         }
       })
     })
@@ -91,6 +97,24 @@ describe('ArticleResolver.validator Functions', () => {
             'Provided value is not an array.',
             `Provided value's length is shorter than 1.`
           ])
+        }
+      })
+    })
+  })
+
+  describe('articleByIdValidation Function', () => {
+    describe('articleId Field', () => {
+      it('should contain proper validators', () => {
+        const data = {
+          articleId: null
+        }
+
+        try {
+          articleByIdValidation(data as any)
+        } catch (e) {
+          const { articleId } = JSON.parse(e.message)
+
+          expect(articleId).toEqual(['Provided value is not a number.'])
         }
       })
     })

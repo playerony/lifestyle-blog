@@ -6,7 +6,9 @@ import { check, validate, isValid } from '@utility/validate'
 export const createArticleValidation = (data: ArticleCreateRequest): void => {
   const validationResult = validate(data)
     .setCheckList([
-      check('imageId').isExist(),
+      check('imageId')
+        .isExist()
+        .isNumber(),
       check('title')
         .isExist()
         .isMaxLength(30),
@@ -30,7 +32,11 @@ export const createArticleValidation = (data: ArticleCreateRequest): void => {
 
 export const articleByIdValidation = (articleId: number): void => {
   const validationResult = validate({ articleId })
-    .setCheckList([check('articleId').isExist()])
+    .setCheckList([
+      check('articleId')
+        .isExist()
+        .isNumber()
+    ])
     .check()
 
   if (!isValid(validationResult)) {
