@@ -18,7 +18,7 @@ const CategorySelect = ({ onChange, errorMessage }: ICategorySelectProps): JSX.E
     }
 
     return data.map(({ categoryId, name }: ICategory) =>
-      ({ label: name, value: categoryId.toString() }))
+      ({ label: name!, value: categoryId!.toString() }))
   }
 
   const handleChange = (value: ValueType<IOption>): void => {
