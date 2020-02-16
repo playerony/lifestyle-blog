@@ -20,6 +20,24 @@ export class ImageModel extends Model {
 }
 
 @ObjectType()
+export class ImageType {
+  @Field()
+  imageId?: number
+
+  @Field()
+  userId?: number
+
+  @Field()
+  filename?: string
+
+  @Field()
+  createdAt?: Date
+
+  @Field()
+  updatedAt?: Date
+}
+
+@ObjectType()
 export class ImageAddResult {
   @Field()
   imageId!: number
