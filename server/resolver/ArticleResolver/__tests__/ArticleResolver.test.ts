@@ -4,8 +4,10 @@ import Substitute, { Arg } from '@fluffy-spoon/substitute'
 import ArticleResolver from '../index'
 
 import ArticleService from '@service/ArticleService'
+import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
+import { VisitorRecord } from '@type/Visitor'
 import { ArticleCreateResult, ArticleCreateRequest } from '@type/Article'
 
 import generateString from '@utility/generateString'
@@ -18,18 +20,27 @@ jest.mock('../../../config/keys', () => ({
 import keys from '@config/keys'
 
 const _ArticleService = Substitute.for<ArticleService>()
+const _VisitorService = Substitute.for<VisitorService>()
 
 let resolver: ArticleResolver
 
 describe('ArticleResolver Resolver', () => {
   beforeEach(() => {
-    resolver = new ArticleResolver(_ArticleService)
+    resolver = new ArticleResolver(_ArticleService, _VisitorService)
   })
 
   beforeAll(() => {
     _ArticleService
       .create(Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_CREATE_RESULT_MOCK)
+
+    _ArticleService.findAll().mimicks(async () => [ARTICLE_RECORD_MOCK])
+
+    _ArticleService.findById(Arg.any()).mimicks(async () => ARTICLE_RECORD_MOCK)
+
+    _VisitorService
+      .create(Arg.any(), Arg.any())
+      .mimicks(async () => VISITOR_MOCK)
   })
 
   describe('createArticle mutation', () => {
@@ -88,6 +99,52 @@ describe('ArticleResolver Resolver', () => {
       expect(result).toEqual(ARTICLE_CREATE_RESULT_MOCK)
     })
   })
+
+  describe('articleList Query', () => {
+    it('should return proper data', async () => {
+      const context: Context = {
+        token: '',
+        userAgent: '',
+        ipAddress: ''
+      }
+
+      const result = await resolver.articleList(context)
+
+      expect(result).toEqual([ARTICLE_RECORD_MOCK])
+    })
+  })
+
+  describe('articleById Query', () => {
+    it('should return proper data', async () => {
+      const context: Context = {
+        token: '',
+        userAgent: '',
+        ipAddress: ''
+      }
+
+      const result = await resolver.articleById(context, 1)
+
+      expect(result).toEqual(ARTICLE_RECORD_MOCK)
+    })
+
+    it('should throw an error if articleId is wrong', async () => {
+      const context: Context = {
+        token: '',
+        userAgent: '',
+        ipAddress: ''
+      }
+
+      try {
+        await resolver.articleById(context, '1' as any)
+      } catch (e) {
+        expect(e.message).toEqual(
+          JSON.stringify({
+            articleId: ['Provided value is not a number.']
+          })
+        )
+      }
+    })
+  })
 })
 
 const ARTICLE_MOCK: ArticleCreateRequest = {
@@ -100,4 +157,20 @@ const ARTICLE_MOCK: ArticleCreateRequest = {
 
 const ARTICLE_CREATE_RESULT_MOCK: ArticleCreateResult = {
   articleId: 1
+}
+
+const VISITOR_MOCK: VisitorRecord = {
+  visitorId: 1,
+  articleId: 1,
+  userAgent: 'Mobile',
+  ipAddress: '192.192.192.192'
+}
+
+const ARTICLE_RECORD_MOCK: any = {
+  userId: 1,
+  imageId: 1,
+  articleId: 1,
+  title: '123',
+  content: '123',
+  description: '123'
 }
