@@ -36,7 +36,9 @@ describe('ArticleResolver Resolver', () => {
     describe('should throw an error', () => {
       it('if token is wrong', async () => {
         const context: Context = {
-          token: ''
+          token: '',
+          userAgent: '',
+          ipAddress: ''
         }
 
         try {
@@ -49,6 +51,8 @@ describe('ArticleResolver Resolver', () => {
       it('if passed content data is wrong', async () => {
         const token = jwt.sign({ userId: 1 }, keys.appSecret!)
         const context: Context = {
+          userAgent: '',
+          ipAddress: '',
           token: `${keys.jwtPrefix} ${token}`
         }
 
@@ -74,6 +78,8 @@ describe('ArticleResolver Resolver', () => {
     it('should return proper data', async () => {
       const token = jwt.sign({ userId: 1 }, keys.appSecret!)
       const context: Context = {
+        userAgent: '',
+        ipAddress: '',
         token: `${keys.jwtPrefix} ${token}`
       }
 
