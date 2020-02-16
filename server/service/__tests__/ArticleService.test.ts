@@ -3,6 +3,7 @@ const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 import { ArticleModel } from '@type/Article'
 
 const bulkCreateMock = jest.fn()
+const scopeCallMock = jest.fn()
 
 jest.doMock('sequelize', () => {
   class Sequelize {}
@@ -13,7 +14,10 @@ jest.doMock('sequelize', () => {
     public static afterCreate = jest.fn()
     public static belongsToMany = jest.fn()
     public static bulkCreate = bulkCreateMock
+    public static scope = scopeCallMock.mockImplementation(() => Model)
     public static create = jest.fn().mockImplementation(() => ARTICLE_MOCK)
+    public static findOne = jest.fn().mockImplementation(() => ARTICLE_MOCK)
+    public static findAll = jest.fn().mockImplementation(() => [ARTICLE_MOCK])
   }
 
   return {
@@ -32,6 +36,46 @@ describe('ArticleService Service', () => {
       const result = await articleService.create(ARTICLE_MOCK, 1)
 
       expect(result).toEqual({ articleId: 1 })
+    })
+  })
+
+  describe('findById Method', () => {
+    it('should call scope method', async () => {
+      const ArticleService = require('../ArticleService').default
+      const articleService = new ArticleService()
+
+      await articleService.findById(1)
+
+      expect(scopeCallMock).toHaveBeenCalledWith(['withImage', 'withCategoryList'])
+    })
+
+    it('should return found article', async () => {
+      const ArticleService = require('../ArticleService').default
+      const articleService = new ArticleService()
+
+      const result = await articleService.findById(1)
+
+      expect(result).toEqual(ARTICLE_MOCK)
+    })
+  })
+
+  describe('findAll Method', () => {
+    it('should call scope method', async () => {
+      const ArticleService = require('../ArticleService').default
+      const articleService = new ArticleService()
+
+      await articleService.findAll()
+
+      expect(scopeCallMock).toHaveBeenCalledWith(['withImage', 'withCategoryList'])
+    })
+
+    it('should return found article list', async () => {
+      const ArticleService = require('../ArticleService').default
+      const articleService = new ArticleService()
+
+      const result = await articleService.findAll()
+
+      expect(result).toEqual([ARTICLE_MOCK])
     })
   })
 })
