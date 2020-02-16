@@ -9,12 +9,12 @@ describe('isLetter Function', () => {
   })
 
   it('should return false', () => {
-    expect(isLetter(undefined)).toBeFalsy()
-    expect(isLetter(null)).toBeFalsy()
+    expect(isLetter([])).toBeFalsy()
     expect(isLetter(NaN)).toBeFalsy()
     expect(isLetter(123)).toBeFalsy()
-    expect(isLetter([])).toBeFalsy()
+    expect(isLetter(null)).toBeFalsy()
     expect(isLetter('123')).toBeFalsy()
     expect(isLetter('%^!@')).toBeFalsy()
+    expect(isLetter(undefined)).toBeFalsy()
   })
 })

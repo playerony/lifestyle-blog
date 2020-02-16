@@ -9,12 +9,12 @@ describe('isBigLetter Function', () => {
   })
 
   it('should return false', () => {
-    expect(isBigLetter(undefined)).toBeFalsy()
-    expect(isBigLetter(null)).toBeFalsy()
+    expect(isBigLetter([])).toBeFalsy()
     expect(isBigLetter(NaN)).toBeFalsy()
     expect(isBigLetter(123)).toBeFalsy()
-    expect(isBigLetter([])).toBeFalsy()
+    expect(isBigLetter(null)).toBeFalsy()
     expect(isBigLetter('123')).toBeFalsy()
     expect(isBigLetter('%^!@')).toBeFalsy()
+    expect(isBigLetter(undefined)).toBeFalsy()
   })
 })

@@ -1,19 +1,25 @@
+import jwt from 'jsonwebtoken'
+
+import Context from '@type/Context'
+
+import getUserId from '../getUserId'
+
 jest.mock('../../config/keys', () => ({
   jwtPrefix: 'Prefix',
   appSecret: 'Secret test'
 }))
 
-import jwt from 'jsonwebtoken'
-
-import getUserId from '../getUserId'
-
-import keys from '@config/keys'
+const getContext = (token: string): Context => ({
+  token,
+  ipAddress: '',
+  userAgent: ''
+})
 
 describe('getUserId Function', () => {
   describe('should throw an error', () => {
     it('if passed token does not exist', () => {
       try {
-        getUserId({ token: '' })
+        getUserId(getContext(''))
       } catch (e) {
         expect(e.message).toEqual('Authentication Error.')
       }
@@ -21,17 +27,18 @@ describe('getUserId Function', () => {
 
     it('if token prefix is wrong', () => {
       try {
-        getUserId({ token: 'prefix token' })
+        getUserId(getContext('prefix token'))
       } catch (e) {
         expect(e.message).toEqual('Authentication Error.')
       }
     })
 
     it('if decoded token do not contain userId', () => {
+      const keys = require('@config/keys')
       const token = jwt.sign({ userId: null }, keys.appSecret!)
 
       try {
-        getUserId({ token: `Prefix ${token}` })
+        getUserId(getContext(`Prefix ${token}`))
       } catch (e) {
         expect(e.message).toEqual('Authentication Error.')
       }
@@ -39,9 +46,10 @@ describe('getUserId Function', () => {
   })
 
   it('should return userId', () => {
+    const keys = require('@config/keys')
     const token = jwt.sign({ userId: 15 }, keys.appSecret!)
 
-    const result = getUserId({ token: `Prefix ${token}` })
+    const result = getUserId(getContext(`Prefix ${token}`))
 
     expect(result).toEqual(15)
   })

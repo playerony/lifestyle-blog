@@ -8,10 +8,10 @@ describe('isEqual Function', () => {
   })
 
   it('should return false', () => {
-    expect(isEqual(NaN, null)).toBeFalsy()
-    expect(isEqual(null, undefined)).toBeFalsy()
-    expect(isEqual(undefined, [])).toBeFalsy()
-    expect(isEqual('', '1')).toBeFalsy()
     expect(isEqual(0, '0')).toBeFalsy()
+    expect(isEqual('', '1')).toBeFalsy()
+    expect(isEqual(NaN, null)).toBeFalsy()
+    expect(isEqual(undefined, [])).toBeFalsy()
+    expect(isEqual(null, undefined)).toBeFalsy()
   })
 })

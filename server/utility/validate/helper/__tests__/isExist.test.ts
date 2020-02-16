@@ -8,10 +8,10 @@ describe('isExist Function', () => {
   })
 
   it('should return false if passed value is falsy', () => {
+    expect(isExist(0)).toBeFalsy()
+    expect(isExist('')).toBeFalsy()
     expect(isExist(NaN)).toBeFalsy()
     expect(isExist(null)).toBeFalsy()
     expect(isExist(undefined)).toBeFalsy()
-    expect(isExist('')).toBeFalsy()
-    expect(isExist(0)).toBeFalsy()
   })
 })

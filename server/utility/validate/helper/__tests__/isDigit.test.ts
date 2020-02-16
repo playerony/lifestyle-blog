@@ -9,12 +9,12 @@ describe('isDigit Function', () => {
   })
 
   it('should return false', () => {
-    expect(isDigit(undefined)).toBeFalsy()
-    expect(isDigit(null)).toBeFalsy()
+    expect(isDigit([])).toBeFalsy()
     expect(isDigit(NaN)).toBeFalsy()
     expect(isDigit(123)).toBeFalsy()
-    expect(isDigit([])).toBeFalsy()
+    expect(isDigit(null)).toBeFalsy()
     expect(isDigit('nnn')).toBeFalsy()
     expect(isDigit('%^!@')).toBeFalsy()
+    expect(isDigit(undefined)).toBeFalsy()
   })
 })

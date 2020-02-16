@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-nocheck
 const createGlobalStyleMock = jest.fn()
 
 jest.doMock('styled-components', () => {

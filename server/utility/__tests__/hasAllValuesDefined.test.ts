@@ -4,13 +4,11 @@ describe('hasAllValuesDefined Function', () => {
   describe('should return false', () => {
     it('when passed value is null', () => {
       const result = hasAllValuesDefined(null)
-
       expect(result).toBeFalsy()
     })
 
     it('when passed value is not defined', () => {
       const result = hasAllValuesDefined(undefined)
-
       expect(result).toBeFalsy()
     })
 
@@ -23,7 +21,6 @@ describe('hasAllValuesDefined Function', () => {
       }
 
       const result = hasAllValuesDefined(data)
-
       expect(result).toBeFalsy()
     })
 
@@ -39,7 +36,6 @@ describe('hasAllValuesDefined Function', () => {
       }
 
       const result = hasAllValuesDefined(data)
-
       expect(result).toBeFalsy()
     })
   })
@@ -58,7 +54,6 @@ describe('hasAllValuesDefined Function', () => {
     }
 
     const result = hasAllValuesDefined(data)
-
     expect(result).toBeTruthy()
   })
 })
