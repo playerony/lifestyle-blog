@@ -1,11 +1,11 @@
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
-
 import { ArticleModel } from '@type/Article'
 
 const bulkCreateMock = jest.fn()
 const scopeCallMock = jest.fn()
 
 jest.doMock('sequelize', () => {
+  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+
   class Sequelize {}
 
   class Model {
@@ -46,7 +46,10 @@ describe('ArticleService Service', () => {
 
       await articleService.findById(1)
 
-      expect(scopeCallMock).toHaveBeenCalledWith(['withImage', 'withCategoryList'])
+      expect(scopeCallMock).toHaveBeenCalledWith([
+        'withImage',
+        'withCategoryList'
+      ])
     })
 
     it('should return found article', async () => {
@@ -66,7 +69,10 @@ describe('ArticleService Service', () => {
 
       await articleService.findAll()
 
-      expect(scopeCallMock).toHaveBeenCalledWith(['withImage', 'withCategoryList'])
+      expect(scopeCallMock).toHaveBeenCalledWith([
+        'withImage',
+        'withCategoryList'
+      ])
     })
 
     it('should return found article list', async () => {

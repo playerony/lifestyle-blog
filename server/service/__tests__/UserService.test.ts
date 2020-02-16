@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs'
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
 import { UserModel } from '@type/User'
 
@@ -13,6 +12,8 @@ const setupSequelizeMock = (
   createUser: Function = createUserMock
 ): typeof jest =>
   jest.doMock('sequelize', () => {
+    const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+
     class Sequelize {}
 
     class Model {

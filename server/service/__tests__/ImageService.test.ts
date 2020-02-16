@@ -1,10 +1,11 @@
 import { FileUpload } from 'graphql-upload'
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
 import { ImageModel } from '@type/Image'
 
 jest.mock('fs')
 jest.doMock('sequelize', () => {
+  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+
   class Sequelize {}
 
   class Model {

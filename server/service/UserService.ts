@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 import { User } from '@model/User'
+
 import { UserModel, UserAddResult, UserAddModel } from '@type/User'
 
 import ValidationError from '@utility/ValidationError'

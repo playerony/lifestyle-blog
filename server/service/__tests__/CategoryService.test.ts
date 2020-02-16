@@ -1,8 +1,8 @@
-const { dataTypes: DataTypes } = require('sequelize-test-helpers')
-
 import { CategoryRecordResult } from '@type/Category'
 
 jest.doMock('sequelize', () => {
+  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+
   class Sequelize {}
 
   class Model {

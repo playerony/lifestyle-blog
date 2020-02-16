@@ -1,6 +1,6 @@
 const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
-import { VisitorAddResult } from '@type/Visitor'
+import { VisitorRecord } from '@type/Visitor'
 
 let foundVisitorMock = jest.fn().mockImplementation(() => VISITOR_MOCK)
 let createVisitorMock = jest.fn().mockImplementation(() => VISITOR_MOCK)
@@ -61,7 +61,7 @@ describe('VisitorService Service', () => {
   })
 })
 
-const VISITOR_MOCK: VisitorAddResult = {
+const VISITOR_MOCK: VisitorRecord = {
   visitorId: 1,
   articleId: 1,
   userAgent: 'Mobile',
