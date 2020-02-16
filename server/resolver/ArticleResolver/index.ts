@@ -5,7 +5,7 @@ import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
 import {
-  ArticleModel,
+  ArticleType,
   ArticleCreateResult,
   ArticleCreateRequest
 } from '@type/Article'
@@ -36,18 +36,22 @@ export default class ArticleResolver {
     return this.articleService.create(article, userId)
   }
 
-  @Query(type => [ArticleModel])
-  async articleList(@Ctx() context: Context): Promise<ArticleModel[]> {
+  @Query(type => [ArticleType])
+  async articleList(@Ctx() context: Context): Promise<ArticleType[]> {
     await this.visitorService.create(null, context)
 
-    return this.articleService.findAll()
+    const result = await this.articleService.findAll()
+
+    console.warn(result)
+
+    return result
   }
 
-  @Query(type => ArticleModel)
+  @Query(type => ArticleType)
   async articleById(
     @Ctx() context: Context,
     @Arg('articleId', type => Int) articleId: number
-  ): Promise<ArticleModel | null> {
+  ): Promise<ArticleType | null> {
     articleByIdValidation(articleId)
 
     await this.visitorService.create(articleId, context)
