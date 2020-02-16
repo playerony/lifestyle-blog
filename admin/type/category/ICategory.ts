@@ -1,4 +1,5 @@
 export default interface ICategory {
-  categoryId: number
-  name: string
+  name?: string
+  categoryId?: number
+  description?: string
 }
