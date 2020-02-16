@@ -1,8 +1,8 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-import { User, UserAddModel } from '@model/User'
-import { UserModel, UserAddResult } from '@type/User'
+import { User } from '@model/User'
+import { UserModel, UserAddResult, UserAddModel } from '@type/User'
 
 import ValidationError from '@utility/ValidationError'
 
