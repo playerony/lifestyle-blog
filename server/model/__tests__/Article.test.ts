@@ -1,3 +1,4 @@
+// @ts-nocheck
 const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
 class Sequelize {}
