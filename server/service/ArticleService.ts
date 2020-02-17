@@ -37,7 +37,7 @@ export default class ArticleService {
       }
     })
 
-    return articleMapping(foundArticle)
+    return foundArticle ? articleMapping(foundArticle) : null
   }
 
   async findAll(): Promise<ArticleType[]> {

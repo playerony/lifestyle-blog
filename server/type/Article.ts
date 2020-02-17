@@ -61,7 +61,7 @@ export class ArticleType {
   image?: ImageType | null
 
   @Field(type => [CategoryType])
-  categoryList?: (CategoryType | null)[]
+  categoryList?: CategoryType[] | null
 
   @Field()
   createdAt?: Date
