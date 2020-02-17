@@ -1,4 +1,4 @@
-import { ArticleModel } from '@type/Article'
+import { ArticleType } from '@type/Article'
 
 const bulkCreateMock = jest.fn()
 const scopeCallMock = jest.fn()
@@ -86,11 +86,15 @@ describe('ArticleService Service', () => {
   })
 })
 
-const ARTICLE_MOCK: Partial<ArticleModel> = {
+const ARTICLE_MOCK: ArticleType = {
   userId: 1,
   imageId: 1,
+  image: null,
   articleId: 1,
   title: '123',
   content: '123',
-  description: '123'
+  categoryList: [],
+  description: '123',
+  createdAt: new Date('2019'),
+  updatedAt: new Date('2019')
 }

@@ -23,7 +23,7 @@ export class VisitorModel extends Model {
 }
 
 @ObjectType()
-export class VisitorRecord {
+export class VisitorType {
   @Field()
   visitorId?: number
 

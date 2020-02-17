@@ -47,7 +47,7 @@ export default class ArticleService {
     return articleMapping(foundArticle)
   }
 
-  async findAll(): Promise<(ArticleType)[]> {
+  async findAll(): Promise<ArticleType[]> {
     const result = await Article.scope([
       'withImage',
       'withCategoryList'
