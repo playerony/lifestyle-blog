@@ -27,6 +27,6 @@ export default class ImageService {
       userId
     })
 
-    return imageMapping(createdImage)!
+    return imageMapping(createdImage)
   }
 }
