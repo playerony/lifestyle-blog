@@ -28,7 +28,7 @@ export class ArticleModel extends Model {
   image?: ImageModel
 
   @Field(type => [CategoryModel])
-  categoryList?: CategoryModel[]
+  categoryList?: CategoryModel[] | null
 
   @Field()
   createdAt?: Date
@@ -61,7 +61,7 @@ export class ArticleType {
   image?: ImageType | null
 
   @Field(type => [CategoryType])
-  categoryList?: CategoryType[] | null
+  categoryList?: (CategoryType | null)[]
 
   @Field()
   createdAt?: Date

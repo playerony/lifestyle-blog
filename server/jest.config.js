@@ -7,7 +7,8 @@ module.exports = {
     '@resolver/(.*)': '<rootDir>/resolver/$1',
     '@service/(.*)': '<rootDir>/service/$1',
     '@utility/(.*)': '<rootDir>/utility/$1',
-    '@type/(.*)': '<rootDir>/type/$1'
+    '@type/(.*)': '<rootDir>/type/$1',
+    '@mapping/(.*)': '<rootDir>/mapping/$1'
   },
   setupFiles: ['./config/jestSetupFile.ts']
 }

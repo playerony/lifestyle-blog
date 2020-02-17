@@ -12,7 +12,8 @@
         "@resolver": "./resolver",
         "@service": "./service",
         "@utility": "./utility",
-        "@type": "./type"
+        "@type": "./type",
+        "@mapping": "./mapping"
       }
     }],
     "babel-plugin-transform-typescript-metadata",

@@ -40,11 +40,7 @@ export default class ArticleResolver {
   async articleList(@Ctx() context: Context): Promise<ArticleType[]> {
     await this.visitorService.create(null, context)
 
-    const result = await this.articleService.findAll()
-
-    console.warn(result)
-
-    return result
+    return this.articleService.findAll()
   }
 
   @Query(type => ArticleType)
