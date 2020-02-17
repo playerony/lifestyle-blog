@@ -34,6 +34,6 @@ export default class VisitorService {
   async findAll(): Promise<VisitorType[]> {
     const visitorList = await Visitor.findAll<VisitorModel>()
 
-    return visitorList.map(visitorMapping) as VisitorType[]
+    return visitorList.map(visitorMapping)
   }
 }
