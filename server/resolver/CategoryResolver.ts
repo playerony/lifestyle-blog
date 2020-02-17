@@ -2,14 +2,14 @@ import { Resolver, Query } from 'type-graphql'
 
 import CategoryService from '@service/CategoryService'
 
-import { CategoryRecordResult } from '@type/Category'
+import { CategoryType } from '@type/Category'
 
 @Resolver()
 export default class CategoryResolver {
   constructor(private categoryService: CategoryService = new CategoryService()) { }
   
-  @Query(type => [CategoryRecordResult])
-  async categoryList(): Promise<CategoryRecordResult[]> {
-    return await this.categoryService.findAll()
+  @Query(type => [CategoryType])
+  async categoryList(): Promise<CategoryType[]> {
+    return this.categoryService.findAll()
   }
 }

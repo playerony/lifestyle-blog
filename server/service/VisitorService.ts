@@ -22,7 +22,11 @@ export default class VisitorService {
       return null
     }
 
-    const createdVisitor = await Visitor.create<VisitorModel>({ articleId, userAgent, ipAddress })
+    const createdVisitor = await Visitor.create<VisitorModel>({
+      articleId,
+      userAgent,
+      ipAddress
+    })
 
     return visitorMapping(createdVisitor)
   }

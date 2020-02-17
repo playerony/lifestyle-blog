@@ -4,11 +4,7 @@ import ArticleService from '@service/ArticleService'
 import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
-import {
-  ArticleType,
-  ArticleCreateResult,
-  ArticleCreateRequest
-} from '@type/Article'
+import { ArticleType, ArticleCreateRequest } from '@type/Article'
 
 import getUserId from '@utility/getUserId'
 
@@ -24,11 +20,11 @@ export default class ArticleResolver {
     private visitorService: VisitorService = new VisitorService()
   ) {}
 
-  @Mutation(type => ArticleCreateResult)
+  @Mutation(type => ArticleType)
   async createArticle(
     @Ctx() context: Context,
     @Arg('article', type => ArticleCreateRequest!) article: ArticleCreateRequest
-  ): Promise<ArticleCreateResult> {
+  ): Promise<ArticleType> {
     const userId = getUserId(context)
 
     createArticleValidation(article)

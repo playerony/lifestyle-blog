@@ -1,12 +1,7 @@
 import { Article } from '@model/Article'
 import { ArticleCategory } from '@model/ArticleCategory'
 
-import {
-  ArticleModel,
-  ArticleType,
-  ArticleCreateResult,
-  ArticleCreateRequest
-} from '@type/Article'
+import { ArticleType, ArticleModel, ArticleCreateRequest } from '@type/Article'
 
 import articleMapping from '@mapping/articleMapping'
 
@@ -14,7 +9,7 @@ export default class ArticleService {
   async create(
     { categoryIdList, ...articleData }: ArticleCreateRequest,
     userId: number
-  ): Promise<ArticleCreateResult> {
+  ): Promise<ArticleType> {
     Article.afterCreate<ArticleModel>(async article => {
       await ArticleCategory.bulkCreate(
         categoryIdList!.map(categoryId => ({
@@ -29,9 +24,7 @@ export default class ArticleService {
       userId
     })
 
-    return {
-      articleId: createdArticle.articleId!
-    }
+    return articleMapping(createdArticle)!
   }
 
   async findById(articleId: number): Promise<ArticleType | null> {

@@ -3,13 +3,15 @@ import { FileUpload } from 'graphql-upload'
 
 import { Image } from '@model/Image'
 
-import { ImageModel, ImageAddResult } from '@type/Image'
+import { ImageModel, ImageType } from '@type/Image'
+
+import imageMapping from '@mapping/imageMapping'
 
 import generateString from '@utility/generateString'
 import getMimetypeExtension from '@utility/getMimetypeExtension'
 
 export default class ImageService {
-  async upload(file: FileUpload, userId: number): Promise<ImageAddResult> {
+  async upload(file: FileUpload, userId: number): Promise<ImageType> {
     const { createReadStream, mimetype } = file
 
     const extension = getMimetypeExtension(mimetype)
@@ -25,9 +27,6 @@ export default class ImageService {
       userId
     })
 
-    return {
-      imageId: createdImage.imageId!,
-      filename: createdImage.filename!
-    }
+    return imageMapping(createdImage)!
   }
 }

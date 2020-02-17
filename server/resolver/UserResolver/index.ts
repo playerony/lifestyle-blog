@@ -19,7 +19,7 @@ export default class UserResolver {
 
     signupValidation(requestData)
 
-    return await this.userService.signup(requestData)
+    return this.userService.signup(requestData)
   }
 
   @Mutation(type => UserAddResult)
@@ -31,6 +31,6 @@ export default class UserResolver {
 
     loginValidation(requestData)
 
-    return await this.userService.login(requestData)
+    return this.userService.login(requestData)
   }
 }

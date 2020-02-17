@@ -1,17 +1,13 @@
 import { Category } from '@model/Category'
 
-import { CategoryModel, CategoryRecordResult } from '@type/Category'
+import { CategoryModel, CategoryType } from '@type/Category'
 
-const categoryMapping = (category: CategoryModel): CategoryRecordResult => ({
-  name: category.name!,
-  categoryId: category.categoryId!,
-  description: category.description!
-})
+import categoryMapping from '@mapping/categoryMapping'
 
 export default class CategoryService {
-  async findAll(): Promise<CategoryRecordResult[]> {
+  async findAll(): Promise<CategoryType[]> {
     const categoryList = await Category.findAll<CategoryModel>()
 
-    return categoryList.map(categoryMapping)
+    return categoryList.map(categoryMapping) as CategoryType[]
   }
 }

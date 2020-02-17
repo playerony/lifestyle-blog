@@ -87,9 +87,3 @@ export class ArticleCreateRequest {
   @Field(type => [Int])
   categoryIdList?: number[]
 }
-
-@ObjectType()
-export class ArticleCreateResult {
-  @Field()
-  articleId!: number
-}

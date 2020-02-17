@@ -36,15 +36,3 @@ export class CategoryType {
   @Field()
   updatedAt?: Date
 }
-
-@ObjectType()
-export class CategoryRecordResult {
-  @Field()
-  categoryId!: number
-
-  @Field()
-  name!: string
-
-  @Field()
-  description!: string
-}

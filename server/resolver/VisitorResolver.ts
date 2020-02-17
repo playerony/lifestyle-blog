@@ -10,6 +10,6 @@ export default class VisitorResolver {
   
   @Query(type => [VisitorType])
   async visitorList(): Promise<VisitorType[]> {
-    return await this.visitorService.findAll()
+    return this.visitorService.findAll()
   }
 }

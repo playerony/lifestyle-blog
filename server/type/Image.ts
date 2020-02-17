@@ -36,12 +36,3 @@ export class ImageType {
   @Field()
   updatedAt?: Date
 }
-
-@ObjectType()
-export class ImageAddResult {
-  @Field()
-  imageId!: number
-
-  @Field()
-  filename!: string
-}
