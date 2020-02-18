@@ -1,5 +1,7 @@
 import React from 'react'
 
-const ArticleCard = (): JSX.Element => <div />
+import { IArticleCardProps } from './ArticleCard.type'
+
+const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => <div />
 
 export default React.memo(ArticleCard)

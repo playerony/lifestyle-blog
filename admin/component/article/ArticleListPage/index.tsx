@@ -16,7 +16,7 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
 
   return (
     <>
-      <Dashboard />
+      <Dashboard articleList={articleList} />
       <Button
         floating={true}
         onClick={handleRedirect}
