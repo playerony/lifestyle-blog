@@ -1,4 +1,4 @@
-import IImage from './IImage'
+import IImage from '../image/IImage'
 import ICategory from '../category/ICategory'
 
 export default interface IArticle {

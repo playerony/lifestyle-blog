@@ -14,5 +14,11 @@ export const ARTICLE_LIST_QUERY = gql`
         filename
       }
     }
+
+    visitorList {
+      articleId
+      ipAddress
+      createdAt
+    }
   }
 `
