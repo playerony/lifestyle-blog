@@ -35,7 +35,7 @@ describe('ArticleService Service', () => {
 
       const result = await articleService.create(ARTICLE_MOCK, 1)
 
-      expect(result).toEqual({ articleId: 1 })
+      expect(result).toEqual(ARTICLE_MOCK)
     })
   })
 

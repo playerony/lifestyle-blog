@@ -1,6 +1,6 @@
 import { FileUpload } from 'graphql-upload'
 
-import { ImageModel } from '@type/Image'
+import { ImageType } from '@type/Image'
 
 jest.mock('fs')
 jest.doMock('sequelize', () => {
@@ -32,7 +32,7 @@ describe('ImageService Service', () => {
       const result = await imageService.upload(FILE_MOCK, 1)
 
       expect(pipeFunctionMock).toHaveBeenCalled()
-      expect(result).toEqual({ imageId: 1, filename: 'example.jpeg' })
+      expect(result).toEqual(IMAGE_MOCK)
     })
 
     it('should throw an error', async () => {
@@ -60,8 +60,10 @@ const FILE_MOCK: FileUpload = {
   }))
 }
 
-const IMAGE_MOCK: Partial<ImageModel> = {
+const IMAGE_MOCK: ImageType= {
   userId: 1,
   imageId: 1,
+  createdAt: undefined,
+  updatedAt: undefined,
   filename: 'example.jpeg'
 }
