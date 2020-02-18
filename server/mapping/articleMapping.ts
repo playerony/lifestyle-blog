@@ -4,7 +4,7 @@ import imageMapping from './imageMapping'
 import categoryMapping from './categoryMapping'
 
 export default (record: ArticleModel): ArticleType => {
-  const image = record?.image ? imageMapping(record.image) : null
+  const image = record.image ? imageMapping(record.image) : null
   const categoryList = record.categoryList
     ? record.categoryList.map(categoryMapping)
     : null
