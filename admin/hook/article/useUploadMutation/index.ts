@@ -1,5 +1,5 @@
 import { ExecutionResult } from 'graphql'
-import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
+import { useMutation } from 'react-apollo-hooks'
 
 import { IResult } from './useUploadMutation.type'
 
@@ -12,17 +12,17 @@ const useUploadMutation = () => {
     const result = await uploadMutation({
       variables: { file },
       errorPolicy: 'all'
-    } as MutationHookOptions)
+    })
 
     if (!result.errors) {
-      return result
+      return result as ExecutionResult
     }
 
     if (result.errors[0].extensions?.code !== 'VALIDATION_ERROR') {
       return
     }
 
-    return { ...result, errors: JSON.parse(result.errors[0].message) }
+    return { ...result, errors: JSON.parse(result.errors[0].message) } as IResult
   }
 }
 

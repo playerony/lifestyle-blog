@@ -1,5 +1,5 @@
 import { QueryResult } from 'react-apollo'
-import { useQuery } from '@apollo/react-hooks'
+import { useQuery } from 'react-apollo-hooks'
 
 import ICategory from '@type/category/ICategory'
 
