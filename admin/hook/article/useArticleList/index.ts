@@ -4,10 +4,10 @@ import { IResult } from './useArticleList.type'
 
 import { ARTICLE_LIST_QUERY } from './useArticleList.query'
 
-const useArticleList = (): IResult | null => {
+const useArticleList = (): IResult | undefined => {
   const { data } = useQuery<IResult>(ARTICLE_LIST_QUERY, { suspend: true })
 
-  return data || null
+  return data
 }
 
 export default useArticleList

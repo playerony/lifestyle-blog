@@ -11,5 +11,6 @@ export default {
   '@context': path.resolve(__dirname, '../context/'),
   '@service': path.resolve(__dirname, '../service/'),
   '@utility': path.resolve(__dirname, '../utility/'),
-  '@component': path.resolve(__dirname, '../component/')
+  '@component': path.resolve(__dirname, '../component/'),
+  '@transformator': path.resolve(__dirname, '../transformator/')
 }

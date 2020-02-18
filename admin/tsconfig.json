@@ -29,7 +29,8 @@
       "@context/*": ["./context/*"],
       "@utility/*": ["./utility/*"],
       "@service/*": ["./service/*"],
-      "@component/*": ["./component/*"]
+      "@component/*": ["./component/*"],
+      "@transformator/*": ["./transformator/*"]
     },
   },
   "exclude": [
