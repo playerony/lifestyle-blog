@@ -9,9 +9,9 @@ import articleListTransformator from '@transformator/articleListTransformator'
 const ArticleList = (): JSX.Element => {
   const data = useArticleList()
 
-  console.warn(articleListTransformator(data))
+  const transformedData = articleListTransformator(data)
 
-  return <ArticleListPage />
+  return <ArticleListPage articleList={transformedData} />
 }
 
 export default ArticleList

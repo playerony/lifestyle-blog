@@ -1,11 +1,14 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
+import Dashboard from './Dashboard'
 import Button from '@component/generic/Button'
+
+import { IArticleListPageProps } from './ArticleListPage.type'
 
 import routeList from '@config/routeList'
 
-const ArticleListPage = (): JSX.Element => {
+const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element => {
   const history = useHistory()
 
   const handleRedirect = (): void =>
@@ -13,6 +16,7 @@ const ArticleListPage = (): JSX.Element => {
 
   return (
     <>
+      <Dashboard />
       <Button
         floating={true}
         onClick={handleRedirect}

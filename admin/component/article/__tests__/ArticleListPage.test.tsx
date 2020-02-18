@@ -21,13 +21,13 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
 
 describe('ArticleListPage Component', () => {
   it('should render', () => {
-    const wrapper = mountComponent(<ArticleListPage />)
+    const wrapper = mountComponent(<ArticleListPage articleList={[]} />)
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render Button Component', () => {
-    const wrapper = mountComponent(<ArticleListPage />)
+    const wrapper = mountComponent(<ArticleListPage articleList={[]} />)
 
     expect(wrapper.exists(Button)).toBeTruthy()
     expect(wrapper.find(Button).props().onClick).toBeDefined()
