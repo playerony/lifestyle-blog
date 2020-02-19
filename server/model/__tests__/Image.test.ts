@@ -40,7 +40,7 @@ describe('Image Model', () => {
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
         },
-        filename: {
+        photoUrl: {
           type: DataTypes.STRING(100),
           unique: true,
           allowNull: false,
