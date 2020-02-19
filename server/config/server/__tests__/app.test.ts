@@ -2,6 +2,7 @@ import { Express } from 'express'
 import waitForExpect from 'wait-for-expect'
 
 const setMock = jest.fn()
+const useMock = jest.fn()
 const applyMiddlewareMock = jest.fn()
 
 jest.doMock('../apolloServer', () => {
@@ -13,7 +14,8 @@ jest.doMock('../apolloServer', () => {
 })
 
 jest.doMock('express', () => () => ({
-  set: setMock
+  set: setMock,
+  use: useMock
 }))
 
 describe('app Configuration', () => {
@@ -27,8 +29,8 @@ describe('app Configuration', () => {
     process.env = { ...OLD_ENV }
     delete process.env.NODE_ENV
 
-    process.env.SERVER_PORT = '3200'
-    process.env.ADMIN_URL = 'localhost'
+    process.env.SERVER_PORT = '1000'
+    process.env.ADMIN_URL = 'ADMIN_URL'
 
     appConfig = require('../app').default
   })
@@ -40,7 +42,13 @@ describe('app Configuration', () => {
   it('should set an app port defined as enviroment variable', async () => {
     await appConfig()
 
-    expect(setMock).toHaveBeenCalledWith('port', '3200')
+    expect(setMock).toHaveBeenCalledWith('port', '1000')
+  })
+
+  it('should use a compression middleware', async () => {
+    await appConfig()
+
+    expect(useMock).toHaveBeenCalledTimes(1)
   })
 
   it('should prepare a server configuration', async () => {
@@ -48,8 +56,8 @@ describe('app Configuration', () => {
 
     await waitForExpect(() =>
       expect(applyMiddlewareMock).toHaveBeenCalledWith({
-        app: { set: setMock },
-        cors: { credentials: true, origin: 'localhost' }
+        app: { set: setMock, use: useMock },
+        cors: { credentials: true, origin: 'ADMIN_URL' }
       })
     )
   })

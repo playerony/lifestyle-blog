@@ -1,6 +1,7 @@
 import UserResolver from '@resolver/UserResolver'
 import ImageResolver from '@resolver/ImageResolver'
 import ArticleResolver from '@resolver/ArticleResolver'
+import VisitorResolver from '@resolver/VisitorResolver'
 import CategoryResolver from '@resolver/CategoryResolver'
 
 const buildSchemaMock = jest.fn()
@@ -31,6 +32,7 @@ describe('apolloServer Configuration', () => {
         UserResolver,
         ImageResolver,
         ArticleResolver,
+        VisitorResolver,
         CategoryResolver
       ],
       nullableByDefault: true

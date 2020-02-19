@@ -11,8 +11,8 @@ describe('database Configuration', () => {
     require('../index').default()
 
     await waitForExpect(() => {
-      expect(createDatabaseConnection).toHaveBeenCalled()
       expect(synchronizeModel).toHaveBeenCalled()
+      expect(createDatabaseConnection).toHaveBeenCalled()
     })
   })
 })
