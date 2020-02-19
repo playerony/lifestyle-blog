@@ -13,6 +13,10 @@ interface IKeys {
   serverPort?: string
 
   adminUrl?: string
+
+  cloudinaryName?: string
+  cloudinaryPublicKey?: string
+  cloudinarySecretKey?: string
 }
 
 const config: IKeys = {
@@ -29,7 +33,11 @@ const config: IKeys = {
   serverPort: process.env.SERVER_PORT,
   hashSalt: Number(process.env.HASH_SALT),
 
-  adminUrl: process.env.ADMIN_URL
+  adminUrl: process.env.ADMIN_URL,
+
+  cloudinaryName: process.env.CLOUDINARY_NAME,
+  cloudinaryPublicKey: process.env.CLOUDINARY_PUBLIC_KEY,
+  cloudinarySecretKey: process.env.CLOUDINARY_SECRET_KEY
 }
 
 export default config

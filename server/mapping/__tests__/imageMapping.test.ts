@@ -11,13 +11,13 @@ describe('imageMapping Mapping', () => {
 const INPUT_MOCK: Partial<ImageModel> = {
   userId: 1,
   imageId: 1,
-  filename: 'file'
+  photoUrl: 'file'
 }
 
 const OUTPUT_MOCK: ImageType = {
   userId: 1,
   imageId: 1,
-  filename: 'file',
+  photoUrl: 'file',
   createdAt: undefined,
   updatedAt: undefined
 }

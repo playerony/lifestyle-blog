@@ -10,7 +10,7 @@ export class ImageModel extends Model {
   userId?: number
 
   @Field()
-  filename?: string
+  photoUrl?: string
 
   @Field()
   createdAt?: Date
@@ -28,7 +28,7 @@ export class ImageType {
   userId?: number
 
   @Field()
-  filename?: string
+  photoUrl?: string
 
   @Field()
   createdAt?: Date

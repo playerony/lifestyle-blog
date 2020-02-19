@@ -17,6 +17,7 @@ const config = {
     hot: true,
     port: 3200,
     contentBase: '.',
+    publicPath: '/admin',
     historyApiFallback: true
   },
   resolve: {
@@ -25,7 +26,13 @@ const config = {
   },
   module: {
     rules: [
-      { test: /\.(jpg|png)$/, loader: 'url-loader' },
+      {
+        test: /\.(jpg|png|jpeg)$/,
+        loader: 'url-loader',
+        options: {
+          publicPath: '../asset'
+        }
+      },
       { test: /\.svg$/, loader: 'svg-sprite-loader' },
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]

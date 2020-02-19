@@ -10,7 +10,7 @@ export const ARTICLE_LIST_QUERY = gql`
         categoryId
       }
       image {
-        filename
+        photoUrl
       }
     }
 

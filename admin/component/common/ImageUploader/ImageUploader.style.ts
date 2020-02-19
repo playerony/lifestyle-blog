@@ -47,7 +47,6 @@ export const StyledContentWrapper = styled.div<IStyledContentWrapperProps>`
 export const StyledImage = styled.img`
   width: 100%;
   height: 275px;
-  outline: none;
   object-fit: cover;
 
   ${borderRadius('4px 4px 0 0')}
