@@ -1,3 +1,4 @@
+import compression from 'compression'
 import express, { Express } from 'express'
 
 import keys from '@config/keys'
@@ -8,6 +9,8 @@ export default async (): Promise<Express> => {
 
   try {
     app.set('port', keys.serverPort)
+
+    app.use(compression())
 
     const server = await apolloServer()
 

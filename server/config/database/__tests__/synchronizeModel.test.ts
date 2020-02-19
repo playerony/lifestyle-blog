@@ -1,4 +1,5 @@
 const syncMock = jest.fn()
+
 jest.doMock('../sequelize', () => {
   class Sequelize {
     public sync = syncMock

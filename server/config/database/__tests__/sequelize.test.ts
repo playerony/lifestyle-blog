@@ -3,6 +3,7 @@ describe('sequelize Instance', () => {
 
   beforeEach(() => {
     jest.resetModules()
+
     process.env = { ...OLD_ENV }
     delete process.env.NODE_ENV
   })
@@ -12,20 +13,20 @@ describe('sequelize Instance', () => {
   })
 
   it('should set proper configuration', () => {
-    process.env.DATABASE_NAME = 'database_name'
-    process.env.DATABASE_USER = 'database_user'
-    process.env.DATABASE_PASSWORD = 'database_password'
-    process.env.DATABASE_SERVER = 'database_server'
-    process.env.DATABASE_PORT = '3100'
+    process.env.DATABASE_PORT = '1000'
+    process.env.DATABASE_NAME = 'DATABASE_NAME'
+    process.env.DATABASE_USER = 'DATABASE_USER'
+    process.env.DATABASE_SERVER = 'DATABASE_SERVER'
+    process.env.DATABASE_PASSWORD = 'DATABASE_PASSWORD'
 
     const { sequelize } = require('../sequelize')
 
     expect(sequelize.options).toBeDefined()
-    expect(sequelize.options.port).toEqual(3100)
+    expect(sequelize.options.port).toEqual(1000)
     expect(sequelize.options.dialect).toEqual('postgres')
     expect(sequelize.options.storage).toEqual(':memory:')
-    expect(sequelize.options.database).toEqual('database_name')
-    expect(sequelize.options.username).toEqual('database_user')
-    expect(sequelize.options.password).toEqual('database_password')
+    expect(sequelize.options.database).toEqual('DATABASE_NAME')
+    expect(sequelize.options.username).toEqual('DATABASE_USER')
+    expect(sequelize.options.password).toEqual('DATABASE_PASSWORD')
   })
 })
