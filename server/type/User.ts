@@ -1,8 +1,16 @@
 import { Model } from 'sequelize'
 import { Field, ObjectType } from 'type-graphql'
 
-@ObjectType()
 export class UserModel extends Model {
+  userId?: number
+  login?: string
+  password?: string
+  createdAt?: Date
+  updatedAt?: Date
+}
+
+@ObjectType()
+export class UserType {
   @Field()
   userId?: number
 
@@ -25,10 +33,5 @@ export class UserAddResult {
   token!: string
 
   @Field()
-  user!: UserModel
-}
-
-export class UserAddModel {
-  login!: string
-  password!: string
+  user!: UserType
 }

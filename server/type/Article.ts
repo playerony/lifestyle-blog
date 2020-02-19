@@ -4,36 +4,15 @@ import { Int, Field, ObjectType, InputType } from 'type-graphql'
 import { ImageModel, ImageType } from './Image'
 import { CategoryModel, CategoryType } from './Category'
 
-@ObjectType()
 export class ArticleModel extends Model {
-  @Field()
   articleId?: number
-
-  @Field()
   userId?: number
-
-  @Field()
   imageId?: number
-
-  @Field()
   title?: string
-
-  @Field()
   description?: string
-
-  @Field()
   content?: string
-
-  @Field(type => ImageModel)
   image?: ImageModel
-
-  @Field(type => [CategoryModel])
   categoryList?: CategoryModel[] | null
-
-  @Field()
-  createdAt?: Date
-
-  @Field()
   updatedAt?: Date
 }
 

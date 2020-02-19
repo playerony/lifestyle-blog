@@ -1,5 +1,5 @@
 export default class Context {
-  token!: string
-  ipAddress!: string
-  userAgent!: string
+  token?: string
+  ipAddress?: string
+  userAgent?: string
 }
