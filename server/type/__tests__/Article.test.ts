@@ -1,9 +1,9 @@
-import * as articleTypes from '../Article'
+import * as articleTypeList from '../Article'
 import { ArticleType, ArticleModel, ArticleCreateRequest } from '../Article'
 
 describe('Article Types', () => {
   it('should contain three objects', () => {
-    expect(Object.keys(articleTypes)).toHaveLength(3)
+    expect(Object.keys(articleTypeList)).toHaveLength(3)
   })
 
   describe('ArticleType Type', () => {
