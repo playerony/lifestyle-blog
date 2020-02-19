@@ -13,6 +13,7 @@ export class ArticleModel extends Model {
   content?: string
   image?: ImageModel
   categoryList?: CategoryModel[] | null
+  createdAt?: Date
   updatedAt?: Date
 }
 
