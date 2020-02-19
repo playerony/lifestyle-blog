@@ -5,6 +5,7 @@ describe('keys Object', () => {
 
   beforeEach(() => {
     jest.resetModules()
+
     process.env = { ...OLD_ENV }
     delete process.env.NODE_ENV
   })
@@ -16,18 +17,22 @@ describe('keys Object', () => {
   it('will receive all process.env variables', () => {
     process.env.NODE_ENV = 'development'
 
-    process.env.DATABASE_NAME = 'database_name'
-    process.env.DATABASE_USER = 'database_user'
-    process.env.DATABASE_PASSWORD = 'database_password'
-    process.env.DATABASE_SERVER = 'database_server'
-    process.env.DATABASE_PORT = '3100'
+    process.env.DATABASE_PORT = '1000'
+    process.env.DATABASE_NAME = 'DATABASE_NAME'
+    process.env.DATABASE_USER = 'DATABASE_USER'
+    process.env.DATABASE_SERVER = 'DATABASE_SERVER'
+    process.env.DATABASE_PASSWORD = 'DATABASE_PASSWORD'
 
-    process.env.HASH_SALT = '12'
-    process.env.JWT_PREFIX = 'Example prefix'
-    process.env.APP_SECRET = 'secret_key'
-    process.env.SERVER_PORT = '3000'
+    process.env.HASH_SALT = '123'
+    process.env.JWT_PREFIX = 'JWT_PREFIX'
+    process.env.APP_SECRET = 'APP_SECRET'
+    process.env.SERVER_PORT = 'SERVER_PORT'
 
-    process.env.ADMIN_URL = 'url'
+    process.env.ADMIN_URL = 'ADMIN_URL'
+
+    process.env.CLOUDINARY_NAME = 'CLOUDINARY_NAME'
+    process.env.CLOUDINARY_PUBLIC_KEY = 'CLOUDINARY_PUBLIC_KEY'
+    process.env.CLOUDINARY_SECRET_KEY = 'CLOUDINARY_SECRET_KEY'
 
     const keys = require('../keys').default
 
