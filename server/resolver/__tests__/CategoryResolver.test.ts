@@ -4,7 +4,7 @@ import CategoryResolver from '../CategoryResolver'
 
 import CategoryService from '@service/CategoryService'
 
-import { CategoryRecordResult } from '@type/Category'
+import { CategoryType } from '@type/Category'
 
 const _CategoryService = Substitute.for<CategoryService>()
 
@@ -28,7 +28,7 @@ describe('CategoryResolver Resolver', () => {
   })
 })
 
-const CATEGORY_LIST_MOCK: CategoryRecordResult[] = [
+const CATEGORY_LIST_MOCK: CategoryType[] = [
   {
     categoryId: 1,
     name: 'Test name 1',

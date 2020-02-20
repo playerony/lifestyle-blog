@@ -4,7 +4,7 @@ import VisitorResolver from '../VisitorResolver'
 
 import VisitorService from '@service/VisitorService'
 
-import { VisitorRecord } from '@type/Visitor'
+import { VisitorType } from '@type/Visitor'
 
 const _VisitorService = Substitute.for<VisitorService>()
 
@@ -28,7 +28,7 @@ describe('VisitorResolver Resolver', () => {
   })
 })
 
-const VISITOR_LIST_MOCK: VisitorRecord[] = [
+const VISITOR_LIST_MOCK: VisitorType[] = [
   {
     visitorId: 1,
     articleId: 1,

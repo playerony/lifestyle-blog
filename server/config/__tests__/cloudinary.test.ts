@@ -34,9 +34,9 @@ describe('cloudinary Configuration', () => {
     require('../cloudinary')
 
     expect(configMock).toHaveBeenCalledWith({
-      'api_key': 'CLOUDINARY_PUBLIC_KEY',
-      'api_secret': 'CLOUDINARY_SECRET_KEY',
-      'cloud_name': 'CLOUDINARY_NAME'
+      api_key: 'CLOUDINARY_PUBLIC_KEY',
+      api_secret: 'CLOUDINARY_SECRET_KEY',
+      cloud_name: 'CLOUDINARY_NAME'
     })
   })
 })

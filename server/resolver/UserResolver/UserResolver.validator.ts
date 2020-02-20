@@ -1,9 +1,9 @@
-import { UserAddModel } from '@model/User'
+import { UserType } from '@type/User'
 
 import ValidationError from '@utility/ValidationError'
 import { check, validate, isValid } from '@utility/validate'
 
-export const loginValidation = (data: UserAddModel): void => {
+export const loginValidation = (data: UserType): void => {
   const validationResult = validate(data)
     .setCheckList([
       check('login')
@@ -22,7 +22,7 @@ export const loginValidation = (data: UserAddModel): void => {
   }
 }
 
-export const signupValidation = (data: UserAddModel): void => {
+export const signupValidation = (data: UserType): void => {
   const validationResult = validate(data)
     .setCheckList([
       check('login')
