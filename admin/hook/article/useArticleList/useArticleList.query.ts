@@ -5,6 +5,7 @@ export const ARTICLE_LIST_QUERY = gql`
     articleList {
       title
       articleId
+      createdAt
       description
       categoryList {
         categoryId
