@@ -13,8 +13,8 @@ export default class VisitorService {
     const foundVisitor = await Visitor.findOne<VisitorModel>({
       where: {
         articleId,
-        userAgent,
-        ipAddress
+        userAgent: userAgent!,
+        ipAddress: ipAddress!
       }
     })
 

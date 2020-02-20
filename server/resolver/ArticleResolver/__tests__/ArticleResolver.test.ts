@@ -7,8 +7,8 @@ import ArticleService from '@service/ArticleService'
 import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
-import { VisitorRecord } from '@type/Visitor'
-import { ArticleCreateResult, ArticleCreateRequest } from '@type/Article'
+import { VisitorType } from '@type/Visitor'
+import { ArticleType, ArticleCreateRequest } from '@type/Article'
 
 import generateString from '@utility/generateString'
 
@@ -155,11 +155,11 @@ const ARTICLE_MOCK: ArticleCreateRequest = {
   content: generateString(160)
 }
 
-const ARTICLE_CREATE_RESULT_MOCK: ArticleCreateResult = {
+const ARTICLE_CREATE_RESULT_MOCK: ArticleType = {
   articleId: 1
 }
 
-const VISITOR_MOCK: VisitorRecord = {
+const VISITOR_MOCK: VisitorType = {
   visitorId: 1,
   articleId: 1,
   userAgent: 'Mobile',

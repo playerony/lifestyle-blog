@@ -7,7 +7,7 @@ import ImageResolver from '../index'
 import ImageService from '@service/ImageService'
 
 import Context from '@type/Context'
-import { ImageAddResult } from '@type/Image'
+import { ImageType } from '@type/Image'
 
 jest.mock('../../../config/keys', () => ({
   jwtPrefix: 'Prefix',
@@ -88,9 +88,9 @@ describe('ImageResolver Resolver', () => {
   })
 })
 
-const UPLOAD_METHOD_MOCK: ImageAddResult = {
+const UPLOAD_METHOD_MOCK: ImageType = {
   imageId: 1,
-  filename: 'example.jpeg'
+  photoUrl: 'example.jpeg'
 }
 
 const FILE_MOCK: FileUpload = {
