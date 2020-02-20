@@ -13,7 +13,7 @@ jest.mock('react-router-dom', () => {
     __esModule: true,
     ...originalModule,
     useHistory: () => ({ push: jest.fn() })
-  };
+  }
 })
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
