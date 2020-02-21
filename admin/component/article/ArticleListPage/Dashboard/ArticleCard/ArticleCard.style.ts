@@ -15,8 +15,8 @@ import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
   margin: 20px;
-  height: 400px;
   width: 350px;
+  height: 400px;
   min-width: 350px;
 
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
@@ -65,7 +65,30 @@ export const StyledArticleNumber = styled.p`
 
 export const StyledContentHeader = styled.header`
   ${flexbox()}
+  ${alignItems('center')}
   ${justifyContent('space-between')}
+`
+
+export const StyledViewContentWrapper = styled.div`
+  ${flexbox()}
+
+  p {
+    margin-top: 4px;
+    padding-right: 5px;
+  }
+`
+
+export const StyledEyeIcon = styled.svg`
+  width: 25px;
+  height: 23px;
+  cursor: default;
+  margin-right: 10px;
+
+  fill: ${({ theme }: ThemeProps) => theme.color.icon};
+`
+
+export const StyledTodayViewLabel = styled.p`
+  color: ${variable.color.green400};
 `
 
 export const StyledContentSection = styled.section`

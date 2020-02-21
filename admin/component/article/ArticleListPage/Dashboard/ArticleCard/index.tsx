@@ -1,10 +1,12 @@
 import React from 'react'
 
+import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
 
 import {
   StyledImage,
   StyledWrapper,
+  StyledEyeIcon,
   StyledControlIcon,
   StyledCategoryIcon,
   StyledArticleNumber,
@@ -12,6 +14,8 @@ import {
   StyledContentHeader,
   StyledContentWrapper,
   StyledContentSection,
+  StyledTodayViewLabel,
+  StyledViewContentWrapper
 } from './ArticleCard.style'
 
 const formatDate = (date?: Date): string => {
@@ -21,6 +25,18 @@ const formatDate = (date?: Date): string => {
 
   return new Date(date).toLocaleDateString().replace(new RegExp('/', 'g'), '.')
 }
+
+const renderArticleViews = ({ totalVisitor, todayVisitor }: IArticleList): JSX.Element => (
+  <StyledViewContentWrapper>
+    <StyledEyeIcon>
+      <use xlinkHref="#eye" />
+    </StyledEyeIcon>
+    <p>{totalVisitor}</p>
+    <StyledTodayViewLabel>
+      {!todayVisitor ? `(+${todayVisitor})` : null}
+    </StyledTodayViewLabel>
+  </StyledViewContentWrapper>
+)
 
 const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
   const { image, title, description, articleId, createdAt, categoryList } = article
@@ -40,6 +56,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
       <StyledContentWrapper>
         <StyledContentHeader>
           <StyledArticleNumber>{articleId}</StyledArticleNumber>
+          {renderArticleViews(article)}
           <p>{formatDate(createdAt)}</p>
         </StyledContentHeader>
         <StyledContentSection>
