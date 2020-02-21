@@ -14,50 +14,50 @@ import {
   StyledContentHeader,
   StyledContentWrapper,
   StyledContentSection,
-  StyledTodayViewLabel,
-  StyledViewContentWrapper
+  StyledTodayVisitorLabel,
+  StyledVisitorContentWrapper
 } from './ArticleCard.style'
 
-const formatDate = (date?: Date): string => {
-  if (!date) {
-    return 'Date do not exist.'
-  }
+const formatArticleNumber = ({ articleId }: IArticleList): string =>
+  articleId!.toString().padStart(2, '0')
 
-  return new Date(date).toLocaleDateString().replace(new RegExp('/', 'g'), '.')
-}
+const formatDate = ({ createdAt }: IArticleList): string =>
+  new Date(createdAt!).toLocaleDateString().replace(new RegExp('/', 'g'), '.')
 
-const renderArticleViews = ({ totalVisitor, todayVisitor }: IArticleList): JSX.Element => (
-  <StyledViewContentWrapper>
+const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX.Element => (
+  <StyledVisitorContentWrapper>
     <StyledEyeIcon>
       <use xlinkHref="#eye" />
     </StyledEyeIcon>
     <p>{totalVisitor}</p>
-    <StyledTodayViewLabel>
+    <StyledTodayVisitorLabel>
       {todayVisitor ? `(+${todayVisitor})` : null}
-    </StyledTodayViewLabel>
-  </StyledViewContentWrapper>
+    </StyledTodayVisitorLabel>
+  </StyledVisitorContentWrapper>
 )
 
-const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
-  const { image, title, description, articleId, createdAt, categoryList } = article
+const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] =>
+  React.Children.toArray(
+    categoryList.map(element => (
+      <StyledCategoryIcon>
+        <use xlinkHref={`#${element.name?.toLowerCase()}`} />
+      </StyledCategoryIcon>
+    ))
+  )
 
-  const renderCategoryList = (): JSX.Element[] =>
-    React.Children.toArray(
-      (categoryList || []).map(element => (
-        <StyledCategoryIcon>
-          <use xlinkHref={`#${element.name?.toLowerCase()}`} />
-        </StyledCategoryIcon>
-      ))
-    )
+const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
+  const { image, title, description } = article
 
   return (
     <StyledWrapper>
       <StyledImage src={image?.photoUrl} />
       <StyledContentWrapper>
         <StyledContentHeader>
-          <StyledArticleNumber>{articleId}</StyledArticleNumber>
-          {renderArticleViews(article)}
-          <p>{formatDate(createdAt)}</p>
+          <StyledArticleNumber>
+            {formatArticleNumber(article)}
+          </StyledArticleNumber>
+          {renderArticleVisitor(article)}
+          <p>{formatDate(article)}</p>
         </StyledContentHeader>
         <StyledContentSection>
           <h1>{title}</h1>
@@ -65,7 +65,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
         </StyledContentSection>
         <StyledContentFooter>
           <div>
-            {renderCategoryList()}
+            {renderCategoryList(article)}
           </div>
           <div>
             <StyledControlIcon>

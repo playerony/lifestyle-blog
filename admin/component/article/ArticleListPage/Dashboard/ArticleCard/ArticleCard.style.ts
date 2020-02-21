@@ -69,7 +69,7 @@ export const StyledContentHeader = styled.header`
   ${justifyContent('space-between')}
 `
 
-export const StyledViewContentWrapper = styled.div`
+export const StyledVisitorContentWrapper = styled.div`
   ${flexbox()}
 
   p {
@@ -87,7 +87,7 @@ export const StyledEyeIcon = styled.svg`
   fill: ${({ theme }: ThemeProps) => theme.color.icon};
 `
 
-export const StyledTodayViewLabel = styled.p`
+export const StyledTodayVisitorLabel = styled.p`
   color: ${variable.color.green400};
 `
 
