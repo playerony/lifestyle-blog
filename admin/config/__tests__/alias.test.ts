@@ -15,7 +15,8 @@ describe('alias Configuration', () => {
       '@context',
       '@service',
       '@utility',
-      '@component'
+      '@component',
+      '@transformator'
     ])
   })
 
@@ -62,6 +63,10 @@ describe('alias Configuration', () => {
 
     it('should return proper value for @context property', () => {
       expect(alias['@context'].search('context')).toBeTruthy()
+    })
+
+    it('should return proper value for @transformator property', () => {
+      expect(alias['@transformator'].search('@transformator')).toBeTruthy()
     })
   })
 })

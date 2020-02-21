@@ -24,7 +24,7 @@ const config: webpack.Configuration = {
   },
   module: {
     rules: [
-      { test: /\.(jpg|png|jpeg)$/, loader: 'url-loader' },
+      { test: /\.(jpg|png)$/, loader: 'url-loader' },
       { test: /\.svg$/, loader: 'svg-sprite-loader' },
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]
