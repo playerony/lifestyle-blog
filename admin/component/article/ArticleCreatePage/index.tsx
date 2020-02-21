@@ -1,13 +1,14 @@
 import React from 'react'
 
 import ArticleForm from '../common/ArticleForm'
+import Container from '@component/common/Container'
 
 import { IArticleCreatePageProps } from './ArticleCreatePage.type'
 
-import { StyledWrapper, StyledHeader } from './ArticleCreatePage.style'
+import { StyledHeader } from './ArticleCreatePage.style'
 
 const ArticleCreatePage = ({ onCreate, errorData }: IArticleCreatePageProps): JSX.Element => (
-  <StyledWrapper>
+  <Container>
     <StyledHeader>
       Adding a new article
     </StyledHeader>
@@ -15,7 +16,7 @@ const ArticleCreatePage = ({ onCreate, errorData }: IArticleCreatePageProps): JS
       onSave={onCreate}
       errorData={errorData}
     />
-  </StyledWrapper>
+  </Container>
 )
 
 export default ArticleCreatePage
