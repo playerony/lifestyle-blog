@@ -1,3 +1,4 @@
+import '@asset/svg/eye.svg'
 import '@asset/svg/sun.svg'
 import '@asset/svg/logo.svg'
 import '@asset/svg/moon.svg'

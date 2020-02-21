@@ -9,6 +9,7 @@ export const ARTICLE_LIST_QUERY = gql`
       description
       categoryList {
         categoryId
+        name
       }
       image {
         photoUrl

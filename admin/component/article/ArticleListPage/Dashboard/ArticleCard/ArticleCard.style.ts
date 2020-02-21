@@ -6,8 +6,9 @@ import {
   alignItems,
   transition,
   borderRadius,
+  flexDirection,
   linearGradient,
-  justifyContent
+  justifyContent,
 } from '@style/mixin'
 import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
@@ -15,7 +16,8 @@ import { ThemeProps } from '@style/theme'
 export const StyledWrapper = styled.div`
   margin: 20px;
   height: 400px;
-  max-width: 350px;
+  width: 350px;
+  min-width: 350px;
 
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
@@ -28,10 +30,17 @@ export const StyledImage = styled.img`
   height: 50%;
   width: 100%;
   object-fit: cover;
+
+  ${borderRadius('4px 4px 0 0')}
 `
 
 export const StyledContentWrapper = styled.section`
   padding: ${variable.paddingSmall}px;
+  height: calc(50% - ${variable.paddingSmall * 2}px);
+
+  ${flexbox()}
+  ${flexDirection('column')}
+  ${justifyContent('space-between')}
 `
 
 export const StyledArticleNumber = styled.p`
@@ -57,4 +66,38 @@ export const StyledArticleNumber = styled.p`
 export const StyledContentHeader = styled.header`
   ${flexbox()}
   ${justifyContent('space-between')}
+`
+
+export const StyledContentSection = styled.section`
+  h1 {
+    margin-bottom: 10px;
+  }
+`
+
+export const StyledContentFooter = styled.footer`
+  ${flexbox()}
+  ${justifyContent('space-between')}
+`
+
+export const StyledCategoryIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+  cursor: default;
+  margin-right: 10px;
+
+  fill: ${({ theme }: ThemeProps) => theme.color.icon};
+`
+
+export const StyledControlIcon = styled.svg`
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  fill: ${({ theme }: ThemeProps) => theme.color.icon};
+
+  ${transition('fill 500ms linear')}
+
+  &:hover {
+    fill: ${variable.color.blue700};
+  }
 `
