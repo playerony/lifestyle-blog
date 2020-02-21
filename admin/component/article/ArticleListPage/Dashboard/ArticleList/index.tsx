@@ -13,7 +13,7 @@ const ArticleList = ({ articleList }: IArticleListProps): JSX.Element => {
     )
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'nowrap', width: '100%', justifyContent: 'space-evenly' }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', width: '100%', justifyContent: 'center' }}>
       {renderContent()}
     </div>
   )

@@ -33,7 +33,7 @@ const renderArticleViews = ({ totalVisitor, todayVisitor }: IArticleList): JSX.E
     </StyledEyeIcon>
     <p>{totalVisitor}</p>
     <StyledTodayViewLabel>
-      {!todayVisitor ? `(+${todayVisitor})` : null}
+      {todayVisitor ? `(+${todayVisitor})` : null}
     </StyledTodayViewLabel>
   </StyledViewContentWrapper>
 )
