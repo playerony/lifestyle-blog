@@ -1,5 +1,5 @@
-import IArticle from '@type/article/IArticle'
 import IVisitor from '@type/visitor/IVisitor'
+import IArticle from '@type/article/IArticle'
 import IArticleList from '@type/article/IArticleList'
 
 export default (data?: {
@@ -23,7 +23,7 @@ export default (data?: {
       element => element.articleId === articleId
     )
 
-    if (!filteredVisitorList) {
+    if (!filteredVisitorList.length) {
       return result.concat(value)
     }
 

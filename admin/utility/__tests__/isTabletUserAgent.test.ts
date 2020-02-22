@@ -1,6 +1,6 @@
 import isTabletUserAgent from '../isTabletUserAgent'
 
-describe('isTabletUserAgent', () => {
+describe('isTabletUserAgent Function', () => {
   it('shoudl return true if userAgent is from the tablet device', () => {
     USER_AGENT_LIST_MOCK.map(userAgent => {
       expect(isTabletUserAgent(userAgent)).toBeTruthy()
