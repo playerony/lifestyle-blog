@@ -9,16 +9,7 @@ import IArticleList from '@type/article/IArticleList'
 
 import useCategoryList from '@hook/category/useCategoryList'
 
-const sortByCreatedAt = (firstArticle: IArticleList, secondArticle: IArticleList): number =>
-  new Date(secondArticle.createdAt!).getDate() - new Date(firstArticle.createdAt!).getDate()
-
-const sortByTotalVisitor = (firstArticle: IArticleList, secondArticle: IArticleList): number =>
-  secondArticle.totalVisitor! - firstArticle.totalVisitor!
-
-const sortByTodayVisitor = (firstArticle: IArticleList, secondArticle: IArticleList): number =>
-  secondArticle.todayVisitor! - firstArticle.todayVisitor!
-
-const articleListByCategory = (articleList: IArticleList[], category: string): JSX.Element | null => {
+const renderArticleListSortedByCategory = (articleList: IArticleList[], category: string): JSX.Element | null => {
   const filteredArticleList = articleList.filter(({ categoryList = [] }) =>
     categoryList.find(({ name }) => name === category))
 
@@ -27,6 +18,28 @@ const articleListByCategory = (articleList: IArticleList[], category: string): J
   }
 
   return <ArticleList label={category} articleList={filteredArticleList} />
+}
+
+const renderArticleListSortedByCreatedAt = (articleList: IArticleList[]): JSX.Element => {
+  const articleListCopy = articleList.slice(0)
+  const result = articleListCopy.sort((a, b) =>
+    new Date(a.createdAt!).getTime() - new Date(b.createdAt!).getTime())
+
+  return <ArticleList label="Newest" articleList={result.reverse()} />
+}
+
+const renderArticleListSortedByTotalVisitor = (articleList: IArticleList[]): JSX.Element => {
+  const articleListCopy = articleList.slice(0)
+  const result = articleListCopy.sort((a, b) => b.totalVisitor! - a.totalVisitor!)
+
+  return <ArticleList label="Most Viewed - all time" articleList={result} />
+}
+
+const renderArticleListSortedByTodayVisitor = (articleList: IArticleList[]): JSX.Element => {
+  const articleListCopy = articleList.slice(0)
+  const result = articleListCopy.sort((a, b) => b.todayVisitor! - a.todayVisitor!)
+
+  return <ArticleList label="Most Viewed - today" articleList={result} />
 }
 
 const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
@@ -38,14 +51,14 @@ const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
     }
 
     return categoryList.map(({ name }: ICategory) =>
-      articleListByCategory(articleList, name!)
+      renderArticleListSortedByCategory(articleList, name!)
     )
   }
 
   const renderContent = (): JSX.Element[] => ([
-    <ArticleList label="Newest" articleList={articleList.sort(sortByCreatedAt)} />,
-    <ArticleList label="Most Viewed - all time" articleList={articleList.sort(sortByTotalVisitor)} />,
-    <ArticleList label="Most Viewed - today" articleList={articleList.sort(sortByTodayVisitor)} />,
+    renderArticleListSortedByCreatedAt(articleList),
+    renderArticleListSortedByTotalVisitor(articleList),
+    renderArticleListSortedByTodayVisitor(articleList),
     ...renderCategorySectionList()
   ])
 

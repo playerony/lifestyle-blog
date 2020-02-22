@@ -9,6 +9,8 @@ import variable from '@style/variable'
 import { StyledLabel } from './ArticleList.style'
 
 const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => {
+  console.warn(articleList)
+
   const renderContent = (): JSX.Element[] =>
     React.Children.toArray(
       articleList.map(element =>
@@ -22,12 +24,10 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
       <Slider
         speed={500}
         slidesToShow={3}
-        centerMode={true}
         slidesToScroll={3}
         className="center"
         swipeToSlide={true}
         lazyLoad="progressive"
-        centerPadding={`${variable.paddingBig}px`}
         responsive={[
           {
             breakpoint: variable.mediumScreen,
