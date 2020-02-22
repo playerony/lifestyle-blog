@@ -4,9 +4,8 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 import LoginPage from '@page/Login'
 import Header from '@component/common/Header'
 import ArtileListPage from '@page/article/ArticleList'
+import PrivateRoute from '@component/utility/PrivateRoute'
 import ArticleCreatePage from '@page/article/ArticleCreate'
-
-import PrivateRoute from '@utility/PrivateRoute'
 
 import routeList from '@config/routeList'
 

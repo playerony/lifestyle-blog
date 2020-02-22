@@ -12,7 +12,7 @@ const createMemoryMock = (token: string | null): typeof jest => {
     public static get = memoryGetMock
   }
 
-  return jest.doMock('../Memory', () => MemoryMock)
+  return jest.doMock('../../../utility/Memory', () => MemoryMock)
 }
 
 describe('PrivateRoute Component', () => {

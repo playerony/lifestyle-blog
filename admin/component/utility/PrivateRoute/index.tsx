@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom'
 
 import IPrivateRoute from './IPrivateRoute'
 
-import Memory from '../Memory'
+import Memory from '@utility/Memory'
 
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
