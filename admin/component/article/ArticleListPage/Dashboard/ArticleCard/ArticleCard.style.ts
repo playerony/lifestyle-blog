@@ -14,7 +14,7 @@ import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
-  margin: 20px;
+  margin: 5px;
   width: 400px;
   height: 500px;
   min-width: 350px;
