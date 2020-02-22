@@ -18,11 +18,10 @@ import {
   StyledVisitorContentWrapper
 } from './ArticleCard.style'
 
+import formatDate from '@utility/formatDate'
+
 const formatArticleNumber = ({ articleId }: IArticleList): string =>
   articleId!.toString().padStart(2, '0')
-
-const formatDate = ({ createdAt }: IArticleList): string =>
-  new Date(createdAt!).toLocaleDateString().replace(new RegExp('/', 'g'), '.')
 
 const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX.Element => (
   <StyledVisitorContentWrapper>
@@ -57,7 +56,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
             {formatArticleNumber(article)}
           </StyledArticleNumber>
           {renderArticleVisitor(article)}
-          <p>{formatDate(article)}</p>
+          <p>{formatDate(article.createdAt)}</p>
         </StyledContentHeader>
         <StyledContentSection>
           <h1>{title}</h1>
