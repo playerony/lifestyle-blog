@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import Header from '../Header'
 import Switch from '../../generic/Switch'
 
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom')

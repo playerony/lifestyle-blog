@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import Switch from '../Switch'
 
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)

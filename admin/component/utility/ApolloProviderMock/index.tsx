@@ -1,13 +1,10 @@
 import React from 'react'
-import { MockLink, MockedResponse } from 'apollo-link-mock'
+import { MockLink } from 'apollo-link-mock'
 import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo-hooks'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
-interface IApolloMockProviderProps {
-  mockList: MockedResponse[]
-  children: React.ReactNode
-}
+import { IApolloMockProviderProps } from './ApolloProviderMock.type'
 
 const ApolloProviderMock = ({
   mockList,

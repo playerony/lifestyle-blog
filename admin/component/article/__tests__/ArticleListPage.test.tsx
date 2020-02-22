@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import Button from '@component/generic/Button'
 import ArticleListPage from '../ArticleListPage'
 
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom')

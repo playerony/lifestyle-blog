@@ -4,7 +4,7 @@ import React, { useState, ReactElement } from 'react'
 
 import Select from '@component/generic/Select'
 import CategorySelect from '../CategorySelect'
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 
 import ICategory from '@type/category/ICategory'
 

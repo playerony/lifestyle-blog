@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import UploadInput from '../UploadInput'
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 import ImageUploader from '@component/common/ImageUploader'
 
 jest.mock('../../../../../hook/article/useUploadMutation')

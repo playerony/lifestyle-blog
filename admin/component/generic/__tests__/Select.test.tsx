@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import Select from '../Select'
 
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)

@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import BlockTypeControl from '..'
 import ControlButton from '../../ControlButton'
-import ThemeProviderMock from '@utility/ThemeProviderMock'
+import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 
 import { IBlockTypeControlProps } from '../BlockTypeControl.type'
 

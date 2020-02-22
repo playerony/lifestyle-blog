@@ -1,7 +1,7 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
 
-import ApolloProviderMock from '@utility/ApolloProviderMock'
+import ApolloProviderMock from '@admin/component/utility/ApolloProviderMock'
 
 import useLoginMutation from '../useLoginMutation'
 
