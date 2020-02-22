@@ -4,12 +4,12 @@ import { ApolloClient } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo-hooks'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
-import { IApolloMockProviderProps } from './ApolloProviderMock.type'
+import { IApolloProviderMockProps } from './ApolloProviderMock.type'
 
 const ApolloProviderMock = ({
   mockList,
   children
-}: IApolloMockProviderProps): JSX.Element => {
+}: IApolloProviderMockProps): JSX.Element => {
   const client = new ApolloClient({
     link: new MockLink(mockList),
     cache: new InMemoryCache()

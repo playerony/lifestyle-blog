@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import { MockedResponse } from 'apollo-link-mock'
 
-export interface IApolloMockProviderProps {
+export interface IApolloProviderMockProps {
   children: ReactElement
   mockList: MockedResponse[]
 }
