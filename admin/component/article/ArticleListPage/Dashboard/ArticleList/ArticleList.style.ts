@@ -1,8 +1,5 @@
 import styled from 'styled-components'
 
-import { flexWrap, flexbox } from '@style/mixin'
-
-export const StyledWrapper = styled.div`
-  ${flexbox()}
-  ${flexWrap('nowrap')}
+export const StyledLabel = styled.h2`
+  margin: 20px 0;
 `

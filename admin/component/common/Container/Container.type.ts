@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 export interface IContainerProps {
-  children: string | React.ReactElement | React.ReactElement[]
+  children: string | ReactElement | ReactElement[]
 }
