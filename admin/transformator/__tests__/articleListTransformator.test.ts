@@ -17,7 +17,7 @@ describe('articleListTransformator Transformator', () => {
     ).toEqual([])
   })
 
-  it('should proper calculate article total and today visitors', () => {
+  it('should proper calculate amount of total and today visitors', () => {
     const result = articleListTransformator({
       articleList: ARTICLE_LIST_MOCK,
       visitorList: VISITOR_LIST_MOCK
@@ -28,7 +28,7 @@ describe('articleListTransformator Transformator', () => {
     expect(result[0].totalVisitor).toEqual(5)
   })
 
-  it('should return provided articleList is visitor list does not exist', () => {
+  it('should return provided articleList if visitorList does not exist', () => {
     const result = articleListTransformator({
       articleList: ARTICLE_LIST_MOCK,
       visitorList: []
