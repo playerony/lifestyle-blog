@@ -1,11 +1,9 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import light from '@style/theme/light'
+import { IThemeProviderMockProps } from './ThemeProviderMock.type'
 
-interface IThemeProviderMockProps {
-  children: React.ReactElement
-}
+import light from '@style/theme/light'
 
 const ThemeProviderMock = ({ children }: IThemeProviderMockProps): JSX.Element => (
   <ThemeProvider theme={{ ...light }}>
