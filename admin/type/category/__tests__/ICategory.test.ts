@@ -1,7 +1,7 @@
 import ICategory from '../ICategory'
 
 describe('ICategory Interface', () => {
-  it('should contain two parameters', () => {
+  it('should contain three parameters', () => {
     expect(Object.keys(objectMock)).toHaveLength(3)
   })
 
