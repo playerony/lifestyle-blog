@@ -1,7 +1,7 @@
 import IVisitor from '../IVisitor'
 
 describe('IVisitor Interface', () => {
-  it('should contain two parameters', () => {
+  it('should contain six parameters', () => {
     expect(Object.keys(objectMock)).toHaveLength(6)
   })
 
