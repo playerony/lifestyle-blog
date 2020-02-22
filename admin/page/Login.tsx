@@ -10,7 +10,7 @@ import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'
 
 import Memory from '@utility/Memory'
-import isMobile from '@utility/isMobile'
+import isMobileResolution from '@admin/utility/isMobileResolution'
 
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
@@ -48,7 +48,7 @@ const Login = (): JSX.Element => {
   }
 
   return React.createElement(
-    isMobile() ? LoginPageMobile : LoginPageDesktop,
+    isMobileResolution() ? LoginPageMobile : LoginPageDesktop,
     { errorData, onClick: handleLogin }
   )
 }
