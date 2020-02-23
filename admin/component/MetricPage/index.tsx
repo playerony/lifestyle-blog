@@ -8,11 +8,12 @@ import { IMetricPageProps } from './MetricPage.type'
 import appMetricTransformator from '@transformator/appMetricTransformator'
 
 const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
-  const { visitorChartData } = appMetricTransformator(visitorList)
+  const { blogVisitorChartData, visitorDeviceChartData } = appMetricTransformator(visitorList)
 
   return (
     <Container>
-      <Doughnut data={visitorChartData} />
+      <Doughnut data={blogVisitorChartData} />
+      <Doughnut data={visitorDeviceChartData} />
     </Container>
   )
 }
