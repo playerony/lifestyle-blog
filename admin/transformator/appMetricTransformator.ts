@@ -5,31 +5,26 @@ import variable from '@style/variable'
 import isMobileUserAgent from '@utility/isMobileUserAgent'
 import isTabletUserAgent from '@utility/isTabletUserAgent'
 
-const unqiueArrayLength = (array: string[]): number =>
-  [...new Set(array)].length
-
 const calculateAllUniqueVisitors = (visitorList: IVisitor[]): number => {
-  const ipAddressList = visitorList
-    .map(({ ipAddress }) => ipAddress)
-    .filter(Boolean)
+  const ipAddressList = visitorList.map(({ ipAddress }) => ipAddress)
 
-  return unqiueArrayLength(ipAddressList as string[])
+  return [...new Set(ipAddressList)].length
 }
 
 const calculateArticleListVisitors = (visitorList: IVisitor[]): number => {
   const ipAddressList = visitorList
-    .map(({ ipAddress, articleId }) => ipAddress && !articleId)
-    .filter(Boolean)
+    .filter(({ articleId }) => !articleId)
+    .map(({ ipAddress }) => ipAddress)
 
-  return unqiueArrayLength(ipAddressList as string[])
+  return [...new Set(ipAddressList)].length
 }
 
 const calculateArticleVisitors = (visitorList: IVisitor[]): number => {
   const ipAddressList = visitorList
-    .map(({ ipAddress, articleId }) => ipAddress && Boolean(articleId))
-    .filter(Boolean)
+    .filter(({ articleId }) => Boolean(articleId))
+    .map(({ ipAddress }) => ipAddress)
 
-  return unqiueArrayLength(ipAddressList as string[])
+  return [...new Set(ipAddressList)].length
 }
 
 const calculateTabletVisitors = (visitorList: IVisitor[]): number =>
@@ -55,7 +50,7 @@ export default (visitorList: IVisitor[]) => {
     ],
     datasets: [
       {
-        data: [allWebsiteVisitors, articleListVisitors, articlePageVisitors],
+        data: [allWebsiteVisitors, articlePageVisitors, articleListVisitors],
         backgroundColor: [
           variable.color.blue500,
           variable.color.green500,
@@ -66,11 +61,7 @@ export default (visitorList: IVisitor[]) => {
   }
 
   const visitorDeviceChartData = {
-    labels: [
-      'Tablet',
-      'Mobile',
-      'Desktop'
-    ],
+    labels: ['Tablet', 'Mobile', 'Desktop'],
     datasets: [
       {
         data: [tabletVisitors, mobileVisitors, desktopVisitors],
