@@ -24,7 +24,7 @@ describe('ArticleList Page', () => {
     expect(wrapper.exists(ArticleListPage)).toBeTruthy()
   })
 
-  it('should render ArticleListPage Component', () => {
+  it('should render ArticleListPage Component with proper data', () => {
     const ArticleList = require('../ArticleList').default
     const wrapper = shallow(<ArticleList />)
 
