@@ -1,6 +1,7 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
-import { MockedProvider } from '@apollo/react-testing'
+
+import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import useUploadMutation from '../useUploadMutation'
 
@@ -9,6 +10,10 @@ import { UPLOAD_MUTATION_QUERY } from '../useUploadMutation/useUploadMutation.qu
 describe('useUploadMutation Hook', () => {
   beforeAll(() => {
     console.error = jest.fn()
+  })
+
+  it('import useUploadMutation', () => {
+    expect(typeof useUploadMutation).toBe('function')
   })
 
   it('should keep data as undefined until data is actually returned', done => {
@@ -38,9 +43,9 @@ describe('useUploadMutation Hook', () => {
     }
 
     mount(
-      <MockedProvider mocks={UPLOAD_IMAGE_MOCK}>
+      <ApolloProviderMock mockList={UPLOAD_IMAGE_MOCK}>
         <Component />
-      </MockedProvider>
+      </ApolloProviderMock>
     )
   })
 })
