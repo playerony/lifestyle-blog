@@ -6,6 +6,10 @@ import useTheme from '@hook/utility/useTheme'
 import EThemeMode from '@type/common/EThemeMode'
 
 describe('useTheme Hook', () => {
+  it('import useTheme', () => {
+    expect(typeof useTheme).toBe('function')
+  })
+
   it('should contain proper data', done => {
     const Component = (): null => {
       const context = useTheme()

@@ -13,6 +13,10 @@ describe('useCategoryList Hook', () => {
     console.error = jest.fn()
   })
 
+  it('import useCategoryList', () => {
+    expect(typeof useCategoryList).toBe('function')
+  })
+
   it('should keep data as undefined until data is actually returned', done => {
     const Component = (): null => {
       const { data, loading } = useCategoryList()

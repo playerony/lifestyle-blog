@@ -5,11 +5,15 @@ import ApolloProviderMock from '@admin/component/utility/ApolloProviderMock'
 
 import useLoginMutation from '../useLoginMutation'
 
-import { LOGIN_MUTATION_QUERY } from '../useLoginMutation/useLoginMutation.query'
+import { LOGIN_MUTATION } from '../useLoginMutation/useLoginMutation.query'
 
 describe('useLoginMutation Hook', () => {
   beforeAll(() => {
     console.error = jest.fn()
+  })
+
+  it('import useLoginMutation', () => {
+    expect(typeof useLoginMutation).toBe('function')
   })
 
   it('should keep data as undefined until data is actually returned', done => {
@@ -56,7 +60,7 @@ const LOGIN_RESULT_DATA = {
 const LOGIN_MOCK = [
   {
     request: {
-      query: LOGIN_MUTATION_QUERY,
+      query: LOGIN_MUTATION,
       variables: {
         login: 'admin',
         password: 'admin'

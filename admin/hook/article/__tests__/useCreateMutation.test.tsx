@@ -7,7 +7,7 @@ import IArticleSave from '@type/article/IArticleSave'
 
 import useCreateMutation from '../useCreateMutation'
 
-import { CREATE_ARTICLE_QUERY } from '../useCreateMutation/useCreateMutation.query'
+import { CREATE_ARTICLE_MUTATION } from '../useCreateMutation/useCreateMutation.query'
 
 describe('useCreateMutation Hook', () => {
   beforeAll(() => {
@@ -70,7 +70,7 @@ const CREATE_ARTICLE_RESULT_DATA = {
 const CREATE_ARTICLE_MOCK = [
   {
     request: {
-      query: CREATE_ARTICLE_QUERY,
+      query: CREATE_ARTICLE_MUTATION,
       variables: {
         article: CREATE_ARTICLE_REQUEST_MOCK
       }

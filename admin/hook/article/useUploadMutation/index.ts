@@ -3,10 +3,10 @@ import { useMutation } from 'react-apollo-hooks'
 
 import { IResult } from './useUploadMutation.type'
 
-import { UPLOAD_MUTATION_QUERY } from './useUploadMutation.query'
+import { UPLOAD_MUTATION } from './useUploadMutation.query'
 
 const useUploadMutation = () => {
-  const [uploadMutation] = useMutation(UPLOAD_MUTATION_QUERY)
+  const [uploadMutation] = useMutation(UPLOAD_MUTATION)
 
   return async (file: File): Promise<IResult | ExecutionResult | void> => {
     const result = await uploadMutation({

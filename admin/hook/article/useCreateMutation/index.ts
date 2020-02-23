@@ -4,12 +4,12 @@ import { useMutation } from 'react-apollo-hooks'
 import { IResult } from './useCreateMutation.type'
 import IArticleSave from '@type/article/IArticleSave'
 
-import { CREATE_ARTICLE_QUERY } from './useCreateMutation.query'
+import { CREATE_ARTICLE_MUTATION } from './useCreateMutation.query'
 
 import { VALIDATION_ERROR } from '@config/constant'
 
 const useCreateMutation = () => {
-  const [createArticleMutation] = useMutation(CREATE_ARTICLE_QUERY)
+  const [createArticleMutation] = useMutation(CREATE_ARTICLE_MUTATION)
 
   return async (
     article: IArticleSave

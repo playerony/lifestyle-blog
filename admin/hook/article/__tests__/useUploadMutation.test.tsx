@@ -5,7 +5,7 @@ import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import useUploadMutation from '../useUploadMutation'
 
-import { UPLOAD_MUTATION_QUERY } from '../useUploadMutation/useUploadMutation.query'
+import { UPLOAD_MUTATION } from '../useUploadMutation/useUploadMutation.query'
 
 describe('useUploadMutation Hook', () => {
   beforeAll(() => {
@@ -68,7 +68,7 @@ const UPLOAD_IMAGE_RESULT_DATA = {
 const UPLOAD_IMAGE_MOCK = [
   {
     request: {
-      query: UPLOAD_MUTATION_QUERY,
+      query: UPLOAD_MUTATION,
       variables: {
         file: UPLOAD_IMAGE_REQUEST_MOCK
       }
