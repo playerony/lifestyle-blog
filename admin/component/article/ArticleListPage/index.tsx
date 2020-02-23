@@ -18,7 +18,13 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
     <>
       <Dashboard articleList={articleList} />
       <Button
-        floating={true}
+        floating="left"
+        onClick={handleRedirect}
+      >
+        +
+      </Button>
+      <Button
+        floating="right"
         onClick={handleRedirect}
       >
         +

@@ -34,13 +34,14 @@ export const StyledButton = styled.button<IButtonProps>`
     `}
     
   ${({ floating }: IButtonProps) =>
-    floating &&
+    Boolean(floating) &&
     css`
       width: 100px;
       height: 100px;
       position: fixed;
       right: ${variable.paddingSmall}px;
       bottom: ${variable.paddingSmall}px;
+      ${floating === 'left' ? 'left: ' : 'right: '}${variable.paddingSmall}px;
 
       ${borderRadius('50px')}
     `}
