@@ -34,7 +34,9 @@ describe('articleListTransformator Transformator', () => {
       visitorList: []
     })
 
-    expect(result).toEqual(ARTICLE_LIST_MOCK)
+    expect(result).toHaveLength(1)
+    expect(result[0].todayVisitor).toEqual(0)
+    expect(result[0].totalVisitor).toEqual(0)
   })
 })
 

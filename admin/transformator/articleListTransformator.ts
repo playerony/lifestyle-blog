@@ -23,10 +23,6 @@ export default (data?: {
       element => element.articleId === articleId
     )
 
-    if (!filteredVisitorList.length) {
-      return result.concat(value)
-    }
-
     const todayVisitor = filteredVisitorList.filter(
       element =>
         new Date().getDate() - new Date(element.createdAt!).getDate() <= 1
