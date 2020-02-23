@@ -32,6 +32,17 @@ export default class ArticleResolver {
     return this.articleService.create(article, userId)
   }
 
+  @Mutation(type => ArticleType)
+  async updateArticle(
+    @Ctx() context: Context,
+    @Arg('articleId', type => Int) articleId: number,
+    @Arg('article', type => ArticleCreateRequest!) article: ArticleCreateRequest
+  ): Promise<ArticleType | null> {
+    const userId = getUserId(context)
+
+    return this.articleService.update(articleId, article, userId)
+  }
+
   @Query(type => [ArticleType])
   async articleList(@Ctx() context: Context): Promise<ArticleType[]> {
     await this.visitorService.create(null, context)

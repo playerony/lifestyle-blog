@@ -27,6 +27,35 @@ export default class ArticleService {
     return articleMapping(createdArticle)!
   }
 
+  async update(
+    articleId: number,
+    { categoryIdList, ...articleData }: ArticleCreateRequest,
+    userId: number
+  ): Promise<ArticleType | null> {
+    Article.afterUpdate<ArticleModel>(async () => {
+      await ArticleCategory.destroy({
+        where: { articleId }
+      })
+
+      await ArticleCategory.bulkCreate(
+        categoryIdList!.map(categoryId => ({
+          articleId,
+          categoryId
+        }))
+      )
+    })
+
+    await Article.update<ArticleModel>(
+      {
+        ...articleData,
+        userId
+      },
+      { where: { articleId }, individualHooks: true }
+    )
+
+    return this.findById(articleId)
+  }
+
   async findById(articleId: number): Promise<ArticleType | null> {
     const foundArticle = await Article.scope([
       'withImage',
