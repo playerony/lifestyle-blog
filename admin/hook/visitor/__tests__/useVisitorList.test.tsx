@@ -30,12 +30,14 @@ const VISITOR_LIST_RESULT_DATA = {
     {
       articleId: 1,
       ipAddress: 'ipAddress',
+      userAgent: 'userAgent',
       createdAt: new Date('2020'),
       __typename: 'Visitor'
     },
     {
       articleId: 1,
       ipAddress: 'ipAddress',
+      userAgent: 'userAgent',
       createdAt: new Date('2019'),
       __typename: 'Visitor'
     }

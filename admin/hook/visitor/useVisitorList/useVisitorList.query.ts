@@ -5,6 +5,7 @@ export const VISITOR_LIST_QUERY = gql`
     visitorList {
       articleId
       ipAddress
+      userAgent
       createdAt
     }
   }

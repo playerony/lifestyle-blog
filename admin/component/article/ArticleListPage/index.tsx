@@ -11,21 +11,24 @@ import routeList from '@config/routeList'
 const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element => {
   const history = useHistory()
 
-  const handleRedirect = (): void =>
+  const handleArticleCreateRedirect = (): void =>
     history.push(routeList.article.create)
+
+  const handleAppMetricRedirect = (): void =>
+    history.push(routeList.appMetric)
 
   return (
     <>
       <Dashboard articleList={articleList} />
       <Button
         floating="left"
-        onClick={handleRedirect}
+        onClick={handleAppMetricRedirect}
       >
         +
       </Button>
       <Button
         floating="right"
-        onClick={handleRedirect}
+        onClick={handleArticleCreateRedirect}
       >
         +
       </Button>

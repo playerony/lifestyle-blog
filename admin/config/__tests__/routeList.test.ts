@@ -9,6 +9,7 @@ describe('routeList Configuration', () => {
 const ROUTE_LIST = {
   base: '/admin',
   loginPageUrl: '/admin/login',
+  appMetric: '/admin/metric',
   article: {
     base: '/admin/article',
     list: '/admin/article/list',
