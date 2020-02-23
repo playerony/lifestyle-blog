@@ -1,7 +1,8 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import { isEqual } from 'lodash'
-import { MockedProvider } from '@apollo/react-testing'
+
+import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import useCategoryList from '../useCategoryList'
 
@@ -27,9 +28,9 @@ describe('useCategoryList Hook', () => {
     }
 
     mount(
-      <MockedProvider mocks={CATEGORY_LIST_MOCK}>
+      <ApolloProviderMock mockList={CATEGORY_LIST_MOCK}>
         <Component />
-      </MockedProvider>
+      </ApolloProviderMock>
     )
   })
 })
