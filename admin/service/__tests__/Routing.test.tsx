@@ -5,12 +5,12 @@ import { MemoryRouter } from 'react-router'
 
 import routeList from '@config/routeList'
 
+jest.doMock('../../component/utility/PrivateRoute', () => Route)
+
 jest.mock('../../page/Login', () => LoginPageMock)
 jest.mock('../../component/common/Header', () => HeaderMock)
 jest.mock('../../page/article/ArticleList', () => ArticleListPageMock)
 jest.mock('../../page/article/ArticleCreate', () => ArticleCreatePageMock)
-
-jest.doMock('../../utility/PrivateRoute', () => Route)
 
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom');
