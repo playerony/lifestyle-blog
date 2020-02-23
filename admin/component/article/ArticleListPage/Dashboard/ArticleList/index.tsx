@@ -9,8 +9,6 @@ import variable from '@style/variable'
 import { StyledLabel } from './ArticleList.style'
 
 const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => {
-  console.warn(articleList)
-
   const renderContent = (): JSX.Element[] =>
     React.Children.toArray(
       articleList.map(element =>

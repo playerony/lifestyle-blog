@@ -14,9 +14,9 @@ import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.div`
-  margin: 5px;
   width: 95%;
   height: 500px;
+  margin: 5px auto;
 
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 

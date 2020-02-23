@@ -3,8 +3,8 @@ import IArticle from '@type/article/IArticle'
 import IArticleList from '@type/article/IArticleList'
 
 export default (data?: {
-  articleList: IArticle[]
-  visitorList: IVisitor[]
+  articleList?: IArticle[]
+  visitorList?: IVisitor[]
 }): IArticleList[] => {
   if (!data) {
     return []

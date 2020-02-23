@@ -15,11 +15,5 @@ export const ARTICLE_LIST_QUERY = gql`
         photoUrl
       }
     }
-
-    visitorList {
-      articleId
-      ipAddress
-      createdAt
-    }
   }
 `
