@@ -5,6 +5,7 @@ import LoginPage from '@page/Login'
 import MetricPage from '@page/Metric'
 import Header from '@component/common/Header'
 import ArtileListPage from '@page/article/ArticleList'
+import ArticleEditPage from '@page/article/ArticleEdit'
 import PrivateRoute from '@component/utility/PrivateRoute'
 import ArticleCreatePage from '@page/article/ArticleCreate'
 
@@ -30,6 +31,9 @@ const Routing = (): JSX.Element => (
         </PrivateRoute>
         <PrivateRoute path={routeList.article.create}>
           <ArticleCreatePage />
+        </PrivateRoute>
+        <PrivateRoute path={routeList.article.edit}>
+          <ArticleEditPage />
         </PrivateRoute>
       </Route>
     </Switch>

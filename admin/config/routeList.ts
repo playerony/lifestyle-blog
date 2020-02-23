@@ -8,6 +8,7 @@ export default {
   article: {
     base: ARTICLE_URL,
     list: `${ARTICLE_URL}/list`,
-    create: `${ARTICLE_URL}/create`
+    create: `${ARTICLE_URL}/create`,
+    edit: `${ARTICLE_URL}/:articleId/edit`
   }
 }

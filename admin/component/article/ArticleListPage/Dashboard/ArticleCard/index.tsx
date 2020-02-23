@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 
 import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
@@ -19,6 +20,8 @@ import {
 } from './ArticleCard.style'
 
 import formatDate from '@utility/formatDate'
+
+import routeList from '@config/routeList'
 
 const formatArticleNumber = ({ articleId }: IArticleList): string =>
   articleId!.toString().padStart(2, '0')
@@ -45,6 +48,11 @@ const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] 
   )
 
 const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
+  const history = useHistory()
+
+  const handleArticleEditRedirect = (): void =>
+    history.push(`${routeList.article.base}/${article.articleId}/edit`)
+
   const { image, title, description } = article
 
   return (
@@ -70,7 +78,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
             <StyledControlIcon>
               <use xlinkHref="#metrics" />
             </StyledControlIcon>
-            <StyledControlIcon>
+            <StyledControlIcon onClick={handleArticleEditRedirect}>
               <use xlinkHref="#noun-edit" />
             </StyledControlIcon>
           </div>
