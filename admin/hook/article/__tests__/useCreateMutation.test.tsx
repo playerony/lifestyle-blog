@@ -1,6 +1,7 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
-import { MockedProvider } from '@apollo/react-testing'
+
+import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import IArticleSave from '@type/article/IArticleSave'
 
@@ -11,6 +12,10 @@ import { CREATE_ARTICLE_QUERY } from '../useCreateMutation/useCreateMutation.que
 describe('useCreateMutation Hook', () => {
   beforeAll(() => {
     console.error = jest.fn()
+  })
+
+  it('import useCreateMutation', () => {
+    expect(typeof useCreateMutation).toBe('function')
   })
 
   it('should keep data as undefined until data is actually returned', done => {
@@ -40,9 +45,9 @@ describe('useCreateMutation Hook', () => {
     }
 
     mount(
-      <MockedProvider mocks={CREATE_ARTICLE_MOCK}>
+      <ApolloProviderMock mockList={CREATE_ARTICLE_MOCK}>
         <Component />
-      </MockedProvider>
+      </ApolloProviderMock>
     )
   })
 })
