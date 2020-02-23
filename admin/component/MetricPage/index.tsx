@@ -1,11 +1,20 @@
 import React from 'react'
+import { Doughnut } from 'react-chartjs-2'
+
+import Container from '../common/Container'
 
 import { IMetricPageProps } from './MetricPage.type'
 
-const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
-  console.warn(visitorList)
+import appMetricTransformator from '@transformator/appMetricTransformator'
 
-  return <div />
+const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
+  const { visitorChartData } = appMetricTransformator(visitorList)
+
+  return (
+    <Container>
+      <Doughnut data={visitorChartData} />
+    </Container>
+  )
 }
 
 export default MetricPage
