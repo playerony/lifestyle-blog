@@ -11,8 +11,6 @@ const ArticleList = (): JSX.Element | null => {
   const articleList = useArticleList()
   const visitorList = useVisitorList()
 
-  console.warn(articleList, visitorList)
-
   const transformedData = articleListTransformator({ articleList, visitorList })
 
   return <ArticleListPage articleList={transformedData} />
