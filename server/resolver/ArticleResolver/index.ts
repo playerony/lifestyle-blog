@@ -4,13 +4,14 @@ import ArticleService from '@service/ArticleService'
 import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
-import { ArticleType, ArticleCreateRequest } from '@type/Article'
+import { ArticleType, ArticleSaveRequest } from '@type/Article'
 
 import getUserId from '@utility/getUserId'
 
 import {
   articleByIdValidation,
-  createArticleValidation
+  createArticleValidation,
+  updateArticleValidation
 } from './ArticleResolver.validator'
 
 @Resolver()
@@ -23,7 +24,7 @@ export default class ArticleResolver {
   @Mutation(type => ArticleType)
   async createArticle(
     @Ctx() context: Context,
-    @Arg('article', type => ArticleCreateRequest!) article: ArticleCreateRequest
+    @Arg('article', type => ArticleSaveRequest) article: ArticleSaveRequest
   ): Promise<ArticleType> {
     const userId = getUserId(context)
 
@@ -36,9 +37,11 @@ export default class ArticleResolver {
   async updateArticle(
     @Ctx() context: Context,
     @Arg('articleId', type => Int) articleId: number,
-    @Arg('article', type => ArticleCreateRequest!) article: ArticleCreateRequest
+    @Arg('article', type => ArticleSaveRequest) article: ArticleSaveRequest
   ): Promise<ArticleType | null> {
     const userId = getUserId(context)
+
+    updateArticleValidation(articleId, article)
 
     return this.articleService.update(articleId, article, userId)
   }

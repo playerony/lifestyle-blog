@@ -51,7 +51,7 @@ export class ArticleType {
 }
 
 @InputType()
-export class ArticleCreateRequest {
+export class ArticleSaveRequest {
   @Field()
   imageId?: number
 
