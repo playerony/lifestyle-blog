@@ -55,7 +55,7 @@ describe('ArticleResolver Resolver', () => {
         try {
           await resolver.createArticle(context, ARTICLE_MOCK)
         } catch (e) {
-          expect(e.message).toEqual('Authentication Error.')
+          expect(e.message).toEqual('Forbidden Error.')
         }
       })
 

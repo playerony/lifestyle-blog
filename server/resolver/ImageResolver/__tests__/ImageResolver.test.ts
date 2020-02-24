@@ -43,7 +43,7 @@ describe('ImageResolver Resolver', () => {
         try {
           await resolver.uploadImage(context, FILE_MOCK)
         } catch (e) {
-          expect(e.message).toEqual('Authentication Error.')
+          expect(e.message).toEqual('Forbidden Error.')
         }
       })
 

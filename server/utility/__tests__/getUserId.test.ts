@@ -21,7 +21,7 @@ describe('getUserId Function', () => {
       try {
         getUserId(getContext(''))
       } catch (e) {
-        expect(e.message).toEqual('Authentication Error.')
+        expect(e.message).toEqual('Forbidden Error.')
       }
     })
 
@@ -29,7 +29,7 @@ describe('getUserId Function', () => {
       try {
         getUserId(getContext('prefix token'))
       } catch (e) {
-        expect(e.message).toEqual('Authentication Error.')
+        expect(e.message).toEqual('Forbidden Error.')
       }
     })
 
@@ -40,7 +40,7 @@ describe('getUserId Function', () => {
       try {
         getUserId(getContext(`Prefix ${token}`))
       } catch (e) {
-        expect(e.message).toEqual('Authentication Error.')
+        expect(e.message).toEqual('Forbidden Error.')
       }
     })
   })
