@@ -1,7 +1,10 @@
+import { groupBy } from 'lodash'
+
 import IVisitor from '@type/visitor/IVisitor'
 
 import variable from '@style/variable'
 
+import formatDate from '@utility/formatDate'
 import isMobileUserAgent from '@utility/isMobileUserAgent'
 import isTabletUserAgent from '@utility/isTabletUserAgent'
 
@@ -32,6 +35,34 @@ const calculateTabletVisitors = (visitorList: IVisitor[]): number =>
 
 const calculateMobileVisitors = (visitorList: IVisitor[]): number =>
   visitorList.filter(({ userAgent }) => isMobileUserAgent(userAgent!)).length
+
+const getLineChartData = (visitorList: IVisitor[]) => {
+  const visitorListGroupedByMonth = groupBy(visitorList, visitor => {
+    const date = new Date(visitor.createdAt!)
+
+    return date.getFullYear() + date.getMonth()
+  })
+
+  const labels = Object.keys(visitorListGroupedByMonth)
+    .map(element => visitorListGroupedByMonth[element][0])
+    .map(visitor => formatDate(visitor.createdAt).slice(3))
+
+  const data = Object.keys(visitorListGroupedByMonth).map(
+    element => visitorListGroupedByMonth[element].length
+  )
+
+  return {
+    labels,
+    datasets: [
+      {
+        label: 'Visitors per month',
+        borderColor: variable.color.blue500,
+        backgroundColor: variable.color.blue500,
+        data
+      }
+    ]
+  }
+}
 
 export default (visitorList: IVisitor[]) => {
   const articlePageVisitors = calculateArticleVisitors(visitorList)
@@ -74,7 +105,10 @@ export default (visitorList: IVisitor[]) => {
     ]
   }
 
+  const lineChartData = getLineChartData(visitorList)
+
   return {
+    lineChartData,
     blogVisitorChartData,
     visitorDeviceChartData
   }
