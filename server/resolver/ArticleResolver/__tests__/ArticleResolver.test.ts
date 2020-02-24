@@ -8,7 +8,7 @@ import VisitorService from '@service/VisitorService'
 
 import Context from '@type/Context'
 import { VisitorType } from '@type/Visitor'
-import { ArticleType, ArticleCreateRequest } from '@type/Article'
+import { ArticleType, ArticleSaveRequest } from '@type/Article'
 
 import generateString from '@utility/generateString'
 
@@ -30,6 +30,10 @@ describe('ArticleResolver Resolver', () => {
   })
 
   beforeAll(() => {
+    _ArticleService
+      .update(Arg.any(), Arg.any(), Arg.any())
+      .mimicks(async () => ARTICLE_CREATE_RESULT_MOCK)
+
     _ArticleService
       .create(Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_CREATE_RESULT_MOCK)
@@ -100,6 +104,64 @@ describe('ArticleResolver Resolver', () => {
     })
   })
 
+  describe('updateArticle mutation', () => {
+    describe('should throw an error', () => {
+      it('if token is wrong', async () => {
+        const context: Context = {
+          token: '',
+          userAgent: '',
+          ipAddress: ''
+        }
+
+        try {
+          await resolver.updateArticle(context, 1, ARTICLE_MOCK)
+        } catch (e) {
+          expect(e.message).toEqual('Forbidden Error.')
+        }
+      })
+
+      it('if passed content data is wrong', async () => {
+        const token = jwt.sign({ userId: 1 }, keys.appSecret!)
+        const context: Context = {
+          userAgent: '',
+          ipAddress: '',
+          token: `${keys.jwtPrefix} ${token}`
+        }
+
+        try {
+          await resolver.updateArticle(context, 1, {
+            ...ARTICLE_MOCK,
+            content: 'wrong value'
+          })
+        } catch (e) {
+          expect(e.message).toEqual(
+            JSON.stringify({
+              articleId: [],
+              imageId: [],
+              title: [],
+              description: [],
+              content: [`Provided value's length is shorter than 160.`],
+              categoryIdList: []
+            })
+          )
+        }
+      })
+    })
+
+    it('should return proper data', async () => {
+      const token = jwt.sign({ userId: 1 }, keys.appSecret!)
+      const context: Context = {
+        userAgent: '',
+        ipAddress: '',
+        token: `${keys.jwtPrefix} ${token}`
+      }
+
+      const result = await resolver.updateArticle(context, 1, ARTICLE_MOCK)
+
+      expect(result).toEqual(ARTICLE_CREATE_RESULT_MOCK)
+    })
+  })
+
   describe('articleList Query', () => {
     it('should return proper data', async () => {
       const context: Context = {
@@ -147,7 +209,7 @@ describe('ArticleResolver Resolver', () => {
   })
 })
 
-const ARTICLE_MOCK: ArticleCreateRequest = {
+const ARTICLE_MOCK: ArticleSaveRequest = {
   imageId: 1,
   title: '123',
   description: '123',
