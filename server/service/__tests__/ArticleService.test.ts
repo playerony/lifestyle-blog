@@ -10,8 +10,10 @@ jest.doMock('sequelize', () => {
 
   class Model {
     public static init = jest.fn()
+    public static update = jest.fn()
     public static belongsTo = jest.fn()
     public static afterCreate = jest.fn()
+    public static afterUpdate = jest.fn()
     public static belongsToMany = jest.fn()
     public static bulkCreate = bulkCreateMock
     public static scope = scopeCallMock.mockImplementation(() => Model)
@@ -34,6 +36,17 @@ describe('ArticleService Service', () => {
       const articleService = new ArticleService()
 
       const result = await articleService.create(ARTICLE_MOCK, 1)
+
+      expect(result).toEqual(ARTICLE_MOCK)
+    })
+  })
+
+  describe('update Method', () => {
+    it('should return updated articleId', async () => {
+      const ArticleService = require('../ArticleService').default
+      const articleService = new ArticleService()
+
+      const result = await articleService.update(1, ARTICLE_MOCK, 1)
 
       expect(result).toEqual(ARTICLE_MOCK)
     })
