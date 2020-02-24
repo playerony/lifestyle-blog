@@ -1,3 +1,5 @@
+import { ApolloError } from 'apollo-server-express'
+
 import Check from './Check'
 
 export interface IData {
@@ -24,7 +26,7 @@ class Validation {
 
   public check(): IError {
     if (!this.checkList) {
-      throw Error('Check list was not provided.')
+      throw new ApolloError('Check list was not provided.')
     }
 
     return this.checkList.reduce((result, check) => {

@@ -1,5 +1,6 @@
 import compression from 'compression'
 import express, { Express } from 'express'
+import { ApolloError } from 'apollo-server-express'
 
 import keys from '@config/keys'
 import apolloServer from './apolloServer'
@@ -22,7 +23,7 @@ export default async (): Promise<Express> => {
       }
     })
   } catch (e) {
-    throw Error(e)
+    throw new ApolloError(e)
   }
 
   return app

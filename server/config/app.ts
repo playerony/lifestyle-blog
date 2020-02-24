@@ -1,3 +1,5 @@
+import { ApolloError } from 'apollo-server-express'
+
 import server from './server'
 import database from './database'
 import checkEnvironment from './checkEnvironment'
@@ -9,6 +11,6 @@ import checkEnvironment from './checkEnvironment'
     await database()
     await server()
   } catch (e) {
-    throw Error(e)
+    throw new ApolloError(e)
   }
 })()
