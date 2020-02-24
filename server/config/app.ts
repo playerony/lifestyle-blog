@@ -4,7 +4,7 @@ import server from './server'
 import database from './database'
 import checkEnvironment from './checkEnvironment'
 
-;(async () => {
+;(async (): Promise<void> => {
   try {
     checkEnvironment()
 

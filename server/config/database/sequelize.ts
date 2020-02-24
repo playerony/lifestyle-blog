@@ -9,5 +9,5 @@ export const sequelize = new Sequelize({
   host: keys.databaseServer,
   database: keys.databaseName,
   username: keys.databaseUser,
-  password: keys.databasePassword,
+  password: keys.databasePassword
 })
