@@ -33,15 +33,11 @@ export const StyledButton = styled.button<IButtonProps>`
       margin-top: ${variable.paddingSmall}px;
     `}
     
-  ${({ floating }: IButtonProps) =>
-    Boolean(floating) &&
+  ${({ circle }: IButtonProps) =>
+    Boolean(circle) &&
     css`
       width: 100px;
       height: 100px;
-      position: fixed;
-      right: ${variable.paddingSmall}px;
-      bottom: ${variable.paddingSmall}px;
-      ${floating === 'left' ? 'left: ' : 'right: '}${variable.paddingSmall}px;
 
       ${borderRadius('50px')}
     `}

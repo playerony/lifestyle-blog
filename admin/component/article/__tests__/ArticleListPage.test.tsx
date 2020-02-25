@@ -31,6 +31,6 @@ describe('ArticleListPage Component', () => {
 
     expect(wrapper.exists(Button)).toBeTruthy()
     expect(wrapper.find(Button).props().onClick).toBeDefined()
-    expect(wrapper.find(Button).props().floating).toBeTruthy()
+    expect(wrapper.find(Button).props().circle).toBeTruthy()
   })
 })

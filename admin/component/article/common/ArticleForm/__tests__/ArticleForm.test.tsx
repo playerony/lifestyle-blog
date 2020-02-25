@@ -78,7 +78,7 @@ describe('ArticleForm Component', () => {
 
     const buttonProps = wrapper.find(Button).props()
     expect(buttonProps.onClick).toBeDefined()
-    expect(buttonProps.floating).toBeTruthy()
+    expect(buttonProps.circle).toBeTruthy()
     expect(buttonProps.children).toEqual('+')
   })
 })

@@ -87,7 +87,7 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
         errorMessage={getFieldError<IArticleSave>(errorData, 'content')}
       />
       <Button
-        floating="right"
+        circle={true}
         onClick={handleArticleSave}
       >
         +
