@@ -7,8 +7,7 @@ import { ARTICLE_LIST_QUERY } from './useArticleList.query'
 
 const useArticleList = (): IArticle[] | undefined => {
   const { data } = useQuery<IResult>(ARTICLE_LIST_QUERY, {
-    suspend: true,
-    fetchPolicy: 'cache-first'
+    suspend: true
   })
 
   return data?.articleList

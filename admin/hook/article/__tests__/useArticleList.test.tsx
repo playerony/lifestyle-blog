@@ -39,7 +39,7 @@ const ARTICLE_LIST_RESULT_DATA = {
       }],
       image: {
         photoUrl: 'photoUrl',
-        __typename: 'iMAGE'
+        __typename: 'Image'
       },
       __typename: 'Article'
     },
