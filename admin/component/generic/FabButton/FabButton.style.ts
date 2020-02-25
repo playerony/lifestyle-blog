@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import variable from '@style/variable'
 import { transition, transform } from '@style/mixin'
 
-export const StyledWrapper = styled.div`
+export const StyledWrapper = styled.ul`
   position: fixed;
   right: ${variable.paddingSmall}px;
   bottom: ${variable.paddingSmall}px;
@@ -14,7 +14,7 @@ interface IStyledMenuElementProps {
   isVisible: boolean
 }
 
-export const StyledMenuElement = styled.span<IStyledMenuElementProps>`
+export const StyledElement = styled.li<IStyledMenuElementProps>`
   display: block;
   margin-bottom: ${variable.paddingSmall}px;
 

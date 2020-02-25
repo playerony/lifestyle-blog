@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { IFabButtonProps } from './FabButton.type'
 
-import { StyledWrapper, StyledMenuElement } from './FabButton.style'
+import { StyledWrapper, StyledElement } from './FabButton.style'
 
 const FabButton = ({ children }: IFabButtonProps): JSX.Element => {
   const [visibility, setVisibility] = useState<boolean>(false)
@@ -11,24 +11,23 @@ const FabButton = ({ children }: IFabButtonProps): JSX.Element => {
     setVisibility(prev => !prev)
 
   const renderContent = (): JSX.Element[] => {
-    const childrenWithKey = React.Children.toArray(children)
-    const elements = childrenWithKey.length
+    const elements = children.length
 
-    return childrenWithKey.map((element, index) => {
+    return children.map((element, index) => {
       const isLastElement = elements === index + 1
 
       if (!isLastElement) {
         return (
-          <StyledMenuElement index={elements - 1 - index} isVisible={visibility}>
+          <StyledElement index={elements - index - 1} isVisible={visibility}>
             {element}
-          </StyledMenuElement>
+          </StyledElement>
         )
       }
 
       return (
-        <span onClick={toggleVisibility}>
+        <li onClick={toggleVisibility}>
           {element}
-        </span>
+        </li>
       )
     })
   }
@@ -40,4 +39,4 @@ const FabButton = ({ children }: IFabButtonProps): JSX.Element => {
   )
 }
 
-export default React.memo(FabButton)
+export default FabButton
