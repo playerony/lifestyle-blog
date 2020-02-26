@@ -7,6 +7,8 @@ import { IToastProps, IToastProviderProps } from './ToastProvider.type'
 
 import { ToastContext } from '@context/ToastContext'
 
+import { StyledToastListWrapper } from './ToastProvider.style'
+
 const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   const [toastList, setToastList] = useState<IToastProps[]>([])
 
@@ -33,7 +35,9 @@ const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   return (
     <ToastContext.Provider value={{ add }}>
       {children}
-      {renderToastList()}
+      <StyledToastListWrapper>
+        {renderToastList()}
+      </StyledToastListWrapper>
     </ToastContext.Provider>
   )
 }
