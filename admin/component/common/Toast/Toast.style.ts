@@ -16,7 +16,8 @@ const TOAST_COLOR = {
 
 export const StyledWrapper = styled.div<IStyledWrapperProps>`
   color: ${variable.color.white};
-  padding: ${variable.paddingMedium}px;
+  padding: ${variable.paddingSmall}px;
+  margin-bottom: ${variable.paddingSmall}px;
   background-color: ${({ type }: IStyledWrapperProps) => TOAST_COLOR[type]};
 
   ${borderRadius('4px')}

@@ -7,18 +7,20 @@ import { IToastProps, IToastProviderProps } from './ToastProvider.type'
 
 import { ToastContext } from '@context/ToastContext'
 
+import generateUnqiueID from '@utility/generateUnqiueID'
+
 import { StyledToastListWrapper } from './ToastProvider.style'
 
 const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   const [toastList, setToastList] = useState<IToastProps[]>([])
 
   const add = (message: string, type: EToastType = EToastType.SUCCESS): void => {
-    const toastId = new Date().valueOf()
+    const toastId = generateUnqiueID()
 
     setToastList([...toastList, { toastId, type, content: message }])
   }
 
-  const remove = (toastId: number): void =>
+  const remove = (toastId: string): void =>
     setToastList(toastList.filter(toast => toast.toastId !== toastId))
 
   const renderToastList = (): JSX.Element[] =>
