@@ -5,7 +5,7 @@ import Toast from '@component/common/Toast'
 import EToastType from '@type/common/EToastType'
 import { IToastProps, IToastProviderProps } from './ToastProvider.type'
 
-import { ToastContext } from '@context/ToastContext'
+import { ToastContext } from '@context/Toast'
 
 import generateUnqiueID from '@utility/generateUnqiueID'
 

@@ -6,7 +6,7 @@ import { ManageThemeContext } from '../ManageTheme'
 import EThemeMode from '@type/common/EThemeMode'
 
 describe('ManageTheme Context', () => {
-  it('should contain proper data', done => {
+  it('should contain proper data as default', done => {
     const Component = (): null => {
       const context = useContext(ManageThemeContext)
 

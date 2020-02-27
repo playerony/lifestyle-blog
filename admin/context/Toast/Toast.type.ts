@@ -1,5 +1,5 @@
 import EToastType from '@type/common/EToastType'
 
-export interface IToastContextProps {
+export interface IToastProps {
   add: (message: string, type?: EToastType) => void
 }
