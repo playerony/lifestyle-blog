@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import useTheme from '@hook/utility/useTheme'
+import useTheme from '../useTheme'
 
 import EThemeMode from '@type/common/EThemeMode'
 
