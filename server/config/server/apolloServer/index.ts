@@ -2,6 +2,7 @@ import { GraphQLSchema } from 'graphql'
 import { buildSchema } from 'type-graphql'
 import { ApolloServer } from 'apollo-server-express'
 
+import LogResolver from '@resolver/LogResolver'
 import UserResolver from '@resolver/UserResolver'
 import ImageResolver from '@resolver/ImageResolver'
 import ArticleResolver from '@resolver/ArticleResolver'
@@ -13,6 +14,7 @@ import LoggingExtension from './LoggingExtension'
 const buildGraphQLSchema = async (): Promise<GraphQLSchema> =>
   buildSchema({
     resolvers: [
+      LogResolver,
       UserResolver,
       ImageResolver,
       ArticleResolver,

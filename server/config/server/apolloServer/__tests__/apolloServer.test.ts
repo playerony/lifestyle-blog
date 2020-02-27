@@ -1,3 +1,4 @@
+import LogResolver from '@resolver/LogResolver'
 import UserResolver from '@resolver/UserResolver'
 import ImageResolver from '@resolver/ImageResolver'
 import ArticleResolver from '@resolver/ArticleResolver'
@@ -29,6 +30,7 @@ describe('apolloServer Configuration', () => {
 
     expect(buildSchemaMock).toHaveBeenCalledWith({
       resolvers: [
+        LogResolver,
         UserResolver,
         ImageResolver,
         ArticleResolver,
