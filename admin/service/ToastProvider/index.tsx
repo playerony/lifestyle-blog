@@ -24,15 +24,14 @@ const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
     setToastList(toastList.filter(toast => toast.toastId !== toastId))
 
   const renderToastList = (): JSX.Element[] =>
-    React.Children.toArray(
-      toastList.map(({ type, toastId, content }) => (
-        <Toast
-          type={type}
-          content={content}
-          onClick={() => remove(toastId)}
-        />
-      ))
-    )
+    toastList.map(({ type, toastId, content }) => (
+      <Toast
+        type={type}
+        content={content}
+        key={`${type}_${toastId}`}
+        onClick={() => remove(toastId)}
+      />
+    ))
 
   return (
     <ToastContext.Provider value={{ add }}>
