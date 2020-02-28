@@ -7,6 +7,6 @@ export const StyledContainer = styled.div`
   margin: 0 auto;
   position: relative;
   padding: ${variable.paddingBig}px;
-  max-width: ${variable.mediumScreen}px;
+  max-width: ${variable.breakpoint.mediumScreen}px;
   width: calc(100% - ${variable.paddingBig * 2}px);
 `

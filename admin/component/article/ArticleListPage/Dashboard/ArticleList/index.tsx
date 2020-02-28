@@ -28,14 +28,14 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
         lazyLoad="progressive"
         responsive={[
           {
-            breakpoint: variable.mediumScreen,
+            breakpoint: variable.breakpoint.mediumScreen,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2
             }
           },
           {
-            breakpoint: variable.smallScreen,
+            breakpoint: variable.breakpoint.smallScreen,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1

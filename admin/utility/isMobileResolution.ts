@@ -1,3 +1,4 @@
 import variable from '@style/variable'
 
-export default (): boolean => document.body.clientWidth < variable.mobileScreen
+export default (): boolean =>
+  document.body.clientWidth < variable.breakpoint.mobileScreen

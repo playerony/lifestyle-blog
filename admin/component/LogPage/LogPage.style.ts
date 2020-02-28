@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
-import { borderRadius } from '@style/mixin'
+import { boxShadow, borderRadius } from '@style/mixin'
 
 export const StyledHeader = styled.h1`
   text-align: center;
@@ -14,4 +14,5 @@ export const StyledChartWrapper = styled.section`
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('4px')}
+  ${boxShadow('0 2px 8px 0 rgba(0, 0, 0, 0.16)')}
 `

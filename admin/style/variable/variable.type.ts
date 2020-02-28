@@ -1,8 +1,4 @@
 export interface IVariable {
-  largeScreen: number
-  mediumScreen: number
-  smallScreen: number
-  mobileScreen: number
   paddingSmall: number
   paddingMedium: number
   paddingBig: number
@@ -13,5 +9,11 @@ export interface IVariable {
   font: {
     normal: string
     bold: string
+  },
+  breakpoint: {
+    largeScreen: number
+    mediumScreen: number
+    smallScreen: number
+    mobileScreen: number
   }
 }
