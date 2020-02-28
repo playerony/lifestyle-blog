@@ -1,3 +1,10 @@
+export interface IBreakpoint {
+  largeScreen: number
+  mediumScreen: number
+  smallScreen: number
+  mobileScreen: number
+}
+
 export interface IVariable {
   paddingSmall: number
   paddingMedium: number
@@ -10,10 +17,5 @@ export interface IVariable {
     normal: string
     bold: string
   },
-  breakpoint: {
-    largeScreen: number
-    mediumScreen: number
-    smallScreen: number
-    mobileScreen: number
-  }
+  breakpoint: IBreakpoint
 }
