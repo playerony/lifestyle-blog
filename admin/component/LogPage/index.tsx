@@ -7,12 +7,19 @@ import { ILogPageProps } from './LogPage.type'
 
 import logTransformator from '@transformator/logTransformator'
 
+import { StyledHeader, StyledChartWrapper } from './LogPage.style'
+
 const LogPage = ({ logList = [] }: ILogPageProps): JSX.Element => {
   const logChartData = logTransformator(logList)
 
   return (
     <Container>
-      <Bar data={logChartData} />
+      <StyledHeader>
+        Logs per month chart
+      </StyledHeader>
+      <StyledChartWrapper>
+        <Bar data={logChartData} />
+      </StyledChartWrapper>
     </Container>
   )
 }

@@ -25,10 +25,9 @@ export default (logList: ILog[]) => {
     labels,
     datasets: [
       {
+        data,
         label: 'Logs per month',
-        borderColor: variable.color.blue500,
-        backgroundColor: variable.color.blue500,
-        data
+        backgroundColor: variable.color.blue500
       }
     ]
   }
