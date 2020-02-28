@@ -17,6 +17,9 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
 
   const handleAppMetricRedirect = (): void =>
     history.push(routeList.appMetric)
+  
+  const handleLogPageRedirect = (): void =>
+    history.push(routeList.log)
 
   return (
     <>
@@ -29,7 +32,7 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
       </Button>
       <FabButton>
         <Button circle={true} onClick={() => toast!.add('Test message')}>x</Button>
-        <Button circle={true}>y</Button>
+        <Button circle={true} onClick={handleLogPageRedirect}>y</Button>
         <Button circle={true}>+</Button>
       </FabButton>
     </>

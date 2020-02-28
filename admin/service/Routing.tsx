@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
+import LogPage from '@page/Log'
 import LoginPage from '@page/Login'
 import MetricPage from '@page/Metric'
 import Header from '@component/common/Header'
@@ -23,6 +24,10 @@ const Routing = (): JSX.Element => (
       <Route path={routeList.appMetric}>
         <Header />
         <MetricPage />
+      </Route>
+      <Route path={routeList.log}>
+        <Header />
+        <LogPage />
       </Route>
       <Route path={routeList.article.base}>
         <Header />
