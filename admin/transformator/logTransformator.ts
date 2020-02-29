@@ -10,12 +10,12 @@ export default (logList: ILog[]) => {
   const logListGroupedByMonth = groupBy(logList, log => {
     const date = new Date(log.createdAt!)
 
-    return date.getFullYear() + date.getMonth()
+    return new Date(date.getFullYear(), date.getMonth()).getTime()
   })
 
   const labels = Object.keys(logListGroupedByMonth)
     .map(element => logListGroupedByMonth[element][0])
-    .map(visitor => formatDate(visitor.createdAt).slice(3))
+    .map(log => formatDate(log.createdAt).slice(3))
 
   const data = Object.keys(logListGroupedByMonth).map(
     element => logListGroupedByMonth[element].length

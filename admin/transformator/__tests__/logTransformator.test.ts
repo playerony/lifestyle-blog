@@ -18,10 +18,10 @@ describe('logTransformator Transformator', () => {
 
   it('should return data with grouped labels and data by month', () => {
     expect(logTransformator(LOG_LIST_MOCK)).toEqual({
-      labels: ['04.2020', '05.2020'],
+      labels: ['05.2020', '04.2020'],
       datasets: [
         {
-          data: [1, 2],
+          data: [2, 1],
           label: 'Logs per month',
           backgroundColor: '#48adf1'
         }
