@@ -26,6 +26,12 @@ describe('Header Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
+  it('should be wrapped in header tag', () => {
+    const wrapper = mountComponent(<Header />)
+
+    expect(wrapper.find('header')).toBeTruthy()
+  })
+
   it('should render svg logo', () => {
     const wrapper = mountComponent(<Header />)
 
@@ -39,13 +45,13 @@ describe('Header Component', () => {
     expect(wrapper.find('use').get(1).props.xlinkHref).toEqual('#sun')
   })
 
-  it('should render moon logo', () => {
+  it('should render moon icon', () => {
     const wrapper = mountComponent(<Header />)
 
     expect(wrapper.find('use').get(2).props.xlinkHref).toEqual('#moon')
   })
 
-  it('should render logout logo', () => {
+  it('should render logout icon', () => {
     const wrapper = mountComponent(<Header />)
 
     expect(wrapper.find('svg').last().props().onClick).toBeDefined()

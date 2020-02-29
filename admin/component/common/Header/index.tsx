@@ -43,7 +43,10 @@ const Header = (): JSX.Element => {
           <StyledSunIcon>
             <use xlinkHref="#sun" />
           </StyledSunIcon>
-          <Switch initialValue={mode === EThemeMode.DARK} onChange={toggle} />
+          <Switch
+            onChange={toggle}
+            initialValue={mode === EThemeMode.DARK}
+          />
           <StyledMoonIcon>
             <use xlinkHref="#moon" />
           </StyledMoonIcon>
