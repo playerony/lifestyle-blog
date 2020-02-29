@@ -1,5 +1,5 @@
 const BASE_URL = '/admin'
-const ARTICLE_URL = '/admin/article'
+const ARTICLE_URL = `${BASE_URL}/article`
 
 export default {
   base: BASE_URL,
