@@ -26,5 +26,3 @@ export const StyledContainer = styled.div`
     width: calc(100% - ${variable.paddingSmall}px);
   `}
 `
-
-console.warn(StyledContainer)

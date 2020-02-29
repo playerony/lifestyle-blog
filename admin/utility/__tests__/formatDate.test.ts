@@ -6,7 +6,7 @@ describe('formatDate Function', () => {
   })
 
   it('should return formatted date', () => {
-    expect(formatDate(new Date('2020'))).toEqual('2020.1.1')
-    expect(formatDate(new Date('2019'))).toEqual('2019.1.1')
+    expect(formatDate(new Date('2020'))).toEqual('01.01.2020')
+    expect(formatDate(new Date('2019'))).toEqual('01.01.2019')
   })
 })
