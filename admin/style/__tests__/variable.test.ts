@@ -7,11 +7,6 @@ describe('variable Object', () => {
 })
 
 const VARIABLE = {
-  largeScreen: 1919,
-  mediumScreen: 1367,
-  smallScreen: 1023,
-  mobileScreen: 750,
-
   paddingSmall: 20,
   paddingMedium: 40,
   paddingBig: 60,
@@ -47,5 +42,11 @@ const VARIABLE = {
   font: {
     normal: "'HelveticaNeue', Helvetica, Arial, sans-serif",
     bold: "'HelveticaNeueBold', Helvetica, Arial, sans-serif"
+  },
+  breakpoint: {
+    largeScreen: 1919,
+    mediumScreen: 1367,
+    smallScreen: 1023,
+    mobileScreen: 750
   }
 }
