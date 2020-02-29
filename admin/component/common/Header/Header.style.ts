@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 import {
   flexbox,
+  respondTo,
   boxShadow,
   alignItems,
   transition,
@@ -11,15 +12,38 @@ import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.header`
+  width: 100%;
+  background-color: ${({ theme }: ThemeProps) => theme.color.card};
+
+  ${flexbox()}
+  ${justifyContent('center')}
+  ${transition('background-color 500ms linear')}
+  ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
+`
+
+export const StyledContentWrapper = styled.div`
+  max-width: ${variable.breakpoint.mediumScreen}px;
   width: calc(100% - ${variable.paddingBig * 2}px);
   padding: ${variable.paddingSmall}px ${variable.paddingBig}px;
-  background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${flexbox()}
   ${alignItems('center')}
   ${justifyContent('space-between')}
-  ${transition('background-color 500ms linear')}
-  ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
+
+  ${respondTo.mediumScreen`
+    width: calc(100% - ${variable.paddingMedium * 2}px);
+    padding: ${variable.paddingSmall}px ${variable.paddingMedium}px;
+  `}
+
+  ${respondTo.smallScreen`
+    width: calc(100% - ${variable.paddingSmall * 2}px);
+    padding: ${variable.paddingSmall}px ${variable.paddingSmall}px;
+  `}
+
+  ${respondTo.mobileScreen`
+    padding: ${variable.paddingSmall / 2}px;
+    width: calc(100% - ${variable.paddingSmall}px);
+  `}
 `
 
 export const SwitchWrapper = styled.div`

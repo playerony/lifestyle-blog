@@ -18,7 +18,8 @@ import {
   StyledSunIcon,
   StyledMoonIcon,
   StyledLogoIcon,
-  StyledLogoutIcon
+  StyledLogoutIcon,
+  StyledContentWrapper
 } from './Header.style'
 
 const Header = (): JSX.Element => {
@@ -34,21 +35,23 @@ const Header = (): JSX.Element => {
 
   return (
     <StyledWrapper>
-      <StyledLogoIcon onClick={handleLogoClick}>
-        <use xlinkHref="#logo" />
-      </StyledLogoIcon>
-      <SwitchWrapper>
-        <StyledSunIcon>
-          <use xlinkHref="#sun" />
-        </StyledSunIcon>
-        <Switch initialValue={mode === EThemeMode.DARK} onChange={toggle} />
-        <StyledMoonIcon>
-          <use xlinkHref="#moon" />
-        </StyledMoonIcon>
-      </SwitchWrapper>
-      <StyledLogoutIcon onClick={handleLogout}>
-        <use xlinkHref="#logout" />
-      </StyledLogoutIcon>
+      <StyledContentWrapper>
+        <StyledLogoIcon onClick={handleLogoClick}>
+          <use xlinkHref="#logo" />
+        </StyledLogoIcon>
+        <SwitchWrapper>
+          <StyledSunIcon>
+            <use xlinkHref="#sun" />
+          </StyledSunIcon>
+          <Switch initialValue={mode === EThemeMode.DARK} onChange={toggle} />
+          <StyledMoonIcon>
+            <use xlinkHref="#moon" />
+          </StyledMoonIcon>
+        </SwitchWrapper>
+        <StyledLogoutIcon onClick={handleLogout}>
+          <use xlinkHref="#logout" />
+        </StyledLogoutIcon>
+      </StyledContentWrapper>
     </StyledWrapper>
   )
 }
