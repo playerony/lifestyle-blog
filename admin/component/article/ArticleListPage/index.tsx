@@ -15,11 +15,11 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
   const history = useHistory()
   const toast = useToast()
 
-  const handleAppMetricRedirect = (): void =>
-    history.push(routeList.appMetric)
-  
   const handleLogPageRedirect = (): void =>
     history.push(routeList.log)
+  
+  const handleAppMetricRedirect = (): void =>
+    history.push(routeList.metric)
 
   return (
     <>

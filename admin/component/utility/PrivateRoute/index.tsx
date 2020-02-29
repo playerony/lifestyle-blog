@@ -20,7 +20,7 @@ const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element =>
       ) : (
           <Redirect
             to={{
-              pathname: routeList.loginPageUrl
+              pathname: routeList.login
             }}
           />
         )

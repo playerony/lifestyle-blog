@@ -4,8 +4,8 @@ const ARTICLE_URL = '/admin/article'
 export default {
   base: BASE_URL,
   log: `${BASE_URL}/log`,
-  appMetric: `${BASE_URL}/metric`,
-  loginPageUrl: `${BASE_URL}/login`,
+  login: `${BASE_URL}/login`,
+  metric: `${BASE_URL}/metric`,
   article: {
     base: ARTICLE_URL,
     list: `${ARTICLE_URL}/list`,

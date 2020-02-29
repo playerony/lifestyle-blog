@@ -18,16 +18,16 @@ const Routing = (): JSX.Element => (
       <Route exact={true} path={routeList.base}>
         <Redirect to={routeList.article.list} />
       </Route>
-      <Route path={routeList.loginPageUrl}>
+      <Route path={routeList.login}>
         <LoginPage />
-      </Route>
-      <Route path={routeList.appMetric}>
-        <Header />
-        <MetricPage />
       </Route>
       <Route path={routeList.log}>
         <Header />
         <LogPage />
+      </Route>
+      <Route path={routeList.metric}>
+        <Header />
+        <MetricPage />
       </Route>
       <Route path={routeList.article.base}>
         <Header />

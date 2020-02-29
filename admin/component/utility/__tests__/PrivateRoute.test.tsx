@@ -44,7 +44,7 @@ describe('PrivateRoute Component', () => {
     )
 
     const history: History = enzymeWrapper.find('Router').prop('history');
-    expect(history.location.pathname).toBe(routeList.loginPageUrl);
+    expect(history.location.pathname).toBe(routeList.login);
   })
 })
 
