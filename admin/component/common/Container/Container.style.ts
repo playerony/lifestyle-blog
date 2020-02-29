@@ -17,8 +17,8 @@ export const StyledContainer = styled.div`
   `}
 
   ${respondTo.smallScreen`
-    padding: ${variable.paddingSmall}px;
     width: calc(100% - ${variable.paddingSmall * 2}px);
+    padding: ${variable.paddingMedium}px ${variable.paddingSmall}px;
   `}
 
   ${respondTo.mobileScreen`
