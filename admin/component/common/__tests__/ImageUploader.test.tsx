@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import ImageUploader from '../ImageUploader'
 
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import { IImageUploaderProps } from '../ImageUploader/ImageUploader.type'
 
