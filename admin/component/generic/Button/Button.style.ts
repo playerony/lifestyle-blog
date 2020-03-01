@@ -60,7 +60,7 @@ export const StyledButton = styled.button<IButtonProps>`
         height: 80px;
       `}
 
-      ${borderRadius('50px')}
+      ${borderRadius('100%')}
     `}
 
   ${({ floating }: IButtonProps) =>
