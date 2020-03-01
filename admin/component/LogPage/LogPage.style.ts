@@ -24,3 +24,9 @@ export const StyledChartWrapper = styled.section`
     margin-top: ${variable.paddingSmall}px;
   `}
 `
+
+export const StyledArrowIcon = styled.svg`
+  width: 30px;
+  height: 27px;
+  fill: ${variable.color.white};
+`
