@@ -37,6 +37,7 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
           {
             breakpoint: variable.breakpoint.smallScreen,
             settings: {
+              arrows: false,
               slidesToShow: 1,
               slidesToScroll: 1
             }
