@@ -42,6 +42,15 @@ export const StyledButton = styled.button<IButtonProps>`
       ${borderRadius('50px')}
     `}
 
+  ${({ floating }: IButtonProps) =>
+    Boolean(floating) &&
+    css`
+      position: fixed;
+      right: ${variable.paddingSmall}px;
+      bottom: ${variable.paddingSmall}px;
+      ${`${floating}: `}${variable.paddingSmall}px;
+    `}
+
   &:hover {
     background-color: ${variable.color.blue500};
   }

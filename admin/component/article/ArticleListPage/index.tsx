@@ -26,6 +26,7 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
       <Dashboard articleList={articleList} />
       <Button
         circle={true}
+        floating="left"
         onClick={handleAppMetricRedirect}
       >
         +
