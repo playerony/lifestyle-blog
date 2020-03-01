@@ -25,7 +25,7 @@ const FabButton = ({ children }: IFabButtonProps): JSX.Element => {
       }
 
       return (
-        <li onClick={toggleVisibility}>
+        <li onClick={toggleVisibility} style={{ pointerEvents: 'all' }}>
           {element}
         </li>
       )

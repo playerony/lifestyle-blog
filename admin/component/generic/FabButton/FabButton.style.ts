@@ -5,6 +5,7 @@ import { transition, transform, respondTo } from '@style/mixin'
 
 export const StyledWrapper = styled.ul`
   position: fixed;
+  pointer-events: none;
   right: ${variable.paddingBig}px;
   bottom: ${variable.paddingBig}px;
 
@@ -31,6 +32,7 @@ interface IStyledMenuElementProps {
 
 export const StyledElement = styled.li<IStyledMenuElementProps>`
   display: block;
+  pointer-events: all;
   margin-bottom: ${variable.paddingSmall}px;
 
   ${transition('all 300ms linear')}
@@ -38,7 +40,22 @@ export const StyledElement = styled.li<IStyledMenuElementProps>`
   ${({ index, isVisible }: IStyledMenuElementProps) =>
     transform(
       `translateY(${
-        isVisible ? 0 : `calc(${index * variable.paddingSmall}px + ${100 * index}%)`
+        isVisible
+          ? 0
+          : `calc(${index * variable.paddingSmall}px + ${100 * index}%)`
       }) scale(0.9)`
     )}
+    
+  ${respondTo.mediumScreen`
+    margin-bottom: ${variable.paddingSmall / 2}px;
+
+    ${({ index, isVisible }: IStyledMenuElementProps) =>
+      transform(
+        `translateY(${
+          isVisible
+            ? 0
+            : `calc(${index * variable.paddingSmall / 2}px + ${100 * index}%)`
+        }) scale(0.8)`
+      )}
+  `}
 `
