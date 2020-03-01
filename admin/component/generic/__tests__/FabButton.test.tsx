@@ -26,7 +26,9 @@ describe('FabButton Component', () => {
     it('should contain proper props', () => {
       const wrapper = mountComponent(<FabButton children={CHILDREN_PROP_MOCK} />)
   
-      expect(wrapper.find('li').last().props().onClick).toBeDefined()
+      const listElementProps = wrapper.find('li').last().props()
+      expect(listElementProps.onClick).toBeDefined()
+      expect(listElementProps.style).toEqual({ pointerEvents: 'all' })
     })
   })
 
