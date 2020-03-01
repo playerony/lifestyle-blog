@@ -5,10 +5,10 @@ import Container from '../common/Container'
 
 import { IMetricPageProps } from './MetricPage.type'
 
-import appMetricTransformator from '@transformator/appMetricTransformator'
+import metricTransformator from '@admin/transformator/metricTransformator'
 
 const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
-  const { lineChartData, blogVisitorChartData, visitorDeviceChartData } = appMetricTransformator(visitorList)
+  const { lineChartData, blogVisitorChartData, visitorDeviceChartData } = metricTransformator(visitorList)
 
   return (
     <Container>
