@@ -28,6 +28,7 @@ export const StyledChartWrapper = styled.section`
 export const StyledArrowIcon = styled.svg`
   width: 32px;
   height: 40px;
+  fill: ${variable.color.white};
 
   ${respondTo.mediumScreen`
     width: 27px;
@@ -38,6 +39,4 @@ export const StyledArrowIcon = styled.svg`
     width: 20px;
     height: 24px;
   `}
-
-  fill: ${variable.color.white};
 `
