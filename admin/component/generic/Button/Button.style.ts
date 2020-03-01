@@ -40,6 +40,8 @@ export const StyledButton = styled.button<IButtonProps>`
       width: 140px;
       height: 140px;
 
+      ${borderRadius('100%')}
+
       ${respondTo.largeScreen`
         width: 120px;
         height: 120px;
@@ -59,8 +61,6 @@ export const StyledButton = styled.button<IButtonProps>`
         width: 80px;
         height: 80px;
       `}
-
-      ${borderRadius('100%')}
     `}
 
   ${({ floating }: IButtonProps) =>

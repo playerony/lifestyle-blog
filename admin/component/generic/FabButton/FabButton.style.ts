@@ -1,12 +1,27 @@
 import styled from 'styled-components'
 
 import variable from '@style/variable'
-import { transition, transform } from '@style/mixin'
+import { transition, transform, respondTo } from '@style/mixin'
 
 export const StyledWrapper = styled.ul`
   position: fixed;
-  right: ${variable.paddingSmall}px;
-  bottom: ${variable.paddingSmall}px;
+  right: ${variable.paddingBig}px;
+  bottom: ${variable.paddingBig}px;
+
+  ${respondTo.mediumScreen`
+    right: ${variable.paddingMedium}px;
+    bottom: ${variable.paddingMedium}px;
+  `}
+
+  ${respondTo.smallScreen`
+    right: ${variable.paddingSmall}px;
+    bottom: ${variable.paddingSmall}px;
+  `}
+
+  ${respondTo.mobileScreen`
+    right: ${variable.paddingSmall / 2}px;
+    bottom: ${variable.paddingSmall / 2}px;
+  `}
 `
 
 interface IStyledMenuElementProps {
