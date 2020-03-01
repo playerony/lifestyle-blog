@@ -20,6 +20,9 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
   const handleMetricPageRedirect = (): void =>
     history.push(routeList.metric)
 
+  const handleArticleCreatePageRedirect = (): void =>
+    history.push(routeList.article.create)
+
   return (
     <>
       <Dashboard articleList={articleList} />
@@ -33,6 +36,9 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
           <StyledIcon>
             <use xlinkHref="#metrics" />
           </StyledIcon>
+        </Button>
+        <Button circle={true} onClick={handleArticleCreatePageRedirect}>
+          +
         </Button>
         <Button circle={true}>+</Button>
       </FabButton>
