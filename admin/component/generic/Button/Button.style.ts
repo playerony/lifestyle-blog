@@ -4,6 +4,7 @@ import { IButtonProps } from './Button.type'
 
 import {
   flexbox,
+  respondTo,
   alignItems,
   transition,
   borderRadius,
@@ -36,8 +37,28 @@ export const StyledButton = styled.button<IButtonProps>`
   ${({ circle }: IButtonProps) =>
     Boolean(circle) &&
     css`
-      width: 100px;
-      height: 100px;
+      width: 140px;
+      height: 140px;
+
+      ${respondTo.largeScreen`
+        width: 120px;
+        height: 120px;
+      `}
+
+      ${respondTo.mediumScreen`
+        width: 100px;
+        height: 100px;
+      `}
+
+      ${respondTo.smallScreen`
+        width: 90px;
+        height: 90px;
+      `}
+
+      ${respondTo.mobileScreen`
+        width: 80px;
+        height: 80px;
+      `}
 
       ${borderRadius('50px')}
     `}
@@ -46,9 +67,23 @@ export const StyledButton = styled.button<IButtonProps>`
     Boolean(floating) &&
     css`
       position: fixed;
-      right: ${variable.paddingSmall}px;
-      bottom: ${variable.paddingSmall}px;
-      ${`${floating}: `}${variable.paddingSmall}px;
+      bottom: ${variable.paddingBig}px;
+      ${`${floating}: `}${variable.paddingBig}px;
+
+      ${respondTo.mediumScreen`
+        bottom: ${variable.paddingMedium}px;
+        ${`${floating}: `}${variable.paddingMedium}px;
+      `}
+
+      ${respondTo.smallScreen`
+        bottom: ${variable.paddingSmall}px;
+        ${`${floating}: `}${variable.paddingSmall}px;
+      `}
+
+      ${respondTo.mobileScreen`
+        bottom: ${variable.paddingSmall / 2}px;
+        ${`${floating}: `}${variable.paddingSmall / 2}px;
+      `}
     `}
 
   &:hover {
