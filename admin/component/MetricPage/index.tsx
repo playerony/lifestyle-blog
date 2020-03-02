@@ -9,7 +9,7 @@ import { IMetricPageProps } from './MetricPage.type'
 
 import metricTransformator from '@transformator/metricTransformator'
 
-import { StyledArrowIcon } from './MetricPage.style'
+import { StyledArrowIcon, StyledChartWrapper } from './MetricPage.style'
 
 const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
   const history = useHistory()
@@ -24,7 +24,9 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
 
   return (
     <Container>
-      <Bar data={lineChartData} />
+      <StyledChartWrapper>
+        <Bar data={lineChartData} />
+      </StyledChartWrapper>
       <Doughnut data={blogVisitorChartData} />
       <Doughnut data={visitorDeviceChartData} />
       <Button
