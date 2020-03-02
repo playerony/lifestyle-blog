@@ -8,6 +8,19 @@ export const StyledHeader = styled.h1`
   text-align: center;
 `
 
+export const StyledDoughnutChartHeader = styled.h1`
+  text-align: center;
+  margin: ${variable.paddingBig}px 0;
+
+  ${respondTo.mediumScreen`
+    margin: ${variable.paddingMedium}px 0;
+  `}
+
+  ${respondTo.smallScreen`
+    margin: ${variable.paddingSmall}px 0;
+  `}
+`
+
 export const StyledChartWrapper = styled.section`
   padding: ${variable.paddingSmall}px;
   margin-top: ${variable.paddingBig}px;
