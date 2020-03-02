@@ -37,11 +37,31 @@ const calculateMobileVisitors = (visitorList: IVisitor[]): number =>
   visitorList.filter(({ userAgent }) => isMobileUserAgent(userAgent!)).length
 
 const getLineChartData = (visitorList: IVisitor[]) => {
-  const visitorListGroupedByMonth = groupBy(visitorList, visitor => {
-    const date = new Date(visitor.createdAt!)
+  const uniqueVisitorListElements = visitorList.reduce<IVisitor[]>(
+    (result, value) => {
+      if (
+        !result.find(
+          element =>
+            element.ipAddress === value.ipAddress &&
+            element.createdAt !== value.createdAt
+        )
+      ) {
+        return [...result, value]
+      }
 
-    return date.getFullYear() + date.getMonth()
-  })
+      return result
+    },
+    []
+  )
+
+  const visitorListGroupedByMonth = groupBy(
+    uniqueVisitorListElements,
+    visitor => {
+      const date = new Date(visitor.createdAt!)
+
+      return date.getFullYear() + date.getMonth()
+    }
+  )
 
   const labels = Object.keys(visitorListGroupedByMonth)
     .map(element => visitorListGroupedByMonth[element][0])
