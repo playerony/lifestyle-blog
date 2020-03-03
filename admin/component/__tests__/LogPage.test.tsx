@@ -35,16 +35,22 @@ describe('LogPage Component', () => {
     expect(wrapper.find('h1').props().children).toEqual('Logs per month chart')
   })
 
-  it('should render Button Component', () => {
-    const wrapper = mountComponent(<LogPage />)
+  describe('Button Component', () => {
+    it('should render', () => {
+      const wrapper = mountComponent(<LogPage />)
 
-    expect(wrapper.exists(Button)).toBeTruthy()
+      expect(wrapper.exists(Button)).toBeTruthy()
+    })
 
-    const buttonProps = wrapper.find(Button).props()
-    expect(buttonProps.circle).toBeTruthy()
-    expect(buttonProps.onClick).toBeDefined()
-    expect(buttonProps.floating).toEqual('left')
-    expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow-button')
+    it('should render Button Component', () => {
+      const wrapper = mountComponent(<LogPage />)
+
+      const buttonProps = wrapper.find(Button).props()
+      expect(buttonProps.circle).toBeTruthy()
+      expect(buttonProps.onClick).toBeDefined()
+      expect(buttonProps.floating).toEqual('left')
+      expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow-button')
+    })
   })
 
   describe('Chart Component', () => {
@@ -54,7 +60,7 @@ describe('LogPage Component', () => {
       expect(wrapper.exists(Bar)).toBeTruthy()
     })
 
-    it('should render Bar chart without a logList props', () => {
+    it('should render Bar chart without a logList prop', () => {
       const wrapper = mountComponent(<LogPage />)
 
       expect(wrapper.find(Bar).props().data).toEqual({

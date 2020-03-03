@@ -37,7 +37,7 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
       </StyledChartWrapper>
 
       <StyledDoughnutChartHeader>
-        Visitors for article and list page
+        Visitors for the article and list page
       </StyledDoughnutChartHeader>
       <Doughnut data={pageVisitorsChartData} />
 
