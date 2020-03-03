@@ -2,41 +2,16 @@ import { groupBy } from 'lodash'
 
 import IVisitor from '@type/visitor/IVisitor'
 
+import formatDate from '@utility/formatDate'
+import calculateTabletVisitors from './calculateTabletVisitors'
+import calculateMobileVisitors from './calculateMobileVisitors'
+import calculateArticleVisitors from './calculateArticleVisitors'
+import calculateAllUniqueVisitors from './calculateAllUniqueVisitors'
+import calculateArticleListVisitors from './calculateArticleListVisitors'
+
 import variable from '@style/variable'
 
-import formatDate from '@utility/formatDate'
-import isMobileUserAgent from '@utility/isMobileUserAgent'
-import isTabletUserAgent from '@utility/isTabletUserAgent'
-
-const calculateAllUniqueVisitors = (visitorList: IVisitor[]): number => {
-  const ipAddressList = visitorList.map(({ ipAddress }) => ipAddress)
-
-  return [...new Set(ipAddressList)].length
-}
-
-const calculateArticleListVisitors = (visitorList: IVisitor[]): number => {
-  const ipAddressList = visitorList
-    .filter(({ articleId }) => !articleId)
-    .map(({ ipAddress }) => ipAddress)
-
-  return [...new Set(ipAddressList)].length
-}
-
-const calculateArticleVisitors = (visitorList: IVisitor[]): number => {
-  const ipAddressList = visitorList
-    .filter(({ articleId }) => Boolean(articleId))
-    .map(({ ipAddress }) => ipAddress)
-
-  return [...new Set(ipAddressList)].length
-}
-
-const calculateTabletVisitors = (visitorList: IVisitor[]): number =>
-  visitorList.filter(({ userAgent }) => isTabletUserAgent(userAgent!)).length
-
-const calculateMobileVisitors = (visitorList: IVisitor[]): number =>
-  visitorList.filter(({ userAgent }) => isMobileUserAgent(userAgent!)).length
-
-const getLineChartData = (visitorList: IVisitor[]) => {
+const getVisitorsChartData = (visitorList: IVisitor[]) => {
   const uniqueVisitorListElements = visitorList.reduce<IVisitor[]>(
     (result, value) => {
       if (
@@ -84,21 +59,13 @@ const getLineChartData = (visitorList: IVisitor[]) => {
   }
 }
 
-export default (visitorList: IVisitor[]) => {
+const getPageVisitorsChartData = (visitorList: IVisitor[]) => {
   const articlePageVisitors = calculateArticleVisitors(visitorList)
   const allWebsiteVisitors = calculateAllUniqueVisitors(visitorList)
   const articleListVisitors = calculateArticleListVisitors(visitorList)
 
-  const tabletVisitors = calculateTabletVisitors(visitorList)
-  const mobileVisitors = calculateMobileVisitors(visitorList) - tabletVisitors
-  const desktopVisitors = visitorList.length - mobileVisitors - tabletVisitors
-
-  const blogVisitorChartData = {
-    labels: [
-      'Total blog visitors',
-      'Article page visitors',
-      'Article list page visitors'
-    ],
+  return {
+    labels: ['Total', 'Article page', 'Article list page'],
     datasets: [
       {
         data: [allWebsiteVisitors, articlePageVisitors, articleListVisitors],
@@ -110,8 +77,14 @@ export default (visitorList: IVisitor[]) => {
       }
     ]
   }
+}
 
-  const visitorDeviceChartData = {
+const getDevicesChartData = (visitorList: IVisitor[]) => {
+  const tabletVisitors = calculateTabletVisitors(visitorList)
+  const mobileVisitors = calculateMobileVisitors(visitorList) - tabletVisitors
+  const desktopVisitors = visitorList.length - mobileVisitors - tabletVisitors
+
+  return {
     labels: ['Tablet', 'Mobile', 'Desktop'],
     datasets: [
       {
@@ -124,12 +97,16 @@ export default (visitorList: IVisitor[]) => {
       }
     ]
   }
+}
 
-  const lineChartData = getLineChartData(visitorList)
+export default (visitorList: IVisitor[]) => {
+  const devicesChartData = getDevicesChartData(visitorList)
+  const visitorsChartData = getVisitorsChartData(visitorList)
+  const pageVisitorsChartData = getPageVisitorsChartData(visitorList)
 
   return {
-    lineChartData,
-    blogVisitorChartData,
-    visitorDeviceChartData
+    devicesChartData,
+    visitorsChartData,
+    pageVisitorsChartData
   }
 }

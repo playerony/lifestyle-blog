@@ -19,9 +19,9 @@ import {
 const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
   const history = useHistory()
   const {
-    lineChartData,
-    blogVisitorChartData,
-    visitorDeviceChartData
+    devicesChartData,
+    visitorsChartData,
+    pageVisitorsChartData
   } = metricTransformator(visitorList)
 
   const handleButtonClick = (): void =>
@@ -30,21 +30,21 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
   return (
     <Container>
       <StyledHeader>
-        Total blog visitors per month
+        Total visitors per month
       </StyledHeader>
       <StyledChartWrapper>
-        <Bar data={lineChartData} />
+        <Bar data={visitorsChartData} />
       </StyledChartWrapper>
 
       <StyledDoughnutChartHeader>
-        Blog visitors for article and list page
+        Visitors for article and list page
       </StyledDoughnutChartHeader>
-      <Doughnut data={blogVisitorChartData} />
+      <Doughnut data={pageVisitorsChartData} />
 
       <StyledDoughnutChartHeader>
-        What devices users use to browse the site
+        What devices users use
       </StyledDoughnutChartHeader>
-      <Doughnut data={visitorDeviceChartData} />
+      <Doughnut data={devicesChartData} />
 
       <Button
         circle={true}
