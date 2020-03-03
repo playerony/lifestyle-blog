@@ -1,6 +1,6 @@
 export default interface IVisitor {
+  articleId?: number | null
   visitorId?: number
-  articleId?: number
   ipAddress?: string
   userAgent?: string
   createdAt?: Date
