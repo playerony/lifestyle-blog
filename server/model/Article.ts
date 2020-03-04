@@ -57,6 +57,11 @@ Article.init(
       validate: {
         min: 160
       }
+    },
+    isPublic: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     }
   },
   {
