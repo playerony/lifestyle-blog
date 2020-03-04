@@ -29,10 +29,15 @@ export default (data?: {
         return !foundVisitor ? [...result, value] : result
       }, [])
 
-    const todayVisitor = filteredVisitorList.filter(
-      element =>
-        new Date().getDate() - new Date(element.createdAt!).getDate() >= -1
-    ).length
+    const todayVisitor = filteredVisitorList.filter(element => {
+      const differenceInTime =
+        new Date().getTime() - new Date(element.createdAt!).getTime()
+      const differenceInDays = differenceInTime / (100000 * 3600 * 24)
+
+      console.warn(differenceInDays)
+
+      return differenceInDays <= 1
+    }).length
 
     const totalVisitor = filteredVisitorList.length
 
