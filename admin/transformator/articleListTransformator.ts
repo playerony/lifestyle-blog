@@ -19,13 +19,19 @@ export default (data?: {
   return articleList.reduce<IArticleList[]>((result, value) => {
     const articleId = value.articleId
 
-    const filteredVisitorList = visitorList.filter(
-      element => element.articleId === articleId
-    )
+    const filteredVisitorList = visitorList
+      .filter(element => element.articleId === articleId)
+      .reduce<IVisitor[]>((result, value) => {
+        const foundVisitor = result.find(
+          element => element.ipAddress === value.ipAddress
+        )
+
+        return !foundVisitor ? [...result, value] : result
+      }, [])
 
     const todayVisitor = filteredVisitorList.filter(
       element =>
-        new Date().getDate() - new Date(element.createdAt!).getDate() <= 1
+        new Date().getDate() - new Date(element.createdAt!).getDate() >= -1
     ).length
 
     const totalVisitor = filteredVisitorList.length
