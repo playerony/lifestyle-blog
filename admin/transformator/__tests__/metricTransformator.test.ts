@@ -70,7 +70,7 @@ describe('metricTransformator Transformator', () => {
             label: 'Visitors per month'
           }
         ],
-        labels: ['03.2020']
+        labels: ['04.2020']
       }
     })
   })
