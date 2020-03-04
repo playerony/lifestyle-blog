@@ -24,8 +24,8 @@ describe('articleListTransformator Transformator', () => {
     })
 
     expect(result).toHaveLength(1)
-    expect(result[0].todayVisitor).toEqual(2)
-    expect(result[0].totalVisitor).toEqual(5)
+    expect(result[0].todayVisitor).toEqual(1)
+    expect(result[0].totalVisitor).toEqual(1)
   })
 
   it('should return provided articleList if visitorList does not exist', () => {
