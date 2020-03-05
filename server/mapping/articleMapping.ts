@@ -16,6 +16,7 @@ export default (record: ArticleModel): ArticleType => {
     userId: record.userId,
     content: record.content,
     imageId: record.imageId,
+    isPublic: record.isPublic,
     createdAt: record.createdAt,
     articleId: record.articleId,
     updatedAt: record.updatedAt,
