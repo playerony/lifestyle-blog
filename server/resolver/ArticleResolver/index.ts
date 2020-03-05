@@ -46,6 +46,17 @@ export default class ArticleResolver {
     return this.articleService.update(articleId, article, userId)
   }
 
+  @Mutation(type => ArticleType)
+  async toggleArticlePublicFlag(
+    @Ctx() context: Context,
+    @Arg('articleId', type => Int) articleId: number,
+    @Arg('isPublic', type => Boolean) isPublic: boolean
+  ): Promise<ArticleType | null> {
+    getUserId(context)
+
+    return this.articleService.togglePublicFlag(articleId, isPublic)
+  }
+
   @Query(type => [ArticleType])
   async articleList(@Ctx() context: Context): Promise<ArticleType[]> {
     await this.visitorService.create(null, context)
