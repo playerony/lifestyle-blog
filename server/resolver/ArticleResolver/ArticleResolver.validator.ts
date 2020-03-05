@@ -63,6 +63,24 @@ export const updateArticleValidation = (
   }
 }
 
+export const toggleArticlePublicFlagValidation = (
+  articleId: number,
+  isPublic: boolean
+): void => {
+  const validationResult = validate({ articleId, isPublic })
+    .setCheckList([
+      check('articleId')
+        .isExist()
+        .isNumber(),
+      check('isPublic').isExist()
+    ])
+    .check()
+
+  if (!isValid(validationResult)) {
+    throw new ValidationError(validationResult)
+  }
+}
+
 export const articleByIdValidation = (articleId: number): void => {
   const validationResult = validate({ articleId })
     .setCheckList([

@@ -11,7 +11,8 @@ import getUserId from '@utility/getUserId'
 import {
   articleByIdValidation,
   createArticleValidation,
-  updateArticleValidation
+  updateArticleValidation,
+  toggleArticlePublicFlagValidation
 } from './ArticleResolver.validator'
 
 @Resolver()
@@ -53,6 +54,8 @@ export default class ArticleResolver {
     @Arg('isPublic', type => Boolean) isPublic: boolean
   ): Promise<ArticleType | null> {
     getUserId(context)
+
+    toggleArticlePublicFlagValidation(articleId, isPublic)
 
     return this.articleService.togglePublicFlag(articleId, isPublic)
   }
