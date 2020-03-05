@@ -12,6 +12,7 @@ export class ArticleModel extends Model {
   description?: string
   content?: string
   image?: ImageModel
+  isPublic?: boolean
   categoryList?: CategoryModel[] | null
   createdAt?: Date
   updatedAt?: Date
@@ -42,6 +43,9 @@ export class ArticleType {
 
   @Field(type => [CategoryType])
   categoryList?: CategoryType[] | null
+
+  @Field()
+  isPublic?: boolean
 
   @Field()
   createdAt?: Date

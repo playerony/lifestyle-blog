@@ -1,5 +1,5 @@
 import * as articleTypeList from '../Article'
-import { ArticleType, ArticleModel, ArticleCreateRequest } from '../Article'
+import { ArticleType, ArticleModel, ArticleSaveRequest } from '../Article'
 
 describe('Article Types', () => {
   it('should contain three objects', () => {
@@ -14,6 +14,7 @@ describe('Article Types', () => {
         image: null,
         articleId: 1,
         title: 'title',
+        isPublic: true,
         content: 'content',
         categoryList: null,
         description: 'description',
@@ -27,6 +28,7 @@ describe('Article Types', () => {
         'image',
         'articleId',
         'title',
+        'isPublic',
         'content',
         'categoryList',
         'description',
@@ -38,7 +40,7 @@ describe('Article Types', () => {
 
   describe('ArticleCreateRequest Type', () => {
     it('should contain proper fields', () => {
-      const data: Required<ArticleCreateRequest> = {
+      const data: Required<ArticleSaveRequest> = {
         imageId: 1,
         title: 'title',
         content: 'content',
