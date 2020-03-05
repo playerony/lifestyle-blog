@@ -1,13 +1,13 @@
 import { Article } from '@model/Article'
 import { ArticleCategory } from '@model/ArticleCategory'
 
-import { ArticleType, ArticleModel, ArticleCreateRequest } from '@type/Article'
+import { ArticleType, ArticleModel, ArticleSaveRequest } from '@type/Article'
 
 import articleMapping from '@mapping/articleMapping'
 
 export default class ArticleService {
   async create(
-    { categoryIdList, ...articleData }: ArticleCreateRequest,
+    { categoryIdList, ...articleData }: ArticleSaveRequest,
     userId: number
   ): Promise<ArticleType> {
     Article.afterCreate<ArticleModel>(async article => {
@@ -29,7 +29,7 @@ export default class ArticleService {
 
   async update(
     articleId: number,
-    { categoryIdList, ...articleData }: ArticleCreateRequest,
+    { categoryIdList, ...articleData }: ArticleSaveRequest,
     userId: number
   ): Promise<ArticleType | null> {
     Article.afterUpdate<ArticleModel>(async () => {
