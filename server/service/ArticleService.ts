@@ -5,6 +5,8 @@ import { ArticleType, ArticleModel, ArticleSaveRequest } from '@type/Article'
 
 import articleMapping from '@mapping/articleMapping'
 
+import ValidationError from '@utility/ValidationError'
+
 export default class ArticleService {
   async create(
     { categoryIdList, ...articleData }: ArticleSaveRequest,
@@ -54,6 +56,23 @@ export default class ArticleService {
     )
 
     return this.findById(articleId)
+  }
+
+  async togglePublicFlag(
+    articleId: number,
+    isPublic: boolean
+  ): Promise<ArticleType> {
+    const foundArticle = await this.findById(articleId)
+    if (!foundArticle) {
+      throw new ValidationError({
+        articleId: ['No such article found.']
+      })
+    }
+
+    await Article.update<ArticleModel>({ isPublic }, { where: { articleId } })
+    foundArticle.isPublic = isPublic
+
+    return foundArticle
   }
 
   async findById(articleId: number): Promise<ArticleType | null> {
