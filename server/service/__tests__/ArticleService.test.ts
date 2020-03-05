@@ -52,6 +52,17 @@ describe('ArticleService Service', () => {
     })
   })
 
+  describe('togglePublicFlag Method', () => {
+    it('should return updated articleId', async () => {
+      const ArticleService = require('../ArticleService').default
+      const articleService = new ArticleService()
+
+      const result = await articleService.togglePublicFlag(1, false)
+
+      expect(result).toEqual(ARTICLE_MOCK)
+    })
+  })
+
   describe('findById Method', () => {
     it('should call scope method', async () => {
       const ArticleService = require('../ArticleService').default
@@ -106,6 +117,7 @@ const ARTICLE_MOCK: ArticleType = {
   articleId: 1,
   title: '123',
   content: '123',
+  isPublic: false,
   categoryList: [],
   description: '123',
   createdAt: new Date('2019'),
