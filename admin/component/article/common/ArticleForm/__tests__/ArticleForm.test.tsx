@@ -77,9 +77,10 @@ describe('ArticleForm Component', () => {
     const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
 
     const buttonProps = wrapper.find(Button).props()
-    expect(buttonProps.onClick).toBeDefined()
     expect(buttonProps.circle).toBeTruthy()
+    expect(buttonProps.onClick).toBeDefined()
     expect(buttonProps.children).toEqual('+')
+    expect(buttonProps.floating).toEqual('right')
   })
 })
 

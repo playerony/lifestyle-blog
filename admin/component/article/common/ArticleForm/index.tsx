@@ -88,6 +88,7 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
       />
       <Button
         circle={true}
+        floating="right"
         onClick={handleArticleSave}
       >
         +
