@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom'
 import React, { useState, ChangeEvent } from 'react'
 
 import EditorInput from './EditorInput'
@@ -11,6 +12,8 @@ import IArticleSave from '@type/article/IArticleSave'
 import { IArticleFormProps } from './ArticleForm.type'
 
 import getFieldError from '@utility/getFieldError'
+
+import { StyledArrowIcon } from './ArticleForm.style'
 
 const initialState: IArticleSave = {
   title: '',
@@ -37,6 +40,8 @@ const getInitialData = (initialData?: IArticle): IArticleSave => {
 const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX.Element => {
   const [state, setState] = useState<IArticleSave>(getInitialData(initialData))
 
+  const history = useHistory()
+
   const changeState = (value: Partial<IArticleSave>): void =>
     setState({ ...state, ...value })
 
@@ -52,7 +57,10 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
   const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     changeState({ [name]: value })
 
-  const handleArticleSave = (): void => onSave(state)
+  const handleArticleSaveClick = (): void => onSave(state)
+
+  const handleBackButtonClick = (): void =>
+    history.goBack()
 
   return (
     <>
@@ -88,8 +96,17 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
       />
       <Button
         circle={true}
+        floating="left"
+        onClick={handleBackButtonClick}
+      >
+        <StyledArrowIcon>
+          <use xlinkHref="#left-arrow-button" />
+        </StyledArrowIcon>
+      </Button>
+      <Button
+        circle={true}
         floating="right"
-        onClick={handleArticleSave}
+        onClick={handleArticleSaveClick}
       >
         +
       </Button>
