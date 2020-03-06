@@ -2,7 +2,7 @@ import IArticle from '../IArticle'
 
 describe('IArticle Interface', () => {
   it('should contain nine parameters', () => {
-    expect(Object.keys(objectMock)).toHaveLength(9)
+    expect(Object.keys(objectMock)).toHaveLength(10)
   })
 
   it('has an userId parameter', () => {
@@ -19,6 +19,10 @@ describe('IArticle Interface', () => {
 
   it('has a title parameter', () => {
     expect(objectMock.title).toEqual('title')
+  })
+
+  it('has a isPublic parameter', () => {
+    expect(objectMock.isPublic).toBeTruthy()
   })
 
   it('has a categoryList parameter', () => {
@@ -47,6 +51,7 @@ const objectMock: IArticle = {
   imageId: 1,
   articleId: 1,
   title: 'title',
+  isPublic: true,
   categoryList: [],
   image: undefined,
   content: 'content',
