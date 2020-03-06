@@ -10,6 +10,7 @@ interface IStyledWrapperProps {
 }
 
 const TOAST_COLOR = {
+  [EToastType.INFO]: variable.color.blue500,
   [EToastType.ERROR]: variable.color.red500,
   [EToastType.SUCCESS]: variable.color.green400
 }

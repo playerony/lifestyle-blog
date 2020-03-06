@@ -1,6 +1,7 @@
 enum EToastType {
   SUCCESS = 'SUCCESS',
-  ERROR = 'ERROR'
+  ERROR = 'ERROR',
+  INFO = 'INFO'
 }
 
 export default EToastType

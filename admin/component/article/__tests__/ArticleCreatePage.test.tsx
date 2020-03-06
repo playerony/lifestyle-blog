@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
-import ArticleForm from '../common/ArticleForm'
+import ArticleForm from '../ArticleForm'
 import ArticleCreatePage from '../ArticleCreatePage'
 
 import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
