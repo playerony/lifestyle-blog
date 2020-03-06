@@ -13,6 +13,16 @@ import TResponseError from '@type/common/TResponseError'
 
 const onSaveMock = jest.fn()
 
+jest.mock('react-router-dom', () => {
+  const originalModule = jest.requireActual('react-router-dom')
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    useHistory: () => ({ goBack: jest.fn() })
+  }
+})
+
 describe('ArticleForm Component', () => {
   it('should render', () => {
     const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
@@ -73,14 +83,24 @@ describe('ArticleForm Component', () => {
     expect(editorInputProps.label).toEqual('Content')
   })
 
-  it('should render Button Component', () => {
+  it('should render Save Button', () => {
     const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
 
-    const buttonProps = wrapper.find(Button).props()
+    const buttonProps = wrapper.find(Button).last().props()
     expect(buttonProps.circle).toBeTruthy()
     expect(buttonProps.onClick).toBeDefined()
     expect(buttonProps.children).toEqual('+')
     expect(buttonProps.floating).toEqual('right')
+  })
+
+  it('should render Back Button', () => {
+    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+
+    const buttonProps = wrapper.find(Button).first().props()
+    expect(buttonProps.circle).toBeTruthy()
+    expect(buttonProps.onClick).toBeDefined()
+    expect(buttonProps.floating).toEqual('left')
+    expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow-button')
   })
 })
 
