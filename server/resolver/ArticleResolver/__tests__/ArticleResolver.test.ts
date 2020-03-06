@@ -32,11 +32,15 @@ describe('ArticleResolver Resolver', () => {
   beforeAll(() => {
     _ArticleService
       .update(Arg.any(), Arg.any(), Arg.any())
-      .mimicks(async () => ARTICLE_CREATE_RESULT_MOCK)
+      .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
+    
+    _ArticleService
+      .togglePublicFlag(Arg.any(), Arg.any())
+      .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
 
     _ArticleService
       .create(Arg.any(), Arg.any())
-      .mimicks(async () => ARTICLE_CREATE_RESULT_MOCK)
+      .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
 
     _ArticleService.findAll().mimicks(async () => [ARTICLE_RECORD_MOCK])
 
@@ -100,7 +104,7 @@ describe('ArticleResolver Resolver', () => {
 
       const result = await resolver.createArticle(context, ARTICLE_MOCK)
 
-      expect(result).toEqual(ARTICLE_CREATE_RESULT_MOCK)
+      expect(result).toEqual(ARTICLE_SAVE_RESULT_MOCK)
     })
   })
 
@@ -158,7 +162,58 @@ describe('ArticleResolver Resolver', () => {
 
       const result = await resolver.updateArticle(context, 1, ARTICLE_MOCK)
 
-      expect(result).toEqual(ARTICLE_CREATE_RESULT_MOCK)
+      expect(result).toEqual(ARTICLE_SAVE_RESULT_MOCK)
+    })
+  })
+
+  describe('toggleArticlePublicFlag mutation', () => {
+    describe('should throw an error', () => {
+      it('if token is wrong', async () => {
+        const context: Context = {
+          token: '',
+          userAgent: '',
+          ipAddress: ''
+        }
+
+        try {
+          await resolver.toggleArticlePublicFlag(context, 1, true)
+        } catch (e) {
+          expect(e.message).toEqual('Forbidden Error.')
+        }
+      })
+
+      it('if passed content data is wrong', async () => {
+        const token = jwt.sign({ userId: 1 }, keys.appSecret!)
+        const context: Context = {
+          userAgent: '',
+          ipAddress: '',
+          token: `${keys.jwtPrefix} ${token}`
+        }
+
+        try {
+          await resolver.toggleArticlePublicFlag(context, 1, null as any)
+        } catch (e) {
+          expect(e.message).toEqual(
+            JSON.stringify({
+              articleId: [],
+              isPublic: ['Provided value does not exist.']
+            })
+          )
+        }
+      })
+    })
+
+    it('should return proper data', async () => {
+      const token = jwt.sign({ userId: 1 }, keys.appSecret!)
+      const context: Context = {
+        userAgent: '',
+        ipAddress: '',
+        token: `${keys.jwtPrefix} ${token}`
+      }
+
+      const result = await resolver.toggleArticlePublicFlag(context, 1, true)
+
+      expect(result).toEqual(ARTICLE_SAVE_RESULT_MOCK)
     })
   })
 
@@ -217,7 +272,7 @@ const ARTICLE_MOCK: ArticleSaveRequest = {
   content: generateString(160)
 }
 
-const ARTICLE_CREATE_RESULT_MOCK: ArticleType = {
+const ARTICLE_SAVE_RESULT_MOCK: ArticleType = {
   articleId: 1
 }
 
