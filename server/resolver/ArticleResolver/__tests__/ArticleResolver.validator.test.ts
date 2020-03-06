@@ -1,7 +1,8 @@
 import {
   articleByIdValidation,
   createArticleValidation,
-  updateArticleValidation
+  updateArticleValidation,
+  toggleArticlePublicFlagValidation
 } from '../ArticleResolver.validator'
 
 describe('ArticleResolver.validator Functions', () => {
@@ -233,6 +234,35 @@ describe('ArticleResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual(['Provided value is not a number.'])
+        }
+      })
+    })
+  })
+
+  describe('toggleArticlePublicFlagValidation Function', () => {
+    describe('articleId Field', () => {
+      it('should contain proper validators', () => {
+        try {
+          toggleArticlePublicFlagValidation(null as any, true)
+        } catch (e) {
+          const { articleId } = JSON.parse(e.message)
+
+          expect(articleId).toEqual([
+            'Provided value does not exist.',
+            'Provided value is not a number.'
+          ])
+        }
+      })
+    })
+
+    describe('isPublic Field', () => {
+      it('should contain proper validators', () => {
+        try {
+          toggleArticlePublicFlagValidation(1, null as any)
+        } catch (e) {
+          const { isPublic } = JSON.parse(e.message)
+
+          expect(isPublic).toEqual(['Provided value does not exist.'])
         }
       })
     })
