@@ -9,6 +9,7 @@ export default interface IArticle {
   imageId?: number
   content?: string
   articleId?: number
+  isPublic?: boolean
   description?: string
   categoryList?: ICategory[]
 }
