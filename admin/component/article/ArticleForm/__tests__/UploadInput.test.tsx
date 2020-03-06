@@ -2,10 +2,10 @@ import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import UploadInput from '../UploadInput'
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
 import ImageUploader from '@component/common/ImageUploader'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
-jest.mock('../../../../../hook/article/useUploadMutation')
+jest.mock('../../../../hook/article/useUploadMutation')
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)

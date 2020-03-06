@@ -4,7 +4,7 @@ import React, { useState, ReactElement } from 'react'
 
 import Select from '@component/generic/Select'
 import CategorySelect from '../CategorySelect'
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import ICategory from '@type/category/ICategory'
 
@@ -12,7 +12,7 @@ import useTimeout from '@hook/utility/useTimeout'
 import useCategoryList from '@hook/category/useCategoryList'
 
 jest.useFakeTimers()
-jest.mock('../../../../../hook/category/useCategoryList')
+jest.mock('../../../../hook/category/useCategoryList')
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)

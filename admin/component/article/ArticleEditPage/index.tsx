@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ArticleForm from '../common/ArticleForm'
+import ArticleForm from '../ArticleForm'
 import Container from '@component/common/Container'
 
 import { IArticleEditPageProps } from './ArticleEditPage.type'
