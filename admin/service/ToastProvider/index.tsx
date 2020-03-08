@@ -7,7 +7,7 @@ import { IToastProps, IToastProviderProps } from './ToastProvider.type'
 
 import { ToastContext } from '@context/Toast'
 
-import generateUnqiueID from '@utility/generateUnqiueID'
+import generateUniqueID from '@utility/generateUniqueID'
 
 import { StyledToastListWrapper } from './ToastProvider.style'
 
@@ -15,7 +15,7 @@ const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   const [toastList, setToastList] = useState<IToastProps[]>([])
 
   const add = (message: string, type: EToastType = EToastType.SUCCESS): void => {
-    const toastId = generateUnqiueID()
+    const toastId = generateUniqueID()
 
     setToastList([...toastList, { toastId, type, content: message }])
   }
