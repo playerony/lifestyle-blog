@@ -2,7 +2,7 @@ import * as constant from '../constant'
 
 describe('constant defuned variable list', () => {
   it('should contain four values', () => {
-    expect(Object.keys(constant)).toHaveLength(6)
+    expect(Object.keys(constant)).toHaveLength(7)
   })
 
   it('should have defined AUTH_TOKEN property', () => {
@@ -11,6 +11,10 @@ describe('constant defuned variable list', () => {
 
   it('should have defined IMAGE_ACCEPT_TYPE property', () => {
     expect(constant.IMAGE_ACCEPT_TYPE).toEqual('image/jpeg')
+  })
+
+  it('should have defined IMAGE_UPLOAD_START_MESSAGE property', () => {
+    expect(constant.IMAGE_UPLOAD_START_MESSAGE).toEqual('The image starts generating...')
   })
 
   it('should have defined IMAGE_UPLOAD_ERROR_MESSAGE property', () => {

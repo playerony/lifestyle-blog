@@ -10,8 +10,9 @@ import useUploadMutation from '@hook/article/useUploadMutation'
 
 import {
   IMAGE_ACCEPT_TYPE,
+  IMAGE_UPLOAD_START_MESSAGE,
   IMAGE_UPLOAD_ERROR_MESSAGE,
-  IMAGE_UPLOAD_SUCCESS_MESSAGE
+  IMAGE_UPLOAD_SUCCESS_MESSAGE,
 } from '@config/constant'
 
 const UploadInput = ({
@@ -34,7 +35,7 @@ const UploadInput = ({
   const uploadImage = useUploadMutation()
 
   const onUpload = async (selectedFile: File): Promise<void> => {
-    toast.add('The image starts generating...', EToastType.INFO)
+    toast.add(IMAGE_UPLOAD_START_MESSAGE, EToastType.INFO)
     const result = await uploadImage(selectedFile)
 
     if (!result) {
