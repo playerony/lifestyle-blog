@@ -15,7 +15,8 @@ const TOAST_COLOR = {
   [EToastType.SUCCESS]: variable.color.green400
 }
 
-export const StyledWrapper = styled.div<IStyledWrapperProps>`
+export const StyledWrapper = styled.label<IStyledWrapperProps>`
+  display: block;
   color: ${variable.color.white};
   padding: ${variable.paddingBig}px;
   margin-bottom: ${variable.paddingBig}px;
