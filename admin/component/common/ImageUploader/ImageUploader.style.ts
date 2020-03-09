@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import {
   flexbox,
+  respondTo,
   boxShadow,
   alignItems,
   transition,
@@ -31,25 +32,49 @@ interface IStyledContentWrapperProps {
 
 export const StyledContentWrapper = styled.div<IStyledContentWrapperProps>`
   width: 100%;
-  max-width: 500px;
+  max-width: 750px;
   background-color: ${variable.color.white};
 
   ${borderRadius('4px')}
   ${boxShadow('0 2px 8px 0 rgba(0, 0, 0, 0.16)')}
 
+  ${respondTo.mediumScreen`
+    max-width: 450px;
+  `}
+
+  ${respondTo.smallScreen`
+    max-width: 400px;
+  `}
+
+  ${respondTo.mobileScreen`
+    max-width: 350px;
+  `}
+
   ${({ isError }: IStyledContentWrapperProps) =>
     isError &&
     css`
-      border: 4px solid ${variable.color.red500};
+      border: 2px solid ${variable.color.red500};
     `}
 `
 
 export const StyledImage = styled.img`
   width: 100%;
-  height: 275px;
+  height: 350px;
   object-fit: cover;
 
   ${borderRadius('4px 4px 0 0')}
+
+  ${respondTo.mediumScreen`
+    height: 275px;
+  `}
+
+  ${respondTo.smallScreen`
+    height: 200px;
+  `}
+
+  ${respondTo.mobileScreen`
+    height: 150px;
+  `}
 `
 
 export const StyledButton = styled.div`
