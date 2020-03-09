@@ -91,6 +91,16 @@ export const StyledButton = styled.div`
   ${borderRadius('0 0 4px 4px')}
   ${transition('background-color 0.5s linear')}
 
+  ${respondTo.smallScreen`
+    height: 65px;
+    font-size: ${getRem(30)};
+  `}
+
+  ${respondTo.mobileScreen`
+    height: 50px;
+    font-size: ${getRem(28)};
+  `}
+
   &:hover {
     background-color: ${variable.color.blue500};
   }
