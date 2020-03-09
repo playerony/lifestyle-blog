@@ -115,4 +115,4 @@ const EditorInput = ({
   )
 }
 
-export default EditorInput
+export default React.memo(EditorInput)
