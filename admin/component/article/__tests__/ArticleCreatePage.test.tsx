@@ -12,6 +12,16 @@ import TResponseError from '@type/common/TResponseError'
 jest.mock('../../../hook/article/useUploadMutation')
 jest.mock('../../../hook/category/useCategoryList', () => () => ({ data: [], loading: true }))
 
+jest.mock('react-router-dom', () => {
+  const originalModule = jest.requireActual('react-router-dom')
+
+  return {
+    __esModule: true,
+    ...originalModule,
+    useHistory: () => ({ goBack: jest.fn() })
+  }
+})
+
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
@@ -23,7 +33,7 @@ describe('ArticleCreatePage Component', () => {
       mountComponent(
         <ArticleCreatePage
           onCreate={onCreateMock}
-          errorData={ERROR_DATA}
+          errorData={ERROR_DATA_MOCK}
         />
       )
 
@@ -35,7 +45,7 @@ describe('ArticleCreatePage Component', () => {
       mountComponent(
         <ArticleCreatePage
           onCreate={onCreateMock}
-          errorData={ERROR_DATA}
+          errorData={ERROR_DATA_MOCK}
         />
       )
 
@@ -47,16 +57,16 @@ describe('ArticleCreatePage Component', () => {
       mountComponent(
         <ArticleCreatePage
           onCreate={onCreateMock}
-          errorData={ERROR_DATA}
+          errorData={ERROR_DATA_MOCK}
         />
       )
 
     expect(wrapper.find(ArticleForm).props().onSave).toEqual(onCreateMock)
-    expect(wrapper.find(ArticleForm).props().errorData).toEqual(ERROR_DATA)
+    expect(wrapper.find(ArticleForm).props().errorData).toEqual(ERROR_DATA_MOCK)
   })
 })
 
-const ERROR_DATA: TResponseError<IArticleSave> = {
+const ERROR_DATA_MOCK: TResponseError<IArticleSave> = {
   title: [],
   imageId: [],
   content: [],
