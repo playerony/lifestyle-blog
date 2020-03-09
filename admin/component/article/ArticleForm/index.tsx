@@ -32,8 +32,8 @@ const getInitialData = (initialData?: IArticle): IArticleSave => {
     title: initialData.title || '',
     content: initialData.content || '',
     description: initialData.description || '',
-    imageId: initialData?.image?.imageId || null,
-    categoryIdList: initialData?.categoryList?.map(element => element.categoryId!) || []
+    imageId: initialData.image?.imageId || null,
+    categoryIdList: initialData.categoryList?.map(element => element.categoryId!) || []
   }
 }
 
@@ -45,19 +45,20 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
   const changeState = (value: Partial<IArticleSave>): void =>
     setState({ ...state, ...value })
 
-  const handleCategoryChange = (categoryIdList: number[]): void =>
-    changeState({ categoryIdList })
+  const handleContentChange = (content: string): void =>
+    changeState({ content })
 
   const handleImageChange = (imageId: number | null): void =>
     changeState({ imageId })
 
-  const handleContentChange = (content: string): void =>
-    changeState({ content })
+  const handleCategoryChange = (categoryIdList: number[]): void =>
+    changeState({ categoryIdList })
 
   const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
     changeState({ [name]: value })
 
-  const handleArticleSaveClick = (): void => onSave(state)
+  const handleArticleSaveClick = (): void =>
+    onSave(state)
 
   const handleBackButtonClick = (): void =>
     history.goBack()
