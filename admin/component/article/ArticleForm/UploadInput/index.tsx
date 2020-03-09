@@ -12,7 +12,7 @@ import {
   IMAGE_ACCEPT_TYPE,
   IMAGE_UPLOAD_START_MESSAGE,
   IMAGE_UPLOAD_ERROR_MESSAGE,
-  IMAGE_UPLOAD_SUCCESS_MESSAGE,
+  IMAGE_UPLOAD_SUCCESS_MESSAGE
 } from '@config/constant'
 
 const UploadInput = ({
@@ -23,6 +23,7 @@ const UploadInput = ({
   const [errorMessage, setErrorMessage] = useState<string | undefined>(error)
 
   const toast = useToast()
+  const uploadImage = useUploadMutation()
 
   useEffect(() => {
     setErrorMessage(error)
@@ -32,8 +33,6 @@ const UploadInput = ({
     }
   }, [error])
 
-  const uploadImage = useUploadMutation()
-
   const onUpload = async (selectedFile: File): Promise<void> => {
     toast.add(IMAGE_UPLOAD_START_MESSAGE, EToastType.INFO)
     const result = await uploadImage(selectedFile)
@@ -42,7 +41,9 @@ const UploadInput = ({
       return
     }
 
-    if (!Boolean(result.errors)) {
+    const isError = Boolean(result.errors)
+
+    if (!isError) {
       const imageId = result.data?.uploadImage?.imageId
 
       if (!imageId) {
@@ -52,9 +53,11 @@ const UploadInput = ({
         onChange(imageId)
         toast.add(IMAGE_UPLOAD_SUCCESS_MESSAGE)
       }
+    } else {
+      toast.add(IMAGE_UPLOAD_ERROR_MESSAGE, EToastType.ERROR)
     }
 
-    setErrorMessage(Boolean(result.errors) ? IMAGE_UPLOAD_ERROR_MESSAGE : '')
+    setErrorMessage(isError ? IMAGE_UPLOAD_ERROR_MESSAGE : '')
   }
 
   return (
