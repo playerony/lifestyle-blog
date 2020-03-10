@@ -4,6 +4,12 @@ import { useHistory } from 'react-router-dom'
 import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
 
+import useToggleArticlePublicFlag from '@hook/article/useToggleArticlePublicFlag'
+
+import formatDate from '@utility/formatDate'
+
+import routeList from '@config/routeList'
+
 import {
   StyledImage,
   StyledWrapper,
@@ -18,10 +24,6 @@ import {
   StyledTodayVisitorLabel,
   StyledVisitorContentWrapper
 } from './ArticleCard.style'
-
-import formatDate from '@utility/formatDate'
-
-import routeList from '@config/routeList'
 
 const formatArticleNumber = ({ articleId }: IArticleList): string =>
   articleId!.toString().padStart(2, '0')
@@ -51,14 +53,19 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
   const [visibility, setVisibility] = useState<boolean>(Boolean(article.isPublic))
 
   const history = useHistory()
+  const toggleArticlePublicFlag = useToggleArticlePublicFlag()
 
   const handleArticleEditRedirect = (): void =>
     history.push(`${routeList.article.base}/${article.articleId}/edit`)
 
-  const { image, title, description } = article
+  const { image, title, articleId, description } = article
 
-  const handleVisibilityChange = (): void =>
-    setVisibility(prev => !prev)
+  const handleVisibilityChange = async (): Promise<void> => {
+    const newVisibility = !visibility
+
+    const result: any = await toggleArticlePublicFlag(articleId!, newVisibility)
+    setVisibility(result?.data?.toggleArticlePublicFlag?.isPublic)
+  }
 
   return (
     <StyledWrapper>
