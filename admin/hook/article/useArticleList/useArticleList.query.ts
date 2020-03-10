@@ -4,6 +4,7 @@ export const ARTICLE_LIST_QUERY = gql`
   query {
     articleList {
       title
+      isPublic
       articleId
       createdAt
       description

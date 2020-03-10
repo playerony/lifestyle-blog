@@ -65,7 +65,6 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
   const { image, title, articleId, description } = article
 
   const handleVisibilityChange = async (): Promise<void> => {
-    console.warn(article)
     const result = await toggleArticlePublicFlag(articleId!, !visibility)
 
     if (!result) {
@@ -79,6 +78,10 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
         toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
       } else {
         setVisibility(isPublic)
+        toast.add(
+          `Article with ID: ${articleId} is now ${isPublic ? 'shown' : 'hidden'}`,
+          EToastType.INFO
+        )
       }
     } else {
       toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)

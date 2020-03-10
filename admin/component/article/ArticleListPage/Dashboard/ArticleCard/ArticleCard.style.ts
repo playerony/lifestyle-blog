@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {
   flexbox,
   boxShadow,
+  respondTo,
   alignItems,
   transition,
   borderRadius,
@@ -23,6 +24,14 @@ export const StyledWrapper = styled.div`
   ${borderRadius('4px')}
   ${transition('background-color 500ms linear')}
   ${boxShadow('0 2px 8px 0 rgba(0, 0, 0, 0.16)')}
+
+  ${respondTo.smallScreen`
+    height: 450px;
+  `}
+
+  ${respondTo.mobileScreen`
+    height: 350px;
+  `}
 `
 
 export const StyledImage = styled.img`
@@ -35,11 +44,16 @@ export const StyledImage = styled.img`
 
 export const StyledContentWrapper = styled.section`
   padding: ${variable.paddingSmall}px;
-  height: calc(50% - ${variable.paddingSmall * 2}px);
+  height: calc(50% - ${variable.paddingMedium}px);
 
   ${flexbox()}
   ${flexDirection('column')}
   ${justifyContent('space-between')}
+
+  ${respondTo.mobileScreen`
+    padding: ${variable.paddingSmall / 2}px;
+    height: calc(50% - ${variable.paddingSmall}px);
+  `}
 `
 
 export const StyledArticleNumber = styled.p`
@@ -72,8 +86,20 @@ export const StyledVisitorContentWrapper = styled.div`
   ${flexbox()}
 
   p {
-    margin-top: 4px;
+    margin-top: 2px;
     padding-right: 5px;
+
+    ${respondTo.largeScreen`
+      margin-top: 3px;
+    `}
+
+    ${respondTo.mediumScreen`
+      margin-top: 5px;
+    `}
+
+    ${respondTo.smallScreen`
+      margin-top: 6px;
+    `}
   }
 `
 
