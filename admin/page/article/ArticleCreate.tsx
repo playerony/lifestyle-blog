@@ -5,7 +5,10 @@ import ArticleCreatePage from '@component/article/ArticleCreatePage'
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
+import useToast from '@hook/utility/useToast'
 import useCreateMutation from '@hook/article/useCreateMutation'
+
+import { ARTICLE_CREATE_MESSAGE } from '@config/constant'
 
 const initialErrorData: TResponseError<IArticleSave> = {
   title: [],
@@ -18,6 +21,7 @@ const initialErrorData: TResponseError<IArticleSave> = {
 const ArticleCreate = (): JSX.Element => {
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
 
+  const toast = useToast()
   const createArticle = useCreateMutation()
 
   const handleCreate = async (article: IArticleSave): Promise<void> => {
@@ -27,8 +31,13 @@ const ArticleCreate = (): JSX.Element => {
       return
     }
 
+    const isError = Boolean(response.errors)
+    if (!isError) {
+      toast.add(ARTICLE_CREATE_MESSAGE)
+    }
+
     setErrorData(
-      Boolean(response.errors)
+      isError
         ? response.errors! as TResponseError<IArticleSave>
         : initialErrorData
     )
