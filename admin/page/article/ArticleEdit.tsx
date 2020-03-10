@@ -6,8 +6,11 @@ import ArticleEditPage from '@component/article/ArticleEditPage'
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
+import useToast from '@hook/utility/useToast'
 import useArticle from '@hook/article/useArticle'
 import useUpdateMutation from '@hook/article/useUpdateMutation'
+
+import { ARTICLE_EDIT_MESSAGE } from '@config/constant'
 
 const initialErrorData: TResponseError<IArticleSave> = {
   title: [],
@@ -20,12 +23,12 @@ const initialErrorData: TResponseError<IArticleSave> = {
 const ArticleEdit = (): JSX.Element => {
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
 
+  const toast = useToast()
   const updateArticle = useUpdateMutation()
 
   const params = useParams<{ articleId: string }>()
   const articleId = Number(params.articleId)
-
-  const result = useArticle(articleId)
+  const foundArticle = useArticle(articleId)
 
   const handleUpdate = async (article: IArticleSave): Promise<void> => {
     const response = await updateArticle(articleId, article)
@@ -34,14 +37,25 @@ const ArticleEdit = (): JSX.Element => {
       return
     }
 
+    const isError = Boolean(response.errors)
+    if (!isError) {
+      toast.add(ARTICLE_EDIT_MESSAGE)
+    }
+
     setErrorData(
-      Boolean(response.errors)
+      isError
         ? response.errors! as TResponseError<IArticleSave>
         : initialErrorData
     )
   }
 
-  return <ArticleEditPage initialData={result} errorData={errorData} onEdit={handleUpdate} />
+  return (
+    <ArticleEditPage
+      errorData={errorData}
+      onEdit={handleUpdate}
+      initialData={foundArticle}
+    />
+  )
 }
 
 export default ArticleEdit
