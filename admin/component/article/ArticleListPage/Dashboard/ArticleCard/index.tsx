@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 import IArticleList from '@type/article/IArticleList'
@@ -48,12 +48,17 @@ const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] 
   )
 
 const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
+  const [visibility, setVisibility] = useState<boolean>(Boolean(article.isPublic))
+
   const history = useHistory()
 
   const handleArticleEditRedirect = (): void =>
     history.push(`${routeList.article.base}/${article.articleId}/edit`)
 
   const { image, title, description } = article
+
+  const handleVisibilityChange = (): void =>
+    setVisibility(prev => !prev)
 
   return (
     <StyledWrapper>
@@ -75,8 +80,8 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
             {renderCategoryList(article)}
           </div>
           <div>
-            <StyledControlIcon>
-              <use xlinkHref="#metrics" />
+            <StyledControlIcon onClick={handleVisibilityChange}>
+              <use xlinkHref={`#visibility${!visibility ? '-off' : ''}`} />
             </StyledControlIcon>
             <StyledControlIcon onClick={handleArticleEditRedirect}>
               <use xlinkHref="#noun-edit" />
