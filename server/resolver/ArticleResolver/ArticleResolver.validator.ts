@@ -71,8 +71,7 @@ export const toggleArticlePublicFlagValidation = (
     .setCheckList([
       check('articleId')
         .isExist()
-        .isNumber(),
-      check('isPublic').isExist()
+        .isNumber()
     ])
     .check()
 

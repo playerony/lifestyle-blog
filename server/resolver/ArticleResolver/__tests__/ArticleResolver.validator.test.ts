@@ -254,17 +254,5 @@ describe('ArticleResolver.validator Functions', () => {
         }
       })
     })
-
-    describe('isPublic Field', () => {
-      it('should contain proper validators', () => {
-        try {
-          toggleArticlePublicFlagValidation(1, null as any)
-        } catch (e) {
-          const { isPublic } = JSON.parse(e.message)
-
-          expect(isPublic).toEqual(['Provided value does not exist.'])
-        }
-      })
-    })
   })
 })

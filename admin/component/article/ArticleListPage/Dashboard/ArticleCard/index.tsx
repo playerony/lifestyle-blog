@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import EToastType from '@type/common/EToastType'
 import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
 
+import useToast from '@hook/utility/useToast'
 import useToggleArticlePublicFlag from '@hook/article/useToggleArticlePublicFlag'
 
 import formatDate from '@utility/formatDate'
 
 import routeList from '@config/routeList'
+import { ARTICLE_TOGGLE_ERROR_MESSAGE } from '@config/constant'
 
 import {
   StyledImage,
@@ -52,6 +55,7 @@ const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] 
 const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
   const [visibility, setVisibility] = useState<boolean>(Boolean(article.isPublic))
 
+  const toast = useToast()
   const history = useHistory()
   const toggleArticlePublicFlag = useToggleArticlePublicFlag()
 
@@ -61,10 +65,24 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
   const { image, title, articleId, description } = article
 
   const handleVisibilityChange = async (): Promise<void> => {
-    const newVisibility = !visibility
+    console.warn(article)
+    const result = await toggleArticlePublicFlag(articleId!, !visibility)
 
-    const result: any = await toggleArticlePublicFlag(articleId!, newVisibility)
-    setVisibility(result?.data?.toggleArticlePublicFlag?.isPublic)
+    if (!result) {
+      return
+    }
+
+    if (!Boolean(result.errors)) {
+      const isPublic = result?.data?.toggleArticlePublicFlag?.isPublic
+
+      if (isPublic === undefined) {
+        toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
+      } else {
+        setVisibility(isPublic)
+      }
+    } else {
+      toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
+    }
   }
 
   return (
