@@ -29,8 +29,8 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
       <Slider
         speed={500}
         className="center"
+        lazyLoad="ondemand"
         swipeToSlide={true}
-        lazyLoad="progressive"
         slidesToShow={sliderElements}
         slidesToScroll={sliderElements}
         responsive={[
