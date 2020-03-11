@@ -28,11 +28,11 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
       <StyledLabel>{label}</StyledLabel>
       <Slider
         speed={500}
-        slidesToShow={sliderElements}
-        slidesToScroll={sliderElements}
         className="center"
         swipeToSlide={true}
         lazyLoad="progressive"
+        slidesToShow={sliderElements}
+        slidesToScroll={sliderElements}
         responsive={[
           {
             breakpoint: variable.breakpoint.mediumScreen,
