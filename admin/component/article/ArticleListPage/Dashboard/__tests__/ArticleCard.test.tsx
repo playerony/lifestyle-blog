@@ -88,6 +88,29 @@ describe('ArticleCard Component', () => {
         expect(wrapper.find('header').find('p').get(3).props.children).toEqual('01.01.2020')
       })
     })
+
+    describe('middle section', () => {
+      it('should render', () => {
+        const ArticleCard = require('../ArticleCard').default
+        const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
+
+        expect(wrapper.find('section')).toHaveLength(2)
+      })
+
+      it('should render article title', () => {
+        const ArticleCard = require('../ArticleCard').default
+        const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
+
+        expect(wrapper.find('section').last().find('h1').props().children).toEqual('title')
+      })
+
+      it('should render article description', () => {
+        const ArticleCard = require('../ArticleCard').default
+        const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
+
+        expect(wrapper.find('section').last().find('label').props().children).toEqual('description')
+      })
+    })
   })
 })
 
