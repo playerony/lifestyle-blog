@@ -4,6 +4,7 @@ import variable from '@style/variable'
 import { respondTo } from '@style/mixin'
 
 export const StyledLabel = styled.h2`
+  text-align: center;
   margin: ${variable.paddingBig}px 0;
 
   ${respondTo.mediumScreen`
