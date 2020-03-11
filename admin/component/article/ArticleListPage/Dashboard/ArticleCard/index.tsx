@@ -29,7 +29,7 @@ import {
 } from './ArticleCard.style'
 
 const formatArticleNumber = ({ articleId }: IArticleList): string =>
-  articleId!.toString().padStart(2, '0')
+  articleId!.toString().padStart(3, '0')
 
 const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX.Element => (
   <StyledVisitorContentWrapper>
