@@ -111,6 +111,29 @@ describe('ArticleCard Component', () => {
         expect(wrapper.find('section').last().find('label').props().children).toEqual('description')
       })
     })
+
+    describe('footer', () => {
+      it('should render', () => {
+        const ArticleCard = require('../ArticleCard').default
+        const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
+
+        expect(wrapper.exists('footer')).toBeTruthy()
+      })
+
+      it('should render categoryList', () => {
+        const ArticleCard = require('../ArticleCard').default
+        const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
+
+        expect(wrapper.find('footer').find('div').first().props().children).toHaveLength(1)
+      })
+
+      it('should render visibility and edit icons', () => {
+        const ArticleCard = require('../ArticleCard').default
+        const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
+
+        expect(wrapper.find('footer').find('div').last().props().children).toHaveLength(2)
+      })
+    })
   })
 })
 
