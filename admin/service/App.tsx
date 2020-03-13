@@ -1,10 +1,9 @@
-import React, { Suspense } from 'react'
-
-import LoadingPage from '@page/Loading'
+import React from 'react'
 
 import Routing from './Routing'
 import ThemeProvider from './ThemeProvider'
 import ToastProvider from './ToastProvider'
+import LoadingProvider from './LoadingProvider'
 import GraphQLProvider from './GraphQLProvider'
 
 import ResetStyle from '@style/ResetStyle'
@@ -16,11 +15,13 @@ const App = (): JSX.Element => (
   <ToastProvider>
     <GraphQLProvider>
       <ThemeProvider>
-        <Suspense fallback={<LoadingPage />}>
+        <>
           <ResetStyle />
           <GlobalStyle />
-          <Routing />
-        </Suspense>
+          <LoadingProvider>
+            <Routing />
+          </LoadingProvider>
+        </>
       </ThemeProvider>
     </GraphQLProvider>
   </ToastProvider>
