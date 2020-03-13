@@ -8,6 +8,7 @@ import { ARTICLE_QUERY } from './useArticle.query'
 const useArticle = (articleId: number): IArticle | undefined => {
   const { data } = useQuery<IResult>(ARTICLE_QUERY, {
     suspend: true,
+    fetchPolicy: 'network-only',
     variables: { articleId }
   })
 
