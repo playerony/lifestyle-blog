@@ -30,6 +30,7 @@ const ARTICLE_LIST_RESULT_DATA = {
     {
       articleId: 1,
       title: 'title',
+      isPublic: true,
       description: 'description',
       createdAt: new Date('2020'),
       categoryList: [{

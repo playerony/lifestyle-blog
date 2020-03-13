@@ -18,13 +18,13 @@ describe('useUploadMutation Hook', () => {
 
   it('should keep data as undefined until data is actually returned', done => {
     const Component = (): null => {
-      const [data, setData] = useState()
+      const [data, setData] = useState<any>()
 
       const uploadImage = useUploadMutation()
 
       useEffect(() => {
         const doUpload = async () => {
-          const result = await uploadImage(UPLOAD_IMAGE_REQUEST_MOCK)
+          const result = await uploadImage(UPLOAD_IMAGE_REQUEST_MOCK as any)
 
           setData(result)
         }
@@ -50,7 +50,7 @@ describe('useUploadMutation Hook', () => {
   })
 })
 
-const UPLOAD_IMAGE_REQUEST_MOCK: File = {
+const UPLOAD_IMAGE_REQUEST_MOCK = {
   name: 'name',
   size: 123123,
   type: 'jpeg',
