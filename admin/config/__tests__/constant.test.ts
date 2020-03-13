@@ -1,6 +1,6 @@
 import * as constant from '../constant'
 
-describe('constant defuned variable list', () => {
+describe('constant Configuration', () => {
   it('should contain four values', () => {
     expect(Object.keys(constant)).toHaveLength(10)
   })
