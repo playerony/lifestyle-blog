@@ -2,12 +2,20 @@ import React from 'react'
 
 import MetricPage from '@component/MetricPage'
 
+import useLoading from '@hook/utility/useLoading'
 import useVisitorList from '@hook/visitor/useVisitorList'
 
-const Metric = (): JSX.Element => {
-  const visitorList = useVisitorList()
+const Metric = (): JSX.Element | null => {
+  const { toggleLoader } = useLoading()
 
-  return <MetricPage visitorList={visitorList} />
+  const { data, loading } = useVisitorList()
+  toggleLoader(loading)
+
+  if (loading) {
+    return null
+  }
+
+  return <MetricPage visitorList={data} />
 }
 
 export default Metric

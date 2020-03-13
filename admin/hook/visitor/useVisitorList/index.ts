@@ -1,16 +1,15 @@
 import { useQuery } from 'react-apollo-hooks'
 
 import { IResult } from './useVisitorList.type'
-import IVisitor from '@type/visitor/IVisitor'
 
 import { VISITOR_LIST_QUERY } from './useVisitorList.query'
 
-const useVisitorList = (): IVisitor[] | undefined => {
-  const { data } = useQuery<IResult>(VISITOR_LIST_QUERY, {
+const useVisitorList = () => {
+  const { data, loading } = useQuery<IResult>(VISITOR_LIST_QUERY, {
     fetchPolicy: 'cache-first'
   })
 
-  return data?.visitorList
+  return { data: data?.visitorList, loading }
 }
 
 export default useVisitorList

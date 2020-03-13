@@ -7,6 +7,7 @@ import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
 import useToast from '@hook/utility/useToast'
+import useLoading from '@hook/utility/useLoading'
 import useArticle from '@hook/article/useArticle'
 import useUpdateMutation from '@hook/article/useUpdateMutation'
 
@@ -20,15 +21,18 @@ const initialErrorData: TResponseError<IArticleSave> = {
   categoryIdList: []
 }
 
-const ArticleEdit = (): JSX.Element => {
+const ArticleEdit = (): JSX.Element | null => {
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
 
   const toast = useToast()
+  const { toggleLoader } = useLoading()
   const updateArticle = useUpdateMutation()
 
   const params = useParams<{ articleId: string }>()
   const articleId = Number(params.articleId)
-  const foundArticle = useArticle(articleId)
+
+  const { data: foundArticle, loading } = useArticle(articleId)
+  toggleLoader(loading)
 
   const handleUpdate = async (article: IArticleSave): Promise<void> => {
     const response = await updateArticle(articleId, article)
@@ -47,6 +51,10 @@ const ArticleEdit = (): JSX.Element => {
         ? response.errors! as TResponseError<IArticleSave>
         : initialErrorData
     )
+  }
+
+  if (loading) {
+    return null
   }
 
   return (

@@ -4,12 +4,12 @@ import ILog from '@type/log/ILog'
 
 import { LOG_LIST_QUERY } from './useLogList.query'
 
-const useLogList = (): ILog[] | undefined => {
-  const { data } = useQuery<{ logList: ILog[] }>(LOG_LIST_QUERY, {
-    suspend: true
+const useLogList = () => {
+  const { data, loading } = useQuery<{ logList: ILog[] }>(LOG_LIST_QUERY, {
+    fetchPolicy: 'cache-first'
   })
 
-  return data?.logList
+  return { data: data?.logList, loading }
 }
 
 export default useLogList

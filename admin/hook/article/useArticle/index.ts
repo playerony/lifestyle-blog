@@ -1,18 +1,19 @@
 import { useQuery } from 'react-apollo-hooks'
 
 import { IResult } from './useArticle.type'
-import IArticle from '@type/article/IArticle'
 
 import { ARTICLE_QUERY } from './useArticle.query'
 
-const useArticle = (articleId: number): IArticle | undefined => {
-  const { data } = useQuery<IResult>(ARTICLE_QUERY, {
-    suspend: true,
+const useArticle = (articleId: number) => {
+  const { data, loading } = useQuery<IResult>(ARTICLE_QUERY, {
     fetchPolicy: 'network-only',
     variables: { articleId }
   })
 
-  return data?.articleById
+  return {
+    data: data?.articleById,
+    loading
+  }
 }
 
 export default useArticle
