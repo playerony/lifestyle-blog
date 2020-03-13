@@ -1,19 +1,19 @@
 import IArticle from '../IArticle'
 
 describe('IArticle Interface', () => {
-  it('should contain nine parameters', () => {
+  it('should contain ten parameters', () => {
     expect(Object.keys(objectMock)).toHaveLength(10)
   })
 
-  it('has an userId parameter', () => {
+  it('has a userId parameter', () => {
     expect(objectMock.userId).toEqual(1)
   })
 
-  it('has a imageId parameter', () => {
+  it('has an imageId parameter', () => {
     expect(objectMock.imageId).toEqual(1)
   })
 
-  it('has a articleId parameter', () => {
+  it('has an articleId parameter', () => {
     expect(objectMock.articleId).toEqual(1)
   })
 
@@ -29,7 +29,7 @@ describe('IArticle Interface', () => {
     expect(objectMock.categoryList).toEqual([])
   })
 
-  it('has a image parameter', () => {
+  it('has an image parameter', () => {
     expect(objectMock.image).not.toBeDefined()
   })
 

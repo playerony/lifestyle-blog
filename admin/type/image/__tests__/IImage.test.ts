@@ -5,7 +5,7 @@ describe('IImage Interface', () => {
     expect(Object.keys(objectMock)).toHaveLength(2)
   })
 
-  it('has a imageId parameter', () => {
+  it('has an imageId parameter', () => {
     expect(objectMock.imageId).toEqual(1)
   })
 

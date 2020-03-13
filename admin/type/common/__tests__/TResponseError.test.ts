@@ -6,7 +6,7 @@ describe('TResponseError Interface', () => {
   })
 
   it('has a test parameter', () => {
-    expect(objectMock.test).toEqual(['Example string'])
+    expect(objectMock.test).toEqual(['test'])
   })
 })
 
@@ -15,5 +15,5 @@ interface IMock {
 }
 
 const objectMock: TResponseError<IMock> = {
-  test: ['Example string']
+  test: ['test']
 }

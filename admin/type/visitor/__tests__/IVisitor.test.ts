@@ -1,8 +1,8 @@
 import IVisitor from '../IVisitor'
 
 describe('IVisitor Interface', () => {
-  it('should contain six parameters', () => {
-    expect(Object.keys(objectMock)).toHaveLength(6)
+  it('should contain five parameters', () => {
+    expect(Object.keys(objectMock)).toHaveLength(5)
   })
 
   it('has a articleId parameter', () => {
@@ -14,27 +14,22 @@ describe('IVisitor Interface', () => {
   })
 
   it('has a ipAddress parameter', () => {
-    expect(objectMock.ipAddress).toEqual('192')
+    expect(objectMock.ipAddress).toEqual('ipAddress')
   })
 
   it('has a userAgent parameter', () => {
-    expect(objectMock.userAgent).toEqual('Mobile')
+    expect(objectMock.userAgent).toEqual('userAgent')
   })
 
   it('has a createdAt parameter', () => {
-    expect(objectMock.createdAt).toBeDefined()
-  })
-
-  it('has a updatedAt parameter', () => {
-    expect(objectMock.updatedAt).toBeDefined()
+    expect(objectMock.createdAt).toEqual(new Date('2020'))
   })
 })
 
 const objectMock: Required<IVisitor> = {
   articleId: 1,
   visitorId: 1,
-  ipAddress: '192',
-  userAgent: 'Mobile',
-  createdAt: new Date('2019'),
-  updatedAt: new Date('2019')
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  createdAt: new Date('2020')
 }

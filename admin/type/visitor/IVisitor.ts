@@ -4,5 +4,4 @@ export default interface IVisitor {
   ipAddress?: string
   userAgent?: string
   createdAt?: Date
-  updatedAt?: Date
 }

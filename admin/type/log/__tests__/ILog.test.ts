@@ -16,6 +16,10 @@ describe('ILog Interface', () => {
   it('has a message parameter', () => {
     expect(objectMock.message).toEqual('message')
   })
+
+  it('has a createdAt parameter', () => {
+    expect(objectMock.createdAt).toEqual(new Date('2020'))
+  })
 })
 
 const objectMock: Required<ILog> = {

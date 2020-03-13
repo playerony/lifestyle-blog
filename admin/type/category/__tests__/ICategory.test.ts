@@ -10,16 +10,16 @@ describe('ICategory Interface', () => {
   })
 
   it('has a name parameter', () => {
-    expect(objectMock.name).toEqual('Category name')
+    expect(objectMock.name).toEqual('name')
   })
 
   it('has a description parameter', () => {
-    expect(objectMock.description).toEqual('Descr')
+    expect(objectMock.description).toEqual('description')
   })
 })
 
 const objectMock: Required<ICategory> = {
   categoryId: 1,
-  description: 'Descr',
-  name: 'Category name'
+  description: 'description',
+  name: 'name'
 }
