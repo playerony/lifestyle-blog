@@ -5,39 +5,39 @@ import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import IArticleSave from '@type/article/IArticleSave'
 
-import useCreateMutation from '../useCreateMutation'
+import useUpdateMutation from '../useUpdateMutation'
 
-import { CREATE_ARTICLE_MUTATION } from '../useCreateMutation/useCreateMutation.query'
+import { UPDATE_ARTICLE_MUTATION } from '../useUpdateMutation/useUpdateMutation.query'
 
-describe('useCreateMutation Hook', () => {
+describe('useUpdateMutation Hook', () => {
   beforeAll(() => {
     console.error = jest.fn()
   })
 
-  it('import useCreateMutation', () => {
-    expect(typeof useCreateMutation).toBe('function')
+  it('import useUpdateMutation', () => {
+    expect(typeof useUpdateMutation).toBe('function')
   })
 
   it('should keep data as undefined until data is actually returned', done => {
     const Component = (): null => {
       const [data, setData] = useState<any>()
 
-      const createArticle = useCreateMutation()
+      const updateArticle = useUpdateMutation()
 
       useEffect(() => {
-        const doCreate = async () => {
-          const result = await createArticle(CREATE_ARTICLE_REQUEST_MOCK)
+        const doUpdate = async () => {
+          const result = await updateArticle(1, EDIT_ARTICLE_DATA_MOCK)
 
           setData(result)
         }
 
-        doCreate()
+        doUpdate()
       }, [])
 
       if (!data) {
         expect(data).toEqual(undefined)
       } else {
-        expect(data.data).toEqual(CREATE_ARTICLE_RESULT_DATA)
+        expect(data.data).toEqual(EDIT_ARTICLE_RESULT_DATA)
         done()
       }
 
@@ -45,14 +45,14 @@ describe('useCreateMutation Hook', () => {
     }
 
     mount(
-      <ApolloProviderMock mockList={CREATE_ARTICLE_MOCK}>
+      <ApolloProviderMock mockList={EDIT_ARTICLE_MOCK}>
         <Component />
       </ApolloProviderMock>
     )
   })
 })
 
-const CREATE_ARTICLE_REQUEST_MOCK: IArticleSave = {
+const EDIT_ARTICLE_DATA_MOCK: IArticleSave = {
   imageId: 1,
   title: 'title',
   content: 'content',
@@ -60,21 +60,22 @@ const CREATE_ARTICLE_REQUEST_MOCK: IArticleSave = {
   description: 'description'
 }
 
-const CREATE_ARTICLE_RESULT_DATA = {
-  createArticle: {
+const EDIT_ARTICLE_RESULT_DATA = {
+  updateArticle: {
     articleId: 1,
     __typename: 'Article'
   }
 }
 
-const CREATE_ARTICLE_MOCK = [
+const EDIT_ARTICLE_MOCK = [
   {
     request: {
-      query: CREATE_ARTICLE_MUTATION,
+      query: UPDATE_ARTICLE_MUTATION,
       variables: {
-        article: CREATE_ARTICLE_REQUEST_MOCK
+        articleId: 1,
+        article: EDIT_ARTICLE_DATA_MOCK
       }
     },
-    result: { data: CREATE_ARTICLE_RESULT_DATA }
+    result: { data: EDIT_ARTICLE_RESULT_DATA }
   }
 ]

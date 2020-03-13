@@ -27,7 +27,10 @@ const useCreateMutation = () => {
       return
     }
 
-    return { ...result, errors: JSON.parse(result.errors[0].message) } as IResult
+    return {
+      ...result,
+      errors: JSON.parse(result.errors[0].message)
+    } as IResult
   }
 }
 
