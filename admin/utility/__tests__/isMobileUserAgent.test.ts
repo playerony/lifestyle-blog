@@ -1,7 +1,7 @@
 import isMobileUserAgent from '../isMobileUserAgent'
 
 describe('isMobileUserAgent Function', () => {
-  it('shoudl return true if userAgent is from the mobile device', () => {
+  it('should return true if userAgent is from the mobile device', () => {
     USER_AGENT_LIST_MOCK.map(userAgent => {
       expect(isMobileUserAgent(userAgent)).toBeTruthy()
     })

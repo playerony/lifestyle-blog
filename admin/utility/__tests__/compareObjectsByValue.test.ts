@@ -5,7 +5,7 @@ interface ICompareObject {
 }
 
 describe('compareObjectsByValue Function', () => {
-  describe('return 0', () => {
+  describe('return 0 case', () => {
     it('if one of the objects does not exist', () => {
       const result = compareObjectsByValue<ICompareObject>('name')(
         null as any,
