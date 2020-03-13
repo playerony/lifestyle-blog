@@ -7,7 +7,6 @@ import { VISITOR_LIST_QUERY } from './useVisitorList.query'
 
 const useVisitorList = (): IVisitor[] | undefined => {
   const { data } = useQuery<IResult>(VISITOR_LIST_QUERY, {
-    suspend: true,
     fetchPolicy: 'cache-first'
   })
 

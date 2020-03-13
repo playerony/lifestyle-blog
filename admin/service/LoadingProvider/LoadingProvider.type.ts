@@ -1,3 +1,5 @@
+import { ReactElement } from 'react'
+
 export interface ILoadingProviderProps {
-  children: React.ReactElement
+  children: ReactElement | ReactElement[]
 }

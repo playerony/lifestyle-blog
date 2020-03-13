@@ -15,13 +15,11 @@ const App = (): JSX.Element => (
   <ToastProvider>
     <GraphQLProvider>
       <ThemeProvider>
-        <>
+        <LoadingProvider>
           <ResetStyle />
           <GlobalStyle />
-          <LoadingProvider>
-            <Routing />
-          </LoadingProvider>
-        </>
+          <Routing />
+        </LoadingProvider>
       </ThemeProvider>
     </GraphQLProvider>
   </ToastProvider>

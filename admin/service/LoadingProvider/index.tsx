@@ -14,7 +14,8 @@ const LoadingProvider = ({ children }: ILoadingProviderProps): JSX.Element => {
 
   return (
     <LoadingContext.Provider value={{ toggleLoader }}>
-      {loading ? <LoadingPage /> : children}
+      {loading && <LoadingPage />}
+      {children}
     </LoadingContext.Provider>
   )
 }
