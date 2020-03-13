@@ -1,6 +1,6 @@
 import TResponseError from '../TResponseError'
 
-describe('TResponseError Interface', () => {
+describe('TResponseError Type', () => {
   it('should contain one parameter', () => {
     expect(Object.keys(objectMock)).toHaveLength(1)
   })

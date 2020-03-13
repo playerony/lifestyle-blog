@@ -6,15 +6,15 @@ describe('ILoginRequest Interface', () => {
   })
 
   it('has a login parameter', () => {
-    expect(objectMock.login).toEqual('testLogin')
+    expect(objectMock.login).toEqual('login')
   })
 
   it('has a password parameter', () => {
-    expect(objectMock.password).toEqual('testPassword')
+    expect(objectMock.password).toEqual('password')
   })
 })
 
 const objectMock: ILoginRequest = {
-  login: 'testLogin',
-  password: 'testPassword'
+  login: 'login',
+  password: 'password'
 }

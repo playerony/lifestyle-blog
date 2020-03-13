@@ -19,7 +19,7 @@ describe('ICategory Interface', () => {
 })
 
 const objectMock: Required<ICategory> = {
+  name: 'name',
   categoryId: 1,
-  description: 'description',
-  name: 'name'
+  description: 'description'
 }
