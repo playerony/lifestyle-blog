@@ -6,8 +6,8 @@ import ArticleListPage from '@component/article/ArticleListPage'
 import IVisitor from '@type/visitor/IVisitor'
 import IArticle from '@type/article/IArticle'
 
-jest.doMock('../../../hook/visitor/useVisitorList', () => () => VISITOR_LIST_MOCK)
-jest.doMock('../../../hook/article/useArticleList', () => () => ARTICLE_LIST_MOCK)
+jest.doMock('../../../hook/visitor/useVisitorList', () => () => ({ data: VISITOR_LIST_MOCK, loading: false }))
+jest.doMock('../../../hook/article/useArticleList', () => () => ({ data: ARTICLE_LIST_MOCK, loading: false }))
 
 describe('ArticleList Page', () => {
   it('should render', () => {
@@ -33,7 +33,7 @@ describe('ArticleList Page', () => {
     expect(Object.keys(articleListProps)).toHaveLength(1)
     expect(articleListProps.articleList).toHaveLength(1)
     expect(articleListProps.articleList[0].todayVisitor).toEqual(0)
-    expect(articleListProps.articleList[0].totalVisitor).toEqual(2)
+    expect(articleListProps.articleList[0].totalVisitor).toEqual(1)
   })
 })
 
