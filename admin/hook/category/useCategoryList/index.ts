@@ -1,21 +1,15 @@
-import { QueryResult } from 'react-apollo'
 import { useQuery } from '@apollo/react-hooks'
 
-import ICategory from '@type/category/ICategory'
+import { IResult } from './useCategoryList.type'
 
 import { CATEGORY_LIST_QUERY } from './useCategoryList.query'
 
-const useCategoryList = (): Partial<QueryResult> => {
-  const { data, loading } = useQuery<{ categoryList: ICategory[] }>(
-    CATEGORY_LIST_QUERY,
-    {
-      fetchPolicy: 'cache-first'
-    }
-  )
+const useCategoryList = () => {
+  const { data, loading } = useQuery<IResult>(CATEGORY_LIST_QUERY, {
+    fetchPolicy: 'cache-first'
+  })
 
-  const resultData = loading ? data : data?.categoryList
-
-  return { data: resultData, loading }
+  return { data: data?.categoryList, loading }
 }
 
 export default useCategoryList
