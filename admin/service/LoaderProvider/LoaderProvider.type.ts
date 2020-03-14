@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
 
-export interface ILoadingProviderProps {
+export interface ILoaderProviderProps {
   children: ReactElement | ReactElement[]
 }
