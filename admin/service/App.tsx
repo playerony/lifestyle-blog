@@ -3,7 +3,7 @@ import React from 'react'
 import Routing from './Routing'
 import ThemeProvider from './ThemeProvider'
 import ToastProvider from './ToastProvider'
-import LoadingProvider from './LoadingProvider'
+import LoaderProvider from './LoaderProvider'
 import GraphQLProvider from './GraphQLProvider'
 
 import ResetStyle from '@style/ResetStyle'
@@ -15,11 +15,11 @@ const App = (): JSX.Element => (
   <ToastProvider>
     <GraphQLProvider>
       <ThemeProvider>
-        <LoadingProvider>
+        <LoaderProvider>
           <ResetStyle />
           <GlobalStyle />
           <Routing />
-        </LoadingProvider>
+        </LoaderProvider>
       </ThemeProvider>
     </GraphQLProvider>
   </ToastProvider>
