@@ -1,27 +1,37 @@
 import React from 'react'
+import { MockedProvider } from '@apollo/react-testing'
 import { renderHook } from '@testing-library/react-hooks'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import useLogList from '../useLogList'
 
 import { LOG_LIST_QUERY } from '../useLogList/useLogList.query'
 
 describe('useLogList Hook', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('import useLogList', () => {
     expect(typeof useLogList).toBe('function')
   })
 
-  it('should keep data as null until data is actually returned', async () => {
+  it('should return undefined as data if loading status is true', () => {
     const wrapper = ({ children }: any) =>
-      <ApolloProviderMock mockList={LOG_LIST_MOCK}>{children}</ApolloProviderMock>
+      <MockedProvider mocks={LOG_LIST_MOCK}>{children}</MockedProvider>
+
+    const { result } = renderHook(() => useLogList(), { wrapper })
+
+    expect(result.current).toEqual({ data: undefined, loading: true })
+  })
+
+  it('should return proper data if loading status is false', async () => {
+    const wrapper = ({ children }: any) =>
+      <MockedProvider mocks={LOG_LIST_MOCK}>{children}</MockedProvider>
 
     const { result, waitForNextUpdate } = renderHook(() => useLogList(), { wrapper })
 
-    expect(result.current).toBeNull()
-
     await waitForNextUpdate()
-    expect(result.current).toEqual(LOG_LIST_RESULT_DATA.logList)
+    expect(result.current).toEqual({ data: LOG_LIST_RESULT_DATA.logList, loading: false })
   })
 })
 
