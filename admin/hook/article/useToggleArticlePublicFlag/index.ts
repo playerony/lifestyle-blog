@@ -1,5 +1,5 @@
 import { ExecutionResult } from 'graphql'
-import { useMutation } from 'react-apollo-hooks'
+import { useMutation } from '@apollo/react-hooks'
 
 import { IResult } from './useToggleArticlePublicFlag.type'
 
@@ -8,16 +8,15 @@ import { TOGGLE_ARTICLE_PUBLIC_FLAG_MUTATION } from './useToggleArticlePublicFla
 import { VALIDATION_ERROR } from '@config/constant'
 
 const useToggleArticlePublicFlag = () => {
-  const [updateArticleMutation] = useMutation(
-    TOGGLE_ARTICLE_PUBLIC_FLAG_MUTATION
-  )
+  const [
+    updateArticleMutation
+  ] = useMutation(TOGGLE_ARTICLE_PUBLIC_FLAG_MUTATION, { errorPolicy: 'all' })
 
   return async (
     articleId: number,
     isPublic: boolean
   ): Promise<IResult | ExecutionResult | void> => {
     const result = await updateArticleMutation({
-      errorPolicy: 'all',
       variables: { articleId, isPublic }
     })
 

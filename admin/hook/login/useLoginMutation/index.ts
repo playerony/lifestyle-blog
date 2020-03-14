@@ -1,5 +1,5 @@
 import { ExecutionResult } from 'graphql'
-import { useMutation } from 'react-apollo-hooks'
+import { useMutation } from '@apollo/react-hooks'
 
 import { LOGIN_MUTATION } from './useLoginMutation.query'
 
@@ -9,13 +9,12 @@ import ILoginRequest from '@type/login/ILoginRequest'
 import { VALIDATION_ERROR } from '@config/constant'
 
 const useLoginMutation = () => {
-  const [loginMutation] = useMutation(LOGIN_MUTATION)
+  const [loginMutation] = useMutation(LOGIN_MUTATION, { errorPolicy: 'all' })
 
   return async (
     loginData: ILoginRequest
   ): Promise<IResult | ExecutionResult | void> => {
     const result = await loginMutation({
-      errorPolicy: 'all',
       variables: { ...loginData }
     })
 
@@ -27,7 +26,10 @@ const useLoginMutation = () => {
       return
     }
 
-    return { ...result, errors: JSON.parse(result.errors[0].message) } as IResult
+    return {
+      ...result,
+      errors: JSON.parse(result.errors[0].message)
+    } as IResult
   }
 }
 

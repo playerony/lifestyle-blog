@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { ApolloProviderProps } from 'react-apollo-hooks'
 
 const providerCall = jest.fn()
 
@@ -26,7 +25,7 @@ describe('ApolloProviderMock Component', () => {
 
 const Component = (): JSX.Element => <h1>Element</h1>
 
-const ApolloProviderMockMock = ({ client, children }: ApolloProviderProps<{}>): JSX.Element => {
+const ApolloProviderMockMock = ({ client, children }: any): JSX.Element => {
   providerCall(client)
 
   return children as JSX.Element

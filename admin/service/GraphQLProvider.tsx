@@ -9,7 +9,7 @@ import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { createUploadLink } from 'apollo-upload-client'
 import { onError, ErrorResponse } from 'apollo-link-error'
-import { ApolloProvider as ApolloHookProvider } from 'react-apollo-hooks'
+import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
 
 import Memory from '@utility/Memory'
 

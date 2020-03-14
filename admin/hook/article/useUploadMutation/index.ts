@@ -1,17 +1,16 @@
 import { ExecutionResult } from 'graphql'
-import { useMutation } from 'react-apollo-hooks'
+import { useMutation } from '@apollo/react-hooks'
 
 import { IResult } from './useUploadMutation.type'
 
 import { UPLOAD_MUTATION } from './useUploadMutation.query'
 
 const useUploadMutation = () => {
-  const [uploadMutation] = useMutation(UPLOAD_MUTATION)
+  const [uploadMutation] = useMutation(UPLOAD_MUTATION, { errorPolicy: 'all' })
 
   return async (file: File): Promise<IResult | ExecutionResult | void> => {
     const result = await uploadMutation({
-      variables: { file },
-      errorPolicy: 'all'
+      variables: { file }
     })
 
     if (!result.errors) {
@@ -22,7 +21,10 @@ const useUploadMutation = () => {
       return
     }
 
-    return { ...result, errors: JSON.parse(result.errors[0].message) } as IResult
+    return {
+      ...result,
+      errors: JSON.parse(result.errors[0].message)
+    } as IResult
   }
 }
 
