@@ -5,7 +5,7 @@ import LogPage from '@component/LogPage'
 
 import ILog from '@type/log/ILog'
 
-jest.doMock('../../hook/log/useLogList', () => () => LOG_LIST_MOCK)
+jest.doMock('../../hook/log/useLogList', () => () => ({ data: LOG_LIST_MOCK, loading: false }))
 
 describe('LogPage Page', () => {
   it('should render', () => {
