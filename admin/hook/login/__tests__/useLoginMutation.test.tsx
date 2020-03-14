@@ -18,7 +18,7 @@ describe('useLoginMutation Hook', () => {
 
   it('should keep data as undefined until data is actually returned', done => {
     const Component = (): null => {
-      const [data, setData] = useState()
+      const [data, setData] = useState<any>()
 
       const login = useLoginMutation()
 
