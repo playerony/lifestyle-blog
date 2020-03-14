@@ -2,6 +2,6 @@ import { useContext } from 'react'
 
 import { LoaderContext } from '@context/Loader'
 
-const useLoading = () => useContext(LoaderContext)
+const useLoader = () => useContext(LoaderContext)
 
-export default useLoading
+export default useLoader
