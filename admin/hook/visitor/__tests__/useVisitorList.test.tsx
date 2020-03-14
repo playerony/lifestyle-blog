@@ -1,27 +1,37 @@
 import React from 'react'
+import { MockedProvider } from '@apollo/react-testing'
 import { renderHook } from '@testing-library/react-hooks'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import useVisitorList from '../useVisitorList'
 
 import { VISITOR_LIST_QUERY } from '../useVisitorList/useVisitorList.query'
 
 describe('useVisitorList Hook', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('import useVisitorList', () => {
     expect(typeof useVisitorList).toBe('function')
   })
 
-  it('should keep data as null until data is actually returned', async () => {
+  it('should return undefined as data if loading status is true', () => {
     const wrapper = ({ children }: any) =>
-      <ApolloProviderMock mockList={VISITOR_LIST_MOCK}>{children}</ApolloProviderMock>
+      <MockedProvider mocks={VISITOR_LIST_MOCK}>{children}</MockedProvider>
+
+    const { result } = renderHook(() => useVisitorList(), { wrapper })
+
+    expect(result.current).toEqual({ data: undefined, loading: true })
+  })
+
+  it('should return data if loading status is false', async () => {
+    const wrapper = ({ children }: any) =>
+      <MockedProvider mocks={VISITOR_LIST_MOCK}>{children}</MockedProvider>
 
     const { result, waitForNextUpdate } = renderHook(() => useVisitorList(), { wrapper })
 
-    expect(result.current).toBeNull()
-
     await waitForNextUpdate()
-    expect(result.current).toEqual(VISITOR_LIST_RESULT_DATA.visitorList)
+    expect(result.current).toEqual({ data: VISITOR_LIST_RESULT_DATA.visitorList, loading: false })
   })
 })
 
