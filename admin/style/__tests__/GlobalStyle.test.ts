@@ -1,7 +1,5 @@
 // @ts-nocheck
 const createGlobalStyleMock = jest.fn().mockImplementation((value, ...args) => {
-  console.warn(...args)
-
   return value
 })
 
@@ -35,27 +33,83 @@ describe('GlobalStyle Component', () => {
         'background-color 500ms linear',
         ';\n'
       ],
-      '1.25rem',
-      jasmine.any(Function),
-      '0.87rem',
-      jasmine.any(Function),
-      '2rem',
-      "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
-      jasmine.any(Function),
-      [
-        '\n  -webkit-transition: ',
-        'color 500ms linear',
-        ';\n  -moz-transition: ',
-        'color 500ms linear',
-        ';\n  -ms-transition: ',
-        'color 500ms linear',
-        ';\n  -o-transition: ',
-        'color 500ms linear',
-        ';\n  transition: ',
-        'color 500ms linear',
-        ';\n'
-      ],
       '1.5rem',
+      jasmine.any(Function),
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.37rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.25rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.18rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.12rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '1.12rem',
+      jasmine.any(Function),
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.87rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.81rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.75rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '2.25rem',
       "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
       jasmine.any(Function),
       [
@@ -71,7 +125,43 @@ describe('GlobalStyle Component', () => {
         'color 500ms linear',
         ';\n'
       ],
-      '1.18rem',
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '2.12rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '2rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.93rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.87rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '1.75rem',
       "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
       jasmine.any(Function),
       [
@@ -87,7 +177,43 @@ describe('GlobalStyle Component', () => {
         'color 500ms linear',
         ';\n'
       ],
-      '1rem',
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.62rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.5rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.43rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.37rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '1.43rem',
       "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
       jasmine.any(Function),
       [
@@ -103,7 +229,43 @@ describe('GlobalStyle Component', () => {
         'color 500ms linear',
         ';\n'
       ],
-      '0.81rem',
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.31rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.18rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.12rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.06rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '1.25rem',
       "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
       jasmine.any(Function),
       [
@@ -119,7 +281,43 @@ describe('GlobalStyle Component', () => {
         'color 500ms linear',
         ';\n'
       ],
-      '0.68rem',
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1.12rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '1rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.93rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.87rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '1.06rem',
       "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
       jasmine.any(Function),
       [
@@ -134,6 +332,94 @@ describe('GlobalStyle Component', () => {
         ';\n  transition: ',
         'color 500ms linear',
         ';\n'
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.93rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.81rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.75rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.68rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      '0.93rem',
+      "'HelveticaNeueBold', Helvetica, Arial, sans-serif",
+      jasmine.any(Function),
+      [
+        '\n  -webkit-transition: ',
+        'color 500ms linear',
+        ';\n  -moz-transition: ',
+        'color 500ms linear',
+        ';\n  -ms-transition: ',
+        'color 500ms linear',
+        ';\n  -o-transition: ',
+        'color 500ms linear',
+        ';\n  transition: ',
+        'color 500ms linear',
+        ';\n'
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.81rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.68rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.62rem',
+        ';\n    ',
+        ';\n    }\n  '
+      ],
+      [
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        '\n      font-size: ',
+        '0.56rem',
+        ';\n    ',
+        ';\n    }\n  '
       ]
     )
   })
