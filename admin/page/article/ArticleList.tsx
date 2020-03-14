@@ -2,14 +2,14 @@ import React from 'react'
 
 import ArticleListPage from '@component/article/ArticleListPage'
 
-import useLoading from '@hook/utility/useLoading'
+import useLoader from '@admin/hook/utility/useLoader'
 import useArticleList from '@hook/article/useArticleList'
 import useVisitorList from '@hook/visitor/useVisitorList'
 
 import articleListTransformator from '@transformator/articleListTransformator'
 
 const ArticleList = (): JSX.Element | null => {
-  const { toggleLoader } = useLoading()
+  const { toggleLoader } = useLoader()
 
   const { data: articleList, loading: articleListLoading } = useArticleList()
   const { data: visitorList, loading: visitorListLoading } = useVisitorList()

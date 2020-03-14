@@ -7,7 +7,7 @@ import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
 import useToast from '@hook/utility/useToast'
-import useLoading from '@hook/utility/useLoading'
+import useLoader from '@admin/hook/utility/useLoader'
 import useArticle from '@hook/article/useArticle'
 import useUpdateMutation from '@hook/article/useUpdateMutation'
 
@@ -25,7 +25,7 @@ const ArticleEdit = (): JSX.Element | null => {
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
 
   const toast = useToast()
-  const { toggleLoader } = useLoading()
+  const { toggleLoader } = useLoader()
   const updateArticle = useUpdateMutation()
 
   const params = useParams<{ articleId: string }>()

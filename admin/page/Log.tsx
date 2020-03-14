@@ -3,11 +3,11 @@ import React from 'react'
 import LogPage from '@component/LogPage'
 
 import useLogList from '@hook/log/useLogList'
-import useLoading from '@hook/utility/useLoading'
+import useLoader from '@admin/hook/utility/useLoader'
 
 const Log = (): JSX.Element | null => {
   const { data, loading } = useLogList()
-  const { toggleLoader } = useLoading()
+  const { toggleLoader } = useLoader()
   toggleLoader(loading)
 
   if (loading) {
