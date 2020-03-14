@@ -8,7 +8,7 @@ import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
 jest.mock('../../../hook/article/useUpdateMutation')
-jest.doMock('../../../hook/article/useArticle', () => () => ARTICLE_MOCK)
+jest.doMock('../../../hook/article/useArticle', () => () => ({ data: ARTICLE_MOCK, loading: false }))
 
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom')
