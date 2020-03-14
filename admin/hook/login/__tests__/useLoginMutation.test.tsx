@@ -1,7 +1,6 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
-
-import ApolloProviderMock from '@admin/component/utility/ApolloProviderMock'
+import { MockedProvider } from '@apollo/react-testing'
 
 import useLoginMutation from '../useLoginMutation'
 
@@ -43,9 +42,9 @@ describe('useLoginMutation Hook', () => {
     }
 
     mount(
-      <ApolloProviderMock mockList={LOGIN_MOCK}>
+      <MockedProvider mocks={LOGIN_MOCK}>
         <Component />
-      </ApolloProviderMock>
+      </MockedProvider>
     )
   })
 })

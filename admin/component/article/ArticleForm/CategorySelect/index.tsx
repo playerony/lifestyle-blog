@@ -12,7 +12,7 @@ import useCategoryList from '@hook/category/useCategoryList'
 const CategorySelect = ({ value, onChange, errorMessage }: ICategorySelectProps): JSX.Element => {
   const { data, loading } = useCategoryList()
 
-  const getOptionList = (data: ICategory[]): IOption[] => {
+  const getOptionList = (data?: ICategory[]): IOption[] => {
     if (!data) {
       return []
     }

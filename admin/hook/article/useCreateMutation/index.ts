@@ -1,5 +1,5 @@
 import { ExecutionResult } from 'graphql'
-import { useMutation } from '@apollo/react-hooks'
+import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 
 import { IResult } from './useCreateMutation.type'
 import IArticleSave from '@type/article/IArticleSave'
@@ -9,16 +9,15 @@ import { CREATE_ARTICLE_MUTATION } from './useCreateMutation.query'
 import { VALIDATION_ERROR } from '@config/constant'
 
 const useCreateMutation = () => {
-  const [createArticleMutation] = useMutation(CREATE_ARTICLE_MUTATION, {
-    errorPolicy: 'all'
-  })
+  const [createArticleMutation] = useMutation(CREATE_ARTICLE_MUTATION)
 
   return async (
     article: IArticleSave
   ): Promise<IResult | ExecutionResult | void> => {
     const result = await createArticleMutation({
-      variables: { article }
-    })
+      variables: { article },
+      errorPolicy: 'all'
+    } as MutationHookOptions)
 
     if (!result.errors) {
       return result as ExecutionResult

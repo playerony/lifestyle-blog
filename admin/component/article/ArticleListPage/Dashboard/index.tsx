@@ -52,7 +52,7 @@ const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
 
     return categoryList.map(({ name }: ICategory) =>
       renderArticleListSortedByCategory(articleList, name!)
-    )
+    ).filter(Boolean) as JSX.Element[]
   }
 
   const renderContent = (): JSX.Element[] => ([
