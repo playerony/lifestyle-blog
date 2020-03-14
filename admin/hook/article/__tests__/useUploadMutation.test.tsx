@@ -1,7 +1,6 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
+import { MockedProvider } from '@apollo/react-testing'
 
 import useUploadMutation from '../useUploadMutation'
 
@@ -43,9 +42,9 @@ describe('useUploadMutation Hook', () => {
     }
 
     mount(
-      <ApolloProviderMock mockList={UPLOAD_IMAGE_MOCK}>
+      <MockedProvider mocks={UPLOAD_IMAGE_MOCK}>
         <Component />
-      </ApolloProviderMock>
+      </MockedProvider>
     )
   })
 })

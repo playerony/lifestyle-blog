@@ -1,7 +1,6 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
+import { MockedProvider } from '@apollo/react-testing'
 
 import IArticleSave from '@type/article/IArticleSave'
 
@@ -45,9 +44,9 @@ describe('useCreateMutation Hook', () => {
     }
 
     mount(
-      <ApolloProviderMock mockList={CREATE_ARTICLE_MOCK}>
+      <MockedProvider mocks={CREATE_ARTICLE_MOCK}>
         <Component />
-      </ApolloProviderMock>
+      </MockedProvider>
     )
   })
 })

@@ -1,7 +1,6 @@
 import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
+import { MockedProvider } from '@apollo/react-testing'
 
 import useToggleArticlePublicFlag from '../useToggleArticlePublicFlag'
 
@@ -43,9 +42,9 @@ describe('useToggleArticlePublicFlag Hook', () => {
     }
 
     mount(
-      <ApolloProviderMock mockList={EDIT_ARTICLE_MOCK}>
+      <MockedProvider mocks={EDIT_ARTICLE_MOCK}>
         <Component />
-      </ApolloProviderMock>
+      </MockedProvider>
     )
   })
 })
