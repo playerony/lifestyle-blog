@@ -1,27 +1,37 @@
 import React from 'react'
+import { MockedProvider } from '@apollo/react-testing'
 import { renderHook } from '@testing-library/react-hooks'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
 
 import useArticleList from '../useArticleList'
 
 import { ARTICLE_LIST_QUERY } from '../useArticleList/useArticleList.query'
 
 describe('useArticleList Hook', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('import useArticleList', () => {
     expect(typeof useArticleList).toBe('function')
   })
 
-  it('should keep data as null until data is actually returned', async () => {
+  it('should return undefined as data if loading status is true', () => {
     const wrapper = ({ children }: any) =>
-      <ApolloProviderMock mockList={ARTICLE_LIST_MOCK}>{children}</ApolloProviderMock>
+      <MockedProvider mocks={ARTICLE_LIST_MOCK}>{children}</MockedProvider>
+
+    const { result } = renderHook(() => useArticleList(), { wrapper })
+
+    expect(result.current).toEqual({ data: undefined, loading: true })
+  })
+
+  it('should return proper data if loading status is false', async () => {
+    const wrapper = ({ children }: any) =>
+      <MockedProvider mocks={ARTICLE_LIST_MOCK}>{children}</MockedProvider>
 
     const { result, waitForNextUpdate } = renderHook(() => useArticleList(), { wrapper })
 
-    expect(result.current).toBeNull()
-
     await waitForNextUpdate()
-    expect(result.current).toEqual(ARTICLE_LIST_RESULT_DATA.articleList)
+    expect(result.current).toEqual({ data: ARTICLE_LIST_RESULT_DATA.articleList, loading: false })
   })
 })
 
