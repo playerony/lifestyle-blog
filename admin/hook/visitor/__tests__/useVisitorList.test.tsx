@@ -24,7 +24,7 @@ describe('useVisitorList Hook', () => {
     expect(result.current).toEqual({ data: undefined, loading: true })
   })
 
-  it('should return data if loading status is false', async () => {
+  it('should return proper data if loading status is false', async () => {
     const wrapper = ({ children }: any) =>
       <MockedProvider mocks={VISITOR_LIST_MOCK}>{children}</MockedProvider>
 

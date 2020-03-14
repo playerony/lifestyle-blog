@@ -1,8 +1,6 @@
 import React from 'react'
-import { mount } from 'enzyme'
-import { isEqual } from 'lodash'
-
-import ApolloProviderMock from '@component/utility/ApolloProviderMock'
+import { MockedProvider } from '@apollo/react-testing'
+import { renderHook } from '@testing-library/react-hooks'
 
 import useCategoryList from '../useCategoryList'
 
@@ -17,25 +15,23 @@ describe('useCategoryList Hook', () => {
     expect(typeof useCategoryList).toBe('function')
   })
 
-  it('should keep data as undefined until data is actually returned', done => {
-    const Component = (): null => {
-      const { data, loading } = useCategoryList()
+  it('should return undefined as data if loading status is true', () => {
+    const wrapper = ({ children }: any) =>
+      <MockedProvider mocks={CATEGORY_LIST_MOCK}>{children}</MockedProvider>
 
-      if (loading) {
-        expect(data).toBeUndefined()
-      } else {
-        expect(isEqual(data, CATEGORY_LIST_RESULT_DATA.categoryList)).toBeTruthy()
-        done()
-      }
+    const { result } = renderHook(() => useCategoryList(), { wrapper })
 
-      return null
-    }
+    expect(result.current).toEqual({ data: undefined, loading: true })
+  })
 
-    mount(
-      <ApolloProviderMock mockList={CATEGORY_LIST_MOCK}>
-        <Component />
-      </ApolloProviderMock>
-    )
+  it('should return proper data if loading status is false', async () => {
+    const wrapper = ({ children }: any) =>
+      <MockedProvider mocks={CATEGORY_LIST_MOCK}>{children}</MockedProvider>
+
+    const { result, waitForNextUpdate } = renderHook(() => useCategoryList(), { wrapper })
+
+    await waitForNextUpdate()
+    expect(result.current).toEqual({ data: CATEGORY_LIST_RESULT_DATA.categoryList, loading: false })
   })
 })
 
