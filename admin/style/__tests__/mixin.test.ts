@@ -4,6 +4,7 @@ import {
   animation,
   boxShadow,
   transform,
+  respondTo,
   appearance,
   transition,
   alignItems,
@@ -283,6 +284,60 @@ describe('mixin Functions', () => {
         ';\n  appearance: ',
         'none',
         ';\n'
+      ])
+    })
+  })
+
+  describe('respondTo Function', () => {
+    it('should contain four functions', () => {
+      expect(Object.keys(respondTo)).toHaveLength(4)
+    })
+
+    it('should return proper data for mobileScreen property', () => {
+      const result = respondTo.mobileScreen`background-color: red`
+
+      expect(result).toEqual([
+        '\n    @media (max-width: ',
+        '750',
+        'px) {\n      ',
+        'background-color: red',
+        ';\n    }\n  '
+      ])
+    })
+
+    it('should return proper data for smallScreen property', () => {
+      const result = respondTo.smallScreen`background-color: red`
+
+      expect(result).toEqual([
+        '\n    @media (max-width: ',
+        '1023',
+        'px) {\n      ',
+        'background-color: red',
+        ';\n    }\n  '
+      ])
+    })
+
+    it('should return proper data for mediumScreen property', () => {
+      const result = respondTo.mediumScreen`background-color: red`
+
+      expect(result).toEqual([
+        '\n    @media (max-width: ',
+        '1367',
+        'px) {\n      ',
+        'background-color: red',
+        ';\n    }\n  '
+      ])
+    })
+
+    it('should return proper data for largeScreen property', () => {
+      const result = respondTo.largeScreen`background-color: red`
+
+      expect(result).toEqual([
+        '\n    @media (max-width: ',
+        '1919',
+        'px) {\n      ',
+        'background-color: red',
+        ';\n    }\n  '
       ])
     })
   })
