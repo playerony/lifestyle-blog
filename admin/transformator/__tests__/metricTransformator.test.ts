@@ -70,7 +70,7 @@ describe('metricTransformator Transformator', () => {
             label: 'Visitors per month'
           }
         ],
-        labels: ['04.2020']
+        labels: ['01.2020']
       }
     })
   })
@@ -81,6 +81,7 @@ const VISITOR_LIST_MOCK: IVisitor[] = [
     visitorId: 1,
     articleId: null,
     ipAddress: 'ipAddress1',
+    createdAt: new Date('2020'),
     userAgent:
       'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
   },
@@ -88,6 +89,7 @@ const VISITOR_LIST_MOCK: IVisitor[] = [
     visitorId: 2,
     articleId: 1,
     ipAddress: 'ipAddress2',
+    createdAt: new Date('2020'),
     userAgent:
       'Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
   },
@@ -95,6 +97,7 @@ const VISITOR_LIST_MOCK: IVisitor[] = [
     visitorId: 3,
     articleId: 1,
     ipAddress: 'ipAddress3',
+    createdAt: new Date('2020'),
     userAgent:
       'Mozilla/5.0 (Linux; Android 7.0; SM-G930V Build/NRD90M) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.125 Mobile Safari/537.36'
   }
