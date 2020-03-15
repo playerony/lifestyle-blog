@@ -49,8 +49,7 @@ const Login = (): JSX.Element => {
 
   return React.createElement(
     isMobileResolution() ? LoginPageMobile : LoginPageDesktop,
-    { errorData, onClick: handleLogin }
-  )
+    { errorData, onClick: handleLogin })
 }
 
 export default Login

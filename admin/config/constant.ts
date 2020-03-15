@@ -9,5 +9,8 @@ export const ARTICLE_TOGGLE_ERROR_MESSAGE = 'Something went wrong.'
 export const ARTICLE_EDIT_MESSAGE = 'Successfully edited an article.'
 export const ARTICLE_CREATE_MESSAGE = 'Successfully created a new article.'
 
+export const CAPTCHA_ERROR_MESSAGE = 'Unexpected captcha error.'
+export const CAPTCHA_EXIPRED_MESSAGE = 'Captcha challenge expired.'
+
 export const UNAUTHENTICATED = 'UNAUTHENTICATED'
 export const VALIDATION_ERROR = 'VALIDATION_ERROR'
