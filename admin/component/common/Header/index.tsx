@@ -28,6 +28,9 @@ const Header = (): JSX.Element => {
 
   const handleLogoClick = (): void => history.push(routeList.base)
 
+  const isAuthenticated = (): boolean =>
+    Boolean(Memory.get(AUTH_TOKEN))
+
   const handleLogout = (): void => {
     Memory.remove(AUTH_TOKEN)
     history.push(routeList.base)
@@ -35,10 +38,12 @@ const Header = (): JSX.Element => {
 
   return (
     <StyledWrapper>
-      <StyledContentWrapper>
-        <StyledLogoIcon onClick={handleLogoClick}>
-          <use xlinkHref="#logo" />
-        </StyledLogoIcon>
+      <StyledContentWrapper isAuthenticated={isAuthenticated()}>
+        {isAuthenticated() && (
+          <StyledLogoIcon onClick={handleLogoClick}>
+            <use xlinkHref="#logo" />
+          </StyledLogoIcon>
+        )}
         <SwitchWrapper>
           <StyledSunIcon>
             <use xlinkHref="#sun" />
@@ -51,9 +56,11 @@ const Header = (): JSX.Element => {
             <use xlinkHref="#moon" />
           </StyledMoonIcon>
         </SwitchWrapper>
-        <StyledLogoutIcon onClick={handleLogout}>
-          <use xlinkHref="#logout" />
-        </StyledLogoutIcon>
+        {isAuthenticated() && (
+          <StyledLogoutIcon onClick={handleLogout}>
+            <use xlinkHref="#logout" />
+          </StyledLogoutIcon>
+        )}
       </StyledContentWrapper>
     </StyledWrapper>
   )

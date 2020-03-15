@@ -23,14 +23,19 @@ export const StyledWrapper = styled.header`
   ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
 `
 
-export const StyledContentWrapper = styled.div`
+interface IStyledContentWrapperProps {
+  isAuthenticated: boolean
+}
+
+export const StyledContentWrapper = styled.div<IStyledContentWrapperProps>`
   max-width: ${variable.breakpoint.mediumScreen}px;
   width: calc(100% - ${variable.paddingBig * 2}px);
   padding: ${variable.paddingSmall}px ${variable.paddingBig}px;
 
   ${flexbox()}
   ${alignItems('center')}
-  ${justifyContent('space-between')}
+  ${({ isAuthenticated }: IStyledContentWrapperProps) =>
+    justifyContent(isAuthenticated ? 'space-between' : 'center')}
 
   ${respondTo.mediumScreen`
     width: calc(100% - ${variable.paddingMedium * 2}px);

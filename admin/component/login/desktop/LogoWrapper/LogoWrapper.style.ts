@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 import {
-  borderRadius,
+  flexbox,
   boxShadow,
   transform,
-  flexbox,
   alignItems,
+  transition,
+  borderRadius,
   justifyContent
 } from '@style/mixin'
 import variable from '@style/variable'
@@ -21,6 +22,7 @@ export const StyledWrapper = styled.div`
   ${alignItems('center')}
   ${borderRadius('12px')}
   ${justifyContent('center')}
+  ${transition('all 0.5s linear')}
   ${transform('translate(-50%, -50%)')}
   ${boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')}
 `

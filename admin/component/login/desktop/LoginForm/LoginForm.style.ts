@@ -22,6 +22,7 @@ export const StyledWrapper = styled.div`
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('12px')}
+  ${transition('all 0.5s linear')}
   ${transform('translate(-50%, -50%)')}
   ${boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')}
 `
