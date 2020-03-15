@@ -14,7 +14,8 @@ import { ApolloProvider as ApolloHookProvider } from '@apollo/react-hooks'
 import Memory from '@utility/Memory'
 
 import keys from '@config/keys'
-import { AUTH_TOKEN } from '@config/constant'
+import routeList from '@config/routeList'
+import { AUTH_TOKEN, FORBIDDEN } from '@config/constant'
 
 const httpLink = new HttpLink({
   uri: `${keys.serverUrl}/graphql`
@@ -38,7 +39,15 @@ const retryLink = new RetryLink({
 
 const errorLink = onError(({ graphQLErrors, networkError }: ErrorResponse): void => {
   if (graphQLErrors) {
-    graphQLErrors.map(({ message, path }: GraphQLError): void => {
+    graphQLErrors.map(({ message, path, extensions }: GraphQLError): void => {
+      switch (extensions?.code) {
+        case FORBIDDEN:
+          Memory.remove(AUTH_TOKEN)
+
+          window.location.pathname = routeList.base
+          break
+      }
+
       console.info(
         `[GraphQL error]: Message: ${message}, Path: ${path}`
       )

@@ -12,5 +12,8 @@ export const ARTICLE_CREATE_MESSAGE = 'Successfully created a new article.'
 export const CAPTCHA_ERROR_MESSAGE = 'Unexpected captcha error.'
 export const CAPTCHA_EXIPRED_MESSAGE = 'Captcha challenge expired.'
 
+export const FORBIDDEN_ERROR_MESSAGE = 'Token expired.'
+
+export const FORBIDDEN = 'FORBIDDEN'
 export const UNAUTHENTICATED = 'UNAUTHENTICATED'
 export const VALIDATION_ERROR = 'VALIDATION_ERROR'

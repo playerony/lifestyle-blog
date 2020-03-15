@@ -27,7 +27,9 @@ export default class UserService {
       password: hashPassword
     })
 
-    const token = jwt.sign({ userId: createdUser.userId }, keys.appSecret!)
+    const token = jwt.sign({ userId: createdUser.userId }, keys.appSecret!, {
+      expiresIn: 60 * 60 * 2
+    })
 
     return {
       token,
@@ -48,7 +50,9 @@ export default class UserService {
       throw new ValidationError({ password: ['Invalid password'] })
     }
 
-    const token = jwt.sign({ userId: foundUser.userId }, keys.appSecret!)
+    const token = jwt.sign({ userId: foundUser.userId }, keys.appSecret!, {
+      expiresIn: 60 * 60 * 2
+    })
 
     return {
       token,

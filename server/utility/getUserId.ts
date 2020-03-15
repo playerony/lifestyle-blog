@@ -21,8 +21,14 @@ export default ({ token }: Context): number => {
     throw new ForbiddenError(FORBIDDEN_ERROR_MESSAGE)
   }
 
-  const decodedToken = jwt.verify(tokenSplitResult[1], keys.appSecret!) as {
-    userId: number
+  let decodedToken
+
+  try {
+    decodedToken = jwt.verify(tokenSplitResult[1], keys.appSecret!) as {
+      userId: number
+    }
+  } catch {
+    throw new ForbiddenError(FORBIDDEN_ERROR_MESSAGE)
   }
 
   if (!decodedToken?.userId) {
