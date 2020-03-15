@@ -1,10 +1,9 @@
 
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 
-const ScrollToTop = (): null => {
-  const { pathname, search } = useLocation()
+import { IScrollToTopProps } from './ScrollToTop.type'
 
+const ScrollToTop = ({ location, children }: IScrollToTopProps): JSX.Element => {
   useEffect(() => {
     try {
       window.scroll({
@@ -14,9 +13,9 @@ const ScrollToTop = (): null => {
     } catch (error) {
       window.scrollTo(0, 0)
     }
-  }, [pathname, search])
+  }, [location])
 
-  return null
+  return children
 }
 
 export default ScrollToTop

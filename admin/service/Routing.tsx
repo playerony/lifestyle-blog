@@ -34,32 +34,33 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
         timeout={ANIMATION_DURATION}
       >
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
-          <ScrollToTop />
-          <Switch location={location}>
-            <Route exact={true} path={routeList.base}>
-              <Redirect to={routeList.article.list} />
-            </Route>
-            <Route path={routeList.login}>
-              <LoginPage />
-            </Route>
-            <Route path={routeList.log}>
-              <LogPage />
-            </Route>
-            <Route path={routeList.metric}>
-              <MetricPage />
-            </Route>
-            <Route path={routeList.article.base}>
-              <PrivateRoute path={routeList.article.list}>
-                <ArtileListPage />
-              </PrivateRoute>
-              <PrivateRoute path={routeList.article.create}>
-                <ArticleCreatePage />
-              </PrivateRoute>
-              <PrivateRoute path={routeList.article.edit}>
-                <ArticleEditPage />
-              </PrivateRoute>
-            </Route>
-          </Switch>
+          <ScrollToTop location={location}>
+            <Switch location={location}>
+              <Route exact={true} path={routeList.base}>
+                <Redirect to={routeList.article.list} />
+              </Route>
+              <Route path={routeList.login}>
+                <LoginPage />
+              </Route>
+              <Route path={routeList.log}>
+                <LogPage />
+              </Route>
+              <Route path={routeList.metric}>
+                <MetricPage />
+              </Route>
+              <Route path={routeList.article.base}>
+                <PrivateRoute path={routeList.article.list}>
+                  <ArtileListPage />
+                </PrivateRoute>
+                <PrivateRoute path={routeList.article.create}>
+                  <ArticleCreatePage />
+                </PrivateRoute>
+                <PrivateRoute path={routeList.article.edit}>
+                  <ArticleEditPage />
+                </PrivateRoute>
+              </Route>
+            </Switch>
+          </ScrollToTop>
         </div>
       </CSSTransition>
     </TransitionGroup>
