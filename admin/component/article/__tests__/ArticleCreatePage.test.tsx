@@ -18,7 +18,7 @@ jest.mock('react-router-dom', () => {
   return {
     __esModule: true,
     ...originalModule,
-    useHistory: () => ({ goBack: jest.fn() })
+    useHistory: () => ({ push: jest.fn() })
   }
 })
 

@@ -13,6 +13,8 @@ import { IArticleFormProps } from './ArticleForm.type'
 
 import getFieldError from '@utility/getFieldError'
 
+import routeList from '@config/routeList'
+
 import { StyledArrowIcon } from './ArticleForm.style'
 
 const initialState: IArticleSave = {
@@ -61,7 +63,7 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
     onSave(state)
 
   const handleBackButtonClick = (): void =>
-    history.goBack()
+    history.push(routeList.article.list)
 
   return (
     <>

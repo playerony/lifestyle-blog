@@ -8,6 +8,7 @@ import MetricPage from '@page/Metric'
 import Header from '@component/common/Header'
 import ArtileListPage from '@page/article/ArticleList'
 import ArticleEditPage from '@page/article/ArticleEdit'
+import ScrollToTop from '@component/utility/ScrollToTop'
 import PrivateRoute from '@component/utility/PrivateRoute'
 import ArticleCreatePage from '@page/article/ArticleCreate'
 
@@ -25,6 +26,7 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
     animationName={ANIMATION_NAME}
     animationDuration={`${ANIMATION_DURATION}ms`}
   >
+    <Header />
     <TransitionGroup>
       <CSSTransition
         key={location?.key}
@@ -32,6 +34,7 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
         timeout={ANIMATION_DURATION}
       >
         <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+          <ScrollToTop />
           <Switch location={location}>
             <Route exact={true} path={routeList.base}>
               <Redirect to={routeList.article.list} />
@@ -40,15 +43,12 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
               <LoginPage />
             </Route>
             <Route path={routeList.log}>
-              <Header />
               <LogPage />
             </Route>
             <Route path={routeList.metric}>
-              <Header />
               <MetricPage />
             </Route>
             <Route path={routeList.article.base}>
-              <Header />
               <PrivateRoute path={routeList.article.list}>
                 <ArtileListPage />
               </PrivateRoute>

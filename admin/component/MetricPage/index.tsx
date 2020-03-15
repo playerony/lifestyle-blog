@@ -9,6 +9,8 @@ import { IMetricPageProps } from './MetricPage.type'
 
 import metricTransformator from '@transformator/metricTransformator'
 
+import routeList from '@config/routeList'
+
 import {
   StyledHeader,
   StyledArrowIcon,
@@ -25,7 +27,7 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
   } = metricTransformator(visitorList)
 
   const handleButtonClick = (): void =>
-    history.goBack()
+    history.push(routeList.article.list)
 
   return (
     <Container>

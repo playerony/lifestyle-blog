@@ -9,6 +9,8 @@ import { ILogPageProps } from './LogPage.type'
 
 import logTransformator from '@transformator/logTransformator'
 
+import routeList from '@config/routeList'
+
 import { StyledHeader, StyledArrowIcon, StyledChartWrapper } from './LogPage.style'
 
 const LogPage = ({ logList = [] }: ILogPageProps): JSX.Element => {
@@ -16,7 +18,7 @@ const LogPage = ({ logList = [] }: ILogPageProps): JSX.Element => {
   const logChartData = logTransformator(logList)
 
   const handleButtonClick = (): void =>
-    history.goBack()
+    history.push(routeList.article.list)
 
   return (
     <Container>
