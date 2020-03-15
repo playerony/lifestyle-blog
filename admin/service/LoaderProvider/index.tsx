@@ -21,7 +21,6 @@ const LoaderProvider = ({ children }: ILoaderProviderProps): JSX.Element => {
   return (
     <LoaderContext.Provider value={{ toggleLoader }}>
       <StyledFadeAnimation
-        exit={true}
         enter={true}
         animationName={ANIMATION_NAME}
         animationDuration={`${ANIMATION_DURATION}ms`}
