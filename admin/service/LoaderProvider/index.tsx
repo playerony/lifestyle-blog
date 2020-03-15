@@ -31,9 +31,9 @@ const LoaderProvider = ({ children }: ILoaderProviderProps): JSX.Element => {
             classNames={ANIMATION_NAME}
             timeout={ANIMATION_DURATION}
           >
-            <div>
+            <>
               {loading && <LoadingPage />}
-            </div>
+            </>
           </CSSTransition>
         </TransitionGroup>
       </StyledFadeAnimation>
