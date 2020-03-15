@@ -13,9 +13,9 @@ import ArticleCreatePage from '@page/article/ArticleCreate'
 
 import routeList from '@config/routeList'
 
-import StyledFadeAnimation from '@style/animation/fade'
+import StyledFadeAnimation from '@style/animation/slide'
 
-const ANIMATION_DURATION = 300
+const ANIMATION_DURATION = 2000
 const ANIMATION_NAME = 'router_fade'
 
 const Routing = ({ location }: RouteProps): JSX.Element => (
@@ -31,34 +31,36 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
         classNames={ANIMATION_NAME}
         timeout={ANIMATION_DURATION}
       >
-        <Switch location={location}>
-          <Route exact={true} path={routeList.base}>
-            <Redirect to={routeList.article.list} />
-          </Route>
-          <Route path={routeList.login}>
-            <LoginPage />
-          </Route>
-          <Route path={routeList.log}>
-            <Header />
-            <LogPage />
-          </Route>
-          <Route path={routeList.metric}>
-            <Header />
-            <MetricPage />
-          </Route>
-          <Route path={routeList.article.base}>
-            <Header />
-            <PrivateRoute path={routeList.article.list}>
-              <ArtileListPage />
-            </PrivateRoute>
-            <PrivateRoute path={routeList.article.create}>
-              <ArticleCreatePage />
-            </PrivateRoute>
-            <PrivateRoute path={routeList.article.edit}>
-              <ArticleEditPage />
-            </PrivateRoute>
-          </Route>
-        </Switch>
+        <div style={{ position: 'relative' }}>
+          <Switch location={location}>
+            <Route exact={true} path={routeList.base}>
+              <Redirect to={routeList.article.list} />
+            </Route>
+            <Route path={routeList.login}>
+              <LoginPage />
+            </Route>
+            <Route path={routeList.log}>
+              <Header />
+              <LogPage />
+            </Route>
+            <Route path={routeList.metric}>
+              <Header />
+              <MetricPage />
+            </Route>
+            <Route path={routeList.article.base}>
+              <Header />
+              <PrivateRoute path={routeList.article.list}>
+                <ArtileListPage />
+              </PrivateRoute>
+              <PrivateRoute path={routeList.article.create}>
+                <ArticleCreatePage />
+              </PrivateRoute>
+              <PrivateRoute path={routeList.article.edit}>
+                <ArticleEditPage />
+              </PrivateRoute>
+            </Route>
+          </Switch>
+        </div>
       </CSSTransition>
     </TransitionGroup>
   </StyledFadeAnimation>
