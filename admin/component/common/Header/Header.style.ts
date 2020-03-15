@@ -13,6 +13,8 @@ import { ThemeProps } from '@style/theme'
 
 export const StyledWrapper = styled.header`
   width: 100%;
+  z-index: 10;
+  position: fixed;
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${flexbox()}

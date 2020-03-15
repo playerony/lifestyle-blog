@@ -54,7 +54,7 @@ export const StyledElement = styled.li<IStyledMenuElementProps>`
         `translateY(${
           isVisible
             ? 0
-            : `calc(${index * variable.paddingSmall / 2}px + ${100 * index}%)`
+            : `calc(${(index * variable.paddingSmall) / 2}px + ${100 * index}%)`
         }) scale(0.8)`
       )}
   `}

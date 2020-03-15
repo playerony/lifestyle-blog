@@ -15,7 +15,7 @@ import routeList from '@config/routeList'
 
 import StyledFadeAnimation from '@style/animation/slide'
 
-const ANIMATION_DURATION = 2000
+const ANIMATION_DURATION = 300
 const ANIMATION_NAME = 'router_fade'
 
 const Routing = ({ location }: RouteProps): JSX.Element => (
@@ -31,7 +31,7 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
         classNames={ANIMATION_NAME}
         timeout={ANIMATION_DURATION}
       >
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
           <Switch location={location}>
             <Route exact={true} path={routeList.base}>
               <Redirect to={routeList.article.list} />
