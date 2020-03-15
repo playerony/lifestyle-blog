@@ -15,11 +15,8 @@ const ANIMATION_NAME = 'loader_fade'
 const LoaderProvider = ({ children }: ILoaderProviderProps): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
 
-  const toggleLoader = (isLoading: boolean): void =>
-    setLoading(isLoading)
-
   return (
-    <LoaderContext.Provider value={{ toggleLoader }}>
+    <LoaderContext.Provider value={{ toggleLoader: setLoading }}>
       <StyledFadeAnimation
         enter={true}
         animationName={ANIMATION_NAME}
