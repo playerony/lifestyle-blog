@@ -6,6 +6,7 @@ import { respondTo } from '@style/mixin'
 export const StyledIcon = styled.svg`
   width: 32px;
   height: 32px;
+  position: absolute;
   fill: ${variable.color.white};
 
   ${respondTo.mediumScreen`

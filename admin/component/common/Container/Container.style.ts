@@ -6,7 +6,7 @@ import { respondTo } from '@style/mixin'
 export const StyledContainer = styled.div`
   height: 100%;
   margin: 0 auto;
-  position: relative;
+  position: absolute;
   padding: ${variable.paddingBig}px;
   max-width: ${variable.breakpoint.mediumScreen}px;
   width: calc(100% - ${variable.paddingBig * 2}px);

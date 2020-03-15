@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { Route, Switch, Redirect, withRouter, RouteProps } from 'react-router-dom'
 
 import LogPage from '@page/Log'
 import LoginPage from '@page/Login'
@@ -12,37 +13,55 @@ import ArticleCreatePage from '@page/article/ArticleCreate'
 
 import routeList from '@config/routeList'
 
-const Routing = (): JSX.Element => (
-  <BrowserRouter>
-    <Switch>
-      <Route exact={true} path={routeList.base}>
-        <Redirect to={routeList.article.list} />
-      </Route>
-      <Route path={routeList.login}>
-        <LoginPage />
-      </Route>
-      <Route path={routeList.log}>
-        <Header />
-        <LogPage />
-      </Route>
-      <Route path={routeList.metric}>
-        <Header />
-        <MetricPage />
-      </Route>
-      <Route path={routeList.article.base}>
-        <Header />
-        <PrivateRoute path={routeList.article.list}>
-          <ArtileListPage />
-        </PrivateRoute>
-        <PrivateRoute path={routeList.article.create}>
-          <ArticleCreatePage />
-        </PrivateRoute>
-        <PrivateRoute path={routeList.article.edit}>
-          <ArticleEditPage />
-        </PrivateRoute>
-      </Route>
-    </Switch>
-  </BrowserRouter>
+import StyledFadeAnimation from '@style/animation/fade'
+
+const ANIMATION_DURATION = 300
+const ANIMATION_NAME = 'router_fade'
+
+const Routing = ({ location }: RouteProps): JSX.Element => (
+  <StyledFadeAnimation
+    exit={true}
+    enter={true}
+    animationName={ANIMATION_NAME}
+    animationDuration={`${ANIMATION_DURATION}ms`}
+  >
+    <TransitionGroup>
+      <CSSTransition
+        key={location?.key}
+        classNames={ANIMATION_NAME}
+        timeout={ANIMATION_DURATION}
+      >
+        <Switch location={location}>
+          <Route exact={true} path={routeList.base}>
+            <Redirect to={routeList.article.list} />
+          </Route>
+          <Route path={routeList.login}>
+            <LoginPage />
+          </Route>
+          <Route path={routeList.log}>
+            <Header />
+            <LogPage />
+          </Route>
+          <Route path={routeList.metric}>
+            <Header />
+            <MetricPage />
+          </Route>
+          <Route path={routeList.article.base}>
+            <Header />
+            <PrivateRoute path={routeList.article.list}>
+              <ArtileListPage />
+            </PrivateRoute>
+            <PrivateRoute path={routeList.article.create}>
+              <ArticleCreatePage />
+            </PrivateRoute>
+            <PrivateRoute path={routeList.article.edit}>
+              <ArticleEditPage />
+            </PrivateRoute>
+          </Route>
+        </Switch>
+      </CSSTransition>
+    </TransitionGroup>
+  </StyledFadeAnimation>
 )
 
-export default Routing
+export default withRouter(Routing)

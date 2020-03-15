@@ -1,4 +1,5 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import Routing from './Routing'
 import ThemeProvider from './ThemeProvider'
@@ -18,7 +19,9 @@ const App = (): JSX.Element => (
         <LoaderProvider>
           <ResetStyle />
           <GlobalStyle />
-          <Routing />
+          <BrowserRouter>
+            <Routing />
+          </BrowserRouter>
         </LoaderProvider>
       </ThemeProvider>
     </GraphQLProvider>
