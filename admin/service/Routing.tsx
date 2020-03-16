@@ -4,6 +4,7 @@ import { Route, Switch, Redirect, withRouter, RouteProps } from 'react-router-do
 
 import LogPage from '@page/Log'
 import LoginPage from '@page/Login'
+import ErrorPage from '@page/Error'
 import MetricPage from '@page/Metric'
 import Header from '@component/common/Header'
 import ArtileListPage from '@page/article/ArticleList'
@@ -47,6 +48,9 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
               </Route>
               <Route path={routeList.metric}>
                 <MetricPage />
+              </Route>
+              <Route path={routeList.error}>
+                <ErrorPage />
               </Route>
               <Route path={routeList.article.base}>
                 <PrivateRoute path={routeList.article.list}>
