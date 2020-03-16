@@ -3,29 +3,37 @@ import { Route, Redirect } from 'react-router-dom'
 
 import IPrivateRoute from './IPrivateRoute'
 
-import Memory from '@utility/Memory'
+import useAuthenticated from '@hook/login/useAuthenticated'
 
 import routeList from '@config/routeList'
-import { AUTH_TOKEN } from '@config/constant'
 
-const isAuthenticated = (): boolean =>
-  Boolean(Memory.get(AUTH_TOKEN))
+const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element => {
+  const { isAuthenticated, loading } = useAuthenticated()
 
-const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element => (
-  <Route
-    {...restProps}
-    render={() =>
-      isAuthenticated() ? (
-        children
-      ) : (
-          <Redirect
-            to={{
-              pathname: routeList.login
-            }}
-          />
-        )
+  const renderContent = () => {
+    if (loading) {
+      return null
     }
-  />
-)
+
+    if (isAuthenticated) {
+      return children
+    }
+
+    return (
+      <Redirect
+        to={{
+          pathname: routeList.login
+        }}
+      />
+    )
+  }
+
+  return (
+    <Route
+      {...restProps}
+      render={renderContent}
+    />
+  )
+}
 
 export default PrivateRoute
