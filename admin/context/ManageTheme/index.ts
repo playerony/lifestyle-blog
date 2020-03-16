@@ -5,7 +5,9 @@ import { IManageThemeProps } from './ManageTheme.type'
 
 const initialData: IManageThemeProps = {
   mode: EThemeMode.LIGHT,
-  toggle: (checked: boolean) => { }
+  toggle: (checked: boolean) => {}
 }
 
-export const ManageThemeContext: Context<IManageThemeProps> = createContext(initialData)
+export const ManageThemeContext: Context<IManageThemeProps> = createContext(
+  initialData
+)
