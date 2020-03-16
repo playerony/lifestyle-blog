@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import LoginPageMobile from '@component/login/mobile'
 import LoginPageDesktop from '@component/login/desktop'
+import ReCaptchaProvider from '@service/ReCaptchaProvider'
 
 import useLoginMutation from '@hook/login/useLoginMutation'
 
@@ -15,6 +16,7 @@ import isMobileResolution from '@admin/utility/isMobileResolution'
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
 
+const initialLoginData: ILoginRequest = { login: '', password: '' }
 const initialErrorData: TResponseError<ILoginRequest> = {
   login: [],
   password: []
@@ -24,9 +26,10 @@ const Login = (): JSX.Element => {
   const history = useHistory()
   const login = useLoginMutation()
 
+  const [loginData, setLoginData] = useState<ILoginRequest>(initialLoginData)
   const [errorData, setErrorData] = useState<TResponseError<ILoginRequest>>(initialErrorData)
 
-  const handleLogin = async (loginData: ILoginRequest): Promise<void> => {
+  const handleLogin = async (): Promise<void> => {
     const response = await login(loginData)
 
     if (!response) {
@@ -47,9 +50,16 @@ const Login = (): JSX.Element => {
     )
   }
 
-  return React.createElement(
-    isMobileResolution() ? LoginPageMobile : LoginPageDesktop,
-    { errorData, onClick: handleLogin })
+  const onLoginDataChange = (data: Partial<ILoginRequest>): void =>
+    setLoginData(prev => ({ ...prev, ...data }))
+
+  return (
+    <ReCaptchaProvider onVerify={handleLogin}>
+      {React.createElement(
+        isMobileResolution() ? LoginPageMobile : LoginPageDesktop,
+        { errorData, onClick: handleLogin, onLoginDataChange })}
+    </ReCaptchaProvider>
+  )
 }
 
 export default Login

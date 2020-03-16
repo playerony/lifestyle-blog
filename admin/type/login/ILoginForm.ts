@@ -3,5 +3,5 @@ import TResponseError from '@type/common/TResponseError'
 
 export default interface ILoginForm {
   errorData: TResponseError<ILoginRequest>
-  onClick: (loginData: ILoginRequest) => void
+  onLoginDataChange: (loginData: Partial<ILoginRequest>) => void
 }

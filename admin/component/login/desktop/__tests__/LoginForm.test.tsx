@@ -16,26 +16,26 @@ const mountComponent = (element: React.ReactElement): ReactWrapper =>
 
 describe('LoginForm Component', () => {
   it('should render', () => {
-    const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+    const wrapper = mountComponent(<LoginForm onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render header', () => {
-    const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+    const wrapper = mountComponent(<LoginForm onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
     expect(wrapper.find('h1').props().children).toEqual('Login')
   })
 
   describe('inputs', () => {
     it('should render two inputs', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = mountComponent(<LoginForm onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
       expect(wrapper.find(Input)).toHaveLength(2)
     })
 
     it('should render login input', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = mountComponent(<LoginForm onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
       const inputProps = wrapper.find(Input).first().props()
       expect(inputProps.name).toEqual('login')
@@ -46,7 +46,7 @@ describe('LoginForm Component', () => {
     })
 
     it('should render password input', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = mountComponent(<LoginForm onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
       const inputProps = wrapper.find(Input).last().props()
       expect(inputProps.onChange).toBeDefined()
@@ -59,7 +59,7 @@ describe('LoginForm Component', () => {
   })
 
   it('should render button', () => {
-    const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+    const wrapper = mountComponent(<LoginForm onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
 
     expect(wrapper.exists('button')).toBeTruthy()
   })
