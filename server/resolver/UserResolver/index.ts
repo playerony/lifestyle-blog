@@ -1,8 +1,11 @@
-import { Resolver, Query, Mutation, Arg } from 'type-graphql'
+import { Resolver, Query, Mutation, Arg, Ctx } from 'type-graphql'
 
 import UserService from '@service/UserService'
 
+import Context from '@type/Context'
 import { UserAddResult } from '@type/User'
+
+import getUserId from '@utility/getUserId'
 
 import { loginValidation, signupValidation } from './UserResolver.validator'
 
@@ -32,5 +35,16 @@ export default class UserResolver {
     loginValidation(requestData)
 
     return this.userService.login(requestData)
+  }
+
+  @Query(type => Boolean)
+  async isAuthenticated(@Ctx() context: Context): Promise<boolean> {
+    try {
+      getUserId(context)
+
+      return true
+    } catch {
+      return false
+    }
   }
 }
