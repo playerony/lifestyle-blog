@@ -44,7 +44,9 @@ const errorLink = onError(({ graphQLErrors, networkError }: ErrorResponse): void
         case FORBIDDEN:
           Memory.remove(AUTH_TOKEN)
 
-          window.location.pathname = routeList.base
+          if (window.location.pathname !== routeList.article.list) {
+            window.location.pathname = routeList.base
+          }
           break
       }
 
