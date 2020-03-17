@@ -2,12 +2,13 @@ import {
   Editor,
   RichUtils,
   EditorState,
+  ContentBlock,
   convertToRaw,
   DraftHandleValue
 } from 'draft-js'
-import draftToHTML from 'draftjs-to-html'
 import React, { useState, useEffect } from 'react'
 
+import ImageComponent from './ImageComponent'
 import BlockTypeControl from './BlockTypeControl'
 import InlineStyleControl from './InlineStyleControl'
 
@@ -36,9 +37,8 @@ const EditorInput = ({
 
   useEffect(() => {
     const rawContentState = convertToRaw(editorState.getCurrentContent())
-    const htmlContent = draftToHTML(rawContentState)
 
-    onChange(htmlContent)
+    onChange(JSON.stringify(rawContentState))
   }, [editorState])
 
   const handleFocus = (event: React.SyntheticEvent): void => {
@@ -79,6 +79,17 @@ const EditorInput = ({
   const toggleInlineStyle = (inlineStyle: string): void =>
     setEditorState(RichUtils.toggleInlineStyle(editorState, inlineStyle))
 
+  const myBlockRenderer = (contentBlock: ContentBlock): any => {
+    const type = contentBlock.getType();
+
+    if (type === 'image') {
+      return {
+        component: ImageComponent,
+        editable: true
+      };
+    }
+  }
+
   const isError = Boolean(errorMessage)
 
   return (
@@ -106,6 +117,7 @@ const EditorInput = ({
             editorState={editorState}
             onChange={setEditorState}
             blockStyleFn={getBlockStyle}
+            blockRendererFn={myBlockRenderer}
             handleKeyCommand={handleKeyCommand}
           />
         </StyledEditorWrapper>
