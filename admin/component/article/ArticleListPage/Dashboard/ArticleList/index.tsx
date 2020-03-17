@@ -11,7 +11,7 @@ import { StyledLabel } from './ArticleList.style'
 
 const calculateSliderElements = (articleList: IArticle[], maxElements: number): number =>
   articleList.length >= maxElements ? maxElements : articleList.length
-  
+
 const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => {
   const renderContent = (): JSX.Element[] =>
     React.Children.toArray(
@@ -19,7 +19,7 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
         <ArticleCard article={element} />
       )
     )
-  
+
   const sliderElements = calculateSliderElements(articleList, 3)
   const mediumScreenSliderElements = calculateSliderElements(articleList, 2)
 
@@ -28,6 +28,7 @@ const ArticleList = ({ label, articleList }: IArticleListProps): JSX.Element => 
       <StyledLabel>{label}</StyledLabel>
       <Slider
         speed={500}
+        arrows={true}
         className="center"
         lazyLoad="ondemand"
         swipeToSlide={true}
