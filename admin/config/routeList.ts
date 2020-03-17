@@ -5,8 +5,8 @@ export default {
   base: BASE_URL,
   log: `${BASE_URL}/log`,
   login: `${BASE_URL}/login`,
-  error: `${BASE_URL}/error`,
   metric: `${BASE_URL}/metric`,
+  error: `${BASE_URL}/error/:code`,
   article: {
     base: ARTICLE_URL,
     list: `${ARTICLE_URL}/list`,

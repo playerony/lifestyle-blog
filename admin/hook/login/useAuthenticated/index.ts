@@ -5,11 +5,11 @@ import { IResult } from './useAuthenticated.type'
 import { IS_AUTHENTICATED_QUERY } from './useAuthenticated.query'
 
 const useAuthenticated = () => {
-  const { data, loading } = useQuery<IResult>(IS_AUTHENTICATED_QUERY, {
+  const { data, error, loading } = useQuery<IResult>(IS_AUTHENTICATED_QUERY, {
     fetchPolicy: 'network-only'
   })
 
-  return { isAuthenticated: data?.isAuthenticated, loading }
+  return { isAuthenticated: data?.isAuthenticated, error, loading }
 }
 
 export default useAuthenticated

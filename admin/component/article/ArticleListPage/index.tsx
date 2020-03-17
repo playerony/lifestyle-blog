@@ -18,7 +18,7 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
     history.push(routeList.log)
 
   const handleErrorPageRedirect = (): void =>
-    history.push(routeList.error)
+    history.push(`${routeList.base}/error`)
 
   const handleMetricPageRedirect = (): void =>
     history.push(routeList.metric)

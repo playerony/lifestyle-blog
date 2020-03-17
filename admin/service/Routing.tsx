@@ -63,6 +63,13 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
                   <ArticleEditPage />
                 </PrivateRoute>
               </Route>
+              <Route path="*">
+                <Redirect
+                  to={{
+                    pathname: `${routeList.base}/error/404`
+                  }}
+                />
+              </Route>
             </Switch>
           </ScrollToTop>
         </div>
