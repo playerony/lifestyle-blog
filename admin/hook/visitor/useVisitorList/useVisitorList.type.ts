@@ -1,5 +1,5 @@
 import IVisitor from '@type/visitor/IVisitor'
 
-export interface IResult {
+export interface IQueryResult {
   visitorList: IVisitor[]
 }

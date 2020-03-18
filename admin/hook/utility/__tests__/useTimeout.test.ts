@@ -11,7 +11,15 @@ describe('useTimeout Hook', () => {
     expect(typeof useTimeout).toBe('function')
   })
 
-  it('should call a function after delay', async () => {
+  it('should not call a function before delay time', async () => {
+    renderHook(() => {
+      useTimeout(timeoutFunctionMock, 1000)
+    })
+
+    expect(timeoutFunctionMock).not.toHaveBeenCalled()
+  })
+
+  it('should call a function after delay time', async () => {
     renderHook(() => {
       useTimeout(timeoutFunctionMock, 1)
     })

@@ -8,7 +8,7 @@ describe('useLoader Hook', () => {
     expect(typeof useLoader).toBe('function')
   })
 
-  it('should contain proper data', done => {
+  it('should contain proper default data', done => {
     const Component = (): null => {
       const context = useLoader()
 
