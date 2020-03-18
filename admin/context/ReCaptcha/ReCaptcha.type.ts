@@ -1,3 +1,3 @@
-export interface IReCaptchaProps {
+export interface IReCaptchaContextProps {
   execute: () => void
 }

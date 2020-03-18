@@ -1,9 +1,11 @@
 import { Context, createContext } from 'react'
 
-import { ILoaderProps } from './Loader.type'
+import { ILoaderContextProps } from './Loader.type'
 
-const initialData: ILoaderProps = {
+const initialData: ILoaderContextProps = {
   toggleLoader: (isLoading: boolean) => {}
 }
 
-export const LoaderContext: Context<ILoaderProps> = createContext(initialData)
+export const LoaderContext: Context<ILoaderContextProps> = createContext(
+  initialData
+)

@@ -1,3 +1,3 @@
-export interface ILoaderProps {
+export interface ILoaderContextProps {
   toggleLoader: (isLoading: boolean) => void
 }

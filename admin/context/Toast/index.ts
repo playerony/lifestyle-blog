@@ -1,9 +1,11 @@
 import { Context, createContext } from 'react'
 
-import { IToastProps } from './Toast.type'
+import { IToastContextProps } from './Toast.type'
 
-const initialData: IToastProps = {
+const initialData: IToastContextProps = {
   add: (message: string) => {}
 }
 
-export const ToastContext: Context<IToastProps> = createContext(initialData)
+export const ToastContext: Context<IToastContextProps> = createContext(
+  initialData
+)

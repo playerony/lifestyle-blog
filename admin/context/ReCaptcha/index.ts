@@ -1,11 +1,11 @@
 import { Context, createContext } from 'react'
 
-import { IReCaptchaProps } from './ReCaptcha.type'
+import { IReCaptchaContextProps } from './ReCaptcha.type'
 
-const initialData: IReCaptchaProps = {
+const initialData: IReCaptchaContextProps = {
   execute: () => {}
 }
 
-export const ReCaptchaContext: Context<IReCaptchaProps> = createContext(
+export const ReCaptchaContext: Context<IReCaptchaContextProps> = createContext(
   initialData
 )
