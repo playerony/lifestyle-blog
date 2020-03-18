@@ -1,3 +1,3 @@
-export interface IResult {
+export interface IQueryResult {
   isAuthenticated: boolean
 }

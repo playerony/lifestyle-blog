@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/react-testing'
 
 import useLoginMutation from '../useLoginMutation'
 
-import { LOGIN_MUTATION } from '../useLoginMutation/useLoginMutation.query'
+import { LOGIN_MUTATION } from '../useLoginMutation/useLoginMutation.mutation'
 
 describe('useLoginMutation Hook', () => {
   beforeAll(() => {
