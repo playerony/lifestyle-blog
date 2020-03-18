@@ -6,7 +6,7 @@ import IArticleSave from '@type/article/IArticleSave'
 
 import useCreateMutation from '../useCreateMutation'
 
-import { CREATE_ARTICLE_MUTATION } from '../useCreateMutation/useCreateMutation.query'
+import { CREATE_ARTICLE_MUTATION } from '../useCreateMutation/useCreateMutation.mutation'
 
 describe('useCreateMutation Hook', () => {
   beforeAll(() => {

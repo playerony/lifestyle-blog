@@ -1,10 +1,10 @@
 import { ExecutionResult } from 'graphql'
 import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 
-import { IResult } from './useCreateMutation.type'
+import { IMutationResult } from './useCreateMutation.type'
 import IArticleSave from '@type/article/IArticleSave'
 
-import { CREATE_ARTICLE_MUTATION } from './useCreateMutation.query'
+import { CREATE_ARTICLE_MUTATION } from './useCreateMutation.mutation'
 
 import { VALIDATION_ERROR } from '@config/constant'
 
@@ -13,7 +13,7 @@ const useCreateMutation = () => {
 
   return async (
     article: IArticleSave
-  ): Promise<IResult | ExecutionResult | void> => {
+  ): Promise<IMutationResult | ExecutionResult | void> => {
     const result = await createArticleMutation({
       variables: { article },
       errorPolicy: 'all'
@@ -30,7 +30,7 @@ const useCreateMutation = () => {
     return {
       ...result,
       errors: JSON.parse(result.errors[0].message)
-    } as IResult
+    } as IMutationResult
   }
 }
 

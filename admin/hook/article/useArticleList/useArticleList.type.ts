@@ -1,5 +1,5 @@
 import IArticle from '@type/article/IArticle'
 
-export interface IResult {
+export interface IQueryResult {
   articleList: IArticle[]
 }
