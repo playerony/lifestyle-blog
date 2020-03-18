@@ -6,7 +6,7 @@ import IArticleSave from '@type/article/IArticleSave'
 
 import useUpdateMutation from '../useUpdateMutation'
 
-import { UPDATE_ARTICLE_MUTATION } from '../useUpdateMutation/useUpdateMutation.query'
+import { UPDATE_ARTICLE_MUTATION } from '../useUpdateMutation/useUpdateMutation.mutation'
 
 describe('useUpdateMutation Hook', () => {
   beforeAll(() => {
@@ -25,7 +25,7 @@ describe('useUpdateMutation Hook', () => {
 
       useEffect(() => {
         const doUpdate = async () => {
-          const result = await updateArticle(1, EDIT_ARTICLE_DATA_MOCK)
+          const result = await updateArticle(1, UPDATE_DATA_MOCK)
 
           setData(result)
         }
@@ -36,7 +36,7 @@ describe('useUpdateMutation Hook', () => {
       if (!data) {
         expect(data).toEqual(undefined)
       } else {
-        expect(data.data).toEqual(EDIT_ARTICLE_RESULT_DATA)
+        expect(data.data).toEqual(UPDATE_RESULT_DATA)
         done()
       }
 
@@ -44,14 +44,14 @@ describe('useUpdateMutation Hook', () => {
     }
 
     mount(
-      <MockedProvider mocks={EDIT_ARTICLE_MOCK}>
+      <MockedProvider mocks={UPDATE_MOCK}>
         <Component />
       </MockedProvider>
     )
   })
 })
 
-const EDIT_ARTICLE_DATA_MOCK: IArticleSave = {
+const UPDATE_DATA_MOCK: IArticleSave = {
   imageId: 1,
   title: 'title',
   content: 'content',
@@ -59,22 +59,22 @@ const EDIT_ARTICLE_DATA_MOCK: IArticleSave = {
   description: 'description'
 }
 
-const EDIT_ARTICLE_RESULT_DATA = {
+const UPDATE_RESULT_DATA = {
   updateArticle: {
     articleId: 1,
     __typename: 'Article'
   }
 }
 
-const EDIT_ARTICLE_MOCK = [
+const UPDATE_MOCK = [
   {
     request: {
       query: UPDATE_ARTICLE_MUTATION,
       variables: {
         articleId: 1,
-        article: EDIT_ARTICLE_DATA_MOCK
+        article: UPDATE_DATA_MOCK
       }
     },
-    result: { data: EDIT_ARTICLE_RESULT_DATA }
+    result: { data: UPDATE_RESULT_DATA }
   }
 ]
