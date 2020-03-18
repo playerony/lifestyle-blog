@@ -42,9 +42,8 @@ const errorLink = onError(({ graphQLErrors, networkError }: ErrorResponse): void
     graphQLErrors.map(({ message, path, extensions }: GraphQLError): void => {
       switch (extensions?.code) {
         case FORBIDDEN:
-          Memory.remove(AUTH_TOKEN)
-
-          if (window.location.pathname !== routeList.article.list) {
+          if (Memory.get(AUTH_TOKEN)) {
+            Memory.remove(AUTH_TOKEN)
             window.location.pathname = routeList.base
           }
           break
