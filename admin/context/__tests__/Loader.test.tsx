@@ -4,7 +4,7 @@ import React, { useContext } from 'react'
 import { LoaderContext } from '../Loader'
 
 describe('Loader Context', () => {
-  it('should contain proper data as default', done => {
+  it('should contain proper default data', done => {
     const Component = (): null => {
       const context = useContext(LoaderContext)
 
