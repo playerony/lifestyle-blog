@@ -1,6 +1,6 @@
 import EThemeMode from '@type/common/EThemeMode'
 
-export interface IManageThemeProps {
-  mode: EThemeMode,
+export interface IThemeContextProps {
+  mode: EThemeMode
   toggle: (checked: boolean) => void
 }

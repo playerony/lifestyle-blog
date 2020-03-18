@@ -1,13 +1,13 @@
 import { Context, createContext } from 'react'
 
 import EThemeMode from '@type/common/EThemeMode'
-import { IManageThemeProps } from './ManageTheme.type'
+import { IThemeContextProps } from './Theme.type'
 
-const initialData: IManageThemeProps = {
+const initialData: IThemeContextProps = {
   mode: EThemeMode.LIGHT,
   toggle: (checked: boolean) => {}
 }
 
-export const ManageThemeContext: Context<IManageThemeProps> = createContext(
+export const ThemeContext: Context<IThemeContextProps> = createContext(
   initialData
 )
