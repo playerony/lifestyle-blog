@@ -15,7 +15,7 @@ jest.mock('react-router-dom', () => {
   }
 })
 
-jest.doMock('../../../../../hook/article/useToggleArticlePublicFlag', () => () => ARTICLE_MOCK)
+jest.doMock('../../../../../hook/article/useTogglePublicFlag', () => () => ARTICLE_MOCK)
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)

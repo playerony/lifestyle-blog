@@ -2,24 +2,24 @@ import { mount } from 'enzyme'
 import React, { useState, useEffect } from 'react'
 import { MockedProvider } from '@apollo/react-testing'
 
-import useToggleArticlePublicFlag from '../useToggleArticlePublicFlag'
+import useTogglePublicFlag from '../useTogglePublicFlag'
 
-import { TOGGLE_ARTICLE_PUBLIC_FLAG_MUTATION } from '../useToggleArticlePublicFlag/useToggleArticlePublicFlag.query'
+import { TOGGLE_PUBLIC_FLAG_MUTATION } from '../useTogglePublicFlag/useTogglePublicFlag.mutation'
 
-describe('useToggleArticlePublicFlag Hook', () => {
+describe('useTogglePublicFlag Hook', () => {
   beforeAll(() => {
     console.error = jest.fn()
   })
 
-  it('import useToggleArticlePublicFlag', () => {
-    expect(typeof useToggleArticlePublicFlag).toBe('function')
+  it('import useTogglePublicFlag', () => {
+    expect(typeof useTogglePublicFlag).toBe('function')
   })
 
   it('should keep data as undefined until data is actually returned', done => {
     const Component = (): null => {
       const [data, setData] = useState<any>()
 
-      const toggleArticlePublicFlag = useToggleArticlePublicFlag()
+      const toggleArticlePublicFlag = useTogglePublicFlag()
 
       useEffect(() => {
         const doUpdate = async () => {
@@ -60,7 +60,7 @@ const EDIT_ARTICLE_RESULT_DATA = {
 const EDIT_ARTICLE_MOCK = [
   {
     request: {
-      query: TOGGLE_ARTICLE_PUBLIC_FLAG_MUTATION,
+      query: TOGGLE_PUBLIC_FLAG_MUTATION,
       variables: {
         articleId: 1,
         isPublic: true

@@ -6,7 +6,7 @@ import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
 
 import useToast from '@hook/context/useToast'
-import useToggleArticlePublicFlag from '@hook/article/useToggleArticlePublicFlag'
+import useTogglePublicFlag from '@hook/article/useTogglePublicFlag'
 
 import formatDate from '@utility/formatDate'
 
@@ -57,7 +57,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
 
   const toast = useToast()
   const history = useHistory()
-  const toggleArticlePublicFlag = useToggleArticlePublicFlag()
+  const toggleArticlePublicFlag = useTogglePublicFlag()
 
   const handleArticleEditRedirect = (): void =>
     history.push(`${routeList.article.base}/${article.articleId}/edit`)
