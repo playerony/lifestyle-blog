@@ -3,7 +3,7 @@ import React from 'react'
 import LogPage from '@component/LogPage'
 
 import useLogList from '@hook/log/useLogList'
-import useLoader from '@admin/hook/utility/useLoader'
+import useLoader from '@hook/context/useLoader'
 
 const Log = (): JSX.Element | null => {
   const { data, loading } = useLogList()

@@ -5,7 +5,7 @@ import EToastType from '@type/common/EToastType'
 import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
 
-import useToast from '@hook/utility/useToast'
+import useToast from '@hook/context/useToast'
 import useToggleArticlePublicFlag from '@hook/article/useToggleArticlePublicFlag'
 
 import formatDate from '@utility/formatDate'

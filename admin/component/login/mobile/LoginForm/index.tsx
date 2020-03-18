@@ -4,7 +4,7 @@ import Input from '@component/generic/Input'
 
 import ILoginForm from '@type/login/ILoginForm'
 
-import useReCaptcha from '@hook/utility/useReCaptcha'
+import useReCaptcha from '@hook/context/useReCaptcha'
 
 import getFieldError from '@utility/getFieldError'
 

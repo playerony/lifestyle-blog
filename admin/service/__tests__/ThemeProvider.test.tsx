@@ -4,7 +4,7 @@ import { ThemeProviderProps } from 'styled-components'
 
 import EThemeMode from '@type/common/EThemeMode'
 
-import useTheme from '@hook/utility/useTheme'
+import useTheme from '@hook/context/useTheme'
 
 const themeMock = jest.fn()
 const manageThemeContext = jest.fn()
@@ -45,7 +45,7 @@ const ThemeProviderMock = ({ theme, children }: ThemeProviderProps<{}>): JSX.Ele
 const ComponentMock = (): JSX.Element => {
   const theme = useTheme()
   manageThemeContext(theme)
-  
+
   return <h1>Component</h1>
 }
 

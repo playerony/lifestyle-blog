@@ -5,7 +5,7 @@ import Switch from '@component/generic/Switch'
 
 import EThemeMode from '@type/common/EThemeMode'
 
-import useTheme from '@hook/utility/useTheme'
+import useTheme from '@hook/context/useTheme'
 
 import Memory from '@utility/Memory'
 

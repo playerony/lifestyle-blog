@@ -4,7 +4,7 @@ import { ThemeProvider as Provider } from 'styled-components'
 import EThemeMode from '@type/common/EThemeMode'
 import { IThemeProviderProps } from './ThemeProvider.type'
 
-import { ManageThemeContext } from '@context/ManageTheme'
+import { ThemeContext } from '@context/Theme'
 
 import getTheme from '@style/theme'
 
@@ -20,11 +20,11 @@ const ThemeProvider = ({ children }: IThemeProviderProps): JSX.Element => {
   const theme = getTheme(themeMode)
 
   return (
-    <ManageThemeContext.Provider value={{ mode: themeMode, toggle }}>
+    <ThemeContext.Provider value={{ mode: themeMode, toggle }}>
       <Provider theme={{ ...theme }}>
         {children}
       </Provider>
-    </ManageThemeContext.Provider>
+    </ThemeContext.Provider>
   )
 }
 

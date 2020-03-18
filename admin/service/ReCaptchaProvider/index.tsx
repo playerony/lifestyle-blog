@@ -4,7 +4,7 @@ import ReCAPTCHA from 'react-google-recaptcha'
 import EToastType from '@type/common/EToastType'
 import { IReCaptchaProviderProps } from './ReCaptchaProvider.type'
 
-import useToast from '@hook/utility/useToast'
+import useToast from '@hook/context/useToast'
 
 import { ReCaptchaContext } from '@context/ReCaptcha'
 

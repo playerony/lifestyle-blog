@@ -6,8 +6,8 @@ import ArticleEditPage from '@component/article/ArticleEditPage'
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
-import useToast from '@hook/utility/useToast'
-import useLoader from '@admin/hook/utility/useLoader'
+import useToast from '@hook/context/useToast'
+import useLoader from '@hook/context/useLoader'
 import useArticle from '@hook/article/useArticle'
 import useUpdateMutation from '@hook/article/useUpdateMutation'
 

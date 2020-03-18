@@ -5,7 +5,7 @@ import ImageUploader from '@component/common/ImageUploader'
 import EToastType from '@type/common/EToastType'
 import { IUploadInputProps } from './UploadInput.type'
 
-import useToast from '@hook/utility/useToast'
+import useToast from '@hook/context/useToast'
 import useUploadMutation from '@hook/article/useUploadMutation'
 
 import {
