@@ -39,12 +39,8 @@ export default class UserResolver {
 
   @Query(type => Boolean)
   async isAuthenticated(@Ctx() context: Context): Promise<boolean> {
-    try {
-      getUserId(context)
+    const userId = getUserId(context)
 
-      return true
-    } catch {
-      return false
-    }
+    return Boolean(userId)
   }
 }
