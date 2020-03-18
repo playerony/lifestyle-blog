@@ -10,11 +10,11 @@ describe('ILoginForm Interface', () => {
   })
 
   it('has a onClick parameter', () => {
-    expect(objectMock.onClick).toBeDefined()
+    expect(objectMock.onLoginDataChange).toBeDefined()
   })
 })
 
 const objectMock: ILoginForm = {
   errorData: { login: [], password: [] },
-  onClick: jest.fn()
+  onLoginDataChange: jest.fn()
 }
