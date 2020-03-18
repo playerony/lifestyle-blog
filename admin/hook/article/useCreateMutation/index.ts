@@ -1,8 +1,8 @@
 import { ExecutionResult } from 'graphql'
 import { useMutation, MutationHookOptions } from '@apollo/react-hooks'
 
-import { IMutationResult } from './useCreateMutation.type'
 import IArticleSave from '@type/article/IArticleSave'
+import { IMutationResult } from './useCreateMutation.type'
 
 import { CREATE_ARTICLE_MUTATION } from './useCreateMutation.mutation'
 
