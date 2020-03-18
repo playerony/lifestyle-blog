@@ -1,11 +1,11 @@
 import { useQuery } from '@apollo/react-hooks'
 
-import { IResult } from './useLogList.type'
+import { IQueryResult } from './useLogList.type'
 
 import { LOG_LIST_QUERY } from './useLogList.query'
 
 const useLogList = () => {
-  const { data, loading } = useQuery<IResult>(LOG_LIST_QUERY, {
+  const { data, loading } = useQuery<IQueryResult>(LOG_LIST_QUERY, {
     fetchPolicy: 'cache-first'
   })
 

@@ -4,7 +4,7 @@ import { MockedProvider } from '@apollo/react-testing'
 
 import useUploadMutation from '../useUploadMutation'
 
-import { UPLOAD_MUTATION } from '../useUploadMutation/useUploadMutation.query'
+import { UPLOAD_MUTATION } from '../useUploadMutation/useUploadMutation.mutation'
 
 describe('useUploadMutation Hook', () => {
   beforeAll(() => {
@@ -23,7 +23,7 @@ describe('useUploadMutation Hook', () => {
 
       useEffect(() => {
         const doUpload = async () => {
-          const result = await uploadImage(UPLOAD_IMAGE_REQUEST_MOCK as any)
+          const result = await uploadImage(IMAGE_MOCK as any)
 
           setData(result)
         }
@@ -34,7 +34,7 @@ describe('useUploadMutation Hook', () => {
       if (!data) {
         expect(data).toEqual(undefined)
       } else {
-        expect(data).toEqual({ data: UPLOAD_IMAGE_RESULT_DATA })
+        expect(data).toEqual({ data: UPLOAD_RESULT_DATA })
         done()
       }
 
@@ -42,14 +42,14 @@ describe('useUploadMutation Hook', () => {
     }
 
     mount(
-      <MockedProvider mocks={UPLOAD_IMAGE_MOCK}>
+      <MockedProvider mocks={UPLOAD_MOCK}>
         <Component />
       </MockedProvider>
     )
   })
 })
 
-const UPLOAD_IMAGE_REQUEST_MOCK = {
+const IMAGE_MOCK = {
   name: 'name',
   size: 123123,
   type: 'jpeg',
@@ -57,21 +57,21 @@ const UPLOAD_IMAGE_REQUEST_MOCK = {
   lastModified: new Date().getTime()
 }
 
-const UPLOAD_IMAGE_RESULT_DATA = {
+const UPLOAD_RESULT_DATA = {
   uploadImage: {
     imageId: 1,
     __typename: 'Image'
   }
 }
 
-const UPLOAD_IMAGE_MOCK = [
+const UPLOAD_MOCK = [
   {
     request: {
       query: UPLOAD_MUTATION,
       variables: {
-        file: UPLOAD_IMAGE_REQUEST_MOCK
+        file: IMAGE_MOCK
       }
     },
-    result: { data: UPLOAD_IMAGE_RESULT_DATA }
+    result: { data: UPLOAD_RESULT_DATA }
   }
 ]

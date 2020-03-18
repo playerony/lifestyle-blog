@@ -1,5 +1,5 @@
 import ILog from '@type/log/ILog'
 
-export interface IResult {
+export interface IQueryResult {
   logList: ILog[]
 }
