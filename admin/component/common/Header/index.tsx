@@ -29,7 +29,11 @@ const Header = (): JSX.Element => {
   const isAuthenticated = (): boolean =>
     Boolean(Memory.get(AUTH_TOKEN))
 
-  const handleLogoClick = (): void => history.push(routeList.base)
+  const handleLogoClick = (): void => {
+    if (history.location.pathname !== routeList.article.list) {
+      history.push(routeList.base)
+    }
+  }
 
   const handleLogout = (): void => {
     Memory.remove(AUTH_TOKEN)

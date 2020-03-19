@@ -81,8 +81,8 @@ export const StyledSunIcon = styled.svg`
 `
 
 export const StyledMoonIcon = styled.svg`
-  width: 30px;
-  height: 30px;
+  width: 27px;
+  height: 27px;
   padding-left: ${variable.paddingSmall / 2}px;
 `
 
