@@ -26,10 +26,10 @@ const Header = (): JSX.Element => {
   const history = useHistory()
   const { mode, toggle } = useTheme()
 
-  const handleLogoClick = (): void => history.push(routeList.base)
-
   const isAuthenticated = (): boolean =>
     Boolean(Memory.get(AUTH_TOKEN))
+
+  const handleLogoClick = (): void => history.push(routeList.base)
 
   const handleLogout = (): void => {
     Memory.remove(AUTH_TOKEN)

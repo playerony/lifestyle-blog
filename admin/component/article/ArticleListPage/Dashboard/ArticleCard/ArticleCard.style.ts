@@ -9,7 +9,7 @@ import {
   borderRadius,
   flexDirection,
   linearGradient,
-  justifyContent,
+  justifyContent
 } from '@style/mixin'
 import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'

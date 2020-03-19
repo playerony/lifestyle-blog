@@ -22,6 +22,10 @@ export const StyledWrapper = styled.header`
   ${justifyContent('center')}
   ${transition('background-color 500ms linear')}
   ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
+
+  ${respondTo.smallScreen`
+    min-height: initial;
+  `}
 `
 
 interface IStyledContentWrapperProps {
@@ -73,21 +77,24 @@ export const StyledLogoIcon = styled.svg`
 export const StyledSunIcon = styled.svg`
   width: 30px;
   height: 30px;
-  margin-top: 1px;
-  padding-right: 7px;
+  padding-right: ${variable.paddingSmall / 2}px;
 `
 
 export const StyledMoonIcon = styled.svg`
-  width: 35px;
-  height: 35px;
-  padding-left: 3px;
+  width: 30px;
+  height: 30px;
+  padding-left: ${variable.paddingSmall / 2}px;
 `
 
 export const StyledLogoutIcon = styled.svg`
   width: 30px;
-  height: 40px;
+  height: 32px;
   cursor: pointer;
   fill: ${({ theme }: ThemeProps) => theme.color.icon};
 
   ${transition('fill 500ms linear')}
+
+  &:hover {
+    fill: ${variable.color.blue700};
+  }
 `
