@@ -1,11 +1,11 @@
 import { MutableRefObject, useEffect, useRef } from 'react'
 
-const usePrevious = <T = any>(value: T) => {
+const usePrevious = <T = any>(state: T): T | undefined => {
   const ref: MutableRefObject<T | undefined> = useRef()
 
   useEffect(() => {
-    ref.current = value
-  })
+    ref.current = state
+  }, [state])
 
   return ref.current
 }
