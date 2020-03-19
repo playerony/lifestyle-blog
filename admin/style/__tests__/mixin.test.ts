@@ -23,13 +23,13 @@ describe('mixin Functions', () => {
 
       expect(result).toEqual([
         '\n    background: nth(nth(',
-        ', 1), 1);\n    background: -webkit-linear-gradient(\n      legacy-direction(',
-        '180deg',
-        '),\n      ',
-        '\n    );\n    background: linear-gradient(',
+        ', 1), 1);\n    background: linear-gradient(',
         '180deg',
         ', ',
-        ');\n  '
+        ');\n    background: -webkit-linear-gradient(\n      legacy-direction(',
+        '180deg',
+        '),\n      ',
+        '\n    );\n  '
       ])
     })
 
@@ -39,34 +39,34 @@ describe('mixin Functions', () => {
       expect(result).toEqual([
         '\n    background: nth(nth(',
         'rgba(0, 0, 0, 0) 44%',
-        ', 1), 1);\n    background: -webkit-linear-gradient(\n      legacy-direction(',
-        '180deg',
-        '),\n      ',
-        'rgba(0, 0, 0, 0) 44%',
-        '\n    );\n    background: linear-gradient(',
+        ', 1), 1);\n    background: linear-gradient(',
         '180deg',
         ', ',
         'rgba(0, 0, 0, 0) 44%',
-        ');\n  '
+        ');\n    background: -webkit-linear-gradient(\n      legacy-direction(',
+        '180deg',
+        '),\n      ',
+        'rgba(0, 0, 0, 0) 44%',
+        '\n    );\n  '
       ])
     })
   })
 
   describe('transition Function', () => {
     it('should return proper data', () => {
-      const result = transition('all 0.5s linear')
+      const result = transition('all 500ms linear')
 
       expect(result).toEqual([
-        '\n  -webkit-transition: ',
-        'all 0.5s linear',
-        ';\n  -moz-transition: ',
-        'all 0.5s linear',
-        ';\n  -ms-transition: ',
-        'all 0.5s linear',
+        '\n  transition: ',
+        'all 500ms linear',
         ';\n  -o-transition: ',
-        'all 0.5s linear',
-        ';\n  transition: ',
-        'all 0.5s linear',
+        'all 500ms linear',
+        ';\n  -ms-transition: ',
+        'all 500ms linear',
+        ';\n  -moz-transition: ',
+        'all 500ms linear',
+        ';\n  -webkit-transition: ',
+        'all 500ms linear',
         ';\n'
       ])
     })
@@ -74,19 +74,19 @@ describe('mixin Functions', () => {
 
   describe('animation Function', () => {
     it('should return proper data', () => {
-      const result = animation('box1 800ms linear infinite')
+      const result = animation('box1 500ms linear infinite')
 
       expect(result).toEqual([
-        '\n  -webkit-animation: ',
-        'box1 800ms linear infinite',
-        ';\n  -moz-animation: ',
-        'box1 800ms linear infinite',
-        ';\n  -ms-animation: ',
-        'box1 800ms linear infinite',
+        '\n  animation: ',
+        'box1 500ms linear infinite',
         ';\n  -o-animation: ',
-        'box1 800ms linear infinite',
-        ';\n  animation: ',
-        'box1 800ms linear infinite',
+        'box1 500ms linear infinite',
+        ';\n  -ms-animation: ',
+        'box1 500ms linear infinite',
+        ';\n  -moz-animation: ',
+        'box1 500ms linear infinite',
+        ';\n  -webkit-animation: ',
+        'box1 500ms linear infinite',
         ';\n'
       ])
     })
@@ -97,15 +97,15 @@ describe('mixin Functions', () => {
       const result = transform('translate(0, 100%)')
 
       expect(result).toEqual([
-        '\n  -webkit-transform: ',
-        'translate(0, 100%)',
-        ';\n  -moz-transform: ',
-        'translate(0, 100%)',
-        ';\n  -ms-transform: ',
+        '\n  transform: ',
         'translate(0, 100%)',
         ';\n  -o-transform: ',
         'translate(0, 100%)',
-        ';\n  transform: ',
+        ';\n  -ms-transform: ',
+        'translate(0, 100%)',
+        ';\n  -moz-transform: ',
+        'translate(0, 100%)',
+        ';\n  -webkit-transform: ',
         'translate(0, 100%)',
         ';\n'
       ])
@@ -117,15 +117,15 @@ describe('mixin Functions', () => {
       const result = transformOrigin('50% 50%')
 
       expect(result).toEqual([
-        '\n  -webkit-transform-origin: ',
-        '50% 50%',
-        ';\n  -moz-transform-origin: ',
-        '50% 50%',
-        ';\n  -ms-transform-origin: ',
+        '\n  transform-origin: ',
         '50% 50%',
         ';\n  -o-transform-origin: ',
         '50% 50%',
-        ';\n  transform-origin: ',
+        ';\n  -ms-transform-origin: ',
+        '50% 50%',
+        ';\n  -moz-transform-origin: ',
+        '50% 50%',
+        ';\n  -webkit-transform-origin: ',
         '50% 50%',
         ';\n'
       ])
@@ -153,15 +153,15 @@ describe('mixin Functions', () => {
       const result = transformStyle('50px')
 
       expect(result).toEqual([
-        '\n  -webkit-transform-style: ',
-        '50px',
-        ';\n  -moz-transform-style: ',
-        '50px',
-        ';\n  -ms-transform-style: ',
+        '\n  transform-style: ',
         '50px',
         ';\n  -o-transform-style: ',
         '50px',
-        ';\n  transform-style: ',
+        ';\n  -ms-transform-style: ',
+        '50px',
+        ';\n  -moz-transform-style: ',
+        '50px',
+        ';\n  -webkit-transform-style: ',
         '50px',
         ';\n'
       ])
@@ -173,7 +173,7 @@ describe('mixin Functions', () => {
       const result = flexbox()
 
       expect(result).toEqual([
-        '\n  display: -webkit-box;\n  display: -moz-box;\n  display: -ms-flexbox;\n  display: -webkit-flex;\n  display: flex;\n'
+        '\n  display: flex;\n  display: -moz-box;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: -webkit-flex;\n'
       ])
     })
   })
@@ -183,15 +183,15 @@ describe('mixin Functions', () => {
       const result = alignItems('center')
 
       expect(result).toEqual([
-        '\n  -webkit-align-items: ',
-        'center',
-        ';\n  -moz-align-items: ',
-        'center',
-        ';\n  -ms-align-items: ',
+        '\n  align-items: ',
         'center',
         ';\n  -ms-flex-align: ',
         'center',
-        ';\n  align-items: ',
+        ';\n  -ms-align-items: ',
+        'center',
+        ';\n  -moz-align-items: ',
+        'center',
+        ';\n  -webkit-align-items: ',
         'center',
         ';\n'
       ])
@@ -203,15 +203,15 @@ describe('mixin Functions', () => {
       const result = justifyContent('center')
 
       expect(result).toEqual([
-        '\n  -webkit-justify-content: ',
-        'center',
-        ';\n  -moz-justify-content: ',
-        'center',
-        ';\n  -ms-justify-content: ',
+        '\n  -ms-flex-pack: ',
         'center',
         ';\n  justify-content: ',
         'center',
-        ';\n  -ms-flex-pack: ',
+        ';\n  -ms-justify-content: ',
+        'center',
+        ';\n  -moz-justify-content: ',
+        'center',
+        ';\n  -webkit-justify-content: ',
         'center',
         ';\n'
       ])
@@ -223,13 +223,13 @@ describe('mixin Functions', () => {
       const result = flexDirection('row')
 
       expect(result).toEqual([
-        '\n  -webkit-flex-direction: ',
-        'row',
-        ';\n  -moz-flex-direction: ',
+        '\n  flex-direction: ',
         'row',
         ';\n  -ms-flex-direction: ',
         'row',
-        ';\n  flex-direction: ',
+        ';\n  -moz-flex-direction: ',
+        'row',
+        ';\n  -webkit-flex-direction: ',
         'row',
         ';\n'
       ])
@@ -241,11 +241,11 @@ describe('mixin Functions', () => {
       const result = boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')
 
       expect(result).toEqual([
-        '\n  -webkit-box-shadow: ',
+        '\n  box-shadow: ',
         '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
         ';\n  -moz-box-shadow: ',
         '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
-        ';\n  box-shadow: ',
+        ';\n  -webkit-box-shadow: ',
         '0 2px 8px 2px rgba(0, 0, 0, 0.16)',
         ';\n'
       ])
@@ -257,13 +257,13 @@ describe('mixin Functions', () => {
       const result = flexWrap('wrap')
 
       expect(result).toEqual([
-        '\n  -webkit-flex-wrap: ',
-        'wrap',
-        ';\n  -moz-flex-wrap: ',
+        '\n  flex-wrap: ',
         'wrap',
         ';\n  -ms-flex-wrap: ',
         'wrap',
-        ';\n  flex-wrap: ',
+        ';\n  -moz-flex-wrap: ',
+        'wrap',
+        ';\n  -webkit-flex-wrap: ',
         'wrap',
         ';\n'
       ])
@@ -275,13 +275,13 @@ describe('mixin Functions', () => {
       const result = appearance('none')
 
       expect(result).toEqual([
-        '\n  -webkit-appearance: ',
-        'none',
-        ';\n  -moz-appearance: ',
+        '\n  appearance: ',
         'none',
         ';\n  -ms-appearance: ',
         'none',
-        ';\n  appearance: ',
+        ';\n  -moz-appearance: ',
+        'none',
+        ';\n  -webkit-appearance: ',
         'none',
         ';\n'
       ])
