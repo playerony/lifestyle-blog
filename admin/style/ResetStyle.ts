@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 
+import { appearance } from '@style/mixin'
+
 const ResetStyle = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -58,16 +60,15 @@ const ResetStyle = createGlobalStyle`
   input[type=search]::-webkit-search-decoration,
   input[type=search]::-webkit-search-results-button,
   input[type=search]::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    ${appearance('none')}
   }
 
   input[type=search] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
+
+    ${appearance('none')}
   }
 
   textarea {
@@ -159,9 +160,10 @@ const ResetStyle = createGlobalStyle`
   html input[type="button"],
   input[type="reset"],
   input[type="submit"] {
-    -webkit-appearance: button;
     cursor: pointer;
     overflow: visible;
+
+    ${appearance('button')}
   }
 
   button[disabled],
@@ -178,15 +180,16 @@ const ResetStyle = createGlobalStyle`
   }
 
   input[type="search"] {
-    -webkit-appearance: textfield;
     -moz-box-sizing: content-box;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
+
+    ${appearance('textfield')}
   }
 
   input[type="search"]::-webkit-search-cancel-button,
   input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
+    ${appearance('none')}
   }
 
   button::-moz-focus-inner,
