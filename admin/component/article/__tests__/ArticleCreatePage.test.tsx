@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import ArticleForm from '../ArticleForm'
 import ArticleCreatePage from '../ArticleCreatePage'
 
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
