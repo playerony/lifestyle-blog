@@ -1,261 +1,85 @@
 // @ts-nocheck
 const createGlobalStyleMock = jest.fn()
 
-jest.doMock('styled-components', () => ({
-  createGlobalStyle: createGlobalStyleMock
-}))
+jest.doMock('styled-components', () => {
+  const originalModule = jest.requireActual('styled-components')
+
+  return {
+    ...originalModule,
+    createGlobalStyle: createGlobalStyleMock
+  }
+})
 
 describe('ResetStyle Component', () => {
   it('should call with proper styles', () => {
     require('../ResetStyle')
 
-    expect(createGlobalStyleMock).toHaveBeenCalledWith(RESET_STYLE_MOCK)
+    expect(createGlobalStyleMock).toHaveBeenCalledWith(
+      RESET_STYLE_MOCK,
+      [
+        '\n  appearance: ',
+        'none',
+        ';\n  -ms-appearance: ',
+        'none',
+        ';\n  -moz-appearance: ',
+        'none',
+        ';\n  -webkit-appearance: ',
+        'none',
+        ';\n'
+      ],
+      [
+        '\n  appearance: ',
+        'none',
+        ';\n  -ms-appearance: ',
+        'none',
+        ';\n  -moz-appearance: ',
+        'none',
+        ';\n  -webkit-appearance: ',
+        'none',
+        ';\n'
+      ],
+      [
+        '\n  appearance: ',
+        'button',
+        ';\n  -ms-appearance: ',
+        'button',
+        ';\n  -moz-appearance: ',
+        'button',
+        ';\n  -webkit-appearance: ',
+        'button',
+        ';\n'
+      ],
+      [
+        '\n  appearance: ',
+        'textfield',
+        ';\n  -ms-appearance: ',
+        'textfield',
+        ';\n  -moz-appearance: ',
+        'textfield',
+        ';\n  -webkit-appearance: ',
+        'textfield',
+        ';\n'
+      ],
+      [
+        '\n  appearance: ',
+        'none',
+        ';\n  -ms-appearance: ',
+        'none',
+        ';\n  -moz-appearance: ',
+        'none',
+        ';\n  -webkit-appearance: ',
+        'none',
+        ';\n'
+      ]
+    )
   })
 })
 
 const RESET_STYLE_MOCK = [
-  `
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed,
-  figure, figcaption, footer, header, hgroup,
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-
-  :focus {
-    outline: 0;
-  }
-
-  article, aside, details, figcaption, figure,
-  footer, header, hgroup, menu, nav, section {
-    display: block;
-  }
-
-  body {
-    line-height: 1;
-  }
-
-  ol, ul {
-    list-style: none;
-  }
-
-  blockquote, q {
-    quotes: none;
-  }
-
-  blockquote:before, blockquote:after,
-  q:before, q:after {
-    content: '';
-    content: none;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  input[type=search]::-webkit-search-cancel-button,
-  input[type=search]::-webkit-search-decoration,
-  input[type=search]::-webkit-search-results-button,
-  input[type=search]::-webkit-search-results-decoration {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-
-  input[type=search] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-  }
-
-  textarea {
-    overflow: auto;
-    vertical-align: top;
-    resize: vertical;
-  }
-
-  audio,
-  canvas,
-  video {
-    display: inline-block;
-    display: inline;
-    zoom: 1;
-    max-width: 100%;
-  }
-
-  audio:not([controls]) {
-    display: none;
-    height: 0;
-  }
-
-  [hidden] {
-    display: none;
-  }
-
-  html {
-    font-size: 100%;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-  }
-
-  a:focus {
-    outline: thin dotted;
-  }
-
-  a:active,
-  a:hover {
-    outline: 0;
-  }
-
-  img {
-    border: 0;
-    -ms-interpolation-mode: bicubic;
-  }
-
-  figure {
-    margin: 0;
-  }
-
-  form {
-    margin: 0;
-  }
-
-  fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
-  }
-
-  legend {
-    border: 0;
-    padding: 0;
-    white-space: normal;
-    margin-left: -7px;
-  }
-
-  button,
-  input,
-  select,
-  textarea {
-    font-size: 100%;
-    margin: 0;
-    vertical-align: baseline;
-    vertical-align: middle;
-  }
-
-  button,
-  input {
-    line-height: normal;
-  }
-
-  button,
-  select {
-    text-transform: none;
-  }
-
-  button,
-  html input[type="button"],
-  input[type="reset"],
-  input[type="submit"] {
-    -webkit-appearance: button;
-    cursor: pointer;
-    overflow: visible;
-  }
-
-  button[disabled],
-  html input[disabled] {
-    cursor: default;
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
-    height: 13px;
-    width: 13px;
-  }
-
-  input[type="search"] {
-    -webkit-appearance: textfield;
-    -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-  }
-
-  input[type="search"]::-webkit-search-cancel-button,
-  input[type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  button::-moz-focus-inner,
-  input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
-  }
-
-  textarea {
-    overflow: auto;
-    vertical-align: top;
-  }
-
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-
-  html,
-  button,
-  input,
-  select,
-  textarea {
-    color: #222;
-  }
-
-  ::-moz-selection {
-    background: #b3d4fc;
-    text-shadow: none;
-  }
-
-  ::selection {
-    background: #b3d4fc;
-    text-shadow: none;
-  }
-
-  img {
-    vertical-align: middle;
-  }
-
-  fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  .chromeframe {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-  }
-`
+  "\n  html, body, div, span, applet, object, iframe,\n  h1, h2, h3, h4, h5, h6, p, blockquote, pre,\n  a, abbr, acronym, address, big, cite, code,\n  del, dfn, em, img, ins, kbd, q, s, samp,\n  small, strike, strong, sub, sup, tt, var,\n  b, u, i, center,\n  dl, dt, dd, ol, ul, li,\n  fieldset, form, label, legend,\n  table, caption, tbody, tfoot, thead, tr, th, td,\n  article, aside, canvas, details, embed,\n  figure, figcaption, footer, header, hgroup,\n  menu, nav, output, ruby, section, summary,\n  time, mark, audio, video {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n  }\n\n  :focus {\n    outline: 0;\n  }\n\n  article, aside, details, figcaption, figure,\n  footer, header, hgroup, menu, nav, section {\n    display: block;\n  }\n\n  body {\n    line-height: 1;\n  }\n\n  ol, ul {\n    list-style: none;\n  }\n\n  blockquote, q {\n    quotes: none;\n  }\n\n  blockquote:before, blockquote:after,\n  q:before, q:after {\n    content: '';\n    content: none;\n  }\n\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n\n  input[type=search]::-webkit-search-cancel-button,\n  input[type=search]::-webkit-search-decoration,\n  input[type=search]::-webkit-search-results-button,\n  input[type=search]::-webkit-search-results-decoration {\n    ",
+  '\n  }\n\n  input[type=search] {\n    -webkit-box-sizing: content-box;\n    -moz-box-sizing: content-box;\n    box-sizing: content-box;\n\n    ',
+  '\n  }\n\n  textarea {\n    overflow: auto;\n    vertical-align: top;\n    resize: vertical;\n  }\n\n  audio,\n  canvas,\n  video {\n    display: inline-block;\n    display: inline;\n    zoom: 1;\n    max-width: 100%;\n  }\n\n  audio:not([controls]) {\n    display: none;\n    height: 0;\n  }\n\n  [hidden] {\n    display: none;\n  }\n\n  html {\n    font-size: 100%;\n    -webkit-text-size-adjust: 100%;\n    -ms-text-size-adjust: 100%;\n  }\n\n  a:focus {\n    outline: thin dotted;\n  }\n\n  a:active,\n  a:hover {\n    outline: 0;\n  }\n\n  img {\n    border: 0;\n    -ms-interpolation-mode: bicubic;\n  }\n\n  figure {\n    margin: 0;\n  }\n\n  form {\n    margin: 0;\n  }\n\n  fieldset {\n    border: 1px solid #c0c0c0;\n    margin: 0 2px;\n    padding: 0.35em 0.625em 0.75em;\n  }\n\n  legend {\n    border: 0;\n    padding: 0;\n    white-space: normal;\n    margin-left: -7px;\n  }\n\n  button,\n  input,\n  select,\n  textarea {\n    font-size: 100%;\n    margin: 0;\n    vertical-align: baseline;\n    vertical-align: middle;\n  }\n\n  button,\n  input {\n    line-height: normal;\n  }\n\n  button,\n  select {\n    text-transform: none;\n  }\n\n  button,\n  html input[type="button"],\n  input[type="reset"],\n  input[type="submit"] {\n    cursor: pointer;\n    overflow: visible;\n\n    ',
+  '\n  }\n\n  button[disabled],\n  html input[disabled] {\n    cursor: default;\n  }\n\n  input[type="checkbox"],\n  input[type="radio"] {\n    box-sizing: border-box;\n    padding: 0;\n    height: 13px;\n    width: 13px;\n  }\n\n  input[type="search"] {\n    -moz-box-sizing: content-box;\n    -webkit-box-sizing: content-box;\n    box-sizing: content-box;\n\n    ',
+  '\n  }\n\n  input[type="search"]::-webkit-search-cancel-button,\n  input[type="search"]::-webkit-search-decoration {\n    ',
+  '\n  }\n\n  button::-moz-focus-inner,\n  input::-moz-focus-inner {\n    border: 0;\n    padding: 0;\n  }\n\n  textarea {\n    overflow: auto;\n    vertical-align: top;\n  }\n\n  table {\n    border-collapse: collapse;\n    border-spacing: 0;\n  }\n\n  html,\n  button,\n  input,\n  select,\n  textarea {\n    color: #222;\n  }\n\n  ::-moz-selection {\n    background: #b3d4fc;\n    text-shadow: none;\n  }\n\n  ::selection {\n    background: #b3d4fc;\n    text-shadow: none;\n  }\n\n  img {\n    vertical-align: middle;\n  }\n\n  fieldset {\n    border: 0;\n    margin: 0;\n    padding: 0;\n  }\n\n  textarea {\n    resize: vertical;\n  }\n\n  .chromeframe {\n    margin: 0.2em 0;\n    background: #ccc;\n    color: #000;\n    padding: 0.2em 0;\n  }\n'
 ]
