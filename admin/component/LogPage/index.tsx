@@ -34,7 +34,7 @@ const LogPage = ({ logList = [] }: ILogPageProps): JSX.Element => {
         onClick={handleButtonClick}
       >
         <StyledArrowIcon>
-          <use xlinkHref="#left-arrow-button" />
+          <use xlinkHref="#left-arrow" />
         </StyledArrowIcon>
       </Button>
     </Container>

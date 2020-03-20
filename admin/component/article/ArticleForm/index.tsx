@@ -103,7 +103,7 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
         onClick={handleBackButtonClick}
       >
         <StyledArrowIcon>
-          <use xlinkHref="#left-arrow-button" />
+          <use xlinkHref="#left-arrow" />
         </StyledArrowIcon>
       </Button>
       <Button

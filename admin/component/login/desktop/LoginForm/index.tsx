@@ -41,7 +41,7 @@ const LoginForm = ({ errorData, onLoginDataChange }: ILoginForm): JSX.Element =>
           onClick={execute}
         >
           <svg>
-            <use xlinkHref="#left-arrow-button" />
+            <use xlinkHref="#left-arrow" />
           </svg>
         </StyledButton>
       </StyledInputWrapper>
