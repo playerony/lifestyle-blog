@@ -2,7 +2,7 @@ import * as constant from '../constant'
 
 describe('constant Configuration', () => {
   it('should contain four values', () => {
-    expect(Object.keys(constant)).toHaveLength(10)
+    expect(Object.keys(constant)).toHaveLength(15)
   })
 
   it('should have defined AUTH_TOKEN property', () => {
@@ -47,11 +47,33 @@ describe('constant Configuration', () => {
     )
   })
 
+  it('should have defined CAPTCHA_ERROR_MESSAGE property', () => {
+    expect(constant.CAPTCHA_ERROR_MESSAGE).toEqual('Unexpected captcha error.')
+  })
+
+  it('should have defined CAPTCHA_EXIPRED_MESSAGE property', () => {
+    expect(constant.CAPTCHA_EXIPRED_MESSAGE).toEqual(
+      'Captcha challenge expired.'
+    )
+  })
+
+  it('should have defined FORBIDDEN_ERROR_MESSAGE property', () => {
+    expect(constant.FORBIDDEN_ERROR_MESSAGE).toEqual('Token expired.')
+  })
+
+  it('should have defined FORBIDDEN property', () => {
+    expect(constant.FORBIDDEN).toEqual('FORBIDDEN')
+  })
+
   it('should have defined VALIDATION_ERROR property', () => {
     expect(constant.VALIDATION_ERROR).toEqual('VALIDATION_ERROR')
   })
 
   it('should have defined UNAUTHENTICATED property', () => {
     expect(constant.UNAUTHENTICATED).toEqual('UNAUTHENTICATED')
+  })
+
+  it('should have defined INTERNAL_SERVER_ERROR property', () => {
+    expect(constant.INTERNAL_SERVER_ERROR).toEqual('INTERNAL_SERVER_ERROR')
   })
 })

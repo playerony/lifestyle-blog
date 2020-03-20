@@ -9,6 +9,7 @@ describe('routeList Configuration', () => {
 const ROUTE_LIST = {
   base: '/admin',
   log: '/admin/log',
+  error: '/admin/error/:code',
   login: '/admin/login',
   metric: '/admin/metric',
   article: {
