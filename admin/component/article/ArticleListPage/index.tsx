@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import Dashboard from './Dashboard'
 import Button from '@component/generic/Button'
+import Tooltip from '@component/common/Tooltip'
 import FabButton from '@component/generic/FabButton'
 
 import { IArticleListPageProps } from './ArticleListPage.type'
@@ -27,19 +28,25 @@ const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element =>
     <>
       <Dashboard articleList={articleList} />
       <FabButton>
-        <Button circle={true} onClick={handleLogPageRedirect}>
-          <StyledIcon>
-            <use xlinkHref="#log" />
-          </StyledIcon>
-        </Button>
-        <Button circle={true} onClick={handleMetricPageRedirect}>
-          <StyledIcon>
-            <use xlinkHref="#metric" />
-          </StyledIcon>
-        </Button>
-        <Button circle={true} onClick={handleArticleCreatePageRedirect}>
-          +
-        </Button>
+        <Tooltip title="Logs">
+          <Button circle={true} onClick={handleLogPageRedirect}>
+            <StyledIcon>
+              <use xlinkHref="#log" />
+            </StyledIcon>
+          </Button>
+        </Tooltip>
+        <Tooltip title="Metrics">
+          <Button circle={true} onClick={handleMetricPageRedirect}>
+            <StyledIcon>
+              <use xlinkHref="#metric" />
+            </StyledIcon>
+          </Button>
+        </Tooltip>
+        <Tooltip title="Create an article">
+          <Button circle={true} onClick={handleArticleCreatePageRedirect}>
+            +
+          </Button>
+        </Tooltip>
         <Button circle={true}>+</Button>
       </FabButton>
     </>

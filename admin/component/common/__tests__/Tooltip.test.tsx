@@ -10,12 +10,12 @@ const TooltipContent = (): JSX.Element => <h1>Tooltip</h1>
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
-const setUp = (title?: string): ReactWrapper =>
+const setUp = (title: string): ReactWrapper =>
   mountComponent(<Tooltip title={title}><TooltipContent /></Tooltip>)
 
 describe('Tooltip Component', () => {
   it('should render', () => {
-    const wrapper = setUp()
+    const wrapper = setUp('title')
 
     expect(wrapper.exists()).toBeTruthy()
   })
@@ -28,7 +28,7 @@ describe('Tooltip Component', () => {
   })
 
   it('should use a children as a tooltip trigger', () => {
-    const wrapper = setUp()
+    const wrapper = setUp('title')
 
     expect(wrapper.find(Tooltip).exists(TooltipContent)).toBeTruthy()
   })
