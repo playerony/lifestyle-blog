@@ -1,22 +1,23 @@
 import styled from 'styled-components'
 
+import { ThemeProps } from '@style/theme'
 import { respondTo } from '@style/mixin'
+import variable from '@style/variable'
 
 export const StyledTooltip = styled.a`
   display: inline;
   position: relative;
 
   &:hover:after {
-    background: #444;
-    border-radius: 8px;
-    color: #fff;
-    content: attr(title);
-    font-size: 16px;
-    padding: 13px;
-    position: absolute;
+    top: -56px;
     z-index: 8;
+    border-radius: 8px;
+    content: attr(title);
+    position: absolute;
     left: calc(-50% - 20px);
-    top: -62px;
+    padding: ${variable.paddingSmall / 2}px;
+    color: ${({ theme }: ThemeProps) => theme.color.input};
+    background: ${({ theme }: ThemeProps) => theme.color.text};
 
     ${respondTo.smallScreen`
       display: none;
@@ -24,13 +25,13 @@ export const StyledTooltip = styled.a`
   }
 
   &:hover:before {
-    border: solid;
-    border-color: #444 transparent;
-    border-width: 8px 4px 0 4px;
     content: '';
-    left: calc(50% - 8px);
     bottom: 30px;
+    border: solid;
     position: absolute;
+    left: calc(50% - 8px);
+    border-width: 8px 4px 0 4px;
+    border-color: ${({ theme }: ThemeProps) => theme.color.text} transparent;
 
     ${respondTo.smallScreen`
       display: none;
