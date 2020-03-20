@@ -24,7 +24,7 @@ export const StyledWrapper = styled.header`
   ${boxShadow('0 2px 4px 0 rgba(192, 192, 192, 0.5)')}
 
   ${respondTo.smallScreen`
-    min-height: initial;
+    min-height: 80px;
   `}
 `
 

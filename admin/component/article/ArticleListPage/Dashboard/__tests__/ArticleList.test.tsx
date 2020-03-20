@@ -11,17 +11,21 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
 
 jest.doMock('../ArticleCard', () => ArticleCardMock)
 
+const setUp = (): ReactWrapper => {
+  const ArticleList = require('../ArticleList').default
+
+  return mountComponent(<ArticleList label="label" articleList={ARTICLE_LIST_MOCK} />)
+}
+
 describe('ArticleList Component', () => {
   it('should render', () => {
-    const ArticleList = require('../ArticleList').default
-    const wrapper = mountComponent(<ArticleList label="label" articleList={ARTICLE_LIST_MOCK} />)
+    const wrapper = setUp()
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render Slider Component', () => {
-    const ArticleList = require('../ArticleList').default
-    const wrapper = mountComponent(<ArticleList label="label" articleList={ARTICLE_LIST_MOCK} />)
+    const wrapper = setUp()
 
     const sliderProps = wrapper.find(Slider).props()
     expect(sliderProps.speed).toEqual(500)
@@ -50,8 +54,7 @@ describe('ArticleList Component', () => {
   })
 
   it('should render two article cards', () => {
-    const ArticleList = require('../ArticleList').default
-    const wrapper = mountComponent(<ArticleList label="label" articleList={ARTICLE_LIST_MOCK} />)
+    const wrapper = setUp()
 
     expect(wrapper.find(ArticleCardMock)).toHaveLength(2)
   })

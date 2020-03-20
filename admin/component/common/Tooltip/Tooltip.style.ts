@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
+import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
 import { respondTo, borderRadius } from '@style/mixin'
-import variable from '@style/variable'
 
 export const StyledTooltip = styled.a`
   display: inline;

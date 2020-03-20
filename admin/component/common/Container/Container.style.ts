@@ -4,25 +4,24 @@ import variable from '@style/variable'
 import { respondTo } from '@style/mixin'
 
 export const StyledContainer = styled.div`
-  height: 100%;
   margin: 0 auto;
   position: absolute;
-  padding: ${variable.paddingBig}px;
   max-width: ${variable.breakpoint.mediumScreen}px;
   width: calc(100% - ${variable.paddingBig * 2}px);
+  padding: 100px ${variable.paddingBig}px ${variable.paddingBig}px;
 
   ${respondTo.mediumScreen`
-    padding: ${variable.paddingMedium}px;
     width: calc(100% - ${variable.paddingMedium * 2}px);
+    padding: 100px ${variable.paddingMedium}px ${variable.paddingMedium}px;
   `}
 
   ${respondTo.smallScreen`
     width: calc(100% - ${variable.paddingSmall * 2}px);
-    padding: ${variable.paddingMedium}px ${variable.paddingSmall}px;
+    padding: 100px ${variable.paddingMedium}px ${variable.paddingMedium}px;
   `}
 
   ${respondTo.mobileScreen`
-    padding: ${variable.paddingSmall / 2}px;
     width: calc(100% - ${variable.paddingSmall}px);
+    padding: 80px ${variable.paddingSmall / 2}px ${variable.paddingSmall / 2}px;
   `}
 `

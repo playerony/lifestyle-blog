@@ -22,7 +22,7 @@ export const StyledWrapper = styled.div`
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('12px')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
   ${transform('translate(-50%, -50%)')}
   ${boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')}
 `
@@ -50,7 +50,7 @@ export const StyledButton = styled.button`
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('50px')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
 
   & > svg {
     width: 12px;
@@ -58,7 +58,7 @@ export const StyledButton = styled.button`
     fill: ${variable.color.gray700};
 
     ${transform('rotate(180deg)')}
-    ${transition('all 0.5s linear')}
+    ${transition('all 500ms linear')}
   }
 
   &:focus,

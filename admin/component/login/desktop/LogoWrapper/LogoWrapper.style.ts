@@ -22,7 +22,7 @@ export const StyledWrapper = styled.div`
   ${alignItems('center')}
   ${borderRadius('12px')}
   ${justifyContent('center')}
-  ${transition('all 0.5s linear')}
+  ${transition('all 500ms linear')}
   ${transform('translate(-50%, -50%)')}
   ${boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')}
 `

@@ -89,7 +89,7 @@ export const StyledButton = styled.div`
   ${alignItems('center')}
   ${justifyContent('center')}
   ${borderRadius('0 0 4px 4px')}
-  ${transition('background-color 0.5s linear')}
+  ${transition('background-color 500ms linear')}
 
   ${respondTo.smallScreen`
     height: 65px;

@@ -20,24 +20,36 @@ const renderArticleListSortedByCategory = (articleList: IArticleList[], category
   return <ArticleList label={category} articleList={filteredArticleList} />
 }
 
-const renderArticleListSortedByCreatedAt = (articleList: IArticleList[]): JSX.Element => {
+const renderArticleListSortedByCreatedAt = (articleList: IArticleList[]): JSX.Element | null => {
   const articleListCopy = articleList.slice(0)
   const result = articleListCopy.sort((a, b) =>
     new Date(a.createdAt!).getTime() - new Date(b.createdAt!).getTime())
 
+  if (!result?.length) {
+    return null
+  }
+
   return <ArticleList label="Newest" articleList={result.reverse()} />
 }
 
-const renderArticleListSortedByTotalVisitor = (articleList: IArticleList[]): JSX.Element => {
+const renderArticleListSortedByTotalVisitor = (articleList: IArticleList[]): JSX.Element | null => {
   const articleListCopy = articleList.slice(0)
   const result = articleListCopy.sort((a, b) => b.totalVisitor! - a.totalVisitor!)
+
+  if (!result?.length) {
+    return null
+  }
 
   return <ArticleList label="Most Viewed - all time" articleList={result} />
 }
 
-const renderArticleListSortedByTodayVisitor = (articleList: IArticleList[]): JSX.Element => {
+const renderArticleListSortedByTodayVisitor = (articleList: IArticleList[]): JSX.Element | null => {
   const articleListCopy = articleList.slice(0)
-  const result = articleListCopy.sort((a, b) => b.todayVisitor! - a.todayVisitor!)
+  const result = articleListCopy.filter(element => Boolean(element.todayVisitor)).sort((a, b) => b.todayVisitor! - a.todayVisitor!)
+
+  if (!result?.length) {
+    return null
+  }
 
   return <ArticleList label="Most Viewed - today" articleList={result} />
 }
@@ -45,14 +57,14 @@ const renderArticleListSortedByTodayVisitor = (articleList: IArticleList[]): JSX
 const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
   const { data: categoryList } = useCategoryList()
 
-  const renderCategorySectionList = (): JSX.Element[] => {
+  const renderCategorySectionList = (): (JSX.Element | null)[] => {
     if (!categoryList) {
       return []
     }
 
     return categoryList.map(({ name }: ICategory) =>
       renderArticleListSortedByCategory(articleList, name!)
-    ).filter(Boolean) as JSX.Element[]
+    )
   }
 
   const renderContent = (): JSX.Element[] => ([
@@ -60,7 +72,7 @@ const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
     renderArticleListSortedByTotalVisitor(articleList),
     renderArticleListSortedByTodayVisitor(articleList),
     ...renderCategorySectionList()
-  ])
+  ].filter(Boolean) as JSX.Element[])
 
   return (
     <Container>

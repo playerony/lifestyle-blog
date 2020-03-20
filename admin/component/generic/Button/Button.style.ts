@@ -26,7 +26,7 @@ export const StyledButton = styled.button<IButtonProps>`
   ${borderRadius('4px')}
   ${alignItems('center')}
   ${justifyContent('center')}
-  ${transition('background-color 0.5s linear')}
+  ${transition('background-color 500ms linear')}
 
   ${({ marginTop }: IButtonProps) =>
     marginTop &&

@@ -19,7 +19,6 @@ export const StyledWrapper = styled.div`
   height: 500px;
   max-width: 600px;
   margin: 5px auto;
-
   background-color: ${({ theme }: ThemeProps) => theme.color.card};
 
   ${borderRadius('4px')}
@@ -123,7 +122,10 @@ export const StyledTodayVisitorLabel = styled.p`
 
 export const StyledContentSection = styled.section`
   h1 {
+    overflow: hidden;
+    white-space: nowrap;
     margin-bottom: 10px;
+    text-overflow: ellipsis;
   }
 `
 
