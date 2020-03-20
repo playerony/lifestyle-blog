@@ -109,7 +109,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
           </div>
           <div>
             <StyledControlIcon onClick={handleVisibilityChange}>
-              <use xlinkHref={`#visibility${!visibility ? '-off' : ''}`} />
+              <use xlinkHref={`#${visibility ? 'visibility' : 'invisible'}`} />
             </StyledControlIcon>
             <StyledControlIcon onClick={handleArticleEditRedirect}>
               <use xlinkHref="#noun-edit" />
