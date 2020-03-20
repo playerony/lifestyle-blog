@@ -129,12 +129,26 @@ export const StyledContentFooter = styled.footer`
 `
 
 export const StyledCategoryIcon = styled.svg`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: default;
   margin-right: 10px;
-
   fill: ${({ theme }: ThemeProps) => theme.color.icon};
+
+  ${respondTo.largeScreen`
+    width: 27px;
+    height: 27px;
+  `}
+
+  ${respondTo.mediumScreen`
+    width: 24px;
+    height: 24px;
+  `}
+
+  ${respondTo.smallScreen`
+    width: 20px;
+    height: 20px;
+  `}
 `
 
 export const StyledControlIcon = styled.svg`

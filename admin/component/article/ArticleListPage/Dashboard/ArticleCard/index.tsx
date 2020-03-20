@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
+import Tooltip from '@component/common/Tooltip'
+
 import EToastType from '@type/common/EToastType'
 import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
@@ -46,9 +48,11 @@ const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX
 const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] =>
   React.Children.toArray(
     categoryList.map(element => (
-      <StyledCategoryIcon>
-        <use xlinkHref={`#${element.name?.toLowerCase()}`} />
-      </StyledCategoryIcon>
+      <Tooltip title={element.name}>
+        <StyledCategoryIcon>
+          <use xlinkHref={`#${element.name?.toLowerCase()}`} />
+        </StyledCategoryIcon>
+      </Tooltip>
     ))
   )
 
