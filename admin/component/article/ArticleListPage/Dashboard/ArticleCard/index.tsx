@@ -75,20 +75,22 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
       return
     }
 
-    if (!Boolean(result.errors)) {
-      const isPublic = result?.data?.toggleArticlePublicFlag?.isPublic
-
-      if (isPublic === undefined) {
-        toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
-      } else {
-        setVisibility(isPublic)
-        toast.add(
-          `Article with ID: ${articleId} is now ${isPublic ? 'shown' : 'hidden'}`,
-          EToastType.INFO
-        )
-      }
-    } else {
+    if (Boolean(result.errors)) {
       toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
+
+      return
+    }
+
+    const isPublic = result?.data?.toggleArticlePublicFlag?.isPublic
+
+    if (isPublic === undefined) {
+      toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
+    } else {
+      setVisibility(isPublic)
+      toast.add(
+        `Article with ID: ${articleId} is now ${isPublic ? 'shown' : 'hidden'}`,
+        EToastType.INFO
+      )
     }
   }
 

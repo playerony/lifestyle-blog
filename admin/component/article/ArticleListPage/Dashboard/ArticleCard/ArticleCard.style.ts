@@ -98,19 +98,23 @@ export const StyledVisitorContentWrapper = styled.div`
       margin-top: 5px;
     `}
 
-    ${respondTo.smallScreen`
-      margin-top: 6px;
+    ${respondTo.mobileScreen`
+      margin-top: 4px;
     `}
   }
 `
 
 export const StyledEyeIcon = styled.svg`
-  width: 25px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
   cursor: default;
   margin-right: 10px;
-
   fill: ${({ theme }: ThemeProps) => theme.color.icon};
+
+  ${respondTo.smallScreen`
+    width: 20px;
+    height: 20px;
+  `}
 `
 
 export const StyledTodayVisitorLabel = styled.p`
@@ -129,21 +133,11 @@ export const StyledContentFooter = styled.footer`
 `
 
 export const StyledCategoryIcon = styled.svg`
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
   cursor: default;
   margin-right: 10px;
   fill: ${({ theme }: ThemeProps) => theme.color.icon};
-
-  ${respondTo.largeScreen`
-    width: 27px;
-    height: 27px;
-  `}
-
-  ${respondTo.mediumScreen`
-    width: 24px;
-    height: 24px;
-  `}
 
   ${respondTo.smallScreen`
     width: 20px;
@@ -152,13 +146,18 @@ export const StyledCategoryIcon = styled.svg`
 `
 
 export const StyledControlIcon = styled.svg`
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   margin-left: 10px;
   fill: ${({ theme }: ThemeProps) => theme.color.icon};
 
   ${transition('fill 500ms linear')}
+
+  ${respondTo.smallScreen`
+    width: 20px;
+    height: 20px;
+  `}
 
   &:hover {
     fill: ${variable.color.blue700};

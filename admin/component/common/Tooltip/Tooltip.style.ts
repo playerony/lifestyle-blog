@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { ThemeProps } from '@style/theme'
-import { respondTo } from '@style/mixin'
+import { respondTo, borderRadius } from '@style/mixin'
 import variable from '@style/variable'
 
 export const StyledTooltip = styled.a`
@@ -9,15 +9,16 @@ export const StyledTooltip = styled.a`
   position: relative;
 
   &:hover:after {
+    left: -50%;
     top: -56px;
     z-index: 8;
-    border-radius: 8px;
-    content: attr(title);
     position: absolute;
-    left: calc(-50% - 20px);
+    content: attr(title);
     padding: ${variable.paddingSmall / 2}px;
     color: ${({ theme }: ThemeProps) => theme.color.input};
     background: ${({ theme }: ThemeProps) => theme.color.text};
+
+    ${borderRadius('4px')}
 
     ${respondTo.smallScreen`
       display: none;
