@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import { Bar, Doughnut } from 'react-chartjs-2'
 
 import MetricPage from '../MetricPage'
-import Button from '../generic/Button'
+import BackButton from '../common/BackButton'
 import ThemeProviderMock from '../utility/ThemeProviderMock'
 
 import IVisitor from '@type/visitor/IVisitor'
@@ -164,22 +164,10 @@ describe('MetricPage Component', () => {
     })
   })
 
-  describe('Button Component', () => {
-    it('should render', () => {
-      const wrapper = mountComponent(<MetricPage />)
+  it('should render BackButton', () => {
+    const wrapper = mountComponent(<MetricPage visitorList={VISITOR_LIST_MOCK} />)
 
-      expect(wrapper.exists(Button)).toBeTruthy()
-    })
-
-    it('should render Button Component', () => {
-      const wrapper = mountComponent(<MetricPage />)
-
-      const buttonProps = wrapper.find(Button).props()
-      expect(buttonProps.circle).toBeTruthy()
-      expect(buttonProps.onClick).toBeDefined()
-      expect(buttonProps.floating).toEqual('left')
-      expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow')
-    })
+    expect(wrapper.exists(BackButton)).toBeTruthy()
   })
 })
 

@@ -3,7 +3,7 @@ import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import LogPage from '../LogPage'
-import Button from '../generic/Button'
+import BackButton from '../common/BackButton'
 import ThemeProviderMock from '../utility/ThemeProviderMock'
 
 import ILog from '@type/log/ILog'
@@ -35,22 +35,10 @@ describe('LogPage Component', () => {
     expect(wrapper.find('h1').props().children).toEqual('Logs per month chart')
   })
 
-  describe('Button Component', () => {
-    it('should render', () => {
-      const wrapper = mountComponent(<LogPage />)
+  it('should render BackButton', () => {
+    const wrapper = mountComponent(<LogPage />)
 
-      expect(wrapper.exists(Button)).toBeTruthy()
-    })
-
-    it('should render Button Component', () => {
-      const wrapper = mountComponent(<LogPage />)
-
-      const buttonProps = wrapper.find(Button).props()
-      expect(buttonProps.circle).toBeTruthy()
-      expect(buttonProps.onClick).toBeDefined()
-      expect(buttonProps.floating).toEqual('left')
-      expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow')
-    })
+    expect(wrapper.exists(BackButton)).toBeTruthy()
   })
 
   describe('Chart Component', () => {
