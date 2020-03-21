@@ -37,9 +37,7 @@ const LoginForm = ({ errorData, onLoginDataChange }: ILoginForm): JSX.Element =>
           placeholder="What is your password?"
           errorMessage={getFieldError(errorData, 'password')}
         />
-        <StyledButton
-          onClick={execute}
-        >
+        <StyledButton onClick={execute}>
           <svg>
             <use xlinkHref="#left-arrow" />
           </svg>

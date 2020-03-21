@@ -1,4 +1,3 @@
-import { useHistory } from 'react-router-dom'
 import React, { useState, ChangeEvent } from 'react'
 
 import EditorInput from './EditorInput'
@@ -6,16 +5,13 @@ import UploadInput from './UploadInput'
 import Input from '@component/generic/Input'
 import CategorySelect from './CategorySelect'
 import Button from '@component/generic/Button'
+import BackButton from '@component/common/BackButton'
 
 import IArticle from '@type/article/IArticle'
 import IArticleSave from '@type/article/IArticleSave'
 import { IArticleFormProps } from './ArticleForm.type'
 
 import getFieldError from '@utility/getFieldError'
-
-import routeList from '@config/routeList'
-
-import { StyledArrowIcon } from './ArticleForm.style'
 
 const initialState: IArticleSave = {
   title: '',
@@ -42,8 +38,6 @@ const getInitialData = (initialData?: IArticle): IArticleSave => {
 const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX.Element => {
   const [state, setState] = useState<IArticleSave>(getInitialData(initialData))
 
-  const history = useHistory()
-
   const changeState = (value: Partial<IArticleSave>): void =>
     setState({ ...state, ...value })
 
@@ -61,9 +55,6 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
 
   const handleArticleSaveClick = (): void =>
     onSave(state)
-
-  const handleBackButtonClick = (): void =>
-    history.push(routeList.article.list)
 
   return (
     <>
@@ -97,15 +88,7 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
         onChange={handleContentChange}
         errorMessage={getFieldError<IArticleSave>(errorData, 'content')}
       />
-      <Button
-        circle={true}
-        floating="left"
-        onClick={handleBackButtonClick}
-      >
-        <StyledArrowIcon>
-          <use xlinkHref="#left-arrow" />
-        </StyledArrowIcon>
-      </Button>
+      <BackButton />
       <Button
         circle={true}
         floating="right"

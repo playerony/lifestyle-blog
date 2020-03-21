@@ -1,33 +1,25 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import { Bar, Doughnut } from 'react-chartjs-2'
 
-import Button from '../generic/Button'
 import Container from '../common/Container'
+import BackButton from '../common/BackButton'
 
 import { IMetricPageProps } from './MetricPage.type'
 
 import metricTransformator from '@transformator/metricTransformator'
 
-import routeList from '@config/routeList'
-
 import {
   StyledHeader,
-  StyledArrowIcon,
   StyledChartWrapper,
   StyledDoughnutChartHeader
 } from './MetricPage.style'
 
 const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
-  const history = useHistory()
   const {
     devicesChartData,
     visitorsChartData,
     pageVisitorsChartData
   } = metricTransformator(visitorList)
-
-  const handleButtonClick = (): void =>
-    history.push(routeList.article.list)
 
   return (
     <Container>
@@ -48,15 +40,7 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
       </StyledDoughnutChartHeader>
       <Doughnut data={devicesChartData} />
 
-      <Button
-        circle={true}
-        floating="left"
-        onClick={handleButtonClick}
-      >
-        <StyledArrowIcon>
-          <use xlinkHref="#left-arrow" />
-        </StyledArrowIcon>
-      </Button>
+      <BackButton />
     </Container>
   )
 }
