@@ -119,6 +119,20 @@ const EditorInput = ({
             blockStyleFn={getBlockStyle}
             blockRendererFn={myBlockRenderer}
             handleKeyCommand={handleKeyCommand}
+            customStyleMap={{
+              'LEFT': {
+                display: 'block',
+                textAlign: 'left'
+              },
+              'CENTER': {
+                display: 'block',
+                textAlign: 'center'
+              },
+              'RIGHT': {
+                display: 'block',
+                textAlign: 'right'
+              }
+            }}
           />
         </StyledEditorWrapper>
       </StyledWrapper>

@@ -99,15 +99,15 @@ export const StyledEditorWrapper = styled.div`
     background-color: ${variable.color.gray300};
   }
 
-  .align-right div {
+  .align-right {
     text-align: right;
   }
 
-  .align-center div {
+  .align-center {
     text-align: center;
   }
 
-  .align-left div {
+  .align-left {
     text-align: left;
   }
 `
