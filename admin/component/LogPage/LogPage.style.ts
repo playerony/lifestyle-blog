@@ -6,6 +6,19 @@ import { boxShadow, borderRadius, respondTo } from '@style/mixin'
 
 export const StyledHeader = styled.h1`
   text-align: center;
+  padding-top: ${variable.paddingBig}px;
+
+  ${respondTo.mediumScreen`
+    padding-top: ${variable.paddingMedium}px;
+  `}
+
+  ${respondTo.smallScreen`
+    padding-top: ${variable.paddingSmall}px;
+  `}
+
+  ${respondTo.mobileScreen`
+    padding-top: ${variable.paddingSmall / 2}px;
+  `}
 `
 
 export const StyledChartWrapper = styled.section`
