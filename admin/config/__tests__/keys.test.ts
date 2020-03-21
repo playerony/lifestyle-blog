@@ -16,11 +16,10 @@ describe('keys Object', () => {
     process.env.JWT_PREFIX = 'JWT_PREFIX'
     process.env.CRYPTO_KEY = 'CRYPTO_KEY'
     process.env.SERVER_URL = 'SERVER_URL'
-    process.env.CAPTCHA_PUBLIC_KEY = 'CAPTCHA_PUBLIC_KEY'
-    process.env.CAPTCHA_PRIVATE_KEY = 'CAPTCHA_PRIVATE_KEY'
+    process.env.CAPTCHA_KEY = 'CAPTCHA_KEY'
 
     const keys = require('../keys').default
 
-    expect(Object.keys(keys)).toHaveLength(6)
+    expect(Object.keys(keys)).toHaveLength(5)
   })
 })

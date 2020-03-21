@@ -4,17 +4,15 @@ interface IKeys {
   cryptoKey?: string
   jwtPrefix?: string
 
-  captchaPublicKey?: string
-  captchaPrivateKey?: string
+  captchaKey?: string
 }
 
 const config: IKeys = {
   cryptoKey: process.env.CRYPTO_KEY,
   serverUrl: process.env.SERVER_URL,
   jwtPrefix: process.env.JWT_PREFIX,
-  nodeEnv: process.env.NODE_ENV || 'development',
-  captchaPublicKey: process.env.CAPTCHA_PUBLIC_KEY,
-  captchaPrivateKey: process.env.CAPTCHA_PRIVATE_KEY
+  captchaKey: process.env.CAPTCHA_KEY,
+  nodeEnv: process.env.NODE_ENV || 'development'
 }
 
 export default config

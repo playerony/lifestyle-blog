@@ -51,7 +51,7 @@ const ReCaptchaProvider = ({ children, onVerify }: IReCaptchaProviderProps): JSX
       <ReCAPTCHA
         size="invisible"
         ref={recaptchaRef}
-        sitekey={keys.captchaPublicKey!}
+        sitekey={keys.captchaKey!}
         onChange={handleReCaptchaChange}
         onErrored={handleReCaptchaError}
         onExpired={handleReCaptchaExpired}
