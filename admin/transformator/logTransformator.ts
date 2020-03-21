@@ -16,10 +16,11 @@ export default (logList: ILog[]) => {
   const labels = Object.keys(logListGroupedByMonth)
     .map(element => logListGroupedByMonth[element][0])
     .map(log => formatDate(log.createdAt).slice(3))
+    .slice(-5)
 
-  const data = Object.keys(logListGroupedByMonth).map(
-    element => logListGroupedByMonth[element].length
-  )
+  const data = Object.keys(logListGroupedByMonth)
+    .map(element => logListGroupedByMonth[element].length)
+    .slice(-5)
 
   return {
     labels,

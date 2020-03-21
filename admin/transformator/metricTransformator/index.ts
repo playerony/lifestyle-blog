@@ -41,10 +41,11 @@ const getVisitorsChartData = (visitorList: IVisitor[]) => {
   const labels = Object.keys(visitorListGroupedByMonth)
     .map(element => visitorListGroupedByMonth[element][0])
     .map(visitor => formatDate(visitor.createdAt).slice(3))
+    .slice(-5)
 
-  const data = Object.keys(visitorListGroupedByMonth).map(
-    element => visitorListGroupedByMonth[element].length
-  )
+  const data = Object.keys(visitorListGroupedByMonth)
+    .map(element => visitorListGroupedByMonth[element].length)
+    .slice(-5)
 
   return {
     labels,
