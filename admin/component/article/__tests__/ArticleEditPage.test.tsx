@@ -3,8 +3,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import ArticleForm from '../ArticleForm'
 import ArticleEditPage from '../ArticleEditPage'
-
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import IArticle from '@type/article/IArticle'
 import IArticleSave from '@type/article/IArticleSave'

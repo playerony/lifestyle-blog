@@ -4,7 +4,6 @@ import { mount, ReactWrapper } from 'enzyme'
 import Button from '@component/generic/Button'
 import FabButton from '@component/generic/FabButton'
 import Dashboard from '../ArticleListPage/Dashboard'
-
 import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 jest.mock('../../../hook/category/useCategoryList', () => () => ({ data: [], loading: true }))

@@ -5,13 +5,17 @@ import { respondTo } from '@style/mixin'
 
 export const StyledHeader = styled.h1`
   text-align: center;
-  padding-bottom: ${variable.paddingBig}px;
+  padding: ${variable.paddingBig}px 0;
 
   ${respondTo.mediumScreen`
-    padding-bottom: ${variable.paddingMedium}px;
+    padding: ${variable.paddingMedium}px 0;
   `}
 
   ${respondTo.smallScreen`
-    padding-bottom: ${variable.paddingSmall}px;
+    padding: ${variable.paddingSmall}px 0;
+  `}
+
+  ${respondTo.mobileScreen`
+    padding: ${variable.paddingSmall / 2}px 0;
   `}
 `
