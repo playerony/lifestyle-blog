@@ -7,6 +7,9 @@ export default [
   { label: 'H6', style: 'header-six' },
   { label: 'Blockquote', style: 'blockquote' },
   { label: 'Image', style: 'image' },
+  { label: 'Left', style: 'left' },
+  { label: 'Center', style: 'center' },
+  { label: 'Right', style: 'right' },
   { label: 'UL', style: 'unordered-list-item' },
   { label: 'OL', style: 'ordered-list-item' },
   { label: 'Code Block', style: 'code-block' }

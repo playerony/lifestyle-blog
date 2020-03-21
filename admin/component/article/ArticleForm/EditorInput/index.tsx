@@ -86,7 +86,7 @@ const EditorInput = ({
       return {
         component: ImageComponent,
         editable: true
-      };
+      }
     }
   }
 

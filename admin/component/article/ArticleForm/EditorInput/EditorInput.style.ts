@@ -2,11 +2,7 @@ import styled, { css } from 'styled-components'
 
 import variable from '@style/variable'
 import { ThemeProps } from '@style/theme'
-import {
-  transition,
-  borderRadius,
-  linearGradient
-} from '@style/mixin'
+import { transition, borderRadius, linearGradient } from '@style/mixin'
 
 interface IStyledWrapperProps {
   isError: boolean
@@ -101,6 +97,18 @@ export const StyledEditorWrapper = styled.div`
   .public-DraftStyleDefault-pre {
     padding: ${variable.paddingSmall}px;
     background-color: ${variable.color.gray300};
+  }
+
+  .align-right div {
+    text-align: right;
+  }
+
+  .align-center div {
+    text-align: center;
+  }
+
+  .align-left div {
+    text-align: left;
   }
 `
 
