@@ -5,7 +5,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import EditorInput from '..'
 import BlockTypeControl from '../BlockTypeControl'
 import InlineStyleControl from '../InlineStyleControl'
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)

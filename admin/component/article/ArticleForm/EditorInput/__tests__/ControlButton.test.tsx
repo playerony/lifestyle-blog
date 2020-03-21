@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import ControlButton from '../ControlButton'
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import { IControlButtonProps } from '../ControlButton/ControlButton.type'
 

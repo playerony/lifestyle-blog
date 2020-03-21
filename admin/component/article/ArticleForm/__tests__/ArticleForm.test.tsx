@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, ShallowWrapper } from 'enzyme'
 
 import ArticleForm from '..'
 import UploadInput from '../UploadInput'
@@ -7,6 +7,7 @@ import EditorInput from '../EditorInput'
 import Input from '@component/generic/Input'
 import CategorySelect from '../CategorySelect'
 import Button from '@component/generic/Button'
+import BackButton from '@component/common/BackButton'
 
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
@@ -23,22 +24,25 @@ jest.mock('react-router-dom', () => {
   }
 })
 
+const setUp = (): ShallowWrapper =>
+  shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+
 describe('ArticleForm Component', () => {
   it('should render', () => {
-    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+    const wrapper = setUp()
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   describe('Input Component', () => {
     it('should render two components', () => {
-      const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+      const wrapper = setUp()
 
       expect(wrapper.find(Input)).toHaveLength(2)
     })
 
     it('should render title input', () => {
-      const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+      const wrapper = setUp()
 
       const inputProps = wrapper.find(Input).first().props()
       expect(inputProps.name).toEqual('title')
@@ -48,7 +52,7 @@ describe('ArticleForm Component', () => {
     })
 
     it('should render title input', () => {
-      const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+      const wrapper = setUp()
 
       const inputProps = wrapper.find(Input).last().props()
       expect(inputProps.onChange).toBeDefined()
@@ -59,7 +63,7 @@ describe('ArticleForm Component', () => {
   })
 
   it('should render CategorySelect Component', () => {
-    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+    const wrapper = setUp()
 
     const categorySelectProps = wrapper.find(CategorySelect).props()
     expect(categorySelectProps.onChange).toBeDefined()
@@ -67,7 +71,7 @@ describe('ArticleForm Component', () => {
   })
 
   it('should render UploadInput Component', () => {
-    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+    const wrapper = setUp()
 
     const uploadInputProps = wrapper.find(UploadInput).props()
     expect(uploadInputProps.onChange).toBeDefined()
@@ -75,7 +79,7 @@ describe('ArticleForm Component', () => {
   })
 
   it('should render EditorInput Component', () => {
-    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+    const wrapper = setUp()
 
     const editorInputProps = wrapper.find(EditorInput).props()
     expect(editorInputProps.onChange).toBeDefined()
@@ -84,7 +88,7 @@ describe('ArticleForm Component', () => {
   })
 
   it('should render Save Button', () => {
-    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+    const wrapper = setUp()
 
     const buttonProps = wrapper.find(Button).last().props()
     expect(buttonProps.circle).toBeTruthy()
@@ -94,13 +98,9 @@ describe('ArticleForm Component', () => {
   })
 
   it('should render Back Button', () => {
-    const wrapper = shallow(<ArticleForm onSave={onSaveMock} errorData={ERROR_DATA} />)
+    const wrapper = setUp()
 
-    const buttonProps = wrapper.find(Button).first().props()
-    expect(buttonProps.circle).toBeTruthy()
-    expect(buttonProps.onClick).toBeDefined()
-    expect(buttonProps.floating).toEqual('left')
-    expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow')
+    expect(wrapper.exists(BackButton)).toBeTruthy()
   })
 })
 

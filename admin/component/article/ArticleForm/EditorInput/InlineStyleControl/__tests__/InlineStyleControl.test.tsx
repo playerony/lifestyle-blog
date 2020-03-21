@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import InlineStyleControl from '..'
 import ControlButton from '../../ControlButton'
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import { IInlineStyleControlProps } from '../InlineStyleControl.type'
 
@@ -28,7 +28,7 @@ describe('InlineStyleControl Component', () => {
   it('should render ControlButton list', () => {
     const wrapper = mountComponent(<InlineStyleControl {...PROPS_MOCK} />)
 
-    expect(wrapper.find(ControlButton)).toHaveLength(4)
+    expect(wrapper.find(ControlButton)).toHaveLength(7)
   })
 })
 

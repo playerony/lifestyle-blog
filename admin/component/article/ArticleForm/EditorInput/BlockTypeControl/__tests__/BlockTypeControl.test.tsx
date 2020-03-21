@@ -28,7 +28,7 @@ describe('BlockTypeControl Component', () => {
   it('should render ControlButton list', () => {
     const wrapper = mountComponent(<BlockTypeControl {...PROPS_MOCK} />)
 
-    expect(wrapper.find(ControlButton)).toHaveLength(10)
+    expect(wrapper.find(ControlButton)).toHaveLength(11)
   })
 })
 

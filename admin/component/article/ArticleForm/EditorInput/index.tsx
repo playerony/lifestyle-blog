@@ -15,6 +15,7 @@ import InlineStyleControl from './InlineStyleControl'
 import { IEditorInputProps } from './EditorInput.type'
 
 import getBlockStyle from './getBlockStyle'
+import customStyleMap from './customStyleMap'
 import getInitialState from './getInitialState'
 
 import {
@@ -117,22 +118,9 @@ const EditorInput = ({
             editorState={editorState}
             onChange={setEditorState}
             blockStyleFn={getBlockStyle}
+            customStyleMap={customStyleMap}
             blockRendererFn={myBlockRenderer}
             handleKeyCommand={handleKeyCommand}
-            customStyleMap={{
-              'LEFT': {
-                display: 'block',
-                textAlign: 'left'
-              },
-              'CENTER': {
-                display: 'block',
-                textAlign: 'center'
-              },
-              'RIGHT': {
-                display: 'block',
-                textAlign: 'right'
-              }
-            }}
           />
         </StyledEditorWrapper>
       </StyledWrapper>

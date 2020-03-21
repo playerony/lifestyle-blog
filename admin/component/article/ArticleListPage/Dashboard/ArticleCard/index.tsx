@@ -48,7 +48,7 @@ const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX
 const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] =>
   React.Children.toArray(
     categoryList.map(element => (
-      <Tooltip title={element.name}>
+      <Tooltip title={element.name!}>
         <StyledCategoryIcon>
           <use xlinkHref={`#${element.name?.toLowerCase()}`} />
         </StyledCategoryIcon>
