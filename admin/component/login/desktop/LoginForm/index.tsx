@@ -10,7 +10,7 @@ import getFieldError from '@utility/getFieldError'
 
 import { StyledHeader, StyledWrapper, StyledInputWrapper, StyledButton } from './LoginForm.style'
 
-const LoginForm = ({ errorData, onLoginDataChange }: ILoginForm): JSX.Element => {
+const LoginForm = ({ errorData, preventNextRequest, onLoginDataChange }: ILoginForm): JSX.Element => {
   const { execute } = useReCaptcha()
 
   const onInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
@@ -37,7 +37,10 @@ const LoginForm = ({ errorData, onLoginDataChange }: ILoginForm): JSX.Element =>
           placeholder="What is your password?"
           errorMessage={getFieldError(errorData, 'password')}
         />
-        <StyledButton onClick={execute}>
+        <StyledButton
+          onClick={execute}
+          disabled={preventNextRequest}
+        >
           <svg>
             <use xlinkHref="#left-arrow" />
           </svg>

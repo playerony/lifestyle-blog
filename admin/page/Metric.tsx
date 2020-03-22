@@ -7,7 +7,6 @@ import useVisitorList from '@hook/visitor/useVisitorList'
 
 const Metric = (): JSX.Element | null => {
   const { toggleLoader } = useLoader()
-
   const { data, loading } = useVisitorList()
   toggleLoader(loading)
 
