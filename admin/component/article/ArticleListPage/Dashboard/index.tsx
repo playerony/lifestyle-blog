@@ -2,6 +2,7 @@ import React from 'react'
 
 import ArticleList from './ArticleList'
 import Container from '@component/common/Container'
+import { withErrorBoundary } from '@component/utility/ErrorBoundary'
 
 import ICategory from '@type/category/ICategory'
 import { IDashboardProps } from './Dashboard.type'
@@ -81,4 +82,4 @@ const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
   )
 }
 
-export default Dashboard
+export default withErrorBoundary(Dashboard)

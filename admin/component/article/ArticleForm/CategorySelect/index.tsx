@@ -2,6 +2,7 @@ import React from 'react'
 import { ValueType } from 'react-select'
 
 import Select from '@component/generic/Select'
+import { withErrorBoundary } from '@component/utility/ErrorBoundary'
 
 import ICategory from '@type/category/ICategory'
 import { ICategorySelectProps } from './CategorySelect.type'
@@ -53,4 +54,4 @@ const CategorySelect = ({ value, onChange, errorMessage }: ICategorySelectProps)
   )
 }
 
-export default CategorySelect
+export default withErrorBoundary(CategorySelect)

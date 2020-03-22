@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import ArticleEditPage from '@component/article/ArticleEditPage'
+import { withErrorBoundary } from '@component/utility/ErrorBoundary'
 
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
@@ -66,4 +67,4 @@ const ArticleEdit = (): JSX.Element | null => {
   )
 }
 
-export default ArticleEdit
+export default withErrorBoundary(ArticleEdit)

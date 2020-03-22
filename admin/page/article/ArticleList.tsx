@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ArticleListPage from '@component/article/ArticleListPage'
+import { withErrorBoundary } from '@component/utility/ErrorBoundary'
 
 import useLoader from '@hook/context/useLoader'
 import useArticleList from '@hook/article/useArticleList'
@@ -24,4 +25,4 @@ const ArticleList = (): JSX.Element | null => {
   return <ArticleListPage articleList={transformedData} />
 }
 
-export default ArticleList
+export default withErrorBoundary(ArticleList)

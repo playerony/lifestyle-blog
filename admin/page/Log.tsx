@@ -1,6 +1,7 @@
 import React from 'react'
 
 import LogPage from '@component/LogPage'
+import { withErrorBoundary } from '@component/utility/ErrorBoundary'
 
 import useLogList from '@hook/log/useLogList'
 import useLoader from '@hook/context/useLoader'
@@ -17,4 +18,4 @@ const Log = (): JSX.Element | null => {
   return <LogPage logList={data} />
 }
 
-export default Log
+export default withErrorBoundary(Log)
