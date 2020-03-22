@@ -6,6 +6,7 @@ import LoginPageMobile from '@component/login/mobile'
 import LoginPageDesktop from '@component/login/desktop'
 import ReCaptchaProvider from '@service/ReCaptchaProvider'
 
+import useTitle from '@hook/utility/useTitle'
 import usePrevious from '@hook/utility/usePrevious'
 import useLoginMutation from '@hook/login/useLoginMutation'
 
@@ -25,6 +26,8 @@ const initialErrorData: TResponseError<ILoginRequest> = {
 }
 
 const Login = (): JSX.Element => {
+  useTitle('Login')
+
   const [loginData, setLoginData] = useState<ILoginRequest>(initialLoginData)
   const [errorData, setErrorData] = useState<TResponseError<ILoginRequest>>(initialErrorData)
 

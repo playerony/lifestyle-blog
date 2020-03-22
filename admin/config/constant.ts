@@ -20,3 +20,5 @@ export const FORBIDDEN = 'FORBIDDEN'
 export const UNAUTHENTICATED = 'UNAUTHENTICATED'
 export const VALIDATION_ERROR = 'VALIDATION_ERROR'
 export const INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR'
+
+export const BASE_DOCUMENT_TITLE = 'Paweł Wojtasiński - Admin |'

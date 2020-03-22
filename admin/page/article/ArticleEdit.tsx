@@ -9,6 +9,7 @@ import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
 import useToast from '@hook/context/useToast'
+import useTitle from '@hook/utility/useTitle'
 import useLoader from '@hook/context/useLoader'
 import useArticle from '@hook/article/useArticle'
 import useUpdateMutation from '@hook/article/useUpdateMutation'
@@ -24,6 +25,8 @@ const initialErrorData: TResponseError<IArticleSave> = {
 }
 
 const ArticleEdit = (): JSX.Element | null => {
+  useTitle('Edit')
+
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
 
   const toast = useToast()

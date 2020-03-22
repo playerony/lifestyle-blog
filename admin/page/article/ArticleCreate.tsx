@@ -6,6 +6,7 @@ import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
 import useToast from '@hook/context/useToast'
+import useTitle from '@hook/utility/useTitle'
 import useCreateMutation from '@hook/article/useCreateMutation'
 
 import { ARTICLE_CREATE_MESSAGE } from '@config/constant'
@@ -19,6 +20,8 @@ const initialErrorData: TResponseError<IArticleSave> = {
 }
 
 const ArticleCreate = (): JSX.Element => {
+  useTitle('Create')
+
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
 
   const toast = useToast()
