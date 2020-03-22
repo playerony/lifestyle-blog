@@ -9,6 +9,8 @@ import calculateArticleVisitors from './calculateArticleVisitors'
 import calculateAllUniqueVisitors from './calculateAllUniqueVisitors'
 import calculateArticleListVisitors from './calculateArticleListVisitors'
 
+import { METRIC_CHART_RECORDS_LIMIT } from '@config/constant'
+
 import variable from '@style/variable'
 
 const getVisitorsChartData = (visitorList: IVisitor[]) => {
@@ -41,11 +43,11 @@ const getVisitorsChartData = (visitorList: IVisitor[]) => {
   const labels = Object.keys(visitorListGroupedByMonth)
     .map(element => visitorListGroupedByMonth[element][0])
     .map(visitor => formatDate(visitor.createdAt).slice(3))
-    .slice(-5)
+    .slice(METRIC_CHART_RECORDS_LIMIT)
 
   const data = Object.keys(visitorListGroupedByMonth)
     .map(element => visitorListGroupedByMonth[element].length)
-    .slice(-5)
+    .slice(METRIC_CHART_RECORDS_LIMIT)
 
   return {
     labels,

@@ -1,4 +1,4 @@
-import { groupBy } from 'lodash'
+import { groupBy, sortBy } from 'lodash'
 
 import ILog from '@type/log/ILog'
 
@@ -7,7 +7,7 @@ import formatDate from '@utility/formatDate'
 import variable from '@style/variable'
 
 export default (logList: ILog[]) => {
-  const logListGroupedByMonth = groupBy(logList, log => {
+  const logListGroupedByMonth = groupBy(sortBy(logList, 'createdAt'), log => {
     const date = new Date(log.createdAt!)
 
     return new Date(date.getFullYear(), date.getMonth()).getTime()
