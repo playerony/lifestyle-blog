@@ -13,7 +13,7 @@ import useTogglePublicFlag from '@hook/article/useTogglePublicFlag'
 import formatDate from '@utility/formatDate'
 
 import routeList from '@config/routeList'
-import { ARTICLE_TOGGLE_ERROR_MESSAGE } from '@config/constant'
+import { ARTICLE_TOGGLE_ERROR } from '@config/constant'
 
 import {
   StyledImage,
@@ -71,12 +71,8 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
   const handleVisibilityChange = async (): Promise<void> => {
     const result = await toggleArticlePublicFlag(articleId!, !visibility)
 
-    if (!result) {
-      return
-    }
-
-    if (Boolean(result.errors)) {
-      toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
+    if (!result || Boolean(result.errors)) {
+      toast.add(ARTICLE_TOGGLE_ERROR, EToastType.ERROR)
 
       return
     }
@@ -84,7 +80,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
     const isPublic = result?.data?.toggleArticlePublicFlag?.isPublic
 
     if (isPublic === undefined) {
-      toast.add(ARTICLE_TOGGLE_ERROR_MESSAGE, EToastType.ERROR)
+      toast.add(ARTICLE_TOGGLE_ERROR, EToastType.ERROR)
     } else {
       setVisibility(isPublic)
       toast.add(

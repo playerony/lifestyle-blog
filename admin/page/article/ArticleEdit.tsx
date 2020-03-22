@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import ArticleEditPage from '@component/article/ArticleEditPage'
 import { withErrorBoundary } from '@component/utility/ErrorBoundary'
 
+import EToastType from '@type/common/EToastType'
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
@@ -12,7 +13,7 @@ import useLoader from '@hook/context/useLoader'
 import useArticle from '@hook/article/useArticle'
 import useUpdateMutation from '@hook/article/useUpdateMutation'
 
-import { ARTICLE_EDIT_MESSAGE } from '@config/constant'
+import { ARTICLE_EDIT_SUCCESS, ARTICLE_EDIT_ERROR } from '@config/constant'
 
 const initialErrorData: TResponseError<IArticleSave> = {
   title: [],
@@ -39,12 +40,14 @@ const ArticleEdit = (): JSX.Element | null => {
     const response = await updateArticle(articleId, article)
 
     if (!response) {
+      toast.add(ARTICLE_EDIT_ERROR, EToastType.ERROR)
+
       return
     }
 
     const isError = Boolean(response.errors)
     if (!isError) {
-      toast.add(ARTICLE_EDIT_MESSAGE)
+      toast.add(ARTICLE_EDIT_SUCCESS)
     }
 
     setErrorData(
