@@ -21,7 +21,8 @@ export const UNAUTHENTICATED = 'UNAUTHENTICATED'
 export const VALIDATION_ERROR = 'VALIDATION_ERROR'
 export const INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR'
 
-export const BASE_DOCUMENT_TITLE = 'Paweł Wojtasiński - Admin |'
+export const BASE_DOCUMENT_TITLE =
+  'The Blog of Author Paweł Wojtasiński - Admin |'
 
 export const LOG_CHART_RECORDS_LIMIT = -5
 export const METRIC_CHART_RECORDS_LIMIT = -5
