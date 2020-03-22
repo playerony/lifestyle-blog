@@ -9,7 +9,8 @@ import useToast from '@hook/context/useToast'
 import useTitle from '@hook/utility/useTitle'
 import useCreateMutation from '@hook/article/useCreateMutation'
 
-import { ARTICLE_CREATE_MESSAGE } from '@config/constant'
+import { ARTICLE_CREATE_SUCCESS, ARTICLE_CREATE_ERROR } from '@config/constant'
+import EToastType from '@admin/type/common/EToastType'
 
 const initialErrorData: TResponseError<IArticleSave> = {
   title: [],
@@ -31,12 +32,14 @@ const ArticleCreate = (): JSX.Element => {
     const response = await createArticle(article)
 
     if (!response) {
+      toast.add(ARTICLE_CREATE_ERROR, EToastType.ERROR)
+
       return
     }
 
     const isError = Boolean(response.errors)
     if (!isError) {
-      toast.add(ARTICLE_CREATE_MESSAGE)
+      toast.add(ARTICLE_CREATE_SUCCESS)
     }
 
     setErrorData(

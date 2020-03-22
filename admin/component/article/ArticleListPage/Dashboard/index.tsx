@@ -77,7 +77,7 @@ const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
 
   return (
     <Container>
-      {React.Children.toArray(renderContent())}
+      {React.Children.toArray(renderContent()) as JSX.Element[]}
     </Container>
   )
 }

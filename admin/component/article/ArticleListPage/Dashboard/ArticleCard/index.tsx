@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 
 import Tooltip from '@component/common/Tooltip'
 
+import TChildren from '@type/common/TChildren'
 import EToastType from '@type/common/EToastType'
 import IArticleList from '@type/article/IArticleList'
 import { IArticleCardProps } from './ArticleCard.type'
@@ -45,7 +46,7 @@ const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX
   </StyledVisitorContentWrapper>
 )
 
-const renderCategoryList = ({ categoryList = [] }: IArticleList): JSX.Element[] =>
+const renderCategoryList = ({ categoryList = [] }: IArticleList): TChildren =>
   React.Children.toArray(
     categoryList.map(element => (
       <Tooltip title={element.name!}>

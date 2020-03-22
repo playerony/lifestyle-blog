@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
+import { ReactNode, ReactElement } from 'react'
 
 export interface IContainerProps {
-  children: string | ReactElement | ReactElement[]
+  children: ReactElement | Array<Exclude<ReactNode, boolean | null | undefined>>
 }

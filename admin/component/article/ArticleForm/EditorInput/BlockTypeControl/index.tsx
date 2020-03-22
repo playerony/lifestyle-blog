@@ -2,6 +2,7 @@ import React from 'react'
 
 import ControlButton from '../ControlButton'
 
+import TChildren from '@type/common/TChildren'
 import { IBlockTypeControlProps } from './BlockTypeControl.type'
 
 import { StyledLabel, StyledListWrapper } from './BlockTypeControl.style'
@@ -16,7 +17,7 @@ const BlockTypeControl = ({ editorState, onToggle }: IBlockTypeControlProps): JS
       .getBlockForKey(selection.getStartKey())
       .getType()
 
-  const renderBlockTypeList = (): JSX.Element[] =>
+  const renderBlockTypeList = (): TChildren =>
     React.Children.toArray(
       BLOCK_TYPE_LIST.map(({ label, style }) => (
         <ControlButton
