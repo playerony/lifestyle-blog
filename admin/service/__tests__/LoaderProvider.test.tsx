@@ -3,7 +3,7 @@ import { mount } from 'enzyme'
 
 import LoaderProvider from '../LoaderProvider'
 
-describe('ThemeProvider Provider', () => {
+describe('LoaderProvider Provider', () => {
   it('should render', () => {
     const wrapper = mount(<ComponentMock />, { wrappingComponent: LoaderProvider })
 

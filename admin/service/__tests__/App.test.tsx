@@ -19,6 +19,10 @@ jest.doMock('apollo-link-context', () => ({ setContext: () => new ApolloLinkMock
 jest.doMock('apollo-upload-client', () => ({ createUploadLink: () => new UploadLink() }))
 
 describe('App Component', () => {
+  beforeAll(() => {
+    window.scroll = jest.fn()
+  })
+
   it('render without crashing', () => {
     const App = require('../App').default
     const div = document.createElement('div');
