@@ -23,7 +23,7 @@ describe('LoginPageMobile Component', () => {
     const wrapper = mountComponent(<LoginPageMobile {...LOGIN_PAGE_PROPS_MOCK} />)
 
     expect(wrapper.find(LoginForm).props())
-      .toEqual({ onClick: jasmine.any(Function), errorData: ERROR_DATA_MOCK })
+      .toEqual({ onLoginDataChange: jasmine.any(Function), errorData: ERROR_DATA_MOCK, preventNextRequest: true })
   })
 })
 
@@ -33,6 +33,7 @@ const ERROR_DATA_MOCK: TResponseError<ILoginRequest> = {
 }
 
 const LOGIN_PAGE_PROPS_MOCK = {
-  onClick: jest.fn(),
-  errorData: ERROR_DATA_MOCK
+  preventNextRequest: true,
+  errorData: ERROR_DATA_MOCK,
+  onLoginDataChange: jest.fn()
 }

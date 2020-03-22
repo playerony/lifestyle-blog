@@ -22,7 +22,7 @@ const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element =>
     return (
       <Redirect
         to={{
-          pathname: error && Boolean(Memory.get(AUTH_TOKEN)) ? `${routeList.base}/error/500` : routeList.login
+          pathname: Boolean(error) && Boolean(Memory.get(AUTH_TOKEN)) ? `${routeList.base}/error/500` : routeList.login
         }}
       />
     )

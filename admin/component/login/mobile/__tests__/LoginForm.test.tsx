@@ -14,28 +14,31 @@ const onClickMock = jest.fn()
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
+const setUp = (): ReactWrapper =>
+  mountComponent(<LoginForm preventNextRequest={true} onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
+
 describe('LoginForm Component', () => {
   it('should render', () => {
-    const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+    const wrapper = setUp()
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render svg logo', () => {
-    const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+    const wrapper = setUp()
 
     expect(wrapper.find('use').props().xlinkHref).toEqual('#logo')
   })
 
   describe('inputs', () => {
     it('should render three inputs', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = setUp()
 
       expect(wrapper.find(Input)).toHaveLength(3)
     })
 
     it('should render login input', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = setUp()
 
       const inputProps = wrapper.find(Input).first().props()
       expect(inputProps.name).toEqual('login')
@@ -46,7 +49,7 @@ describe('LoginForm Component', () => {
     })
 
     it('should render password input', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = setUp()
 
       const inputProps = wrapper.find(Input).get(1).props
       expect(inputProps.onChange).toBeDefined()
@@ -58,7 +61,7 @@ describe('LoginForm Component', () => {
     })
 
     it('should render submit input', () => {
-      const wrapper = mountComponent(<LoginForm onClick={onClickMock} errorData={ERROR_DATA_MOCK} />)
+      const wrapper = setUp()
 
       const inputProps = wrapper.find(Input).last().props()
       expect(inputProps.disabled).toBeTruthy()
