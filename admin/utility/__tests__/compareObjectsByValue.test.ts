@@ -5,6 +5,10 @@ interface ICompareObject {
 }
 
 describe('compareObjectsByValue Function', () => {
+  it('import compareObjectsByValue', () => {
+    expect(typeof compareObjectsByValue).toEqual('function')
+  })
+
   describe('return 0 case', () => {
     it('if one of the objects does not exist', () => {
       const result = compareObjectsByValue<ICompareObject>('name')(

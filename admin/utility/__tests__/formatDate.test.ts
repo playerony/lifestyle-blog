@@ -1,6 +1,10 @@
 import formatDate from '../formatDate'
 
 describe('formatDate Function', () => {
+  it('import formatDate', () => {
+    expect(typeof formatDate).toEqual('function')
+  })
+
   it('should return default date if parameter is not provided', () => {
     expect(formatDate()).toBeDefined()
   })
