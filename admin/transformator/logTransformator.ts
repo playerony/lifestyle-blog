@@ -1,4 +1,4 @@
-import { groupBy, sortBy } from 'lodash'
+import { sortBy, groupBy } from 'lodash'
 
 import ILog from '@type/log/ILog'
 

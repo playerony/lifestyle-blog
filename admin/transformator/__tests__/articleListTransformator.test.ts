@@ -4,6 +4,10 @@ import IVisitor from '@type/visitor/IVisitor'
 import articleListTransformator from '../articleListTransformator'
 
 describe('articleListTransformator Transformator', () => {
+  it('import articleListTransformator', () => {
+    expect(typeof articleListTransformator).toEqual('function')
+  })
+
   it('should return empty array if no data passed', () => {
     expect(articleListTransformator()).toEqual([])
   })

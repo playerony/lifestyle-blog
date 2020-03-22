@@ -3,6 +3,10 @@ import IVisitor from '@type/visitor/IVisitor'
 import calculateAllUniqueVisitors from '../calculateAllUniqueVisitors'
 
 describe('calculateAllUniqueVisitors Function', () => {
+  it('import calculateAllUniqueVisitors', () => {
+    expect(typeof calculateAllUniqueVisitors).toEqual('function')
+  })
+
   it('should return zero for empty array', () => {
     const result = calculateAllUniqueVisitors([])
 

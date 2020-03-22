@@ -1,4 +1,4 @@
-import { groupBy } from 'lodash'
+import { sortBy, groupBy } from 'lodash'
 
 import IVisitor from '@type/visitor/IVisitor'
 
@@ -32,7 +32,7 @@ const getVisitorsChartData = (visitorList: IVisitor[]) => {
   )
 
   const visitorListGroupedByMonth = groupBy(
-    uniqueVisitorListElements,
+    sortBy(uniqueVisitorListElements, 'createdAt:'),
     visitor => {
       const date = new Date(visitor.createdAt!)
 

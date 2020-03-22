@@ -3,6 +3,10 @@ import IVisitor from '@type/visitor/IVisitor'
 import calculateMobileVisitors from '../calculateMobileVisitors'
 
 describe('calculateMobileVisitors Function', () => {
+  it('import calculateMobileVisitors', () => {
+    expect(typeof calculateMobileVisitors).toEqual('function')
+  })
+
   it('should return zero for empty array', () => {
     const result = calculateMobileVisitors([])
 
