@@ -41,9 +41,8 @@ const ReCaptchaProvider = ({ children, onVerify }: IReCaptchaProviderProps): JSX
     toast.add(CAPTCHA_EXIPRED_MESSAGE, EToastType.ERROR)
   }
 
-  const execute = (): void => {
+  const execute = (): void =>
     recaptchaRef.current?.execute()
-  }
 
   return (
     <ReCaptchaContext.Provider value={{ execute }}>

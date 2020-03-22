@@ -15,8 +15,8 @@ import ArticleCreatePage from '@page/article/ArticleCreate'
 
 import routeList from '@config/routeList'
 
-import StyledFadeAnimation from '@style/animation/slide'
 import { StyledAppWrapper } from './Routing.style'
+import StyledFadeAnimation from '@style/animation/slide'
 
 const ANIMATION_DURATION = 300
 const ANIMATION_NAME = 'router_fade'
