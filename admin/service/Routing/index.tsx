@@ -16,6 +16,7 @@ import ArticleCreatePage from '@page/article/ArticleCreate'
 import routeList from '@config/routeList'
 
 import StyledFadeAnimation from '@style/animation/slide'
+import { StyledAppWrapper } from './Routing.style'
 
 const ANIMATION_DURATION = 300
 const ANIMATION_NAME = 'router_fade'
@@ -33,7 +34,7 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
         classNames={ANIMATION_NAME}
         timeout={ANIMATION_DURATION}
       >
-        <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
+        <StyledAppWrapper>
           <ScrollToTop location={location}>
             <Switch location={location}>
               <Route exact={true} path={routeList.base}>
@@ -71,7 +72,7 @@ const Routing = ({ location }: RouteProps): JSX.Element => (
               </Route>
             </Switch>
           </ScrollToTop>
-        </div>
+        </StyledAppWrapper>
       </CSSTransition>
     </TransitionGroup>
   </StyledFadeAnimation>
