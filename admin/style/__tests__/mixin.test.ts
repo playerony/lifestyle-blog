@@ -18,6 +18,10 @@ import {
 
 describe('mixin Functions', () => {
   describe('linearGradient Function', () => {
+    it('import linearGradient', () => {
+      expect(typeof linearGradient).toEqual('function')
+    })
+
     it('should return background gradient with 3 versions without arguments', () => {
       const result = linearGradient('180deg')
 
@@ -53,6 +57,10 @@ describe('mixin Functions', () => {
   })
 
   describe('transition Function', () => {
+    it('import transition', () => {
+      expect(typeof transition).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = transition('all 500ms linear')
 
@@ -73,6 +81,10 @@ describe('mixin Functions', () => {
   })
 
   describe('animation Function', () => {
+    it('import animation', () => {
+      expect(typeof animation).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = animation('box1 500ms linear infinite')
 
@@ -93,6 +105,10 @@ describe('mixin Functions', () => {
   })
 
   describe('transform Function', () => {
+    it('import transform', () => {
+      expect(typeof transform).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = transform('translate(0, 100%)')
 
@@ -113,6 +129,10 @@ describe('mixin Functions', () => {
   })
 
   describe('transformOrigin Function', () => {
+    it('import transformOrigin', () => {
+      expect(typeof transformOrigin).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = transformOrigin('50% 50%')
 
@@ -133,6 +153,10 @@ describe('mixin Functions', () => {
   })
 
   describe('borderRadius Function', () => {
+    it('import borderRadius', () => {
+      expect(typeof borderRadius).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = borderRadius('50px')
 
@@ -149,6 +173,10 @@ describe('mixin Functions', () => {
   })
 
   describe('transformStyle Function', () => {
+    it('import transformStyle', () => {
+      expect(typeof transformStyle).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = transformStyle('50px')
 
@@ -169,6 +197,10 @@ describe('mixin Functions', () => {
   })
 
   describe('flexbox Function', () => {
+    it('import flexbox', () => {
+      expect(typeof flexbox).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = flexbox()
 
@@ -179,6 +211,10 @@ describe('mixin Functions', () => {
   })
 
   describe('alignItems Function', () => {
+    it('import alignItems', () => {
+      expect(typeof alignItems).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = alignItems('center')
 
@@ -199,6 +235,10 @@ describe('mixin Functions', () => {
   })
 
   describe('justifyContent Function', () => {
+    it('import justifyContent', () => {
+      expect(typeof justifyContent).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = justifyContent('center')
 
@@ -219,6 +259,10 @@ describe('mixin Functions', () => {
   })
 
   describe('flexDirection Function', () => {
+    it('import flexDirection', () => {
+      expect(typeof flexDirection).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = flexDirection('row')
 
@@ -237,6 +281,10 @@ describe('mixin Functions', () => {
   })
 
   describe('boxShadow Function', () => {
+    it('import boxShadow', () => {
+      expect(typeof boxShadow).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = boxShadow('0 2px 8px 2px rgba(0, 0, 0, 0.16)')
 
@@ -253,6 +301,10 @@ describe('mixin Functions', () => {
   })
 
   describe('flexWrap Function', () => {
+    it('import flexWrap', () => {
+      expect(typeof flexWrap).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = flexWrap('wrap')
 
@@ -271,6 +323,10 @@ describe('mixin Functions', () => {
   })
 
   describe('appearance Function', () => {
+    it('import appearance', () => {
+      expect(typeof appearance).toEqual('function')
+    })
+
     it('should return proper data', () => {
       const result = appearance('none')
 

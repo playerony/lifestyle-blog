@@ -5,6 +5,10 @@ import light from '../light'
 import EThemeMode from '@type/common/EThemeMode'
 
 describe('getTheme Function', () => {
+  it('import getTheme', () => {
+    expect(typeof getTheme).toEqual('function')
+  })
+
   it('should return dark theme', () => {
     expect(getTheme(EThemeMode.DARK)).toEqual(dark)
   })

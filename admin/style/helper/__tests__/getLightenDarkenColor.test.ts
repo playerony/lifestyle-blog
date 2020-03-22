@@ -1,6 +1,10 @@
 import getLightenDarkenColor from '../getLightenDarkenColor'
 
 describe('getLightenDarkenColor Function', () => {
+  it('import getLightenDarkenColor', () => {
+    expect(typeof getLightenDarkenColor).toEqual('function')
+  })
+
   it('should return darker color', () => {
     expect(getLightenDarkenColor('#444444', -2)).toEqual('#424242')
     expect(getLightenDarkenColor('#a345ba', -1)).toEqual('#a244b9')

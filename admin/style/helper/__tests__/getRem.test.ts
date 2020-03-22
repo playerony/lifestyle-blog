@@ -1,6 +1,10 @@
 import getRem from '../getRem'
 
 describe('getRem Function', () => {
+  it('import getRem', () => {
+    expect(typeof getRem).toEqual('function')
+  })
+
   it('should return rem value with unit', () => {
     expect(getRem(16)).toEqual('1rem')
     expect(getRem(20)).toEqual('1.25rem')
