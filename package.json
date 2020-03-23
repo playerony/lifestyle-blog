@@ -1,7 +1,7 @@
 {
   "name": "lifestyle-blog",
   "version": "1.0.0",
-  "description": "It's a code of my personal blog about lifestyle",
+  "description": "It's a code of my personal blog about lifestyle. Here is a backend and two app panels configured in the one project.",
   "scripts": {
     "admin:test": "npm run test --prefix admin",
     "server:test": "npm run test --prefix server",
@@ -20,7 +20,7 @@
     "blog"
   ],
   "author": "Paweł Wojtasiński",
-  "license": "MIT",
+  "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/playerony/lifestyle-blog/issues"
   },
