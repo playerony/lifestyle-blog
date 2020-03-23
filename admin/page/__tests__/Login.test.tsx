@@ -3,6 +3,9 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import ReCaptchaProvider from '@service/ReCaptchaProvider'
 
+const useTitleMock = jest.fn()
+
+jest.doMock('../../hook/utility/useTitle', () => useTitleMock)
 jest.doMock('../../hook/login/useLoginMutation', () => jest.fn())
 jest.doMock('../../component/login/mobile', () => LoginPageMobileMock)
 jest.mock('../../config/keys', () => ({
@@ -30,6 +33,12 @@ describe('Login Page', () => {
     const wrapper = setUp()
 
     expect(wrapper.exists()).toBeTruthy()
+  })
+
+  it('should set a proper document title', () => {
+    setUp()
+
+    expect(useTitleMock).toHaveBeenCalledWith('Login')
   })
 
   describe('Login Component', () => {
