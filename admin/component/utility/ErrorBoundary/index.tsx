@@ -11,10 +11,6 @@ class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> 
   }
 
   componentDidCatch(error: Error): void {
-    const { onError } = this.props
-
-    onError && onError(error)
-
     this.setState({ error })
   }
 
@@ -35,10 +31,9 @@ class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> 
 }
 
 export const withErrorBoundary = (
-  Component: ComponentType<any>,
-  onError?: (error: Error) => void
+  Component: ComponentType<any>
 ): Function => (props: any): JSX.Element => (
-  <ErrorBoundary onError={onError}>
+  <ErrorBoundary>
     <Component {...props} />
   </ErrorBoundary>
 )
