@@ -1,6 +1,3 @@
-# lifestyle-blog
-It's a code of my personal blog about lifestyle
-
 # ✨The Blog of Author Paweł Wojtasiński
 
 ## 📖Table of Contents
