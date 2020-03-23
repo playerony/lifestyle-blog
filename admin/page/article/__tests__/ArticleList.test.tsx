@@ -1,67 +1,142 @@
-import React from 'react'
-import { shallow } from 'enzyme'
+import React, { ReactElement } from 'react'
+import { mount, ReactWrapper } from 'enzyme'
+import { MemoryRouter } from 'react-router-dom'
+import { MockedProvider, wait } from '@apollo/react-testing'
 
-import ArticleListPage from '@component/article/ArticleListPage'
+import { ARTICLE_LIST_QUERY } from '@hook/article/useArticleList/useArticleList.query'
+import { VISITOR_LIST_QUERY } from '@hook/visitor/useVisitorList/useVisitorList.query'
 
-import IVisitor from '@type/visitor/IVisitor'
-import IArticle from '@type/article/IArticle'
+const useTitleMock = jest.fn()
+const toggleLoaderMock = jest.fn()
 
-jest.doMock('../../../hook/visitor/useVisitorList', () => () => ({ data: VISITOR_LIST_MOCK, loading: false }))
-jest.doMock('../../../hook/article/useArticleList', () => () => ({ data: ARTICLE_LIST_MOCK, loading: false }))
+jest.doMock('../../../hook/utility/useTitle', () => useTitleMock)
+jest.doMock('../../../component/article/ArticleListPage', () => ArticleListPageMock)
+jest.doMock('../../../hook/context/useLoader', () => () => ({ toggleLoader: toggleLoaderMock }))
+
+const mountComponent = (element: ReactElement): ReactWrapper =>
+  mount(
+    <MemoryRouter>
+      <MockedProvider mocks={ARTICLE_LIST_PAGE_MOCKS}>
+        {element}
+      </MockedProvider>
+    </MemoryRouter>
+  )
+
+const setUp = (): ReactWrapper => {
+  const ArticleList = require('../ArticleList').default
+
+  return mountComponent(<ArticleList />)
+}
 
 describe('ArticleList Page', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
-    const ArticleList = require('../ArticleList').default
-    const wrapper = shallow(<ArticleList />)
+    const wrapper = setUp()
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('should render ArticleListPage Component', () => {
-    const ArticleList = require('../ArticleList').default
-    const wrapper = shallow(<ArticleList />)
+  it('should set a proper document title', () => {
+    setUp()
 
-    expect(wrapper.exists(ArticleListPage)).toBeTruthy()
+    expect(useTitleMock).toHaveBeenLastCalledWith('Dashboard')
   })
 
-  it('should render ArticleListPage Component with proper data', () => {
-    const ArticleList = require('../ArticleList').default
-    const wrapper = shallow(<ArticleList />)
+  describe('loading data', () => {
+    it('should return null during data loading', () => {
+      const wrapper = setUp()
 
-    const articleListProps = wrapper.find(ArticleListPage).props()
+      expect(wrapper.html()).toEqual('')
+    })
 
-    expect(Object.keys(articleListProps)).toHaveLength(1)
-    expect(articleListProps.articleList).toHaveLength(1)
-    expect(articleListProps.articleList[0].todayVisitor).toEqual(0)
-    expect(articleListProps.articleList[0].totalVisitor).toEqual(1)
+    it('should render ArticleListPage Component after data loading', async () => {
+      const wrapper = setUp()
+
+      await wait(0)
+      wrapper.update()
+
+      expect(wrapper.exists(ArticleListPageMock)).toBeTruthy()
+    })
+
+    it('should render LogPage Component with proper prop', async () => {
+      const wrapper = setUp()
+
+      await wait(0)
+      wrapper.update()
+
+      const articleListPageProps: any = wrapper.find(ArticleListPageMock).props()
+
+      expect(Object.keys(articleListPageProps)).toHaveLength(1)
+      expect(articleListPageProps.articleList).toHaveLength(1)
+      expect(articleListPageProps.articleList[0].todayVisitor).toEqual(0)
+      expect(articleListPageProps.articleList[0].totalVisitor).toEqual(1)
+    })
+  })
+
+  it('should call toggleLoader function', () => {
+    setUp()
+
+    expect(toggleLoaderMock).toHaveBeenCalledWith(true)
   })
 })
 
-const ARTICLE_LIST_MOCK: IArticle[] = [
-  {
-    articleId: 1,
-    title: 'title',
-    description: 'description',
-    createdAt: new Date('2020'),
-    categoryList: [{
-      categoryId: 1,
-      name: 'name 1'
-    }],
-    image: {
-      photoUrl: 'photoUrl'
-    }
-  }
-]
+const ArticleListPageMock = (): JSX.Element => <h1>Article List Page</h1>
 
-const VISITOR_LIST_MOCK: IVisitor[] = [
+const VISITOR_LIST_RESULT_DATA = {
+  visitorList: [
+    {
+      articleId: 1,
+      userAgent: 'userAgent',
+      ipAddress: 'ipAddress',
+      createdAt: new Date('2020'),
+      __typename: 'Visitor'
+    },
+    {
+      articleId: 1,
+      userAgent: 'userAgent',
+      ipAddress: 'ipAddress',
+      createdAt: new Date('2019'),
+      __typename: 'Visitor'
+    }
+  ]
+}
+
+const ARTICLE_LIST_RESULT_DATA = {
+  articleList: [
+    {
+      articleId: 1,
+      title: 'title',
+      isPublic: true,
+      description: 'description',
+      createdAt: new Date('2020'),
+      categoryList: [{
+        categoryId: 1,
+        name: 'name 1',
+        __typename: 'Category'
+      }],
+      image: {
+        photoUrl: 'photoUrl',
+        __typename: 'Image'
+      },
+      __typename: 'Article'
+    },
+  ]
+}
+
+const ARTICLE_LIST_PAGE_MOCKS = [
   {
-    articleId: 1,
-    ipAddress: 'ipAddress',
-    createdAt: new Date('2020')
+    request: {
+      query: ARTICLE_LIST_QUERY
+    },
+    result: { data: ARTICLE_LIST_RESULT_DATA }
   },
   {
-    articleId: 1,
-    ipAddress: 'ipAddress',
-    createdAt: new Date('2019')
+    request: {
+      query: VISITOR_LIST_QUERY
+    },
+    result: { data: VISITOR_LIST_RESULT_DATA }
   }
 ]
