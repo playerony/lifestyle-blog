@@ -3,7 +3,6 @@ import { mount, ReactWrapper } from 'enzyme'
 
 import FabButton from '../FabButton'
 import { StyledElement } from '../FabButton/FabButton.style'
-
 import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>
@@ -25,7 +24,7 @@ describe('FabButton Component', () => {
   describe('menu trigger button', () => {
     it('should contain proper props', () => {
       const wrapper = mountComponent(<FabButton children={CHILDREN_PROP_MOCK} />)
-  
+
       const listElementProps = wrapper.find('li').last().props()
       expect(listElementProps.onClick).toBeDefined()
       expect(listElementProps.style).toEqual({ pointerEvents: 'all' })

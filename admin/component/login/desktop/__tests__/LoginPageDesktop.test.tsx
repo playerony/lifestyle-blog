@@ -6,7 +6,7 @@ import LoginPageDesktop from '..'
 import LoginForm from '../LoginForm'
 import LogoWrapper from '../LogoWrapper'
 
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import ArticleCreatePage from '@component/article/ArticleCreatePage'
 
+import EToastType from '@type/common/EToastType'
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
@@ -10,7 +11,6 @@ import useTitle from '@hook/utility/useTitle'
 import useCreateMutation from '@hook/article/useCreateMutation'
 
 import { ARTICLE_CREATE_SUCCESS, ARTICLE_CREATE_ERROR } from '@config/constant'
-import EToastType from '@admin/type/common/EToastType'
 
 const initialErrorData: TResponseError<IArticleSave> = {
   title: [],

@@ -3,7 +3,6 @@ import CustomSelect from 'react-select'
 import { mount, ReactWrapper } from 'enzyme'
 
 import Select from '../Select'
-
 import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>

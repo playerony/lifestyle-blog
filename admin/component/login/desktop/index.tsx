@@ -8,8 +8,8 @@ import ILoginForm from '@type/login/ILoginForm'
 
 import useTimeout from '@hook/utility/useTimeout'
 
-import { StyledContentWrapper } from './LoginPage.style'
 import StyledFadeAnimation from '@style/animation/fade'
+import { StyledContentWrapper } from './LoginPage.style'
 
 const LOGO_TIMEOUT = 2000
 const ANIMATION_DURATION = 400

@@ -25,19 +25,19 @@ export const StyledWrapper = styled.ul`
   `}
 `
 
-interface IStyledMenuElementProps {
+interface IStyledElementProps {
   index: number
   isVisible: boolean
 }
 
-export const StyledElement = styled.li<IStyledMenuElementProps>`
+export const StyledElement = styled.li<IStyledElementProps>`
   display: block;
   pointer-events: all;
   margin-bottom: ${variable.paddingSmall}px;
 
   ${transition('all 300ms linear')}
 
-  ${({ index, isVisible }: IStyledMenuElementProps) =>
+  ${({ index, isVisible }: IStyledElementProps) =>
     transform(
       `translateY(${
         isVisible
@@ -49,7 +49,7 @@ export const StyledElement = styled.li<IStyledMenuElementProps>`
   ${respondTo.mediumScreen`
     margin-bottom: ${variable.paddingSmall / 2}px;
 
-    ${({ index, isVisible }: IStyledMenuElementProps) =>
+    ${({ index, isVisible }: IStyledElementProps) =>
       transform(
         `translateY(${
           isVisible

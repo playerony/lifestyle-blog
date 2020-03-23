@@ -42,7 +42,7 @@ const LoginForm = ({ errorData, preventNextRequest, onLoginDataChange }: ILoginF
           disabled={preventNextRequest}
         >
           <svg>
-            <use xlinkHref="#left-arrow" />
+            <use xlinkHref="#right-arrow" />
           </svg>
         </StyledButton>
       </StyledInputWrapper>

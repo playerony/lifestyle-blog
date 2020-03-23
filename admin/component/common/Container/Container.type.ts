@@ -1,5 +1,5 @@
-import { ReactNode, ReactElement } from 'react'
+import TChildren from '@type/common/TChildren'
 
 export interface IContainerProps {
-  children: ReactElement | Array<Exclude<ReactNode, boolean | null | undefined>>
+  children: TChildren
 }

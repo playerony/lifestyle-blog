@@ -2,7 +2,6 @@ import React from 'react'
 import { mount, ReactWrapper } from 'enzyme'
 
 import Button from '../Button'
-
 import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 const mountComponent = (element: React.ReactElement): ReactWrapper =>

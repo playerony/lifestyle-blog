@@ -22,6 +22,10 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('LogPage Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
     const wrapper = mountComponent(<LogPage />)
 
@@ -33,12 +37,6 @@ describe('LogPage Component', () => {
 
     expect(wrapper.exists('h1')).toBeTruthy()
     expect(wrapper.find('h1').props().children).toEqual('Logs per month chart')
-  })
-
-  it('should render BackButton', () => {
-    const wrapper = mountComponent(<LogPage />)
-
-    expect(wrapper.exists(BackButton)).toBeTruthy()
   })
 
   describe('Chart Component', () => {
@@ -67,16 +65,22 @@ describe('LogPage Component', () => {
       const wrapper = mountComponent(<LogPage logList={LOG_LIST_MOCK} />)
 
       expect(wrapper.find(Bar).props().data).toEqual({
-        labels: ['05.2020', '04.2020'],
+        labels: ['04.2020', '05.2020'],
         datasets: [
           {
-            data: [2, 1],
+            data: [1, 2],
             label: 'Logs per month',
             backgroundColor: '#48adf1'
           }
         ]
       })
     })
+  })
+
+  it('should render BackButton', () => {
+    const wrapper = mountComponent(<LogPage />)
+
+    expect(wrapper.exists(BackButton)).toBeTruthy()
   })
 })
 

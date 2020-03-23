@@ -57,7 +57,6 @@ export const StyledButton = styled.button`
     height: 12px;
     fill: ${variable.color.gray700};
 
-    ${transform('rotate(180deg)')}
     ${transition('all 500ms linear')}
   }
 

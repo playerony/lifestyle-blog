@@ -4,7 +4,7 @@ import { mount, ReactWrapper } from 'enzyme'
 import LoginForm from '../LoginForm'
 import Input from '@component/generic/Input'
 
-import ThemeProviderMock from '@admin/component/utility/ThemeProviderMock'
+import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 import ILoginRequest from '@type/login/ILoginRequest'
 import TResponseError from '@type/common/TResponseError'
