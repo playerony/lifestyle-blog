@@ -75,23 +75,6 @@ describe('LogPage Page', () => {
 
     expect(toggleLoaderMock).toHaveBeenCalledWith(true)
   })
-
-  // it('should render LogPage Component', () => {
-  //   const Log = require('../Log').default
-  //   const wrapper = shallow(<Log />)
-
-  //   expect(wrapper.exists(LogPage)).toBeTruthy()
-  // })
-
-  // it('should render LogPage Component with proper data', () => {
-  //   const Log = require('../Log').default
-  //   const wrapper = shallow(<Log />)
-
-  //   const logPageProps = wrapper.find(LogPage).props()
-
-  //   expect(Object.keys(logPageProps)).toHaveLength(1)
-  //   expect(logPageProps.logList).toEqual(LOG_LIST_MOCK)
-  // })
 })
 
 const LogPageMock = (): JSX.Element => <h1>Log Page</h1>

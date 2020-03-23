@@ -1,13 +1,17 @@
 import React from 'react'
-import { shallow } from 'enzyme'
-
-import ArticleEditPage from '@component/article/ArticleEditPage'
+import { mount, ReactWrapper } from 'enzyme'
 
 import IArticle from '@type/article/IArticle'
 import IArticleSave from '@type/article/IArticleSave'
 import TResponseError from '@type/common/TResponseError'
 
+const useTitleMock = jest.fn()
+const toggleLoaderMock = jest.fn()
+
 jest.mock('../../../hook/article/useUpdateMutation')
+jest.doMock('../../../hook/utility/useTitle', () => useTitleMock)
+jest.doMock('../../../component/article/ArticleEditPage', () => ArticleEditPageMock)
+jest.doMock('../../../hook/context/useLoader', () => () => ({ toggleLoader: toggleLoaderMock }))
 jest.doMock('../../../hook/article/useArticle', () => () => ({ data: ARTICLE_MOCK, loading: false }))
 
 jest.mock('react-router-dom', () => {
@@ -20,26 +24,50 @@ jest.mock('react-router-dom', () => {
   }
 })
 
+const setUp = (): ReactWrapper => {
+  const ArticleEdit = require('../ArticleEdit').default
+
+  return mount(<ArticleEdit />)
+}
+
 describe('ArticleEdit Page', () => {
   it('should render', () => {
-    const ArticleEdit = require('../ArticleEdit').default
-    const wrapper = shallow(<ArticleEdit />)
+    const wrapper = setUp()
 
-    expect(wrapper.exists())
+    expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('should render ArticleEditPage Component with proper data', () => {
-    const ArticleEdit = require('../ArticleEdit').default
-    const wrapper = shallow(<ArticleEdit />)
+  it('should set a proper document title', () => {
+    setUp()
 
-    expect(wrapper.exists(ArticleEditPage)).toBeTruthy()
+    expect(useTitleMock).toHaveBeenCalledWith('Edit')
+  })
 
-    const articleEditPageProps = wrapper.find(ArticleEditPage).props()
-    expect(articleEditPageProps.onEdit).toBeDefined()
-    expect(articleEditPageProps.errorData).toEqual(ERROR_DATA)
-    expect(articleEditPageProps.initialData).toEqual(ARTICLE_MOCK)
+  describe('ArticleEditPage Component', () => {
+    it('should render', () => {
+      const wrapper = setUp()
+
+      expect(wrapper.exists(ArticleEditPageMock)).toBeTruthy()
+    })
+
+    it('should contain proper props', () => {
+      const wrapper = setUp()
+
+      const articleEditPageProps: any = wrapper.find(ArticleEditPageMock).props()
+      expect(articleEditPageProps.onEdit).toBeDefined()
+      expect(articleEditPageProps.errorData).toEqual(ERROR_DATA)
+      expect(articleEditPageProps.initialData).toEqual(ARTICLE_MOCK)
+    })
+  })
+
+  it('should call toggleLoader function', () => {
+    setUp()
+
+    expect(toggleLoaderMock).toHaveBeenLastCalledWith(false)
   })
 })
+
+const ArticleEditPageMock = (): JSX.Element => <h1>Article Edit Page</h1>
 
 const ARTICLE_MOCK: IArticle = {
   title: 'title',
