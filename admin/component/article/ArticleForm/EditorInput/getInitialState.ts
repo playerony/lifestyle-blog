@@ -1,7 +1,7 @@
 import { EditorState, convertFromRaw } from 'draft-js'
 
 export default (initialValue?: string): EditorState => {
-  if (!Boolean(initialValue)) {
+  if (!initialValue) {
     return EditorState.createEmpty()
   }
 

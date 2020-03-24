@@ -44,7 +44,7 @@ const Login = (): JSX.Element => {
       return
     }
 
-    if (!Boolean(response.errors)) {
+    if (!response.errors) {
       const token = response?.data?.login?.token
 
       Memory.set(AUTH_TOKEN, token)
@@ -52,7 +52,7 @@ const Login = (): JSX.Element => {
     }
 
     setErrorData(
-      Boolean(response.errors)
+      response.errors
         ? (response.errors! as TResponseError<ILoginRequest>)
         : initialErrorData
     )

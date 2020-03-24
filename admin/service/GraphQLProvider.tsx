@@ -38,7 +38,7 @@ const GraphQLProvider = ({ children }: IGraphQLProviderProps): JSX.Element => {
     },
     attempts: {
       max: 2,
-      retryIf: (error: string) => !Boolean(error)
+      retryIf: (error: string) => !error
     }
   })
 

@@ -1,0 +1,32 @@
+{
+  "env": {
+    "commonjs": true,
+    "node": true
+  },
+  "extends": [
+    "prettier",
+    "eslint:recommended",
+    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/eslint-recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+    "no-extra-semi": "off",
+    "no-unused-vars": "off",
+    "prettier/prettier": "warn",
+    "no-unexpected-multiline": "off"
+  }
+}
