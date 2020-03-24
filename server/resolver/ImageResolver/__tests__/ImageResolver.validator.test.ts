@@ -2,6 +2,10 @@ import { uploadImageValidation } from '../ImageResolver.validator'
 
 describe('ImageResolver.validator Functions', () => {
   describe('uploadImageValidation Function', () => {
+    it('import uploadImageValidation', () => {
+      expect(typeof uploadImageValidation).toEqual('function')
+    })
+
     describe('filename Field', () => {
       it('should contain proper validators', () => {
         const data = {

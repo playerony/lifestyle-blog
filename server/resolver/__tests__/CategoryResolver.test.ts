@@ -30,8 +30,8 @@ describe('CategoryResolver Resolver', () => {
 
 const CATEGORY_LIST_MOCK: CategoryType[] = [
   {
+    name: 'name',
     categoryId: 1,
-    name: 'Test name 1',
-    description: 'Test description 2'
+    description: 'description'
   }
 ]

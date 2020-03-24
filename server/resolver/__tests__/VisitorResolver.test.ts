@@ -32,13 +32,13 @@ const VISITOR_LIST_MOCK: VisitorType[] = [
   {
     visitorId: 1,
     articleId: 1,
-    userAgent: 'Mobile',
-    ipAddress: '192.192.192.192'
+    userAgent: 'userAgent',
+    ipAddress: 'ipAddress'
   },
   {
     visitorId: 2,
     articleId: 1,
-    userAgent: 'Desktop',
-    ipAddress: '194.194.194.194'
+    userAgent: 'userAgent',
+    ipAddress: 'ipAddress'
   }
 ]

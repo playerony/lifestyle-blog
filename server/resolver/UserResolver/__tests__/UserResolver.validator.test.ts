@@ -2,6 +2,10 @@ import { loginValidation, signupValidation } from '../UserResolver.validator'
 
 describe('UserResolver.validator Functions', () => {
   describe('loginValidation Function', () => {
+    it('import loginValidation', () => {
+      expect(typeof loginValidation).toEqual('function')
+    })
+
     it('should check if login and password value exist', () => {
       const data = { login: null, password: null }
 
@@ -97,6 +101,10 @@ describe('UserResolver.validator Functions', () => {
   })
 
   describe('signupValidation Function', () => {
+    it('import signupValidation', () => {
+      expect(typeof signupValidation).toEqual('function')
+    })
+
     it('should check if login and password value exist', () => {
       const data = { login: null, password: null }
 

@@ -7,6 +7,10 @@ import {
 
 describe('ArticleResolver.validator Functions', () => {
   describe('createArticleValidation Function', () => {
+    it('import createArticleValidation', () => {
+      expect(typeof createArticleValidation).toEqual('function')
+    })
+
     describe('imageId Field', () => {
       it('should contain proper validators', () => {
         const data = {
@@ -105,6 +109,10 @@ describe('ArticleResolver.validator Functions', () => {
   })
 
   describe('updateArticleValidation Function', () => {
+    it('import updateArticleValidation', () => {
+      expect(typeof updateArticleValidation).toEqual('function')
+    })
+
     describe('articleId Field', () => {
       it('should contain proper validators', () => {
         const data = {
@@ -222,6 +230,10 @@ describe('ArticleResolver.validator Functions', () => {
   })
 
   describe('articleByIdValidation Function', () => {
+    it('import articleByIdValidation', () => {
+      expect(typeof articleByIdValidation).toEqual('function')
+    })
+
     describe('articleId Field', () => {
       it('should contain proper validators', () => {
         const data = {
@@ -240,6 +252,10 @@ describe('ArticleResolver.validator Functions', () => {
   })
 
   describe('toggleArticlePublicFlagValidation Function', () => {
+    it('import toggleArticlePublicFlagValidation', () => {
+      expect(typeof toggleArticlePublicFlagValidation).toEqual('function')
+    })
+
     describe('articleId Field', () => {
       it('should contain proper validators', () => {
         try {
