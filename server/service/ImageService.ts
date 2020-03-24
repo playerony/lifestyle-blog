@@ -7,7 +7,6 @@ import { ImageModel, ImageType } from '@type/Image'
 
 import imageMapping from '@mapping/imageMapping'
 
-// no-async-promise-executor
 export default class ImageService {
   async upload(file: FileUpload, userId: number): Promise<ImageType> {
     const { createReadStream } = file

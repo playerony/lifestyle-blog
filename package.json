@@ -11,6 +11,10 @@
     "server": "npm start --prefix server",
     "start": "concurrently \"npm run server\" \"npm run admin\"",
 
+    "admin:lint": "npm run lint --prefix admin",
+    "server:lint": "npm run lint --prefix server",
+    "lint": "concurrently \"npm run server:lint\" \"npm run admin:lint\"",
+
     "format": "prettier --write \"**/*.{ts,tsx}\""
   },
   "repository": {
