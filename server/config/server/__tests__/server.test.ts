@@ -12,6 +12,10 @@ import waitForExpect from 'wait-for-expect'
 import initializeApp from '../app'
 
 describe('server Configuration', () => {
+  it('import createDatabaseConnection', () => {
+    expect(typeof initializeApp).toEqual('function')
+  })
+
   it('should called an app configuration file', async () => {
     require('../index').default()
 

@@ -22,6 +22,10 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 describe('MetricPage Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render without parameters', () => {
     const wrapper = mountComponent(<MetricPage />)
 

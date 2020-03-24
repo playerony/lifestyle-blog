@@ -23,7 +23,8 @@ describe('keys Object', () => {
     process.env.DATABASE_SERVER = 'DATABASE_SERVER'
     process.env.DATABASE_PASSWORD = 'DATABASE_PASSWORD'
 
-    process.env.HASH_SALT = '123'
+    process.env.HASH_SALT = '1000'
+    process.env.JWT_EXPIRES_IN = '1000'
     process.env.JWT_PREFIX = 'JWT_PREFIX'
     process.env.APP_SECRET = 'APP_SECRET'
     process.env.SERVER_PORT = 'SERVER_PORT'

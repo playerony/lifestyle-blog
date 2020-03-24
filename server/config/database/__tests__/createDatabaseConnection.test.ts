@@ -15,6 +15,10 @@ describe('createDatabaseConnection Configuration', () => {
     console.info = jest.fn()
   })
 
+  it('import createDatabaseConnection', () => {
+    expect(typeof createDatabaseConnection).toEqual('function')
+  })
+
   it('should authenticate connection with database', async () => {
     await createDatabaseConnection()
     const { sequelize } = require('../sequelize')
