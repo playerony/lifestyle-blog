@@ -5,7 +5,11 @@ import { UserModel } from '@type/User'
 let foundUserMock = jest.fn().mockImplementation(() => USER_MOCK)
 let createUserMock = jest.fn().mockImplementation(() => USER_MOCK)
 
-jest.mock('../../config/keys', () => ({ hashSalt: 12, appSecret: '123' }))
+jest.mock('../../config/keys', () => ({
+  hashSalt: 12,
+  appSecret: '123',
+  jwtExpiresIn: 500
+}))
 
 const setupSequelizeMock = (
   foundUser: Function = foundUserMock,
