@@ -1,6 +1,10 @@
 import isExist from '../isExist'
 
 describe('isExist Function', () => {
+  it('import isExist', () => {
+    expect(typeof isExist).toEqual('function')
+  })
+
   it('should return true if passed value is truthy', () => {
     expect(isExist([])).toBeTruthy()
     expect(isExist(132)).toBeTruthy()

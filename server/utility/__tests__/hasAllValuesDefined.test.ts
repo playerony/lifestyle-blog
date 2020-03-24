@@ -1,6 +1,10 @@
 import hasAllValuesDefined, { IInputData } from '../hasAllValuesDefined'
 
 describe('hasAllValuesDefined Function', () => {
+  it('import hasAllValuesDefined', () => {
+    expect(typeof hasAllValuesDefined).toEqual('function')
+  })
+
   describe('should return false', () => {
     it('when passed value is null', () => {
       const result = hasAllValuesDefined(null)

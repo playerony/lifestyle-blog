@@ -1,6 +1,10 @@
 import isNumber from '../isNumber'
 
 describe('isNumber Function', () => {
+  it('import isNumber', () => {
+    expect(typeof isNumber).toEqual('function')
+  })
+
   it('should return true if passed value is a number', () => {
     expect(isNumber(1)).toBeTruthy()
     expect(isNumber(0)).toBeTruthy()

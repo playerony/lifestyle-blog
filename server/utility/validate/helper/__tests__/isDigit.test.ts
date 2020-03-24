@@ -1,6 +1,10 @@
 import isDigit from '../isDigit'
 
 describe('isDigit Function', () => {
+  it('import isDigit', () => {
+    expect(typeof isDigit).toEqual('function')
+  })
+
   it('should return true if passed string contain digit', () => {
     expect(isDigit('123a')).toBeTruthy()
     expect(isDigit('aB1D')).toBeTruthy()

@@ -1,6 +1,10 @@
 import flatArray from '../flatArray'
 
 describe('flatArray Function', () => {
+  it('import flatArray', () => {
+    expect(typeof flatArray).toEqual('function')
+  })
+
   describe('should return an empty array', () => {
     it('if array is not defined', () => {
       const result = flatArray(undefined)

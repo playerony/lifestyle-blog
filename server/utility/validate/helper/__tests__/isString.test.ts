@@ -1,6 +1,10 @@
 import isString from '../isString'
 
 describe('isString Function', () => {
+  it('import isString', () => {
+    expect(typeof isString).toEqual('function')
+  })
+
   it('should return true if passed value`s type is a string', () => {
     expect(isString('')).toBeTruthy()
     expect(isString((123).toString())).toBeTruthy()

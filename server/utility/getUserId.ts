@@ -4,8 +4,7 @@ import { ForbiddenError } from 'apollo-server-express'
 import Context from '@type/Context'
 
 import keys from '@config/keys'
-
-const FORBIDDEN_ERROR_MESSAGE = 'Forbidden Error.'
+import { FORBIDDEN_ERROR_MESSAGE } from '@config/constant'
 
 export default ({ token }: Context): number => {
   if (!token) {

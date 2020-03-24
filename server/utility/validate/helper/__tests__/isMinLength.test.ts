@@ -1,6 +1,10 @@
 import isMinLength from '../isMinLength'
 
 describe('isMinLength Function', () => {
+  it('import isMinLength', () => {
+    expect(typeof isMinLength).toEqual('function')
+  })
+
   it('should pass if passed data`s length is correct', () => {
     expect(isMinLength('T', 1)).toBeTruthy()
     expect(isMinLength('Test', 1)).toBeTruthy()

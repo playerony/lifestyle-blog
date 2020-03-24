@@ -1,6 +1,10 @@
 import isLetter from '../isLetter'
 
 describe('isLetter Function', () => {
+  it('import isLetter', () => {
+    expect(typeof isLetter).toEqual('function')
+  })
+
   it('should return true if passed string contain small letter', () => {
     expect(isLetter('123a')).toBeTruthy()
     expect(isLetter('aBcD')).toBeTruthy()

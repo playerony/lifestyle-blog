@@ -1,6 +1,18 @@
-import { validate, check, isValid } from '../index'
+import { check, isValid, validate } from '../index'
 
 describe('validate Functions', () => {
+  it('import check', () => {
+    expect(typeof check).toEqual('function')
+  })
+
+  it('import isValid', () => {
+    expect(typeof isValid).toEqual('function')
+  })
+
+  it('import validate', () => {
+    expect(typeof validate).toEqual('function')
+  })
+
   it('should throw an error', () => {
     try {
       validate({}).check()

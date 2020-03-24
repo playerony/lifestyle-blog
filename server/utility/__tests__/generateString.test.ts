@@ -1,6 +1,10 @@
 import generateString from '../generateString'
 
 describe('generateString Function', () => {
+  it('import generateString', () => {
+    expect(typeof generateString).toEqual('function')
+  })
+
   it('should return at default random string with 50 characters', () => {
     expect(generateString()).toHaveLength(50)
     expect(generateString()).toHaveLength(50)

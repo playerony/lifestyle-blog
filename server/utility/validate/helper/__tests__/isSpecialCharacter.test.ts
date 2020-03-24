@@ -1,6 +1,10 @@
 import isSpecialCharacter from '../isSpecialCharacter'
 
 describe('isSpecialCharacter Function', () => {
+  it('import isSpecialCharacter', () => {
+    expect(typeof isSpecialCharacter).toEqual('function')
+  })
+
   it('should return true if passed string contain special character', () => {
     expect(isSpecialCharacter('1!3a')).toBeTruthy()
     expect(isSpecialCharacter('aB?D')).toBeTruthy()

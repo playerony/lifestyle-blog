@@ -1,6 +1,10 @@
 import isEqual from '../isEqual'
 
 describe('isEqual Function', () => {
+  it('import isEqual', () => {
+    expect(typeof isEqual).toEqual('function')
+  })
+
   it('should return true', () => {
     expect(isEqual([], [])).toBeTruthy()
     expect(isEqual(132, 132)).toBeTruthy()

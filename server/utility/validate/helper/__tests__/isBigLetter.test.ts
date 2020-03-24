@@ -1,6 +1,10 @@
 import isBigLetter from '../isBigLetter'
 
 describe('isBigLetter Function', () => {
+  it('import isBigLetter', () => {
+    expect(typeof isBigLetter).toEqual('function')
+  })
+
   it('should return true if passed string contain big letter', () => {
     expect(isBigLetter('123A')).toBeTruthy()
     expect(isBigLetter('aBcD')).toBeTruthy()

@@ -16,6 +16,10 @@ const getContext = (token: string): Context => ({
 })
 
 describe('getUserId Function', () => {
+  it('import getUserId', () => {
+    expect(typeof getUserId).toEqual('function')
+  })
+
   describe('should throw an error', () => {
     it('if passed token does not exist', () => {
       try {

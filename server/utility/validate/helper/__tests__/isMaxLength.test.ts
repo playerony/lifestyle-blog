@@ -1,6 +1,10 @@
 import isMaxLength from '../isMaxLength'
 
 describe('isMaxLength Function', () => {
+  it('import isMaxLength', () => {
+    expect(typeof isMaxLength).toEqual('function')
+  })
+
   it('should pass if passed data`s length is correct', () => {
     expect(isMaxLength('T', 3)).toBeTruthy()
     expect(isMaxLength('Test', 5)).toBeTruthy()

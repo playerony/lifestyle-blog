@@ -1,6 +1,10 @@
 import isArray from '../isArray'
 
 describe('isArray Function', () => {
+  it('import isArray', () => {
+    expect(typeof isArray).toEqual('function')
+  })
+
   it('should return true if passed value is an array', () => {
     expect(isArray([])).toBeTruthy()
     expect(isArray(new Array(10).fill(10))).toBeTruthy()
