@@ -1,4 +1,4 @@
-import { CategoryRecordResult } from '@type/Category'
+import { CategoryType } from '@type/Category'
 
 jest.doMock('sequelize', () => {
   const { dataTypes: DataTypes } = require('sequelize-test-helpers')
@@ -32,7 +32,7 @@ describe('CategoryService Service', () => {
   })
 })
 
-const CATEGORY_LIST_MOCK: CategoryRecordResult[] = [
+const CATEGORY_LIST_MOCK: CategoryType[] = [
   {
     categoryId: 1,
     name: 'Name 1',

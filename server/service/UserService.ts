@@ -28,7 +28,7 @@ export default class UserService {
     })
 
     const token = jwt.sign({ userId: createdUser.userId }, keys.appSecret!, {
-      expiresIn: 60 * 60 * 2
+      expiresIn: keys.jwtExpiresIn
     })
 
     return {
@@ -51,7 +51,7 @@ export default class UserService {
     }
 
     const token = jwt.sign({ userId: foundUser.userId }, keys.appSecret!, {
-      expiresIn: 60 * 60 * 2
+      expiresIn: keys.jwtExpiresIn
     })
 
     return {

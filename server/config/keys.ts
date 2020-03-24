@@ -11,6 +11,7 @@ interface IKeys {
   jwtPrefix?: string
   appSecret?: string
   serverPort?: string
+  jwtExpiresIn?: number
 
   adminUrl?: string
 
@@ -32,6 +33,7 @@ const config: IKeys = {
   appSecret: process.env.APP_SECRET,
   serverPort: process.env.SERVER_PORT,
   hashSalt: Number(process.env.HASH_SALT),
+  jwtExpiresIn: Number(process.env.JWT_EXPIRES_IN),
 
   adminUrl: process.env.ADMIN_URL,
 
