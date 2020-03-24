@@ -3,6 +3,10 @@ import imageMapping from '../imageMapping'
 import { ImageType, ImageModel } from '@type/Image'
 
 describe('imageMapping Mapping', () => {
+  it('import imageMapping', () => {
+    expect(typeof imageMapping).toEqual('function')
+  })
+
   it('should return proper object', () => {
     expect(imageMapping(INPUT_MOCK as any)).toEqual(OUTPUT_MOCK)
   })

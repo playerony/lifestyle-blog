@@ -3,6 +3,10 @@ import articleMapping from '../articleMapping'
 import { ArticleType, ArticleModel } from '@type/Article'
 
 describe('articleMapping Mapping', () => {
+  it('import articleMapping', () => {
+    expect(typeof articleMapping).toEqual('function')
+  })
+
   it('should return proper object', () => {
     expect(articleMapping(INPUT_MOCK as any)).toEqual(OUTPUT_MOCK)
   })

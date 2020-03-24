@@ -3,6 +3,10 @@ import logMapping from '../logMapping'
 import { LogType, LogModel } from '@type/Log'
 
 describe('logMapping Mapping', () => {
+  it('import logMapping', () => {
+    expect(typeof logMapping).toEqual('function')
+  })
+
   it('should return proper object', () => {
     expect(logMapping(INPUT_MOCK as any)).toEqual(OUTPUT_MOCK)
   })

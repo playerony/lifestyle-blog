@@ -3,6 +3,10 @@ import visitorMapping from '../visitorMapping'
 import { VisitorType, VisitorModel } from '@type/Visitor'
 
 describe('visitorMapping Mapping', () => {
+  it('import visitorMapping', () => {
+    expect(typeof visitorMapping).toEqual('function')
+  })
+
   it('should return proper object', () => {
     expect(visitorMapping(INPUT_MOCK as any)).toEqual(OUTPUT_MOCK)
   })
