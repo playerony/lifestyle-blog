@@ -7,13 +7,14 @@ jest.mock('../../config/keys', () => ({
   captchaKey: 'captchaKey'
 }))
 
-const mountComponent = (element: ReactElement): ReactWrapper =>
-  mount(element)
+const mountComponent = (element: ReactElement): ReactWrapper => mount(element)
 
 const setUp = (element: ReactElement): ReactWrapper => {
   const ReCaptchaProvider = require('../ReCaptchaProvider').default
 
-  return mountComponent(<ReCaptchaProvider onVerify={jest.fn()}>{element}</ReCaptchaProvider>)
+  return mountComponent(
+    <ReCaptchaProvider onVerify={jest.fn()}>{element}</ReCaptchaProvider>
+  )
 }
 
 describe('ReCaptchaProvider Provider', () => {

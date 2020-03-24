@@ -10,15 +10,10 @@ import { StyledArrowIcon } from './BackButton.style'
 const BackButton = (): JSX.Element => {
   const history = useHistory()
 
-  const handleButtonClick = (): void =>
-    history.push(routeList.article.list)
+  const handleButtonClick = (): void => history.push(routeList.article.list)
 
   return (
-    <Button
-      circle={true}
-      floating="left"
-      onClick={handleButtonClick}
-    >
+    <Button circle={true} floating="left" onClick={handleButtonClick}>
       <StyledArrowIcon>
         <use xlinkHref="#left-arrow" />
       </StyledArrowIcon>

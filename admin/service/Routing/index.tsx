@@ -1,6 +1,12 @@
 import React from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { Route, Switch, Redirect, withRouter, RouteProps } from 'react-router-dom'
+import {
+  Route,
+  Switch,
+  Redirect,
+  withRouter,
+  RouteProps
+} from 'react-router-dom'
 
 import LogPage from '@page/Log'
 import LoginPage from '@page/Login'

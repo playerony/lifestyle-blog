@@ -1,9 +1,11 @@
-
 import { useEffect } from 'react'
 
 import { IScrollToTopProps } from './ScrollToTop.type'
 
-const ScrollToTop = ({ location, children }: IScrollToTopProps): JSX.Element => {
+const ScrollToTop = ({
+  location,
+  children
+}: IScrollToTopProps): JSX.Element => {
   useEffect(() => {
     try {
       window.scroll({

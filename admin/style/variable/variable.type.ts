@@ -16,6 +16,6 @@ export interface IVariable {
   font: {
     normal: string
     bold: string
-  },
+  }
   breakpoint: IBreakpoint
 }

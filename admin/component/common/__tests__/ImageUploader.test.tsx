@@ -14,31 +14,46 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
 
 describe('ImageUploader Component', () => {
   it('should render', () => {
-    const wrapper = mountComponent(<ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />
+    )
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render image preview', () => {
-    const wrapper = mountComponent(<ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />
+    )
 
     expect(wrapper.find('img').props().src).toEqual('url')
   })
 
   it('should render button for upload', () => {
-    const wrapper = mountComponent(<ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />
+    )
 
-    expect(wrapper.find('div').last().props().onClick).toBeDefined()
+    expect(
+      wrapper
+        .find('div')
+        .last()
+        .props().onClick
+    ).toBeDefined()
   })
 
   it('should render error label', () => {
-    const wrapper = mountComponent(<ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />
+    )
 
     expect(wrapper.find('p').props().children).toEqual('Error message')
   })
 
   it('should render file input', () => {
-    const wrapper = mountComponent(<ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <ImageUploader {...IMAGE_UPLOADER_PROPS_MOCK} />
+    )
 
     const inputProps = wrapper.find('input').props()
     expect(inputProps.type).toEqual('file')

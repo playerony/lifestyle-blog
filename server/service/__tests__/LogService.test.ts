@@ -7,9 +7,7 @@ jest.doMock('sequelize', () => {
 
   class Model {
     public static init = jest.fn()
-    public static findAll = jest
-      .fn()
-      .mockImplementation(() => LOG_LIST_MOCK)
+    public static findAll = jest.fn().mockImplementation(() => LOG_LIST_MOCK)
   }
 
   return {

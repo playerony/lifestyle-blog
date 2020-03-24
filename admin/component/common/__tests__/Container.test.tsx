@@ -10,13 +10,21 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
 
 describe('Container Component', () => {
   it('should render', () => {
-    const wrapper = mountComponent(<Container><ComponentMock /></Container>)
+    const wrapper = mountComponent(
+      <Container>
+        <ComponentMock />
+      </Container>
+    )
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should wrap children with a div tags', () => {
-    const wrapper = mountComponent(<Container><ComponentMock /></Container>)
+    const wrapper = mountComponent(
+      <Container>
+        <ComponentMock />
+      </Container>
+    )
 
     expect(wrapper.find('div')).toHaveLength(1)
   })

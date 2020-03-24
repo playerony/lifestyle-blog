@@ -44,7 +44,12 @@ describe('MetricPage Component', () => {
     it('should render header', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find('h1').first().props().children).toEqual('Total visitors per month')
+      expect(
+        wrapper
+          .find('h1')
+          .first()
+          .props().children
+      ).toEqual('Total visitors per month')
     })
 
     it('should render Total visitors chart without a visitorList prop', () => {
@@ -64,7 +69,9 @@ describe('MetricPage Component', () => {
     })
 
     it('should render Total visitors chart with parsed data', () => {
-      const wrapper = mountComponent(<MetricPage visitorList={VISITOR_LIST_MOCK} />)
+      const wrapper = mountComponent(
+        <MetricPage visitorList={VISITOR_LIST_MOCK} />
+      )
 
       expect(wrapper.find(Bar).props().data).toEqual({
         datasets: [
@@ -84,19 +91,31 @@ describe('MetricPage Component', () => {
     it('should render', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find(Doughnut).first().exists()).toBeTruthy()
+      expect(
+        wrapper
+          .find(Doughnut)
+          .first()
+          .exists()
+      ).toBeTruthy()
     })
 
     it('should render header', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find('h1').get(1).props.children).toEqual('Visitors for the article and list page')
+      expect(wrapper.find('h1').get(1).props.children).toEqual(
+        'Visitors for the article and list page'
+      )
     })
 
     it('should render Total visitors chart without a visitorList prop', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find(Doughnut).first().props().data).toEqual({
+      expect(
+        wrapper
+          .find(Doughnut)
+          .first()
+          .props().data
+      ).toEqual({
         datasets: [
           {
             backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
@@ -108,9 +127,16 @@ describe('MetricPage Component', () => {
     })
 
     it('should render Total visitors chart with parsed data', () => {
-      const wrapper = mountComponent(<MetricPage visitorList={VISITOR_LIST_MOCK} />)
+      const wrapper = mountComponent(
+        <MetricPage visitorList={VISITOR_LIST_MOCK} />
+      )
 
-      expect(wrapper.find(Doughnut).first().props().data).toEqual({
+      expect(
+        wrapper
+          .find(Doughnut)
+          .first()
+          .props().data
+      ).toEqual({
         datasets: [
           {
             backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
@@ -126,19 +152,34 @@ describe('MetricPage Component', () => {
     it('should render', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find(Doughnut).last().exists()).toBeTruthy()
+      expect(
+        wrapper
+          .find(Doughnut)
+          .last()
+          .exists()
+      ).toBeTruthy()
     })
 
     it('should render header', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find('h1').last().props().children).toEqual('What devices users use')
+      expect(
+        wrapper
+          .find('h1')
+          .last()
+          .props().children
+      ).toEqual('What devices users use')
     })
 
     it('should render Devices chart without a visitorList prop', () => {
       const wrapper = mountComponent(<MetricPage />)
 
-      expect(wrapper.find(Doughnut).last().props().data).toEqual({
+      expect(
+        wrapper
+          .find(Doughnut)
+          .last()
+          .props().data
+      ).toEqual({
         datasets: [
           {
             backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
@@ -150,9 +191,16 @@ describe('MetricPage Component', () => {
     })
 
     it('should render Devices chart with parsed data', () => {
-      const wrapper = mountComponent(<MetricPage visitorList={VISITOR_LIST_MOCK} />)
+      const wrapper = mountComponent(
+        <MetricPage visitorList={VISITOR_LIST_MOCK} />
+      )
 
-      expect(wrapper.find(Doughnut).last().props().data).toEqual({
+      expect(
+        wrapper
+          .find(Doughnut)
+          .last()
+          .props().data
+      ).toEqual({
         datasets: [
           {
             backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
@@ -165,7 +213,9 @@ describe('MetricPage Component', () => {
   })
 
   it('should render BackButton', () => {
-    const wrapper = mountComponent(<MetricPage visitorList={VISITOR_LIST_MOCK} />)
+    const wrapper = mountComponent(
+      <MetricPage visitorList={VISITOR_LIST_MOCK} />
+    )
 
     expect(wrapper.exists(BackButton)).toBeTruthy()
   })

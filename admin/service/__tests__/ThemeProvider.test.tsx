@@ -16,7 +16,9 @@ jest.doMock('styled-components', () => ({
 describe('ThemeProvider Provider', () => {
   it('should render', () => {
     const ThemeProvider = require('../ThemeProvider').default
-    const wrapper = mount(<ComponentMock />, { wrappingComponent: ThemeProvider })
+    const wrapper = mount(<ComponentMock />, {
+      wrappingComponent: ThemeProvider
+    })
 
     expect(wrapper.exists()).toBeTruthy()
   })
@@ -36,7 +38,10 @@ describe('ThemeProvider Provider', () => {
   })
 })
 
-const ThemeProviderMock = ({ theme, children }: ThemeProviderProps<{}>): JSX.Element => {
+const ThemeProviderMock = ({
+  theme,
+  children
+}: ThemeProviderProps<{}>): JSX.Element => {
   themeMock(theme)
 
   return children as JSX.Element
@@ -56,11 +61,11 @@ const MANAGE_THEME_CONTEXT_MOCK = {
 
 const THEME_MOCK = {
   color: {
-    background: "#f8fbff",
-    border: "#999999",
-    card: "#ffffff",
-    icon: "#274f6f",
-    input: "#ffffff",
-    text: "#274f6f",
+    background: '#f8fbff',
+    border: '#999999',
+    card: '#ffffff',
+    icon: '#274f6f',
+    input: '#ffffff',
+    text: '#274f6f'
   }
 }

@@ -23,9 +23,7 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
 
   return (
     <Container>
-      <StyledHeader>
-        Total visitors per month
-      </StyledHeader>
+      <StyledHeader>Total visitors per month</StyledHeader>
       <StyledChartWrapper>
         <Bar data={visitorsChartData} />
       </StyledChartWrapper>

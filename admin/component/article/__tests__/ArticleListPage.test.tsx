@@ -6,7 +6,10 @@ import FabButton from '@component/generic/FabButton'
 import Dashboard from '../ArticleListPage/Dashboard'
 import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
-jest.mock('../../../hook/category/useCategoryList', () => () => ({ data: [], loading: true }))
+jest.mock('../../../hook/category/useCategoryList', () => () => ({
+  data: [],
+  loading: true
+}))
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom')
 
@@ -63,10 +66,19 @@ describe('ArticleListPage Component', () => {
       const ArticleListPage = require('../ArticleListPage').default
       const wrapper = mountComponent(<ArticleListPage articleList={[]} />)
 
-      const logButtonProps = wrapper.find(Button).first().props()
+      const logButtonProps = wrapper
+        .find(Button)
+        .first()
+        .props()
       expect(logButtonProps.circle).toBeTruthy()
       expect(logButtonProps.onClick).toBeDefined()
-      expect(wrapper.find(Button).first().find('use').props().xlinkHref).toEqual('#log')
+      expect(
+        wrapper
+          .find(Button)
+          .first()
+          .find('use')
+          .props().xlinkHref
+      ).toEqual('#log')
     })
 
     it('should render Metric Button', () => {
@@ -76,7 +88,12 @@ describe('ArticleListPage Component', () => {
       const logButtonProps = wrapper.find(Button).get(1).props
       expect(logButtonProps.circle).toBeTruthy()
       expect(logButtonProps.onClick).toBeDefined()
-      expect(wrapper.find('use').last().props().xlinkHref).toEqual('#metric')
+      expect(
+        wrapper
+          .find('use')
+          .last()
+          .props().xlinkHref
+      ).toEqual('#metric')
     })
 
     it('should render Create Article Button', () => {
@@ -93,7 +110,10 @@ describe('ArticleListPage Component', () => {
       const ArticleListPage = require('../ArticleListPage').default
       const wrapper = mountComponent(<ArticleListPage articleList={[]} />)
 
-      const logButtonProps = wrapper.find(Button).last().props()
+      const logButtonProps = wrapper
+        .find(Button)
+        .last()
+        .props()
       expect(logButtonProps.circle).toBeTruthy()
       expect(logButtonProps.children).toEqual('+')
     })

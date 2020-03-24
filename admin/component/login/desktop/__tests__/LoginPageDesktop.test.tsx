@@ -22,25 +22,36 @@ describe('LoginPageDesktop Component', () => {
   })
 
   it('should render', () => {
-    const wrapper = mountComponent(<LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />
+    )
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render LogoWrapper', () => {
-    const wrapper = mountComponent(<LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />
+    )
 
     expect(wrapper.exists(LogoWrapper)).toBeTruthy()
   })
 
   it('should render LoginForm', () => {
-    const wrapper = mountComponent(<LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <LoginPageDesktop {...LOGIN_PAGE_PROPS_MOCK} />
+    )
 
-    act(() => { jest.advanceTimersByTime(3000) })
+    act(() => {
+      jest.advanceTimersByTime(3000)
+    })
     wrapper.mount()
 
-    expect(wrapper.find(LoginForm).props())
-      .toEqual({ onLoginDataChange: jasmine.any(Function), errorData: ERROR_DATA_MOCK, preventNextRequest: true })
+    expect(wrapper.find(LoginForm).props()).toEqual({
+      onLoginDataChange: jasmine.any(Function),
+      errorData: ERROR_DATA_MOCK,
+      preventNextRequest: true
+    })
   })
 })
 

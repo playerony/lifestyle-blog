@@ -14,7 +14,10 @@ import { StyledToastListWrapper } from './ToastProvider.style'
 const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   const [toastList, setToastList] = useState<IToastProps[]>([])
 
-  const add = (message: string, type: EToastType = EToastType.SUCCESS): void => {
+  const add = (
+    message: string,
+    type: EToastType = EToastType.SUCCESS
+  ): void => {
     const toastId = generateUniqueID()
 
     setToastList([...toastList, { toastId, type, content: message }])
@@ -36,9 +39,7 @@ const ToastProvider = ({ children }: IToastProviderProps): JSX.Element => {
   return (
     <ToastContext.Provider value={{ add }}>
       {children}
-      <StyledToastListWrapper>
-        {renderToastList()}
-      </StyledToastListWrapper>
+      <StyledToastListWrapper>{renderToastList()}</StyledToastListWrapper>
     </ToastContext.Provider>
   )
 }

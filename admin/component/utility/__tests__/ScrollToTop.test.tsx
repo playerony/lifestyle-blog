@@ -10,7 +10,13 @@ const mountComponent = (element: ReactElement): ReactWrapper => {
   return mount(<ScrollToTop location={{} as any}>{element}</ScrollToTop>)
 }
 
-const setUp = ({ mockScroll, mockScrollTo }: { mockScroll?: boolean, mockScrollTo?: boolean }): ReactWrapper => {
+const setUp = ({
+  mockScroll,
+  mockScrollTo
+}: {
+  mockScroll?: boolean
+  mockScrollTo?: boolean
+}): ReactWrapper => {
   if (mockScroll) {
     window.scroll = scrollMock
   }

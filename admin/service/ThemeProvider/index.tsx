@@ -21,9 +21,7 @@ const ThemeProvider = ({ children }: IThemeProviderProps): JSX.Element => {
 
   return (
     <ThemeContext.Provider value={{ mode: themeMode, toggle }}>
-      <Provider theme={{ ...theme }}>
-        {children}
-      </Provider>
+      <Provider theme={{ ...theme }}>{children}</Provider>
     </ThemeContext.Provider>
   )
 }

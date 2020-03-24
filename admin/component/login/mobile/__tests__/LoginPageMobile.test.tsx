@@ -14,16 +14,23 @@ const mountComponent = (element: React.ReactElement): ReactWrapper =>
 
 describe('LoginPageMobile Component', () => {
   it('should render', () => {
-    const wrapper = mountComponent(<LoginPageMobile {...LOGIN_PAGE_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <LoginPageMobile {...LOGIN_PAGE_PROPS_MOCK} />
+    )
 
     expect(wrapper.exists()).toBeTruthy()
   })
 
   it('should render LoginForm', () => {
-    const wrapper = mountComponent(<LoginPageMobile {...LOGIN_PAGE_PROPS_MOCK} />)
+    const wrapper = mountComponent(
+      <LoginPageMobile {...LOGIN_PAGE_PROPS_MOCK} />
+    )
 
-    expect(wrapper.find(LoginForm).props())
-      .toEqual({ onLoginDataChange: jasmine.any(Function), errorData: ERROR_DATA_MOCK, preventNextRequest: true })
+    expect(wrapper.find(LoginForm).props()).toEqual({
+      onLoginDataChange: jasmine.any(Function),
+      errorData: ERROR_DATA_MOCK,
+      preventNextRequest: true
+    })
   })
 })
 

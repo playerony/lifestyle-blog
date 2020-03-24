@@ -20,14 +20,22 @@ describe('Switch Component', () => {
   it('should trigger onChange function', () => {
     const wrapper = mountComponent(<Switch onChange={onChangeMock} />)
 
-    wrapper.find('div').first().simulate('click')
+    wrapper
+      .find('div')
+      .first()
+      .simulate('click')
     expect(onChangeMock).toHaveBeenCalledWith(true)
   })
 
   it('should initial checked value with true', () => {
-    const wrapper = mountComponent(<Switch onChange={onChangeMock} initialValue={true} />)
+    const wrapper = mountComponent(
+      <Switch onChange={onChangeMock} initialValue={true} />
+    )
 
-    wrapper.find('div').first().simulate('click')
+    wrapper
+      .find('div')
+      .first()
+      .simulate('click')
     expect(onChangeMock).toHaveBeenCalledWith(false)
   })
 })

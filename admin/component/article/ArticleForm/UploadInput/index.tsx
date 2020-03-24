@@ -18,7 +18,7 @@ import {
 const UploadInput = ({
   imageUrl,
   onChange,
-  errorMessage: error,
+  errorMessage: error
 }: IUploadInputProps): JSX.Element => {
   const [errorMessage, setErrorMessage] = useState<string | undefined>(error)
 

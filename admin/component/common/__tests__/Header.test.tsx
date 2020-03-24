@@ -13,7 +13,10 @@ import { AUTH_TOKEN } from '@config/constant'
 jest.mock('../../../config/keys', () => ({
   cryptoKey: 'cryptoKey'
 }))
-jest.mock('../../../hook/context/useTheme', () => () => ({ mode: EThemeMode, toggle: jest.fn() }))
+jest.mock('../../../hook/context/useTheme', () => () => ({
+  mode: EThemeMode,
+  toggle: jest.fn()
+}))
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom')
 
@@ -51,14 +54,29 @@ describe('Header Component', () => {
       Memory.set(AUTH_TOKEN, 'AUTH_TOKEN')
       const wrapper = mountComponent(<Header />)
 
-      expect(wrapper.find('svg').first().props().onClick).toBeDefined()
-      expect(wrapper.find('use').first().props().xlinkHref).toEqual('#logo')
+      expect(
+        wrapper
+          .find('svg')
+          .first()
+          .props().onClick
+      ).toBeDefined()
+      expect(
+        wrapper
+          .find('use')
+          .first()
+          .props().xlinkHref
+      ).toEqual('#logo')
     })
 
     it('should not render', () => {
       const wrapper = mountComponent(<Header />)
 
-      expect(wrapper.find('use').first().props().xlinkHref).not.toEqual('#logo')
+      expect(
+        wrapper
+          .find('use')
+          .first()
+          .props().xlinkHref
+      ).not.toEqual('#logo')
     })
   })
 
@@ -92,14 +110,29 @@ describe('Header Component', () => {
       Memory.set(AUTH_TOKEN, 'AUTH_TOKEN')
       const wrapper = mountComponent(<Header />)
 
-      expect(wrapper.find('svg').last().props().onClick).toBeDefined()
-      expect(wrapper.find('use').last().props().xlinkHref).toEqual('#logout')
+      expect(
+        wrapper
+          .find('svg')
+          .last()
+          .props().onClick
+      ).toBeDefined()
+      expect(
+        wrapper
+          .find('use')
+          .last()
+          .props().xlinkHref
+      ).toEqual('#logout')
     })
 
     it('should not render', () => {
       const wrapper = mountComponent(<Header />)
 
-      expect(wrapper.find('use').last().props().xlinkHref).not.toEqual('#logout')
+      expect(
+        wrapper
+          .find('use')
+          .last()
+          .props().xlinkHref
+      ).not.toEqual('#logout')
     })
   })
 })

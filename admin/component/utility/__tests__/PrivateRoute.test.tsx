@@ -14,8 +14,16 @@ const createMemoryMock = (token: string | null): typeof jest => {
   return jest.doMock('../../../utility/Memory', () => MemoryMock)
 }
 
-const createAuthenticationMock = (isAuthenticated: boolean, error: any | undefined = undefined, loading: boolean = false): typeof jest =>
-  jest.doMock('../../../hook/login/useAuthenticated', () => () => ({ isAuthenticated, error, loading }))
+const createAuthenticationMock = (
+  isAuthenticated: boolean,
+  error: any | undefined = undefined,
+  loading: boolean = false
+): typeof jest =>
+  jest.doMock('../../../hook/login/useAuthenticated', () => () => ({
+    isAuthenticated,
+    error,
+    loading
+  }))
 
 const setUp = (): ReactWrapper => {
   const PrivateRoute = require('../PrivateRoute').default

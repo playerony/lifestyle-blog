@@ -12,14 +12,14 @@ import { StyledIcon } from './ArticleListPage.style'
 
 import routeList from '@config/routeList'
 
-const ArticleListPage = ({ articleList }: IArticleListPageProps): JSX.Element => {
+const ArticleListPage = ({
+  articleList
+}: IArticleListPageProps): JSX.Element => {
   const history = useHistory()
 
-  const handleLogPageRedirect = (): void =>
-    history.push(routeList.log)
+  const handleLogPageRedirect = (): void => history.push(routeList.log)
 
-  const handleMetricPageRedirect = (): void =>
-    history.push(routeList.metric)
+  const handleMetricPageRedirect = (): void => history.push(routeList.metric)
 
   const handleArticleCreatePageRedirect = (): void =>
     history.push(routeList.article.create)

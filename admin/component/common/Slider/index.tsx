@@ -5,11 +5,12 @@ import { ISliderProps } from './Slider.type'
 
 import { StyledWrapper } from './Slider.style'
 
-const SliderWrapper = ({ children, ...sliderProps }: ISliderProps): JSX.Element => (
+const SliderWrapper = ({
+  children,
+  ...sliderProps
+}: ISliderProps): JSX.Element => (
   <StyledWrapper>
-    <Slider {...sliderProps}>
-      {children}
-    </Slider>
+    <Slider {...sliderProps}>{children}</Slider>
   </StyledWrapper>
 )
 

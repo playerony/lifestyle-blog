@@ -34,7 +34,9 @@ const EditorInput = ({
   initialValue
 }: IEditorInputProps): JSX.Element => {
   const [isFocus, setIsFocus] = useState<boolean>(false)
-  const [editorState, setEditorState] = useState<EditorState>(getInitialState(initialValue))
+  const [editorState, setEditorState] = useState<EditorState>(
+    getInitialState(initialValue)
+  )
 
   useEffect(() => {
     const rawContentState = convertToRaw(editorState.getCurrentContent())
@@ -81,7 +83,7 @@ const EditorInput = ({
     setEditorState(RichUtils.toggleInlineStyle(editorState, inlineStyle))
 
   const myBlockRenderer = (contentBlock: ContentBlock): any => {
-    const type = contentBlock.getType();
+    const type = contentBlock.getType()
 
     if (type === 'image') {
       return {

@@ -10,7 +10,11 @@ import { IOption } from '@component/generic/Select/Select.type'
 
 import useCategoryList from '@hook/category/useCategoryList'
 
-const CategorySelect = ({ value, onChange, errorMessage }: ICategorySelectProps): JSX.Element => {
+const CategorySelect = ({
+  value,
+  onChange,
+  errorMessage
+}: ICategorySelectProps): JSX.Element => {
   const { data, loading } = useCategoryList()
 
   const getOptionList = (data?: ICategory[]): IOption[] => {
@@ -18,8 +22,10 @@ const CategorySelect = ({ value, onChange, errorMessage }: ICategorySelectProps)
       return []
     }
 
-    return data.map(({ categoryId, name }: ICategory) =>
-      ({ label: name!, value: categoryId!.toString() }))
+    return data.map(({ categoryId, name }: ICategory) => ({
+      label: name!,
+      value: categoryId!.toString()
+    }))
   }
 
   const handleChange = (value: ValueType<IOption>): void => {

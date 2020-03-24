@@ -10,14 +10,14 @@ const toggleLoaderMock = jest.fn()
 
 jest.doMock('../../hook/utility/useTitle', () => useTitleMock)
 jest.doMock('../../component/MetricPage', () => MetricPageMock)
-jest.doMock('../../hook/context/useLoader', () => () => ({ toggleLoader: toggleLoaderMock }))
+jest.doMock('../../hook/context/useLoader', () => () => ({
+  toggleLoader: toggleLoaderMock
+}))
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(
     <MemoryRouter>
-      <MockedProvider mocks={VISITOR_LIST_QUERY_MOCK}>
-        {element}
-      </MockedProvider>
+      <MockedProvider mocks={VISITOR_LIST_QUERY_MOCK}>{element}</MockedProvider>
     </MemoryRouter>
   )
 
@@ -66,7 +66,9 @@ describe('Metric Page', () => {
       await wait(0)
       wrapper.update()
 
-      expect((wrapper.find(MetricPageMock).props() as any).visitorList).toEqual(VISITOR_LIST_RESULT_DATA.visitorList)
+      expect((wrapper.find(MetricPageMock).props() as any).visitorList).toEqual(
+        VISITOR_LIST_RESULT_DATA.visitorList
+      )
     })
   })
 

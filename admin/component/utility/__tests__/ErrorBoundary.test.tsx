@@ -8,9 +8,7 @@ import ErrorBoundary from '../ErrorBoundary'
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(
     <MemoryRouter>
-      <ErrorBoundary>
-        {element}
-      </ErrorBoundary>
+      <ErrorBoundary>{element}</ErrorBoundary>
     </MemoryRouter>
   )
 

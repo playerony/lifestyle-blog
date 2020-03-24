@@ -9,13 +9,15 @@ import { StyledLabel, StyledListWrapper } from './BlockTypeControl.style'
 
 import BLOCK_TYPE_LIST from './blockTypeList'
 
-const BlockTypeControl = ({ editorState, onToggle }: IBlockTypeControlProps): JSX.Element => {
+const BlockTypeControl = ({
+  editorState,
+  onToggle
+}: IBlockTypeControlProps): JSX.Element => {
   const selection = editorState.getSelection()
-  const blockType =
-    editorState
-      .getCurrentContent()
-      .getBlockForKey(selection.getStartKey())
-      .getType()
+  const blockType = editorState
+    .getCurrentContent()
+    .getBlockForKey(selection.getStartKey())
+    .getType()
 
   const renderBlockTypeList = (): TChildren =>
     React.Children.toArray(
@@ -31,12 +33,8 @@ const BlockTypeControl = ({ editorState, onToggle }: IBlockTypeControlProps): JS
 
   return (
     <>
-      <StyledLabel>
-        Block type section
-      </StyledLabel>
-      <StyledListWrapper>
-        {renderBlockTypeList()}
-      </StyledListWrapper>
+      <StyledLabel>Block type section</StyledLabel>
+      <StyledListWrapper>{renderBlockTypeList()}</StyledListWrapper>
     </>
   )
 }

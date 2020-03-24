@@ -16,8 +16,9 @@ describe('useVisitorList Hook', () => {
   })
 
   it('should return undefined as data if loading status is true', () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={VISITOR_LIST_MOCK}>{children}</MockedProvider>
+    )
 
     const { result } = renderHook(() => useVisitorList(), { wrapper })
 
@@ -25,13 +26,19 @@ describe('useVisitorList Hook', () => {
   })
 
   it('should return proper data if loading status is false', async () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={VISITOR_LIST_MOCK}>{children}</MockedProvider>
+    )
 
-    const { result, waitForNextUpdate } = renderHook(() => useVisitorList(), { wrapper })
+    const { result, waitForNextUpdate } = renderHook(() => useVisitorList(), {
+      wrapper
+    })
 
     await waitForNextUpdate()
-    expect(result.current).toEqual({ data: VISITOR_LIST_RESULT_DATA.visitorList, loading: false })
+    expect(result.current).toEqual({
+      data: VISITOR_LIST_RESULT_DATA.visitorList,
+      loading: false
+    })
   })
 })
 

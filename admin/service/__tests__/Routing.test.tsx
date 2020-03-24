@@ -18,13 +18,15 @@ jest.mock('../../page/article/ArticleEdit', () => ArticleEditPageMock)
 jest.mock('../../page/article/ArticleCreate', () => ArticleCreatePageMock)
 
 jest.mock('react-router-dom', () => {
-  const originalModule = jest.requireActual('react-router-dom');
+  const originalModule = jest.requireActual('react-router-dom')
 
   return {
     __esModule: true,
     ...originalModule,
-    BrowserRouter: ({ children }: { children: React.ReactChild }) => <div>{children}</div>
-  };
+    BrowserRouter: ({ children }: { children: React.ReactChild }) => (
+      <div>{children}</div>
+    )
+  }
 })
 
 describe('Routing Service', () => {

@@ -26,8 +26,7 @@ const Header = (): JSX.Element => {
   const history = useHistory()
   const { mode, toggle } = useTheme()
 
-  const isAuthenticated = (): boolean =>
-    Boolean(Memory.get(AUTH_TOKEN))
+  const isAuthenticated = (): boolean => Boolean(Memory.get(AUTH_TOKEN))
 
   const handleLogoClick = (): void => {
     if (history.location.pathname !== routeList.article.list) {
@@ -52,10 +51,7 @@ const Header = (): JSX.Element => {
           <StyledSunIcon>
             <use xlinkHref="#sun" />
           </StyledSunIcon>
-          <Switch
-            onChange={toggle}
-            initialValue={mode === EThemeMode.DARK}
-          />
+          <Switch onChange={toggle} initialValue={mode === EThemeMode.DARK} />
           <StyledMoonIcon>
             <use xlinkHref="#moon" />
           </StyledMoonIcon>

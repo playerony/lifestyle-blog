@@ -5,7 +5,9 @@ import LoaderProvider from '../LoaderProvider'
 
 describe('LoaderProvider Provider', () => {
   it('should render', () => {
-    const wrapper = mount(<ComponentMock />, { wrappingComponent: LoaderProvider })
+    const wrapper = mount(<ComponentMock />, {
+      wrappingComponent: LoaderProvider
+    })
 
     expect(wrapper.exists()).toBeTruthy()
   })

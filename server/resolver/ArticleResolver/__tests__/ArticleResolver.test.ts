@@ -33,7 +33,7 @@ describe('ArticleResolver Resolver', () => {
     _ArticleService
       .update(Arg.any(), Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
-    
+
     _ArticleService
       .togglePublicFlag(Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)

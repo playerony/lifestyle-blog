@@ -26,7 +26,10 @@ describe('Select Component', () => {
       const label = 'Label text'
       const wrapper = mountComponent(<Select label={label} />)
 
-      const elementProps = wrapper.find('p').first().props()
+      const elementProps = wrapper
+        .find('p')
+        .first()
+        .props()
 
       expect(elementProps).toBeDefined()
       expect(elementProps.children).toEqual('Label text')
@@ -37,7 +40,10 @@ describe('Select Component', () => {
     it('should render at default', () => {
       const wrapper = mountComponent(<Select />)
 
-      const elementProps = wrapper.find('p').last().props()
+      const elementProps = wrapper
+        .find('p')
+        .last()
+        .props()
 
       expect(elementProps).toBeDefined()
       expect(elementProps.children).toEqual(undefined)
@@ -47,7 +53,10 @@ describe('Select Component', () => {
       const errorMessage = 'Error text'
       const wrapper = mountComponent(<Select errorMessage={errorMessage} />)
 
-      const elementProps = wrapper.find('p').last().props()
+      const elementProps = wrapper
+        .find('p')
+        .last()
+        .props()
 
       expect(elementProps).toBeDefined()
       expect(elementProps.children).toEqual(errorMessage)
@@ -73,7 +82,9 @@ describe('Select Component', () => {
 
       expect(wrapper.find(CustomSelect).props()).toBeDefined()
       expect(wrapper.find(CustomSelect).props().onClick).toBeDefined()
-      expect(wrapper.find(CustomSelect).props().placeholder).toEqual(placeholder)
+      expect(wrapper.find(CustomSelect).props().placeholder).toEqual(
+        placeholder
+      )
     })
   })
 })

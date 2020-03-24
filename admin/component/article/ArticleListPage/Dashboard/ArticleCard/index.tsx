@@ -34,7 +34,10 @@ import {
 const formatArticleNumber = ({ articleId }: IArticleList): string =>
   articleId!.toString().padStart(3, '0')
 
-const renderArticleVisitor = ({ totalVisitor, todayVisitor }: IArticleList): JSX.Element => (
+const renderArticleVisitor = ({
+  totalVisitor,
+  todayVisitor
+}: IArticleList): JSX.Element => (
   <StyledVisitorContentWrapper>
     <StyledEyeIcon>
       <use xlinkHref="#eye" />
@@ -58,7 +61,9 @@ const renderCategoryList = ({ categoryList = [] }: IArticleList): TChildren =>
   )
 
 const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
-  const [visibility, setVisibility] = useState<boolean>(Boolean(article.isPublic))
+  const [visibility, setVisibility] = useState<boolean>(
+    Boolean(article.isPublic)
+  )
 
   const toast = useToast()
   const history = useHistory()
@@ -107,9 +112,7 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
           <label>{description}</label>
         </StyledContentSection>
         <StyledContentFooter>
-          <div>
-            {renderCategoryList(article)}
-          </div>
+          <div>{renderCategoryList(article)}</div>
           <div>
             <StyledControlIcon onClick={handleVisibilityChange}>
               <use xlinkHref={`#${visibility ? 'visibility' : 'invisible'}`} />

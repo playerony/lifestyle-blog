@@ -29,7 +29,9 @@ const Login = (): JSX.Element => {
   useTitle('Login')
 
   const [loginData, setLoginData] = useState<ILoginRequest>(initialLoginData)
-  const [errorData, setErrorData] = useState<TResponseError<ILoginRequest>>(initialErrorData)
+  const [errorData, setErrorData] = useState<TResponseError<ILoginRequest>>(
+    initialErrorData
+  )
 
   const history = useHistory()
   const login = useLoginMutation()
@@ -51,12 +53,13 @@ const Login = (): JSX.Element => {
 
     setErrorData(
       Boolean(response.errors)
-        ? response.errors! as TResponseError<ILoginRequest>
+        ? (response.errors! as TResponseError<ILoginRequest>)
         : initialErrorData
     )
   }
 
-  const preventNextRequest = (): boolean => isEqual(loginData, previousLoginData || initialLoginData)
+  const preventNextRequest = (): boolean =>
+    isEqual(loginData, previousLoginData || initialLoginData)
 
   const onLoginDataChange = (data: Partial<ILoginRequest>): void =>
     setLoginData(prev => ({ ...prev, ...data }))
@@ -65,7 +68,12 @@ const Login = (): JSX.Element => {
     <ReCaptchaProvider onVerify={handleLogin}>
       {React.createElement(
         isMobileResolution() ? LoginPageMobile : LoginPageDesktop,
-        { errorData, onLoginDataChange, preventNextRequest: preventNextRequest() })}
+        {
+          errorData,
+          onLoginDataChange,
+          preventNextRequest: preventNextRequest()
+        }
+      )}
     </ReCaptchaProvider>
   )
 }

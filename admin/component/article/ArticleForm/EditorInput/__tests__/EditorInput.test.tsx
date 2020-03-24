@@ -26,10 +26,17 @@ describe('EditorInput Component', () => {
     })
 
     it('should render', () => {
-      const wrapper = mountComponent(<EditorInput label="Label" onChange={jest.fn()} />)
+      const wrapper = mountComponent(
+        <EditorInput label="Label" onChange={jest.fn()} />
+      )
 
       expect(wrapper.find('p')).toHaveLength(2)
-      expect(wrapper.find('p').first().props().children).toEqual('Label')
+      expect(
+        wrapper
+          .find('p')
+          .first()
+          .props().children
+      ).toEqual('Label')
     })
   })
 
@@ -78,7 +85,9 @@ describe('EditorInput Component', () => {
     })
 
     it('should render', () => {
-      const wrapper = mountComponent(<EditorInput errorMessage="Error" onChange={jest.fn()} />)
+      const wrapper = mountComponent(
+        <EditorInput errorMessage="Error" onChange={jest.fn()} />
+      )
 
       expect(wrapper.find('p')).toHaveLength(1)
       expect(wrapper.find('p').props().children).toEqual('Error')

@@ -9,15 +9,20 @@ import useToast from '@hook/context/useToast'
 import { ReCaptchaContext } from '@context/ReCaptcha'
 
 import keys from '@config/keys'
-import { CAPTCHA_ERROR_MESSAGE, CAPTCHA_EXIPRED_MESSAGE } from '@config/constant'
+import {
+  CAPTCHA_ERROR_MESSAGE,
+  CAPTCHA_EXIPRED_MESSAGE
+} from '@config/constant'
 
 const recaptchaRef: LegacyRef<ReCAPTCHA> = React.createRef()
 
-const ReCaptchaProvider = ({ children, onVerify }: IReCaptchaProviderProps): JSX.Element => {
+const ReCaptchaProvider = ({
+  children,
+  onVerify
+}: IReCaptchaProviderProps): JSX.Element => {
   const toast = useToast()
 
-  const captchaReset = (): void =>
-    recaptchaRef.current?.reset()
+  const captchaReset = (): void => recaptchaRef.current?.reset()
 
   const handleReCaptchaChange = (value: string | null): void => {
     captchaReset()
@@ -41,8 +46,7 @@ const ReCaptchaProvider = ({ children, onVerify }: IReCaptchaProviderProps): JSX
     toast.add(CAPTCHA_EXIPRED_MESSAGE, EToastType.ERROR)
   }
 
-  const execute = (): void =>
-    recaptchaRef.current?.execute()
+  const execute = (): void => recaptchaRef.current?.execute()
 
   return (
     <ReCaptchaContext.Provider value={{ execute }}>

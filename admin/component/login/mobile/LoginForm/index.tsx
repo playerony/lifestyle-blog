@@ -10,10 +10,16 @@ import getFieldError from '@utility/getFieldError'
 
 import { StyledContentWrapper, StyledForm } from './LoginForm.style'
 
-const LoginForm = ({ errorData, onLoginDataChange, preventNextRequest }: ILoginForm): JSX.Element => {
+const LoginForm = ({
+  errorData,
+  onLoginDataChange,
+  preventNextRequest
+}: ILoginForm): JSX.Element => {
   const { execute } = useReCaptcha()
 
-  const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
+  const handleInputChange = ({
+    target: { name, value }
+  }: ChangeEvent<HTMLInputElement>): void =>
     onLoginDataChange({ [name]: value })
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {

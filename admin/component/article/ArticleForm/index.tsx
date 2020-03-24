@@ -31,11 +31,16 @@ const getInitialData = (initialData?: IArticle): IArticleSave => {
     content: initialData.content || '',
     description: initialData.description || '',
     imageId: initialData.image?.imageId || null,
-    categoryIdList: initialData.categoryList?.map(element => element.categoryId!) || []
+    categoryIdList:
+      initialData.categoryList?.map(element => element.categoryId!) || []
   }
 }
 
-const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX.Element => {
+const ArticleForm = ({
+  onSave,
+  errorData,
+  initialData
+}: IArticleFormProps): JSX.Element => {
   const [state, setState] = useState<IArticleSave>(getInitialData(initialData))
 
   const changeState = (value: Partial<IArticleSave>): void =>
@@ -50,11 +55,11 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
   const handleCategoryChange = (categoryIdList: number[]): void =>
     changeState({ categoryIdList })
 
-  const handleInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
-    changeState({ [name]: value })
+  const handleInputChange = ({
+    target: { name, value }
+  }: ChangeEvent<HTMLInputElement>): void => changeState({ [name]: value })
 
-  const handleArticleSaveClick = (): void =>
-    onSave(state)
+  const handleArticleSaveClick = (): void => onSave(state)
 
   return (
     <>
@@ -89,11 +94,7 @@ const ArticleForm = ({ onSave, errorData, initialData }: IArticleFormProps): JSX
         errorMessage={getFieldError<IArticleSave>(errorData, 'content')}
       />
       <BackButton />
-      <Button
-        circle={true}
-        floating="right"
-        onClick={handleArticleSaveClick}
-      >
+      <Button circle={true} floating="right" onClick={handleArticleSaveClick}>
         +
       </Button>
     </>

@@ -28,3 +28,7 @@ You need to have installed the following software:
 ### Test
 
 - `test` - Run tests
+
+### Analyze
+
+- `format` - Run `prettier` to format *.ts and *.tsx files

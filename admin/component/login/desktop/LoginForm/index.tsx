@@ -8,12 +8,23 @@ import useReCaptcha from '@hook/context/useReCaptcha'
 
 import getFieldError from '@utility/getFieldError'
 
-import { StyledHeader, StyledWrapper, StyledInputWrapper, StyledButton } from './LoginForm.style'
+import {
+  StyledHeader,
+  StyledWrapper,
+  StyledInputWrapper,
+  StyledButton
+} from './LoginForm.style'
 
-const LoginForm = ({ errorData, preventNextRequest, onLoginDataChange }: ILoginForm): JSX.Element => {
+const LoginForm = ({
+  errorData,
+  preventNextRequest,
+  onLoginDataChange
+}: ILoginForm): JSX.Element => {
   const { execute } = useReCaptcha()
 
-  const onInputChange = ({ target: { name, value } }: ChangeEvent<HTMLInputElement>): void =>
+  const onInputChange = ({
+    target: { name, value }
+  }: ChangeEvent<HTMLInputElement>): void =>
     onLoginDataChange({ [name]: value })
 
   return (
@@ -37,10 +48,7 @@ const LoginForm = ({ errorData, preventNextRequest, onLoginDataChange }: ILoginF
           placeholder="What is your password?"
           errorMessage={getFieldError(errorData, 'password')}
         />
-        <StyledButton
-          onClick={execute}
-          disabled={preventNextRequest}
-        >
+        <StyledButton onClick={execute} disabled={preventNextRequest}>
           <svg>
             <use xlinkHref="#right-arrow" />
           </svg>

@@ -9,7 +9,10 @@ import { StyledLabel, StyledListWrapper } from './InlineStyleControl.style'
 
 import INLINE_STYLE_LIST from './inlineStyleList'
 
-const InlineStyleControl = ({ editorState, onToggle }: IInlineStyleControlProps): JSX.Element => {
+const InlineStyleControl = ({
+  editorState,
+  onToggle
+}: IInlineStyleControlProps): JSX.Element => {
   const currentStyle = editorState.getCurrentInlineStyle()
 
   const renderInlineStyleList = (): TChildren =>
@@ -26,12 +29,8 @@ const InlineStyleControl = ({ editorState, onToggle }: IInlineStyleControlProps)
 
   return (
     <>
-      <StyledLabel>
-        Inline style section
-      </StyledLabel>
-      <StyledListWrapper>
-        {renderInlineStyleList()}
-      </StyledListWrapper>
+      <StyledLabel>Inline style section</StyledLabel>
+      <StyledListWrapper>{renderInlineStyleList()}</StyledListWrapper>
     </>
   )
 }

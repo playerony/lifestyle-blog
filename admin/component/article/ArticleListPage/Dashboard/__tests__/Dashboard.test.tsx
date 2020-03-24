@@ -5,7 +5,10 @@ import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 import IArticleList from '@type/article/IArticleList'
 
 jest.doMock('../ArticleList', () => ArticleListMock)
-jest.mock('../../../../../hook/category/useCategoryList', () => () => ({ data: [], loading: true }))
+jest.mock('../../../../../hook/category/useCategoryList', () => () => ({
+  data: [],
+  loading: true
+}))
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
@@ -13,7 +16,9 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
 describe('Dashboard Component', () => {
   it('should render', () => {
     const Dashboard = require('../index').default
-    const wrapper = mountComponent(<Dashboard articleList={ARTICLE_LIST_MOCK} />)
+    const wrapper = mountComponent(
+      <Dashboard articleList={ARTICLE_LIST_MOCK} />
+    )
 
     expect(wrapper.exists()).toBeTruthy()
   })
@@ -37,11 +42,13 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     },
     description: 'description',
     createdAt: new Date('2020'),
-    categoryList: [{
-      name: 'name',
-      categoryId: 1,
-      description: 'description'
-    }]
+    categoryList: [
+      {
+        name: 'name',
+        categoryId: 1,
+        description: 'description'
+      }
+    ]
   },
   {
     userId: 1,
@@ -58,10 +65,12 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     },
     description: 'description',
     createdAt: new Date('2020'),
-    categoryList: [{
-      name: 'name',
-      categoryId: 1,
-      description: 'description'
-    }]
+    categoryList: [
+      {
+        name: 'name',
+        categoryId: 1,
+        description: 'description'
+      }
+    ]
   }
 ]

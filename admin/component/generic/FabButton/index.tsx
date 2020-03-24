@@ -7,8 +7,7 @@ import { StyledWrapper, StyledElement } from './FabButton.style'
 const FabButton = ({ children }: IFabButtonProps): JSX.Element => {
   const [visibility, setVisibility] = useState<boolean>(false)
 
-  const toggleVisibility = (): void =>
-    setVisibility(prev => !prev)
+  const toggleVisibility = (): void => setVisibility(prev => !prev)
 
   const renderContent = (): JSX.Element[] => {
     const elements = children.length
@@ -33,9 +32,7 @@ const FabButton = ({ children }: IFabButtonProps): JSX.Element => {
   }
 
   return (
-    <StyledWrapper>
-      {React.Children.toArray(renderContent())}
-    </StyledWrapper>
+    <StyledWrapper>{React.Children.toArray(renderContent())}</StyledWrapper>
   )
 }
 

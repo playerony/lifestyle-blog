@@ -15,7 +15,9 @@ jest.mock('react-router-dom', () => {
   }
 })
 
-jest.doMock('../../../../../hook/article/useTogglePublicFlag', () => () => ARTICLE_MOCK)
+jest.doMock('../../../../../hook/article/useTogglePublicFlag', () => () =>
+  ARTICLE_MOCK
+)
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
@@ -57,35 +59,61 @@ describe('ArticleCard Component', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('header').find('p').first().props().children).toEqual('001')
+        expect(
+          wrapper
+            .find('header')
+            .find('p')
+            .first()
+            .props().children
+        ).toEqual('001')
       })
 
       it('should render eye icon', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('header').find('use').props().xlinkHref).toEqual('#eye')
+        expect(
+          wrapper
+            .find('header')
+            .find('use')
+            .props().xlinkHref
+        ).toEqual('#eye')
       })
 
       it('should render number of total article visitors', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('header').find('p').get(1).props.children).toEqual(1)
+        expect(
+          wrapper
+            .find('header')
+            .find('p')
+            .get(1).props.children
+        ).toEqual(1)
       })
 
       it('should render number of today article visitors', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('header').find('p').get(2).props.children).toEqual('(+1)')
+        expect(
+          wrapper
+            .find('header')
+            .find('p')
+            .get(2).props.children
+        ).toEqual('(+1)')
       })
 
       it('should render date of article creation', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('header').find('p').get(3).props.children).toEqual('01.01.2020')
+        expect(
+          wrapper
+            .find('header')
+            .find('p')
+            .get(3).props.children
+        ).toEqual('01.01.2020')
       })
     })
 
@@ -101,14 +129,26 @@ describe('ArticleCard Component', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('section').last().find('h1').props().children).toEqual('title')
+        expect(
+          wrapper
+            .find('section')
+            .last()
+            .find('h1')
+            .props().children
+        ).toEqual('title')
       })
 
       it('should render article description', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('section').last().find('label').props().children).toEqual('description')
+        expect(
+          wrapper
+            .find('section')
+            .last()
+            .find('label')
+            .props().children
+        ).toEqual('description')
       })
     })
 
@@ -124,14 +164,26 @@ describe('ArticleCard Component', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('footer').find('div').first().props().children).toHaveLength(1)
+        expect(
+          wrapper
+            .find('footer')
+            .find('div')
+            .first()
+            .props().children
+        ).toHaveLength(1)
       })
 
       it('should render visibility and edit icons', () => {
         const ArticleCard = require('../ArticleCard').default
         const wrapper = mountComponent(<ArticleCard article={ARTICLE_MOCK} />)
 
-        expect(wrapper.find('footer').find('div').last().props().children).toHaveLength(2)
+        expect(
+          wrapper
+            .find('footer')
+            .find('div')
+            .last()
+            .props().children
+        ).toHaveLength(2)
       })
     })
   })
@@ -152,9 +204,11 @@ const ARTICLE_MOCK: Required<IArticleList> = {
   },
   description: 'description',
   createdAt: new Date('2020'),
-  categoryList: [{
-    name: 'name',
-    categoryId: 1,
-    description: 'description'
-  }]
+  categoryList: [
+    {
+      name: 'name',
+      categoryId: 1,
+      description: 'description'
+    }
+  ]
 }

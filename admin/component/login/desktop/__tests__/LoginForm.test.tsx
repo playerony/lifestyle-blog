@@ -15,7 +15,13 @@ const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 const setUp = (): ReactWrapper =>
-  mountComponent(<LoginForm preventNextRequest={true} onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
+  mountComponent(
+    <LoginForm
+      preventNextRequest={true}
+      onLoginDataChange={onClickMock}
+      errorData={ERROR_DATA_MOCK}
+    />
+  )
 
 describe('LoginForm Component', () => {
   it('should render', () => {
@@ -40,7 +46,10 @@ describe('LoginForm Component', () => {
     it('should render login input', () => {
       const wrapper = setUp()
 
-      const inputProps = wrapper.find(Input).first().props()
+      const inputProps = wrapper
+        .find(Input)
+        .first()
+        .props()
       expect(inputProps.name).toEqual('login')
       expect(inputProps.label).toEqual('Login')
       expect(inputProps.onChange).toBeDefined()
@@ -51,7 +60,10 @@ describe('LoginForm Component', () => {
     it('should render password input', () => {
       const wrapper = setUp()
 
-      const inputProps = wrapper.find(Input).last().props()
+      const inputProps = wrapper
+        .find(Input)
+        .last()
+        .props()
       expect(inputProps.onChange).toBeDefined()
       expect(inputProps.errorMessage).toEqual('')
       expect(inputProps.name).toEqual('password')

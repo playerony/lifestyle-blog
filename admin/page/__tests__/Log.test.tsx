@@ -10,14 +10,14 @@ const toggleLoaderMock = jest.fn()
 
 jest.doMock('../../component/LogPage', () => LogPageMock)
 jest.doMock('../../hook/utility/useTitle', () => useTitleMock)
-jest.doMock('../../hook/context/useLoader', () => () => ({ toggleLoader: toggleLoaderMock }))
+jest.doMock('../../hook/context/useLoader', () => () => ({
+  toggleLoader: toggleLoaderMock
+}))
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(
     <MemoryRouter>
-      <MockedProvider mocks={LOG_LIST_QUERY_MOCK}>
-        {element}
-      </MockedProvider>
+      <MockedProvider mocks={LOG_LIST_QUERY_MOCK}>{element}</MockedProvider>
     </MemoryRouter>
   )
 
@@ -66,7 +66,9 @@ describe('LogPage Page', () => {
       await wait(0)
       wrapper.update()
 
-      expect((wrapper.find(LogPageMock).props() as any).logList).toEqual(LOG_LIST_RESULT_DATA.logList)
+      expect((wrapper.find(LogPageMock).props() as any).logList).toEqual(
+        LOG_LIST_RESULT_DATA.logList
+      )
     })
   })
 

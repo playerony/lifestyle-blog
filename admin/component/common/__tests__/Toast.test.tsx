@@ -48,7 +48,9 @@ describe('Toast Component', () => {
         <Toast type={EToastType.INFO} content="content" onClick={onClickMock} />
       )
 
-      act(() => { jest.advanceTimersByTime(5000) })
+      act(() => {
+        jest.advanceTimersByTime(5000)
+      })
       wrapper.mount()
 
       expect(onClickMock).toHaveBeenCalled()

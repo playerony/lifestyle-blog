@@ -15,9 +15,7 @@ const LogPage = ({ logList = [] }: ILogPageProps): JSX.Element => {
 
   return (
     <Container>
-      <StyledHeader>
-        Logs per month chart
-      </StyledHeader>
+      <StyledHeader>Logs per month chart</StyledHeader>
       <StyledChartWrapper>
         <Bar data={logChartData} />
       </StyledChartWrapper>

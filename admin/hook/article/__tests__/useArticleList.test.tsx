@@ -16,8 +16,9 @@ describe('useArticleList Hook', () => {
   })
 
   it('should return undefined as data if loading status is true', () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={ARTICLE_LIST_MOCK}>{children}</MockedProvider>
+    )
 
     const { result } = renderHook(() => useArticleList(), { wrapper })
 
@@ -25,13 +26,19 @@ describe('useArticleList Hook', () => {
   })
 
   it('should return proper data if loading status is false', async () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={ARTICLE_LIST_MOCK}>{children}</MockedProvider>
+    )
 
-    const { result, waitForNextUpdate } = renderHook(() => useArticleList(), { wrapper })
+    const { result, waitForNextUpdate } = renderHook(() => useArticleList(), {
+      wrapper
+    })
 
     await waitForNextUpdate()
-    expect(result.current).toEqual({ data: ARTICLE_LIST_RESULT_DATA.articleList, loading: false })
+    expect(result.current).toEqual({
+      data: ARTICLE_LIST_RESULT_DATA.articleList,
+      loading: false
+    })
   })
 })
 
@@ -43,17 +50,19 @@ const ARTICLE_LIST_RESULT_DATA = {
       isPublic: true,
       description: 'description',
       createdAt: new Date('2020'),
-      categoryList: [{
-        categoryId: 1,
-        name: 'name 1',
-        __typename: 'Category'
-      }],
+      categoryList: [
+        {
+          categoryId: 1,
+          name: 'name 1',
+          __typename: 'Category'
+        }
+      ],
       image: {
         photoUrl: 'photoUrl',
         __typename: 'Image'
       },
       __typename: 'Article'
-    },
+    }
   ]
 }
 

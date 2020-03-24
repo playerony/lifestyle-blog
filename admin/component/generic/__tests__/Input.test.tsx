@@ -25,7 +25,10 @@ describe('Input Component', () => {
       const label = 'Label text'
       const wrapper = mountComponent(<Input label={label} />)
 
-      const elementProps = wrapper.find('p').first().props()
+      const elementProps = wrapper
+        .find('p')
+        .first()
+        .props()
 
       expect(elementProps).toBeDefined()
       expect(elementProps.children).toEqual('Label text')
@@ -36,7 +39,10 @@ describe('Input Component', () => {
     it('should render at default', () => {
       const wrapper = mountComponent(<Input />)
 
-      const elementProps = wrapper.find('p').last().props()
+      const elementProps = wrapper
+        .find('p')
+        .last()
+        .props()
 
       expect(elementProps).toBeDefined()
       expect(elementProps.children).toEqual(undefined)
@@ -46,7 +52,10 @@ describe('Input Component', () => {
       const errorMessage = 'Error text'
       const wrapper = mountComponent(<Input errorMessage={errorMessage} />)
 
-      const elementProps = wrapper.find('p').last().props()
+      const elementProps = wrapper
+        .find('p')
+        .last()
+        .props()
 
       expect(elementProps).toBeDefined()
       expect(elementProps.children).toEqual(errorMessage)

@@ -15,7 +15,13 @@ const mountComponent = (element: React.ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 const setUp = (): ReactWrapper =>
-  mountComponent(<LoginForm preventNextRequest={true} onLoginDataChange={onClickMock} errorData={ERROR_DATA_MOCK} />)
+  mountComponent(
+    <LoginForm
+      preventNextRequest={true}
+      onLoginDataChange={onClickMock}
+      errorData={ERROR_DATA_MOCK}
+    />
+  )
 
 describe('LoginForm Component', () => {
   it('should render', () => {
@@ -40,7 +46,10 @@ describe('LoginForm Component', () => {
     it('should render login input', () => {
       const wrapper = setUp()
 
-      const inputProps = wrapper.find(Input).first().props()
+      const inputProps = wrapper
+        .find(Input)
+        .first()
+        .props()
       expect(inputProps.name).toEqual('login')
       expect(inputProps.label).toEqual('Login')
       expect(inputProps.onChange).toBeDefined()
@@ -63,7 +72,10 @@ describe('LoginForm Component', () => {
     it('should render submit input', () => {
       const wrapper = setUp()
 
-      const inputProps = wrapper.find(Input).last().props()
+      const inputProps = wrapper
+        .find(Input)
+        .last()
+        .props()
       expect(inputProps.disabled).toBeTruthy()
       expect(inputProps.type).toEqual('submit')
       expect(inputProps.style).toEqual({ display: 'none' })

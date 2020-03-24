@@ -21,10 +21,7 @@ const Switch = ({
   }
 
   return (
-    <StyledWrapper
-      isChecked={checked}
-      onClick={handleWrapperClick}
-    >
+    <StyledWrapper isChecked={checked} onClick={handleWrapperClick}>
       <StyledCircle />
     </StyledWrapper>
   )

@@ -40,7 +40,12 @@ describe('BackButton Component', () => {
       expect(buttonProps.circle).toBeTruthy()
       expect(buttonProps.onClick).toBeDefined()
       expect(buttonProps.floating).toEqual('left')
-      expect(wrapper.find(Button).find('use').props().xlinkHref).toEqual('#left-arrow')
+      expect(
+        wrapper
+          .find(Button)
+          .find('use')
+          .props().xlinkHref
+      ).toEqual('#left-arrow')
     })
   })
 })

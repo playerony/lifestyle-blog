@@ -16,7 +16,7 @@ const INPUT_MOCK: Partial<ArticleModel> = {
   isPublic: false,
   categoryList: null,
   content: 'Content',
-  description: 'Descr',
+  description: 'Descr'
 }
 
 const OUTPUT_MOCK: ArticleType = {

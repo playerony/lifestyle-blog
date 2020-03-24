@@ -44,7 +44,10 @@ describe('ArticleForm Component', () => {
     it('should render title input', () => {
       const wrapper = setUp()
 
-      const inputProps = wrapper.find(Input).first().props()
+      const inputProps = wrapper
+        .find(Input)
+        .first()
+        .props()
       expect(inputProps.name).toEqual('title')
       expect(inputProps.label).toEqual('Title')
       expect(inputProps.onChange).toBeDefined()
@@ -54,7 +57,10 @@ describe('ArticleForm Component', () => {
     it('should render title input', () => {
       const wrapper = setUp()
 
-      const inputProps = wrapper.find(Input).last().props()
+      const inputProps = wrapper
+        .find(Input)
+        .last()
+        .props()
       expect(inputProps.onChange).toBeDefined()
       expect(inputProps.errorMessage).toEqual('')
       expect(inputProps.name).toEqual('description')
@@ -90,7 +96,10 @@ describe('ArticleForm Component', () => {
   it('should render Save Button', () => {
     const wrapper = setUp()
 
-    const buttonProps = wrapper.find(Button).last().props()
+    const buttonProps = wrapper
+      .find(Button)
+      .last()
+      .props()
     expect(buttonProps.circle).toBeTruthy()
     expect(buttonProps.onClick).toBeDefined()
     expect(buttonProps.children).toEqual('+')

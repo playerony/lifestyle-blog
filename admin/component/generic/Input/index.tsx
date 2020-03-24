@@ -6,7 +6,7 @@ import {
   StyledInput,
   StyledErrorLabel,
   StyledInputLabel,
-  StyledInputWrapper,
+  StyledInputWrapper
 } from './Input.style'
 
 export const Input = ({

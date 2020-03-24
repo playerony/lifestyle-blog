@@ -9,7 +9,9 @@
 
     "admin": "npm start --prefix admin",
     "server": "npm start --prefix server",
-    "start": "concurrently \"npm run server\" \"npm run admin\""
+    "start": "concurrently \"npm run server\" \"npm run admin\"",
+
+    "format": "prettier --write \"**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",

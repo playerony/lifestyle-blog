@@ -42,26 +42,28 @@ const GraphQLProvider = ({ children }: IGraphQLProviderProps): JSX.Element => {
     }
   })
 
-  const errorLink = onError(({ graphQLErrors, networkError, forward }: ErrorResponse): void => {
-    if (graphQLErrors) {
-      graphQLErrors.map(({ message, path, extensions }: GraphQLError): void => {
-        switch (extensions?.code) {
-          case FORBIDDEN:
-            if (Memory.get(AUTH_TOKEN)) {
-              Memory.remove(AUTH_TOKEN)
-              window.location.pathname = routeList.base
+  const errorLink = onError(
+    ({ graphQLErrors, networkError, forward }: ErrorResponse): void => {
+      if (graphQLErrors) {
+        graphQLErrors.map(
+          ({ message, path, extensions }: GraphQLError): void => {
+            switch (extensions?.code) {
+              case FORBIDDEN:
+                if (Memory.get(AUTH_TOKEN)) {
+                  Memory.remove(AUTH_TOKEN)
+                  window.location.pathname = routeList.base
+                }
+                break
             }
-            break
-        }
 
-        console.info(
-          `[GraphQL error]: Message: ${message}, Path: ${path}`
+            console.info(`[GraphQL error]: Message: ${message}, Path: ${path}`)
+          }
         )
-      })
-    }
+      }
 
-    if (networkError) console.info(`[Network error]: ${networkError}`)
-  })
+      if (networkError) console.info(`[Network error]: ${networkError}`)
+    }
+  )
 
   const authLink = setContext((_, { headers }) => {
     const token = Memory.get(AUTH_TOKEN)

@@ -23,7 +23,7 @@ describe('CategorySelect Component', () => {
   })
 
   beforeEach(() => {
-    (useCategoryList as jest.Mock).mockImplementation(useCategoryListMock)
+    ;(useCategoryList as jest.Mock).mockImplementation(useCategoryListMock)
   })
 
   afterEach(() => {
@@ -52,7 +52,9 @@ describe('CategorySelect Component', () => {
   it('should select with loaded data', () => {
     const wrapper = mountComponent(<CategorySelect onChange={jest.fn()} />)
 
-    act(() => { jest.advanceTimersByTime(5) })
+    act(() => {
+      jest.advanceTimersByTime(5)
+    })
     wrapper.mount()
 
     const selectProps = wrapper.find(Select).props()
@@ -60,7 +62,8 @@ describe('CategorySelect Component', () => {
       {
         label: 'Category 1',
         value: '1'
-      }, {
+      },
+      {
         label: 'Category 2',
         value: '2'
       }

@@ -5,7 +5,10 @@ import { IErrorBoundaryProps, IErrorBoundaryState } from './ErrorBoundary.type'
 
 import routeList from '@config/routeList'
 
-class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> {
+class ErrorBoundary extends Component<
+  IErrorBoundaryProps,
+  IErrorBoundaryState
+> {
   state = {
     error: null
   }
@@ -19,20 +22,16 @@ class ErrorBoundary extends Component<IErrorBoundaryProps, IErrorBoundaryState> 
     const { children } = this.props
 
     if (error !== null) {
-      return (
-        <Redirect
-          to={`${routeList.base}/error/500`}
-        />
-      )
+      return <Redirect to={`${routeList.base}/error/500`} />
     }
 
     return children || null
   }
 }
 
-export const withErrorBoundary = (
-  Component: ComponentType<any>
-): Function => (props: any): JSX.Element => (
+export const withErrorBoundary = (Component: ComponentType<any>): Function => (
+  props: any
+): JSX.Element => (
   <ErrorBoundary>
     <Component {...props} />
   </ErrorBoundary>

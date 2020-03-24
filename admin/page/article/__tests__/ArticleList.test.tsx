@@ -10,15 +10,18 @@ const useTitleMock = jest.fn()
 const toggleLoaderMock = jest.fn()
 
 jest.doMock('../../../hook/utility/useTitle', () => useTitleMock)
-jest.doMock('../../../component/article/ArticleListPage', () => ArticleListPageMock)
-jest.doMock('../../../hook/context/useLoader', () => () => ({ toggleLoader: toggleLoaderMock }))
+jest.doMock(
+  '../../../component/article/ArticleListPage',
+  () => ArticleListPageMock
+)
+jest.doMock('../../../hook/context/useLoader', () => () => ({
+  toggleLoader: toggleLoaderMock
+}))
 
 const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(
     <MemoryRouter>
-      <MockedProvider mocks={ARTICLE_LIST_PAGE_MOCKS}>
-        {element}
-      </MockedProvider>
+      <MockedProvider mocks={ARTICLE_LIST_PAGE_MOCKS}>{element}</MockedProvider>
     </MemoryRouter>
   )
 
@@ -67,7 +70,9 @@ describe('ArticleList Page', () => {
       await wait(0)
       wrapper.update()
 
-      const articleListPageProps: any = wrapper.find(ArticleListPageMock).props()
+      const articleListPageProps: any = wrapper
+        .find(ArticleListPageMock)
+        .props()
 
       expect(Object.keys(articleListPageProps)).toHaveLength(1)
       expect(articleListPageProps.articleList).toHaveLength(1)
@@ -112,17 +117,19 @@ const ARTICLE_LIST_RESULT_DATA = {
       isPublic: true,
       description: 'description',
       createdAt: new Date('2020'),
-      categoryList: [{
-        categoryId: 1,
-        name: 'name 1',
-        __typename: 'Category'
-      }],
+      categoryList: [
+        {
+          categoryId: 1,
+          name: 'name 1',
+          __typename: 'Category'
+        }
+      ],
       image: {
         photoUrl: 'photoUrl',
         __typename: 'Image'
       },
       __typename: 'Article'
-    },
+    }
   ]
 }
 

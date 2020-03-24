@@ -14,7 +14,9 @@ jest.doMock('../ArticleCard', () => ArticleCardMock)
 const setUp = (): ReactWrapper => {
   const ArticleList = require('../ArticleList').default
 
-  return mountComponent(<ArticleList label="label" articleList={ARTICLE_LIST_MOCK} />)
+  return mountComponent(
+    <ArticleList label="label" articleList={ARTICLE_LIST_MOCK} />
+  )
 }
 
 describe('ArticleList Component', () => {
@@ -78,11 +80,13 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     },
     description: 'description',
     createdAt: new Date('2020'),
-    categoryList: [{
-      name: 'name',
-      categoryId: 1,
-      description: 'description'
-    }]
+    categoryList: [
+      {
+        name: 'name',
+        categoryId: 1,
+        description: 'description'
+      }
+    ]
   },
   {
     userId: 1,
@@ -99,10 +103,12 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     },
     description: 'description',
     createdAt: new Date('2020'),
-    categoryList: [{
-      name: 'name',
-      categoryId: 1,
-      description: 'description'
-    }]
+    categoryList: [
+      {
+        name: 'name',
+        categoryId: 1,
+        description: 'description'
+      }
+    ]
   }
 ]

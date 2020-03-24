@@ -28,8 +28,8 @@ describe('ControlButton Component', () => {
 })
 
 const PROPS_MOCK: IControlButtonProps = {
-  style: "",
+  style: '',
   active: true,
   label: 'Label',
-  onToggle: jest.fn(),
+  onToggle: jest.fn()
 }

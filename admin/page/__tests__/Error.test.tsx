@@ -14,7 +14,7 @@ const setUp = (parameters: { code: string }): ReactWrapper => {
     return {
       __esModule: true,
       ...originalModule,
-      useParams: () => (parameters),
+      useParams: () => parameters,
       useHistory: () => ({ push: jest.fn() })
     }
   })

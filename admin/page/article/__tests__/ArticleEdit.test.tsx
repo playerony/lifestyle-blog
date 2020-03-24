@@ -10,9 +10,17 @@ const toggleLoaderMock = jest.fn()
 
 jest.mock('../../../hook/article/useUpdateMutation')
 jest.doMock('../../../hook/utility/useTitle', () => useTitleMock)
-jest.doMock('../../../component/article/ArticleEditPage', () => ArticleEditPageMock)
-jest.doMock('../../../hook/context/useLoader', () => () => ({ toggleLoader: toggleLoaderMock }))
-jest.doMock('../../../hook/article/useArticle', () => () => ({ data: ARTICLE_MOCK, loading: false }))
+jest.doMock(
+  '../../../component/article/ArticleEditPage',
+  () => ArticleEditPageMock
+)
+jest.doMock('../../../hook/context/useLoader', () => () => ({
+  toggleLoader: toggleLoaderMock
+}))
+jest.doMock('../../../hook/article/useArticle', () => () => ({
+  data: ARTICLE_MOCK,
+  loading: false
+}))
 
 jest.mock('react-router-dom', () => {
   const originalModule = jest.requireActual('react-router-dom')
@@ -53,7 +61,9 @@ describe('ArticleEdit Page', () => {
     it('should contain proper props', () => {
       const wrapper = setUp()
 
-      const articleEditPageProps: any = wrapper.find(ArticleEditPageMock).props()
+      const articleEditPageProps: any = wrapper
+        .find(ArticleEditPageMock)
+        .props()
       expect(articleEditPageProps.onEdit).toBeDefined()
       expect(articleEditPageProps.errorData).toEqual(ERROR_DATA)
       expect(articleEditPageProps.initialData).toEqual(ARTICLE_MOCK)
@@ -73,9 +83,11 @@ const ARTICLE_MOCK: IArticle = {
   title: 'title',
   content: 'content',
   description: 'description',
-  categoryList: [{
-    categoryId: 1
-  }],
+  categoryList: [
+    {
+      categoryId: 1
+    }
+  ],
   image: {
     imageId: 1,
     photoUrl: 'photoUrl'

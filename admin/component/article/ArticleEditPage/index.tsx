@@ -7,11 +7,13 @@ import { IArticleEditPageProps } from './ArticleEditPage.type'
 
 import { StyledHeader } from './ArticleEditPage.style'
 
-const ArticleEditPage = ({ errorData, onEdit, initialData }: IArticleEditPageProps): JSX.Element => (
+const ArticleEditPage = ({
+  errorData,
+  onEdit,
+  initialData
+}: IArticleEditPageProps): JSX.Element => (
   <Container>
-    <StyledHeader>
-      Editing an article
-    </StyledHeader>
+    <StyledHeader>Editing an article</StyledHeader>
     <ArticleForm
       onSave={onEdit}
       errorData={errorData}

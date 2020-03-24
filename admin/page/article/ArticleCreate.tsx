@@ -23,7 +23,9 @@ const initialErrorData: TResponseError<IArticleSave> = {
 const ArticleCreate = (): JSX.Element => {
   useTitle('Create')
 
-  const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
+  const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(
+    initialErrorData
+  )
 
   const toast = useToast()
   const createArticle = useCreateMutation()
@@ -44,17 +46,12 @@ const ArticleCreate = (): JSX.Element => {
 
     setErrorData(
       isError
-        ? response.errors! as TResponseError<IArticleSave>
+        ? (response.errors! as TResponseError<IArticleSave>)
         : initialErrorData
     )
   }
 
-  return (
-    <ArticleCreatePage
-      errorData={errorData}
-      onCreate={handleCreate}
-    />
-  )
+  return <ArticleCreatePage errorData={errorData} onCreate={handleCreate} />
 }
 
 export default ArticleCreate

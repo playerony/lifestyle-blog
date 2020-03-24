@@ -16,8 +16,9 @@ describe('useCategoryList Hook', () => {
   })
 
   it('should return undefined as data if loading status is true', () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={CATEGORY_LIST_MOCK}>{children}</MockedProvider>
+    )
 
     const { result } = renderHook(() => useCategoryList(), { wrapper })
 
@@ -25,13 +26,19 @@ describe('useCategoryList Hook', () => {
   })
 
   it('should return proper data if loading status is false', async () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={CATEGORY_LIST_MOCK}>{children}</MockedProvider>
+    )
 
-    const { result, waitForNextUpdate } = renderHook(() => useCategoryList(), { wrapper })
+    const { result, waitForNextUpdate } = renderHook(() => useCategoryList(), {
+      wrapper
+    })
 
     await waitForNextUpdate()
-    expect(result.current).toEqual({ data: CATEGORY_LIST_RESULT_DATA.categoryList, loading: false })
+    expect(result.current).toEqual({
+      data: CATEGORY_LIST_RESULT_DATA.categoryList,
+      loading: false
+    })
   })
 })
 

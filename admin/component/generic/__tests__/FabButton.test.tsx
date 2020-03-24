@@ -23,9 +23,14 @@ describe('FabButton Component', () => {
 
   describe('menu trigger button', () => {
     it('should contain proper props', () => {
-      const wrapper = mountComponent(<FabButton children={CHILDREN_PROP_MOCK} />)
+      const wrapper = mountComponent(
+        <FabButton children={CHILDREN_PROP_MOCK} />
+      )
 
-      const listElementProps = wrapper.find('li').last().props()
+      const listElementProps = wrapper
+        .find('li')
+        .last()
+        .props()
       expect(listElementProps.onClick).toBeDefined()
       expect(listElementProps.style).toEqual({ pointerEvents: 'all' })
     })
@@ -33,22 +38,26 @@ describe('FabButton Component', () => {
 
   describe('menu element', () => {
     it('should render rest of the list as a menu elements', () => {
-      const wrapper = mountComponent(<FabButton children={CHILDREN_PROP_MOCK} />)
+      const wrapper = mountComponent(
+        <FabButton children={CHILDREN_PROP_MOCK} />
+      )
 
       expect(wrapper.find(StyledElement)).toHaveLength(1)
     })
 
     it('should contain proper data', () => {
-      const wrapper = mountComponent(<FabButton children={CHILDREN_PROP_MOCK} />)
+      const wrapper = mountComponent(
+        <FabButton children={CHILDREN_PROP_MOCK} />
+      )
 
-      const elementProps = wrapper.find(StyledElement).first().props()
+      const elementProps = wrapper
+        .find(StyledElement)
+        .first()
+        .props()
       expect(elementProps.index).toEqual(1)
       expect(elementProps.isVisible).toBeFalsy()
     })
   })
 })
 
-const CHILDREN_PROP_MOCK: ReactElement[] = [
-  <div />,
-  <div />
-]
+const CHILDREN_PROP_MOCK: ReactElement[] = [<div />, <div />]

@@ -8,7 +8,10 @@ const useTitleMock = jest.fn()
 
 jest.mock('../../../hook/article/useCreateMutation')
 jest.doMock('../../../hook/utility/useTitle', () => useTitleMock)
-jest.doMock('../../../component/article/ArticleCreatePage', () => ArticleCreatePageMock)
+jest.doMock(
+  '../../../component/article/ArticleCreatePage',
+  () => ArticleCreatePageMock
+)
 
 const setUp = (): ReactWrapper => {
   const ArticleCreate = require('../ArticleCreate').default
@@ -39,7 +42,9 @@ describe('ArticleCreate Page', () => {
     it('should contain proper props', () => {
       const wrapper = setUp()
 
-      const articleCreatePageProps: any = wrapper.find(ArticleCreatePageMock).props()
+      const articleCreatePageProps: any = wrapper
+        .find(ArticleCreatePageMock)
+        .props()
       expect(articleCreatePageProps.onCreate).toBeDefined()
       expect(articleCreatePageProps.errorData).toEqual(ERROR_DATA)
     })

@@ -16,22 +16,34 @@ describe('useAuthenticated Hook', () => {
   })
 
   it('should return undefined as data if loading status is true', () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={IS_AUTHENTICATED_MOCK}>{children}</MockedProvider>
+    )
 
     const { result } = renderHook(() => useAuthenticated(), { wrapper })
 
-    expect(result.current).toEqual({ isAuthenticated: undefined, error: undefined, loading: true })
+    expect(result.current).toEqual({
+      isAuthenticated: undefined,
+      error: undefined,
+      loading: true
+    })
   })
 
   it('should return proper data if loading status is false', async () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={IS_AUTHENTICATED_MOCK}>{children}</MockedProvider>
+    )
 
-    const { result, waitForNextUpdate } = renderHook(() => useAuthenticated(), { wrapper })
+    const { result, waitForNextUpdate } = renderHook(() => useAuthenticated(), {
+      wrapper
+    })
 
     await waitForNextUpdate()
-    expect(result.current).toEqual({ isAuthenticated: IS_AUTHENTICATED_RESULT_DATA.isAuthenticated, error: undefined, loading: false })
+    expect(result.current).toEqual({
+      isAuthenticated: IS_AUTHENTICATED_RESULT_DATA.isAuthenticated,
+      error: undefined,
+      loading: false
+    })
   })
 })
 

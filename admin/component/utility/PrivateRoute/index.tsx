@@ -9,7 +9,10 @@ import useAuthenticated from '@hook/login/useAuthenticated'
 import routeList from '@config/routeList'
 import { AUTH_TOKEN } from '@config/constant'
 
-const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element => {
+const PrivateRoute = ({
+  children,
+  ...restProps
+}: IPrivateRoute): JSX.Element => {
   const { isAuthenticated, error, loading } = useAuthenticated()
 
   const renderContent = () => {
@@ -22,18 +25,16 @@ const PrivateRoute = ({ children, ...restProps }: IPrivateRoute): JSX.Element =>
     return (
       <Redirect
         to={{
-          pathname: Boolean(error) && Boolean(Memory.get(AUTH_TOKEN)) ? `${routeList.base}/error/500` : routeList.login
+          pathname:
+            Boolean(error) && Boolean(Memory.get(AUTH_TOKEN))
+              ? `${routeList.base}/error/500`
+              : routeList.login
         }}
       />
     )
   }
 
-  return (
-    <Route
-      {...restProps}
-      render={renderContent}
-    />
-  )
+  return <Route {...restProps} render={renderContent} />
 }
 
 export default PrivateRoute

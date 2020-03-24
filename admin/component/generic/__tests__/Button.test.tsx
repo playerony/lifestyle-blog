@@ -15,7 +15,9 @@ describe('Button Component', () => {
   })
 
   it('should render with new optional parameters', () => {
-    const wrapper = mountComponent(<Button circle={true} marginTop={true} floating="left" />)
+    const wrapper = mountComponent(
+      <Button circle={true} marginTop={true} floating="left" />
+    )
 
     expect(wrapper.exists()).toBeTruthy()
   })

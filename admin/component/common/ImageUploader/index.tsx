@@ -28,7 +28,7 @@ const ImageUploader = ({
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     event.persist()
 
-    const reader: FileReader = new FileReader();
+    const reader: FileReader = new FileReader()
 
     let file: File
     if (!event?.target?.files) {
@@ -44,7 +44,7 @@ const ImageUploader = ({
       }
     }
 
-    reader.readAsDataURL(file);
+    reader.readAsDataURL(file)
   }
 
   const isError = Boolean(errorMessage)

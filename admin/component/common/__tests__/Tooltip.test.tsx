@@ -11,7 +11,11 @@ const mountComponent = (element: ReactElement): ReactWrapper =>
   mount(<ThemeProviderMock>{element}</ThemeProviderMock>)
 
 const setUp = (title: string): ReactWrapper =>
-  mountComponent(<Tooltip title={title}><TooltipContent /></Tooltip>)
+  mountComponent(
+    <Tooltip title={title}>
+      <TooltipContent />
+    </Tooltip>
+  )
 
 describe('Tooltip Component', () => {
   it('should render', () => {

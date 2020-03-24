@@ -16,19 +16,26 @@ describe('useArticle Hook', () => {
   })
 
   it('should return proper data if loading status is false', async () => {
-    const wrapper = ({ children }: any) =>
+    const wrapper = ({ children }: any) => (
       <MockedProvider mocks={ARTICLE_MOCK}>{children}</MockedProvider>
+    )
 
-    const { result, waitForNextUpdate } = renderHook(() => useArticle(1), { wrapper })
+    const { result, waitForNextUpdate } = renderHook(() => useArticle(1), {
+      wrapper
+    })
 
     await waitForNextUpdate()
-    expect(result.current).toEqual({ data: ARTICLE_RESULT_DATA.articleById, loading: false })
+    expect(result.current).toEqual({
+      data: ARTICLE_RESULT_DATA.articleById,
+      loading: false
+    })
   })
 
   describe('return undefined as data', () => {
     it('if loading status is true', () => {
-      const wrapper = ({ children }: any) =>
+      const wrapper = ({ children }: any) => (
         <MockedProvider mocks={ARTICLE_MOCK}>{children}</MockedProvider>
+      )
 
       const { result } = renderHook(() => useArticle(1), { wrapper })
 
@@ -36,10 +43,13 @@ describe('useArticle Hook', () => {
     })
 
     it('should return if data does not exists', async () => {
-      const wrapper = ({ children }: any) =>
+      const wrapper = ({ children }: any) => (
         <MockedProvider mocks={ARTICLE_MOCK}>{children}</MockedProvider>
+      )
 
-      const { result, waitForNextUpdate } = renderHook(() => useArticle(2), { wrapper })
+      const { result, waitForNextUpdate } = renderHook(() => useArticle(2), {
+        wrapper
+      })
 
       await waitForNextUpdate()
       expect(result.current).toEqual({ data: undefined, loading: false })
@@ -52,10 +62,12 @@ const ARTICLE_RESULT_DATA = {
     title: 'title',
     content: 'content',
     description: 'description',
-    categoryList: [{
-      categoryId: 1,
-      __typename: 'Category'
-    }],
+    categoryList: [
+      {
+        categoryId: 1,
+        __typename: 'Category'
+      }
+    ],
     image: {
       imageId: 1,
       photoUrl: 'photoUrl',

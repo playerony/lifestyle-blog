@@ -28,9 +28,7 @@ const Error = (): JSX.Element => {
         </svg>
         <StyledCode>{code}</StyledCode>
         <StyledDescription>{getErrorMessage(code)}</StyledDescription>
-        <Button onClick={handleRefreshClick}>
-          Refresh
-        </Button>
+        <Button onClick={handleRefreshClick}>Refresh</Button>
       </StyledWrapper>
     </Container>
   )

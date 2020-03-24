@@ -4,7 +4,7 @@ describe('flatArray Function', () => {
   describe('should return an empty array', () => {
     it('if array is not defined', () => {
       const result = flatArray(undefined)
-  
+
       expect(result).toEqual([])
     })
 

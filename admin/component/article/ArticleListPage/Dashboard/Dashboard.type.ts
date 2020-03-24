@@ -1,5 +1,5 @@
 import IArticleList from '@type/article/IArticleList'
 
-export interface IDashboardProps { 
+export interface IDashboardProps {
   articleList: IArticleList[]
 }

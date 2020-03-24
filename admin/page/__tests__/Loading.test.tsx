@@ -6,7 +6,11 @@ import Loader from '@component/common/Loader'
 import ThemeProviderMock from '@component/utility/ThemeProviderMock'
 
 const setUp = (): ReactWrapper =>
-  mount(<ThemeProviderMock><LoadingPage /></ThemeProviderMock>)
+  mount(
+    <ThemeProviderMock>
+      <LoadingPage />
+    </ThemeProviderMock>
+  )
 
 describe('Loading Page', () => {
   it('should render', () => {

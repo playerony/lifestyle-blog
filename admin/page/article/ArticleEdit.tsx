@@ -27,7 +27,9 @@ const initialErrorData: TResponseError<IArticleSave> = {
 const ArticleEdit = (): JSX.Element | null => {
   useTitle('Edit')
 
-  const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(initialErrorData)
+  const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(
+    initialErrorData
+  )
 
   const toast = useToast()
   const { toggleLoader } = useLoader()
@@ -55,7 +57,7 @@ const ArticleEdit = (): JSX.Element | null => {
 
     setErrorData(
       isError
-        ? response.errors! as TResponseError<IArticleSave>
+        ? (response.errors! as TResponseError<IArticleSave>)
         : initialErrorData
     )
   }
