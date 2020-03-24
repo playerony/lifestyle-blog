@@ -18,7 +18,7 @@ export default class VisitorService {
       }
     })
 
-    if (Boolean(foundVisitor)) {
+    if (foundVisitor) {
       return null
     }
 

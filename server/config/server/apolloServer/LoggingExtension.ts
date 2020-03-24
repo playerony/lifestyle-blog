@@ -8,7 +8,7 @@ class LoggingExtension extends GraphQLExtension {
   }: {
     graphqlResponse: GraphQLResponse
   }): void {
-    if (Boolean(graphqlResponse?.errors)) {
+    if (graphqlResponse?.errors) {
       Logger.database(graphqlResponse.errors![0].message)
     }
   }

@@ -30,7 +30,7 @@ class Validation {
     }
 
     return this.checkList.reduce((result, check) => {
-      if (!this.data.hasOwnProperty(check.fieldName)) {
+      if (!this.data[check.fieldName]) {
         return result
       }
 
