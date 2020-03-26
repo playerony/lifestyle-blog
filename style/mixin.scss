@@ -1,0 +1,127 @@
+@mixin transition($transition...) {
+  transition: $transition;
+  -o-transition: $transition;
+  -ms-transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin transform($transform...) {
+  transform: $transform;
+  -o-transform: $transform;
+  -ms-transform: $transform;
+  -moz-transform: $transform;
+  -webkit-transform: $transform;
+}
+
+@mixin transform-style($transformStyle) {
+  transform-style: $transformStyle;
+  -o-transform-style: $transformStyle;
+  -ms-transform-style: $transformStyle;
+  -moz-transform-style: $transformStyle;
+  -webkit-transform-style: $transformStyle;
+}
+
+@mixin transform-origin($transformOrigin) {
+  transform-origin: $transformOrigin;
+  -o-transform-origin: $transformOrigin;
+  -ms-transform-origin: $transformOrigin;
+  -moz-transform-origin: $transformOrigin;
+  -webkit-transform-origin: $transformOrigin;
+}
+
+@mixin animation($animation...) {
+  animation: $animation;
+  -o-animation: $animation;
+  -ms-animation: $animation;
+  -moz-animation: $animation;
+  -webkit-animation: $animation;
+}
+
+@mixin border-radius($radius) {
+	border-radius: $radius;
+	-moz-border-radius: $radius;
+	-webkit-border-radius: $radius;
+}
+
+@mixin flexbox() {
+	display: flex;
+  display: -moz-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+@mixin justify-content($justify) {
+  -ms-flex-pack: $justify;
+  justify-content: $justify;
+  -ms-justify-content: $justify;
+  -moz-justify-content: $justify;
+  -webkit-justify-content: $justify;
+}
+
+@mixin align-items($align) {
+  align-items: $align;
+  -ms-flex-align: $align;
+  -ms-align-items: $align;
+  -moz-align-items: $align;
+  -webkit-align-items: $align;
+}
+
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  -moz-flex-direction: $direction;
+  -webkit-flex-direction: $direction;
+}
+
+@mixin flex-wrap($wrap) {
+  flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  -moz-flex-wrap: $wrap;
+  -webkit-flex-wrap: $wrap;
+}
+
+@mixin box-shadow($shadow...) {
+  box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+}
+
+@mixin appearance($appearance) {
+  appearance: $appearance;
+  -ms-appearance: $appearance;
+  -moz-appearance: $appearance;
+  -webkit-appearance: $appearance;
+}
+
+$breakpoints: (
+  'large': ( max-width: $large-screen ),
+  'medium': ( max-width: $medium-screen ),
+  'small': ( max-width: $small-screen ),
+  'mobile': ( max-width: $mobile-screen )
+) !default;
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+ 
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
