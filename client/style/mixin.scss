@@ -50,13 +50,13 @@
 }
 
 @mixin border-radius($radius) {
-	border-radius: $radius;
-	-moz-border-radius: $radius;
-	-webkit-border-radius: $radius;
+  border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
 }
 
 @mixin flexbox() {
-	display: flex;
+  display: flex;
   display: -moz-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,6 +122,6 @@ $breakpoints: (
  
   @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+      + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
