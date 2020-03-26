@@ -7,13 +7,13 @@
 }
 
 @mixin linear-gradient($direction, $color-stops...) {
-  @if is-direction($direction) == false {
+  @if isDirection($direction) == false {
     $color-stops: $direction, $color-stops;
     $direction: 180deg;
   }
 
   background: nth(nth($color-stops, 1), 1);
-  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: -webkit-linear-gradient(legacyDirection($direction), $color-stops);
   background: linear-gradient($direction, $color-stops);
 }
 
@@ -124,4 +124,8 @@ $breakpoints: (
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
       + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
+}
+
+@mixin fontSize($size) {
+  font-size: calculateRem($size);
 }
