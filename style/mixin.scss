@@ -129,3 +129,9 @@ $breakpoints: (
 @mixin fontSize($size) {
   font-size: calculateRem($size);
 }
+
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+  -moz-box-sizing: $box-model;
+  -webkit-box-sizing: $box-model;
+}

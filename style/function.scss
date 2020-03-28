@@ -33,7 +33,7 @@
 }
 
 @function calculateRem($size) {
-  $remSize: $size / 16px;
+  $remSize: $size / $base-font-size;
 
   @return #{$remSize}rem;
 }
