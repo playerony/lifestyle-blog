@@ -1,7 +1,7 @@
 <template>
-  <div class="hello">
+  <div>
     <p>
-      Hello World my friend
+      Hello World my friend reload
     </p>
     <input type="checkbox" v-model="darkMode"/>
   </div>
@@ -19,11 +19,7 @@ export default {
     darkMode: function () {
       let htmlElement = document.documentElement
 
-      if (this.darkMode) {
-        htmlElement.setAttribute('theme', 'dark')
-      } else {
-        htmlElement.setAttribute('theme', 'light')
-      }
+      htmlElement.setAttribute('theme', this.darkMode ? 'dark' : 'light')
     }
   }
 }

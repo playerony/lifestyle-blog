@@ -22,6 +22,14 @@ module.exports = {
     module: {
       rules: [
         {
+          test: /\.vue$/,
+          loader: 'vue-loader',
+          include: path.resolve(__dirname, 'page', 'component'),
+          options: {
+            hotReload: true
+          }
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
             'sass-loader'
