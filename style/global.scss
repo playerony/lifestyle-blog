@@ -1,11 +1,15 @@
 body {
-  background-color: $blue100;
   font-family: $normal-font-family;
+  background-color: var(--background-color);
+
+  @include transition(background-color 500ms linear);
 }
 
 label {
-  color: $blue800;
+  color: var(--text-color);
+
   @include font-size(24px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(22px);
@@ -25,8 +29,10 @@ label {
 }
 
 p {
-  color: $blue800;
+  color: var(--text-color);
+
   @include font-size(18px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(16px);
@@ -46,11 +52,12 @@ p {
 }
 
 h1 {
-  color: $blue800;
   font-weight: bold;
+  color: var(--text-color);
   font-family: $bold-font-family;
 
   @include font-size(36px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(34px);
@@ -70,11 +77,12 @@ h1 {
 }
 
 h2 {
-  color: $blue800;
   font-weight: bold;
+  color: var(--text-color);
   font-family: $bold-font-family;
 
   @include font-size(28px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(26px);
@@ -94,11 +102,12 @@ h2 {
 }
 
 h3 {
-  color: $blue800;
   font-weight: bold;
+  color: var(--text-color);
   font-family: $bold-font-family;
 
   @include font-size(23px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(21px);
@@ -118,11 +127,12 @@ h3 {
 }
 
 h4 {
-  color: $blue800;
   font-weight: bold;
+  color: var(--text-color);
   font-family: $bold-font-family;
 
   @include font-size(20px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(18px);
@@ -142,11 +152,12 @@ h4 {
 }
 
 h5 {
-  color: $blue800;
   font-weight: bold;
+  color: var(--text-color);
   font-family: $bold-font-family;
 
   @include font-size(17px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(15px);
@@ -166,11 +177,12 @@ h5 {
 }
 
 h6 {
-  color: $blue800;
   font-weight: bold;
+  color: var(--text-color);
   font-family: $bold-font-family;
 
   @include font-size(15px);
+  @include transition(color 500ms linear);
 
   @include respond-to('large') {
     @include font-size(13px);
