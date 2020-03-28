@@ -126,7 +126,7 @@ $breakpoints: (
   }
 }
 
-@mixin fontSize($size) {
+@mixin font-size($size) {
   font-size: calculateRem($size);
 }
 

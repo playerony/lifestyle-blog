@@ -1,3 +1,190 @@
 body {
-  background-color: red;
+  background-color: $blue100;
+  font-family: $normal-font-family;
+}
+
+label {
+  color: $blue800;
+  @include font-size(24px);
+
+  @include respond-to('large') {
+    @include font-size(22px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(20px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(19px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(18px);
+  }
+}
+
+p {
+  color: $blue800;
+  @include font-size(18px);
+
+  @include respond-to('large') {
+    @include font-size(16px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(14px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(13px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(12px);
+  }
+}
+
+h1 {
+  color: $blue800;
+  font-weight: bold;
+  font-family: $bold-font-family;
+
+  @include font-size(36px);
+
+  @include respond-to('large') {
+    @include font-size(34px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(32px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(31px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(30px);
+  }
+}
+
+h2 {
+  color: $blue800;
+  font-weight: bold;
+  font-family: $bold-font-family;
+
+  @include font-size(28px);
+
+  @include respond-to('large') {
+    @include font-size(26px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(24px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(23px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(22px);
+  }
+}
+
+h3 {
+  color: $blue800;
+  font-weight: bold;
+  font-family: $bold-font-family;
+
+  @include font-size(23px);
+
+  @include respond-to('large') {
+    @include font-size(21px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(19px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(18px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(17px);
+  }
+}
+
+h4 {
+  color: $blue800;
+  font-weight: bold;
+  font-family: $bold-font-family;
+
+  @include font-size(20px);
+
+  @include respond-to('large') {
+    @include font-size(18px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(16px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(15px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(14px);
+  }
+}
+
+h5 {
+  color: $blue800;
+  font-weight: bold;
+  font-family: $bold-font-family;
+
+  @include font-size(17px);
+
+  @include respond-to('large') {
+    @include font-size(15px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(13px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(12px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(11px);
+  }
+}
+
+h6 {
+  color: $blue800;
+  font-weight: bold;
+  font-family: $bold-font-family;
+
+  @include font-size(15px);
+
+  @include respond-to('large') {
+    @include font-size(13px);
+  }
+
+  @include respond-to('medium') {
+    @include font-size(11px);
+  }
+
+  @include respond-to('small') {
+    @include font-size(10px);
+  }
+
+  @include respond-to('mobile') {
+    @include font-size(9px);
+  }
 }
