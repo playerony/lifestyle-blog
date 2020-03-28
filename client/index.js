@@ -1,10 +1,14 @@
 import Vue from 'vue'
-import App from '@service/App.vue'
+
+import App from '@service/App'
+import router from '@service/router'
 
 import '@style/index.scss'
 
 Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
+  router,
+  components: { App },
+  template: '<App />'
 }).$mount('#root')

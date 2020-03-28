@@ -7,11 +7,14 @@ const htmlPlugin = new HtmlWebPackPlugin({
 })
 
 module.exports = {
+  runtimeCompiler: true,
   configureWebpack: {
     entry: './index.js',
     resolve: {
       alias: {
+        "@page": path.resolve(__dirname, 'page/'),
         "@style": path.resolve(__dirname, 'style/'),
+        "@config": path.resolve(__dirname, 'config/'),
         "@service": path.resolve(__dirname, 'service/'),
         "@component": path.resolve(__dirname, 'component/')
       }
