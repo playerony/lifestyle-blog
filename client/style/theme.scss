@@ -1,0 +1,17 @@
+[theme="dark"] {
+  --icon-color: #{$white};
+  --text-color: #{$white};
+  --card-color: #{$gray900};
+  --border-color: #{$white};
+  --input-color: #{$gray900};
+  --background-color: #{$black};
+}
+
+[theme="light"] {
+  --card-color: #{$white};
+  --input-color: #{$white};
+  --icon-color: #{$blue800};
+  --text-color: #{$blue800};
+  --border-color: #{$gray700};
+  --background-color: #{$blue100};
+}
