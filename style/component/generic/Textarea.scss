@@ -1,0 +1,72 @@
+.textarea {
+  margin-top: 5px;
+  position: relative;
+
+  &__label {
+    top: -10px;
+    padding: 3px;
+    position: absolute;
+    left: $paddingSmall;
+    color: var(--border-color);
+
+    @include border-radius(4px);
+    @include transition(all 500ms linear);
+    @include linear-gradient(180deg, rgba(0, 0, 0, 0) 44%, var(--input-color) 0, var(--input-color) 100%);
+
+    &--error {
+      color: $red500;
+    }
+
+    &--focus {
+      color: $blue700;
+    }
+  }
+
+  &__content {
+    min-height: 250px;
+    padding: $paddingSmall;
+    width: calc(100% - 44px);
+    color: var(--text-color);
+    background-color: var(--input-color);
+    border: 2px solid var(--border-color);
+
+    @include border-radius(4px);
+    @include transition(all 500ms linear);
+
+    @include respond-to('medium') {
+      min-height: 200px;
+    }
+
+    @include respond-to('small') {
+      min-height: 150px;
+    }
+
+    @include respond-to('mobile') {
+      min-height: 100px;
+    }
+
+    &::placeholder {
+      color: $gray500;
+    }
+
+    &:focus {
+      border-color: $blue700;
+
+      @include transition(border-color 500ms linear);
+    }
+
+    &--error {
+      border-color: $red500;
+
+      &:focus {
+        border-color: $red500;
+      }
+    }
+  }
+
+  &__error-label {
+    height: 20px;
+    color: $red500;
+    padding: 3px 0 0 23px;
+  }
+}

@@ -1,9 +1,9 @@
 <template>
-  <div class="input">
-    <p :class="'input__label ' + inputLabelStyle">
+  <div class="textarea">
+    <p :class="'textarea__label ' + inputLabelStyle">
       {{ label }}
     </p>
-    <input
+    <textarea
       :type="type"
       :value="value"
       v-on="$listeners" 
@@ -11,9 +11,9 @@
       @blur="isFocus = !isFocus"
       @focus="isFocus = !isFocus"
       @input="$emit('update', $event.target.value)"
-      :class="'input__content ' + inputContentStyle"
+      :class="'textarea__content ' + inputContentStyle"
     />
-    <p class="input__error-label">
+    <p class="textarea__error-label">
       {{ errorMessage }}
     </p>
   </div>
@@ -21,25 +21,25 @@
 
 <script>
 export default {
-  name: 'Input',
+  name: 'Textarea',
   data: () => ({
     isFocus: false
   }),
   computed: {
     inputLabelStyle() {
       if (this.errorMessage) {
-        return 'input__label--error'
+        return 'textarea__label--error'
       }
 
       if (this.isFocus) {
-        return 'input__label--focus'
+        return 'textarea__label--focus'
       }
 
       return ''
     },
     inputContentStyle() {
       if (this.errorMessage) {
-        return 'input__content--error'
+        return 'textarea__content--error'
       }
 
       return ''

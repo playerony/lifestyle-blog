@@ -13,18 +13,25 @@
       placeholder="value"
       v-model="inputValue"
     />
+    <Textarea
+      :label="label"
+      placeholder="value"
+      v-model="inputValue"
+    />
   </div>
 </template>
 
 <script>
 import Input from './generic/Input'
 import Button from './generic/Button'
+import Textarea from './generic/Textarea'
 
 export default {
   name: 'HelloWorld',
   components: {
     Input,
-    Button
+    Button,
+    Textarea
   },
   methods: {
     consoleClick() {
