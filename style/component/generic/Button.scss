@@ -1,0 +1,39 @@
+.button {
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+  padding: $paddingBig;
+  background-color: $green400;
+
+  @include flexbox;
+  @include border-radius(4px);
+  @include align-items(center);
+  @include justify-content(center);
+  @include transition(background-color 500ms linear);
+
+  @include respond-to('large') {
+    padding: $paddingMedium;
+  }
+
+  @include respond-to('medium') {
+    padding: $paddingSmall;
+  }
+
+  @include respond-to('small') {
+    padding: calc(#{$paddingSmall} / 2);
+  }
+
+  &:hover {
+    background-color: $blue500;
+  }
+
+  &:disabled {
+    background-color: $gray500;
+
+    &:focus,
+    &:hover {
+      background-color: $gray500;
+    }
+  }
+}
+  
