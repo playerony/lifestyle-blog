@@ -3,7 +3,7 @@
     <button
       class="button"
       @click="onClick"
-      :disabled="disabled" 
+      :disabled="disabled"
     >
       <slot>button</slot>
     </button>
@@ -14,13 +14,8 @@
 export default {
   name: 'Button',
   props: {
-    onClick: {
-      type: Function,
-      required: true
-    },
-    disabled: {
-      type: Boolean
-    }
+    onClick: { type: Function, required: true },
+    disabled: { type: Boolean, required: false }
   }
 }
 </script>
