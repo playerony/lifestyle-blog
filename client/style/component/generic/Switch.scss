@@ -1,0 +1,32 @@
+.switch {
+  width: 52px;
+  height: 32px;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  background: $blue500;
+
+  @include border-radius(50px);
+  @include transition(background 500ms);
+
+  &__circle {
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    position: relative;
+    background: $white;
+    
+    @include border-radius(100%);
+    @include transition(all 500ms linear);
+    @include box-shadow(0 3px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 3px 8px 0 rgba(0, 0, 0, 0.15));
+  }
+
+  &--checked {
+    background: $green400;
+
+    & > .switch__circle {
+      left: 22px;
+    }
+  }
+}

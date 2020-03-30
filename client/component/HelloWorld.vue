@@ -18,12 +18,14 @@
       placeholder="value"
       v-model="inputValue"
     />
+    <Checkbox v-model="isChecked" />
   </div>
 </template>
 
 <script>
 import Input from './generic/Input'
 import Button from './generic/Button'
+import Checkbox from './generic/Checkbox'
 import Textarea from './generic/Textarea'
 
 export default {
@@ -31,6 +33,7 @@ export default {
   components: {
     Input,
     Button,
+    Checkbox,
     Textarea
   },
   methods: {
@@ -43,7 +46,8 @@ export default {
       label: 'Test',
       darkMode: false,
       errorMessage: 'Error',
-      inputValue: ''
+      inputValue: '',
+      isChecked: false
     }
   },
   watch: {
