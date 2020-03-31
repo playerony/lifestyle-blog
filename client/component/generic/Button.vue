@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <button
-      class="button"
-      @click="onClick"
-      :disabled="disabled"
-    >
-      <slot>button</slot>
-    </button>
-  </div>
+  <button
+    class="button"
+    @click="onClick"
+    :disabled="disabled"
+  >
+    <slot>button</slot>
+  </button>
 </template>
 
 <script>
