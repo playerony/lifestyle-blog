@@ -4,7 +4,6 @@
       {{ label }}
     </p>
     <textarea
-      :type="type"
       :value="value"
       v-on="$listeners" 
       :placeholder="placeholder"
@@ -48,7 +47,6 @@ export default {
   props: {
     label: { type: String , required: false, default: '' },
     value: { type: String , required: false, default: '' },
-    type: { type: String , required: false, default: 'text' },
     placeholder: { type: String, required: false, default: '' },
     errorMessage: { type: String , required: false, default: '' }
   },
