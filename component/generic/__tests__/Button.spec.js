@@ -2,8 +2,7 @@ import { mount } from '@vue/test-utils'
 
 import Button from '../Button'
 
-const setUp = (propsData) =>
-  mount(Button, { propsData })
+const setUp = propsData => mount(Button, { propsData })
 
 describe('Button Component', () => {
   it('should render', () => {
