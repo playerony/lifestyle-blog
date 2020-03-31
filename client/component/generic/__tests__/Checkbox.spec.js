@@ -2,8 +2,7 @@ import { mount } from '@vue/test-utils'
 
 import Checkbox from '../Checkbox'
 
-const setUp = (propsData) =>
-  mount(Checkbox, { propsData })
+const setUp = propsData => mount(Checkbox, { propsData })
 
 describe('Checkbox Component', () => {
   it('should render', () => {
@@ -27,15 +26,18 @@ describe('Checkbox Component', () => {
   describe('div element', () => {
     it('should render', () => {
       const wrapper = setUp()
-  
+
       expect(wrapper.exists('div')).toBeTruthy()
       expect(wrapper.find('div').classes()).toEqual(['switch', ''])
     })
 
-    it('should contain proper classnames if checkbox has a check status', async () => {
+    it('should contain proper classnames if checkbox has a check status', () => {
       const wrapper = setUp({ isChecked: true })
 
-      expect(wrapper.find('div').classes()).toEqual(['switch', 'switch--checked'])
+      expect(wrapper.find('div').classes()).toEqual([
+        'switch',
+        'switch--checked'
+      ])
     })
   })
 })
