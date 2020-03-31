@@ -4,12 +4,14 @@
   "description": "It's a code of my personal blog about lifestyle. Here is a backend and two app panels configured in the one project.",
   "scripts": {
     "admin:test": "npm run test --prefix admin",
+    "client:test": "npm run test --prefix client",
     "server:test": "npm run test --prefix server",
-    "test": "concurrently \"npm run server:test\" \"npm run admin:test\"",
+    "test": "concurrently \"npm run server:test\" \"npm run admin:test\" \"npm run client:test\"",
 
     "admin": "npm start --prefix admin",
+    "client": "npm start --prefix client",
     "server": "npm start --prefix server",
-    "start": "concurrently \"npm run server\" \"npm run admin\"",
+    "start": "concurrently \"npm run server\" \"npm run admin\" \"npm run client\"",
 
     "admin:lint": "npm run lint --prefix admin",
     "server:lint": "npm run lint --prefix server",
