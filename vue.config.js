@@ -12,11 +12,11 @@ module.exports = {
     entry: './index.js',
     resolve: {
       alias: {
-        "@page": path.resolve(__dirname, 'page/'),
-        "@style": path.resolve(__dirname, 'style/'),
-        "@config": path.resolve(__dirname, 'config/'),
-        "@service": path.resolve(__dirname, 'service/'),
-        "@component": path.resolve(__dirname, 'component/')
+        '@page': path.resolve(__dirname, 'page/'),
+        '@style': path.resolve(__dirname, 'style/'),
+        '@config': path.resolve(__dirname, 'config/'),
+        '@service': path.resolve(__dirname, 'service/'),
+        '@component': path.resolve(__dirname, 'component/')
       }
     },
     module: {
@@ -30,10 +30,8 @@ module.exports = {
           }
         },
         {
-          test: /\.s[ac]ss$/i,
-          use: [
-            'sass-loader'
-          ]
+          test: /\.scss$/i,
+          use: ['sass-loader']
         }
       ]
     },

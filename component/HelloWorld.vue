@@ -1,8 +1,19 @@
 <template>
   <Container>
-    <p>
-      Hello World my friend reload
-    </p>
+    <Slider
+      :slidesToShow="2"
+      :slidesToScroll="2"
+    >
+      <p>
+        Hello World my friend reload
+      </p>
+      <p>
+        Hello World my friend reload
+      </p>
+       <p>
+        Hello World my friend reload
+      </p>
+    </Slider>
     <input type="checkbox" v-model="darkMode"/>
     <Button :onClick="consoleClick">
       <h1>Example button</h1>
@@ -24,6 +35,7 @@
 
 <script>
 import Input from './generic/Input'
+import Slider from './common/Slider'
 import Button from './generic/Button'
 import Checkbox from './generic/Checkbox'
 import Textarea from './generic/Textarea'
@@ -34,6 +46,7 @@ export default {
   components: {
     Input,
     Button,
+    Slider,
     Checkbox,
     Textarea,
     Container
