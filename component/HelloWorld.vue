@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Container>
     <p>
       Hello World my friend reload
     </p>
@@ -19,7 +19,7 @@
       v-model="inputValue"
     />
     <Checkbox v-model="isChecked" />
-  </div>
+  </Container>
 </template>
 
 <script>
@@ -27,6 +27,7 @@ import Input from './generic/Input'
 import Button from './generic/Button'
 import Checkbox from './generic/Checkbox'
 import Textarea from './generic/Textarea'
+import Container from './common/Container'
 
 export default {
   name: 'HelloWorld',
@@ -34,7 +35,8 @@ export default {
     Input,
     Button,
     Checkbox,
-    Textarea
+    Textarea,
+    Container
   },
   methods: {
     consoleClick() {
