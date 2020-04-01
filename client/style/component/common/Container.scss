@@ -1,0 +1,22 @@
+.container {
+  margin: 0 auto;
+  position: absolute;
+  max-width: $medium-screen;
+  width: calc(100% - #{$paddingBig} * 2);
+  padding: 100px #{$paddingBig} #{$paddingBig};
+
+  @include respond-to('medium') {
+    width: calc(100% - #{$paddingMedium} * 2);
+    padding: 100px #{$paddingMedium} #{$paddingMedium};
+  }
+
+  @include respond-to('small') {
+    width: calc(100% - #{$paddingSmall} * 2);
+    padding: 100px #{$paddingSmall} #{$paddingSmall};
+  }
+
+  @include respond-to('mobile') {
+    width: calc(100% - #{$paddingSmall});
+    padding: 100px #{$paddingSmall / 2} #{$paddingSmall / 2};
+  }
+}
