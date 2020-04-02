@@ -6,9 +6,11 @@ const commentMapping = (record: CommentModel): CommentType => ({
   content: record.content,
   creator: record.creator,
   parentCommentId: record.parentCommentId,
-  parentComment: record.parentCommentId
+  parentComment: record.parentComment
     ? commentMapping(record.parentComment!)
     : null,
-  createdAt: new Date('2020'),
-  updatedAt: new Date('2020')
+  createdAt: record.createdAt,
+  updatedAt: record.updatedAt
 })
+
+export default commentMapping

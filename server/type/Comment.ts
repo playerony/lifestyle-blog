@@ -3,7 +3,7 @@ import { Field, ObjectType } from 'type-graphql'
 
 export class CommentModel extends Model {
   commentId?: number
-  parentCommentId?: number
+  parentCommentId?: number | null
   parentComment?: CommentModel | null
   articleId?: number
   content?: string
@@ -18,7 +18,7 @@ export class CommentType {
   commentId?: number
 
   @Field()
-  parentCommentId?: number
+  parentCommentId?: number | null
 
   @Field(type => CommentType)
   parentComment?: CommentType | null
