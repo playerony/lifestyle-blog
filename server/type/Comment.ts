@@ -6,9 +6,9 @@ import { ArticleModel } from './Article'
 export class CommentModel extends Model {
   commentId?: number
   parentCommentId?: number
-  parentComment?: CommentModel
+  parentComment?: CommentModel | null
   articleId?: number
-  article?: ArticleModel
+  article?: ArticleModel | null
   content?: string
   creator?: string
   createdAt?: Date
