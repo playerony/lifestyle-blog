@@ -11,7 +11,6 @@ describe('Comment Types', () => {
       const data: Required<CommentType> = {
         commentId: 1,
         articleId: 1,
-        article: null,
         content: 'content',
         creator: 'creator',
         parentCommentId: 1,
@@ -23,7 +22,6 @@ describe('Comment Types', () => {
       expect(Object.keys(data)).toEqual([
         'commentId',
         'articleId',
-        'article',
         'content',
         'creator',
         'parentCommentId',
@@ -39,7 +37,6 @@ describe('Comment Types', () => {
       const data: Partial<CommentModel> = {
         commentId: 1,
         articleId: 1,
-        article: null,
         content: 'content',
         creator: 'creator',
         parentCommentId: 1,
@@ -51,7 +48,6 @@ describe('Comment Types', () => {
       expect(Object.keys(data)).toEqual([
         'commentId',
         'articleId',
-        'article',
         'content',
         'creator',
         'parentCommentId',

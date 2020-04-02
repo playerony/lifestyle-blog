@@ -1,14 +1,11 @@
 import { Model } from 'sequelize'
 import { Field, ObjectType } from 'type-graphql'
 
-import { ArticleModel } from './Article'
-
 export class CommentModel extends Model {
   commentId?: number
   parentCommentId?: number
   parentComment?: CommentModel | null
   articleId?: number
-  article?: ArticleModel | null
   content?: string
   creator?: string
   createdAt?: Date
@@ -23,14 +20,11 @@ export class CommentType {
   @Field()
   parentCommentId?: number
 
-  @Field(type => CommentModel)
-  parentComment?: CommentModel | null
+  @Field(type => CommentType)
+  parentComment?: CommentType | null
 
   @Field()
   articleId?: number
-
-  @Field(type => ArticleModel)
-  article?: ArticleModel | null
 
   @Field()
   content?: string
