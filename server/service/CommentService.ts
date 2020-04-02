@@ -1,0 +1,58 @@
+import { Comment } from '@model/Comment'
+
+import { CommentType, CommentModel } from '@type/Comment'
+
+import commentMapping from '@mapping/commentMapping'
+
+import ValidationError from '@utility/ValidationError'
+
+export default class CommentService {
+  async findAllByArticleId(articleId: number): Promise<CommentType[]> {
+    const commentList = await Comment.findAll<CommentModel>({
+      where: { articleId }
+    })
+
+    return commentList.map(commentMapping)
+  }
+
+  async findById(commentId: number): Promise<CommentType | null> {
+    const foundComment = await Comment.scope(['withParentComment']).findOne<
+      CommentModel
+    >({
+      where: {
+        commentId
+      }
+    })
+
+    return foundComment ? commentMapping(foundComment) : null
+  }
+
+  async create(comment: CommentType): Promise<CommentType> {
+    const createdComment = await Comment.create<CommentModel>({
+      ...comment
+    })
+
+    return commentMapping(createdComment)
+  }
+
+  async update(
+    commentId: number,
+    comment: CommentType
+  ): Promise<CommentType | null> {
+    const foundComment = await this.findById(commentId)
+    if (!foundComment) {
+      throw new ValidationError({
+        commentId: ['No such comment found.']
+      })
+    }
+
+    await Comment.update<CommentModel>(
+      {
+        ...comment
+      },
+      { where: { commentId }, individualHooks: true }
+    )
+
+    return this.findById(commentId)
+  }
+}

@@ -31,8 +31,18 @@ Comment.init(
       allowNull: false
     }
   },
-  { sequelize }
+  {
+    sequelize,
+    scopes: {
+      withParentComment: {
+        include: ['parentComment']
+      }
+    }
+  }
 )
 
 Comment.belongsTo(Article, { as: 'article', foreignKey: 'articleId' })
-Comment.belongsTo(Comment, { as: 'parentComment', foreignKey: 'parentCommentId' })
+Comment.belongsTo(Comment, {
+  as: 'parentComment',
+  foreignKey: 'parentCommentId'
+})
