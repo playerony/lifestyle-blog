@@ -9,8 +9,8 @@
     "test": "concurrently \"npm run server:test\" \"npm run admin:test\" \"npm run client:test\"",
 
     "admin": "npm start --prefix admin",
-    "client": "npm start --prefix client",
     "server": "npm start --prefix server",
+    "client": "npm run serve --prefix client",
     "start": "concurrently \"npm run server\" \"npm run admin\" \"npm run client\"",
 
     "admin:lint": "npm run lint --prefix admin",
