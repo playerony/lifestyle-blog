@@ -38,7 +38,7 @@ describe('Article Types', () => {
     })
   })
 
-  describe('ArticleCreateRequest Type', () => {
+  describe('ArticleSaveRequest Type', () => {
     it('should contain proper fields', () => {
       const data: Required<ArticleSaveRequest> = {
         imageId: 1,

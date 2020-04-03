@@ -1,9 +1,9 @@
 import * as commentTypeList from '../Comment'
-import { CommentType, CommentModel } from '../Comment'
+import { CommentType, CommentModel, CommentSaveRequest } from '../Comment'
 
 describe('Comment Types', () => {
   it('should contain two objects', () => {
-    expect(Object.keys(commentTypeList)).toHaveLength(2)
+    expect(Object.keys(commentTypeList)).toHaveLength(3)
   })
 
   describe('CommentType Type', () => {
@@ -54,6 +54,24 @@ describe('Comment Types', () => {
         'parentComment',
         'createdAt',
         'updatedAt'
+      ])
+    })
+  })
+
+  describe('CommentSaveRequest Type', () => {
+    it('should contain proper fields', () => {
+      const data: Required<CommentSaveRequest> = {
+        articleId: 1,
+        content: 'content',
+        creator: 'creator',
+        parentCommentId: 1
+      }
+
+      expect(Object.keys(data)).toEqual([
+        'articleId',
+        'content',
+        'creator',
+        'parentCommentId'
       ])
     })
   })
