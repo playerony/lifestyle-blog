@@ -7,6 +7,7 @@ import UserResolver from '@resolver/UserResolver'
 import ImageResolver from '@resolver/ImageResolver'
 import ArticleResolver from '@resolver/ArticleResolver'
 import VisitorResolver from '@resolver/VisitorResolver'
+import CommentResolver from '@resolver/CommentResolver'
 import CategoryResolver from '@resolver/CategoryResolver'
 
 import LoggingExtension from './LoggingExtension'
@@ -17,6 +18,7 @@ const buildGraphQLSchema = async (): Promise<GraphQLSchema> =>
       LogResolver,
       UserResolver,
       ImageResolver,
+      CommentResolver,
       ArticleResolver,
       VisitorResolver,
       CategoryResolver

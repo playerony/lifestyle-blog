@@ -1,6 +1,7 @@
 import LogResolver from '@resolver/LogResolver'
 import UserResolver from '@resolver/UserResolver'
 import ImageResolver from '@resolver/ImageResolver'
+import CommentResolver from '@resolver/CommentResolver'
 import ArticleResolver from '@resolver/ArticleResolver'
 import VisitorResolver from '@resolver/VisitorResolver'
 import CategoryResolver from '@resolver/CategoryResolver'
@@ -33,6 +34,7 @@ describe('apolloServer Configuration', () => {
         LogResolver,
         UserResolver,
         ImageResolver,
+        CommentResolver,
         ArticleResolver,
         VisitorResolver,
         CategoryResolver

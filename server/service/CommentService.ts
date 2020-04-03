@@ -1,6 +1,6 @@
 import { Comment } from '@model/Comment'
 
-import { CommentType, CommentModel } from '@type/Comment'
+import { CommentType, CommentModel, CommentSaveRequest } from '@type/Comment'
 
 import commentMapping from '@mapping/commentMapping'
 
@@ -27,7 +27,7 @@ export default class CommentService {
     return foundComment ? commentMapping(foundComment) : null
   }
 
-  async create(comment: CommentType): Promise<CommentType> {
+  async create(comment: CommentSaveRequest): Promise<CommentType> {
     const createdComment = await Comment.create<CommentModel>({
       ...comment
     })
@@ -37,7 +37,7 @@ export default class CommentService {
 
   async update(
     commentId: number,
-    comment: CommentType
+    comment: CommentSaveRequest
   ): Promise<CommentType | null> {
     const foundComment = await this.findById(commentId)
     if (!foundComment) {
