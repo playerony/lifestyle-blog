@@ -41,6 +41,7 @@ export default class UserService {
     const foundUser = await User.findOne<UserModel>({
       where: { login: login! }
     })
+
     if (!foundUser) {
       throw new ValidationError({ login: ['No such user found'] })
     }
