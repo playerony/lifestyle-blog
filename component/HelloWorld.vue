@@ -1,5 +1,6 @@
 <template>
   <Container>
+    <LeftArrowIcon />
     <Slider
       :slidesToShow="2"
       :slidesToScroll="2"
@@ -41,6 +42,8 @@ import Checkbox from './generic/Checkbox'
 import Textarea from './generic/Textarea'
 import Container from './common/Container'
 
+import LeftArrowIcon from '@asset/svg/left-arrow.svg'
+
 export default {
   name: 'HelloWorld',
   components: {
@@ -49,7 +52,8 @@ export default {
     Slider,
     Checkbox,
     Textarea,
-    Container
+    Container,
+    LeftArrowIcon
   },
   methods: {
     consoleClick() {

@@ -3,7 +3,6 @@
     <VueSlickCarousel
       :speed="500"
       :arrows="true"
-      :lazyLoad="ondemand"
       :swipeToSlide="true"
       :responsive="responsive"
       :slidesToShow="slidesToShow"

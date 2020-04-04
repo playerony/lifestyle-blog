@@ -8,10 +8,15 @@ const htmlPlugin = new HtmlWebPackPlugin({
 
 module.exports = {
   runtimeCompiler: true,
+  chainWebpack: config => {
+    config.module.rules.delete('svg')
+  },
   configureWebpack: {
     entry: './index.js',
     resolve: {
       alias: {
+        '@asset': path.resolve(__dirname, '../asset/'),
+
         '@page': path.resolve(__dirname, 'page/'),
         '@style': path.resolve(__dirname, 'style/'),
         '@config': path.resolve(__dirname, 'config/'),
@@ -33,6 +38,10 @@ module.exports = {
         {
           test: /\.scss$/i,
           use: ['sass-loader']
+        },
+        {
+          test: /\.svg$/,
+          loader: 'vue-svg-loader'
         }
       ]
     },
