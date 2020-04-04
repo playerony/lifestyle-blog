@@ -30,10 +30,6 @@ class Validation {
     }
 
     return this.checkList.reduce((result, check) => {
-      if (!this.data[check.fieldName]) {
-        return result
-      }
-
       const status = check.validatorList
         .map(validator =>
           validator.function(

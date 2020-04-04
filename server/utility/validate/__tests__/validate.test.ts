@@ -26,7 +26,9 @@ describe('validate Functions', () => {
       .setCheckList([check('name')])
       .check()
 
-    expect(result).toEqual({})
+    expect(result).toEqual({
+      name: []
+    })
   })
 
   describe('isValid Function', () => {

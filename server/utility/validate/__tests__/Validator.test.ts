@@ -13,7 +13,9 @@ describe('Validator class', () => {
   it('should return an empty object', () => {
     const result = new Validator({}).setCheckList([new Check('name')]).check()
 
-    expect(result).toEqual({})
+    expect(result).toEqual({
+      name: []
+    })
   })
 
   it('should return errors for each field', () => {

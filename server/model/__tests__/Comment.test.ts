@@ -19,10 +19,6 @@ jest.doMock('sequelize', () => {
 })
 
 describe('Comment Model', () => {
-  beforeEach(() => {
-    jest.resetModules()
-  })
-
   it('should call Comment.init with the correct parameters', () => {
     require('../Comment')
 
