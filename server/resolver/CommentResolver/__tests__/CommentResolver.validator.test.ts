@@ -14,8 +14,6 @@ describe('CommentResolver.validator Functions', () => {
 
         try {
           const result = createCommentValidation(data as any)
-
-          console.warn(result)
         } catch (e) {
           const { parentCommentId } = JSON.parse(e.message)
 
