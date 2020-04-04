@@ -13,7 +13,7 @@ describe('CommentResolver.validator Functions', () => {
         }
 
         try {
-          const result = createCommentValidation(data as any)
+          createCommentValidation(data as any)
         } catch (e) {
           const { parentCommentId } = JSON.parse(e.message)
 
