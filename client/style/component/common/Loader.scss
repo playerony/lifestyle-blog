@@ -1,0 +1,126 @@
+$size: 32px;
+$duration: 800ms;
+
+.loader {
+  position: relative;
+  width: calc(#{$size} * 3);
+  height: calc(#{$size} * 2);
+  margin-top: calc(#{$size} * -1.5);
+
+  @include transform-origin(50% 50%);
+  @include transform-style(preserve-3d);
+  @include transform(rotateX(60deg) rotateZ(45deg) rotateY(0deg) translateZ(0px));
+
+  .box {
+    top: 0;
+    left: 0;
+    width: $size;
+    height: $size;
+    position: absolute;
+
+    @include transform-style(preserve-3d);
+
+    &:nth-child(1) {
+      @include transform(translate(100%, 0));
+      @include animation(box1 $duration linear infinite);
+    }
+
+    &:nth-child(2) {
+      @include transform(translate(0, 100%));
+      @include animation(box2 $duration linear infinite);
+    }
+
+    &:nth-child(3) {
+      @include transform(translate(100%, 100%));
+      @include animation(box3 $duration linear infinite);
+    }
+
+    &:nth-child(4) {
+      @include transform(translate(200%, 0));
+      @include animation(box4 $duration linear infinite);
+    }
+
+    & > div {
+      top: auto;
+      left: auto;
+      width: 100%;
+      right: auto;
+      height: 100%;
+      bottom: auto;
+      position: absolute;
+      background: $blue500;
+
+      @include transform(rotateY(0deg) rotateX(0deg) translateZ(calc(#{$size} / 2)));
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+        background: darken($blue500, 15%);
+
+        @include transform(rotateY(90deg) rotateX(0deg) translateZ(calc(#{$size} / 2)));
+      }
+
+      &:nth-child(3) {
+        background: darken($blue500, 5%);
+
+        @include transform(rotateY(90deg) rotateX(-90deg) translateZ(calc(#{$size} / 2)));
+      }
+
+      &:nth-child(4) {
+        top: 0;
+        left: 0;
+        background: $purple200;
+
+        @include transform(rotateY(-180deg) rotateX(-180deg) translateZ(calc(#{$size} * -3)));
+      }
+    }
+  }
+}
+
+@keyframes box1 {
+  0%,
+  50% {
+    @include transform(translate(100%, 0));
+  }
+  100% {
+    @include transform(translate(200%, 0));
+  }
+}
+
+@keyframes box2 {
+  0% {
+    @include transform(translate(0, 100%));
+  }
+  50% {
+    @include transform(translate(0, 0));
+  }
+  100% {
+    @include transform(translate(100%, 0));
+  }
+}
+
+@keyframes box3 {
+  0%,
+  50% {
+    @include transform(translate(100%, 100%));
+  }
+  100% {
+    @include transform(translate(0, 100%));
+  }
+}
+
+@keyframes box4 {
+  0% {
+    @include transform(translate(200%, 0));
+  }
+  50% {
+    @include transform(translate(200%, 100%));
+  }
+  100% {
+    @include transform(translate(100%, 100%));
+  }
+}
