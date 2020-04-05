@@ -14,6 +14,7 @@ interface IKeys {
   jwtExpiresIn?: number
 
   adminUrl?: string
+  clientUrl?: string
 
   cloudinaryName?: string
   cloudinaryPublicKey?: string
@@ -36,6 +37,7 @@ const config: IKeys = {
   jwtExpiresIn: Number(process.env.JWT_EXPIRES_IN),
 
   adminUrl: process.env.ADMIN_URL,
+  clientUrl: process.env.CLIENT_URL,
 
   cloudinaryName: process.env.CLOUDINARY_NAME,
   cloudinaryPublicKey: process.env.CLOUDINARY_PUBLIC_KEY,

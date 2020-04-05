@@ -18,7 +18,7 @@ export default async (): Promise<Express> => {
     server.applyMiddleware({
       app,
       cors: {
-        origin: keys.adminUrl,
+        origin: [keys.adminUrl!, keys.clientUrl!],
         credentials: true
       }
     })

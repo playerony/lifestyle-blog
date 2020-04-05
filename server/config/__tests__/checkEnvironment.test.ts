@@ -26,6 +26,7 @@ describe('checkEnvironment Function', () => {
     process.env.SERVER_PORT = 'SERVER_PORT'
 
     process.env.ADMIN_URL = 'ADMIN_URL'
+    process.env.CLIENT_URL = 'CLIENT_URL'
 
     process.env.CLOUDINARY_NAME = 'CLOUDINARY_NAME'
     process.env.CLOUDINARY_PUBLIC_KEY = 'CLOUDINARY_PUBLIC_KEY'
