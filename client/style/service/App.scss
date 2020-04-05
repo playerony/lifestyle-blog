@@ -1,0 +1,6 @@
+.app {
+  position: relative;
+
+  @include flexbox;
+  @include justify-content(center);
+}
