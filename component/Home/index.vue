@@ -1,16 +1,16 @@
 <template>
   <div>
-    <Hero :article="getLastArticle()" />
+    <Billboard :article="getLastArticle()" />
   </div>
 </template>
 
 <script>
-import Hero from './Hero'
+import Billboard from './Billboard'
 
 export default {
   name: 'Home',
   components: {
-    Hero
+    Billboard
   },
   methods: {
     getLastArticle() {
