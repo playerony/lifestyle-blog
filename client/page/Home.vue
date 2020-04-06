@@ -1,20 +1,24 @@
 <template>
-  <Container>
-    <Loader />
-  </Container>
+  <div>
+    <LoadingPage v-if="$apollo.queries.articleList.loading" />
+    <Home
+      :articles="articleList"
+      v-if="!$apollo.queries.articleList.loading"
+    />
+  </div>
 </template>
 
 <script>
-import Loader from '@component/common/Loader'
-import Container from '@component/common/Container'
+import Home from '@component/Home'
+import LoadingPage from './Loading'
 
 import { ARTICLE_LIST_QUERY } from '@graphql/query/articleList'
 
 export default {
-  name: 'Home',
+  name: 'HomePage',
   components: {
-    Loader,
-    Container
+    Home,
+    LoadingPage
   },
   data () {
     return {
