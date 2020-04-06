@@ -5,6 +5,11 @@
       <h1>{{ article.title }}</h1>
       <h2>{{ article.description }}</h2>
     </section>
+    <section class="billboard__links">
+      <router-link :to="/article/ + article.articleId">
+        READ
+      </router-link>
+    </section>
   </div>
 </template>
 

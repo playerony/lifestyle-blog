@@ -8,7 +8,65 @@
 
   &__content {
     left: 4%;
-    bottom: 35%;
+    bottom: 30%;
     position: absolute;
+    padding: $paddingBig;
+    background-color: var(--card-color);
+
+    @include border-radius(4px);
+
+    @include respond-to("medium") {
+      padding: $paddingMedium;
+    }
+
+    @include respond-to("small") {
+      padding: $paddingSmall;
+    }
+
+    @include respond-to("mobile") {
+      bottom: 25%;
+      padding: calc(#{$paddingSmall} / 2);
+    }
+
+    & > h1 {
+      margin-bottom: calc(#{$paddingSmall} / 2);
+
+      @include respond-to("small") {
+        margin-bottom: 0;
+      }
+    }
+
+    & > h2 {
+      @include respond-to("small") {
+        display: none;
+      }
+    }
+  }
+
+  &__links {
+    left: 4%;
+    bottom: 20%;
+    position: absolute;
+    margin-left: $paddingBig;
+
+    @include respond-to("medium") {
+      margin-left: $paddingMedium;
+    }
+
+    @include respond-to("small") {
+      margin-left: $paddingSmall;
+    }
+
+    @include respond-to("mobile") {
+      bottom: 15%;
+    }
+
+    & > a {
+      color: $white;
+
+      &:hover {
+        color: $blue500;
+      }
+    }
   }
 }

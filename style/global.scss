@@ -11,19 +11,19 @@ label {
   @include font-size(24px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(22px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(20px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(19px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(18px);
   }
 }
@@ -34,19 +34,19 @@ p {
   @include font-size(18px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(16px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(14px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(13px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(12px);
   }
 }
@@ -59,19 +59,19 @@ h1 {
   @include font-size(36px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(34px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(32px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(31px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(30px);
   }
 }
@@ -84,19 +84,19 @@ h2 {
   @include font-size(28px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(26px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(24px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(23px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(22px);
   }
 }
@@ -109,19 +109,19 @@ h3 {
   @include font-size(23px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(21px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(19px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(18px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(17px);
   }
 }
@@ -134,19 +134,19 @@ h4 {
   @include font-size(20px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(18px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(16px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(15px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(14px);
   }
 }
@@ -159,19 +159,19 @@ h5 {
   @include font-size(17px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(15px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(13px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(12px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(11px);
   }
 }
@@ -184,19 +184,49 @@ h6 {
   @include font-size(15px);
   @include transition(color 500ms linear);
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     @include font-size(13px);
   }
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     @include font-size(11px);
   }
 
-  @include respond-to('small') {
+  @include respond-to("small") {
     @include font-size(10px);
   }
 
-  @include respond-to('mobile') {
+  @include respond-to("mobile") {
     @include font-size(9px);
+  }
+}
+
+a {
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: underline;
+  font-family: $bold-font-family;
+
+  @include font-size(23px);
+  @include transition(color 500ms linear);
+
+  @include respond-to("large") {
+    @include font-size(21px);
+  }
+
+  @include respond-to("medium") {
+    @include font-size(19px);
+  }
+
+  @include respond-to("small") {
+    @include font-size(18px);
+  }
+
+  @include respond-to("mobile") {
+    @include font-size(17px);
+  }
+
+  &:hover {
+    color: $blue500;
   }
 }
