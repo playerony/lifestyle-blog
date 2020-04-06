@@ -1,0 +1,14 @@
+.billboard {
+  width: 100%;
+  position: relative;
+
+  &__image {
+    width: 100%;
+  }
+
+  &__content {
+    left: 4%;
+    bottom: 35%;
+    position: absolute;
+  }
+}
