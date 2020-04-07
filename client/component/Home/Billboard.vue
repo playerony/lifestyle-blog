@@ -12,12 +12,22 @@
         READ
       </router-link>
     </section>
+    <section class="billboard__date">
+      <h3>{{ date }}</h3>
+    </section>
   </div>
 </template>
 
 <script>
+import formatArticleDate from '@utility/formatArticleDate'
+
 export default {
-  name: 'Hero',
+  name: 'Billboard',
+  data () {
+    return {
+      date: formatArticleDate(this.article.createdAt)
+    }
+  },
   props: {
     article: { type: Object, required: true }
   }
