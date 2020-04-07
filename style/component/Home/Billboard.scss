@@ -13,7 +13,7 @@
     width: 100%;
     height: 100%;
     position: absolute;
-    background-color: rgba(2, 213, 124, 0.15);
+    background-color: rgba(2, 213, 124, 0.2);
   }
 
   &__content {
@@ -80,6 +80,32 @@
       &:hover {
         color: $green600;
       }
+    }
+  }
+
+  &__date {
+    right: 0;
+    z-index: 2;
+    position: absolute;
+    border-left: 5px solid $white;
+    bottom: calc(20% - #{$paddingSmall});
+    background-color: rgba(255, 255, 255, 0.2);
+
+    padding: $paddingSmall;
+    padding-right: 4%;
+
+    & > h3 {
+      color: $white;
+    }
+
+    @include respond-to("small") {
+      border-width: 3px;
+      padding: calc(#{$paddingSmall} / 2);
+      padding-right: 4%;
+    }
+
+    @include respond-to("mobile") {
+      bottom: calc(12% - #{$paddingSmall} / 2);
     }
   }
 }
