@@ -6,37 +6,58 @@
     width: 100%;
   }
 
+  &__mask {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(2, 213, 124, 0.15);
+  }
+
   &__content {
     left: 4%;
+    z-index: 2;
     bottom: 30%;
     position: absolute;
-    padding: $paddingBig;
-    background-color: var(--card-color);
-
-    @include border-radius(4px);
-
-    @include respond-to("medium") {
-      padding: $paddingMedium;
-    }
-
-    @include respond-to("small") {
-      padding: $paddingSmall;
-    }
 
     @include respond-to("mobile") {
       bottom: 25%;
-      padding: calc(#{$paddingSmall} / 2);
     }
 
-    & > h1 {
-      margin-bottom: calc(#{$paddingSmall} / 2);
+    & > .content__header {
+      color: $white;
+      font-weight: 100;
+    }
+
+    & > .content__title {
+      color: $white;
+      margin-bottom: $paddingSmall;
+
+      @include font-size(100px);
+
+      @include respond-to("large") {
+        @include font-size(70px);
+      }
+
+      @include respond-to("medium") {
+        @include font-size(65px);
+      }
 
       @include respond-to("small") {
+        @include font-size(45px);
+      }
+
+      @include respond-to("mobile") {
         margin-bottom: 0;
+        @include font-size(32px);
       }
     }
 
-    & > h2 {
+    & > .content__description {
+      color: $white;
+
       @include respond-to("small") {
         display: none;
       }
@@ -45,27 +66,19 @@
 
   &__links {
     left: 4%;
+    z-index: 2;
     bottom: 20%;
     position: absolute;
-    margin-left: $paddingBig;
-
-    @include respond-to("medium") {
-      margin-left: $paddingMedium;
-    }
-
-    @include respond-to("small") {
-      margin-left: $paddingSmall;
-    }
 
     @include respond-to("mobile") {
-      bottom: 15%;
+      bottom: 12%;
     }
 
     & > a {
       color: $white;
 
       &:hover {
-        color: $blue500;
+        color: $green600;
       }
     }
   }
