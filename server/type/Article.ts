@@ -48,6 +48,9 @@ export class ArticleType {
   isPublic?: boolean
 
   @Field()
+  readingTime?: number
+
+  @Field()
   createdAt?: Date
 
   @Field()

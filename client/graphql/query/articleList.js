@@ -8,6 +8,7 @@ export const ARTICLE_LIST_QUERY = gql`
       articleId
       createdAt
       description
+      readingTime
       categoryList {
         categoryId
         name
