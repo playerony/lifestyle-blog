@@ -1,0 +1,21 @@
+.article-card {
+  width: 95%;
+  margin: 0 auto;
+  cursor: pointer;
+  max-width: 500px;
+  position: relative;
+
+  @include transform(scale(0.95));
+  @include transition(all 300ms linear);
+
+  &:hover {
+    @include transform(scale(1));
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+
+    @include border-radius(4px);
+  }
+}
