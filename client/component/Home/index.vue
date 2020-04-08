@@ -1,16 +1,23 @@
 <template>
-  <div>
+  <fragment>
     <Billboard :article="getLastArticle()" />
-  </div>
+    <Container>
+      <Dashboard :articles="articles" />
+    </Container>
+  </fragment>
 </template>
 
 <script>
 import Billboard from './Billboard'
+import Dashboard from './Dashboard'
+import Container from '../common/Container'
 
 export default {
   name: 'Home',
   components: {
-    Billboard
+    Billboard,
+    Dashboard,
+    Container
   },
   methods: {
     getLastArticle() {

@@ -17,6 +17,7 @@
     "graphql-tag": "^2.10.3",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.3",
+    "vue-fragment": "^1.5.1",
     "vue-loader": "^15.9.1",
     "vue-router": "^3.1.6",
     "vue-slick-carousel": "^1.0.5"
