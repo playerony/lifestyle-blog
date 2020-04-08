@@ -5,10 +5,7 @@
     :responsive="responsive"
   >
     <div v-for="article in articles" :key="article.articleId">
-      <ArticleCard />
-    </div>
-    <div v-for="article in articles" :key="article.articleId">
-      <ArticleCard />
+      <ArticleCard :article="article" />
     </div>
   </Slider>
 </template>
@@ -26,7 +23,7 @@ export default {
     ArticleCard
   },
   data () {
-    const largeScreenSliderElements = getSliderElements([...this.articles, ...this.articles], 4)
+    const largeScreenSliderElements = getSliderElements(this.articles, 4)
     const smallScreenSliderElements = getSliderElements(this.articles, 2)
     const mediumScreenSliderElements = getSliderElements(this.articles, 3)
 
