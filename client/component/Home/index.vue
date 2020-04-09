@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     getLastArticle() {
-      return this.articles[2]
+      return this.articles[1]
     }
   },
   props: {
