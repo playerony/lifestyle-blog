@@ -20,7 +20,7 @@
   }
 
   &__reading-time {
-    top: 7%;
+    top: 9%;
     left: 4%;
     color: $white;
     position: absolute;
@@ -63,6 +63,37 @@
 
     & > h4 {
       color: $white;
+    }
+  }
+
+  &__date {
+    top: 9%;
+    right: 0;
+    height: 30px;
+    padding-right: 4%;
+    padding-left: 5px;
+    position: absolute;
+    border-left: 3px solid $white;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    @include flexbox;
+    @include align-items(center);
+
+    @include respond-to("medium") {
+      height: 28px;
+    }
+
+    @include respond-to("small") {
+      height: 26px;
+    }
+
+    @include respond-to("mobile") {
+      height: 22px;
+    }
+
+    & > h4 {
+      color: $white;
+      white-space: nowrap;
     }
   }
 }
