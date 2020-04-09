@@ -1,4 +1,4 @@
-export default <T>(jsonString: string): boolean | T => {
+export default <T = any>(jsonString: string): T | null => {
   try {
     var result = JSON.parse(jsonString)
 
@@ -7,5 +7,5 @@ export default <T>(jsonString: string): boolean | T => {
     }
   } catch {}
 
-  return false
+  return null
 }

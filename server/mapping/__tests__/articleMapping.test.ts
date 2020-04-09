@@ -30,6 +30,7 @@ const OUTPUT_MOCK: ArticleType = {
   articleId: 1,
   title: 'Title',
   isPublic: false,
+  readingTime: 0,
   categoryList: null,
   content: 'Content',
   description: 'Descr',

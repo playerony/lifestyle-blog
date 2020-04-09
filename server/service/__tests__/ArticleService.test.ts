@@ -118,6 +118,7 @@ const ARTICLE_MOCK: ArticleType = {
   title: '123',
   content: '123',
   isPublic: false,
+  readingTime: 0,
   categoryList: [],
   description: '123',
   createdAt: new Date('2019'),
