@@ -18,4 +18,16 @@
 
     @include border-radius(4px);
   }
+
+  &__reading-time {
+    top: 4%;
+    left: 4%;
+    position: absolute;
+
+    & > svg {
+      width: 23px;
+      height: 23px;
+      fill: $white;
+    }
+  }
 }
