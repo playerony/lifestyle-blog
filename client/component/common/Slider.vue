@@ -3,7 +3,9 @@
     <VueSlickCarousel
       :speed="500"
       :arrows="true"
+      :centerMode="true"
       :swipeToSlide="true"
+      :centerPadding="'60px'"
       :responsive="responsive"
       :slidesToShow="slidesToShow"
       :slidesToScroll="slidesToScroll"
