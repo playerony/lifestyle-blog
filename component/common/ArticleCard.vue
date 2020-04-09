@@ -1,9 +1,10 @@
 <template>
   <div class="article-card">
     <img class="article-card__image" :src="article.image.photoUrl" />
-    <label class="article-card__reading-time">
+    <p class="article-card__reading-time">
       <ClockSVG style="width: 25px; height: 25px;" />
-    </label>
+      {{ article.readingTime }} min
+    </p>
   </div>
 </template>
 

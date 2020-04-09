@@ -20,14 +20,19 @@
   }
 
   &__reading-time {
-    top: 4%;
+    top: 7%;
     left: 4%;
+    color: $white;
     position: absolute;
 
+    @include flexbox;
+    @include align-items(center);
+
     & > svg {
-      width: 23px;
-      height: 23px;
+      width: 30px;
+      height: 30px;
       fill: $white;
+      padding-right: 5px;
     }
   }
 }
