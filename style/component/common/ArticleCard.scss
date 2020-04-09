@@ -1,15 +1,15 @@
 .article-card {
-  width: 95%;
   margin: 0 auto;
   cursor: pointer;
   max-width: 500px;
   position: relative;
+  width: calc(100% - 10px);
 
-  @include transform(scale(0.95));
+  @include transform(scale(1));
   @include transition(all 300ms linear);
 
   &:hover {
-    @include transform(scale(1));
+    @include transform(scale(0.95));
   }
 
   &__image {

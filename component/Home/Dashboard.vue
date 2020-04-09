@@ -1,6 +1,6 @@
 <template>
   <fragment>
-    <ArticleList :articles="articles" />
+    <ArticleList label="All" :articles="articles" />
   </fragment>
 </template>
 
