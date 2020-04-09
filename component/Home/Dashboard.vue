@@ -1,7 +1,9 @@
 <template>
-  <fragment>
+  <div class="dashboard">
     <ArticleList label="All" :articles="articles" />
-  </fragment>
+    <ArticleList label="Newest" :articles="articles" />
+    <ArticleList label="Most Viewed" :articles="articles" />
+  </div>
 </template>
 
 <script>

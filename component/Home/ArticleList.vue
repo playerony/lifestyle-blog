@@ -11,6 +11,9 @@
       <div v-for="article in articles" :key="article.articleId">
         <ArticleCard :article="article" />
       </div>
+      <div v-for="article in articles" :key="article.articleId">
+        <ArticleCard :article="article" />
+      </div>
     </Slider>
   </div>
 </template>
@@ -29,7 +32,6 @@ export default {
   },
   data () {
     const smallScreenSliderElements = getSliderElements(this.articles, 2)
-    const largeScreenSliderElements = getSliderElements(this.articles, 4)
     const mediumScreenSliderElements = getSliderElements(this.articles, 3)
 
     return {
@@ -37,13 +39,14 @@ export default {
         {
           breakpoint: 1919,
           settings: {
-            slidesToShow: largeScreenSliderElements,
-            slidesToScroll: largeScreenSliderElements
+            slidesToShow: mediumScreenSliderElements,
+            slidesToScroll: mediumScreenSliderElements
           }
         },
         {
           breakpoint: 1367,
           settings: {
+            centerPadding: '40px',
             slidesToShow: mediumScreenSliderElements,
             slidesToScroll: mediumScreenSliderElements
           }
@@ -51,16 +54,18 @@ export default {
         {
           breakpoint: 1023,
           settings: {
+            centerPadding: '20px',
             slidesToShow: smallScreenSliderElements,
             slidesToScroll: smallScreenSliderElements
           }
         },
         {
           breakpoint: 750,
-          centerPadding: '20px',
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            centerMode: false,
+            centerPadding: '0px'
           }
         }
       ]
