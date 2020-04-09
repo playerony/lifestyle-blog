@@ -1,0 +1,9 @@
+.dashboard {
+  @include respond-to("medium") {
+    padding: 0 calc(#{$paddingSmall} / 2);
+  }
+
+  @include respond-to("small") {
+    padding: 0 $paddingSmall;
+  }
+}
