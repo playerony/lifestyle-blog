@@ -1,5 +1,8 @@
 <template>
-  <div class="article-card">
+  <router-link
+    class="article-card"
+    :to="/article/ + article.articleId"
+  >
     <img class="article-card__image" :src="article.image.photoUrl" />
     <p class="article-card__reading-time">
       <ClockSVG />
@@ -12,7 +15,7 @@
     <section class="article-card__date">
       <h4>{{ date }}</h4>
     </section>
-  </div>
+  </router-link>
 </template>
 
 <script>
