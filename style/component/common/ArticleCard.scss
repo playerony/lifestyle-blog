@@ -33,6 +33,36 @@
       height: 30px;
       fill: $white;
       padding-right: 5px;
+
+      @include respond-to("medium") {
+        width: 28px;
+        height: 28px;
+      }
+
+      @include respond-to("small") {
+        width: 26px;
+        height: 26px;
+      }
+
+      @include respond-to("mobile") {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  }
+
+  &__content {
+    left: 4%;
+    bottom: 15%;
+    position: absolute;
+
+    & > h2 {
+      color: $white;
+      padding-bottom: 5px;
+    }
+
+    & > h4 {
+      color: $white;
     }
   }
 }

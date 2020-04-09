@@ -2,9 +2,13 @@
   <div class="article-card">
     <img class="article-card__image" :src="article.image.photoUrl" />
     <p class="article-card__reading-time">
-      <ClockSVG style="width: 25px; height: 25px;" />
+      <ClockSVG />
       {{ article.readingTime }} min
     </p>
+    <div class="article-card__content">
+      <h2>{{ article.title }}</h2>
+      <h4>{{ article.description }}</h4>
+    </div>
   </div>
 </template>
 
