@@ -55,6 +55,7 @@
 
       @include respond-to("mobile") {
         margin-bottom: 0;
+
         @include font-size(32px);
       }
     }
