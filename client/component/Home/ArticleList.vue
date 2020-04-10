@@ -1,16 +1,16 @@
 <template>
   <div class="home__article-list">
-    <h2 class="article-list__label">
+    <h2
+      @click="categoryRedirect()"
+      :class="'article-list__label ' + labelStyle"
+    >
       {{ label }}
     </h2>
     <Slider
-      :slidesToShow="6"
-      :slidesToScroll="6"
+      :slidesToShow="4"
+      :slidesToScroll="4"
       :responsive="responsive"
     >
-      <div v-for="article in articles" :key="article.articleId">
-        <ArticleCard :article="article" />
-      </div>
       <div v-for="article in articles" :key="article.articleId">
         <ArticleCard :article="article" />
       </div>
@@ -22,7 +22,7 @@
 import Slider from '../common/Slider'
 import ArticleCard from '../common/ArticleCard'
 
-import getSliderElements from '@utility/getSliderElements'
+import calculateSliderElements from '@utility/calculateSliderElements'
 
 export default {
   name: 'ArticleList',
@@ -30,9 +30,25 @@ export default {
     Slider,
     ArticleCard
   },
+  computed: {
+    labelStyle() {
+      if (this.categoryId) {
+        return 'article-list__label--hover'
+      }
+
+      return ''
+    }
+  },
+  methods: {
+    categoryRedirect() {
+      if (this.categoryId) {
+        this.$router.push(`/articles/${this.categoryId}`)
+      }
+    }
+  },
   data () {
-    const smallScreenSliderElements = getSliderElements(this.articles, 2)
-    const mediumScreenSliderElements = getSliderElements(this.articles, 3)
+    const smallScreenSliderElements = calculateSliderElements(this.articles, 2)
+    const mediumScreenSliderElements = calculateSliderElements(this.articles, 3)
 
     return {
       responsive: [
@@ -73,7 +89,8 @@ export default {
   },
   props: {
     label: { type: String, required: true },
-    articles: { type: Array, required: true }
+    articles: { type: Array, required: true },
+    categoryId: { type: Number, required: false, default: null }
   }
 }
 </script>

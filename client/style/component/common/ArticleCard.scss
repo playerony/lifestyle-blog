@@ -4,13 +4,13 @@
   cursor: pointer;
   max-width: 500px;
   position: relative;
-  width: calc(100% - 10px);
+  width: calc(100% - 4px);
 
   @include transform(scale(1));
   @include transition(all 300ms linear);
 
   &:hover {
-    @include transform(scale(0.95));
+    @include transform(scale(0.97));
   }
 
   &__image {
