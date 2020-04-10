@@ -3,9 +3,8 @@
     margin: 3vh 0;
 
     & > .article-list__label {
-      cursor: pointer;
       line-height: 1.3;
-      margin-left: 5px;
+      margin-left: 2px;
       display: inline-block;
 
       &:after {
@@ -17,9 +16,13 @@
         @include transition(opacity 500ms linear);
       }
 
-      &:hover {
-        &::after {
-          opacity: 1;
+      &--hover {
+        cursor: pointer;
+
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
         }
       }
     }

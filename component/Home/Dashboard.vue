@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <ArticleList label="All" :articles="articles" />
+    <ArticleList label="All" :articles="articles" :categoryId="5" />
     <ArticleList label="Newest" :articles="articles" />
     <ArticleList label="Most Viewed" :articles="articles" />
   </div>
