@@ -1,7 +1,7 @@
 <template>
   <div class="home__article-list">
     <h2
-      @click="categoryRedirect()"
+      @click="redirectToCategoryList()"
       :class="'article-list__label ' + labelStyle"
     >
       {{ label }}
@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-    categoryRedirect() {
+    redirectToCategoryList() {
       if (this.categoryId) {
         this.$router.push(`/articles/${this.categoryId}`)
       }
