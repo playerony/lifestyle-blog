@@ -6,9 +6,12 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-    border: 10px solid $black;
 
     @include transform(scale(0.96));
+
+    @include respond-to("small") {
+      @include transform(scale(0.93));
+    }
   }
 
   &__content {
@@ -18,6 +21,7 @@
     position: absolute;
 
     @include respond-to("mobile") {
+      left: 7%;
       bottom: 25%;
     }
 
@@ -28,7 +32,12 @@
 
     & > .content__title {
       color: $white;
+      line-height: 1.2;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
       margin-bottom: $paddingSmall;
+      max-width: calc(100vw - 50px);
 
       @include font-size(100px);
 
@@ -66,6 +75,7 @@
     position: absolute;
 
     @include respond-to("mobile") {
+      left: 7%;
       bottom: 12%;
     }
 
@@ -100,7 +110,9 @@
     }
 
     @include respond-to("mobile") {
-      bottom: calc(12% - #{$paddingSmall} / 2);
+      padding: calc(#{$paddingSmall} / 4);
+      padding-right: 7%;
+      bottom: calc(12% - #{$paddingSmall} / 4);
     }
   }
 }

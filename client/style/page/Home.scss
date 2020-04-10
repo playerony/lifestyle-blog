@@ -1,6 +1,22 @@
 .home {
   &__article-list {
-    margin: 3vh 0;
+    margin-bottom: 10vh;
+
+    @include respond-to("large") {
+      margin-bottom: 8vh;
+    }
+
+    @include respond-to("medium") {
+      margin-bottom: 6vh;
+    }
+
+    @include respond-to("small") {
+      margin-bottom: 4vh;
+    }
+
+    @include respond-to("mobile") {
+      margin-bottom: 2vh;
+    }
 
     & > .article-list__label {
       line-height: 1.3;
