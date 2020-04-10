@@ -32,15 +32,14 @@ export default {
   },
   methods: {
     handleMouseMove(event) {
-      event.preventDefault()
-
       const billboardImage = document.getElementById('billboard-background')
+
       if (billboardImage) {
         const billboardOriginX = billboardImage.clientWidth / 2
         const billboardOriginY = billboardImage.clientHeight / 2
 
-        billboardImage.style.left = (billboardOriginX - event.screenX) * 0.02 - 10 + 'px'
-        billboardImage.style.top = (billboardOriginY - event.screenY) * 0.02 - 10 + 'px'
+        billboardImage.style.top = `${(billboardOriginY - event.screenY) * 0.03}px`
+        billboardImage.style.left = `${(billboardOriginX - event.screenX) * 0.03}px`
       }
     }
   },
