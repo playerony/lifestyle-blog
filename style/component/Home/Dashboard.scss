@@ -6,4 +6,8 @@
   @include respond-to("small") {
     padding: 0 $paddingSmall;
   }
+
+  & > .home__article-list:last-child {
+    margin-bottom: 0;
+  }
 }
