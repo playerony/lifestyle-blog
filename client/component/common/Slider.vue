@@ -4,6 +4,7 @@
       :speed="500"
       :arrows="true"
       :centerMode="true"
+      lazyLoad="ondemand"
       :swipeToSlide="true"
       :centerPadding="'60px'"
       :responsive="responsive"

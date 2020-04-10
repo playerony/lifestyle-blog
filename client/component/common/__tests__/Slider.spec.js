@@ -61,6 +61,7 @@ const SLIDER_PROPS_MOCK = {
   edgefriction: '0.35',
   infinite: 'true',
   initialslide: '0',
+  lazyload: 'ondemand',
   pauseonhover: 'true',
   rows: '1',
   slidesperrow: '1',
