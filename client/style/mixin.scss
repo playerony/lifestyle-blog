@@ -107,10 +107,18 @@
 }
 
 $breakpoints: (
-  'large': ( max-width: $large-screen ),
-  'medium': ( max-width: $medium-screen ),
-  'small': ( max-width: $small-screen ),
-  'mobile': ( max-width: $mobile-screen )
+  "large": (
+    max-width: $large-screen,
+  ),
+  "medium": (
+    max-width: $medium-screen,
+  ),
+  "small": (
+    max-width: $small-screen,
+  ),
+  "mobile": (
+    max-width: $mobile-screen,
+  ),
 ) !default;
 
 @mixin respond-to($breakpoint) {
@@ -118,9 +126,7 @@ $breakpoints: (
     @media #{inspect(map-get($breakpoints, $breakpoint))} {
       @content;
     }
-  }
- 
-  @else {
+  } @else {
     @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
       + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
@@ -134,4 +140,11 @@ $breakpoints: (
   box-sizing: $box-model;
   -moz-box-sizing: $box-model;
   -webkit-box-sizing: $box-model;
+}
+
+@mixin user-select($user-select) {
+  user-select: $user-select;
+  -ms-user-select: $user-select;
+  -moz-user-select: $user-select;
+  -webkit-user-select: $user-select;
 }

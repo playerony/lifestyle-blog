@@ -68,10 +68,11 @@
     }
   }
 
-  &__links {
+  &__link {
     left: 4%;
     z-index: 2;
     bottom: 20%;
+    color: $white;
     position: absolute;
 
     @include respond-to("mobile") {
@@ -79,18 +80,15 @@
       bottom: 12%;
     }
 
-    & > a {
-      color: $white;
-
-      &:hover {
-        color: $green600;
-      }
+    &:hover {
+      color: $green600;
     }
   }
 
   &__date {
     right: 0;
     z-index: 2;
+    color: $white;
     position: absolute;
     border-left: 5px solid $white;
     bottom: calc(20% - #{$paddingSmall});
@@ -98,10 +96,6 @@
 
     padding: $paddingSmall;
     padding-right: 4%;
-
-    & > h3 {
-      color: $white;
-    }
 
     @include respond-to("small") {
       border-width: 3px;
