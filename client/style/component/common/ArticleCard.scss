@@ -71,9 +71,11 @@
     top: 9%;
     right: 0;
     height: 30px;
+    color: $white;
     padding-right: 4%;
     padding-left: 5px;
     position: absolute;
+    white-space: nowrap;
     border-left: 3px solid $white;
     background-color: rgba(255, 255, 255, 0.2);
 
@@ -90,11 +92,6 @@
 
     @include respond-to("mobile") {
       height: 22px;
-    }
-
-    & > h4 {
-      color: $white;
-      white-space: nowrap;
     }
   }
 }
