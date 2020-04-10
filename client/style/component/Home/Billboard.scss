@@ -4,16 +4,11 @@
 
   &__image {
     width: 100%;
-  }
+    overflow: hidden;
+    position: relative;
+    border: 10px solid $black;
 
-  &__mask {
-    top: 0;
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background-color: rgba(2, 213, 124, 0.2);
+    @include transform(scale(0.96));
   }
 
   &__content {
