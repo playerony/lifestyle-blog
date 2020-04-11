@@ -3,8 +3,7 @@
     <LoadingPage v-if="isLoading()" />
     <Home
       v-if="!isLoading()"
-      :articles="articleList"
-      :visitors="visitorList"
+      :articles="getArticleList()"
     />
   </fragment>
 </template>
@@ -16,6 +15,8 @@ import LoadingPage from './Loading'
 import articleListQuery from '@graphql/query/articleList'
 import visitorListQuery from '@graphql/query/visitorList'
 
+import articleListTransformator from '@transformator/articleListTransformator'
+
 export default {
   name: 'HomePage',
   components: {
@@ -25,6 +26,9 @@ export default {
   methods: {
     isLoading() {
       return this.$apollo.queries.articleList.loading || this.$apollo.queries.visitorList.loading
+    },
+    getArticleList() {
+      return articleListTransformator(this.articleList, this.visitorList)
     }
   },
   data () {
