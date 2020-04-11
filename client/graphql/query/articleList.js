@@ -11,7 +11,6 @@ export const ARTICLE_LIST_QUERY = gql`
       readingTime
       categoryList {
         categoryId
-        name
       }
       image {
         photoUrl
