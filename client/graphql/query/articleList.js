@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export const ARTICLE_LIST_QUERY = gql`
+const ARTICLE_LIST_QUERY = gql`
   query {
     articleList {
       title
@@ -18,3 +18,8 @@ export const ARTICLE_LIST_QUERY = gql`
     }
   }
 `
+
+export default {
+  query: ARTICLE_LIST_QUERY,
+  fetchPolicy: 'cache-first'
+}
