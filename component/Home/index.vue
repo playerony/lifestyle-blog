@@ -21,14 +21,13 @@ export default {
   },
   methods: {
     getLastArticle() {
-      console.warn(this.articles, this.visitors)
+      console.warn(this.articles)
 
       return this.articles[0]
     }
   },
   props: {
-    articles: { type: Array, required: true },
-    visitors: { type: Array, required: true }
+    articles: { type: Array, required: true }
   }
 }
 </script>
