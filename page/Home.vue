@@ -13,8 +13,8 @@
 import Home from '@component/Home'
 import LoadingPage from './Loading'
 
-import { ARTICLE_LIST_QUERY } from '@graphql/query/articleList'
-import { VISITOR_LIST_QUERY } from '@graphql/query/visitorList'
+import articleListQuery from '@graphql/query/articleList'
+import visitorListQuery from '@graphql/query/visitorList'
 
 export default {
   name: 'HomePage',
@@ -34,14 +34,8 @@ export default {
     }
   },
   apollo: {
-    articleList: {
-      query: ARTICLE_LIST_QUERY,
-      loadingKey: 'articleListLoading'
-    },
-    visitorList: {
-      query: VISITOR_LIST_QUERY,
-      loadingKey: 'visitorListLoading'
-    }
+    articleList: articleListQuery,
+    visitorList: visitorListQuery
   }
 }
 </script>

@@ -1,6 +1,6 @@
 import gql from 'graphql-tag'
 
-export const VISITOR_LIST_QUERY = gql`
+const VISITOR_LIST_QUERY = gql`
   query {
     visitorList {
       articleId
@@ -10,3 +10,8 @@ export const VISITOR_LIST_QUERY = gql`
     }
   }
 `
+
+export default {
+  query: VISITOR_LIST_QUERY,
+  fetchPolicy: 'cache-first'
+}
