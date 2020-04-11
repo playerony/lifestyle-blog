@@ -15,6 +15,7 @@ module.exports = {
     '@graphql/(.*)': '<rootDir>/graphql/$1',
     '@service/(.*)': '<rootDir>/service/$1',
     '@utility/(.*)': '<rootDir>/utility/$1',
-    '@component/(.*)': '<rootDir>/component/$1'
+    '@component/(.*)': '<rootDir>/component/$1',
+    '@transformator/(.*)': '<rootDir>/transformator/$1'
   }
 }
