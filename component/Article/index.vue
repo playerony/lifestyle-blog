@@ -1,8 +1,17 @@
 <template>
-  <div v-html="content" />
+  <div class="article">
+    <Container>
+      <div
+        v-html="content"
+        class="article__content"
+      />
+    </Container>
+  </div>
 </template>
 
 <script>
+import Container from '../common/Container'
+
 import draftToHtml from 'draftjs-to-html'
 
 export default {
@@ -10,12 +19,18 @@ export default {
   props: {
     article: { type: Object, required: true }
   },
+  components: {
+    Container
+  },
   data () {
     const customEntityTransform = (entity, text) => {
-      console.warn(entity)
-      if (entity.type !== 'image') return;
-
-      return `<img src="${text}" />`;
+      if (entity.type === 'image') {
+        return `<img src="${text}" />`
+      } else if (entity.type === 'code-block') {
+        return `<code>${text}</code>`
+      } else {
+        return
+      }
     }
 
     return {

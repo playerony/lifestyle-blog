@@ -1,0 +1,49 @@
+.article {
+  position: relative;
+
+  &__content {
+    position: relative;
+
+    & > * {
+      padding-bottom: $paddingSmall;
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      & em {
+        font-style: italic;
+      }
+    }
+
+    & > img {
+      margin: 0 auto;
+      display: block;
+      max-width: 100%;
+    }
+
+    & > blockquote {
+      font-style: italic;
+      color: #666666;
+      margin: 20px 0;
+      border-left: 5px solid #eeeeee;
+      padding: 10px 20px;
+    }
+
+    & > code {
+      padding: 20px;
+      display: block;
+      background-color: #eeeeee;
+    }
+
+    & > ul {
+      list-style: disc;
+      margin-left: 20px;
+    }
+
+    & > ol {
+      list-style: decimal;
+      margin-left: 20px;
+    }
+  }
+}
