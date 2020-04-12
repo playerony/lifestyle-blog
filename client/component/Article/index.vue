@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import draftToHtml from '@utility/draftjs-to-html'
+import draftToHtml from 'draftjs-to-html'
 
 export default {
   name: 'Article',
