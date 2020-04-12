@@ -7,19 +7,19 @@ describe('calculateReadingTime Function', () => {
   })
 
   describe('return 0 case', () => {
-    it('should return when passed content is not defined', () => {
+    it('when passed content is not defined', () => {
       const result = calculateReadingTime(undefined)
 
       expect(result).toEqual(0)
     })
 
-    it('should return when passed content is not an object', () => {
+    it('when passed content is not an object', () => {
       const result = calculateReadingTime('123')
 
       expect(result).toEqual(0)
     })
 
-    it('should return when passed content`s object does not contain blocks property', () => {
+    it('when passed content`s object does not contain blocks property', () => {
       const result = calculateReadingTime(
         JSON.stringify({ otherKey: 'otherKey' })
       )

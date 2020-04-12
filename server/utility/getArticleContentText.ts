@@ -1,6 +1,6 @@
 import tryParseJSON from './tryParseJSON'
 
-export default (jsonContent: string): string => {
+export default (jsonContent: string | null | undefined): string => {
   if (!jsonContent) {
     return ''
   }
