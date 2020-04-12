@@ -86,7 +86,10 @@ describe('ArticleResolver Resolver', () => {
               imageId: [],
               title: [],
               description: [],
-              content: [`Provided value's length is shorter than 160.`],
+              content: [
+                'Provided value does not exist.',
+                `Provided value's length is shorter than 160.`
+              ],
               categoryIdList: []
             })
           )
@@ -144,7 +147,10 @@ describe('ArticleResolver Resolver', () => {
               imageId: [],
               title: [],
               description: [],
-              content: [`Provided value's length is shorter than 160.`],
+              content: [
+                'Provided value does not exist.',
+                `Provided value's length is shorter than 160.`
+              ],
               categoryIdList: []
             })
           )
@@ -266,10 +272,12 @@ describe('ArticleResolver Resolver', () => {
 
 const ARTICLE_MOCK: ArticleSaveRequest = {
   imageId: 1,
-  title: '123',
-  description: '123',
+  title: 'title',
   categoryIdList: [1, 2],
-  content: generateString(160)
+  description: 'description',
+  content: JSON.stringify({
+    blocks: [{ text: generateString(160) }]
+  })
 }
 
 const ARTICLE_SAVE_RESULT_MOCK: ArticleType = {
@@ -287,7 +295,7 @@ const ARTICLE_RECORD_MOCK: any = {
   userId: 1,
   imageId: 1,
   articleId: 1,
-  title: '123',
-  content: '123',
-  description: '123'
+  title: 'title',
+  content: 'content',
+  description: 'description'
 }
