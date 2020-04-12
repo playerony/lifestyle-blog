@@ -2,9 +2,13 @@ import { ArticleSaveRequest } from '@type/Article'
 
 import ValidationError from '@utility/ValidationError'
 import { check, validate, isValid } from '@utility/validate'
+import getArticleContentText from '@utility/getArticleContentText'
 
 export const createArticleValidation = (data: ArticleSaveRequest): void => {
-  const validationResult = validate(data)
+  const validationResult = validate({
+    ...data,
+    content: getArticleContentText(data.content)
+  })
     .setCheckList([
       check('imageId')
         .isExist()
@@ -34,7 +38,11 @@ export const updateArticleValidation = (
   articleId: number,
   data: ArticleSaveRequest
 ): void => {
-  const validationResult = validate({ articleId, ...data })
+  const validationResult = validate({
+    articleId,
+    ...data,
+    content: getArticleContentText(data.content)
+  })
     .setCheckList([
       check('articleId')
         .isExist()
