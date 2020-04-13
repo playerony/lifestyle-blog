@@ -37,6 +37,12 @@ describe('checkEnvironment Function', () => {
     process.env = OLD_ENV
   })
 
+  it('should import', () => {
+    const checkEnvironment = require('../checkEnvironment').default
+
+    expect(typeof checkEnvironment).toEqual('function')
+  })
+
   it('should throw an error when environment variables are changed', () => {
     process.env.APP_SECRET = undefined
 

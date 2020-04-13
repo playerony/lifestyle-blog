@@ -26,6 +26,12 @@ jest.doMock('apollo-server-express', () => {
 })
 
 describe('apolloServer Configuration', () => {
+  it('should import', async () => {
+    const setupApolloServer = await require('..').default
+
+    expect(typeof setupApolloServer).toEqual('function')
+  })
+
   it('schema shold contain proper resolvers', async () => {
     await require('..').default()
 
