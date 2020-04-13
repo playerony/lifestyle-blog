@@ -2,10 +2,10 @@ import { CommentType } from '@type/Comment'
 
 import CommentService from '../CommentService'
 
-let findCommentMock = jest.fn().mockImplementation(() => COMMENT_MOCK)
+const findCommentMock = jest.fn().mockImplementation(() => COMMENT_MOCK)
 
 const setupSequelizeMock = (
-  findUser: Function = findCommentMock
+  findComment: Function = findCommentMock
 ): typeof jest =>
   jest.doMock('sequelize', () => {
     const { dataTypes: DataTypes } = require('sequelize-test-helpers')
@@ -14,9 +14,9 @@ const setupSequelizeMock = (
 
     class Model {
       public static init = jest.fn()
-      public static findOne = findUser
       public static update = jest.fn()
       public static belongsTo = jest.fn()
+      public static findOne = findComment
       public static create = jest.fn().mockImplementation(() => COMMENT_MOCK)
       public static findAll = jest.fn().mockImplementation(() => [COMMENT_MOCK])
     }

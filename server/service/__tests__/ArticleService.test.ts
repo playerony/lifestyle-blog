@@ -4,32 +4,36 @@ import { ArticleType } from '@type/Article'
 
 const bulkCreateMock = jest.fn()
 const scopeCallMock = jest.fn()
+const findArticleMock = jest.fn().mockImplementation(() => ARTICLE_MOCK)
 
-jest.doMock('sequelize', () => {
-  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+const setupSequelizeMock = (
+  findArticle: Function = findArticleMock
+): typeof jest =>
+  jest.doMock('sequelize', () => {
+    const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
-  class Sequelize {}
+    class Sequelize {}
 
-  class Model {
-    public static init = jest.fn()
-    public static update = jest.fn()
-    public static belongsTo = jest.fn()
-    public static afterCreate = jest.fn()
-    public static afterUpdate = jest.fn()
-    public static belongsToMany = jest.fn()
-    public static bulkCreate = bulkCreateMock
-    public static scope = scopeCallMock.mockImplementation(() => Model)
-    public static create = jest.fn().mockImplementation(() => ARTICLE_MOCK)
-    public static findOne = jest.fn().mockImplementation(() => ARTICLE_MOCK)
-    public static findAll = jest.fn().mockImplementation(() => [ARTICLE_MOCK])
-  }
+    class Model {
+      public static init = jest.fn()
+      public static update = jest.fn()
+      public static belongsTo = jest.fn()
+      public static findOne = findArticle
+      public static afterCreate = jest.fn()
+      public static afterUpdate = jest.fn()
+      public static belongsToMany = jest.fn()
+      public static bulkCreate = bulkCreateMock
+      public static scope = scopeCallMock.mockImplementation(() => Model)
+      public static create = jest.fn().mockImplementation(() => ARTICLE_MOCK)
+      public static findAll = jest.fn().mockImplementation(() => [ARTICLE_MOCK])
+    }
 
-  return {
-    Model,
-    DataTypes,
-    Sequelize
-  }
-})
+    return {
+      Model,
+      DataTypes,
+      Sequelize
+    }
+  })
 
 const setUp = (): ArticleService => {
   const ArticleService = require('../ArticleService').default
@@ -38,10 +42,15 @@ const setUp = (): ArticleService => {
 }
 
 describe('Article Service', () => {
+  beforeEach(() => {
+    jest.resetModules()
+  })
+
   describe('create Method', () => {
     it('should return created articleId', async () => {
-      const articleService = setUp()
+      setupSequelizeMock()
 
+      const articleService = setUp()
       const result = await articleService.create(ARTICLE_MOCK, 1)
 
       expect(result).toEqual(ARTICLE_MOCK)
@@ -49,9 +58,22 @@ describe('Article Service', () => {
   })
 
   describe('update Method', () => {
-    it('should return updated articleId', async () => {
+    it('should throw an error if article does not exist', async () => {
+      setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
+
       const articleService = setUp()
 
+      try {
+        await articleService.update(1, ARTICLE_MOCK, 1)
+      } catch (e) {
+        expect(e.message).toEqual('{"articleId":["No such article found."]}')
+      }
+    })
+
+    it('should return updated articleId', async () => {
+      setupSequelizeMock()
+
+      const articleService = setUp()
       const result = await articleService.update(1, ARTICLE_MOCK, 1)
 
       expect(result).toEqual(ARTICLE_MOCK)
@@ -59,9 +81,22 @@ describe('Article Service', () => {
   })
 
   describe('togglePublicFlag Method', () => {
-    it('should return updated articleId', async () => {
+    it('should throw an error if article does not exist', async () => {
+      setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
+
       const articleService = setUp()
 
+      try {
+        await articleService.update(1, ARTICLE_MOCK, 1)
+      } catch (e) {
+        expect(e.message).toEqual('{"articleId":["No such article found."]}')
+      }
+    })
+
+    it('should return updated articleId', async () => {
+      setupSequelizeMock()
+
+      const articleService = setUp()
       const result = await articleService.togglePublicFlag(1, false)
 
       expect(result).toEqual(ARTICLE_MOCK)
@@ -70,8 +105,9 @@ describe('Article Service', () => {
 
   describe('findById Method', () => {
     it('should call scope method', async () => {
-      const articleService = setUp()
+      setupSequelizeMock()
 
+      const articleService = setUp()
       await articleService.findById(1)
 
       expect(scopeCallMock).toHaveBeenCalledWith([
@@ -91,8 +127,9 @@ describe('Article Service', () => {
 
   describe('findAll Method', () => {
     it('should call scope method', async () => {
-      const articleService = setUp()
+      setupSequelizeMock()
 
+      const articleService = setUp()
       await articleService.findAll()
 
       expect(scopeCallMock).toHaveBeenCalledWith([
@@ -102,8 +139,9 @@ describe('Article Service', () => {
     })
 
     it('should return found article list', async () => {
-      const articleService = setUp()
+      setupSequelizeMock()
 
+      const articleService = setUp()
       const result = await articleService.findAll()
 
       expect(result).toEqual([ARTICLE_MOCK])
