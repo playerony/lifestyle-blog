@@ -10,7 +10,7 @@ const _CommentService = Substitute.for<CommentService>()
 
 let resolver: CommentResolver
 
-describe('CommentResolver Resolver', () => {
+describe('Comment Resolver', () => {
   beforeEach(() => {
     resolver = new CommentResolver(_CommentService)
   })
@@ -133,7 +133,6 @@ const COMMENT_RECORD_MOCK: Required<CommentType> = {
   articleId: 1,
   content: 'content',
   creator: 'creator',
-  parentComment: null,
   parentCommentId: 1,
   createdAt: new Date('2020'),
   updatedAt: new Date('2020')

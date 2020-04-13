@@ -10,7 +10,7 @@ const _VisitorService = Substitute.for<VisitorService>()
 
 let resolver: VisitorResolver
 
-describe('VisitorResolver Resolver', () => {
+describe('Visitor Resolver', () => {
   beforeEach(() => {
     resolver = new VisitorResolver(_VisitorService)
   })

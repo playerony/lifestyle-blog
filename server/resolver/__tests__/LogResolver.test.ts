@@ -19,7 +19,7 @@ const _LogService = Substitute.for<LogService>()
 
 let resolver: LogResolver
 
-describe('LogResolver Resolver', () => {
+describe('Log Resolver', () => {
   beforeEach(() => {
     resolver = new LogResolver(_LogService)
   })

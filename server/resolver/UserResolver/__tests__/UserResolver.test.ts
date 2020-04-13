@@ -18,7 +18,7 @@ const _UserService = Substitute.for<UserService>()
 
 let resolver: UserResolver
 
-describe('UserResolver Resolver', () => {
+describe('User Resolver', () => {
   beforeEach(() => {
     resolver = new UserResolver(_UserService)
   })
@@ -93,10 +93,10 @@ describe('UserResolver Resolver', () => {
 })
 
 const LOGIN_METHOD_MOCK = {
-  token: '123',
+  token: 'token',
   user: {
-    login: 'admin',
-    password: 'admin',
+    login: 'login',
+    password: 'password',
     userId: 1,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -104,7 +104,7 @@ const LOGIN_METHOD_MOCK = {
 }
 
 const SIGNUP_METHOD_MOCK = {
-  token: '12345',
+  token: 'token',
   user: {
     login: 'admin1',
     password: 'Pas#1',

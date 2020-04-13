@@ -24,7 +24,7 @@ const _VisitorService = Substitute.for<VisitorService>()
 
 let resolver: ArticleResolver
 
-describe('ArticleResolver Resolver', () => {
+describe('Article Resolver', () => {
   beforeEach(() => {
     resolver = new ArticleResolver(_ArticleService, _VisitorService)
   })

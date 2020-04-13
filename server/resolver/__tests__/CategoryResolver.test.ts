@@ -10,7 +10,7 @@ const _CategoryService = Substitute.for<CategoryService>()
 
 let resolver: CategoryResolver
 
-describe('CategoryResolver Resolver', () => {
+describe('Category Resolver', () => {
   beforeEach(() => {
     resolver = new CategoryResolver(_CategoryService)
   })
@@ -31,7 +31,6 @@ describe('CategoryResolver Resolver', () => {
 const CATEGORY_LIST_MOCK: CategoryType[] = [
   {
     name: 'name',
-    categoryId: 1,
-    description: 'description'
+    categoryId: 1
   }
 ]
