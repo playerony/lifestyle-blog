@@ -31,7 +31,4 @@ export class UserType {
 export class UserAddResult {
   @Field()
   token!: string
-
-  @Field()
-  user!: UserType
 }

@@ -68,7 +68,6 @@ describe('UserService Service', () => {
       const isProperToken = bcrypt.compare(USER_MOCK.password!, result.token)
 
       expect(isProperToken).toBeTruthy()
-      expect(result.user).toEqual(USER_MOCK)
     })
   })
 

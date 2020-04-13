@@ -29,11 +29,10 @@ describe('User Types', () => {
   describe('UserAddResult Type', () => {
     it('should contain proper fields', () => {
       const data: Required<UserAddResult> = {
-        user: {},
         token: 'token'
       }
 
-      expect(Object.keys(data)).toEqual(['user', 'token'])
+      expect(Object.keys(data)).toEqual(['token'])
     })
   })
 

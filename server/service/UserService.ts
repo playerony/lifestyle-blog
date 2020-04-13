@@ -22,18 +22,17 @@ export default class UserService {
     }
 
     const hashPassword = await bcrypt.hash(password!, keys.hashSalt!)
-    const createdUser = await User.create<UserModel>({
+    const { userId } = await User.create<UserModel>({
       login,
       password: hashPassword
     })
 
-    const token = jwt.sign({ userId: createdUser.userId }, keys.appSecret!, {
+    const token = jwt.sign({ userId }, keys.appSecret!, {
       expiresIn: keys.jwtExpiresIn
     })
 
     return {
-      token,
-      user: createdUser
+      token
     }
   }
 
@@ -56,8 +55,7 @@ export default class UserService {
     })
 
     return {
-      token,
-      user: foundUser
+      token
     }
   }
 }
