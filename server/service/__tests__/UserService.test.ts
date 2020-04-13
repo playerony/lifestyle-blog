@@ -1,5 +1,7 @@
 import bcrypt from 'bcryptjs'
 
+import UserService from '../UserService'
+
 import { UserModel } from '@type/User'
 
 let foundUserMock = jest.fn().mockImplementation(() => USER_MOCK)
@@ -33,7 +35,13 @@ const setupSequelizeMock = (
     }
   })
 
-describe('UserService Service', () => {
+const setUp = (): UserService => {
+  const UserService = require('../UserService').default
+
+  return new UserService()
+}
+
+describe('User Service', () => {
   beforeEach(() => {
     jest.resetModules()
   })
@@ -42,8 +50,7 @@ describe('UserService Service', () => {
     it('should throw an error if user exist', async () => {
       setupSequelizeMock()
 
-      const UserService = require('../UserService').default
-      const userService = new UserService()
+      const userService = setUp()
 
       try {
         await userService.signup({ login: 'test', password: 'test' })
@@ -57,8 +64,7 @@ describe('UserService Service', () => {
     it('should return token and created user data', async () => {
       setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
 
-      const UserService = require('../UserService').default
-      const userService = new UserService()
+      const userService = setUp()
 
       const result = await userService.signup({
         login: 'test',
@@ -75,8 +81,7 @@ describe('UserService Service', () => {
     it('should throw an error if user does not exist', async () => {
       setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
 
-      const UserService = require('../UserService').default
-      const userService = new UserService()
+      const userService = setUp()
 
       try {
         await userService.login({ login: 'test', password: 'test' })
@@ -90,8 +95,7 @@ describe('UserService Service', () => {
         jest.fn().mockImplementation(() => ({ ...USER_MOCK, password: 'test' }))
       )
 
-      const UserService = require('../UserService').default
-      const userService = new UserService()
+      const userService = setUp()
 
       try {
         await userService.login({ login: 'test', password: 'test' })
@@ -100,14 +104,13 @@ describe('UserService Service', () => {
       }
     })
 
-    it('should return token', async () => {
+    it('should return token when user was logged correctly', async () => {
       setupSequelizeMock(() => ({
         ...USER_MOCK,
         password: '$2a$12$yvqyghC8.XQdKz7DYa9/XeUgErrNsUCA/RkpfyNFodLQPcw1i2bZ2'
       }))
 
-      const UserService = require('../UserService').default
-      const userService = new UserService()
+      const userService = setUp()
 
       const result = await userService.login({
         login: 'test',
@@ -123,8 +126,8 @@ describe('UserService Service', () => {
 
 const USER_MOCK: Partial<UserModel> = {
   userId: 1,
-  login: 'admin',
-  password: 'admin',
+  login: 'login',
+  password: 'password',
   createdAt: new Date(),
   updatedAt: new Date()
 }
