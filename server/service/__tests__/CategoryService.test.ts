@@ -19,7 +19,7 @@ jest.doMock('sequelize', () => {
   }
 })
 
-describe('CategoryService Service', () => {
+describe('Category Service', () => {
   describe('findAll Method', () => {
     it('should return category list', async () => {
       const CategoryService = require('../CategoryService').default

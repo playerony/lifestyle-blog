@@ -7,24 +7,6 @@ import commentMapping from '@mapping/commentMapping'
 import ValidationError from '@utility/ValidationError'
 
 export default class CommentService {
-  async findAllByArticleId(articleId: number): Promise<CommentType[]> {
-    const commentList = await Comment.findAll<CommentModel>({
-      where: { articleId }
-    })
-
-    return commentList.map(commentMapping)
-  }
-
-  async findById(commentId: number): Promise<CommentType | null> {
-    const foundComment = await Comment.findOne<CommentModel>({
-      where: {
-        commentId
-      }
-    })
-
-    return foundComment ? commentMapping(foundComment) : null
-  }
-
   async create(comment: CommentSaveRequest): Promise<CommentType> {
     const createdComment = await Comment.create<CommentModel>({
       ...comment
@@ -52,5 +34,23 @@ export default class CommentService {
     )
 
     return this.findById(commentId)
+  }
+
+  async findAllByArticleId(articleId: number): Promise<CommentType[]> {
+    const commentList = await Comment.findAll<CommentModel>({
+      where: { articleId }
+    })
+
+    return commentList.map(commentMapping)
+  }
+
+  async findById(commentId: number): Promise<CommentType | null> {
+    const foundComment = await Comment.findOne<CommentModel>({
+      where: {
+        commentId
+      }
+    })
+
+    return foundComment ? commentMapping(foundComment) : null
   }
 }

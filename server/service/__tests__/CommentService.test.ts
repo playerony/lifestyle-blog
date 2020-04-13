@@ -29,7 +29,7 @@ const setUp = (): CommentService => {
   return new CommentService()
 }
 
-describe('CommentService Service', () => {
+describe('Comment Service', () => {
   describe('create Method', () => {
     it('should return created comment', async () => {
       const commentService = setUp()

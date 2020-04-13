@@ -1,3 +1,5 @@
+import ArticleService from '../ArticleService'
+
 import { ArticleType } from '@type/Article'
 
 const bulkCreateMock = jest.fn()
@@ -29,11 +31,16 @@ jest.doMock('sequelize', () => {
   }
 })
 
-describe('ArticleService Service', () => {
+const setUp = (): ArticleService => {
+  const ArticleService = require('../ArticleService').default
+
+  return new ArticleService()
+}
+
+describe('Article Service', () => {
   describe('create Method', () => {
     it('should return created articleId', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       const result = await articleService.create(ARTICLE_MOCK, 1)
 
@@ -43,8 +50,7 @@ describe('ArticleService Service', () => {
 
   describe('update Method', () => {
     it('should return updated articleId', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       const result = await articleService.update(1, ARTICLE_MOCK, 1)
 
@@ -54,8 +60,7 @@ describe('ArticleService Service', () => {
 
   describe('togglePublicFlag Method', () => {
     it('should return updated articleId', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       const result = await articleService.togglePublicFlag(1, false)
 
@@ -65,8 +70,7 @@ describe('ArticleService Service', () => {
 
   describe('findById Method', () => {
     it('should call scope method', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       await articleService.findById(1)
 
@@ -77,8 +81,7 @@ describe('ArticleService Service', () => {
     })
 
     it('should return found article', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       const result = await articleService.findById(1)
 
@@ -88,8 +91,7 @@ describe('ArticleService Service', () => {
 
   describe('findAll Method', () => {
     it('should call scope method', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       await articleService.findAll()
 
@@ -100,8 +102,7 @@ describe('ArticleService Service', () => {
     })
 
     it('should return found article list', async () => {
-      const ArticleService = require('../ArticleService').default
-      const articleService = new ArticleService()
+      const articleService = setUp()
 
       const result = await articleService.findAll()
 
