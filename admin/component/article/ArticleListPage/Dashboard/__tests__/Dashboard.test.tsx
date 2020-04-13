@@ -45,8 +45,7 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     categoryList: [
       {
         name: 'name',
-        categoryId: 1,
-        description: 'description'
+        categoryId: 1
       }
     ]
   },
@@ -68,8 +67,7 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     categoryList: [
       {
         name: 'name',
-        categoryId: 1,
-        description: 'description'
+        categoryId: 1
       }
     ]
   }

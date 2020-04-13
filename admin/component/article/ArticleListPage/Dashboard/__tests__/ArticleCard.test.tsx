@@ -207,8 +207,7 @@ const ARTICLE_MOCK: Required<IArticleList> = {
   categoryList: [
     {
       name: 'name',
-      categoryId: 1,
-      description: 'description'
+      categoryId: 1
     }
   ]
 }

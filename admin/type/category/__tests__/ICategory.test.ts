@@ -1,8 +1,8 @@
 import ICategory from '../ICategory'
 
 describe('ICategory Interface', () => {
-  it('should contain three parameters', () => {
-    expect(Object.keys(objectMock)).toHaveLength(3)
+  it('should contain two parameters', () => {
+    expect(Object.keys(objectMock)).toHaveLength(2)
   })
 
   it('has a categoryId parameter', () => {
@@ -12,14 +12,9 @@ describe('ICategory Interface', () => {
   it('has a name parameter', () => {
     expect(objectMock.name).toEqual('name')
   })
-
-  it('has a description parameter', () => {
-    expect(objectMock.description).toEqual('description')
-  })
 })
 
 const objectMock: Required<ICategory> = {
   name: 'name',
-  categoryId: 1,
-  description: 'description'
+  categoryId: 1
 }
