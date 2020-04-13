@@ -19,14 +19,6 @@ Category.init(
         max: 20,
         notEmpty: true
       }
-    },
-    description: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
-      validate: {
-        max: 100,
-        notEmpty: true
-      }
     }
   },
   { sequelize }

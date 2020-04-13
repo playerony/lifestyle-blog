@@ -4,6 +4,5 @@ export default (record: CategoryModel): CategoryType => ({
   name: record.name,
   updatedAt: record.updatedAt,
   createdAt: record.createdAt,
-  categoryId: record.categoryId,
-  description: record.description
+  categoryId: record.categoryId
 })

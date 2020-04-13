@@ -4,7 +4,6 @@ import { Field, ObjectType } from 'type-graphql'
 export class CategoryModel extends Model {
   categoryId?: number
   name?: string
-  description?: string
   createdAt?: Date
   updatedAt?: Date
 }
@@ -16,9 +15,6 @@ export class CategoryType {
 
   @Field()
   name?: string
-
-  @Field()
-  description?: string
 
   @Field()
   createdAt?: Date
