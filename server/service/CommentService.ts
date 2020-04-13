@@ -16,9 +16,7 @@ export default class CommentService {
   }
 
   async findById(commentId: number): Promise<CommentType | null> {
-    const foundComment = await Comment.scope(['withParentComment']).findOne<
-      CommentModel
-    >({
+    const foundComment = await Comment.findOne<CommentModel>({
       where: {
         commentId
       }

@@ -18,16 +18,6 @@ const INPUT_MOCK: any = {
   content: 'content',
   creator: 'creator',
   parentCommentId: null,
-  parentComment: {
-    commentId: 2,
-    articleId: 1,
-    content: 'content',
-    creator: 'creator',
-    parentCommentId: 1,
-    parentComment: null,
-    createdAt: new Date('2020'),
-    updatedAt: new Date('2020')
-  },
   createdAt: new Date('2020'),
   updatedAt: new Date('2020')
 }
@@ -38,16 +28,6 @@ const OUTPUT_MOCK: CommentType = {
   content: 'content',
   creator: 'creator',
   parentCommentId: null,
-  parentComment: {
-    commentId: 2,
-    articleId: 1,
-    content: 'content',
-    creator: 'creator',
-    parentCommentId: 1,
-    parentComment: null,
-    createdAt: new Date('2020'),
-    updatedAt: new Date('2020')
-  },
   createdAt: new Date('2020'),
   updatedAt: new Date('2020')
 }

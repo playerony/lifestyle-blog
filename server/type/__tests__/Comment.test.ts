@@ -14,7 +14,6 @@ describe('Comment Types', () => {
         content: 'content',
         creator: 'creator',
         parentCommentId: 1,
-        parentComment: null,
         createdAt: new Date('2020'),
         updatedAt: new Date('2020')
       }
@@ -25,7 +24,6 @@ describe('Comment Types', () => {
         'content',
         'creator',
         'parentCommentId',
-        'parentComment',
         'createdAt',
         'updatedAt'
       ])
@@ -40,7 +38,6 @@ describe('Comment Types', () => {
         content: 'content',
         creator: 'creator',
         parentCommentId: 1,
-        parentComment: null,
         createdAt: new Date('2020'),
         updatedAt: new Date('2020')
       }
@@ -51,7 +48,6 @@ describe('Comment Types', () => {
         'content',
         'creator',
         'parentCommentId',
-        'parentComment',
         'createdAt',
         'updatedAt'
       ])

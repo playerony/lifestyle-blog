@@ -2,8 +2,6 @@ import { CommentType } from '@type/Comment'
 
 import CommentService from '../CommentService'
 
-const scopeCallMock = jest.fn()
-
 jest.doMock('sequelize', () => {
   const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
@@ -13,7 +11,6 @@ jest.doMock('sequelize', () => {
     public static init = jest.fn()
     public static update = jest.fn()
     public static belongsTo = jest.fn()
-    public static scope = scopeCallMock.mockImplementation(() => Model)
     public static create = jest.fn().mockImplementation(() => COMMENT_MOCK)
     public static findOne = jest.fn().mockImplementation(() => COMMENT_MOCK)
     public static findAll = jest.fn().mockImplementation(() => [COMMENT_MOCK])
@@ -54,14 +51,6 @@ describe('CommentService Service', () => {
   })
 
   describe('findById Method', () => {
-    it('should call scope method', async () => {
-      const commentService = setUp()
-
-      await commentService.findById(1)
-
-      expect(scopeCallMock).toHaveBeenCalledWith(['withParentComment'])
-    })
-
     it('should return found comment', async () => {
       const commentService = setUp()
 
@@ -88,7 +77,6 @@ const COMMENT_MOCK: CommentType = {
   content: 'content',
   creator: 'creator',
   parentCommentId: 1,
-  parentComment: null,
   createdAt: new Date('2020'),
   updatedAt: new Date('2020')
 }

@@ -48,12 +48,7 @@ describe('Comment Model', () => {
         }
       },
       {
-        sequelize: new Sequelize(),
-        scopes: {
-          withParentComment: {
-            include: ['parentComment']
-          }
-        }
+        sequelize: new Sequelize()
       }
     )
   })
