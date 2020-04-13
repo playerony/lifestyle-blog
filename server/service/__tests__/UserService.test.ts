@@ -4,8 +4,8 @@ import UserService from '../UserService'
 
 import { UserModel } from '@type/User'
 
-let foundUserMock = jest.fn().mockImplementation(() => USER_MOCK)
-let createUserMock = jest.fn().mockImplementation(() => USER_MOCK)
+const foundUserMock = jest.fn().mockImplementation(() => USER_MOCK)
+const createUserMock = jest.fn().mockImplementation(() => USER_MOCK)
 
 jest.mock('../../config/keys', () => ({
   hashSalt: 12,

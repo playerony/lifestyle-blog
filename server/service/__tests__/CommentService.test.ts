@@ -2,26 +2,31 @@ import { CommentType } from '@type/Comment'
 
 import CommentService from '../CommentService'
 
-jest.doMock('sequelize', () => {
-  const { dataTypes: DataTypes } = require('sequelize-test-helpers')
+let findCommentMock = jest.fn().mockImplementation(() => COMMENT_MOCK)
 
-  class Sequelize {}
+const setupSequelizeMock = (
+  findUser: Function = findCommentMock
+): typeof jest =>
+  jest.doMock('sequelize', () => {
+    const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
-  class Model {
-    public static init = jest.fn()
-    public static update = jest.fn()
-    public static belongsTo = jest.fn()
-    public static create = jest.fn().mockImplementation(() => COMMENT_MOCK)
-    public static findOne = jest.fn().mockImplementation(() => COMMENT_MOCK)
-    public static findAll = jest.fn().mockImplementation(() => [COMMENT_MOCK])
-  }
+    class Sequelize {}
 
-  return {
-    Model,
-    DataTypes,
-    Sequelize
-  }
-})
+    class Model {
+      public static init = jest.fn()
+      public static findOne = findUser
+      public static update = jest.fn()
+      public static belongsTo = jest.fn()
+      public static create = jest.fn().mockImplementation(() => COMMENT_MOCK)
+      public static findAll = jest.fn().mockImplementation(() => [COMMENT_MOCK])
+    }
+
+    return {
+      Model,
+      DataTypes,
+      Sequelize
+    }
+  })
 
 const setUp = (): CommentService => {
   const CommentService = require('../CommentService').default
@@ -30,10 +35,15 @@ const setUp = (): CommentService => {
 }
 
 describe('Comment Service', () => {
+  beforeEach(() => {
+    jest.resetModules()
+  })
+
   describe('create Method', () => {
     it('should return created comment', async () => {
-      const commentService = setUp()
+      setupSequelizeMock()
 
+      const commentService = setUp()
       const result = await commentService.create(COMMENT_MOCK)
 
       expect(result).toEqual(COMMENT_MOCK)
@@ -41,9 +51,22 @@ describe('Comment Service', () => {
   })
 
   describe('update Method', () => {
-    it('should return updated comment', async () => {
+    it('should throw an error if comment does not exist', async () => {
+      setupSequelizeMock(jest.fn().mockImplementation(() => undefined))
+
       const commentService = setUp()
 
+      try {
+        await commentService.update(1, COMMENT_MOCK)
+      } catch (e) {
+        expect(e.message).toEqual('{"commentId":["No such comment found."]}')
+      }
+    })
+
+    it('should return updated comment', async () => {
+      setupSequelizeMock()
+
+      const commentService = setUp()
       const result = await commentService.update(1, COMMENT_MOCK)
 
       expect(result).toEqual(COMMENT_MOCK)
@@ -52,8 +75,9 @@ describe('Comment Service', () => {
 
   describe('findById Method', () => {
     it('should return found comment', async () => {
-      const commentService = setUp()
+      setupSequelizeMock()
 
+      const commentService = setUp()
       const result = await commentService.findById(1)
 
       expect(result).toEqual(COMMENT_MOCK)
@@ -62,8 +86,9 @@ describe('Comment Service', () => {
 
   describe('findAllByArticleId Method', () => {
     it('should return found comment list', async () => {
-      const commentService = setUp()
+      setupSequelizeMock()
 
+      const commentService = setUp()
       const result = await commentService.findAllByArticleId(1)
 
       expect(result).toEqual([COMMENT_MOCK])
