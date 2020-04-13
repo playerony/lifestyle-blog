@@ -17,7 +17,7 @@ jest.doMock('sequelize', () => {
   }
 })
 
-describe('LogService Service', () => {
+describe('Log Service', () => {
   describe('findAll Method', () => {
     it('should return a list with logs', async () => {
       const LogService = require('../LogService').default

@@ -13,7 +13,7 @@ export default class ImageService {
 
     const fileStream = createReadStream()
 
-    const photoUrl = await new Promise(async resolve => {
+    const photoUrl = await new Promise(async (resolve, reject) => {
       const uploadStream = await cloudinary.v2.uploader.upload_stream(
         {
           width: 1920,
@@ -22,7 +22,11 @@ export default class ImageService {
           format: 'jpeg'
         },
         (err, image) => {
-          resolve(image.url)
+          if (image) {
+            resolve(image.url)
+          } else {
+            reject(err)
+          }
         }
       )
 
