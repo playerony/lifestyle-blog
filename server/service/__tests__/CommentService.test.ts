@@ -1,7 +1,5 @@
 import { CommentType } from '@type/Comment'
 
-import CommentService from '../CommentService'
-
 const findCommentMock = jest.fn().mockImplementation(() => COMMENT_MOCK)
 
 const setupSequelizeMock = (
@@ -28,7 +26,7 @@ const setupSequelizeMock = (
     }
   })
 
-const setUp = (): CommentService => {
+const setUp = () => {
   const CommentService = require('../CommentService').default
 
   return new CommentService()

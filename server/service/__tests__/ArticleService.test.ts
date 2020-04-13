@@ -1,5 +1,3 @@
-import ArticleService from '../ArticleService'
-
 import { ArticleType } from '@type/Article'
 
 const bulkCreateMock = jest.fn()
@@ -35,7 +33,7 @@ const setupSequelizeMock = (
     }
   })
 
-const setUp = (): ArticleService => {
+const setUp = () => {
   const ArticleService = require('../ArticleService').default
 
   return new ArticleService()

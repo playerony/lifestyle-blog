@@ -1,7 +1,5 @@
 const { dataTypes: DataTypes } = require('sequelize-test-helpers')
 
-import VisitorService from '../VisitorService'
-
 import { VisitorType } from '@type/Visitor'
 
 let foundVisitorMock = jest.fn().mockImplementation(() => VISITOR_MOCK)
@@ -28,7 +26,7 @@ const setupSequelizeMock = (
     }
   })
 
-const setUp = (): VisitorService => {
+const setUp = () => {
   const VisitorService = require('../VisitorService').default
 
   return new VisitorService()

@@ -1,7 +1,5 @@
 import bcrypt from 'bcryptjs'
 
-import UserService from '../UserService'
-
 import { UserModel } from '@type/User'
 
 const foundUserMock = jest.fn().mockImplementation(() => USER_MOCK)
@@ -35,7 +33,7 @@ const setupSequelizeMock = (
     }
   })
 
-const setUp = (): UserService => {
+const setUp = () => {
   const UserService = require('../UserService').default
 
   return new UserService()
