@@ -12,7 +12,7 @@ describe('isDigit Function', () => {
     expect(isDigit('@%na@3')).toBeTruthy()
   })
 
-  it('should return false', () => {
+  it('should return false if passed value does not contain digit', () => {
     expect(isDigit([])).toBeFalsy()
     expect(isDigit(NaN)).toBeFalsy()
     expect(isDigit(123)).toBeFalsy()

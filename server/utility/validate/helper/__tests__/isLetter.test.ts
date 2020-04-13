@@ -12,7 +12,7 @@ describe('isLetter Function', () => {
     expect(isLetter('@%na@3')).toBeTruthy()
   })
 
-  it('should return false', () => {
+  it('should return false if passed value does not contain small letter', () => {
     expect(isLetter([])).toBeFalsy()
     expect(isLetter(NaN)).toBeFalsy()
     expect(isLetter(123)).toBeFalsy()

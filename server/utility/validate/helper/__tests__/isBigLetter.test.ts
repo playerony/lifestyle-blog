@@ -12,7 +12,7 @@ describe('isBigLetter Function', () => {
     expect(isBigLetter('@%nZ@3')).toBeTruthy()
   })
 
-  it('should return false', () => {
+  it('should return false if passed string does not contain big letter', () => {
     expect(isBigLetter([])).toBeFalsy()
     expect(isBigLetter(NaN)).toBeFalsy()
     expect(isBigLetter(123)).toBeFalsy()

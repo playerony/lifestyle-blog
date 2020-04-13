@@ -12,7 +12,7 @@ describe('isSpecialCharacter Function', () => {
     expect(isSpecialCharacter('%*#$!@#$%^&*')).toBeTruthy()
   })
 
-  it('should return false', () => {
+  it('should return false if passed value does not contain special character', () => {
     expect(isSpecialCharacter([])).toBeFalsy()
     expect(isSpecialCharacter(NaN)).toBeFalsy()
     expect(isSpecialCharacter(123)).toBeFalsy()
