@@ -2,7 +2,7 @@ import imageMapping from '../imageMapping'
 
 import { ImageType, ImageModel } from '@type/Image'
 
-describe('imageMapping Mapping', () => {
+describe('image Mapping', () => {
   it('import imageMapping', () => {
     expect(typeof imageMapping).toEqual('function')
   })
@@ -15,13 +15,13 @@ describe('imageMapping Mapping', () => {
 const INPUT_MOCK: Partial<ImageModel> = {
   userId: 1,
   imageId: 1,
-  photoUrl: 'file'
+  photoUrl: 'photoUrl'
 }
 
 const OUTPUT_MOCK: ImageType = {
   userId: 1,
   imageId: 1,
-  photoUrl: 'file',
+  photoUrl: 'photoUrl',
   createdAt: undefined,
   updatedAt: undefined
 }

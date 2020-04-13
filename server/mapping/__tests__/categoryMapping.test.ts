@@ -2,7 +2,7 @@ import categoryMapping from '../categoryMapping'
 
 import { CategoryType, CategoryModel } from '@type/Category'
 
-describe('categoryMapping Mapping', () => {
+describe('category Mapping', () => {
   it('import categoryMapping', () => {
     expect(typeof categoryMapping).toEqual('function')
   })
@@ -13,12 +13,12 @@ describe('categoryMapping Mapping', () => {
 })
 
 const INPUT_MOCK: Partial<CategoryModel> = {
-  name: 'Name',
+  name: 'name',
   categoryId: 1
 }
 
 const OUTPUT_MOCK: CategoryType = {
-  name: 'Name',
+  name: 'name',
   categoryId: 1,
   updatedAt: undefined,
   createdAt: undefined

@@ -2,7 +2,7 @@ import logMapping from '../logMapping'
 
 import { LogType, LogModel } from '@type/Log'
 
-describe('logMapping Mapping', () => {
+describe('log Mapping', () => {
   it('import logMapping', () => {
     expect(typeof logMapping).toEqual('function')
   })

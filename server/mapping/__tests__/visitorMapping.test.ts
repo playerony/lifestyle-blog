@@ -2,7 +2,7 @@ import visitorMapping from '../visitorMapping'
 
 import { VisitorType, VisitorModel } from '@type/Visitor'
 
-describe('visitorMapping Mapping', () => {
+describe('visitor Mapping', () => {
   it('import visitorMapping', () => {
     expect(typeof visitorMapping).toEqual('function')
   })
@@ -15,14 +15,14 @@ describe('visitorMapping Mapping', () => {
 const INPUT_MOCK: Partial<VisitorModel> = {
   visitorId: 1,
   articleId: 1,
-  ipAddress: '192'
+  ipAddress: 'ipAddress'
 }
 
 const OUTPUT_MOCK: VisitorType = {
   visitorId: 1,
   articleId: 1,
-  ipAddress: '192',
   userAgent: undefined,
   updatedAt: undefined,
-  createdAt: undefined
+  createdAt: undefined,
+  ipAddress: 'ipAddress'
 }

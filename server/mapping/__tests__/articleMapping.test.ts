@@ -2,7 +2,7 @@ import articleMapping from '../articleMapping'
 
 import { ArticleType, ArticleModel } from '@type/Article'
 
-describe('articleMapping Mapping', () => {
+describe('article Mapping', () => {
   it('import articleMapping', () => {
     expect(typeof articleMapping).toEqual('function')
   })
@@ -16,11 +16,11 @@ const INPUT_MOCK: Partial<ArticleModel> = {
   userId: 1,
   imageId: 1,
   articleId: 1,
-  title: 'Title',
+  title: 'title',
   isPublic: false,
   categoryList: null,
-  content: 'Content',
-  description: 'Descr'
+  content: 'content',
+  description: 'description'
 }
 
 const OUTPUT_MOCK: ArticleType = {
@@ -28,12 +28,12 @@ const OUTPUT_MOCK: ArticleType = {
   imageId: 1,
   image: null,
   articleId: 1,
-  title: 'Title',
-  isPublic: false,
+  title: 'title',
   readingTime: 0,
+  isPublic: false,
   categoryList: null,
-  content: 'Content',
-  description: 'Descr',
+  content: 'content',
   createdAt: undefined,
-  updatedAt: undefined
+  updatedAt: undefined,
+  description: 'description'
 }

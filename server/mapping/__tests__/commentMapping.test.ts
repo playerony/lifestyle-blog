@@ -2,7 +2,7 @@ import commentMapping from '../commentMapping'
 
 import { CommentType } from '@type/Comment'
 
-describe('commentMapping Mapping', () => {
+describe('comment Mapping', () => {
   it('import commentMapping', () => {
     expect(typeof commentMapping).toEqual('function')
   })
