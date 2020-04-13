@@ -34,6 +34,13 @@ export default class ArticleService {
     { categoryIdList, ...articleData }: ArticleSaveRequest,
     userId: number
   ): Promise<ArticleType | null> {
+    const foundArticle = await this.findById(articleId)
+    if (!foundArticle) {
+      throw new ValidationError({
+        articleId: ['No such article found.']
+      })
+    }
+
     Article.afterUpdate<ArticleModel>(async () => {
       await ArticleCategory.destroy({
         where: { articleId }
