@@ -1,16 +1,11 @@
 import { CommentType, CommentModel } from '@type/Comment'
 
-const commentMapping = (record: CommentModel): CommentType => ({
-  commentId: record.commentId,
-  articleId: record.articleId,
+export default (record: CommentModel): CommentType => ({
   content: record.content,
   creator: record.creator,
-  parentCommentId: record.parentCommentId,
-  parentComment: record.parentComment
-    ? commentMapping(record.parentComment!)
-    : null,
+  commentId: record.commentId,
+  articleId: record.articleId,
   createdAt: record.createdAt,
-  updatedAt: record.updatedAt
+  updatedAt: record.updatedAt,
+  parentCommentId: record.parentCommentId
 })
-
-export default commentMapping

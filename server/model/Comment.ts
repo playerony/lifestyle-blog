@@ -32,12 +32,7 @@ Comment.init(
     }
   },
   {
-    sequelize,
-    scopes: {
-      withParentComment: {
-        include: ['parentComment']
-      }
-    }
+    sequelize
   }
 )
 
