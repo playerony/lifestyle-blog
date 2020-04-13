@@ -11,7 +11,6 @@ describe('Category Types', () => {
       const data: Required<CategoryType> = {
         name: 'name',
         categoryId: 1,
-        description: 'description',
         createdAt: new Date('2020'),
         updatedAt: new Date('2020')
       }
@@ -19,7 +18,6 @@ describe('Category Types', () => {
       expect(Object.keys(data)).toEqual([
         'name',
         'categoryId',
-        'description',
         'createdAt',
         'updatedAt'
       ])
@@ -31,7 +29,6 @@ describe('Category Types', () => {
       const data: Partial<CategoryModel> = {
         name: 'name',
         categoryId: 1,
-        description: 'description',
         createdAt: new Date('2020'),
         updatedAt: new Date('2020')
       }
@@ -39,7 +36,6 @@ describe('Category Types', () => {
       expect(Object.keys(data)).toEqual([
         'name',
         'categoryId',
-        'description',
         'createdAt',
         'updatedAt'
       ])

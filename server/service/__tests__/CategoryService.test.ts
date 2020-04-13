@@ -35,12 +35,10 @@ describe('CategoryService Service', () => {
 const CATEGORY_LIST_MOCK: CategoryType[] = [
   {
     categoryId: 1,
-    name: 'Name 1',
-    description: 'Description 1'
+    name: 'Name 1'
   },
   {
     categoryId: 2,
-    name: 'Name 2',
-    description: 'Description 2'
+    name: 'Name 2'
   }
 ]

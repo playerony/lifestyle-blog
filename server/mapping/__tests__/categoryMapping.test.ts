@@ -21,6 +21,5 @@ const OUTPUT_MOCK: CategoryType = {
   name: 'Name',
   categoryId: 1,
   updatedAt: undefined,
-  createdAt: undefined,
-  description: undefined
+  createdAt: undefined
 }
