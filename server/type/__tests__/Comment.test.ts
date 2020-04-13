@@ -2,7 +2,7 @@ import * as commentTypeList from '../Comment'
 import { CommentType, CommentModel, CommentSaveRequest } from '../Comment'
 
 describe('Comment Types', () => {
-  it('should contain two objects', () => {
+  it('should contain three objects', () => {
     expect(Object.keys(commentTypeList)).toHaveLength(3)
   })
 
