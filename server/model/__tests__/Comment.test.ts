@@ -36,7 +36,9 @@ describe('Comment Model', () => {
         },
         articleId: {
           type: DataTypes.INTEGER,
-          allowNull: false
+          allowNull: false,
+          onUpdate: 'CASCADE',
+          onDelete: 'CASCADE'
         },
         content: {
           type: DataTypes.TEXT,

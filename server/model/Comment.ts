@@ -20,7 +20,9 @@ Comment.init(
     },
     articleId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE'
     },
     content: {
       type: DataTypes.TEXT,
@@ -37,7 +39,3 @@ Comment.init(
 )
 
 Comment.belongsTo(Article, { as: 'article', foreignKey: 'articleId' })
-Comment.belongsTo(Comment, {
-  as: 'parentComment',
-  foreignKey: 'parentCommentId'
-})
