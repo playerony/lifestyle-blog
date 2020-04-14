@@ -16,6 +16,7 @@ import Article from '@component/Article'
 
 import articleQuery from '@graphql/query/article'
 import commentListQuery from '@graphql/query/commentList'
+import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
 
 export default {
   name: 'ArticlePage',
@@ -38,7 +39,21 @@ export default {
       )
     },
     handleReply(reply) {
-      console.warn(reply)
+      this.$apollo
+        .mutate({
+          mutation: CREATE_COMMENT_MUTATION,
+          variables: {
+            comment: { ...reply, articleId: Number(this.routeParams.articleId) }
+          }
+        })
+        .then(response => {
+          this.commentListByArticleId = [
+            ...this.commentListByArticleId,
+            response.data.createComment
+          ]
+
+          console.warn(this.commentListByArticleId)
+        })
     }
   },
   apollo: {
