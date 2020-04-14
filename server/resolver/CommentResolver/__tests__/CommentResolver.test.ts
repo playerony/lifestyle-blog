@@ -45,7 +45,6 @@ describe('Comment Resolver', () => {
         } catch (e) {
           expect(e.message).toEqual(
             JSON.stringify({
-              parentCommentId: [],
               articleId: [],
               content: [
                 'Provided value does not exist.',
@@ -77,7 +76,6 @@ describe('Comment Resolver', () => {
           expect(e.message).toEqual(
             JSON.stringify({
               commentId: [],
-              parentCommentId: [],
               articleId: [],
               content: [
                 'Provided value does not exist.',
