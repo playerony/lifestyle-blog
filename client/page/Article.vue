@@ -1,9 +1,10 @@
 <template>
   <fragment>
-    <LoadingPage v-if="$apollo.queries.articleById.loading" />
+    <LoadingPage v-if="isLoading()" />
     <Article
-      v-if="!$apollo.queries.articleById.loading"
+      v-if="!isLoading()"
       :article="articleById"
+      :comments="commentListByArticleId"
     />
   </fragment>
 </template>
@@ -29,7 +30,12 @@ export default {
     }
   },
   methods: {
-    isLoading() {}
+    isLoading() {
+      return (
+        this.$apollo.queries.articleById.loading ||
+        this.$apollo.queries.commentListByArticleId.loading
+      )
+    }
   },
   apollo: {
     articleById: {
