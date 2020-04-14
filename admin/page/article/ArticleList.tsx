@@ -19,7 +19,10 @@ const ArticleList = (): JSX.Element | null => {
   const { data: visitorList, loading: visitorListLoading } = useVisitorList()
 
   toggleLoader(articleListLoading && visitorListLoading)
-  const transformedData = articleListTransformator({ articleList, visitorList })
+  const transformedData = articleListTransformator({
+    articleList,
+    visitorList
+  })
 
   if (articleListLoading && visitorListLoading) {
     return null

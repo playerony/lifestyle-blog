@@ -5,7 +5,7 @@
     </p>
     <textarea
       :value="value"
-      v-on="$listeners" 
+      v-on="$listeners"
       :placeholder="placeholder"
       @blur="isFocus = !isFocus"
       @focus="isFocus = !isFocus"
@@ -45,14 +45,14 @@ export default {
     }
   },
   props: {
-    label: { type: String , required: false, default: '' },
-    value: { type: String , required: false, default: '' },
+    label: { type: String, required: false, default: '' },
+    value: { type: String, required: false, default: '' },
     placeholder: { type: String, required: false, default: '' },
-    errorMessage: { type: String , required: false, default: '' }
+    errorMessage: { type: String, required: false, default: '' }
   },
   model: {
-    prop: "value",
-    event: "update"
+    prop: 'value',
+    event: 'update'
   }
 }
 </script>

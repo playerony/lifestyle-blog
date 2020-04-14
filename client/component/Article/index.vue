@@ -1,10 +1,7 @@
 <template>
   <div class="article">
     <Container>
-      <div
-        v-html="content"
-        class="article__content"
-      />
+      <div v-html="content" class="article__content" />
     </Container>
   </div>
 </template>
@@ -22,7 +19,7 @@ export default {
   components: {
     Container
   },
-  data () {
+  data() {
     const customEntityTransform = (entity, text) => {
       if (entity.type === 'image') {
         return `<img src="${text}" />`
@@ -34,8 +31,13 @@ export default {
     }
 
     return {
-      content: draftToHtml(JSON.parse(this.article.content), {}, false, customEntityTransform)
+      content: draftToHtml(
+        JSON.parse(this.article.content),
+        {},
+        false,
+        customEntityTransform
+      )
     }
-  },
+  }
 }
 </script>

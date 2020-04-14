@@ -1,10 +1,7 @@
 <template>
   <fragment>
     <LoadingPage v-if="isLoading()" />
-    <Home
-      v-if="!isLoading()"
-      :articles="getArticleList()"
-    />
+    <Home v-if="!isLoading()" :articles="getArticleList()" />
   </fragment>
 </template>
 
@@ -25,13 +22,16 @@ export default {
   },
   methods: {
     isLoading() {
-      return this.$apollo.queries.articleList.loading || this.$apollo.queries.visitorList.loading
+      return (
+        this.$apollo.queries.articleList.loading ||
+        this.$apollo.queries.visitorList.loading
+      )
     },
     getArticleList() {
       return articleListTransformator(this.articleList, this.visitorList)
     }
   },
-  data () {
+  data() {
     return {
       articleList: [],
       visitorList: []

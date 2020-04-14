@@ -6,11 +6,7 @@
     >
       {{ label }}
     </h2>
-    <Slider
-      :slidesToShow="4"
-      :slidesToScroll="4"
-      :responsive="responsive"
-    >
+    <Slider :slidesToShow="4" :slidesToScroll="4" :responsive="responsive">
       <div v-for="article in articles" :key="article.articleId">
         <ArticleCard :article="article" />
       </div>
@@ -46,7 +42,7 @@ export default {
       }
     }
   },
-  data () {
+  data() {
     const smallScreenSliderElements = calculateSliderElements(this.articles, 2)
     const mediumScreenSliderElements = calculateSliderElements(this.articles, 3)
 
