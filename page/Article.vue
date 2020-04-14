@@ -4,6 +4,7 @@
     <Article
       v-if="!isLoading()"
       :article="articleById"
+      :handleReply="handleReply"
       :comments="commentListByArticleId"
     />
   </fragment>
@@ -35,6 +36,9 @@ export default {
         this.$apollo.queries.articleById.loading ||
         this.$apollo.queries.commentListByArticleId.loading
       )
+    },
+    handleReply(reply) {
+      console.warn(reply)
     }
   },
   apollo: {
