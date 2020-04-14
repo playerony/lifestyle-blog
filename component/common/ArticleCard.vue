@@ -1,12 +1,6 @@
 <template>
-  <router-link
-    class="article-card"
-    :to="/article/ + article.articleId"
-  >
-    <img
-      class="article-card__image"
-      :src="article.image.photoUrl"
-    />
+  <router-link class="article-card" :to="/article/ + article.articleId">
+    <img class="article-card__image" :src="article.image.photoUrl" />
     <p class="article-card__reading-time">
       <ClockSVG />
       {{ article.readingTime }} min
@@ -31,7 +25,7 @@ export default {
   components: {
     ClockSVG
   },
-  data () {
+  data() {
     return {
       date: formatArticleDate(this.article.createdAt)
     }

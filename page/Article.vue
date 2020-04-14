@@ -1,7 +1,10 @@
 <template>
   <fragment>
     <LoadingPage v-if="$apollo.queries.articleById.loading" />
-    <Article v-if="!$apollo.queries.articleById.loading" :article="articleById" />
+    <Article
+      v-if="!$apollo.queries.articleById.loading"
+      :article="articleById"
+    />
   </fragment>
 </template>
 
@@ -17,7 +20,7 @@ export default {
     Article,
     LoadingPage
   },
-  data () {
+  data() {
     return {
       articleById: {},
       routeParams: this.$route.params
@@ -26,7 +29,7 @@ export default {
   apollo: {
     articleById: {
       ...articleQuery,
-      variables () {
+      variables() {
         return {
           articleId: Number(this.routeParams.articleId)
         }

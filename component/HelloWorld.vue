@@ -1,35 +1,24 @@
 <template>
   <Container>
     <LeftArrowIcon />
-    <Slider
-      :slidesToShow="2"
-      :slidesToScroll="2"
-    >
+    <Slider :slidesToShow="2" :slidesToScroll="2">
       <p>
         Hello World my friend reload
       </p>
       <p>
         Hello World my friend reload
       </p>
-       <p>
+      <p>
         Hello World my friend reload
       </p>
     </Slider>
-    <input type="checkbox" v-model="darkMode"/>
+    <input type="checkbox" v-model="darkMode" />
     <Button :onClick="consoleClick">
       <h1>Example button</h1>
     </Button>
     {{ inputValue }}
-    <Input
-      :label="label"
-      placeholder="value"
-      v-model="inputValue"
-    />
-    <Textarea
-      :label="label"
-      placeholder="value"
-      v-model="inputValue"
-    />
+    <Input :label="label" placeholder="value" v-model="inputValue" />
+    <Textarea :label="label" placeholder="value" v-model="inputValue" />
     <Checkbox v-model="isChecked" />
   </Container>
 </template>
@@ -70,7 +59,7 @@ export default {
     }
   },
   watch: {
-    darkMode: function () {
+    darkMode: function() {
       let htmlElement = document.documentElement
 
       htmlElement.setAttribute('theme', this.darkMode ? 'dark' : 'light')

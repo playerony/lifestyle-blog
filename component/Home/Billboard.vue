@@ -10,10 +10,7 @@
       <h1 class="content__title">{{ article.title }}</h1>
       <h2 class="content__description">{{ article.description }}</h2>
     </section>
-    <router-link
-      class="billboard__link"
-      :to="/article/ + article.articleId"
-    >
+    <router-link class="billboard__link" :to="/article/ + article.articleId">
       READ
     </router-link>
     <h3 class="billboard__date">
@@ -28,7 +25,7 @@ import formatArticleDate from '@utility/formatArticleDate'
 export default {
   name: 'Billboard',
   methods: {
-    getDate () {
+    getDate() {
       return formatArticleDate(this.article.createdAt)
     },
     handleMouseMove(event) {
@@ -38,8 +35,10 @@ export default {
         const billboardOriginX = billboardImage.clientWidth / 2
         const billboardOriginY = billboardImage.clientHeight / 2
 
-        billboardImage.style.top = `${(billboardOriginY - event.screenY) * 0.03}px`
-        billboardImage.style.left = `${(billboardOriginX - event.screenX) * 0.03}px`
+        billboardImage.style.top = `${(billboardOriginY - event.screenY) *
+          0.03}px`
+        billboardImage.style.left = `${(billboardOriginX - event.screenX) *
+          0.03}px`
       }
     }
   },
