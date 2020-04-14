@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Reply />
+    <Reply :handleReply="handleReply" />
   </div>
 </template>
 
@@ -13,7 +13,8 @@ export default {
     Reply
   },
   props: {
-    comments: { type: Array, required: true }
+    comments: { type: Array, required: true },
+    handleReply: { type: Function, required: true }
   }
 }
 </script>

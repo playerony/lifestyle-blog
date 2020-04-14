@@ -6,11 +6,15 @@
       v-model="content"
       placeholder="Join the discussion..."
     />
+    <Button :onClick="handleClick">
+      Reply
+    </Button>
   </div>
 </template>
 
 <script>
 import Input from '../generic/Input'
+import Button from '../generic/Button'
 import Textarea from '../generic/Textarea'
 
 export default {
@@ -21,12 +25,25 @@ export default {
       content: ''
     }
   },
+  methods: {
+    handleClick(event) {
+      event.preventDefault()
+
+      this.handleReply({
+        creator: this.creator,
+        content: this.content,
+        parentCommentId: this.parentCommentId
+      })
+    }
+  },
   components: {
     Input,
+    Button,
     Textarea
   },
   props: {
-    handleReply: { type: Function, required: false }
+    handleReply: { type: Function, required: true },
+    parentCommentId: { type: Number, required: false, default: null }
   }
 }
 </script>
