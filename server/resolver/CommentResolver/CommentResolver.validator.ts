@@ -6,9 +6,6 @@ import { check, validate, isValid } from '@utility/validate'
 export const createCommentValidation = (data: CommentSaveRequest): void => {
   const validationResult = validate(data)
     .setCheckList([
-      check('parentCommentId')
-        .isExist()
-        .isNumber(),
       check('articleId')
         .isExist()
         .isNumber(),
@@ -34,9 +31,6 @@ export const updateCommentValidation = (
   const validationResult = validate({ commentId, ...data })
     .setCheckList([
       check('commentId')
-        .isExist()
-        .isNumber(),
-      check('parentCommentId')
         .isExist()
         .isNumber(),
       check('articleId')
