@@ -24,6 +24,7 @@ You need to have installed the following software:
 ### Build
 
 - `start` - Run application in development mode
+- `install-all` - Run instalation for each project
 
 ### Test
 
@@ -32,4 +33,4 @@ You need to have installed the following software:
 ### Analyze
 
 - `lint` - Run `eslint`. Output any errors 🚨
-- `format` - Run `prettier` to format *.ts and *.tsx files
+- `format` - Run `prettier` to format _.ts and _.tsx files
