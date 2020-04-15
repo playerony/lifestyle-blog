@@ -15,20 +15,23 @@ describe('commentListTransformator Function', () => {
         content: 'content',
         creator: 'creator',
         createdAt: new Date('2020'),
-        parentComment: {
-          commentId: 3,
-          parentCommentId: 1,
-          content: 'content',
-          creator: 'creator',
-          createdAt: new Date('2020')
-        }
+        parentComments: [
+          {
+            commentId: 3,
+            parentCommentId: 1,
+            content: 'content',
+            creator: 'creator',
+            createdAt: new Date('2020')
+          }
+        ]
       },
       {
         commentId: 2,
         parentCommentId: null,
         content: 'content',
         creator: 'creator',
-        createdAt: new Date('2020')
+        createdAt: new Date('2020'),
+        parentComments: []
       }
     ])
   })
