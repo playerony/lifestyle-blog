@@ -1,37 +1,32 @@
-const getNestedComments = (comments, parentCommentId) => {
-  let result = []
+const getNestedComments = (comments, commentId) => {
+  const commentReplies = comments.filter(
+    comment => comment.parentCommentId === commentId
+  )
 
-  for (const i in comments) {
-    if (comments[i].parentCommentId === parentCommentId) {
-      const parentComments = getNestedComments(comments, comments[i].commentId)
-
-      if (parentComments.length) comments[i].parentComments = parentComments
-
-      result.push(comments[i])
-    }
+  if (!commentReplies.length) {
+    return []
   }
 
-  return result
-}
-
-const getMainComments = comments =>
-  comments.filter(comment => !comment.parentCommentId)
-
-const getOtherComments = comments =>
-  comments.filter(comment => Boolean(comment.parentCommentId))
-
-export default comments => {
-  const mainComments = getMainComments(comments)
-  const nestedComments = getOtherComments(comments)
-
-  mainComments.map(mainComment => {
-    mainComment.parentComments = getNestedComments(
-      nestedComments,
-      mainComment.commentId
+  return commentReplies.map(comment => {
+    const hasReply = comments.some(
+      replyComment => replyComment.parentCommentId === comment.commentId
     )
 
-    return mainComment
+    return {
+      ...comment,
+      comments: hasReply ? getNestedComments(comments, comment.commentId) : []
+    }
   })
+}
 
-  return mainComments
+export default comments => {
+  const parentComments = comments.filter(comment => !comment.parentCommentId)
+  const otherComments = comments.filter(comment =>
+    Boolean(comment.parentCommentId)
+  )
+
+  return parentComments.map(parentComment => ({
+    ...parentComment,
+    comments: getNestedComments(otherComments, parentComment.commentId)
+  }))
 }

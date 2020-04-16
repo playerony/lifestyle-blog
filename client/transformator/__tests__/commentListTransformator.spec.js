@@ -15,13 +15,23 @@ describe('commentListTransformator Function', () => {
         content: 'content',
         creator: 'creator',
         createdAt: new Date('2020'),
-        parentComments: [
+        comments: [
           {
             commentId: 3,
             parentCommentId: 1,
             content: 'content',
             creator: 'creator',
-            createdAt: new Date('2020')
+            createdAt: new Date('2020'),
+            comments: [
+              {
+                commentId: 4,
+                parentCommentId: 3,
+                content: 'content',
+                creator: 'creator',
+                createdAt: new Date('2020'),
+                comments: []
+              }
+            ]
           }
         ]
       },
@@ -31,7 +41,7 @@ describe('commentListTransformator Function', () => {
         content: 'content',
         creator: 'creator',
         createdAt: new Date('2020'),
-        parentComments: []
+        comments: []
       }
     ])
   })
@@ -55,6 +65,13 @@ const COMMENT_LIST_MOCK = [
   {
     commentId: 3,
     parentCommentId: 1,
+    content: 'content',
+    creator: 'creator',
+    createdAt: new Date('2020')
+  },
+  {
+    commentId: 4,
+    parentCommentId: 3,
     content: 'content',
     creator: 'creator',
     createdAt: new Date('2020')
