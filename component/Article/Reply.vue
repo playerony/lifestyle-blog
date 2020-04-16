@@ -26,9 +26,7 @@ export default {
     }
   },
   methods: {
-    handleClick(event) {
-      event.preventDefault()
-
+    handleClick() {
       this.handleReply({
         creator: this.creator,
         content: this.content,

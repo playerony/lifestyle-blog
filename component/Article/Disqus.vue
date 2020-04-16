@@ -28,8 +28,6 @@ export default {
   },
   methods: {
     getCommentList() {
-      console.warn(commentListTransformator(this.comments))
-
       return commentListTransformator(this.comments)
     }
   }

@@ -21,9 +21,10 @@ export default {
   },
   methods: {
     getLastArticle() {
-      console.warn(this.articles)
-
-      return this.articles[0]
+      return this.articles.sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      )[0]
     }
   },
   props: {
