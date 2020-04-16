@@ -28,7 +28,7 @@ export default {
     return {
       articleById: {},
       commentListByArticleId: [],
-      routeParams: this.$route.params
+      articleId: Number(this.$route.params.articleId)
     }
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
         .mutate({
           mutation: CREATE_COMMENT_MUTATION,
           variables: {
-            comment: { ...reply, articleId: Number(this.routeParams.articleId) }
+            comment: { ...reply, articleId: this.articleId }
           }
         })
         .then(response => {
@@ -51,8 +51,6 @@ export default {
             ...this.commentListByArticleId,
             response.data.createComment
           ]
-
-          console.warn(this.commentListByArticleId)
         })
     }
   },
@@ -61,7 +59,7 @@ export default {
       ...articleQuery,
       variables() {
         return {
-          articleId: Number(this.routeParams.articleId)
+          articleId: this.articleId
         }
       }
     },
@@ -69,7 +67,7 @@ export default {
       ...commentListQuery,
       variables() {
         return {
-          articleId: Number(this.routeParams.articleId)
+          articleId: this.articleId
         }
       }
     }
