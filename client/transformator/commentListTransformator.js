@@ -1,3 +1,8 @@
+const sortComments = comments =>
+  comments.sort(
+    (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+  )
+
 const getNestedComments = (comments, commentId) => {
   const commentReplies = comments.filter(
     comment => comment.parentCommentId === commentId
@@ -20,12 +25,15 @@ const getNestedComments = (comments, commentId) => {
 }
 
 export default comments => {
-  const parentComments = comments.filter(comment => !comment.parentCommentId)
-  const otherComments = comments.filter(comment =>
-    Boolean(comment.parentCommentId)
+  const parentComments = sortComments(
+    comments.filter(comment => !comment.parentCommentId)
   )
 
-  return parentComments.map(parentComment => ({
+  const otherComments = sortComments(
+    comments.filter(comment => Boolean(comment.parentCommentId))
+  )
+
+  return sortComments(parentComments).map(parentComment => ({
     ...parentComment,
     comments: getNestedComments(otherComments, parentComment.commentId)
   }))
