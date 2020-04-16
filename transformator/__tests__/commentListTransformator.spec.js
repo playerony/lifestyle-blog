@@ -10,6 +10,14 @@ describe('commentListTransformator Function', () => {
 
     expect(result).toEqual([
       {
+        commentId: 2,
+        parentCommentId: null,
+        content: 'content',
+        creator: 'creator',
+        createdAt: new Date('2019'),
+        comments: []
+      },
+      {
         commentId: 1,
         parentCommentId: null,
         content: 'content',
@@ -34,14 +42,6 @@ describe('commentListTransformator Function', () => {
             ]
           }
         ]
-      },
-      {
-        commentId: 2,
-        parentCommentId: null,
-        content: 'content',
-        creator: 'creator',
-        createdAt: new Date('2020'),
-        comments: []
       }
     ])
   })
@@ -60,7 +60,7 @@ const COMMENT_LIST_MOCK = [
     parentCommentId: null,
     content: 'content',
     creator: 'creator',
-    createdAt: new Date('2020')
+    createdAt: new Date('2019')
   },
   {
     commentId: 3,
