@@ -1,3 +1,5 @@
+import { WhereOptions } from 'sequelize'
+
 import { Article } from '@model/Article'
 import { ArticleCategory } from '@model/ArticleCategory'
 
@@ -95,11 +97,16 @@ export default class ArticleService {
     return foundArticle ? articleMapping(foundArticle) : null
   }
 
-  async findAll(): Promise<ArticleType[]> {
+  async findAll(onlyPublic?: boolean): Promise<ArticleType[]> {
+    const whereOptions: WhereOptions = {}
+    if (onlyPublic !== undefined) {
+      whereOptions.isPublic = onlyPublic
+    }
+
     const result = await Article.scope([
       'withImage',
       'withCategoryList'
-    ]).findAll<ArticleModel>()
+    ]).findAll<ArticleModel>({ where: whereOptions })
 
     return result.map(articleMapping) as ArticleType[]
   }

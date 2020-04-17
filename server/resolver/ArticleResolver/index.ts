@@ -61,10 +61,13 @@ export default class ArticleResolver {
   }
 
   @Query(type => [ArticleType])
-  async articleList(@Ctx() context: Context): Promise<ArticleType[]> {
+  async articleList(
+    @Ctx() context: Context,
+    @Arg('onlyPublic', type => Boolean) onlyPublic?: boolean
+  ): Promise<ArticleType[]> {
     await this.visitorService.create(null, context)
 
-    return this.articleService.findAll()
+    return this.articleService.findAll(onlyPublic)
   }
 
   @Query(type => ArticleType)
