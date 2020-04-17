@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 const ARTICLE_LIST_QUERY = gql`
   query {
-    articleList {
+    articleList(onlyPublic: true) {
       title
       isPublic
       articleId

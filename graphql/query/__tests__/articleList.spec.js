@@ -17,7 +17,7 @@ describe('articleList query', () => {
 
 const QUERY_FORMULA = gql`
   query {
-    articleList {
+    articleList(onlyPublic: true) {
       title
       isPublic
       articleId
