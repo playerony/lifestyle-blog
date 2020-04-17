@@ -40,16 +40,10 @@ describe('app Configuration', () => {
     process.env = OLD_ENV
   })
 
-  it('should set an app port defined as enviroment variable', async () => {
+  it('should use proper middlewares', async () => {
     await appConfig()
 
-    expect(setMock).toHaveBeenCalledWith('port', '1000')
-  })
-
-  it('should use a compression middleware', async () => {
-    await appConfig()
-
-    expect(useMock).toHaveBeenCalledTimes(1)
+    expect(useMock).toHaveBeenCalledTimes(2)
   })
 
   it('should prepare a server configuration', async () => {
