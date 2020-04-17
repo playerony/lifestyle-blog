@@ -23,7 +23,13 @@ const setupSequelizeMock = (
       public static bulkCreate = bulkCreateMock
       public static scope = scopeCallMock.mockImplementation(() => Model)
       public static create = jest.fn().mockImplementation(() => ARTICLE_MOCK)
-      public static findAll = jest.fn().mockImplementation(() => [ARTICLE_MOCK])
+      public static findAll = jest.fn().mockImplementation(whereOptions => {
+        const onlyPublic = whereOptions.where.isPublic
+
+        return onlyPublic !== undefined
+          ? [ARTICLE_MOCK].filter(({ isPublic }) => isPublic === onlyPublic)
+          : [ARTICLE_MOCK]
+      })
     }
 
     return {
@@ -136,13 +142,22 @@ describe('Article Service', () => {
       ])
     })
 
-    it('should return found article list', async () => {
+    it('should return all articles when onlyPublic flag was not provided', async () => {
       setupSequelizeMock()
 
       const articleService = setUp()
       const result = await articleService.findAll()
 
       expect(result).toEqual([ARTICLE_MOCK])
+    })
+
+    it('should return all public articles', async () => {
+      setupSequelizeMock()
+
+      const articleService = setUp()
+      const result = await articleService.findAll(true)
+
+      expect(result).toEqual([])
     })
   })
 })

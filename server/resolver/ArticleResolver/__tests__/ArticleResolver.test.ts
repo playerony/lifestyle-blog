@@ -42,7 +42,15 @@ describe('Article Resolver', () => {
       .create(Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
 
-    _ArticleService.findAll().mimicks(async () => [ARTICLE_RECORD_MOCK])
+    _ArticleService
+      .findAll(Arg.any())
+      .mimicks(async onlyPublic =>
+        onlyPublic !== undefined
+          ? [ARTICLE_RECORD_MOCK].filter(
+              ({ isPublic }) => isPublic === onlyPublic
+            )
+          : [ARTICLE_RECORD_MOCK]
+      )
 
     _ArticleService.findById(Arg.any()).mimicks(async () => ARTICLE_RECORD_MOCK)
 
@@ -224,7 +232,7 @@ describe('Article Resolver', () => {
   })
 
   describe('articleList Query', () => {
-    it('should return proper data', async () => {
+    it('should return all articles', async () => {
       const context: Context = {
         token: '',
         userAgent: '',
@@ -234,6 +242,18 @@ describe('Article Resolver', () => {
       const result = await resolver.articleList(context)
 
       expect(result).toEqual([ARTICLE_RECORD_MOCK])
+    })
+
+    it('should return only public articles', async () => {
+      const context: Context = {
+        token: '',
+        userAgent: '',
+        ipAddress: ''
+      }
+
+      const result = await resolver.articleList(context, true)
+
+      expect(result).toEqual([])
     })
   })
 
