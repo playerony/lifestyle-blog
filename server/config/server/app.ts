@@ -1,3 +1,4 @@
+import helmet from 'helmet'
 import compression from 'compression'
 import express, { Express } from 'express'
 import { ApolloError } from 'apollo-server-express'
@@ -11,6 +12,7 @@ export default async (): Promise<Express> => {
   try {
     app.set('port', keys.serverPort)
 
+    app.use(helmet())
     app.use(compression())
 
     const server = await apolloServer()
