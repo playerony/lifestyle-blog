@@ -18,6 +18,10 @@ import articleQuery from '@graphql/query/article'
 import commentListQuery from '@graphql/query/commentList'
 import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
 
+import tryParseJSON from '@utility/tryParseJSON'
+
+const initialErrorData = { articleId: [], content: [], creator: [] }
+
 export default {
   name: 'ArticlePage',
   components: {
@@ -28,6 +32,7 @@ export default {
     return {
       articleById: {},
       commentListByArticleId: [],
+      replyErrorData: initialErrorData,
       articleId: Number(this.$route.params.articleId)
     }
   },
@@ -47,10 +52,22 @@ export default {
           }
         })
         .then(response => {
+          this.replyErrorData = initialErrorData
           this.commentListByArticleId = [
             ...this.commentListByArticleId,
             response.data.createComment
           ]
+        })
+        .catch(error => {
+          const errorMessage = error?.graphQLErrors[0]?.message
+
+          if (errorMessage) {
+            const parsedErrorObject = tryParseJSON(errorMessage)
+
+            if (parsedErrorObject) {
+              console.warn(parsedErrorObject)
+            }
+          }
         })
     }
   },
