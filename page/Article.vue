@@ -58,11 +58,26 @@ export default {
           }
         })
         .then(response => {
-          this.replyErrorData = initialErrorData
+          const createdComment = response.data.createComment
+
+          const commentsWithErrorData = this.commentListByArticleId.findIndex(
+            comment =>
+              Boolean(comment.replyErrorData) &&
+              comment.commentId === createdComment.parentCommentId
+          )
+
           this.commentListByArticleId = [
             ...this.commentListByArticleId,
-            response.data.createComment
+            createdComment
           ]
+
+          if (commentsWithErrorData !== -1) {
+            Vue.set(
+              this.commentListByArticleId[commentsWithErrorData],
+              'replyErrorData',
+              undefined
+            )
+          }
         })
         .catch(error => {
           const errorMessage = error?.graphQLErrors[0]?.message
