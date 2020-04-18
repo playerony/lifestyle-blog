@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 import LoadingPage from './Loading'
 import Article from '@component/Article'
 
@@ -72,6 +74,18 @@ export default {
               this.replyErrorData = {
                 ...parsedErrorObject,
                 commentId: reply.parentCommentId
+              }
+
+              const commentIndex = this.commentListByArticleId.findIndex(
+                comment => comment.commentId === this.replyErrorData?.commentId
+              )
+
+              if (commentIndex) {
+                Vue.set(
+                  this.commentListByArticleId[commentIndex],
+                  'replyErrorData',
+                  this.replyErrorData
+                )
               }
             }
           }
