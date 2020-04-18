@@ -5,6 +5,7 @@
       v-if="!isLoading()"
       :article="articleById"
       :handleReply="handleReply"
+      :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
     />
   </fragment>
@@ -65,7 +66,10 @@ export default {
             const parsedErrorObject = tryParseJSON(errorMessage)
 
             if (parsedErrorObject) {
-              console.warn(parsedErrorObject)
+              this.replyErrorData = {
+                ...parsedErrorObject,
+                commentId: reply.parentCommentId
+              }
             }
           }
         })

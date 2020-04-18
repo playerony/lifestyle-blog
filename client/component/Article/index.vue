@@ -2,7 +2,11 @@
   <div class="article">
     <Container>
       <div v-html="content" class="article__content" />
-      <Disqus :comments="comments" :handleReply="handleReply" />
+      <Disqus
+        :comments="comments"
+        :handleReply="handleReply"
+        :replyErrorData="replyErrorData"
+      />
     </Container>
   </div>
 </template>
@@ -18,7 +22,8 @@ export default {
   props: {
     article: { type: Object, required: true },
     comments: { type: Array, required: true },
-    handleReply: { type: Function, required: true }
+    handleReply: { type: Function, required: true },
+    replyErrorData: { type: Object, required: true }
   },
   components: {
     Disqus,
