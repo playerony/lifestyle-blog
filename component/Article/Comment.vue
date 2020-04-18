@@ -1,7 +1,11 @@
 <template>
   <div :style="{ paddingLeft: '20px' }">
     <h3>{{ comment.content }}</h3>
-    <Reply :handleReply="handleReply" :parentCommentId="comment.commentId" />
+    <Reply
+      :handleReply="handleReply"
+      :errorData="comment.replyErrorData"
+      :parentCommentId="comment.commentId"
+    />
     <Comment
       v-for="comment in comment.comments"
       :key="comment.commentId"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Reply :handleReply="handleReply" />
+    <Reply :handleReply="handleReply" :errorData="newReplyErrorData" />
     <Comment
       v-for="comment in getCommentList()"
       :key="comment.commentId"
@@ -24,11 +24,23 @@ export default {
   },
   props: {
     comments: { type: Array, required: true },
-    handleReply: { type: Function, required: true }
+    handleReply: { type: Function, required: true },
+    replyErrorData: { type: Object, required: false }
+  },
+  data() {
+    return {
+      newReplyErrorData: {}
+    }
   },
   methods: {
     getCommentList() {
-      return commentListTransformator(this.comments)
+      if (this.replyErrorData?.commentId === null) {
+        this.newReplyErrorData = this.replyErrorData
+      } else {
+        this.newReplyErrorData = {}
+      }
+
+      return commentListTransformator(this.comments, this.replyErrorData)
     }
   }
 }
