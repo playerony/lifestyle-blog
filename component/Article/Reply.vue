@@ -1,18 +1,20 @@
 <template>
   <div>
     <Input
+      key="input"
       label="Creator"
       v-model="creator"
       placeholder="Your name..."
-      :errorMessage="creatorFieldError"
+      :errorMessage="getCreatorFieldError()"
     />
     <Textarea
+      key="textarea"
       label="Content"
       v-model="content"
-      :errorMessage="contentFieldError"
+      :errorMessage="getContentFieldError()"
       placeholder="Join the discussion..."
     />
-    <Button :onClick="handleClick">
+    <Button :onClick="this.handleClick">
       Reply
     </Button>
   </div>
@@ -30,9 +32,7 @@ export default {
   data() {
     return {
       creator: '',
-      content: '',
-      creatorFieldError: getFieldError(this.errorData, 'creator'),
-      contentFieldError: getFieldError(this.errorData, 'content')
+      content: ''
     }
   },
   methods: {
@@ -42,6 +42,12 @@ export default {
         content: this.content,
         parentCommentId: this.parentCommentId
       })
+    },
+    getCreatorFieldError() {
+      return getFieldError(this.errorData, 'creator')
+    },
+    getContentFieldError() {
+      return getFieldError(this.errorData, 'content')
     }
   },
   components: {

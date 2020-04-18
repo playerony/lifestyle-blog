@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Reply :key="JSON.stringify(replyErrorData)" :handleReply="handleReply" :errorData="getReplyErrorData()" />
+    <Reply
+      :handleReply="handleReply"
+      :errorData="getReplyErrorData()"
+    />
     <Comment
       v-for="comment in getCommentList()"
       :key="comment.commentId"
@@ -34,7 +37,7 @@ export default {
   },
   methods: {
     getCommentList() {
-      return commentListTransformator(this.comments, this.replyErrorData)
+      return commentListTransformator(this.comments)
     },
     getReplyErrorData() {
       return this.replyErrorData?.commentId === null ? this.replyErrorData : {}

@@ -24,24 +24,13 @@ const getNestedComments = (comments, commentId) => {
   })
 }
 
-export default (comments, replyErrorData) => {
-  const parsedComments = comments.map(comment => {
-    if (replyErrorData?.commentId) {
-      return {
-        ...comment,
-        replyErrorData
-      }
-    }
-
-    return comment
-  })
-
+export default comments => {
   const parentComments = sortComments(
-    parsedComments.filter(comment => !comment.parentCommentId)
+    comments.filter(comment => !comment.parentCommentId)
   )
 
   const otherComments = sortComments(
-    parsedComments.filter(comment => Boolean(comment.parentCommentId))
+    comments.filter(comment => Boolean(comment.parentCommentId))
   )
 
   return sortComments(parentComments).map(parentComment => ({

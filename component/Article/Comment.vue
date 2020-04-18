@@ -2,8 +2,9 @@
   <div :style="{ paddingLeft: '20px' }">
     <h3>{{ comment.content }}</h3>
     <Reply
+      :key="'reply' + comment.commentId"
       :handleReply="handleReply"
-      :errorData="comment.replyErrorData"
+      :errorData="getErrorData()"
       :parentCommentId="comment.commentId"
     />
     <Comment
@@ -28,6 +29,11 @@ export default {
   components: {
     Reply,
     Comment
+  },
+  methods: {
+    getErrorData() {
+      return this.comment.replyErrorData
+    }
   }
 }
 </script>
