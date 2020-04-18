@@ -8,4 +8,6 @@ export default jsonString => {
   } catch {
     return null
   }
+
+  return null
 }
