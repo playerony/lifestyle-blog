@@ -2,112 +2,23 @@
   width: 100%;
   position: relative;
 
-  &__image {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+  @include flexbox();
+  @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
-    @include transform(scale(0.96));
+  &__border {
+    width: 10px;
 
-    @include respond-to("small") {
-      @include transform(scale(0.93));
-    }
+    @include linear-gradient(to bottom, $blue600 5%, $purple700 56%, $red300 100%);
   }
 
   &__content {
-    left: 4%;
-    z-index: 2;
-    bottom: 30%;
-    position: absolute;
-
-    @include respond-to("mobile") {
-      left: 7%;
-      bottom: 25%;
-    }
-
-    & > .content__header {
-      color: $white;
-      font-weight: 100;
-    }
-
-    & > .content__title {
-      color: $white;
-      line-height: 1.2;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      margin-bottom: $paddingSmall;
-      max-width: calc(100vw - 50px);
-
-      @include font-size(100px);
-
-      @include respond-to("large") {
-        @include font-size(70px);
-      }
-
-      @include respond-to("medium") {
-        @include font-size(65px);
-      }
-
-      @include respond-to("small") {
-        @include font-size(45px);
-      }
-
-      @include respond-to("mobile") {
-        margin-bottom: 0;
-
-        @include font-size(32px);
-      }
-    }
-
-    & > .content__description {
-      color: $white;
-
-      @include respond-to("small") {
-        display: none;
-      }
-    }
+    padding: calc(#{$paddingBig} * 2);
+    width: calc(50% - 5px - #{$paddingBig} * 4);
   }
 
-  &__link {
-    left: 4%;
-    z-index: 2;
-    bottom: 20%;
-    color: $white;
-    position: absolute;
-
-    @include respond-to("mobile") {
-      left: 7%;
-      bottom: 12%;
-    }
-
-    &:hover {
-      color: $green600;
-    }
-  }
-
-  &__date {
-    right: 0;
-    z-index: 2;
-    color: $white;
-    position: absolute;
-    border-left: 5px solid $white;
-    bottom: calc(20% - #{$paddingSmall});
-    background-color: rgba(255, 255, 255, 0.2);
-
-    padding: $paddingSmall;
-    padding-right: 4%;
-
-    @include respond-to("small") {
-      border-width: 3px;
-      padding: calc(#{$paddingSmall} / 2);
-      padding-right: 4%;
-    }
-
-    @include respond-to("mobile") {
-      padding: calc(#{$paddingSmall} / 4);
-      padding-right: 7%;
-      bottom: calc(12% - #{$paddingSmall} / 4);
-    }
+  &__image {
+    overflow: hidden;
+    position: relative;
+    width: calc(50% - 5px);
   }
 }
