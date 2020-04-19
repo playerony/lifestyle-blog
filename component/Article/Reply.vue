@@ -11,8 +11,8 @@
       key="textarea"
       label="Content"
       v-model="content"
-      :errorMessage="getContentFieldError()"
       placeholder="Join the discussion..."
+      :errorMessage="getContentFieldError()"
     />
     <Button :onClick="this.handleClick">
       Reply

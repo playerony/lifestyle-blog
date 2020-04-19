@@ -2,9 +2,9 @@
   <div :style="{ paddingLeft: '20px' }">
     <h3>{{ comment.content }}</h3>
     <Reply
-      :key="'reply' + comment.commentId"
       :handleReply="handleReply"
       :errorData="getErrorData()"
+      :key="'reply' + comment.commentId"
       :parentCommentId="comment.commentId"
     />
     <Comment

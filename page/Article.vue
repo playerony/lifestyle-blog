@@ -5,7 +5,7 @@
       v-if="!isLoading()"
       :article="articleById"
       :handleReply="handleReply"
-      :replyErrorData="getReplyErrorData()"
+      :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
     />
   </fragment>
@@ -23,8 +23,6 @@ import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
 
 import tryParseJSON from '@utility/tryParseJSON'
 
-const initialErrorData = { articleId: [], content: [], creator: [] }
-
 export default {
   name: 'ArticlePage',
   components: {
@@ -34,77 +32,9 @@ export default {
   data() {
     return {
       articleById: {},
+      replyErrorData: {},
       commentListByArticleId: [],
-      replyErrorData: initialErrorData,
       articleId: Number(this.$route.params.articleId)
-    }
-  },
-  methods: {
-    isLoading() {
-      return (
-        this.$apollo.queries.articleById.loading ||
-        this.$apollo.queries.commentListByArticleId.loading
-      )
-    },
-    getReplyErrorData() {
-      return this.replyErrorData
-    },
-    handleReply(reply) {
-      this.$apollo
-        .mutate({
-          mutation: CREATE_COMMENT_MUTATION,
-          variables: {
-            comment: { ...reply, articleId: this.articleId }
-          }
-        })
-        .then(response => {
-          const createdComment = response.data.createComment
-
-          const commentsWithErrorData = this.commentListByArticleId.findIndex(
-            comment =>
-              Boolean(comment.replyErrorData) &&
-              comment.commentId === createdComment.parentCommentId
-          )
-
-          this.commentListByArticleId = [
-            ...this.commentListByArticleId,
-            createdComment
-          ]
-
-          if (commentsWithErrorData !== -1) {
-            Vue.set(
-              this.commentListByArticleId[commentsWithErrorData],
-              'replyErrorData',
-              undefined
-            )
-          }
-        })
-        .catch(error => {
-          const errorMessage = error?.graphQLErrors[0]?.message
-
-          if (errorMessage) {
-            const parsedErrorObject = tryParseJSON(errorMessage)
-
-            if (parsedErrorObject) {
-              this.replyErrorData = {
-                ...parsedErrorObject,
-                commentId: reply.parentCommentId
-              }
-
-              const commentIndex = this.commentListByArticleId.findIndex(
-                comment => comment.commentId === this.replyErrorData?.commentId
-              )
-
-              if (commentIndex) {
-                Vue.set(
-                  this.commentListByArticleId[commentIndex],
-                  'replyErrorData',
-                  this.replyErrorData
-                )
-              }
-            }
-          }
-        })
     }
   },
   apollo: {
@@ -123,6 +53,73 @@ export default {
           articleId: this.articleId
         }
       }
+    }
+  },
+  methods: {
+    isLoading() {
+      return (
+        this.$apollo.queries.articleById.loading ||
+        this.$apollo.queries.commentListByArticleId.loading
+      )
+    },
+    handleReply(reply) {
+      this.$apollo
+        .mutate({
+          mutation: CREATE_COMMENT_MUTATION,
+          variables: {
+            comment: { ...reply, articleId: this.articleId }
+          }
+        })
+        .then(response => {
+          const createdComment = response.data.createComment
+
+          const commentWithErrorData = this.commentListByArticleId.findIndex(
+            comment =>
+              Boolean(comment.replyErrorData) &&
+              comment.commentId === createdComment.parentCommentId
+          )
+
+          if (commentWithErrorData !== -1) {
+            Vue.set(
+              this.commentListByArticleId[commentWithErrorData],
+              'replyErrorData',
+              {}
+            )
+          } else if (createdComment.parentCommentId === null) {
+            this.replyErrorData = {}
+          }
+
+          this.commentListByArticleId = [
+            ...this.commentListByArticleId,
+            createdComment
+          ]
+        })
+        .catch(error => {
+          const errorMessage = error?.graphQLErrors[0]?.message
+
+          if (errorMessage) {
+            const parsedErrorObject = tryParseJSON(errorMessage)
+
+            if (parsedErrorObject) {
+              this.replyErrorData = {
+                ...parsedErrorObject,
+                commentId: reply.parentCommentId
+              }
+
+              const commentIndex = this.commentListByArticleId.findIndex(
+                comment => comment.commentId === reply.parentCommentId
+              )
+
+              if (commentIndex) {
+                Vue.set(
+                  this.commentListByArticleId[commentIndex],
+                  'replyErrorData',
+                  this.replyErrorData
+                )
+              }
+            }
+          }
+        })
     }
   }
 }
