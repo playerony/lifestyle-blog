@@ -23,6 +23,11 @@ export default class CommentResolver {
     return this.commentService.findAllByArticleId(articleId)
   }
 
+  @Query(type => [CommentType])
+  async commentList(): Promise<CommentType[]> {
+    return this.commentService.findAll()
+  }
+
   @Mutation(type => CommentType)
   async createComment(
     @Arg('comment', type => CommentSaveRequest) comment: CommentSaveRequest

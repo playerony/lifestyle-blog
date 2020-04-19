@@ -44,6 +44,12 @@ export default class CommentService {
     return commentList.map(commentMapping)
   }
 
+  async findAll(): Promise<CommentType[]> {
+    const commentList = await Comment.findAll<CommentModel>()
+
+    return commentList.map(commentMapping)
+  }
+
   async findById(commentId: number): Promise<CommentType | null> {
     const foundComment = await Comment.findOne<CommentModel>({
       where: {

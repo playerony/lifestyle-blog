@@ -1,12 +1,9 @@
 import gql from 'graphql-tag'
 
 const COMMENT_LIST_QUERY = gql`
-  query CommentListByArticleId($articleId: Int) {
-    commentListByArticleId(articleId: $articleId) {
-      commentId
-      parentCommentId
-      content
-      creator
+  query {
+    commentList {
+      articleId
       createdAt
     }
   }
