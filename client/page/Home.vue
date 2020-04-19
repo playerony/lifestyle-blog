@@ -20,6 +20,16 @@ export default {
     Home,
     LoadingPage
   },
+  data() {
+    return {
+      articleList: [],
+      visitorList: []
+    }
+  },
+  apollo: {
+    articleList: articleListQuery,
+    visitorList: visitorListQuery
+  },
   methods: {
     isLoading() {
       return (
@@ -30,16 +40,6 @@ export default {
     getArticleList() {
       return articleListTransformator(this.articleList, this.visitorList)
     }
-  },
-  data() {
-    return {
-      articleList: [],
-      visitorList: []
-    }
-  },
-  apollo: {
-    articleList: articleListQuery,
-    visitorList: visitorListQuery
   }
 }
 </script>
