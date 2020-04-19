@@ -31,7 +31,7 @@ export default {
   apollo: {
     articleList: articleListQuery,
     visitorList: visitorListQuery,
-    commentList: metricCommentList,
+    commentList: metricCommentList
   },
   methods: {
     isLoading() {
@@ -42,7 +42,19 @@ export default {
       )
     },
     getArticleList() {
-      return articleListTransformator(this.articleList, this.visitorList)
+      console.warn(
+        articleListTransformator(
+          this.articleList,
+          this.visitorList,
+          this.commentList
+        )
+      )
+
+      return articleListTransformator(
+        this.articleList,
+        this.visitorList,
+        this.commentList
+      )
     }
   }
 }

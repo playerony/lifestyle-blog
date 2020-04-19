@@ -1,5 +1,14 @@
-export default (articleList, visitorList) => {
-  if (!articleList || !visitorList) {
+const calculateTodaysRecords = array =>
+  array.filter(element => {
+    const differenceInTime =
+      new Date().getTime() - new Date(element.createdAt).getTime()
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24)
+
+    return differenceInDays <= 1
+  }).length
+
+export default (articleList, visitorList, commentList) => {
+  if (!articleList || !visitorList || !commentList) {
     return []
   }
 
@@ -16,16 +25,22 @@ export default (articleList, visitorList) => {
         return !foundVisitor ? [...result, value] : result
       }, [])
 
+    const filteredCommentList = commentList.filter(
+      element => element.articleId === articleId
+    )
+
     const totalVisitor = filteredVisitorList.length
+    const totalComments = filteredCommentList.length
 
-    const todayVisitor = filteredVisitorList.filter(element => {
-      const differenceInTime =
-        new Date().getTime() - new Date(element.createdAt).getTime()
-      const differenceInDays = differenceInTime / (1000 * 3600 * 24)
+    const todayVisitor = calculateTodaysRecords(filteredVisitorList)
+    const todayComments = calculateTodaysRecords(filteredCommentList)
 
-      return differenceInDays <= 1
-    }).length
-
-    return result.concat({ ...value, totalVisitor, todayVisitor })
+    return result.concat({
+      ...value,
+      totalVisitor,
+      todayVisitor,
+      totalComments,
+      todayComments
+    })
   }, [])
 }
