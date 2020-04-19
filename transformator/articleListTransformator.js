@@ -18,6 +18,14 @@ export default (articleList, visitorList) => {
 
     const totalVisitor = filteredVisitorList.length
 
-    return result.concat({ ...value, totalVisitor })
+    const todayVisitor = filteredVisitorList.filter(element => {
+      const differenceInTime =
+        new Date().getTime() - new Date(element.createdAt).getTime()
+      const differenceInDays = differenceInTime / (1000 * 3600 * 24)
+
+      return differenceInDays <= 1
+    }).length
+
+    return result.concat({ ...value, totalVisitor, todayVisitor })
   }, [])
 }

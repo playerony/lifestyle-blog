@@ -18,7 +18,7 @@ import LoadingPage from './Loading'
 import Article from '@component/Article'
 
 import articleQuery from '@graphql/query/article'
-import commentListQuery from '@graphql/query/commentList'
+import articleCommentListQuery from '@graphql/query/articleCommentList'
 import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
 
 import tryParseJSON from '@utility/tryParseJSON'
@@ -47,7 +47,7 @@ export default {
       }
     },
     commentListByArticleId: {
-      ...commentListQuery,
+      ...articleCommentListQuery,
       variables() {
         return {
           articleId: this.articleId
