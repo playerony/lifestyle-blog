@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Reply
-      :handleReply="handleReply"
-      :errorData="getReplyErrorData()"
-    />
+    <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
       v-for="comment in getCommentList()"
       :key="comment.commentId"
@@ -29,11 +26,6 @@ export default {
     comments: { type: Array, required: true },
     handleReply: { type: Function, required: true },
     replyErrorData: { type: Object, required: false }
-  },
-  data() {
-    return {
-      newReplyErrorData: {}
-    }
   },
   methods: {
     getCommentList() {
