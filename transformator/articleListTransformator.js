@@ -29,16 +29,16 @@ export default (articleList, visitorList, commentList) => {
       element => element.articleId === articleId
     )
 
-    const totalVisitor = filteredVisitorList.length
+    const totalVisitors = filteredVisitorList.length
     const totalComments = filteredCommentList.length
 
-    const todayVisitor = calculateTodaysRecords(filteredVisitorList)
+    const todayVisitors = calculateTodaysRecords(filteredVisitorList)
     const todayComments = calculateTodaysRecords(filteredCommentList)
 
     return result.concat({
       ...value,
-      totalVisitor,
-      todayVisitor,
+      totalVisitors,
+      todayVisitors,
       totalComments,
       todayComments
     })
