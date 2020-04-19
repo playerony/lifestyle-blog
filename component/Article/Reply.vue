@@ -29,6 +29,16 @@ import getFieldError from '@utility/getFieldError'
 
 export default {
   name: 'Reply',
+  components: {
+    Input,
+    Button,
+    Textarea
+  },
+  props: {
+    errorData: { type: Object, required: false },
+    handleReply: { type: Function, required: true },
+    parentCommentId: { type: Number, required: false, default: null }
+  },
   data() {
     return {
       creator: '',
@@ -50,15 +60,13 @@ export default {
       return getFieldError(this.errorData, 'content')
     }
   },
-  components: {
-    Input,
-    Button,
-    Textarea
-  },
-  props: {
-    errorData: { type: Object, required: false },
-    handleReply: { type: Function, required: true },
-    parentCommentId: { type: Number, required: false, default: null }
+  watch: {
+    errorData: function() {
+      if (Object.keys(this.errorData).length === 0) {
+        this.creator = ''
+        this.content = ''
+      }
+    }
   }
 }
 </script>
