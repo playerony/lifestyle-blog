@@ -34,10 +34,11 @@
 
     @include respond-to("mobile") {
       padding: $paddingSmall;
-      width: calc(100% - #{paddingSmall} * 2);
+      width: calc(100% - #{$paddingSmall} * 2);
     }
 
     & > *:not(:first-child) {
+      word-break: break-all;
       margin-top: $paddingMedium;
 
       @include respond-to("mobile") {
@@ -61,6 +62,8 @@
           padding-right: calc(#{$paddingSmall} / 2);
 
           @include respond-to("mobile") {
+            width: 21px;
+            height: 21px;
             padding-right: calc(#{$paddingSmall} / 4);
           }
         }
@@ -80,6 +83,7 @@
     }
 
     & > .content__description {
+      word-break: break-all;
       margin-top: $paddingSmall;
 
       @include respond-to("mobile") {

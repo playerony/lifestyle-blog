@@ -22,7 +22,7 @@
           </span>
         </p>
       </header>
-      <h1 class="content__title">{{ article.title }}</h1>
+      <h1>{{ article.title }}</h1>
       <label class="content__description">{{ article.description }}</label>
       <Button className="content__button">Read now</Button>
     </section>
