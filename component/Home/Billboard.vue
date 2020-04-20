@@ -24,7 +24,9 @@
       </header>
       <h1>{{ article.title }}</h1>
       <label class="content__description">{{ article.description }}</label>
-      <Button className="content__button">Read now</Button>
+      <Button :onClick="redirectToArticle" className="content__button">
+        Read now
+      </Button>
     </section>
     <img class="billboard__image" :src="article.image.photoUrl" />
   </div>
@@ -46,6 +48,11 @@ export default {
     EyeSVG,
     ClockSVG,
     ReplySVG
+  },
+  methods: {
+    redirectToArticle() {
+      this.$router.push(`/articles/${this.article.articleId}`)
+    }
   }
 }
 </script>
