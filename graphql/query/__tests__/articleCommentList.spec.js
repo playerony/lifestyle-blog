@@ -1,14 +1,14 @@
 import gql from 'graphql-tag'
 
-import commentListQuery from '../commentList'
+import articleCommentListQuery from '../articleCommentList'
 
 describe('commentList query', () => {
   it('should import', () => {
-    expect(typeof commentListQuery).toBeDefined()
+    expect(typeof articleCommentListQuery).toBeDefined()
   })
 
   it('should contain proper query and fetch policy', () => {
-    expect(commentListQuery).toEqual({
+    expect(articleCommentListQuery).toEqual({
       query: QUERY_FORMULA,
       fetchPolicy: 'cache-first'
     })
