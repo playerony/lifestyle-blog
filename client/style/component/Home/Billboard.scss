@@ -5,6 +5,10 @@
   @include flexbox();
   @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
+  @include respond-to("mobile") {
+    @include flex-direction(column-reverse);
+  }
+
   &__border {
     width: 10px;
 
@@ -12,17 +16,40 @@
   }
 
   &__content {
-    padding: calc(#{$paddingBig} * 2);
+    $padding: calc(#{$paddingBig} * 2);
     width: calc(50% - 5px - #{$paddingBig} * 4);
+    padding: $padding $padding calc(#{$padding} * 2) $padding;
+
+    @include respond-to("medium") {
+      $padding: calc(#{$paddingMedium} * 2);
+      width: calc(50% - 5px - #{$paddingMedium} * 4);
+      padding: $padding $padding calc(#{$padding} * 2) $padding;
+    }
+
+    @include respond-to("small") {
+      $padding: calc(#{$paddingSmall} * 2);
+      width: calc(50% - 5px - #{$paddingSmall} * 4);
+      padding: $padding $padding calc(#{$padding} * 2) $padding;
+    }
+
+    @include respond-to("mobile") {
+      padding: $paddingSmall;
+      width: calc(100% - #{paddingSmall} * 2);
+    }
 
     & > *:not(:first-child) {
       margin-top: $paddingMedium;
+
+      @include respond-to("mobile") {
+        margin-top: $paddingSmall;
+      }
     }
 
     & > .content__header {
       @include flexbox();
 
       & > .header__info {
+        white-space: nowrap;
         margin-right: $paddingSmall;
 
         @include flexbox();
@@ -32,6 +59,10 @@
           width: 24px;
           height: 24px;
           padding-right: calc(#{$paddingSmall} / 2);
+
+          @include respond-to("mobile") {
+            padding-right: calc(#{$paddingSmall} / 4);
+          }
         }
 
         & > span {
@@ -40,18 +71,31 @@
 
         & > * {
           padding-left: 5px;
+
+          @include respond-to("mobile") {
+            padding-left: 3px;
+          }
         }
       }
     }
 
     & > .content__description {
       margin-top: $paddingSmall;
+
+      @include respond-to("mobile") {
+        margin-top: calc(#{$paddingSmall} / 2);
+      }
     }
 
     & > .content__button {
       width: initial;
       padding-left: $paddingBig;
       padding-right: $paddingBig;
+
+      @include respond-to("mobile") {
+        padding-left: $paddingMedium;
+        padding-right: $paddingMedium;
+      }
     }
   }
 
@@ -60,5 +104,9 @@
     object-fit: cover;
     position: relative;
     width: calc(50% - 5px);
+
+    @include respond-to("mobile") {
+      width: 100%;
+    }
   }
 }
