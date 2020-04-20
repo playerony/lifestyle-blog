@@ -14,10 +14,50 @@
   &__content {
     padding: calc(#{$paddingBig} * 2);
     width: calc(50% - 5px - #{$paddingBig} * 4);
+
+    & > *:not(:first-child) {
+      margin-top: $paddingMedium;
+    }
+
+    & > .content__header {
+      @include flexbox();
+
+      & > .header__info {
+        margin-right: $paddingSmall;
+
+        @include flexbox();
+        @include align-items(center);
+
+        & > svg {
+          width: 24px;
+          height: 24px;
+          padding-right: calc(#{$paddingSmall} / 2);
+        }
+
+        & > span {
+          color: $green400;
+        }
+
+        & > * {
+          padding-left: 5px;
+        }
+      }
+    }
+
+    & > .content__description {
+      margin-top: $paddingSmall;
+    }
+
+    & > .content__button {
+      width: initial;
+      padding-left: $paddingBig;
+      padding-right: $paddingBig;
+    }
   }
 
   &__image {
     overflow: hidden;
+    object-fit: cover;
     position: relative;
     width: calc(50% - 5px);
   }
