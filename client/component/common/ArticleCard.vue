@@ -25,10 +25,17 @@
       <h1>{{ article.title }}</h1>
       <label>{{ article.description }}</label>
     </div>
+    <div class="article-card__hover" :src="article.image.photoUrl">
+      <img :src="article.image.photoUrl" />
+      <Button :onClick="redirectToArticle" className="hover__button">
+        Read now
+      </Button>
+    </div>
   </article>
 </template>
 
 <script>
+import Button from '../generic/Button'
 import EyeSVG from '@asset/svg/eye.svg'
 import ClockSVG from '@asset/svg/clock.svg'
 import ReplySVG from '@asset/svg/reply.svg'
@@ -36,12 +43,18 @@ import ReplySVG from '@asset/svg/reply.svg'
 export default {
   name: 'ArticleCard',
   components: {
+    Button,
     EyeSVG,
     ClockSVG,
     ReplySVG
   },
   props: {
     article: { type: Object, required: true }
+  },
+  methods: {
+    redirectToArticle() {
+      this.$router.push(`/article/${this.article.articleId}`)
+    }
   }
 }
 </script>
