@@ -1,97 +1,70 @@
 .article-card {
-  display: block;
   margin: 0 auto;
   cursor: pointer;
   max-width: 600px;
   position: relative;
-  width: calc(100% - 4px);
 
-  @include transform(scale(1));
-  @include transition(all 300ms linear);
+  @include flexbox();
 
-  &:hover {
-    @include transform(scale(0.97));
-  }
+  &__border {
+    width: 10px;
 
-  &__image {
-    width: 100%;
-    object-fit: cover;
-
-    @include border-radius(4px);
-  }
-
-  &__reading-time {
-    top: 9%;
-    left: 4%;
-    color: $white;
-    position: absolute;
-
-    @include flexbox;
-    @include align-items(center);
-
-    & > svg {
-      width: 30px;
-      height: 30px;
-      fill: $white;
-      padding-right: 5px;
-
-      @include respond-to("medium") {
-        width: 28px;
-        height: 28px;
-      }
-
-      @include respond-to("small") {
-        width: 26px;
-        height: 26px;
-      }
-
-      @include respond-to("mobile") {
-        width: 22px;
-        height: 22px;
-      }
-    }
+    @include linear-gradient(179deg, $blue600 5%, $purple700 56%, $red300 100%);
   }
 
   &__content {
-    left: 4%;
-    bottom: 15%;
-    position: absolute;
+    padding: $paddingBig;
+    width: calc(100% - 10px);
 
-    & > h2 {
-      color: $white;
-      padding-bottom: 5px;
+    @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
+
+    & > .content__header {
+      @include flexbox();
+
+      & > .header__info {
+        white-space: nowrap;
+        margin-right: $paddingSmall;
+
+        @include flexbox();
+        @include align-items(center);
+
+        & > svg {
+          width: 24px;
+          height: 24px;
+          padding-right: calc(#{$paddingSmall} / 2);
+
+          @include respond-to("mobile") {
+            width: 21px;
+            height: 21px;
+            padding-right: calc(#{$paddingSmall} / 4);
+          }
+        }
+
+        & > span {
+          color: $green400;
+        }
+
+        & > * {
+          padding-left: 5px;
+
+          @include respond-to("mobile") {
+            padding-left: 3px;
+          }
+        }
+      }
     }
 
-    & > h4 {
-      color: $white;
-    }
-  }
+    & > .content__description {
+      word-break: break-all;
+      margin-top: $paddingSmall;
 
-  &__date {
-    top: 9%;
-    right: 0;
-    height: 30px;
-    color: $white;
-    padding-right: 4%;
-    padding-left: 5px;
-    position: absolute;
-    white-space: nowrap;
-    border-left: 3px solid $white;
-    background-color: rgba(255, 255, 255, 0.2);
-
-    @include flexbox;
-    @include align-items(center);
-
-    @include respond-to("medium") {
-      height: 28px;
+      @include respond-to("mobile") {
+        margin-top: calc(#{$paddingSmall} / 2);
+      }
     }
 
-    @include respond-to("small") {
-      height: 26px;
-    }
-
-    @include respond-to("mobile") {
-      height: 22px;
+    & > *:not(:first-child) {
+      margin-top: $paddingMedium;
     }
   }
 }

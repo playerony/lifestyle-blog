@@ -3,18 +3,18 @@
     <div class="billboard__border" />
     <section class="billboard__content">
       <header class="content__header">
-        <p class="header__info">
+        <p class="header__info" v-if="article.totalVisitors">
           <EyeSVG />
           {{ article.totalVisitors }}
           <span v-if="article.todayVisitors">
             (+{{ article.todayVisitors }})
           </span>
         </p>
-        <p class="header__info">
+        <p class="header__info" v-if="article.readingTime">
           <ClockSVG />
           {{ article.readingTime }} min
         </p>
-        <p class="header__info">
+        <p class="header__info" v-if="article.totalComments">
           <ReplySVG />
           {{ article.totalComments }}
           <span v-if="article.todayComments">
