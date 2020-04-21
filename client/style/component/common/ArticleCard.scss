@@ -17,7 +17,7 @@
     padding: $paddingBig;
     width: calc(100% - 10px);
 
-    @include box-shadow(9px 9px 16px -12px $grey600, -9px -9px 16px -7px $white);
+    @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
     & > .content__header {
       @include flexbox();
