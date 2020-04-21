@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     redirectToArticle() {
-      this.$router.push(`/articles/${this.article.articleId}`)
+      this.$router.push(`/article/${this.article.articleId}`)
     }
   }
 }
