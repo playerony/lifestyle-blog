@@ -2,12 +2,14 @@
   <fragment>
     <Billboard :article="getLastArticle()" />
     <Container>
+      <Claim />
       <PinnedArticlesSwiper :articles="articles" />
     </Container>
   </fragment>
 </template>
 
 <script>
+import Claim from './Claim'
 import Billboard from './Billboard'
 import Container from '../common/Container'
 import PinnedArticlesSwiper from './PinnedArticlesSwiper'
@@ -15,6 +17,7 @@ import PinnedArticlesSwiper from './PinnedArticlesSwiper'
 export default {
   name: 'Home',
   components: {
+    Claim,
     Billboard,
     Container,
     PinnedArticlesSwiper
