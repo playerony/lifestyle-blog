@@ -16,8 +16,10 @@
     "draftjs-to-html": "github:playerony/draftjs-to-html",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
+    "swiper": "^5.3.7",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.3",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-fragment": "^1.5.1",
     "vue-loader": "^15.9.1",
     "vue-router": "^3.1.6"
