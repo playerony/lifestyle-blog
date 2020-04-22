@@ -1,16 +1,23 @@
 <template>
   <fragment>
     <Billboard :article="getLastArticle()" />
+    <Container>
+      <PinnedArticlesSwiper :articles="articles" />
+    </Container>
   </fragment>
 </template>
 
 <script>
 import Billboard from './Billboard'
+import Container from '../common/Container'
+import PinnedArticlesSwiper from './PinnedArticlesSwiper'
 
 export default {
   name: 'Home',
   components: {
-    Billboard
+    Billboard,
+    Container,
+    PinnedArticlesSwiper
   },
   methods: {
     getLastArticle() {
