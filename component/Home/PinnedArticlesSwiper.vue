@@ -1,15 +1,17 @@
 <template>
-  <swiper class="swiper" :options="swiperOption">
-    <swiper-slide
-      v-for="article in getPinnedArticles()"
-      :key="article.articleId"
-    >
-      <ArticleCard :article="article" />
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-    <div class="swiper-button-prev" slot="button-prev"></div>
-    <div class="swiper-button-next" slot="button-next"></div>
-  </swiper>
+  <div class="pinned-articles-swiper">
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide
+        v-for="article in getPinnedArticles()"
+        :key="article.articleId"
+      >
+        <ArticleCard :article="article" />
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+    </swiper>
+  </div>
 </template>
 
 <script>
