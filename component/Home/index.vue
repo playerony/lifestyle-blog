@@ -4,6 +4,7 @@
     <Container>
       <Claim />
       <PinnedArticlesSwiper :articles="articles" />
+      <ArticleList :articles="articles" />
     </Container>
   </fragment>
 </template>
@@ -12,6 +13,7 @@
 import Claim from './Claim'
 import Billboard from './Billboard'
 import Container from '../common/Container'
+import ArticleList from '../common/ArticleList'
 import PinnedArticlesSwiper from './PinnedArticlesSwiper'
 
 export default {
@@ -20,6 +22,7 @@ export default {
     Claim,
     Billboard,
     Container,
+    ArticleList,
     PinnedArticlesSwiper
   },
   methods: {
