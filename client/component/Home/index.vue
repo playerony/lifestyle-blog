@@ -2,8 +2,8 @@
   <fragment>
     <Billboard :article="getLastArticle()" />
     <Container>
-      <Claim />
       <PinnedArticlesSwiper :articles="articles" />
+      <Claim />
       <ArticleList :articles="articles" />
     </Container>
   </fragment>
