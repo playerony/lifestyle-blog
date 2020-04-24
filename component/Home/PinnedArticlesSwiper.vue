@@ -19,8 +19,6 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 import ArticleCard from '../common/ArticleCard'
 
-// import calculateSliderElements from '@utility/calculateSliderElements'
-
 export default {
   name: 'PinnedArticlesSwiper',
   components: {

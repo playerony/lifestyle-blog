@@ -1,3 +1,11 @@
 .pinned-articles-swiper {
   padding: $paddingBig 0;
+
+  @include respond-to("medium") {
+    padding: $paddingMedium 0;
+  }
+
+  @include respond-to("mobile") {
+    padding: $paddingSmall 0;
+  }
 }

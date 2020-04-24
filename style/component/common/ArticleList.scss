@@ -2,10 +2,26 @@
   width: 100%;
   padding: $paddingBig 0;
 
+  @include respond-to("medium") {
+    padding: $paddingMedium 0;
+  }
+
+  @include respond-to("mobile") {
+    padding: $paddingSmall 0;
+  }
+
   &__menu {
     margin-bottom: $paddingBig;
 
     @include flexbox();
+
+    @include respond-to("medium") {
+      margin-bottom: $paddingMedium;
+    }
+
+    @include respond-to("mobile") {
+      margin-bottom: $paddingSmall;
+    }
 
     & > .menu__item {
       cursor: pointer;
