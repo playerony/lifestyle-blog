@@ -1,9 +1,9 @@
 .article-list {
   width: 100%;
-  margin: $paddingBig 0;
+  padding: $paddingBig 0;
 
   &__menu {
-    margin: $paddingBig 0;
+    margin-bottom: $paddingBig;
 
     @include flexbox();
 

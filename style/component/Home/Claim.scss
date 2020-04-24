@@ -1,5 +1,5 @@
 .claim {
-  margin: $paddingBig 0;
+  padding: $paddingBig 0;
 
   @include flexbox();
   @include align-items(center);
