@@ -13,6 +13,12 @@
       >
         Most viewed
       </label>
+      <label
+        @click="sortingBy = 'most-commented'"
+        :class="'menu__item ' + selectedItemStyle('most-commented')"
+      >
+        Most Commented
+      </label>
     </ul>
     <transition-group tag="div" name="list" class="article-list__content">
       <ArticleCard
@@ -54,6 +60,8 @@ export default {
           (a, b) =>
             new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
         )
+      } else if (this.sortingBy === 'most-commented') {
+        return this.articles.sort((a, b) => b.totalComments - a.totalComments)
       }
 
       return this.articles.sort((a, b) => b.totalVisitors - a.totalVisitors)
