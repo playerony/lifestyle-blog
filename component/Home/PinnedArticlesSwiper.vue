@@ -19,6 +19,8 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 import ArticleCard from '../common/ArticleCard'
 
+// import calculateSliderElements from '@utility/calculateSliderElements'
+
 export default {
   name: 'PinnedArticlesSwiper',
   components: {
@@ -32,13 +34,16 @@ export default {
   data() {
     return {
       swiperOption: {
-        loop: true,
+        spaceBetween: 10,
         slidesPerView: 1,
         slidesPerGroup: 1,
-        spaceBetween: 10,
+        watchOverflow: true,
         pagination: {
           el: '.swiper-pagination',
           clickable: true
+        },
+        keyboard: {
+          enabled: true
         },
         navigation: {
           nextEl: '.swiper-button-next',
@@ -46,6 +51,7 @@ export default {
         },
         autoplay: {
           delay: 5000,
+          dynamicBullets: true,
           disableOnInteraction: false
         },
         breakpoints: {
