@@ -12,7 +12,7 @@
 
       @include transition(color 500ms linear);
 
-      &:first-child {
+      &:not(:last-child) {
         margin-right: $paddingBig;
       }
 
