@@ -30,6 +30,14 @@
 
       &:not(:last-child) {
         margin-right: $paddingBig;
+
+        @include respond-to("medium") {
+          margin-right: $paddingMedium;
+        }
+
+        @include respond-to("mobile") {
+          margin-right: $paddingSmall;
+        }
       }
 
       &:after {
