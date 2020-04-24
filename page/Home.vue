@@ -42,14 +42,6 @@ export default {
       )
     },
     getArticleList() {
-      console.warn(
-        articleListTransformator(
-          this.articleList,
-          this.visitorList,
-          this.commentList
-        )
-      )
-
       return articleListTransformator(
         this.articleList,
         this.visitorList,

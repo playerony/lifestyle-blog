@@ -14,13 +14,13 @@
         Most viewed
       </label>
     </ul>
-    <div class="article-list__content">
+    <transition-group tag="div" name="list" class="article-list__content">
       <ArticleCard
         :article="article"
         :key="article.articleId"
-        v-for="article in articles"
+        v-for="article in getArticleList()"
       />
-    </div>
+    </transition-group>
   </div>
 </template>
 
@@ -47,6 +47,16 @@ export default {
       }
 
       return ''
+    },
+    getArticleList() {
+      if (this.sortingBy === 'latest') {
+        return this.articles.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
+      }
+
+      return this.articles.sort((a, b) => b.totalVisitors - a.totalVisitors)
     }
   }
 }
