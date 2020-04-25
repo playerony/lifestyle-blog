@@ -1,0 +1,71 @@
+.navbar {
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+  min-height: 100px;
+  background-color: var(--card-color);
+
+  @include flexbox();
+  @include justify-content(center);
+  @include transition(background-color 500ms linear);
+  @include box-shadow(0 2px 4px 0 rgba(192, 192, 192, 0.5));
+
+  @include respond-to("mobile") {
+    min-height: 80px;
+  }
+
+  &__content {
+    max-width: $medium-screen;
+    width: calc(100% - #{$paddingBig} * 2);
+    padding: #{$paddingSmall} #{$paddingBig};
+
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
+
+    @include respond-to("medium") {
+      width: calc(100% - #{$paddingMedium} * 2);
+      padding: #{$paddingSmall} #{$paddingMedium};
+    }
+
+    @include respond-to("small") {
+      padding: #{$paddingSmall};
+      width: calc(100% - #{$paddingSmall} * 2);
+    }
+
+    @include respond-to("mobile") {
+      width: calc(100% - #{$paddingSmall});
+      padding: #{$paddingSmall} / 2;
+    }
+
+    & > .logo-icon {
+      width: 40px;
+      height: 60px;
+      cursor: pointer;
+    }
+
+    & .content__switch {
+      @include flexbox();
+      @include align-items(center);
+
+      > svg {
+        fill: var(--icon-color);
+
+        @include transition(fill 500ms linear);
+      }
+
+      & > .sun-icon {
+        width: 30px;
+        height: 30px;
+        padding-right: calc(#{$paddingSmall} / 2);
+      }
+
+      & > .moon-icon {
+        width: 27px;
+        height: 27px;
+        padding-left: calc(#{$paddingSmall} / 2);
+      }
+    }
+  }
+}
