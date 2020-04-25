@@ -59,7 +59,10 @@
         & > svg {
           width: 24px;
           height: 24px;
+          fill: var(--icon-color);
           padding-right: calc(#{$paddingSmall} / 2);
+
+          @include transition(fill 500ms linear);
 
           @include respond-to("mobile") {
             width: 21px;
