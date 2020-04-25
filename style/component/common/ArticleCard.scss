@@ -3,9 +3,11 @@
   cursor: pointer;
   max-height: 400px;
   position: relative;
+  background-color: var(--card-color);
 
   @include flexbox();
-  @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
+  @include transition(all 500ms linear);
+  @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px var(--background-color));
 
   @include respond-to("medium") {
     height: 300px;
@@ -53,7 +55,10 @@
         & > svg {
           width: 24px;
           height: 24px;
+          fill: var(--icon-color);
           padding-right: calc(#{$paddingSmall} / 2);
+
+          @include transition(fill 500ms linear);
 
           @include respond-to("mobile") {
             width: 21px;

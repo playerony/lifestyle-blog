@@ -4,4 +4,12 @@
   @include flexbox;
   @include flex-direction(column);
   @include justify-content(center);
+
+  &__content {
+    margin-top: 100px;
+
+    @include respond-to("mobile") {
+      margin-top: 80px;
+    }
+  }
 }
