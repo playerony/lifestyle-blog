@@ -2,8 +2,8 @@
   <div class="pinned-articles-swiper">
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide
-        v-for="article in getPinnedArticles()"
         :key="article.articleId"
+        v-for="article in getPinnedArticles()"
       >
         <ArticleCard :article="article" />
       </swiper-slide>
@@ -36,10 +36,6 @@ export default {
         slidesPerView: 1,
         slidesPerGroup: 1,
         watchOverflow: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
         keyboard: {
           enabled: true
         },
@@ -49,14 +45,13 @@ export default {
         },
         autoplay: {
           delay: 5000,
-          dynamicBullets: true,
           disableOnInteraction: false
         },
         breakpoints: {
           1367: {
             slidesPerView: 3,
             slidesPerGroup: 3,
-            spaceBetween: 30
+            spaceBetween: 40
           },
           750: {
             slidesPerView: 2,

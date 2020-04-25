@@ -1,25 +1,19 @@
 .article-card {
-  width: 400px;
   height: 400px;
-  max-width: 400px;
-  max-height: 400px;
-  margin: 0 auto;
   cursor: pointer;
+  max-height: 400px;
   position: relative;
 
   @include flexbox();
+  @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
   @include respond-to("medium") {
-    width: 350px;
     height: 300px;
-    max-width: 350px;
     max-height: 300px;
   }
 
   @include respond-to("mobile") {
-    width: 300px;
     height: 250px;
-    max-width: 300px;
     max-height: 250px;
   }
 
@@ -40,8 +34,6 @@
     @include respond-to("mobile") {
       padding: $paddingSmall;
     }
-
-    @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
     & > .content__header {
       @include flexbox();
