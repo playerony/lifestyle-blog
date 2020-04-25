@@ -21,10 +21,14 @@
 
     @include respond-to("mobile") {
       margin-bottom: $paddingSmall;
+
+      @include flexbox();
+      @include flex-direction(column);
     }
 
     & > .menu__item {
       cursor: pointer;
+      width: fit-content;
 
       @include transition(color 500ms linear);
 
@@ -36,18 +40,31 @@
         }
 
         @include respond-to("mobile") {
-          margin-right: $paddingSmall;
+          margin-bottom: 5px;
         }
       }
 
       &:after {
-        content: "";
+        top: 3px;
+        left: 50%;
         width: 0px;
-        height: 2px;
+        height: 5px;
+        content: "";
         display: block;
-        background: $purple700;
+        position: relative;
 
-        @include transition(width 500ms);
+        @include transition(all 500ms);
+        @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+
+        @include respond-to("medium") {
+          top: 2px;
+          height: 4px;
+        }
+
+        @include respond-to("mobile") {
+          top: 0;
+          height: 2px;
+        }
       }
 
       &--selected {
@@ -55,6 +72,7 @@
       }
 
       &:hover:after {
+        left: 0;
         width: 101%;
       }
     }
