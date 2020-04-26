@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav :class="'navbar ' + getNavbarStyle">
     <div class="navbar__content">
       <LogoSVG class="logo-icon" @click="redirectToHome()" />
       <div class="content__switch">
@@ -30,32 +30,41 @@ export default {
   },
   data() {
     return {
-      darkMode: false
+      darkMode: false,
+      showNavbar: true,
+      lastScrollPosition: 0
     }
   },
   mounted() {
-    let htmlElement = document.documentElement
+    window.addEventListener('scroll', this.onScroll)
+
     let theme = localStorage.getItem('theme')
 
-    if (theme === 'dark') {
-      htmlElement.setAttribute('theme', 'dark')
-      this.darkMode = true
-    } else {
-      htmlElement.setAttribute('theme', 'light')
-      this.darkMode = false
-    }
+    this.darkMode = theme === 'dark'
+    document.documentElement.setAttribute(
+      'theme',
+      this.darkMode ? 'dark' : 'light'
+    )
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
   },
   watch: {
     darkMode: function() {
-      let htmlElement = document.documentElement
-
-      if (this.darkMode) {
-        localStorage.setItem('theme', 'dark')
-        htmlElement.setAttribute('theme', 'dark')
-      } else {
-        localStorage.setItem('theme', 'light')
-        htmlElement.setAttribute('theme', 'light')
+      localStorage.setItem('theme', this.darkMode ? 'dark' : 'light')
+      document.documentElement.setAttribute(
+        'theme',
+        this.darkMode ? 'dark' : 'light'
+      )
+    }
+  },
+  computed: {
+    getNavbarStyle() {
+      if (!this.showNavbar) {
+        return 'navbar--hidden'
       }
+
+      return ''
     }
   },
   methods: {
@@ -63,6 +72,19 @@ export default {
       if (this.$route.path !== routeList.base) {
         this.$router.push(routeList.base)
       }
+    },
+    onScroll() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+
+      if (currentScrollPosition < 0) {
+        return
+      }
+
+      this.showNavbar =
+        currentScrollPosition < this.lastScrollPosition ||
+        currentScrollPosition < 200
+      this.lastScrollPosition = currentScrollPosition
     }
   }
 }
