@@ -17,8 +17,11 @@
 
   &__content {
     $padding: calc(#{$paddingBig} * 2);
+    background-color: var(--card-color);
     width: calc(50% - 5px - #{$paddingBig} * 4);
     padding: $padding $padding calc(#{$padding} * 2) $padding;
+
+    @include transition(background-color 500ms linear);
 
     @include respond-to("medium") {
       $padding: calc(#{$paddingMedium} * 2);

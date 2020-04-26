@@ -3,16 +3,17 @@
   width: 100%;
   z-index: 10;
   position: fixed;
-  min-height: 100px;
+  min-height: 80px;
   background-color: var(--card-color);
 
   @include flexbox();
   @include justify-content(center);
-  @include transition(background-color 500ms linear);
+  @include transition(all 500ms linear);
+  @include transform(translate3d(0, 0, 0));
   @include box-shadow(0 2px 4px 0 rgba(192, 192, 192, 0.5));
 
   @include respond-to("mobile") {
-    min-height: 80px;
+    min-height: 60px;
   }
 
   &__content {
@@ -67,5 +68,11 @@
         padding-left: calc(#{$paddingSmall} / 2);
       }
     }
+  }
+
+  &--hidden {
+    @include transform(translate3d(0, -100%, 0));
+
+    @include box-shadow(none);
   }
 }
