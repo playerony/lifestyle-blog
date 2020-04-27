@@ -1,6 +1,6 @@
 <template>
   <div class="article-list">
-    <ul class="article-list__menu">
+    <ul v-if="displayMenu" class="article-list__menu">
       <label
         @click="sortingBy = 'latest'"
         :class="'menu__item ' + selectedItemStyle('latest')"
@@ -36,7 +36,8 @@ import ArticleCard from './ArticleCard'
 export default {
   name: 'ArticleList',
   props: {
-    articles: { type: Array, required: true }
+    articles: { type: Array, required: true },
+    displayMenu: { type: Boolean, required: false, default: true }
   },
   data() {
     return {

@@ -1,8 +1,21 @@
 <template>
   <transition name="search-page" appear>
-    <div class="search-container">
+    <div class="search-page">
       <Container>
-        <ArticleList v-if="!isLoading()" :articles="getArticleList()" />
+        <header class="search-page__header">
+          <SearchSVG class="header__search-icon" />
+          <input
+            v-model="searchValue"
+            class="header__input"
+            placeholder="Start typing..."
+          />
+          <CloseSVG @click="onClose" class="header__close-icon" />
+        </header>
+        <ArticleList
+          v-if="!isLoading()"
+          :displayMenu="false"
+          :articles="getArticleList()"
+        />
       </Container>
     </div>
   </transition>
@@ -18,14 +31,23 @@ import metricCommentList from '@graphql/query/metricCommentList'
 
 import articleListTransformator from '@transformator/articleListTransformator'
 
+import CloseSVG from '@asset/svg/close.svg'
+import SearchSVG from '@asset/svg/search.svg'
+
 export default {
   name: 'SearchTemplate',
   components: {
+    CloseSVG,
+    SearchSVG,
     Container,
     ArticleList
   },
+  props: {
+    onClose: { type: Function, required: true }
+  },
   data() {
     return {
+      searchValue: '',
       articleList: [],
       visitorList: [],
       commentList: []
@@ -45,11 +67,28 @@ export default {
       )
     },
     getArticleList() {
-      return articleListTransformator(
+      const transformedArticleList = articleListTransformator(
         this.articleList,
         this.visitorList,
         this.commentList
       )
+
+      if (this.searchValue === '') {
+        return []
+      }
+
+      return transformedArticleList
+        .filter(article => {
+          return (
+            article.title
+              .toLowerCase()
+              .includes(this.searchValue.toLowerCase()) ||
+            article.description
+              .toLowerCase()
+              .includes(this.searchValue.toLowerCase())
+          )
+        })
+        .slice(0, 5)
     }
   }
 }

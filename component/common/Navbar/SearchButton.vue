@@ -1,9 +1,9 @@
 <template>
-  <div class="search-button" @click="showSearchPage = !showSearchPage">
+  <div class="search-button" @click="toggleModal">
     <label class="search-button__label">Search blog</label>
     <SearchSVG class="search-button__icon" />
-    <portal to="destination">
-      <SearchPage v-if="showSearchPage" />
+    <portal to="modals">
+      <SearchPage v-if="showSearchPage" :onClose="toggleModal" />
     </portal>
   </div>
 </template>
@@ -22,6 +22,11 @@ export default {
   data() {
     return {
       showSearchPage: false
+    }
+  },
+  methods: {
+    toggleModal() {
+      this.showSearchPage = !this.showSearchPage
     }
   }
 }

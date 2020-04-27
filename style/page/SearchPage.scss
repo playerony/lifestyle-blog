@@ -1,0 +1,57 @@
+.search-page {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  height: 100vh;
+  position: fixed;
+  overflow-y: scroll;
+  pointer-events: visible;
+  background: rgba(255, 255, 255, 0.95);
+
+  &__header {
+    position: relative;
+
+    @include flexbox();
+
+    & > .header__search-icon {
+      width: 50px;
+      height: 50px;
+      fill: $gray600;
+    }
+
+    & > .header__input {
+      margin: 0;
+      border: none;
+      color: $black;
+      padding: 0 20px;
+      font-size: 30px;
+      font-weight: 600;
+      word-wrap: break-word;
+      background: transparent;
+      width: calc(100% - 140px);
+      font-family: $bold-font-family;
+
+      &::placeholder {
+        color: $gray600;
+      }
+    }
+
+    & > .header__close-icon {
+      right: 0;
+      width: 50px;
+      height: 50px;
+      fill: $gray600;
+      cursor: pointer;
+      position: absolute;
+
+      @include transition(all 500ms ease);
+
+      &:hover {
+        fill: $purple700;
+
+        @include transform(scale(1.1));
+      }
+    }
+  }
+}
