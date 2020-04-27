@@ -4,7 +4,7 @@
     <main class="app__content">
       <router-view />
     </main>
-    <portal-target name="destination"></portal-target>
+    <portal-target name="modals"></portal-target>
   </div>
 </template>
 
