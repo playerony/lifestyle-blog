@@ -9,6 +9,10 @@
   padding: $paddingBig 0;
   pointer-events: visible;
   background: rgba(255, 255, 255, 0.95);
+  
+  @include respond-to("small") {
+    padding: $paddingMedium 0;
+  }
 
   &__header {
     position: relative;
@@ -19,22 +23,56 @@
       width: 50px;
       height: 50px;
       fill: $gray600;
+
+      @include respond-to("medium") {
+        width: 45px;
+        height: 45px;
+      }
+
+      @include respond-to("small") {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include respond-to("mobile") {
+        width: 35px;
+        height: 35px;
+      }
     }
 
     & > .header__input {
       margin: 0;
       border: none;
       color: $black;
-      padding: 0 20px;
-      font-size: 30px;
       font-weight: 600;
       word-wrap: break-word;
       background: transparent;
+      padding: 0 $paddingSmall;
       width: calc(100% - 140px);
       font-family: $bold-font-family;
 
+      @include font-size(30px);
+
       &::placeholder {
         color: $gray600;
+      }
+
+      @include respond-to("medium") {
+        width: calc(100% - 130px);
+
+        @include font-size(28px);
+      }
+
+      @include respond-to("small") {
+        width: calc(100% - 120px);
+
+        @include font-size(26px);
+      }
+
+      @include respond-to("mobile") {
+        width: calc(100% - 110px);
+
+        @include font-size(24px);
       }
     }
 
@@ -52,6 +90,21 @@
         fill: $purple700;
 
         @include transform(scale(1.1));
+      }
+
+      @include respond-to("medium") {
+        width: 45px;
+        height: 45px;
+      }
+
+      @include respond-to("small") {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include respond-to("mobile") {
+        width: 35px;
+        height: 35px;
       }
     }
   }
