@@ -18,12 +18,11 @@
 
   &__content {
     max-width: $medium-screen;
+    grid-template-columns: 1fr 1fr 1fr;
     width: calc(100% - #{$paddingBig} * 2);
     padding: #{$paddingSmall} #{$paddingBig};
 
-    @include flexbox();
-    @include align-items(center);
-    @include justify-content(space-between);
+    @include grid();
 
     @include respond-to("medium") {
       width: calc(100% - #{$paddingMedium} * 2);
@@ -49,6 +48,7 @@
     & .content__switch {
       @include flexbox();
       @include align-items(center);
+      @include justify-content(center);
 
       > svg {
         fill: var(--icon-color);
