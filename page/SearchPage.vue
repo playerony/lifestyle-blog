@@ -1,9 +1,11 @@
 <template>
-  <div class="search-container">
-    <Container>
-      <ArticleList v-if="!isLoading()" :articles="getArticleList()" />
-    </Container>
-  </div>
+  <transition name="search-page" appear>
+    <div class="search-container">
+      <Container>
+        <ArticleList v-if="!isLoading()" :articles="getArticleList()" />
+      </Container>
+    </div>
+  </transition>
 </template>
 
 <script>

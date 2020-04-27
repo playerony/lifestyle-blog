@@ -28,3 +28,15 @@
   @include transform(scaleY(0));
   @include transform-origin(center top);
 }
+
+.search-page-enter-active,
+.search-page-leave-active {
+  @include transition(all 500ms ease);
+}
+
+.search-page-enter,
+.search-page-leave-to {
+  opacity: 0;
+
+  @include transform(scale(1.1));
+}
