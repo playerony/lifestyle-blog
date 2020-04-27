@@ -27,6 +27,12 @@ export default {
   methods: {
     toggleModal() {
       this.showSearchPage = !this.showSearchPage
+
+      if (this.showSearchPage) {
+        document.body.classList.add('overflow')
+      } else {
+        document.body.classList.remove('overflow')
+      }
     }
   }
 }
