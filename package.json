@@ -16,6 +16,7 @@
     "draftjs-to-html": "github:playerony/draftjs-to-html",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
+    "portal-vue": "^2.1.7",
     "swiper": "^5.3.7",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.3",
