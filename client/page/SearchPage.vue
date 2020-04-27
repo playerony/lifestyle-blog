@@ -31,6 +31,8 @@ import metricCommentList from '@graphql/query/metricCommentList'
 
 import articleListTransformator from '@transformator/articleListTransformator'
 
+import compareString from '@utility/compareString'
+
 import CloseSVG from '@asset/svg/close.svg'
 import SearchSVG from '@asset/svg/search.svg'
 
@@ -80,12 +82,8 @@ export default {
       return transformedArticleList
         .filter(article => {
           return (
-            article.title
-              .toLowerCase()
-              .includes(this.searchValue.toLowerCase()) ||
-            article.description
-              .toLowerCase()
-              .includes(this.searchValue.toLowerCase())
+            compareString(article.title, this.searchValue) ||
+            compareString(article.description, this.searchValue)
           )
         })
         .slice(0, 5)
