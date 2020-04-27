@@ -1,0 +1,47 @@
+.search-button {
+  width: 200px;
+  height: 30px;
+  margin: auto;
+  padding: 10px;
+  display: block;
+  cursor: pointer;
+  margin-right: 0;
+  margin-left: auto;
+  position: relative;
+
+  @include flexbox();
+  @include border-radius(50px);
+  @include align-items(center);
+  @include justify-content(center);
+  @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+
+  &__label {
+    left: 60px;
+    color: $white;
+    cursor: pointer;
+    position: absolute;
+    display: inline-block;
+
+    @include transition(all 500ms ease);
+  }
+
+  &__icon {
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    fill: $white;
+    position: absolute;
+
+    @include transition(all 500ms ease);
+  }
+
+  &:hover {
+    & > .search-button__label {
+      left: 20px;
+    }
+
+    & > .search-button__icon {
+      left: 180px;
+    }
+  }
+}

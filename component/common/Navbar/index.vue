@@ -7,12 +7,14 @@
         <Checkbox v-model="darkMode" :initialValue="darkMode" />
         <MoonSVG class="moon-icon" />
       </div>
+      <SearchButton />
     </div>
   </nav>
 </template>
 
 <script>
-import Checkbox from '../generic/Checkbox'
+import SearchButton from './SearchButton'
+import Checkbox from '@component/generic/Checkbox'
 
 import SunSVG from '@asset/svg/sun.svg'
 import LogoSVG from '@asset/svg/logo.svg'
@@ -26,7 +28,8 @@ export default {
     SunSVG,
     LogoSVG,
     MoonSVG,
-    Checkbox
+    Checkbox,
+    SearchButton
   },
   data() {
     return {
