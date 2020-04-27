@@ -3,7 +3,7 @@
     <label class="search-button__label">Search blog</label>
     <SearchSVG class="search-button__icon" />
     <portal to="destination">
-      <SearchPage />
+      <SearchPage v-if="showSearchPage" />
     </portal>
   </div>
 </template>
