@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="reply">
     <Input
       key="input"
       label="Creator"
@@ -14,7 +14,7 @@
       placeholder="Join the discussion..."
       :errorMessage="getContentFieldError()"
     />
-    <Button :onClick="this.handleClick">
+    <Button className="reply__button" :onClick="this.handleClick">
       Reply
     </Button>
   </div>

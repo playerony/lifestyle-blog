@@ -1,5 +1,6 @@
 .comment {
   position: relative;
+  padding-left: calc(#{$paddingBig} * 2);
 
   &__content {
     position: relative;

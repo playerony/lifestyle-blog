@@ -1,0 +1,7 @@
+.disqus {
+  position: relative;
+
+  & > .comment {
+    padding-left: 0;
+  }
+}

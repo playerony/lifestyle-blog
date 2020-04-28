@@ -1,0 +1,9 @@
+.reply {
+  position: relative;
+  padding: $paddingSmall 0;
+
+  &__button {
+    width: initial;
+    padding: $paddingSmall $paddingMedium;
+  }
+}

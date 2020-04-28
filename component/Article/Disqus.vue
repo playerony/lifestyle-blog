@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="disqus">
     <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
       v-for="comment in getCommentList()"
