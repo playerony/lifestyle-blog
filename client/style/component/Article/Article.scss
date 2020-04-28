@@ -3,16 +3,72 @@
 
   &__content {
     position: relative;
+    padding: 0 $paddingBig;
+    color: var(--text-color);
+    width: calc(100% - #{$paddingBig} * 2);
+
+    @include respond-to("medium") {
+      padding: 0 $paddingMedium;
+      width: calc(100% - #{$paddingMedium} * 2);
+    }
+
+    @include respond-to("small") {
+      padding: 0 $paddingSmall;
+      width: calc(100% - #{$paddingSmall} * 2);
+    }
+
+    @include respond-to("mobile") {
+      padding: 0;
+      width: 100%;
+    }
+
+    & > p,
+    blockquote {
+      line-height: 1.6;
+
+      @include font-size(24px);
+
+      @include respond-to("large") {
+        @include font-size(22px);
+      }
+
+      @include respond-to("medium") {
+        @include font-size(20px);
+      }
+
+      @include respond-to("small") {
+        line-height: 1.5;
+
+        @include font-size(19px);
+      }
+
+      @include respond-to("mobile") {
+        @include font-size(18px);
+      }
+    }
 
     & > * {
-      padding-bottom: $paddingSmall;
+      padding: $paddingMedium 0;
 
-      &:last-child {
-        padding-bottom: 0;
+      @include respond-to("small") {
+        padding: $paddingSmall 0;
       }
 
       & em {
         font-style: italic;
+      }
+
+      & strong {
+        font-weight: bold;
+        font-family: $bold-font-family;
+      }
+    }
+
+    & > code, blockquote {
+      margin: $paddingMedium 0;
+
+      @include respond-to("small") {
+        margin: $paddingSmall 0;
       }
     }
 
@@ -24,16 +80,55 @@
 
     & > blockquote {
       font-style: italic;
-      color: #666666;
-      margin: 20px 0;
-      border-left: 5px solid #eeeeee;
-      padding: 10px 20px;
+      border-left: 10px solid $purple700;
+      padding: $paddingMedium 0 $paddingMedium $paddingBig;
+
+      @include respond-to("medium") {
+        padding: 0 $paddingMedium;
+      }
+
+      @include respond-to("small") {
+        padding: $paddingSmall $paddingMedium;
+        padding-right: 0;
+      }
+
+      @include respond-to("mobile") {
+        border-width: 5px;
+        padding: calc(#{$paddingSmall} / 2) $paddingSmall;
+        padding-right: 0;
+      }
     }
 
     & > code {
-      padding: 20px;
-      display: block;
-      background-color: #eeeeee;
+      padding: 5px 10px;
+      color: $purple700;
+      font-size: 0.85em;
+      background: $gray300;
+      display: inline-block;
+      font-family: $code-font-family;
+
+      @include font-size(23px);
+      @include border-radius(4px);
+
+      @include respond-to("large") {
+        @include font-size(21px);
+      }
+
+      @include respond-to("medium") {
+        @include font-size(19px);
+      }
+
+      @include respond-to("small") {
+        padding: 4px 8px;
+
+        @include font-size(18px);
+      }
+
+      @include respond-to("mobile") {
+        padding: 2px 6px;
+
+        @include font-size(17px);
+      }
     }
 
     & > ul {

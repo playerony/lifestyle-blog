@@ -216,9 +216,12 @@ h6 {
 }
 
 a {
+  border: 0;
   font-weight: bold;
-  color: var(--text-color);
-  text-decoration: underline;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  color: $purple700;
   font-family: $bold-font-family;
 
   @include font-size(23px);
@@ -240,7 +243,32 @@ a {
     @include font-size(17px);
   }
 
-  &:hover {
-    color: $blue500;
+  &:after {
+    left: 0;
+    top: -3px;
+    width: 101%;
+    height: 5px;
+    content: "";
+    display: block;
+    color: $purple700;
+    position: relative;
+    font-weight: normal;
+    font-family: $normal-font-family;
+
+    @include transition(all 500ms);
+    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+
+    @include respond-to("medium") {
+      height: 4px;
+    }
+
+    @include respond-to("mobile") {
+      height: 2px;
+    }
+  }
+
+  &:hover:after {
+    left: 50%;
+    width: 0px;
   }
 }
