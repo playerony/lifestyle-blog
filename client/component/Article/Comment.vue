@@ -24,7 +24,7 @@
 import Reply from './Reply'
 import Comment from './Comment'
 
-import formatDate from '@utility/formatDate'
+import differenceBetweenDates from '@utility/differenceBetweenDates'
 
 export default {
   name: 'Comment',
@@ -41,7 +41,7 @@ export default {
       return this.comment.replyErrorData
     },
     getCommentDate() {
-      return formatDate(this.comment.createdAt)
+      return differenceBetweenDates(this.comment.createdAt)
     }
   }
 }
