@@ -1,6 +1,10 @@
 <template>
-  <div :style="{ paddingLeft: '20px' }">
-    <h3>{{ comment.content }}</h3>
+  <div class="comment">
+    <div class="comment__content">
+      <h1>{{ comment.creator }}</h1>
+      <label>{{ comment.content }}</label>
+      <label class="content__date">{{ getCommentDate() }}</label>
+    </div>
     <Reply
       :handleReply="handleReply"
       :errorData="getErrorData()"
@@ -20,6 +24,8 @@
 import Reply from './Reply'
 import Comment from './Comment'
 
+import formatDate from '@utility/formatDate'
+
 export default {
   name: 'Comment',
   props: {
@@ -33,6 +39,9 @@ export default {
   methods: {
     getErrorData() {
       return this.comment.replyErrorData
+    },
+    getCommentDate() {
+      return formatDate(this.comment.createdAt)
     }
   }
 }

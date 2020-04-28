@@ -1,0 +1,21 @@
+.comment {
+  position: relative;
+
+  &__content {
+    position: relative;
+    background: $gray300;
+    padding: $paddingBig;
+
+    @include border-radius(12px);
+
+    & > h1 {
+      padding-bottom: $paddingSmall;
+    }
+
+    & > .content__date {
+      top: $paddingBig;
+      right: $paddingBig;
+      position: absolute;
+    }
+  }
+}
