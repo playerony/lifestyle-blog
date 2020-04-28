@@ -35,6 +35,8 @@ export default {
         return `<img src="${text}" />`
       } else if (entity.type === 'code-block') {
         return `<code>${text}</code>`
+      } else if (entity.type === 'LINK') {
+        return `<a href="${entity.data.url}" target="_blank"">${text}</a>`
       } else {
         return
       }
