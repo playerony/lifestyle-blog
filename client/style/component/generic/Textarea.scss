@@ -23,7 +23,8 @@
   }
 
   &__content {
-    min-height: 250px;
+    height: 46px;
+    max-height: 46px;
     padding: $paddingSmall;
     width: calc(100% - 44px);
     color: var(--text-color);
@@ -50,9 +51,9 @@
     }
 
     &:focus {
+      height: 150px;
+      max-height: 150px;
       border-color: $blue700;
-
-      @include transition(border-color 500ms linear);
     }
 
     &--error {
