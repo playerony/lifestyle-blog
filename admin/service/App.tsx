@@ -9,6 +9,7 @@ import GraphQLProvider from './GraphQLProvider'
 
 import ResetStyle from '@style/ResetStyle'
 import GlobalStyle from '@style/GlobalStyle'
+import DraftJsToolbar from '@style/plugin/DraftJsToolbar'
 
 import './SVG'
 
@@ -19,6 +20,7 @@ const App = (): JSX.Element => (
         <LoaderProvider>
           <ResetStyle />
           <GlobalStyle />
+          <DraftJsToolbar />
           <BrowserRouter>
             <Routing />
           </BrowserRouter>

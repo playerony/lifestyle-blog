@@ -70,6 +70,7 @@ export const StyledLabel = styled.p<IStyledLabelProps>`
 `
 
 export const StyledEditorWrapper = styled.div`
+  position: relative;
   margin-top: ${variable.paddingSmall}px;
 
   .DraftEditor-root {

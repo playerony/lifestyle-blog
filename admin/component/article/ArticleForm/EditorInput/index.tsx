@@ -1,12 +1,14 @@
 import {
-  Editor,
   RichUtils,
   EditorState,
   ContentBlock,
   convertToRaw,
   DraftHandleValue
 } from 'draft-js'
+import Editor from 'draft-js-plugins-editor'
 import React, { useState, useEffect } from 'react'
+import createLinkPlugin from 'draft-js-anchor-plugin'
+import createInlineToolbarPlugin from 'draft-js-inline-toolbar-plugin'
 
 import ImageComponent from './ImageComponent'
 import BlockTypeControl from './BlockTypeControl'
@@ -24,6 +26,12 @@ import {
   StyledErrorLabel,
   StyledEditorWrapper
 } from './EditorInput.style'
+
+const inlineToolbarPlugin = createInlineToolbarPlugin()
+const linkPlugin = createLinkPlugin({ placeholder: 'Provide an url...' })
+
+const { InlineToolbar } = inlineToolbarPlugin
+const plugins = [inlineToolbarPlugin, linkPlugin]
 
 const EditorInput = ({
   label,
@@ -123,7 +131,13 @@ const EditorInput = ({
             customStyleMap={customStyleMap}
             blockRendererFn={myBlockRenderer}
             handleKeyCommand={handleKeyCommand}
+            plugins={plugins}
           />
+          <InlineToolbar>
+            {(externalProps: any) => (
+              <linkPlugin.LinkButton {...externalProps} />
+            )}
+          </InlineToolbar>
         </StyledEditorWrapper>
       </StyledWrapper>
       <StyledErrorLabel>{errorMessage}</StyledErrorLabel>
