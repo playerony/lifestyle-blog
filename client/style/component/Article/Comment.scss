@@ -3,18 +3,23 @@
   padding-left: calc(#{$paddingBig} * 2);
 
   &__content {
+    overflow: hidden;
     position: relative;
     background: $gray300;
     padding: $paddingBig;
+    margin: $paddingBig 0;
 
     @include border-radius(12px);
+    @include transition(all 500ms ease);
 
     @include respond-to("medium") {
       padding: $paddingMedium;
+      margin: $paddingMedium 0;
     }
 
     @include respond-to("small") {
       padding: $paddingSmall;
+      margin: $paddingSmall 0;
     }
 
     & > .content__header {
@@ -26,6 +31,21 @@
 
       & > p {
         color: $purple700;
+      }
+    }
+
+    & > .content__expand-icon {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+
+      @include transform(rotateX(0deg) rotateZ(-90deg));
+      @include transition(all 500ms ease);
+
+      &--open {
+        @include transform(rotateX(180deg) rotateZ(-90deg));
       }
     }
   }
