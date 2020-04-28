@@ -1,9 +1,11 @@
 <template>
   <div class="comment">
     <div class="comment__content">
-      <h1>{{ comment.creator }}</h1>
+      <header class="content__header">
+        <h1>{{ comment.creator }}</h1>
+        <p>{{ getCommentDate() }}</p>
+      </header>
       <label>{{ comment.content }}</label>
-      <label class="content__date">{{ getCommentDate() }}</label>
     </div>
     <Reply
       :handleReply="handleReply"
