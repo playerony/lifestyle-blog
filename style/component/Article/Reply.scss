@@ -1,6 +1,8 @@
 .reply {
+  overflow: hidden;
   position: relative;
-  padding: $paddingSmall 0;
+
+  @include transition(height 500ms ease);
 
   &__button {
     width: initial;
