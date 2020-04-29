@@ -7,6 +7,10 @@
   &__button {
     width: initial;
     padding: $paddingSmall $paddingBig;
+
+    @include respond-to("mobile") {
+      padding: calc(#{$paddingSmall} / 2) $paddingMedium;
+    }
   }
 
   &__header {

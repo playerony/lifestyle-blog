@@ -149,5 +149,9 @@
     margin: $paddingMedium 0;
 
     @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+
+    @include respond-to("small") {
+      margin: $paddingSmall 0;
+    }
   }
 }

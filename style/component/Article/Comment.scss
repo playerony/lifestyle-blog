@@ -27,13 +27,11 @@
     @include respond-to("medium") {
       padding: $paddingMedium;
       margin: $paddingMedium 0;
-      padding-bottom: $paddingBig;
     }
 
     @include respond-to("small") {
       padding: $paddingSmall;
       margin: $paddingSmall 0;
-      padding-bottom: $paddingMedium;
     }
 
     & > .content__header {
@@ -66,10 +64,24 @@
       &:hover {
         --scale: 1.1;
       }
+
+      @include respond-to("small") {
+        width: 40px;
+        height: 40px;
+      }
+
+      @include respond-to("mobile") {
+        width: 30px;
+        height: 30px;
+      }
     }
 
     & > .content__reply {
-      padding: 20px 0;
+      padding: $paddingSmall 0;
+
+      @include respond-to("mobile") {
+        padding: calc(#{$paddingSmall} / 2) 0;
+      }
     }
   }
 }
