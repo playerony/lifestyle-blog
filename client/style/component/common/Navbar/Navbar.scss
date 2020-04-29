@@ -75,4 +75,14 @@
 
     @include box-shadow(none);
   }
+
+  &__progress {
+    left: 0;
+    height: 10px;
+    bottom: -10px;
+    position: absolute;
+
+    @include transition(all 500ms linear);
+    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+  }
 }
