@@ -33,14 +33,14 @@
         :handleReply="handleReply"
         :replyErrorData="replyErrorData"
       />
-      <SideNavbar />
+      <Sidebar :categories="article.categoryList" />
     </Container>
   </div>
 </template>
 
 <script>
 import Disqus from './Disqus'
-import SideNavbar from './SideNavbar'
+import Sidebar from './Sidebar'
 import EyeSVG from '@asset/svg/eye.svg'
 import ClockSVG from '@asset/svg/clock.svg'
 import ReplySVG from '@asset/svg/reply.svg'
@@ -63,7 +63,7 @@ export default {
     ClockSVG,
     ReplySVG,
     Container,
-    SideNavbar
+    Sidebar
   },
   data() {
     const customEntityTransform = (entity, text) => {
