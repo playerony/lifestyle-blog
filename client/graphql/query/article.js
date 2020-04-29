@@ -7,6 +7,10 @@ const ARTICLE_QUERY = gql`
       content
       description
       readingTime
+      categoryList {
+        name
+        categoryId
+      }
     }
   }
 `

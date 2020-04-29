@@ -33,12 +33,14 @@
         :handleReply="handleReply"
         :replyErrorData="replyErrorData"
       />
+      <SideNavbar />
     </Container>
   </div>
 </template>
 
 <script>
 import Disqus from './Disqus'
+import SideNavbar from './SideNavbar'
 import EyeSVG from '@asset/svg/eye.svg'
 import ClockSVG from '@asset/svg/clock.svg'
 import ReplySVG from '@asset/svg/reply.svg'
@@ -56,11 +58,12 @@ export default {
     replyErrorData: { type: Object, required: true }
   },
   components: {
-    Disqus,
-    Container,
     EyeSVG,
+    Disqus,
     ClockSVG,
-    ReplySVG
+    ReplySVG,
+    Container,
+    SideNavbar
   },
   data() {
     const customEntityTransform = (entity, text) => {
