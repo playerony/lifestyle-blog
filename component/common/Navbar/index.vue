@@ -9,6 +9,10 @@
       </div>
       <SearchButton />
     </div>
+    <div
+      class="navbar__progress"
+      :style="{ width: `${progress}%`, opacity: progress === 100 ? 0 : 1 }"
+    />
   </nav>
 </template>
 
@@ -33,6 +37,7 @@ export default {
   },
   data() {
     return {
+      progress: 0,
       darkMode: false,
       showNavbar: true,
       lastScrollPosition: 0
@@ -80,13 +85,28 @@ export default {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
 
+      const isArticlePage = this.$route.matched[0].path === routeList.article
+
       if (currentScrollPosition < 0) {
         return
       }
 
+      if (isArticlePage) {
+        const articleContent = document.getElementById('article-content')
+
+        if (articleContent) {
+          this.progress = Math.min(
+            ((currentScrollPosition + window.outerHeight - 200) * 100) /
+              articleContent.scrollHeight,
+            100
+          )
+        }
+      }
+
       this.showNavbar =
         currentScrollPosition < this.lastScrollPosition ||
-        currentScrollPosition < 200
+        currentScrollPosition < 200 ||
+        isArticlePage
       this.lastScrollPosition = currentScrollPosition
     }
   }
