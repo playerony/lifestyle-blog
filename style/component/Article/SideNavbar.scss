@@ -1,0 +1,21 @@
+.side-navbar {
+  top: 100px;
+  left: 30px;
+  position: fixed;
+
+  &__back-button {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+    margin-top: 50px;
+    clip-path: polygon(20% 50%, 100% 100%, 100% 0);
+
+    @include transition(all 500ms linear);
+    @include linear-gradient(to bottom, $blue600 5%, $purple700 56%, $red300 100%);
+
+    &:hover {
+      @include transform(scale(1.1));
+    }
+  }
+}
