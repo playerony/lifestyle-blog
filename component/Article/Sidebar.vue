@@ -4,6 +4,7 @@
     <div class="side-navbar__category-list">
       <div
         :key="category.categoryId"
+        class="category-list__icon"
         v-for="category in categories"
         @click="redirectToCategory(category.categoryId)"
       >

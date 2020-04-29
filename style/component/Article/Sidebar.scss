@@ -18,4 +18,23 @@
       @include transform(scale(1.1));
     }
   }
+
+  &__category-list {
+    margin-top: $paddingBig;
+
+    & > .category-list__icon {
+      width: 45px;
+      height: 45px;
+      fill: $gray700;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-left: auto;
+
+      @include transition(fill 500ms linear);
+
+      &:hover {
+        fill: $purple700;
+      }
+    }
+  }
 }
