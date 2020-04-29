@@ -1,7 +1,7 @@
 <template>
   <nav :class="'navbar ' + getNavbarStyle">
     <div class="navbar__content">
-      <LogoSVG class="logo-icon" @readystatechange="redirectToHome()" />
+      <LogoSVG class="logo-icon" @click="redirectToHome()" />
       <div class="content__switch">
         <SunSVG class="sun-icon" />
         <Checkbox v-model="darkMode" :initialValue="darkMode" />

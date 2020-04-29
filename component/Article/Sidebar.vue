@@ -2,11 +2,13 @@
   <div class="side-navbar">
     <div @click="goBack" class="side-navbar__back-button" />
     <div class="side-navbar__category-list">
-      <Icon
+      <div
         :key="category.categoryId"
         v-for="category in categories"
-        :icon="category.name.toLowerCase()"
-      />
+        @click="redirectToCategory(category.categoryId)"
+      >
+        <Icon :icon="category.name.toLowerCase()" />
+      </div>
     </div>
   </div>
 </template>
