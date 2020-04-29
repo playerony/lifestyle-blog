@@ -64,7 +64,8 @@
       }
     }
 
-    & > code, blockquote {
+    & > code,
+    blockquote {
       margin: $paddingMedium 0;
 
       @include respond-to("small") {
@@ -140,5 +141,13 @@
       list-style: decimal;
       margin-left: 20px;
     }
+  }
+
+  &__border {
+    width: 100%;
+    height: 5px;
+    margin: $paddingMedium 0;
+
+    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
   }
 }

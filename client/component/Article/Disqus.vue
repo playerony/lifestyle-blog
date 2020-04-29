@@ -1,7 +1,9 @@
 <template>
   <div class="disqus">
+    <h1 class="disqus__header">Comments</h1>
     <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
+      class="disqus__first-depth"
       v-for="comment in getCommentList()"
       :key="comment.commentId"
       :comment="comment"

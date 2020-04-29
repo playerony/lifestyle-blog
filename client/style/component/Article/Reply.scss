@@ -6,6 +6,10 @@
 
   &__button {
     width: initial;
-    padding: $paddingSmall $paddingMedium;
+    padding: $paddingSmall $paddingBig;
+  }
+
+  &__header {
+    padding: $paddingSmall 0;
   }
 }

@@ -2,6 +2,7 @@
   <div class="article">
     <Container>
       <div v-html="content" class="article__content" />
+      <div class="article__border" />
       <Disqus
         :comments="comments"
         :handleReply="handleReply"
