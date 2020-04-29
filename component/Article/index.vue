@@ -1,6 +1,31 @@
 <template>
   <div class="article">
     <Container>
+      <header class="article__header">
+        <header class="content__header">
+          <p class="header__info" v-if="details.totalVisitors">
+            <EyeSVG />
+            {{ details.totalVisitors }}
+            <span v-if="details.todayVisitors">
+              (+{{ details.todayVisitors }})
+            </span>
+          </p>
+          <p class="header__info" v-if="article.readingTime">
+            <ClockSVG />
+            {{ article.readingTime }} min
+          </p>
+          <p class="header__info" v-if="details.totalComments">
+            <ReplySVG />
+            {{ details.totalComments }}
+            <span v-if="article.todayComments">
+              (+{{ details.todayComments }})
+            </span>
+          </p>
+        </header>
+        <h1>{{ article.title }}</h1>
+        <label class="content__description">{{ article.description }}</label>
+      </header>
+      <div class="article__border" />
       <div id="article-content" v-html="content" class="article__content" />
       <div class="article__border" />
       <Disqus
@@ -14,6 +39,9 @@
 
 <script>
 import Disqus from './Disqus'
+import EyeSVG from '@asset/svg/eye.svg'
+import ClockSVG from '@asset/svg/clock.svg'
+import ReplySVG from '@asset/svg/reply.svg'
 import Container from '../common/Container'
 
 import draftToHtml from 'draftjs-to-html'
@@ -29,7 +57,10 @@ export default {
   },
   components: {
     Disqus,
-    Container
+    Container,
+    EyeSVG,
+    ClockSVG,
+    ReplySVG
   },
   data() {
     const customEntityTransform = (entity, text) => {

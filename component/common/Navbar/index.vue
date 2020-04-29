@@ -96,7 +96,7 @@ export default {
 
         if (articleContent) {
           this.progress = Math.min(
-            ((currentScrollPosition + window.outerHeight - 200) * 100) /
+            ((currentScrollPosition + window.outerHeight - 200 - articleContent.offsetTop) * 100) /
               articleContent.scrollHeight,
             100
           )
