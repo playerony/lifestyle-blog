@@ -5,6 +5,7 @@
       v-if="!isLoading()"
       :article="articleById"
       :handleReply="handleReply"
+      :details="getArticleDetails()"
       :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
     />
@@ -18,10 +19,13 @@ import LoadingPage from './Loading'
 import Article from '@component/Article'
 
 import articleQuery from '@graphql/query/article'
+import visitorListQuery from '@graphql/query/visitorList'
 import articleCommentListQuery from '@graphql/query/articleCommentList'
 import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
 
 import tryParseJSON from '@utility/tryParseJSON'
+
+import articleTransformator from '@transformator/articleTransformator'
 
 export default {
   name: 'ArticlePage',
@@ -31,6 +35,7 @@ export default {
   },
   data() {
     return {
+      visitorList: [],
       articleById: {},
       replyErrorData: {},
       commentListByArticleId: [],
@@ -38,6 +43,7 @@ export default {
     }
   },
   apollo: {
+    visitorList: visitorListQuery,
     articleById: {
       ...articleQuery,
       variables() {
@@ -59,7 +65,15 @@ export default {
     isLoading() {
       return (
         this.$apollo.queries.articleById.loading ||
+        this.$apollo.queries.visitorList.loading ||
         this.$apollo.queries.commentListByArticleId.loading
+      )
+    },
+    getArticleDetails() {
+      return articleTransformator(
+        this.articleId,
+        this.visitorList,
+        this.commentListByArticleId
       )
     },
     handleReply(reply) {

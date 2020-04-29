@@ -1,4 +1,4 @@
-const calculateTodaysRecords = array =>
+export const calculateTodaysRecords = array =>
   array.filter(element => {
     const differenceInTime =
       new Date().getTime() - new Date(element.createdAt).getTime()
