@@ -21,6 +21,7 @@ import draftToHtml from 'draftjs-to-html'
 export default {
   name: 'Article',
   props: {
+    details: { type: Object, required: true },
     article: { type: Object, required: true },
     comments: { type: Array, required: true },
     handleReply: { type: Function, required: true },
