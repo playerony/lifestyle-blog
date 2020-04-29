@@ -6,21 +6,23 @@
         <p>{{ getCommentDate() }}</p>
       </header>
       <label>{{ comment.content }}</label>
-      <transition
-        name="accordion"
-        v-on:before-enter="beforeEnter"
-        v-on:enter="enter"
-        v-on:before-leave="beforeLeave"
-        v-on:leave="leave"
-      >
-        <Reply
-          v-show="isReplyVisible"
-          :handleReply="handleReply"
-          :errorData="getErrorData()"
-          :key="replyId"
-          :parentCommentId="comment.commentId"
-        />
-      </transition>
+      <div class="content__reply">
+        <transition
+          name="accordion"
+          v-on:before-enter="beforeEnter"
+          v-on:enter="enter"
+          v-on:before-leave="beforeLeave"
+          v-on:leave="leave"
+        >
+          <Reply
+            v-show="isReplyVisible"
+            :handleReply="handleReply"
+            :errorData="getErrorData()"
+            :key="'reply_' + comment.commentId"
+            :parentCommentId="comment.commentId"
+          />
+        </transition>
+      </div>
       <LeftArrowSVG
         :class="'content__expand-icon ' + getArrowStyle"
         @click="isReplyVisible = !isReplyVisible"

@@ -1,5 +1,6 @@
 <template>
   <div class="reply">
+    <h2 class="reply__header">Leave a reply</h2>
     <Input
       key="input"
       label="Creator"
