@@ -144,14 +144,74 @@
   }
 
   &__border {
-    width: 100%;
+    width: 92%;
     height: 5px;
-    margin: $paddingMedium 0;
+    margin: $paddingMedium auto;
 
     @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
 
     @include respond-to("small") {
-      margin: $paddingSmall 0;
+      margin: $paddingSmall auto;
+    }
+  }
+
+  &__header {
+    padding: $paddingBig 0;
+
+    @include respond-to("small") {
+      padding: $paddingMedium 0;
+    }
+
+    @include respond-to("mobile") {
+      padding: $paddingSmall 0;
+    }
+
+    & > *:not(:first-child) {
+      word-break: break-all;
+      margin-top: $paddingMedium;
+
+      @include respond-to("mobile") {
+        margin-top: $paddingSmall;
+      }
+    }
+
+    & > .content__header {
+      @include flexbox();
+
+      & > .header__info {
+        white-space: nowrap;
+        margin-right: $paddingSmall;
+
+        @include flexbox();
+        @include align-items(center);
+
+        & > svg {
+          width: 24px;
+          height: 24px;
+          fill: var(--icon-color);
+          padding-right: calc(#{$paddingSmall} / 2);
+
+          @include transition(fill 500ms linear);
+
+          @include respond-to("mobile") {
+            width: 21px;
+            height: 21px;
+            padding-right: calc(#{$paddingSmall} / 4);
+          }
+        }
+
+        & > span {
+          color: $green400;
+        }
+
+        & > * {
+          padding-left: 5px;
+
+          @include respond-to("mobile") {
+            padding-left: 3px;
+          }
+        }
+      }
     }
   }
 }
