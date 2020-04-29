@@ -3,7 +3,15 @@
 
   &__header {
     text-align: center;
-    padding-bottom: $paddingMedium;
+    padding-bottom: $paddingBig;
+
+    @include respond-to("medium") {
+      padding-bottom: $paddingMedium;
+    }
+
+    @include respond-to("small") {
+      padding-bottom: $paddingSmall;
+    }
   }
   
   &__first-depth {

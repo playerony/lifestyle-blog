@@ -23,8 +23,8 @@
   }
 
   &__content {
-    height: 46px;
-    max-height: 46px;
+    min-height: 50px;
+    max-height: 50px;
     padding: $paddingSmall;
     width: calc(100% - 44px);
     color: var(--text-color);
