@@ -9,7 +9,7 @@
       @include flexbox();
       @include align-items(center);
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         margin-right: calc(#{$paddingSmall} / 2);
       }
 
@@ -21,7 +21,7 @@
 
         @include transition(fill 500ms linear);
 
-        @include respond-to("mobile") {
+        @include respond-to('mobile') {
           width: 21px;
           height: 21px;
           padding-right: calc(#{$paddingSmall} / 4);
@@ -30,6 +30,7 @@
 
       & > span {
         color: $green400;
+        padding-left: 5px;
       }
     }
   }
@@ -37,7 +38,7 @@
   &__title {
     margin-top: $paddingMedium;
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       margin-top: $paddingSmall;
     }
   }
@@ -45,7 +46,7 @@
   &__description {
     margin-top: 30px;
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       margin-top: calc(#{$paddingSmall} / 2);
     }
   }

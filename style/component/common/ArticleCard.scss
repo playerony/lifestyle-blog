@@ -7,14 +7,17 @@
 
   @include flexbox();
   @include transition(all 500ms linear);
-  @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px var(--background-color));
+  @include box-shadow(
+    9px 9px 16px -12px $gray600,
+    -9px -9px 16px -7px var(--background-color)
+  );
 
-  @include respond-to("medium") {
+  @include respond-to('medium') {
     height: 300px;
     max-height: 300px;
   }
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     height: 200px;
     max-height: 200px;
   }
@@ -24,7 +27,7 @@
 
     @include linear-gradient(179deg, $blue600 5%, $purple700 56%, $red300 100%);
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       width: 7px;
     }
   }
@@ -33,12 +36,12 @@
     padding: $paddingBig;
     width: calc(100% - 10px);
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       padding: $paddingMedium;
       width: calc(100% - 7px);
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       padding: $paddingSmall;
     }
   }
@@ -48,7 +51,7 @@
     height: 100%;
     position: absolute;
 
-    @include transition(width 500ms ease);
+    @include transition(width 500ms ease-in-out);
 
     & > img {
       width: 100%;
