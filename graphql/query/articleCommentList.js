@@ -7,6 +7,7 @@ const ARTICLE_COMMENT_LIST_QUERY = gql`
       parentCommentId
       content
       creator
+      likes
       createdAt
     }
   }
