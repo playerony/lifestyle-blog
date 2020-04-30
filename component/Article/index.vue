@@ -26,7 +26,6 @@
           <h1>{{ article.title }}</h1>
           <label class="content__description">{{ article.description }}</label>
         </header>
-        <div class="article__border" />
         <div id="article-content" v-html="content" class="article__content" />
         <div class="article__border" />
         <Disqus
