@@ -8,14 +8,14 @@
         v-for="category in categories"
         @click="redirectToCategory(category.categoryId)"
       >
-        <Icon :icon="category.name.toLowerCase()" />
+        <DynamicIcon :icon="category.name.toLowerCase()" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Icon from '../common/Icon'
+import DynamicIcon from '../common/DynamicIcon'
 
 export default {
   name: 'Sidebar',
@@ -23,7 +23,7 @@ export default {
     categories: { type: Array, required: true }
   },
   components: {
-    Icon
+    DynamicIcon
   },
   methods: {
     goBack() {
