@@ -7,6 +7,7 @@ export class CommentModel extends Model {
   articleId?: number
   content?: string
   creator?: string
+  likes?: number
   createdAt?: Date
   updatedAt?: Date
 }
@@ -27,6 +28,9 @@ export class CommentType {
 
   @Field()
   creator?: string
+
+  @Field()
+  likes?: number
 
   @Field()
   createdAt?: Date

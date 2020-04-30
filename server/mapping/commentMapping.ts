@@ -1,6 +1,7 @@
 import { CommentType, CommentModel } from '@type/Comment'
 
 export default (record: CommentModel): CommentType => ({
+  likes: record.likes,
   content: record.content,
   creator: record.creator,
   commentId: record.commentId,
