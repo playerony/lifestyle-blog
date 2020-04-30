@@ -4,12 +4,9 @@
 
 <script>
 export default {
-  name: 'Icon',
+  name: 'common-dynamic-icon',
   props: {
-    icon: {
-      type: String,
-      required: true
-    }
+    icon: { type: String, required: true }
   },
   computed: {
     dynamicIcon() {
