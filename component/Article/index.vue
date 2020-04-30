@@ -1,38 +1,40 @@
 <template>
   <div class="article">
     <Container>
-      <header class="article__header">
-        <header class="content__header">
-          <p class="header__info" v-if="details.totalVisitors">
-            <EyeSVG />
-            {{ details.totalVisitors }}
-            <span v-if="details.todayVisitors">
-              (+{{ details.todayVisitors }})
-            </span>
-          </p>
-          <p class="header__info" v-if="article.readingTime">
-            <ClockSVG />
-            {{ article.readingTime }} min
-          </p>
-          <p class="header__info" v-if="details.totalComments">
-            <ReplySVG />
-            {{ details.totalComments }}
-            <span v-if="article.todayComments">
-              (+{{ details.todayComments }})
-            </span>
-          </p>
+      <div class="article__content-wrapper">
+        <header class="article__header">
+          <header class="content__header">
+            <p class="header__info" v-if="details.totalVisitors">
+              <EyeSVG />
+              {{ details.totalVisitors }}
+              <span v-if="details.todayVisitors">
+                (+{{ details.todayVisitors }})
+              </span>
+            </p>
+            <p class="header__info" v-if="article.readingTime">
+              <ClockSVG />
+              {{ article.readingTime }} min
+            </p>
+            <p class="header__info" v-if="details.totalComments">
+              <ReplySVG />
+              {{ details.totalComments }}
+              <span v-if="article.todayComments">
+                (+{{ details.todayComments }})
+              </span>
+            </p>
+          </header>
+          <h1>{{ article.title }}</h1>
+          <label class="content__description">{{ article.description }}</label>
         </header>
-        <h1>{{ article.title }}</h1>
-        <label class="content__description">{{ article.description }}</label>
-      </header>
-      <div class="article__border" />
-      <div id="article-content" v-html="content" class="article__content" />
-      <div class="article__border" />
-      <Disqus
-        :comments="comments"
-        :handleReply="handleReply"
-        :replyErrorData="replyErrorData"
-      />
+        <div class="article__border" />
+        <div id="article-content" v-html="content" class="article__content" />
+        <div class="article__border" />
+        <Disqus
+          :comments="comments"
+          :handleReply="handleReply"
+          :replyErrorData="replyErrorData"
+        />
+      </div>
       <Sidebar :categories="article.categoryList" />
     </Container>
   </div>

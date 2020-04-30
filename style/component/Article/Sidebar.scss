@@ -1,7 +1,15 @@
 .side-navbar {
-  top: 100px;
-  left: 30px;
   position: fixed;
+  top: calc(110px + #{$paddingBig});
+
+  @include respond-to("mobile") {
+    display: none;
+  }
+
+  & > * {
+    right: 10%;
+    position: relative;
+  }
 
   &__back-button {
     width: 50px;
