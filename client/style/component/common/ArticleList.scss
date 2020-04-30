@@ -2,11 +2,11 @@
   width: 100%;
   padding: $paddingBig 0;
 
-  @include respond-to("medium") {
+  @include respond-to('medium') {
     padding: $paddingMedium 0;
   }
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     padding: $paddingSmall 0;
   }
 
@@ -15,11 +15,11 @@
 
     @include flexbox();
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       margin-bottom: $paddingMedium;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       margin-bottom: $paddingSmall;
 
       @include flexbox();
@@ -35,11 +35,11 @@
       &:not(:last-child) {
         margin-right: $paddingBig;
 
-        @include respond-to("medium") {
+        @include respond-to('medium') {
           margin-right: $paddingMedium;
         }
 
-        @include respond-to("mobile") {
+        @include respond-to('mobile') {
           margin-bottom: 5px;
         }
       }
@@ -49,19 +49,24 @@
         left: 50%;
         width: 0px;
         height: 5px;
-        content: "";
+        content: '';
         display: block;
         position: relative;
 
         @include transition(all 500ms);
-        @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+        @include linear-gradient(
+          94deg,
+          $blue600 5%,
+          $purple700 59%,
+          $red300 104%
+        );
 
-        @include respond-to("medium") {
+        @include respond-to('medium') {
           top: 2px;
           height: 4px;
         }
 
-        @include respond-to("mobile") {
+        @include respond-to('mobile') {
           top: 0;
           height: 2px;
         }
@@ -84,15 +89,12 @@
 
     @include grid();
 
-    @include respond-to("large") {
+    @include respond-to('large') {
       grid-gap: $paddingMedium;
     }
 
-    @include respond-to("small") {
+    @include respond-to('small') {
       grid-gap: $paddingSmall;
-    }
-
-    @include respond-to("mobile") {
       grid-template-columns: 1fr;
     }
 

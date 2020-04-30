@@ -1,14 +1,11 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 
 import ArticleCard from '../ArticleCard'
 
-const setUp = () => mount(ArticleCard, { propsData: { article: ARTICLE_MOCK } })
+const setUp = () =>
+  shallowMount(ArticleCard, { propsData: { article: ARTICLE_MOCK } })
 
 describe('ArticleCard Component', () => {
-  beforeAll(() => {
-    console.error = jest.fn()
-  })
-
   it('should render', () => {
     const wrapper = setUp()
 
@@ -21,61 +18,35 @@ describe('ArticleCard Component', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('should we wrapped in router-link', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.find('router-link').attributes()).toEqual({
-      class: 'article-card',
-      to: '/article/7'
-    })
-  })
-
-  it('should render image attached to the article as a background', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.find('img').attributes()).toEqual({
-      class: 'article-card__image',
-      src: 'photoUrl'
-    })
-  })
-
-  it('should render reading time', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.find('p').text()).toEqual('1 min')
-  })
-
-  it('should render well formatted article creation date', () => {
+  it('should render ArticleDetails Component with article prop', () => {
     const wrapper = setUp()
 
     expect(
-      wrapper
-        .findAll('h4')
-        .at(1)
-        .text()
-    ).toEqual('Jan 01, 2020')
+      wrapper.find('articledetails-stub').attributes().article
+    ).toBeDefined()
   })
 
-  it('should render article title and description', () => {
+  it('should render article image', () => {
     const wrapper = setUp()
 
-    expect(
-      wrapper
-        .findAll('section')
-        .at(0)
-        .text()
-    ).toEqual('title description')
+    expect(wrapper.find('img').attributes().src).toEqual('photoUrl')
+  })
+
+  it('should render read now button', () => {
+    const wrapper = setUp()
+
+    expect(wrapper.find('button-stub').text()).toEqual('Read now')
   })
 })
 
 const ARTICLE_MOCK = {
-  articleId: 7,
+  likes: 1,
   title: 'title',
-  readingTime: 1,
-  isPublic: false,
+  readingTime: 8,
+  todayVisitors: 2,
+  totalVisitors: 6,
+  todayComments: 1,
+  totalComments: 10,
   description: 'description',
-  createdAt: new Date('2020'),
-  image: {
-    photoUrl: 'photoUrl'
-  }
+  image: { photoUrl: 'photoUrl' }
 }
