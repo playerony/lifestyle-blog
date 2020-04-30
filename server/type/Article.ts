@@ -13,6 +13,7 @@ export class ArticleModel extends Model {
   content?: string
   image?: ImageModel
   isPublic?: boolean
+  likes?: number
   categoryList?: CategoryModel[] | null
   createdAt?: Date
   updatedAt?: Date
@@ -49,6 +50,9 @@ export class ArticleType {
 
   @Field()
   readingTime?: number
+
+  @Field()
+  likes?: number
 
   @Field()
   createdAt?: Date

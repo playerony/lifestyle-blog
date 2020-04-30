@@ -18,7 +18,7 @@
             <p class="header__info" v-if="details.totalComments">
               <ReplySVG />
               {{ details.totalComments }}
-              <span v-if="article.todayComments">
+              <span v-if="details.todayComments">
                 (+{{ details.todayComments }})
               </span>
             </p>

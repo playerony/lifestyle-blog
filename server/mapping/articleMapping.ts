@@ -17,6 +17,7 @@ export default (record: ArticleModel): ArticleType => {
     image,
     readingTime,
     categoryList,
+    likes: record.likes,
     title: record.title,
     userId: record.userId,
     content: record.content,
