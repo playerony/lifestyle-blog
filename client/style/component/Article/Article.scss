@@ -1,26 +1,24 @@
 .article {
   position: relative;
 
-  &__content {
-    position: relative;
-    padding: 0 $paddingBig;
-    color: var(--text-color);
+  &__content-wrapper {
+    padding-left: calc(#{$paddingBig} * 2);
     width: calc(100% - #{$paddingBig} * 2);
 
     @include respond-to("medium") {
-      padding: 0 $paddingMedium;
+      padding-left: calc(#{$paddingMedium} * 2);
       width: calc(100% - #{$paddingMedium} * 2);
-    }
-
-    @include respond-to("small") {
-      padding: 0 $paddingSmall;
-      width: calc(100% - #{$paddingSmall} * 2);
     }
 
     @include respond-to("mobile") {
       padding: 0;
       width: 100%;
     }
+  }
+
+  &__content {
+    position: relative;
+    color: var(--text-color);
 
     & > p,
     blockquote {
