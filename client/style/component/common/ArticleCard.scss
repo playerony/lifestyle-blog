@@ -41,62 +41,6 @@
     @include respond-to("mobile") {
       padding: $paddingSmall;
     }
-
-    & > .content__header {
-      @include flexbox();
-
-      & > .header__info {
-        white-space: nowrap;
-        margin-right: $paddingSmall;
-
-        @include flexbox();
-        @include align-items(center);
-
-        & > svg {
-          width: 24px;
-          height: 24px;
-          fill: var(--icon-color);
-          padding-right: calc(#{$paddingSmall} / 2);
-
-          @include transition(fill 500ms linear);
-
-          @include respond-to("mobile") {
-            width: 21px;
-            height: 21px;
-            padding-right: calc(#{$paddingSmall} / 4);
-          }
-        }
-
-        & > span {
-          color: $green400;
-        }
-
-        & > * {
-          padding-left: 5px;
-
-          @include respond-to("mobile") {
-            padding-left: 3px;
-          }
-        }
-      }
-    }
-
-    & > .content__description {
-      word-break: break-all;
-      margin-top: $paddingSmall;
-
-      @include respond-to("mobile") {
-        margin-top: calc(#{$paddingSmall} / 2);
-      }
-    }
-
-    & > *:not(:first-child) {
-      margin-top: $paddingMedium;
-
-      @include respond-to("mobile") {
-        margin-top: $paddingSmall;
-      }
-    }
   }
 
   &__hover {

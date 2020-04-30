@@ -80,16 +80,12 @@
 
   &__content {
     grid-gap: $paddingBig;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     @include grid();
 
     @include respond-to("large") {
       grid-gap: $paddingMedium;
-    }
-
-    @include respond-to("medium") {
-      grid-template-columns: 1fr 1fr;
     }
 
     @include respond-to("small") {
