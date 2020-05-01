@@ -11,6 +11,8 @@
 <script>
 import SearchPage from '@page/SearchPage'
 
+import { SEARCH_PAGE_VISIBILITY } from '@config/constant'
+
 import SearchSVG from '@asset/svg/search.svg'
 
 export default {
@@ -33,6 +35,29 @@ export default {
       } else {
         document.body.classList.remove('overflow')
       }
+    },
+    onStorageUpdate(event) {
+      if (event.key === SEARCH_PAGE_VISIBILITY) {
+        this.showSearchPage = event.newValue === 'true'
+      }
+    }
+  },
+  mounted() {
+    if (localStorage.getItem(SEARCH_PAGE_VISIBILITY)) {
+      this.showSearchPage =
+        localStorage.getItem(SEARCH_PAGE_VISIBILITY) === 'true'
+    }
+
+    window.addEventListener('storage', this.onStorageUpdate)
+  },
+  beforeDestroy() {
+    window.removeEventListener('storage', this.onStorageUpdate)
+  },
+  watch: {
+    showSearchPage(newName) {
+      console.warn(newName)
+
+      localStorage.setItem(SEARCH_PAGE_VISIBILITY, newName)
     }
   }
 }

@@ -11,13 +11,13 @@
         @click="sortingBy = 'top-rated'"
         :class="'menu__item ' + selectedItemStyle('top-rated')"
       >
-        Top rated
+        Top Rated
       </label>
       <label
         @click="sortingBy = 'most-viewed'"
         :class="'menu__item ' + selectedItemStyle('most-viewed')"
       >
-        Most viewed
+        Most Viewed
       </label>
       <label
         @click="sortingBy = 'most-commented'"
@@ -26,7 +26,11 @@
         Most Commented
       </label>
     </ul>
-    <transition-group tag="div" name="list" class="article-list__content">
+    <transition-group
+      tag="div"
+      name="list-transition"
+      class="article-list__content"
+    >
       <ArticleCard
         :article="article"
         :key="article.articleId"
@@ -52,7 +56,7 @@ import DynamicIcon from './DynamicIcon'
 import sortArticleList from '@utility/sortArticleList'
 
 export default {
-  name: 'ArticleList',
+  name: 'common-article-list',
   props: {
     articles: { type: Array, required: true },
     displayMenu: { type: Boolean, required: false, default: true }
