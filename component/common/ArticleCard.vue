@@ -15,6 +15,8 @@
 import Button from '../generic/Button'
 import ArticleDetails from './ArticleDetails'
 
+import { SEARCH_PAGE_VISIBILITY } from '@config/constant'
+
 export default {
   name: 'common-article-card',
   components: {
@@ -26,7 +28,15 @@ export default {
   },
   methods: {
     redirectToArticle() {
-      this.$router.push(`/article/${this.article.articleId}`)
+      window.dispatchEvent(
+        new StorageEvent('storage', {
+          key: SEARCH_PAGE_VISIBILITY,
+          newValue: false
+        })
+      )
+
+      this.$router.replace(`/article/${this.article.articleId}`)
+      this.$router.go()
     }
   }
 }

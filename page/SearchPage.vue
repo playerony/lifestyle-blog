@@ -1,5 +1,5 @@
 <template>
-  <transition name="search-page" appear>
+  <transition name="search-page" :appear="true">
     <div class="search-page">
       <Container>
         <header class="search-page__header">
@@ -32,6 +32,8 @@ import metricCommentList from '@graphql/query/metricCommentList'
 import articleListTransformator from '@transformator/articleListTransformator'
 
 import compareString from '@utility/compareString'
+
+import { SEARCH_PAGE_RESULTS } from '@config/constant'
 
 import CloseSVG from '@asset/svg/close.svg'
 import SearchSVG from '@asset/svg/search.svg'
@@ -80,13 +82,12 @@ export default {
       }
 
       return transformedArticleList
-        .filter(article => {
-          return (
+        .filter(
+          article =>
             compareString(article.title, this.searchValue) ||
             compareString(article.description, this.searchValue)
-          )
-        })
-        .slice(0, 5)
+        )
+        .slice(0, SEARCH_PAGE_RESULTS)
     }
   }
 }

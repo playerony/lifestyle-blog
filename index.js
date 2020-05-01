@@ -10,6 +10,12 @@ import '@style/index.scss'
 
 Vue.config.productionTip = false
 
+var originalSetItem = localStorage.setItem
+localStorage.setItem = function() {
+  document.createEvent('Event').initEvent('itemInserted', true, true)
+  originalSetItem.apply(this, arguments)
+}
+
 new Vue({
   router,
   apolloProvider,

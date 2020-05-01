@@ -113,7 +113,7 @@
     margin: $paddingBig auto 0;
     --scale: 1;
 
-    @include transition(all 500ms ease);
+    @include transition(all 500ms linear);
     @include transform(scale(var(--scale)) rotateX(0deg) rotateZ(-90deg));
 
     &:hover {
@@ -123,6 +123,7 @@
     @include respond-to('small') {
       width: 40px;
       height: 40px;
+      margin-top: $paddingMedium;
     }
 
     @include respond-to('mobile') {
