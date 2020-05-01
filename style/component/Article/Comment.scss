@@ -2,15 +2,15 @@
   position: relative;
   padding-left: calc(#{$paddingBig} * 2);
 
-  @include respond-to("medium") {
+  @include respond-to('medium') {
     padding-left: $paddingBig;
   }
 
-  @include respond-to("small") {
+  @include respond-to('small') {
     padding-left: $paddingMedium;
   }
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     padding-left: $paddingSmall;
   }
 
@@ -24,12 +24,12 @@
     @include border-radius(12px);
     @include transition(all 500ms ease);
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       padding: $paddingMedium;
       margin: $paddingMedium 0;
     }
 
-    @include respond-to("small") {
+    @include respond-to('small') {
       padding: $paddingSmall;
       margin: $paddingSmall 0;
     }
@@ -37,7 +37,7 @@
     & > .content__header {
       padding-bottom: $paddingMedium;
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         padding-bottom: $paddingSmall;
       }
 
@@ -54,7 +54,7 @@
       fill: $purple700;
       --scale: 1;
 
-      @include transition(all 500ms ease);
+      @include transition(all 500ms linear);
       @include transform(scale(var(--scale)) rotateX(0deg) rotateZ(-90deg));
 
       &--open {
@@ -62,15 +62,15 @@
       }
 
       &:hover {
-        --scale: 1.1;
+        --scale: 1.2;
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         width: 40px;
         height: 40px;
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         width: 30px;
         height: 30px;
       }
@@ -79,7 +79,7 @@
     & > .content__reply {
       padding: $paddingSmall 0;
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         padding: calc(#{$paddingSmall} / 2) 0;
       }
     }

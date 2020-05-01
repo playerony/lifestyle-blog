@@ -103,4 +103,31 @@
       break-inside: avoid-column;
     }
   }
+
+  &__show-more-icon {
+    width: 50px;
+    height: 40px;
+    display: block;
+    cursor: pointer;
+    fill: $purple700;
+    margin: $paddingBig auto 0;
+    --scale: 1;
+
+    @include transition(all 500ms ease);
+    @include transform(scale(var(--scale)) rotateX(0deg) rotateZ(-90deg));
+
+    &:hover {
+      --scale: 1.1;
+    }
+
+    @include respond-to('small') {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include respond-to('mobile') {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }

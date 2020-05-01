@@ -8,6 +8,12 @@
         Latest
       </label>
       <label
+        @click="sortingBy = 'top-rated'"
+        :class="'menu__item ' + selectedItemStyle('top-rated')"
+      >
+        Top rated
+      </label>
+      <label
         @click="sortingBy = 'most-viewed'"
         :class="'menu__item ' + selectedItemStyle('most-viewed')"
       >
@@ -24,14 +30,24 @@
       <ArticleCard
         :article="article"
         :key="article.articleId"
-        v-for="article in getArticleList()"
+        v-for="article in getArticleList"
       />
     </transition-group>
+    <div
+      v-if="shouldRenderShowMoreButton"
+      class="article-list__show-more-icon"
+      @click="limitItems = limitItems + pageSize"
+    >
+      <DynamicIcon icon="left-arrow" />
+    </div>
   </div>
 </template>
 
 <script>
 import ArticleCard from './ArticleCard'
+import DynamicIcon from './DynamicIcon'
+
+import sortArticleList from '@utility/sortArticleList'
 
 export default {
   name: 'ArticleList',
@@ -41,11 +57,25 @@ export default {
   },
   data() {
     return {
+      pageSize: 2,
+      limitItems: 2,
       sortingBy: 'latest'
     }
   },
   components: {
-    ArticleCard
+    ArticleCard,
+    DynamicIcon
+  },
+  computed: {
+    getArticleList() {
+      return sortArticleList(this.articles, this.sortingBy).slice(
+        0,
+        this.limitItems
+      )
+    },
+    shouldRenderShowMoreButton() {
+      return this.articles.length - this.limitItems >= 1
+    }
   },
   methods: {
     selectedItemStyle(name) {
@@ -55,17 +85,8 @@ export default {
 
       return ''
     },
-    getArticleList() {
-      if (this.sortingBy === 'latest') {
-        return this.articles.sort(
-          (a, b) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        )
-      } else if (this.sortingBy === 'most-commented') {
-        return this.articles.sort((a, b) => b.totalComments - a.totalComments)
-      }
-
-      return this.articles.sort((a, b) => b.totalVisitors - a.totalVisitors)
+    showMoreClick() {
+      this.limitItems = this.limitItems + this.pageSize
     }
   }
 }
