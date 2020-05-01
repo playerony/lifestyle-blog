@@ -33,17 +33,19 @@
         v-for="article in getArticleList"
       />
     </transition-group>
-    <div
+    <Tooltip
+      title="Show more"
+      :onClick="showMoreClick"
       v-if="shouldRenderShowMoreButton"
       class="article-list__show-more-icon"
-      @click="limitItems = limitItems + pageSize"
     >
       <DynamicIcon icon="left-arrow" />
-    </div>
+    </Tooltip>
   </div>
 </template>
 
 <script>
+import Tooltip from './Tooltip'
 import ArticleCard from './ArticleCard'
 import DynamicIcon from './DynamicIcon'
 
@@ -58,11 +60,12 @@ export default {
   data() {
     return {
       pageSize: 2,
-      limitItems: 2,
+      limitItems: 4,
       sortingBy: 'latest'
     }
   },
   components: {
+    Tooltip,
     ArticleCard,
     DynamicIcon
   },
