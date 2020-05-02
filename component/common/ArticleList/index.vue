@@ -40,6 +40,7 @@ import DynamicIcon from '../DynamicIcon'
 import sortArticleList from '@utility/sortArticleList'
 
 import menuOptions from './menuOptions'
+import { ARTICLE_LIST_PAGE_SIZE } from '@config/constant'
 
 export default {
   name: 'common-article-list',
@@ -50,9 +51,9 @@ export default {
   data() {
     return {
       menuOptions,
-      pageSize: 2,
-      limitItems: 4,
-      sortingBy: 'latest'
+      sortingBy: 'latest',
+      pageSize: ARTICLE_LIST_PAGE_SIZE,
+      limitItems: ARTICLE_LIST_PAGE_SIZE
     }
   },
   components: {
