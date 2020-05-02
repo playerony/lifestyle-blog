@@ -19,11 +19,11 @@
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 
-import LogoSVG from '@asset/svg/logo.svg'
-
 import checkElement from '@utility/checkElement'
 
 import routeList from '@config/routeList'
+
+import LogoSVG from '@asset/svg/logo.svg'
 
 export default {
   name: 'Navbar',
@@ -41,12 +41,12 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.calculateProgress)
 
     this.recalculateProgress()
   },
   beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', this.calculateProgress)
   },
   computed: {
     getNavbarStyle() {
@@ -65,10 +65,10 @@ export default {
     },
     recalculateProgress() {
       checkElement('#article-content').then(() => {
-        this.onScroll()
+        this.calculateProgress()
       })
     },
-    onScroll() {
+    calculateProgress() {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
 
@@ -105,6 +105,8 @@ export default {
 
       if (this.isArticlePage) {
         this.recalculateProgress()
+      } else {
+        this.progress = 0
       }
     }
   }
