@@ -24,5 +24,8 @@ export default new VueRouter({
       component: ArticleList,
       path: routeList.articles
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { x: 0, y: 0 }
+  }
 })
