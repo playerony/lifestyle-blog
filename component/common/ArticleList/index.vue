@@ -71,9 +71,6 @@ export default {
     },
     shouldRenderShowMoreButton() {
       return this.articles.length - this.limitItems >= 1
-    },
-    showMoreClick() {
-      this.limitItems = this.limitItems + this.pageSize
     }
   },
   methods: {
@@ -86,6 +83,9 @@ export default {
     },
     setSortingBy(sortingBy) {
       this.sortingBy = sortingBy
+    },
+    showMoreClick() {
+      this.limitItems = this.limitItems + this.pageSize
     }
   }
 }

@@ -11,7 +11,7 @@ export default {
     onClick: { type: Function, required: true },
     menuOption: { type: Object, required: true }
   },
-  computed: {
+  methods: {
     handleClick() {
       this.onClick(this.menuOption.sortingBy)
     }
