@@ -1,10 +1,18 @@
 import { mount } from '@vue/test-utils'
 
-import SearchButton from '../SearchButton'
+import Navbar from '../index'
 
-const setUp = () => mount(SearchButton)
+const $route = {
+  matched: [
+    {
+      path: '/'
+    }
+  ]
+}
 
-describe('SearchButton Component', () => {
+const setUp = () => mount(Navbar, { mocks: { $route } })
+
+describe('Navbar Component', () => {
   beforeAll(() => {
     console.error = jest.fn()
   })

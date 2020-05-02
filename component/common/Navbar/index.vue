@@ -27,11 +27,6 @@ import LogoSVG from '@asset/svg/logo.svg'
 
 export default {
   name: 'Navbar',
-  components: {
-    LogoSVG,
-    ThemeSwitch,
-    SearchButton
-  },
   data() {
     return {
       progress: 0,
@@ -39,6 +34,11 @@ export default {
       lastScrollPosition: 0,
       isArticlePage: this.$route.matched[0].path === routeList.article
     }
+  },
+  components: {
+    LogoSVG,
+    ThemeSwitch,
+    SearchButton
   },
   mounted() {
     window.addEventListener('scroll', this.calculateProgress)
@@ -96,6 +96,7 @@ export default {
         currentScrollPosition < this.lastScrollPosition ||
         currentScrollPosition < 200 ||
         this.isArticlePage
+
       this.lastScrollPosition = currentScrollPosition
     }
   },
