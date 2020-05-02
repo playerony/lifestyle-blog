@@ -9,7 +9,7 @@ export default {
   name: 'common-tooltip',
   props: {
     title: { type: String, required: true },
-    onClick: { type: Function, required: false }
+    onClick: { type: Function, required: false, default: () => {} }
   }
 }
 </script>
