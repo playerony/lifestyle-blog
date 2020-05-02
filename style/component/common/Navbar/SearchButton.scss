@@ -1,13 +1,13 @@
 .search-button {
   width: 200px;
-  height: 30px;
+  height: 25px;
   margin: auto;
   padding: 10px;
   display: block;
   cursor: pointer;
-  margin-right: 0;
   margin-left: auto;
   position: relative;
+  margin-right: $paddingBig;
 
   @include flexbox();
   @include border-radius(50px);
@@ -16,18 +16,20 @@
   @include transition(background 500ms linear);
   @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
 
-  @include respond-to("medium") {
+  @include respond-to('medium') {
     width: 180px;
   }
 
-  @include respond-to("small") {
+  @include respond-to('small') {
     width: 160px;
+    margin-right: $paddingMedium;
   }
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     padding: 0;
     width: 50px;
     height: 50px;
+    margin-right: auto;
     background: $purple700;
   }
 
@@ -40,11 +42,11 @@
 
     @include transition(all 500ms ease);
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       left: 50px;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       display: none;
     }
   }
@@ -58,11 +60,11 @@
 
     @include transition(all 500ms ease);
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       left: 15px;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       padding: 0;
       left: 15px;
       width: 20px;
@@ -74,7 +76,7 @@
     & > .search-button__label {
       left: 20px;
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         left: 15px;
       }
     }
@@ -82,15 +84,15 @@
     & > .search-button__icon {
       left: 175px;
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         left: 160px;
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         left: 140px;
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         left: 15px;
       }
     }
