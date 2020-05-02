@@ -7,7 +7,10 @@
     </div>
     <div
       class="navbar__progress"
-      :style="{ width: `${progress}%`, opacity: progress === 100 ? 0 : 1 }"
+      :style="{
+        width: `${progress}%`,
+        opacity: !isArticlePage || progress === 100 ? 0 : 1
+      }"
     />
   </nav>
 </template>
@@ -31,7 +34,8 @@ export default {
     return {
       progress: 0,
       showNavbar: true,
-      lastScrollPosition: 0
+      lastScrollPosition: 0,
+      isArticlePage: this.$route.matched[0].path === routeList.article
     }
   },
   mounted() {
@@ -59,13 +63,11 @@ export default {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
 
-      const isArticlePage = this.$route.matched[0].path === routeList.article
-
       if (currentScrollPosition < 0) {
         return
       }
 
-      if (isArticlePage) {
+      if (this.isArticlePage) {
         const articleContent = document.getElementById('article-content')
 
         if (articleContent) {
@@ -84,8 +86,13 @@ export default {
       this.showNavbar =
         currentScrollPosition < this.lastScrollPosition ||
         currentScrollPosition < 200 ||
-        isArticlePage
+        this.isArticlePage
       this.lastScrollPosition = currentScrollPosition
+    }
+  },
+  watch: {
+    $route(to) {
+      this.isArticlePage = to.matched[0].path === routeList.article
     }
   }
 }
