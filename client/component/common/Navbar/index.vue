@@ -21,6 +21,8 @@ import SearchButton from './SearchButton'
 
 import LogoSVG from '@asset/svg/logo.svg'
 
+import checkElement from '@utility/checkElement'
+
 import routeList from '@config/routeList'
 
 export default {
@@ -40,6 +42,8 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
+
+    this.recalculateProgress()
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
@@ -58,6 +62,11 @@ export default {
       if (this.$route.path !== routeList.base) {
         this.$router.push(routeList.base)
       }
+    },
+    recalculateProgress() {
+      checkElement('#article-content').then(() => {
+        this.onScroll()
+      })
     },
     onScroll() {
       const currentScrollPosition =
@@ -93,6 +102,10 @@ export default {
   watch: {
     $route(to) {
       this.isArticlePage = to.matched[0].path === routeList.article
+
+      if (this.isArticlePage) {
+        this.recalculateProgress()
+      }
     }
   }
 }
