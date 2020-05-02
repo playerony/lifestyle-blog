@@ -1,36 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="62" height="115" viewBox="0 0 62 115">
   <defs>
     <linearGradient id="a" x1="31.779%" x2="65.885%" y1="30.743%" y2="75.105%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="b" x1="954.471%" x2="930.72%" y1="39.271%" y2="55.521%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="c" x1="236.897%" x2="259.425%" y1="72.264%" y2="32.534%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="d" x1="552.165%" x2="563.298%" y1="52.604%" y2="38.75%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="e" x1="69.414%" x2="33.178%" y1="30.744%" y2="74.938%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="f" x1="65.746%" x2="41.995%" y1="39.23%" y2="55.463%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="g" x1="39.195%" x2="61.705%" y1="72.222%" y2="32.515%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
     <linearGradient id="h" x1="47.928%" x2="59.061%" y1="52.653%" y2="38.71%">
-      <stop offset="0%" stop-color="#32F4CD"/>
-      <stop offset="100%" stop-color="#09CBE7"/>
+      <stop offset="0%" stop-color="#ccccff"/>
+      <stop offset="100%" stop-color="#48adf1"/>
     </linearGradient>
   </defs>
   <g fill="none" fill-rule="nonzero" opacity=".9">

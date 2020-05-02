@@ -27,9 +27,8 @@ export default {
     Checkbox
   },
   mounted() {
-    const theme = localStorage.getItem(THEME_MODE)
+    this.darkMode = localStorage.getItem(THEME_MODE) === 'dark'
 
-    this.darkMode = theme === 'dark'
     document.documentElement.setAttribute(
       'theme',
       this.darkMode ? 'dark' : 'light'
@@ -38,6 +37,7 @@ export default {
   watch: {
     darkMode: function() {
       localStorage.setItem(THEME_MODE, this.darkMode ? 'dark' : 'light')
+
       document.documentElement.setAttribute(
         'theme',
         this.darkMode ? 'dark' : 'light'
