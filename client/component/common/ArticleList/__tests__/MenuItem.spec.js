@@ -10,10 +10,6 @@ const setUp = () =>
   })
 
 describe('MenuItem Component', () => {
-  beforeAll(() => {
-    console.error = jest.fn()
-  })
-
   it('should render', () => {
     const wrapper = setUp()
 
