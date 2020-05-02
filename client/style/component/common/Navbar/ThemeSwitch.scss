@@ -3,10 +3,18 @@
   @include align-items(center);
   @include justify-content(center);
 
+  @include respond-to('mobile') {
+    @include justify-content(flex-end);
+  }
+
   & > svg {
     fill: var(--icon-color);
 
     @include transition(fill 500ms linear);
+
+    @include respond-to('mobile') {
+      display: none;
+    }
   }
 
   &__sun-icon {

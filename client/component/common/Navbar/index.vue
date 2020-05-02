@@ -2,8 +2,8 @@
   <nav :class="'navbar ' + getNavbarStyle">
     <div class="navbar__content">
       <LogoSVG class="logo-icon" @click="redirectToHome()" />
-      <ThemeSwitch />
       <SearchButton />
+      <ThemeSwitch />
     </div>
     <div
       class="navbar__progress"

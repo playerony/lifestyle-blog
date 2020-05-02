@@ -3,7 +3,8 @@
   width: 100%;
   z-index: 10;
   position: fixed;
-  min-height: 100px;
+  min-height: 70px;
+  max-height: 70px;
   background-color: var(--card-color);
 
   @include flexbox();
@@ -12,36 +13,34 @@
   @include transform(translate3d(0, 0, 0));
   @include box-shadow(0 2px 4px 0 rgba(192, 192, 192, 0.5));
 
-  @include respond-to('mobile') {
-    min-height: 80px;
-  }
-
   &__content {
     max-width: $medium-screen;
-    grid-template-columns: 1fr 1fr 1fr;
     width: calc(100% - #{$paddingBig} * 2);
-    padding: #{$paddingSmall} #{$paddingBig};
+    padding: calc(#{$paddingSmall} / 2) #{$paddingBig};
 
-    @include grid();
+    @include flexbox();
 
     @include respond-to('medium') {
       width: calc(100% - #{$paddingMedium} * 2);
-      padding: #{$paddingSmall} #{$paddingMedium};
+      padding: calc(#{$paddingSmall} / 2) #{$paddingMedium};
     }
 
     @include respond-to('small') {
-      padding: #{$paddingSmall};
+      padding: calc(#{$paddingSmall} / 2) #{$paddingSmall};
       width: calc(100% - #{$paddingSmall} * 2);
     }
 
     @include respond-to('mobile') {
-      width: calc(100% - #{$paddingSmall});
+      grid-template-columns: 1fr 1fr 1fr;
       padding: calc(#{$paddingSmall} / 2);
+      width: calc(100% - #{$paddingSmall});
+
+      @include grid();
     }
 
     & > .logo-icon {
       width: 40px;
-      height: 60px;
+      height: 50px;
       cursor: pointer;
     }
   }

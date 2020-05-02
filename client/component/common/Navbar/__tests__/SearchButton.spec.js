@@ -1,14 +1,10 @@
 import { mount } from '@vue/test-utils'
 
-import ThemeSwitch from '../ThemeSwitch'
+import SearchButton from '../SearchButton'
 
-const setUp = () => mount(ThemeSwitch)
+const setUp = () => mount(SearchButton)
 
-describe('ThemeSwitch Component', () => {
-  beforeAll(() => {
-    console.error = jest.fn()
-  })
-
+describe('SearchButton Component', () => {
   it('should render', () => {
     const wrapper = setUp()
 
@@ -18,6 +14,7 @@ describe('ThemeSwitch Component', () => {
   it('is a Vue instance', () => {
     const wrapper = setUp()
 
+    console.warn(wrapper.html())
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 })
