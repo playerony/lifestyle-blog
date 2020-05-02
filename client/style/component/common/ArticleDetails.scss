@@ -1,4 +1,6 @@
 .article-details {
+  position: relative;
+
   &__header {
     @include flexbox();
 
