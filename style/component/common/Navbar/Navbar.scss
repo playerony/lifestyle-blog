@@ -12,7 +12,7 @@
   @include transform(translate3d(0, 0, 0));
   @include box-shadow(0 2px 4px 0 rgba(192, 192, 192, 0.5));
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     min-height: 80px;
   }
 
@@ -24,17 +24,17 @@
 
     @include grid();
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       width: calc(100% - #{$paddingMedium} * 2);
       padding: #{$paddingSmall} #{$paddingMedium};
     }
 
-    @include respond-to("small") {
+    @include respond-to('small') {
       padding: #{$paddingSmall};
       width: calc(100% - #{$paddingSmall} * 2);
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       width: calc(100% - #{$paddingSmall});
       padding: calc(#{$paddingSmall} / 2);
     }
@@ -43,30 +43,6 @@
       width: 40px;
       height: 60px;
       cursor: pointer;
-    }
-
-    & .content__switch {
-      @include flexbox();
-      @include align-items(center);
-      @include justify-content(center);
-
-      > svg {
-        fill: var(--icon-color);
-
-        @include transition(fill 500ms linear);
-      }
-
-      & > .sun-icon {
-        width: 30px;
-        height: 30px;
-        padding-right: calc(#{$paddingSmall} / 2);
-      }
-
-      & > .moon-icon {
-        width: 27px;
-        height: 27px;
-        padding-left: calc(#{$paddingSmall} / 2);
-      }
     }
   }
 

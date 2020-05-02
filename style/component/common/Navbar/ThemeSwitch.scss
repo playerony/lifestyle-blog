@@ -1,0 +1,23 @@
+.theme-switch {
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+
+  & > svg {
+    fill: var(--icon-color);
+
+    @include transition(fill 500ms linear);
+  }
+
+  &__sun-icon {
+    width: 30px;
+    height: 30px;
+    padding-right: calc(#{$paddingSmall} / 2);
+  }
+
+  &__moon-icon {
+    width: 27px;
+    height: 27px;
+    padding-left: calc(#{$paddingSmall} / 2);
+  }
+}

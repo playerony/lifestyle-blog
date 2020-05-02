@@ -54,10 +54,8 @@ export default {
     window.removeEventListener('storage', this.onStorageUpdate)
   },
   watch: {
-    showSearchPage(newName) {
-      console.warn(newName)
-
-      localStorage.setItem(SEARCH_PAGE_VISIBILITY, newName)
+    showSearchPage(newSearchPageState) {
+      localStorage.setItem(SEARCH_PAGE_VISIBILITY, newSearchPageState)
     }
   }
 }
