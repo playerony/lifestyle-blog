@@ -1,3 +1,4 @@
+export const THEME_MODE = 'active-theme-mode'
 export const SEARCH_PAGE_VISIBILITY = 'search-page-visibility'
 
 export const SEARCH_PAGE_RESULTS = 4
