@@ -85,7 +85,7 @@
 
   &__content {
     grid-gap: $paddingBig;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
     @include grid();
 
@@ -93,8 +93,17 @@
       grid-gap: $paddingMedium;
     }
 
+    @include respond-to('medium') {
+      grid-gap: $paddingSmall;
+      grid-template-columns: 1fr 1fr;
+    }
+
     @include respond-to('small') {
       grid-gap: $paddingSmall;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include respond-to('mobile') {
       grid-template-columns: 1fr;
     }
 

@@ -1,7 +1,7 @@
 .article-card {
-  height: 400px;
+  height: 300px;
   cursor: pointer;
-  max-height: 400px;
+  max-height: 300px;
   position: relative;
   background-color: var(--card-color);
 
@@ -9,12 +9,12 @@
   @include transition(all 500ms linear);
   @include box-shadow(
     9px 9px 16px -12px $gray600,
-    -9px -9px 16px -7px var(--background-color)
+    -9px 9px 16px -7px var(--background-color)
   );
 
   @include respond-to('medium') {
-    height: 300px;
-    max-height: 300px;
+    height: 275px;
+    max-height: 275px;
   }
 
   @include respond-to('mobile') {
@@ -33,11 +33,10 @@
   }
 
   &__content {
-    padding: $paddingBig;
+    padding: $paddingMedium;
     width: calc(100% - 10px);
 
     @include respond-to('medium') {
-      padding: $paddingMedium;
       width: calc(100% - 7px);
     }
 
