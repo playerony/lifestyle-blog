@@ -12,6 +12,10 @@
   }
 
   & .article-card {
-    margin: 0 14px;
+    margin: 0 $paddingMedium;
+
+    @include respond-to('mobile') {
+      margin: 0 $paddingSmall;
+    }
   }
 }
