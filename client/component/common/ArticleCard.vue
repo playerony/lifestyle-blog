@@ -19,12 +19,12 @@ import { SEARCH_PAGE_VISIBILITY } from '@config/constant'
 
 export default {
   name: 'common-article-card',
+  props: {
+    article: { type: Object, required: true }
+  },
   components: {
     Button,
     ArticleDetails
-  },
-  props: {
-    article: { type: Object, required: true }
   },
   methods: {
     redirectToArticle() {
@@ -36,6 +36,7 @@ export default {
       )
 
       this.$router.replace(`/article/${this.article.articleId}`)
+
       this.$router.go()
       window.scrollTo(0, 0)
     }

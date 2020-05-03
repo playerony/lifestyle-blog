@@ -29,6 +29,6 @@
 
 <script>
 export default {
-  name: 'Loader'
+  name: 'common-loader'
 }
 </script>

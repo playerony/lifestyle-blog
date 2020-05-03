@@ -5,104 +5,63 @@
   @include flexbox();
   @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     @include flex-direction(column-reverse);
   }
 
   &__border {
     width: 10px;
 
-    @include linear-gradient(to bottom, $blue600 5%, $purple700 56%, $red300 100%);
+    @include linear-gradient(
+      to bottom,
+      $blue600 5%,
+      $purple700 56%,
+      $red300 100%
+    );
   }
 
   &__content {
     $padding: calc(#{$paddingBig} * 2);
     background-color: var(--card-color);
     width: calc(50% - 5px - #{$paddingBig} * 4);
-    padding: $padding $padding calc(#{$padding} * 2) $padding;
+    padding: $padding $padding calc(#{$padding} * 4) $padding;
 
     @include transition(background-color 500ms linear);
 
-    @include respond-to("medium") {
+    @include respond-to('large') {
+      padding: $padding $padding calc(#{$padding} * 4) $padding;
+    }
+
+    @include respond-to('medium') {
       $padding: calc(#{$paddingMedium} * 2);
       width: calc(50% - 5px - #{$paddingMedium} * 4);
-      padding: $padding $padding calc(#{$padding} * 2) $padding;
+      padding: $padding $padding calc(#{$padding} * 4) $padding;
     }
 
-    @include respond-to("small") {
-      $padding: calc(#{$paddingSmall} * 2);
-      width: calc(50% - 5px - #{$paddingSmall} * 4);
-      padding: $padding $padding calc(#{$padding} * 2) $padding;
+    @include respond-to('small') {
+      width: calc(50% - 5px - #{$paddingMedium} * 2);
+      padding: $paddingMedium $paddingMedium calc(#{$paddingMedium} * 5)
+        $paddingMedium;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       padding: $paddingSmall;
       width: calc(100% - #{$paddingSmall} * 2);
     }
 
-    & > *:not(:first-child) {
-      word-break: break-all;
-      margin-top: $paddingMedium;
-
-      @include respond-to("mobile") {
-        margin-top: $paddingSmall;
-      }
-    }
-
-    & > .content__header {
-      @include flexbox();
-
-      & > .header__info {
-        white-space: nowrap;
-        margin-right: $paddingSmall;
-
-        @include flexbox();
-        @include align-items(center);
-
-        & > svg {
-          width: 24px;
-          height: 24px;
-          fill: var(--icon-color);
-          padding-right: calc(#{$paddingSmall} / 2);
-
-          @include transition(fill 500ms linear);
-
-          @include respond-to("mobile") {
-            width: 21px;
-            height: 21px;
-            padding-right: calc(#{$paddingSmall} / 4);
-          }
-        }
-
-        & > span {
-          color: $green400;
-        }
-
-        & > * {
-          padding-left: 5px;
-
-          @include respond-to("mobile") {
-            padding-left: 3px;
-          }
-        }
-      }
-    }
-
-    & > .content__description {
-      word-break: break-all;
-      margin-top: $paddingSmall;
-
-      @include respond-to("mobile") {
-        margin-top: calc(#{$paddingSmall} / 2);
-      }
-    }
-
     & > .content__button {
       width: initial;
-      padding-left: $paddingBig;
-      padding-right: $paddingBig;
+      margin-top: $paddingBig;
+      padding-left: calc(#{$paddingBig} * 2);
+      padding-right: calc(#{$paddingBig} * 2);
 
-      @include respond-to("mobile") {
+      @include respond-to('medium') {
+        padding-left: calc(#{$paddingMedium} * 2);
+        padding-right: calc(#{$paddingMedium} * 2);
+      }
+
+      @include respond-to('mobile') {
+        margin-top: $paddingMedium;
         padding-left: $paddingMedium;
         padding-right: $paddingMedium;
       }
@@ -115,7 +74,7 @@
     position: relative;
     width: calc(50% - 5px);
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       width: 100%;
     }
   }
