@@ -19,6 +19,8 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 import ArticleCard from '../common/ArticleCard'
 
+import { PINNED_CATEGORY_ID } from '@config/constant'
+
 export default {
   name: 'home-pinned-articles-swiper',
   props: {
@@ -66,7 +68,9 @@ export default {
   methods: {
     getPinnedArticles() {
       return this.articles.filter(article =>
-        article.categoryList.find(category => category.categoryId === 3)
+        article.categoryList.find(
+          category => category.categoryId === PINNED_CATEGORY_ID
+        )
       )
     }
   }
