@@ -7,7 +7,6 @@
       >
         <ArticleCard :article="article" />
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
       <div class="swiper-button-next" slot="button-next"></div>
     </swiper>
@@ -29,7 +28,6 @@ export default {
   data() {
     return {
       swiperOption: {
-        autoHeight: false,
         spaceBetween: 0,
         slidesPerView: 1,
         slidesPerGroup: 1,
