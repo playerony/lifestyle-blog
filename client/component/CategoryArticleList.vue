@@ -1,13 +1,14 @@
 <template>
   <Container>
     <header>
-      <h1>{{ category.name }}</h1>
+      <Title :label="category.name" />
     </header>
     <ArticleList :articles="articles" />
   </Container>
 </template>
 
 <script>
+import Title from './common/Title'
 import Container from './common/Container'
 import ArticleList from './common/ArticleList'
 
@@ -18,6 +19,7 @@ export default {
     articles: { type: Array, required: true }
   },
   components: {
+    Title,
     Container,
     ArticleList
   }

@@ -1,0 +1,33 @@
+.title {
+  padding: $paddingBig 0;
+
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(center);
+
+  @include respond-to('medium') {
+    padding: $paddingMedium 0;
+  }
+
+  @include respond-to('small') {
+    padding: $paddingSmall 0;
+  }
+
+  &:before {
+    height: 5px;
+    content: '';
+    flex: 1 1 0%;
+    margin: 0 $paddingSmall;
+
+    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+  }
+
+  &:after {
+    height: 5px;
+    content: '';
+    flex: 1 1 0%;
+    margin: 0 $paddingSmall;
+
+    @include linear-gradient(94deg, $red300 5%, $purple700 45%, $blue600 104%);
+  }
+}

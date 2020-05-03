@@ -1,6 +1,6 @@
 <template>
   <div class="disqus">
-    <h1 class="disqus__header">Comments</h1>
+    <Title label="Comments" />
     <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
       class="disqus__first-depth"
@@ -15,6 +15,7 @@
 <script>
 import Reply from './Reply'
 import Comment from './Comment'
+import Title from '../common/Title'
 
 import commentListTransformator from '@transformator/commentListTransformator'
 
@@ -22,6 +23,7 @@ export default {
   name: 'Disqus',
   components: {
     Reply,
+    Title,
     Comment
   },
   props: {
