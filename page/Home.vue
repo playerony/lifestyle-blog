@@ -16,7 +16,7 @@ import metricCommentList from '@graphql/query/metricCommentList'
 import articleListTransformator from '@transformator/articleListTransformator'
 
 export default {
-  name: 'HomePage',
+  name: 'page-home',
   components: {
     Home,
     LoadingPage
