@@ -27,7 +27,8 @@ export default {
   data() {
     return {
       swiperOption: {
-        spaceBetween: 10,
+        autoHeight: false,
+        spaceBetween: 0,
         slidesPerView: 1,
         slidesPerGroup: 1,
         watchOverflow: true,
@@ -44,14 +45,14 @@ export default {
         },
         breakpoints: {
           1367: {
-            spaceBetween: 40,
+            spaceBetween: -40,
             slidesPerView: 3,
             slidesPerGroup: 3
           },
           750: {
             slidesPerView: 2,
             slidesPerGroup: 2,
-            spaceBetween: 20
+            spaceBetween: -30
           }
         }
       }

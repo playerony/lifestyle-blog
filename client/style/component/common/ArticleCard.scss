@@ -12,14 +12,9 @@
     -9px 9px 16px -7px var(--background-color)
   );
 
-  @include respond-to('medium') {
-    height: 275px;
-    max-height: 275px;
-  }
-
   @include respond-to('mobile') {
-    height: 200px;
-    max-height: 200px;
+    height: 250px;
+    max-height: 250px;
   }
 
   &__border {
