@@ -1,12 +1,12 @@
 <template>
-  <fragment>
+  <div>
     <Billboard :article="getLastArticle()" />
     <Container>
       <PinnedArticlesSwiper :articles="articles" />
       <Claim />
       <ArticleList :articles="getArticleList()" />
     </Container>
-  </fragment>
+  </div>
 </template>
 
 <script>
@@ -40,7 +40,7 @@ export default {
     getArticleList() {
       return this.articles.filter(
         article =>
-          !article.categoryList?.find(
+          !article.categoryList.find(
             category => category.categoryId === PINNED_CATEGORY_ID
           )
       )
