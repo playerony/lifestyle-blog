@@ -20,12 +20,7 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import ArticleCard from '../common/ArticleCard'
 
 export default {
-  name: 'PinnedArticlesSwiper',
-  components: {
-    Swiper,
-    SwiperSlide,
-    ArticleCard
-  },
+  name: 'home-pinned-articles-swiper',
   props: {
     articles: { type: Array, required: true }
   },
@@ -49,9 +44,9 @@ export default {
         },
         breakpoints: {
           1367: {
+            spaceBetween: 40,
             slidesPerView: 3,
-            slidesPerGroup: 3,
-            spaceBetween: 40
+            slidesPerGroup: 3
           },
           750: {
             slidesPerView: 2,
@@ -61,6 +56,11 @@ export default {
         }
       }
     }
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+    ArticleCard
   },
   methods: {
     getPinnedArticles() {

@@ -1,12 +1,17 @@
 .pinned-articles-swiper {
   overflow: hidden;
+  position: relative;
   padding: $paddingBig 0;
 
-  @include respond-to("medium") {
+  @include respond-to('medium') {
     padding: $paddingMedium 0;
   }
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     padding: $paddingSmall 0;
+  }
+
+  & .article-card {
+    margin: 0 14px;
   }
 }
