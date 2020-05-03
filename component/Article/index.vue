@@ -27,7 +27,6 @@
           <label class="content__description">{{ article.description }}</label>
         </header>
         <div id="article-content" v-html="content" class="article__content" />
-        <div class="article__border" />
         <Disqus
           :comments="comments"
           :handleReply="handleReply"
