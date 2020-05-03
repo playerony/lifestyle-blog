@@ -1,9 +1,9 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 
 import Billboard from '../Billboard'
 
 const setUp = () =>
-  mount(Billboard, {
+  shallowMount(Billboard, {
     propsData: { article: ARTICLE_MOCK }
   })
 
@@ -18,6 +18,25 @@ describe('Billboard Component', () => {
     const wrapper = setUp()
 
     expect(wrapper.isVueInstance()).toBeTruthy()
+  })
+
+  it('should render details about the article', () => {
+    const wrapper = setUp()
+
+    expect(wrapper.find('articledetails-stub').exists()).toBeTruthy()
+  })
+
+  it('should render read now button', () => {
+    const wrapper = setUp()
+
+    expect(wrapper.find('button-stub').exists()).toBeTruthy()
+    expect(wrapper.find('button-stub').text()).toEqual('Read now')
+  })
+
+  it('should render article image', () => {
+    const wrapper = setUp()
+
+    expect(wrapper.find('img').attributes().src).toEqual('photoUrl')
   })
 })
 

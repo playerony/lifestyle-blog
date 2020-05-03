@@ -24,12 +24,12 @@
     $padding: calc(#{$paddingBig} * 2);
     background-color: var(--card-color);
     width: calc(50% - 5px - #{$paddingBig} * 4);
-    padding: $padding $padding calc(#{$padding} * 4) $padding;
+    padding: $padding $padding calc(#{$padding} * 3) $padding;
 
     @include transition(background-color 500ms linear);
 
     @include respond-to('large') {
-      padding: $padding $padding calc(#{$padding} * 4) $padding;
+      padding: $padding $padding calc(#{$padding} * 3) $padding;
     }
 
     @include respond-to('medium') {
