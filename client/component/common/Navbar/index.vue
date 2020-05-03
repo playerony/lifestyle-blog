@@ -80,14 +80,20 @@ export default {
         const articleContent = document.getElementById('article-content')
 
         if (articleContent) {
-          this.progress = Math.min(
-            ((currentScrollPosition +
-              window.outerHeight -
-              200 -
-              articleContent.offsetTop) *
-              100) /
-              articleContent.scrollHeight,
-            100
+          const currentArticlePosition =
+            currentScrollPosition - articleContent.offsetTop
+
+          if (
+            currentArticlePosition < 0 ||
+            currentArticlePosition > articleContent.scrollHeight
+          ) {
+            this.progress = 0
+
+            return
+          }
+
+          this.progress = Math.round(
+            (currentArticlePosition * 100) / articleContent.scrollHeight
           )
         }
       }
