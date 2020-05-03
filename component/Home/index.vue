@@ -40,7 +40,7 @@ export default {
     getArticleList() {
       return this.articles.filter(
         article =>
-          !article.categoryList.find(
+          !article.categoryList?.find(
             category => category.categoryId === PINNED_CATEGORY_ID
           )
       )
