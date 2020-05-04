@@ -1,0 +1,29 @@
+.category-article-list {
+  position: relative;
+
+  &__header {
+    @include flexbox();
+    @include align-items(center);
+    @include flex-direction(column);
+    @include justify-content(center);
+  }
+
+  &__icon {
+    width: 100px;
+    height: 100px;
+    fill: var(--icon-color);
+    padding: $paddingMedium 0;
+
+    @include transition(fill 500ms linear);
+
+    @include respond-to('small') {
+      width: 80px;
+      height: 80px;
+      padding: $paddingSmall 0;
+    }
+
+    @include respond-to('mobile') {
+      padding-bottom: 0;
+    }
+  }
+}

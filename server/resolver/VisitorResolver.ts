@@ -15,6 +15,7 @@ export default class VisitorResolver {
     return this.visitorService.findAll(onlyArticles)
   }
 
+  @Query(type => [VisitorType])
   async visitorListByCategoryId(
     @Arg('categoryId', type => Int) categoryId: number
   ): Promise<VisitorType[]> {

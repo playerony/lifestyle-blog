@@ -14,7 +14,7 @@ import LoadingPage from './Loading'
 import CategoryArticleList from '@component/CategoryArticleList'
 
 import articleListQuery from '@graphql/query/articleList'
-import visitorListQuery from '@graphql/query/visitorList'
+import categoryVisitorListQuery from '@graphql/query/categoryVisitorList'
 import categoryListQuery from '@graphql/query/categoryList'
 import metricCommentList from '@graphql/query/metricCommentList'
 
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       articleList: [],
-      visitorList: [],
+      visitorListByCategoryId: [],
       commentList: [],
       categoryList: [],
       categoryId: Number(this.$route.params.categoryId)
@@ -37,15 +37,22 @@ export default {
   },
   apollo: {
     articleList: articleListQuery,
-    visitorList: visitorListQuery,
     categoryList: categoryListQuery,
-    commentList: metricCommentList
+    commentList: metricCommentList,
+    visitorListByCategoryId: {
+      ...categoryVisitorListQuery,
+      variables() {
+        return {
+          categoryId: this.categoryId
+        }
+      }
+    }
   },
   methods: {
     isLoading() {
       return (
         this.$apollo.queries.articleList.loading ||
-        this.$apollo.queries.visitorList.loading ||
+        this.$apollo.queries.visitorListByCategoryId.loading ||
         this.$apollo.queries.categoryList.loading ||
         this.$apollo.queries.commentList.loading
       )
@@ -62,11 +69,9 @@ export default {
         )
       )
 
-      console.warn(categoryArticles, this.visitorList, this.commentList)
-
       return articleListTransformator(
         categoryArticles,
-        this.visitorList,
+        this.visitorListByCategoryId,
         this.commentList
       )
     }
