@@ -1,8 +1,8 @@
 <template>
-  <fragment>
+  <div>
     <LoadingPage v-if="isLoading()" />
     <Home v-if="!isLoading()" :articles="getArticleList()" />
-  </fragment>
+  </div>
 </template>
 
 <script>

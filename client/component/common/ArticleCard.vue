@@ -38,7 +38,6 @@ export default {
       this.$router.replace(`/article/${this.article.articleId}`)
 
       this.$router.go()
-      window.scrollTo(0, 0)
     }
   }
 }
