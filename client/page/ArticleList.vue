@@ -3,8 +3,8 @@
     <LoadingPage v-if="isLoading()" />
     <CategoryArticleList
       v-if="!isLoading()"
-      :category="getCategory()"
       :articles="getArticleList()"
+      :category="getCategoryDetails()"
     />
   </div>
 </template>
@@ -14,9 +14,9 @@ import LoadingPage from './Loading'
 import CategoryArticleList from '@component/CategoryArticleList'
 
 import articleListQuery from '@graphql/query/articleList'
-import categoryVisitorListQuery from '@graphql/query/categoryVisitorList'
 import categoryListQuery from '@graphql/query/categoryList'
 import metricCommentList from '@graphql/query/metricCommentList'
+import categoryVisitorListQuery from '@graphql/query/categoryVisitorList'
 
 import articleListTransformator from '@transformator/articleListTransformator'
 
@@ -52,12 +52,12 @@ export default {
     isLoading() {
       return (
         this.$apollo.queries.articleList.loading ||
-        this.$apollo.queries.visitorListByCategoryId.loading ||
+        this.$apollo.queries.commentList.loading ||
         this.$apollo.queries.categoryList.loading ||
-        this.$apollo.queries.commentList.loading
+        this.$apollo.queries.visitorListByCategoryId.loading
       )
     },
-    getCategory() {
+    getCategoryDetails() {
       return this.categoryList.find(
         category => category.categoryId === this.categoryId
       )
