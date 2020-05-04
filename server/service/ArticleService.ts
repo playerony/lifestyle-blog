@@ -110,4 +110,20 @@ export default class ArticleService {
 
     return result.map(articleMapping) as ArticleType[]
   }
+
+  async findAllByCategoryId(categoryId: number): Promise<ArticleType[]> {
+    const result = await Article.scope([
+      'withImage',
+      'withCategoryList'
+    ]).findAll<ArticleModel>({
+      include: [
+        {
+          association: 'categoryList',
+          where: { categoryId }
+        }
+      ]
+    })
+
+    return result.map(articleMapping) as ArticleType[]
+  }
 }
