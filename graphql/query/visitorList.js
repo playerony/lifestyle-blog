@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 const VISITOR_LIST_QUERY = gql`
   query {
-    visitorList {
+    visitorList(onlyArticles: true) {
       articleId
       ipAddress
       userAgent
