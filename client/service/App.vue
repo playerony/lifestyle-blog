@@ -8,17 +8,20 @@
         </keep-alive>
       </transition>
     </main>
+    <ScrollTopButton />
     <portal-target name="modals"></portal-target>
   </div>
 </template>
 
 <script>
 import Navbar from '@component/common/Navbar'
+import ScrollTopButton from '@component/common/ScrollTopButton'
 
 export default {
   name: 'App',
   components: {
-    Navbar
+    Navbar,
+    ScrollTopButton
   }
 }
 </script>
