@@ -1,10 +1,10 @@
-export default (
-  position = {
+export default (behavior = 'smooth') => {
+  const position = {
     top: 0,
     left: 0,
-    behavior: 'smooth'
+    behavior
   }
-) => {
+
   try {
     window.scroll(position)
   } catch (error) {

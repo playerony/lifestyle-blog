@@ -32,6 +32,10 @@ const router = new VueRouter({
 router.beforeEach(function(to, from, next) {
   scrollToTop()
 
+  setTimeout(() => {
+    scrollToTop('auto')
+  }, 250)
+
   next()
 })
 
