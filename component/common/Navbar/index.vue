@@ -20,6 +20,7 @@ import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 
 import checkElement from '@utility/checkElement'
+import getCurrentScrollPosition from '@utility/getCurrentScrollPosition'
 
 import routeList from '@config/routeList'
 
@@ -69,8 +70,7 @@ export default {
       })
     },
     calculateProgress() {
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
+      const currentScrollPosition = getCurrentScrollPosition()
 
       if (currentScrollPosition < 0) {
         return
