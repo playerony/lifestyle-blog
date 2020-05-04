@@ -1,3 +1,5 @@
+import { Op, WhereOptions } from 'sequelize'
+
 import { Visitor } from '@model/Visitor'
 
 import Context from '@type/Context'
@@ -31,8 +33,17 @@ export default class VisitorService {
     return visitorMapping(createdVisitor)
   }
 
-  async findAll(): Promise<VisitorType[]> {
-    const visitorList = await Visitor.findAll<VisitorModel>()
+  async findAll(onlyArticles?: boolean): Promise<VisitorType[]> {
+    const whereOptions: WhereOptions = {}
+    if (onlyArticles !== undefined) {
+      whereOptions.articleId = {
+        [Op.not]: null
+      }
+    }
+
+    const visitorList = await Visitor.findAll<VisitorModel>({
+      where: whereOptions
+    })
 
     return visitorList.map(visitorMapping)
   }

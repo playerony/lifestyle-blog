@@ -1,4 +1,4 @@
-import { Resolver, Query } from 'type-graphql'
+import { Resolver, Query, Arg } from 'type-graphql'
 
 import VisitorService from '@service/VisitorService'
 
@@ -9,7 +9,9 @@ export default class VisitorResolver {
   constructor(private visitorService: VisitorService = new VisitorService()) {}
 
   @Query(type => [VisitorType])
-  async visitorList(): Promise<VisitorType[]> {
-    return this.visitorService.findAll()
+  async visitorList(
+    @Arg('onlyArticles', type => Boolean) onlyArticles: boolean
+  ): Promise<VisitorType[]> {
+    return this.visitorService.findAll(onlyArticles)
   }
 }
