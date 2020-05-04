@@ -1,12 +1,12 @@
 <template>
-  <fragment>
+  <div>
     <LoadingPage v-if="isLoading()" />
     <CategoryArticleList
       v-if="!isLoading()"
       :category="getCategory()"
       :articles="getArticleList()"
     />
-  </fragment>
+  </div>
 </template>
 
 <script>

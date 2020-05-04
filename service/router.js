@@ -5,11 +5,13 @@ import Home from '@page/Home'
 import Article from '@page/Article'
 import ArticleList from '@page/ArticleList'
 
+import scrollToTop from '@utility/scrollToTop'
+
 import routeList from '@config/routeList'
 
 Vue.use(VueRouter)
 
-export default new VueRouter({
+const router = new VueRouter({
   mode: 'history',
   routes: [
     {
@@ -24,8 +26,13 @@ export default new VueRouter({
       component: ArticleList,
       path: routeList.articles
     }
-  ],
-  scrollBehavior() {
-    return { x: 0, y: 0 }
-  }
+  ]
 })
+
+router.beforeEach(function(to, from, next) {
+  scrollToTop()
+
+  next()
+})
+
+export default router

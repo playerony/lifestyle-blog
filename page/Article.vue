@@ -1,5 +1,5 @@
 <template>
-  <fragment>
+  <div>
     <LoadingPage v-if="isLoading()" />
     <Article
       v-if="!isLoading()"
@@ -9,7 +9,7 @@
       :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
     />
-  </fragment>
+  </div>
 </template>
 
 <script>

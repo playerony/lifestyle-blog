@@ -40,3 +40,13 @@
 
   @include transform(scale(1.1));
 }
+
+.fade-enter-active,
+.fade-leave-active {
+  @include transition(opacity 500ms);
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}

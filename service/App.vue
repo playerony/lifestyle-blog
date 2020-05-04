@@ -2,7 +2,11 @@
   <div id="root" class="app">
     <Navbar />
     <main class="app__content">
-      <router-view />
+      <transition name="fade" mode="out-in" appear>
+        <keep-alive>
+          <router-view />
+        </keep-alive>
+      </transition>
     </main>
     <portal-target name="modals"></portal-target>
   </div>
