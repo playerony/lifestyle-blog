@@ -27,12 +27,21 @@
         :class="'content__expand-icon ' + getArrowStyle"
         @click="isReplyVisible = !isReplyVisible"
       />
+      {{ comment.likes }}
+      <button @click="handleAddCommentLike(comment.commentId)">
+        ADD LIKE
+      </button>
+      <button @click="handleRemoveCommentLike(comment.commentId)">
+        REMOVE LIKE
+      </button>
     </div>
     <Comment
       v-for="comment in comment.comments"
       :key="comment.commentId"
       :comment="comment"
       :handleReply="handleReply"
+      :handleAddCommentLike="handleAddCommentLike"
+      :handleRemoveCommentLike="handleRemoveCommentLike"
     />
   </div>
 </template>
@@ -49,7 +58,9 @@ export default {
   name: 'Comment',
   props: {
     comment: { type: Object, required: true },
-    handleReply: { type: Function, required: true }
+    handleReply: { type: Function, required: true },
+    handleAddCommentLike: { type: Function, required: true },
+    handleRemoveCommentLike: { type: Function, required: true }
   },
   data() {
     return {

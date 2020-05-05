@@ -56,8 +56,8 @@ export default class CommentResolver {
 
   @Mutation(type => Int)
   async decrementCommentLikes(
-    @Arg('articleId', type => Int) articleId: number
+    @Arg('commentId', type => Int) commentId: number
   ): Promise<number> {
-    return this.commentService.decrementCommentLikes(articleId)
+    return this.commentService.decrementCommentLikes(commentId)
   }
 }

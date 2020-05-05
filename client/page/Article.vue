@@ -6,10 +6,12 @@
       v-if="!isLoading()"
       :article="articleById"
       :handleReply="handleReply"
-      :handleAddLike="handleAddLike"
       :details="getArticleDetails()"
       :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
+      :handleAddLike="handleArticleLike"
+      :handleAddCommentLike="handleAddCommentLike"
+      :handleRemoveCommentLike="handleRemoveCommentLike"
     />
   </div>
 </template>
@@ -25,6 +27,8 @@ import visitorListQuery from '@graphql/query/visitorList'
 import articleCommentListQuery from '@graphql/query/articleCommentList'
 import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
 import { INCREMENT_ARTICLE_LIKES_MUTATION } from '@graphql/mutation/incrementArticleLikes'
+import { INCREMENT_COMMENT_LIKES_MUTATION } from '@graphql/mutation/incrementCommentLikes'
+import { DECREMENT_COMMENT_LIKES_MUTATION } from '@graphql/mutation/decrementCommentLikes'
 
 import tryParseJSON from '@utility/tryParseJSON'
 
@@ -139,7 +143,7 @@ export default {
           }
         })
     },
-    handleAddLike() {
+    handleArticleLike() {
       if (this.isLike) {
         return
       }
@@ -158,6 +162,54 @@ export default {
           this.articleById = {
             ...this.articleById,
             likes: currentArticleLikes
+          }
+        })
+    },
+    handleAddCommentLike(commentId) {
+      this.$apollo
+        .mutate({
+          mutation: INCREMENT_COMMENT_LIKES_MUTATION,
+          variables: {
+            commentId
+          }
+        })
+        .then(response => {
+          const currentCommentLikes = response.data.incrementCommentLikes
+
+          const commentWithErrorData = this.commentListByArticleId.findIndex(
+            comment => comment.commentId === commentId
+          )
+
+          if (commentWithErrorData !== -1) {
+            Vue.set(
+              this.commentListByArticleId[commentWithErrorData],
+              'likes',
+              currentCommentLikes
+            )
+          }
+        })
+    },
+    handleRemoveCommentLike(commentId) {
+      this.$apollo
+        .mutate({
+          mutation: DECREMENT_COMMENT_LIKES_MUTATION,
+          variables: {
+            commentId
+          }
+        })
+        .then(response => {
+          const currentCommentLikes = response.data.decrementCommentLikes
+
+          const commentWithErrorData = this.commentListByArticleId.findIndex(
+            comment => comment.commentId === commentId
+          )
+
+          if (commentWithErrorData !== -1) {
+            Vue.set(
+              this.commentListByArticleId[commentWithErrorData],
+              'likes',
+              currentCommentLikes
+            )
           }
         })
     }

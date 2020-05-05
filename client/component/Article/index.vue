@@ -23,6 +23,8 @@
           :comments="comments"
           :handleReply="handleReply"
           :replyErrorData="replyErrorData"
+          :handleAddCommentLike="handleAddCommentLike"
+          :handleRemoveCommentLike="handleRemoveCommentLike"
         />
       </div>
       <Sidebar :categories="article.categoryList" />
@@ -50,7 +52,9 @@ export default {
     isLike: { type: Boolean, required: true },
     handleReply: { type: Function, required: true },
     replyErrorData: { type: Object, required: true },
-    handleAddLike: { type: Function, required: true }
+    handleAddLike: { type: Function, required: true },
+    handleAddCommentLike: { type: Function, required: true },
+    handleRemoveCommentLike: { type: Function, required: true }
   },
   data() {
     const customEntityTransform = (entity, text) => {
