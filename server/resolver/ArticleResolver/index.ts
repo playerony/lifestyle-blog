@@ -60,6 +60,13 @@ export default class ArticleResolver {
     return this.articleService.togglePublicFlag(articleId, isPublic)
   }
 
+  @Mutation(type => Int)
+  async incrementArticleLikes(
+    @Arg('articleId', type => Int) articleId: number
+  ): Promise<number> {
+    return this.articleService.incrementArticleLikes(articleId)
+  }
+
   @Query(type => [ArticleType])
   async articleList(
     @Ctx() context: Context,

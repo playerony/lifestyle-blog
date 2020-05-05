@@ -5,12 +5,12 @@
     padding-left: calc(#{$paddingBig} * 2);
     width: calc(100% - #{$paddingBig} * 2);
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       padding-left: calc(#{$paddingMedium} * 2);
       width: calc(100% - #{$paddingMedium} * 2);
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       padding: 0;
       width: 100%;
     }
@@ -26,21 +26,21 @@
 
       @include font-size(24px);
 
-      @include respond-to("large") {
+      @include respond-to('large') {
         @include font-size(22px);
       }
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         @include font-size(20px);
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         line-height: 1.5;
 
         @include font-size(19px);
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         @include font-size(18px);
       }
     }
@@ -48,7 +48,7 @@
     & > * {
       padding: $paddingMedium 0;
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         padding: $paddingSmall 0;
       }
 
@@ -66,7 +66,7 @@
     blockquote {
       margin: $paddingMedium 0;
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         margin: $paddingSmall 0;
       }
     }
@@ -82,16 +82,16 @@
       border-left: 10px solid $purple700;
       padding: $paddingMedium 0 $paddingMedium $paddingBig;
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         padding: 0 $paddingMedium;
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         padding: $paddingSmall $paddingMedium;
         padding-right: 0;
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         border-width: 5px;
         padding: calc(#{$paddingSmall} / 2) $paddingSmall;
         padding-right: 0;
@@ -109,21 +109,21 @@
       @include font-size(23px);
       @include border-radius(4px);
 
-      @include respond-to("large") {
+      @include respond-to('large') {
         @include font-size(21px);
       }
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         @include font-size(19px);
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         padding: 4px 8px;
 
         @include font-size(18px);
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         padding: 2px 6px;
 
         @include font-size(17px);
@@ -141,26 +141,41 @@
     }
   }
 
-  &__border {
-    width: 92%;
-    height: 5px;
-    margin: $paddingMedium auto;
+  &__likes {
+    cursor: pointer;
+    width: fit-content;
 
-    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+    @include flexbox();
+    @include align-items(center);
 
-    @include respond-to("small") {
-      margin: $paddingSmall auto;
+    & > svg {
+      width: 40px;
+      height: 40px;
+      fill: $red500;
+      margin-right: 10px;
+
+      @include respond-to('mobile') {
+        margin-right: 5px;
+      }
+    }
+
+    & > #heart:hover {
+      fill: $purple700;
+    }
+
+    & > label {
+      color: var(--text-color);
     }
   }
 
   &__header {
     padding: $paddingBig 0;
 
-    @include respond-to("small") {
+    @include respond-to('small') {
       padding: $paddingMedium 0;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       padding: $paddingSmall 0;
     }
 
@@ -168,7 +183,7 @@
       word-break: break-all;
       margin-top: $paddingMedium;
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         margin-top: $paddingSmall;
       }
     }
@@ -191,7 +206,7 @@
 
           @include transition(fill 500ms linear);
 
-          @include respond-to("mobile") {
+          @include respond-to('mobile') {
             width: 21px;
             height: 21px;
             padding-right: calc(#{$paddingSmall} / 4);
@@ -205,7 +220,7 @@
         & > * {
           padding-left: 5px;
 
-          @include respond-to("mobile") {
+          @include respond-to('mobile') {
             padding-left: 3px;
           }
         }

@@ -2,9 +2,11 @@
   <div>
     <LoadingPage v-if="isLoading()" />
     <Article
+      :isLike="isLike"
       v-if="!isLoading()"
       :article="articleById"
       :handleReply="handleReply"
+      :handleAddLike="handleAddLike"
       :details="getArticleDetails()"
       :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
@@ -22,6 +24,7 @@ import articleQuery from '@graphql/query/article'
 import visitorListQuery from '@graphql/query/visitorList'
 import articleCommentListQuery from '@graphql/query/articleCommentList'
 import { CREATE_COMMENT_MUTATION } from '@graphql/mutation/createComment'
+import { INCREMENT_ARTICLE_LIKES_MUTATION } from '@graphql/mutation/incrementArticleLikes'
 
 import tryParseJSON from '@utility/tryParseJSON'
 
@@ -35,6 +38,7 @@ export default {
   },
   data() {
     return {
+      isLike: false,
       visitorList: [],
       articleById: {},
       replyErrorData: {},
@@ -132,6 +136,28 @@ export default {
                 )
               }
             }
+          }
+        })
+    },
+    handleAddLike() {
+      if (this.isLike) {
+        return
+      }
+
+      this.$apollo
+        .mutate({
+          mutation: INCREMENT_ARTICLE_LIKES_MUTATION,
+          variables: {
+            articleId: this.articleId
+          }
+        })
+        .then(response => {
+          const currentArticleLikes = response.data.incrementArticleLikes
+
+          this.isLike = true
+          this.articleById = {
+            ...this.articleById,
+            likes: currentArticleLikes
           }
         })
     }

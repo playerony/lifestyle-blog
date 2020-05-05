@@ -127,7 +127,7 @@ export default class ArticleService {
     return result.map(articleMapping) as ArticleType[]
   }
 
-  async incrementArticleLikes(articleId: number): Promise<ArticleType | null> {
+  async incrementArticleLikes(articleId: number): Promise<number> {
     const foundArticle = await this.findById(articleId)
     if (!foundArticle) {
       throw new ValidationError({
@@ -142,6 +142,6 @@ export default class ArticleService {
       { where: { articleId } }
     )
 
-    return this.findById(articleId)
+    return foundArticle.likes! + 1
   }
 }
