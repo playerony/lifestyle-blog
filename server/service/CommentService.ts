@@ -62,7 +62,7 @@ export default class CommentService {
     return foundComment ? commentMapping(foundComment) : null
   }
 
-  async incrementCommentLikes(commentId: number): Promise<CommentType | null> {
+  async incrementCommentLikes(commentId: number): Promise<number> {
     const foundComment = await this.findById(commentId)
     if (!foundComment) {
       throw new ValidationError({
@@ -75,10 +75,10 @@ export default class CommentService {
       { where: { commentId } }
     )
 
-    return this.findById(commentId)
+    return foundComment.likes! + 1
   }
 
-  async decrementCommentLikes(commentId: number): Promise<CommentType | null> {
+  async decrementCommentLikes(commentId: number): Promise<number> {
     const foundComment = await this.findById(commentId)
     if (!foundComment) {
       throw new ValidationError({
@@ -91,6 +91,6 @@ export default class CommentService {
       { where: { commentId } }
     )
 
-    return this.findById(commentId)
+    return foundComment.likes! - 1
   }
 }

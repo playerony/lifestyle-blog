@@ -46,4 +46,18 @@ export default class CommentResolver {
 
     return this.commentService.update(commentId, comment)
   }
+
+  @Mutation(type => Int)
+  async incrementCommentLikes(
+    @Arg('commentId', type => Int) commentId: number
+  ): Promise<number> {
+    return this.commentService.incrementCommentLikes(commentId)
+  }
+
+  @Mutation(type => Int)
+  async decrementCommentLikes(
+    @Arg('articleId', type => Int) articleId: number
+  ): Promise<number> {
+    return this.commentService.decrementCommentLikes(articleId)
+  }
 }
