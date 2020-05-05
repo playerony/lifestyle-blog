@@ -8,6 +8,8 @@
       :key="comment.commentId"
       :comment="comment"
       :handleReply="handleReply"
+      :handleAddCommentLike="handleAddCommentLike"
+      :handleRemoveCommentLike="handleRemoveCommentLike"
     />
   </div>
 </template>
@@ -29,7 +31,9 @@ export default {
   props: {
     comments: { type: Array, required: true },
     handleReply: { type: Function, required: true },
-    replyErrorData: { type: Object, required: false }
+    replyErrorData: { type: Object, required: false },
+    handleAddCommentLike: { type: Function, required: true },
+    handleRemoveCommentLike: { type: Function, required: true }
   },
   methods: {
     getCommentList() {
