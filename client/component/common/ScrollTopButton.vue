@@ -1,10 +1,7 @@
 <template>
-  <button
-    @click="handleButtonClick"
-    :class="'scroll-top-button ' + buttonStyle"
-  >
+  <div @click="handleButtonClick" :class="'scroll-top-button ' + buttonStyle">
     <DynamicIcon icon="left-arrow" class="scroll-top-button__icon" />
-  </button>
+  </div>
 </template>
 
 <script>

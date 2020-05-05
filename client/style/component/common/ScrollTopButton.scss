@@ -1,0 +1,49 @@
+.scroll-top-button {
+  --size: calc(#{$paddingBig} * 2);
+
+  opacity: 1;
+  cursor: pointer;
+  position: fixed;
+  right: $paddingBig;
+  bottom: $paddingBig;
+  width: var(--size);
+  height: var(--size);
+  background-color: $purple700;
+
+  @include flexbox();
+  @include border-radius(100%);
+  @include justify-content(center);
+  @include transition(all 500ms linear);
+
+  @include respond-to('medium') {
+    --size: 100px;
+    right: $paddingMedium;
+    bottom: $paddingMedium;
+  }
+
+  @include respond-to('small') {
+    --size: 80px;
+    @include font-size(19px);
+  }
+
+  @include respond-to('mobile') {
+    --size: 60px;
+    right: $paddingSmall;
+    bottom: $paddingSmall;
+  }
+
+  &:hover {
+    background-color: $blue600;
+  }
+
+  &__icon {
+    width: 40%;
+    fill: $white;
+
+    @include transform(rotateZ(90deg));
+  }
+
+  &--hidden {
+    opacity: 0;
+  }
+}
