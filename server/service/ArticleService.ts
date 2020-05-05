@@ -1,4 +1,4 @@
-import { WhereOptions } from 'sequelize'
+import { WhereOptions, literal } from 'sequelize'
 
 import { Article } from '@model/Article'
 import { ArticleCategory } from '@model/ArticleCategory'
@@ -125,5 +125,16 @@ export default class ArticleService {
     })
 
     return result.map(articleMapping) as ArticleType[]
+  }
+
+  async incrementArticleLikes(articleId: number): Promise<ArticleType | null> {
+    await Article.update<ArticleModel>(
+      {
+        likes: literal('likes +1')
+      },
+      { where: { articleId } }
+    )
+
+    return this.findById(articleId)
   }
 }
