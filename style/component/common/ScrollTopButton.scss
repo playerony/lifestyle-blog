@@ -23,7 +23,6 @@
 
   @include respond-to('small') {
     --size: 80px;
-    @include font-size(19px);
   }
 
   @include respond-to('mobile') {
