@@ -2,31 +2,23 @@
   <div class="article">
     <Container>
       <div class="article__content-wrapper">
-        <header class="article__header">
-          <header class="content__header">
-            <p class="header__info" v-if="details.totalVisitors">
-              <EyeSVG />
-              {{ details.totalVisitors }}
-              <span v-if="details.todayVisitors">
-                (+{{ details.todayVisitors }})
-              </span>
-            </p>
-            <p class="header__info" v-if="article.readingTime">
-              <ClockSVG />
-              {{ article.readingTime }} min
-            </p>
-            <p class="header__info" v-if="details.totalComments">
-              <ReplySVG />
-              {{ details.totalComments }}
-              <span v-if="details.todayComments">
-                (+{{ details.todayComments }})
-              </span>
-            </p>
-          </header>
-          <h1>{{ article.title }}</h1>
-          <label class="content__description">{{ article.description }}</label>
-        </header>
+        <ArticleDetails
+          class="article__header"
+          :article="{ ...article, ...details }"
+        />
         <div id="article-content" v-html="content" class="article__content" />
+        <div class="article__likes">
+          <transition name="fade" mode="out-in">
+            <HeartSVG
+              id="heart"
+              key="heart"
+              v-if="!isLike"
+              @click="handleAddLike"
+            />
+            <HeartRedSVG key="heard-red" v-if="isLike" />
+          </transition>
+          <label>{{ article.likes }}</label>
+        </div>
         <Disqus
           :comments="comments"
           :handleReply="handleReply"
@@ -39,14 +31,15 @@
 </template>
 
 <script>
+import draftToHtml from 'draftjs-to-html'
+
 import Disqus from './Disqus'
 import Sidebar from './Sidebar'
-import EyeSVG from '@asset/svg/eye.svg'
-import ClockSVG from '@asset/svg/clock.svg'
-import ReplySVG from '@asset/svg/reply.svg'
 import Container from '../common/Container'
+import ArticleDetails from '../common/ArticleDetails'
 
-import draftToHtml from 'draftjs-to-html'
+import HeartSVG from '@asset/svg/heart.svg'
+import HeartRedSVG from '@asset/svg/heart-red.svg'
 
 export default {
   name: 'Article',
@@ -54,16 +47,10 @@ export default {
     details: { type: Object, required: true },
     article: { type: Object, required: true },
     comments: { type: Array, required: true },
+    isLike: { type: Boolean, required: true },
     handleReply: { type: Function, required: true },
-    replyErrorData: { type: Object, required: true }
-  },
-  components: {
-    EyeSVG,
-    Disqus,
-    ClockSVG,
-    ReplySVG,
-    Container,
-    Sidebar
+    replyErrorData: { type: Object, required: true },
+    handleAddLike: { type: Function, required: true }
   },
   data() {
     const customEntityTransform = (entity, text) => {
@@ -86,6 +73,14 @@ export default {
         customEntityTransform
       )
     }
+  },
+  components: {
+    Disqus,
+    Sidebar,
+    HeartSVG,
+    Container,
+    HeartRedSVG,
+    ArticleDetails
   }
 }
 </script>

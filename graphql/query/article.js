@@ -4,6 +4,7 @@ const ARTICLE_QUERY = gql`
   query ArticleById($articleId: Int) {
     articleById(articleId: $articleId) {
       title
+      likes
       content
       description
       readingTime
