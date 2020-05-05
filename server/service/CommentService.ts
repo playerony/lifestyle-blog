@@ -1,3 +1,5 @@
+import { literal } from 'sequelize'
+
 import { Comment } from '@model/Comment'
 
 import { CommentType, CommentModel, CommentSaveRequest } from '@type/Comment'
@@ -30,7 +32,7 @@ export default class CommentService {
       {
         ...comment
       },
-      { where: { commentId }, individualHooks: true }
+      { where: { commentId } }
     )
 
     return this.findById(commentId)
@@ -58,5 +60,37 @@ export default class CommentService {
     })
 
     return foundComment ? commentMapping(foundComment) : null
+  }
+
+  async incrementCommentLikes(commentId: number): Promise<CommentType | null> {
+    const foundComment = await this.findById(commentId)
+    if (!foundComment) {
+      throw new ValidationError({
+        commentId: ['No such comment found.']
+      })
+    }
+
+    await Comment.update<CommentModel>(
+      { likes: literal('likes +1') },
+      { where: { commentId } }
+    )
+
+    return this.findById(commentId)
+  }
+
+  async decrementCommentLikes(commentId: number): Promise<CommentType | null> {
+    const foundComment = await this.findById(commentId)
+    if (!foundComment) {
+      throw new ValidationError({
+        commentId: ['No such comment found.']
+      })
+    }
+
+    await Comment.update<CommentModel>(
+      { likes: literal('likes -1') },
+      { where: { commentId } }
+    )
+
+    return this.findById(commentId)
   }
 }

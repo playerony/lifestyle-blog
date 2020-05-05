@@ -128,6 +128,13 @@ export default class ArticleService {
   }
 
   async incrementArticleLikes(articleId: number): Promise<ArticleType | null> {
+    const foundArticle = await this.findById(articleId)
+    if (!foundArticle) {
+      throw new ValidationError({
+        articleId: ['No such article found.']
+      })
+    }
+
     await Article.update<ArticleModel>(
       {
         likes: literal('likes +1')
