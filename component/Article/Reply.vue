@@ -1,15 +1,15 @@
 <template>
   <div class="reply">
-    <h2 class="reply__header">Leave a reply</h2>
+    <h2 class="reply__header">
+      Leave a reply
+    </h2>
     <Input
-      key="input"
       label="Creator"
       v-model="creator"
       placeholder="Your name..."
       :errorMessage="getCreatorFieldError()"
     />
     <Textarea
-      key="textarea"
       label="Content"
       v-model="content"
       placeholder="Join the discussion..."
@@ -36,8 +36,8 @@ export default {
     Textarea
   },
   props: {
-    errorData: { type: Object, required: false },
     handleReply: { type: Function, required: true },
+    errorData: { type: Object, required: false, default: () => {} },
     parentCommentId: { type: Number, required: false, default: null }
   },
   data() {
