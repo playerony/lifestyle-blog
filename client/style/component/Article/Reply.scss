@@ -8,12 +8,12 @@
     width: initial;
     padding: $paddingSmall $paddingBig;
 
-    @include respond-to("mobile") {
+    @include respond-to('mobile') {
       padding: calc(#{$paddingSmall} / 2) $paddingMedium;
     }
   }
 
   &__header {
-    padding: $paddingSmall 0;
+    padding: $paddingSmall;
   }
 }

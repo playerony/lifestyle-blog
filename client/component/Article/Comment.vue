@@ -83,7 +83,7 @@ export default {
   computed: {
     arrowStyle() {
       if (this.isReplyFormVisible) {
-        return 'content__expand-icon--open'
+        return 'footer__expand-icon--open'
       }
 
       return ''

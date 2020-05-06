@@ -8,8 +8,8 @@
       :key="comment.commentId"
       :comment="comment"
       :handleReply="handleReply"
-      :handleLikeComment="handleAddCommentLike"
-      :handleDislikeComment="handleRemoveCommentLike"
+      :handleLikeComment="handleLikeComment"
+      :handleDislikeComment="handleDislikeComment"
     />
   </div>
 </template>
@@ -32,8 +32,8 @@ export default {
     comments: { type: Array, required: true },
     handleReply: { type: Function, required: true },
     replyErrorData: { type: Object, required: false },
-    handleAddCommentLike: { type: Function, required: true },
-    handleRemoveCommentLike: { type: Function, required: true }
+    handleLikeComment: { type: Function, required: true },
+    handleDislikeComment: { type: Function, required: true }
   },
   methods: {
     getCommentList() {

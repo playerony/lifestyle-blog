@@ -10,8 +10,8 @@
       :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
       :handleAddLike="handleArticleLike"
-      :handleAddCommentLike="handleAddCommentLike"
-      :handleRemoveCommentLike="handleRemoveCommentLike"
+      :handleLikeComment="handleAddCommentLike"
+      :handleDislikeComment="handleRemoveCommentLike"
     />
   </div>
 </template>
@@ -35,11 +35,7 @@ import tryParseJSON from '@utility/tryParseJSON'
 import articleTransformator from '@transformator/articleTransformator'
 
 export default {
-  name: 'ArticlePage',
-  components: {
-    Article,
-    LoadingPage
-  },
+  name: 'page-article',
   data() {
     return {
       isLike: false,
@@ -49,6 +45,10 @@ export default {
       commentListByArticleId: [],
       articleId: Number(this.$route.params.articleId)
     }
+  },
+  components: {
+    Article,
+    LoadingPage
   },
   apollo: {
     visitorList: visitorListQuery,
@@ -95,13 +95,13 @@ export default {
         .then(response => {
           const createdComment = response.data.createComment
 
-          const commentWithErrorData = this.commentListByArticleId.findIndex(
+          const commentIdWithErrorData = this.commentListByArticleId.findIndex(
             comment => comment.commentId === createdComment.parentCommentId
           )
 
-          if (commentWithErrorData !== -1) {
+          if (commentIdWithErrorData !== -1) {
             Vue.set(
-              this.commentListByArticleId[commentWithErrorData],
+              this.commentListByArticleId[commentIdWithErrorData],
               'replyErrorData',
               {}
             )
