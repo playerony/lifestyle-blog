@@ -96,9 +96,7 @@ export default {
           const createdComment = response.data.createComment
 
           const commentWithErrorData = this.commentListByArticleId.findIndex(
-            comment =>
-              Boolean(comment.replyErrorData) &&
-              comment.commentId === createdComment.parentCommentId
+            comment => comment.commentId === createdComment.parentCommentId
           )
 
           if (commentWithErrorData !== -1) {
@@ -132,7 +130,7 @@ export default {
                 comment => comment.commentId === reply.parentCommentId
               )
 
-              if (commentIndex) {
+              if (!isNaN(Number(commentIndex))) {
                 Vue.set(
                   this.commentListByArticleId[commentIndex],
                   'replyErrorData',

@@ -35,8 +35,7 @@ export default {
         })
       )
 
-      this.$router.replace(`/article/${this.article.articleId}`)
-
+      this.$router.push(`/article/${this.article.articleId}`)
       this.$router.go()
     }
   }
