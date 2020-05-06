@@ -16,10 +16,14 @@
 
   &__content {
     overflow: hidden;
-    position: relative;
-    background: $gray300;
+
     padding: $paddingBig;
     margin: $paddingBig 0;
+    background: var(--card-color);
+    @include box-shadow(
+      9px 9px 16px -12px $gray600,
+      -9px 9px 16px -7px var(--background-color)
+    );
 
     @include border-radius(12px);
     @include transition(all 500ms ease);
@@ -46,33 +50,75 @@
       }
     }
 
-    & > .content__expand-icon {
-      width: 50px;
-      height: 40px;
-      display: block;
-      cursor: pointer;
-      fill: $purple700;
-      --scale: 1;
+    & > .content__footer {
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(space-between);
 
-      @include transition(all 500ms linear);
-      @include transform(scale(var(--scale)) rotateX(0deg) rotateZ(-90deg));
-
-      &--open {
-        @include transform(scale(var(--scale)) rotateX(180deg) rotateZ(-90deg));
-      }
-
-      &:hover {
-        --scale: 1.2;
-      }
-
-      @include respond-to('small') {
-        width: 40px;
+      & > .footer__expand-icon {
+        width: 50px;
         height: 40px;
+        display: block;
+        cursor: pointer;
+        fill: $purple700;
+        --scale: 1;
+
+        @include transition(all 500ms linear);
+        @include transform(scale(var(--scale)) rotateX(0deg) rotateZ(-90deg));
+
+        &--open {
+          @include transform(
+            scale(var(--scale)) rotateX(180deg) rotateZ(-90deg)
+          );
+        }
+
+        &:hover {
+          --scale: 1.2;
+        }
+
+        @include respond-to('small') {
+          width: 40px;
+          height: 40px;
+        }
+
+        @include respond-to('mobile') {
+          width: 30px;
+          height: 30px;
+        }
       }
 
-      @include respond-to('mobile') {
-        width: 30px;
-        height: 30px;
+      & > .footer__likes {
+        @include flexbox();
+
+        & > p {
+          width: 30px;
+          text-align: center;
+        }
+
+        & > svg {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          fill: var(--icon-color);
+
+          @include transition(fill 500ms linear);
+        }
+
+        & > .likes__like-icon {
+          @include transform(rotateZ(90deg));
+        }
+
+        & > .likes__dislike-icon {
+          @include transform(rotateZ(-90deg));
+        }
+
+        & > .likes__icon--success {
+          fill: $purple700;
+        }
+
+        & > .likes__icon--disable {
+          fill: $gray600;
+        }
       }
     }
 

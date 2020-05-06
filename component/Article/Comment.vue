@@ -16,28 +16,32 @@
         >
           <Reply
             :errorData="errorData"
-            v-show="isReplyVisible"
             :handleReply="handleReply"
+            v-show="isReplyFormVisible"
             :key="'reply_' + comment.commentId"
             :parentCommentId="comment.commentId"
           />
         </transition>
       </div>
-      <LeftArrowSVG
-        :class="'content__expand-icon ' + arrowStyle"
-        @click="isReplyFormVisible = !isReplyFormVisible"
-      />
-      <div class="content__likes">
-        {{ comment.likes }}
-        <button @click="handleAddCommentLike(comment.commentId)">
-          ADD LIKE
-        </button>
-        <button @click="handleRemoveCommentLike(comment.commentId)">
-          REMOVE LIKE
-        </button>
-      </div>
+      <footer class="content__footer">
+        <LeftArrowSVG
+          :class="'footer__expand-icon ' + arrowStyle"
+          @click="isReplyFormVisible = !isReplyFormVisible"
+        />
+        <div class="footer__likes">
+          <LeftArrowSVG
+            :class="'likes__like-icon ' + likeArrowStyle"
+            @click="handleLike"
+          />
+          <p>{{ comment.likes }}</p>
+          <LeftArrowSVG
+            :class="'likes__dislike-icon ' + dislikeArrowStyle"
+            @click="handleDislike"
+          />
+        </div>
+      </footer>
     </div>
-    <Comment
+    <article-comment
       :comment="comment"
       :key="comment.commentId"
       :handleReply="handleReply"
@@ -66,18 +70,42 @@ export default {
   },
   data() {
     return {
+      isLiked: false,
+      isDisliked: false,
       isReplyFormVisible: false
     }
   },
   components: {
     Reply,
-    Comment,
-    LeftArrowSVG
+    LeftArrowSVG,
+    'article-comment': Comment
   },
   computed: {
     arrowStyle() {
       if (this.isReplyFormVisible) {
         return 'content__expand-icon--open'
+      }
+
+      return ''
+    },
+    likeArrowStyle() {
+      if (this.isDisliked) {
+        return 'likes__icon--disable'
+      }
+
+      if (this.isLiked) {
+        return 'likes__icon--success'
+      }
+
+      return ''
+    },
+    dislikeArrowStyle() {
+      if (this.isLiked) {
+        return 'likes__icon--disable'
+      }
+
+      if (this.isDisliked) {
+        return 'likes__icon--success'
       }
 
       return ''
@@ -101,6 +129,28 @@ export default {
     },
     leave: function(el) {
       el.style.height = '0'
+    },
+    handleLike() {
+      if (this.isLiked || this.isDisliked) {
+        return
+      }
+
+      this.handleLikeComment(this.comment.commentId)
+    },
+    handleDislike() {
+      if (this.isLiked || this.isDisliked) {
+        return
+      }
+
+      this.handleDislikeComment(this.comment.commentId)
+    }
+  },
+  watch: {
+    comment: function(newVal, oldVal) {
+      if (newVal.likes !== oldVal.likes) {
+        this.isLiked = newVal.likes > oldVal.likes
+        this.isDisliked = newVal.likes < oldVal.likes
+      }
     }
   }
 }
