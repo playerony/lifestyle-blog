@@ -8,8 +8,8 @@
       :key="comment.commentId"
       :comment="comment"
       :handleReply="handleReply"
-      :handleAddCommentLike="handleAddCommentLike"
-      :handleRemoveCommentLike="handleRemoveCommentLike"
+      :handleLikeComment="handleAddCommentLike"
+      :handleDislikeComment="handleRemoveCommentLike"
     />
   </div>
 </template>

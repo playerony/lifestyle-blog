@@ -3,7 +3,7 @@
     <div class="comment__content">
       <header class="content__header">
         <h1>{{ comment.creator }}</h1>
-        <p>{{ getCommentDate() }}</p>
+        <p>{{ formattedDate }}</p>
       </header>
       <label>{{ comment.content }}</label>
       <div class="content__reply">
@@ -15,33 +15,35 @@
           v-on:leave="leave"
         >
           <Reply
+            :errorData="errorData"
             v-show="isReplyVisible"
             :handleReply="handleReply"
-            :errorData="getErrorData()"
             :key="'reply_' + comment.commentId"
             :parentCommentId="comment.commentId"
           />
         </transition>
       </div>
       <LeftArrowSVG
-        :class="'content__expand-icon ' + getArrowStyle"
-        @click="isReplyVisible = !isReplyVisible"
+        :class="'content__expand-icon ' + arrowStyle"
+        @click="isReplyFormVisible = !isReplyFormVisible"
       />
-      {{ comment.likes }}
-      <button @click="handleAddCommentLike(comment.commentId)">
-        ADD LIKE
-      </button>
-      <button @click="handleRemoveCommentLike(comment.commentId)">
-        REMOVE LIKE
-      </button>
+      <div class="content__likes">
+        {{ comment.likes }}
+        <button @click="handleAddCommentLike(comment.commentId)">
+          ADD LIKE
+        </button>
+        <button @click="handleRemoveCommentLike(comment.commentId)">
+          REMOVE LIKE
+        </button>
+      </div>
     </div>
     <Comment
-      v-for="comment in comment.comments"
-      :key="comment.commentId"
       :comment="comment"
+      :key="comment.commentId"
       :handleReply="handleReply"
-      :handleAddCommentLike="handleAddCommentLike"
-      :handleRemoveCommentLike="handleRemoveCommentLike"
+      v-for="comment in comment.comments"
+      :handleLikeComment="handleLikeComment"
+      :handleDislikeComment="handleDislikeComment"
     />
   </div>
 </template>
@@ -55,16 +57,16 @@ import differenceBetweenDates from '@utility/differenceBetweenDates'
 import LeftArrowSVG from '@asset/svg/left-arrow.svg'
 
 export default {
-  name: 'Comment',
+  name: 'article-comment',
   props: {
     comment: { type: Object, required: true },
     handleReply: { type: Function, required: true },
-    handleAddCommentLike: { type: Function, required: true },
-    handleRemoveCommentLike: { type: Function, required: true }
+    handleLikeComment: { type: Function, required: true },
+    handleDislikeComment: { type: Function, required: true }
   },
   data() {
     return {
-      isReplyVisible: false
+      isReplyFormVisible: false
     }
   },
   components: {
@@ -73,21 +75,21 @@ export default {
     LeftArrowSVG
   },
   computed: {
-    getArrowStyle() {
-      if (this.isReplyVisible) {
+    arrowStyle() {
+      if (this.isReplyFormVisible) {
         return 'content__expand-icon--open'
       }
 
       return ''
+    },
+    formattedDate() {
+      return differenceBetweenDates(this.comment.createdAt)
+    },
+    errorData() {
+      return this.comment.replyErrorData
     }
   },
   methods: {
-    getErrorData() {
-      return this.comment.replyErrorData
-    },
-    getCommentDate() {
-      return differenceBetweenDates(this.comment.createdAt)
-    },
     beforeEnter: function(el) {
       el.style.height = '0'
     },
