@@ -12,16 +12,10 @@ const getNestedComments = (comments, commentId) => {
     return []
   }
 
-  return commentReplies.map(comment => {
-    const hasReply = comments.some(
-      replyComment => replyComment.parentCommentId === comment.commentId
-    )
-
-    return {
-      ...comment,
-      comments: hasReply ? getNestedComments(comments, comment.commentId) : []
-    }
-  })
+  return commentReplies.map(comment => ({
+    ...comment,
+    comments: getNestedComments(comments, comment.commentId)
+  }))
 }
 
 export default comments => {
