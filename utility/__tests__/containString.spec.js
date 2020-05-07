@@ -1,19 +1,19 @@
-import containString from '../containString'
+import includesString from '../includesString'
 
-describe('containString Function', () => {
+describe('includesString Function', () => {
   it('should import', () => {
-    expect(typeof containString).toEqual('function')
+    expect(typeof includesString).toEqual('function')
   })
 
   it('should return true for falsy values', () => {
-    expect(containString(null, null)).toBeTruthy()
+    expect(includesString(null, null)).toBeTruthy()
   })
 
   it('should trim and check verify one value contains another', () => {
-    expect(containString('  ABC  ', ' abc ')).toBeTruthy()
+    expect(includesString('  ABC  ', ' abc ')).toBeTruthy()
   })
 
   it('should return false when provided string does not include in the other one', () => {
-    expect(containString('abc', '123')).toBeFalsy()
+    expect(includesString('abc', '123')).toBeFalsy()
   })
 })
