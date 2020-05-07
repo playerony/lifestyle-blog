@@ -4,12 +4,12 @@ const rafAsync = () => {
   })
 }
 
-const checkElement = selector => {
+const checkDocumentElement = selector => {
   if (document.querySelector(selector) === null) {
-    return rafAsync().then(() => checkElement(selector))
+    return rafAsync().then(() => checkDocumentElement(selector))
   } else {
     return Promise.resolve(true)
   }
 }
 
-export default checkElement
+export default checkDocumentElement
