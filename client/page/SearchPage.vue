@@ -31,7 +31,7 @@ import metricCommentList from '@graphql/query/metricCommentList'
 
 import articleListTransformator from '@transformator/articleListTransformator'
 
-import containString from '@utility/containString'
+import includesString from '@utility/includesString'
 
 import { SEARCH_PAGE_RESULTS } from '@config/constant'
 
@@ -84,8 +84,8 @@ export default {
       return transformedArticleList
         .filter(
           article =>
-            containString(article.title, this.searchValue) ||
-            containString(article.description, this.searchValue)
+            includesString(article.title, this.searchValue) ||
+            includesString(article.description, this.searchValue)
         )
         .slice(0, SEARCH_PAGE_RESULTS)
     }

@@ -1,7 +1,8 @@
 const addSuffix = (base, value) => `${value} ${base}${value > 1 ? 's' : ''} ago`
 
 export default (source, compareWith = new Date()) => {
-  const difference = Math.abs(compareWith - new Date(source))
+  const sourceDate = source ? source : new Date()
+  const difference = Math.abs(compareWith - new Date(sourceDate))
 
   const years = Math.ceil(difference / 31536000000)
   const months = Math.ceil(difference / 2628000000)
