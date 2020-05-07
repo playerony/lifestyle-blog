@@ -1,11 +1,4 @@
-export const calculateTodaysRecords = array =>
-  array.filter(element => {
-    const differenceInTime =
-      new Date().getTime() - new Date(element.createdAt).getTime()
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24)
-
-    return differenceInDays <= 1
-  }).length
+import calculateTodaysRecords from './helper/calculateTodaysRecords'
 
 export default (articleList, visitorList, commentList) => {
   if (!articleList || !visitorList || !commentList) {
@@ -31,7 +24,6 @@ export default (articleList, visitorList, commentList) => {
 
     const totalVisitors = filteredVisitorList.length
     const totalComments = filteredCommentList.length
-
     const todayVisitors = calculateTodaysRecords(filteredVisitorList)
     const todayComments = calculateTodaysRecords(filteredCommentList)
 
