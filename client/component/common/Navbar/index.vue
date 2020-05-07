@@ -19,7 +19,7 @@
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 
-import checkElement from '@utility/checkElement'
+import checkDocumentElement from '@utility/checkDocumentElement'
 import getCurrentScrollPosition from '@utility/getCurrentScrollPosition'
 
 import routeList from '@config/routeList'
@@ -65,7 +65,7 @@ export default {
       }
     },
     recalculateProgress() {
-      checkElement('#article-content').then(() => {
+      checkDocumentElement('#article-content').then(() => {
         this.calculateProgress()
       })
     },

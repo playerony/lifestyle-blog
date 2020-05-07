@@ -1,6 +1,6 @@
 import getFieldError from '../getFieldError'
 
-describe('getFieldError function', () => {
+describe('getFieldError Function', () => {
   it('import getFieldError', () => {
     expect(typeof getFieldError).toEqual('function')
   })

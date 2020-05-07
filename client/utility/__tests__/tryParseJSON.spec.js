@@ -1,6 +1,6 @@
 import tryParseJSON from '../tryParseJSON'
 
-describe('tryParseJSON function', () => {
+describe('tryParseJSON Function', () => {
   it('should import', () => {
     expect(typeof tryParseJSON).toEqual('function')
   })
