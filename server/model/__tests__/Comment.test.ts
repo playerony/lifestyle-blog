@@ -47,6 +47,11 @@ describe('Comment Model', () => {
         creator: {
           type: DataTypes.STRING(20),
           allowNull: false
+        },
+        likes: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          defaultValue: 0
         }
       },
       {

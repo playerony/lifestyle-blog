@@ -79,6 +79,11 @@ describe('Article Model', () => {
           type: DataTypes.BOOLEAN,
           allowNull: false,
           defaultValue: false
+        },
+        likes: {
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          defaultValue: 0
         }
       },
       {
