@@ -40,20 +40,20 @@ describe('ArticleCard Component', () => {
     })
   })
 
-  it('should render 4 cards', () => {
+  it('should render  cards', () => {
     const wrapper = setUp()
 
-    expect(wrapper.findAll('articlecard-stub').length).toEqual(4)
+    expect(wrapper.findAll('articlecard-stub').length).toEqual(6)
   })
 
   describe('show more button', () => {
-    it('should not render when number of articles is shorter than 4', () => {
-      const wrapper = setUp(ARTICLES_MOCK.slice(0, 3))
+    it('should not render when number of articles is shorter than 6', () => {
+      const wrapper = setUp(ARTICLES_MOCK.slice(0, 5))
 
       expect(wrapper.find('tooltip-stub').exists()).toBeFalsy()
     })
 
-    it('should render when number of articles is longer than 4', () => {
+    it('should render when number of articles is longer than 6', () => {
       const wrapper = setUp()
 
       expect(wrapper.find('tooltip-stub').exists()).toBeTruthy()
@@ -116,6 +116,17 @@ const ARTICLES_MOCK = [
     totalComments: 10,
     description: 'description5',
     image: { photoUrl: 'photoUrl5' }
+  },
+  {
+    likes: 1,
+    title: 'title6',
+    readingTime: 8,
+    todayVisitors: 2,
+    totalVisitors: 6,
+    todayComments: 1,
+    totalComments: 10,
+    description: 'description6',
+    image: { photoUrl: 'photoUrl6' }
   },
   {
     likes: 1,
