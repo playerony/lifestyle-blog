@@ -29,7 +29,8 @@ describe('Visitor Model', () => {
           autoIncrement: true
         },
         articleId: {
-          type: DataTypes.INTEGER
+          type: DataTypes.INTEGER,
+          allowNull: true
         },
         ipAddress: {
           type: DataTypes.STRING(50),

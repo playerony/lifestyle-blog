@@ -3,7 +3,7 @@ import { Field, ObjectType } from 'type-graphql'
 
 export class VisitorModel extends Model {
   visitorId?: number
-  articleId?: number
+  articleId?: number | null
   ipAddress?: string
   userAgent?: string
   createdAt?: Date
@@ -16,7 +16,7 @@ export class VisitorType {
   visitorId?: number
 
   @Field()
-  articleId?: number
+  articleId?: number | null
 
   @Field()
   ipAddress?: string

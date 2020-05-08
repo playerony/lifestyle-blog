@@ -4,22 +4,37 @@ import { VisitorType } from '@type/Visitor'
 
 let foundVisitorMock = jest.fn().mockImplementation(() => VISITOR_MOCK)
 let createVisitorMock = jest.fn().mockImplementation(() => VISITOR_MOCK)
+let findAllVisitorsMock = jest
+  .fn()
+  .mockImplementation(onlyArticles =>
+    onlyArticles
+      ? VISITOR_LIST_MOCK.filter(element => element.articleId)
+      : VISITOR_LIST_MOCK
+  )
 
 const setupSequelizeMock = (
   foundVisitor: Function = foundVisitorMock,
-  createVisitor: Function = createVisitorMock
+  createVisitor: Function = createVisitorMock,
+  findAllVisitors: Function = findAllVisitorsMock
 ): typeof jest =>
   jest.doMock('sequelize', () => {
     class Sequelize {}
 
     class Model {
       public static init = jest.fn()
+      public static belongsTo = jest.fn()
       public static findOne = foundVisitor
       public static create = createVisitor
-      public static findAll = jest.fn().mockImplementation(() => [VISITOR_MOCK])
+      public static findAll = findAllVisitors
+      public static belongsToMany = jest.fn()
+    }
+
+    class Op {
+      public static not = jest.fn()
     }
 
     return {
+      Op,
       Model,
       DataTypes,
       Sequelize
@@ -73,6 +88,32 @@ describe('Visitor Service', () => {
 
       expect(result).toEqual([VISITOR_MOCK])
     })
+
+    it('should return found visitor list only for articles', async () => {
+      const articleService = setUp()
+
+      const result = await articleService.findAll(true)
+
+      expect(result).toEqual([VISITOR_LIST_MOCK[0]])
+    })
+  })
+
+  describe('findAllByCategoryId Method', () => {
+    it('should return found visitor list', async () => {
+      const articleService = setUp()
+
+      const result = await articleService.findAll()
+
+      expect(result).toEqual([VISITOR_MOCK])
+    })
+
+    it('should return found visitor list only for articles', async () => {
+      const articleService = setUp()
+
+      const result = await articleService.findAll(true)
+
+      expect(result).toEqual([VISITOR_LIST_MOCK[0]])
+    })
   })
 })
 
@@ -84,3 +125,22 @@ const VISITOR_MOCK: Required<VisitorType> = {
   createdAt: new Date('2020'),
   updatedAt: new Date('2020')
 }
+
+const VISITOR_LIST_MOCK: Required<VisitorType>[] = [
+  {
+    visitorId: 1,
+    articleId: 1,
+    userAgent: 'Mobile',
+    ipAddress: '192.192.192.192',
+    createdAt: new Date('2020'),
+    updatedAt: new Date('2020')
+  },
+  {
+    visitorId: 1,
+    articleId: null,
+    userAgent: 'Mobile',
+    ipAddress: '192.192.192.192',
+    createdAt: new Date('2020'),
+    updatedAt: new Date('2020')
+  }
+]
