@@ -1,7 +1,11 @@
 <template>
   <article class="article-card">
     <div class="article-card__border" />
-    <ArticleDetails :article="article" class="article-card__content" />
+    <ArticleDetails
+      :article="article"
+      :displayLikes="false"
+      class="article-card__content"
+    />
     <div class="article-card__hover" :src="article.image.photoUrl">
       <img :src="article.image.photoUrl" />
       <Button :onClick="redirectToArticle" className="hover__button">

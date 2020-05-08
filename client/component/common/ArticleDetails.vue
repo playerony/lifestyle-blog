@@ -19,7 +19,7 @@
           (+{{ article.todayComments }})
         </span>
       </p>
-      <p class="header__info" v-if="article.likes">
+      <p class="header__info" v-if="article.likes && displayLikes">
         <DynamicIcon icon="heart" />
         {{ article.likes }}
       </p>
@@ -37,7 +37,8 @@ import DynamicIcon from './DynamicIcon'
 export default {
   name: 'common-article-details',
   props: {
-    article: { type: Object, required: true }
+    article: { type: Object, required: true },
+    displayLikes: { type: Boolean, required: false, default: true }
   },
   components: {
     DynamicIcon
