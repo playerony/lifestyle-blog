@@ -18,7 +18,15 @@ describe('article query', () => {
 const QUERY_FORMULA = gql`
   query ArticleById($articleId: Int) {
     articleById(articleId: $articleId) {
+      title
+      likes
       content
+      description
+      readingTime
+      categoryList {
+        name
+        categoryId
+      }
     }
   }
 `

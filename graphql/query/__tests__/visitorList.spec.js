@@ -17,7 +17,7 @@ describe('visitorList query', () => {
 
 const QUERY_FORMULA = gql`
   query {
-    visitorList {
+    visitorList(onlyArticles: true) {
       articleId
       ipAddress
       userAgent

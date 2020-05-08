@@ -15,11 +15,11 @@ describe('createComment mutation', () => {
 const MUTATION_FORMULA = gql`
   mutation CreateComment($comment: CommentSaveRequest) {
     createComment(comment: $comment) {
-      commentId
-      parentCommentId
       content
       creator
       createdAt
+      commentId
+      parentCommentId
     }
   }
 `

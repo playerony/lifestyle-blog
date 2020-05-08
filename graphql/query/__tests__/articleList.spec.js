@@ -19,6 +19,7 @@ const QUERY_FORMULA = gql`
   query {
     articleList(onlyPublic: true) {
       title
+      likes
       isPublic
       articleId
       createdAt

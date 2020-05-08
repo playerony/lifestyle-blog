@@ -3,12 +3,12 @@ import gql from 'graphql-tag'
 const ARTICLE_COMMENT_LIST_QUERY = gql`
   query CommentListByArticleId($articleId: Int) {
     commentListByArticleId(articleId: $articleId) {
-      commentId
-      parentCommentId
+      likes
       content
       creator
-      likes
       createdAt
+      commentId
+      parentCommentId
     }
   }
 `
