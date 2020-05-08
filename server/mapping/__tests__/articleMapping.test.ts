@@ -13,6 +13,7 @@ describe('article Mapping', () => {
 })
 
 const INPUT_MOCK: Partial<ArticleModel> = {
+  likes: 1,
   userId: 1,
   imageId: 1,
   articleId: 1,
@@ -24,6 +25,7 @@ const INPUT_MOCK: Partial<ArticleModel> = {
 }
 
 const OUTPUT_MOCK: ArticleType = {
+  likes: 1,
   userId: 1,
   imageId: 1,
   image: null,

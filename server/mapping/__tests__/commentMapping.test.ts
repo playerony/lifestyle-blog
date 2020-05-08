@@ -13,6 +13,7 @@ describe('comment Mapping', () => {
 })
 
 const INPUT_MOCK: any = {
+  likes: 1,
   commentId: 1,
   articleId: 1,
   content: 'content',
@@ -23,6 +24,7 @@ const INPUT_MOCK: any = {
 }
 
 const OUTPUT_MOCK: CommentType = {
+  likes: 1,
   commentId: 1,
   articleId: 1,
   content: 'content',
