@@ -11,4 +11,4 @@ const sortOption = {
 }
 
 export default (articles, sortBy) =>
-  articles.slice().sort(sortOption[sortBy] || sortByTotalVisitors)
+  (articles || []).slice().sort(sortOption[sortBy] || sortByTotalVisitors)
