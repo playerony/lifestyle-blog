@@ -130,13 +130,13 @@ const ARTICLES_MOCK = [
   },
   {
     likes: 1,
-    title: 'title6',
+    title: 'title7',
     readingTime: 8,
     todayVisitors: 2,
     totalVisitors: 6,
     todayComments: 1,
     totalComments: 10,
-    description: 'description6',
-    image: { photoUrl: 'photoUrl6' }
+    description: 'description7',
+    image: { photoUrl: 'photoUrl7' }
   }
 ]

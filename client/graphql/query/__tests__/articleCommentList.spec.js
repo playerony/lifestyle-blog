@@ -18,11 +18,12 @@ describe('commentList query', () => {
 const QUERY_FORMULA = gql`
   query CommentListByArticleId($articleId: Int) {
     commentListByArticleId(articleId: $articleId) {
-      commentId
-      parentCommentId
+      likes
       content
       creator
       createdAt
+      commentId
+      parentCommentId
     }
   }
 `
