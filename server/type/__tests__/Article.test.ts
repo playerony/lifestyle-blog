@@ -9,6 +9,7 @@ describe('Article Types', () => {
   describe('ArticleType Type', () => {
     it('should contain proper fields', () => {
       const data: Required<ArticleType> = {
+        likes: 1,
         userId: 1,
         imageId: 1,
         image: null,
@@ -24,6 +25,7 @@ describe('Article Types', () => {
       }
 
       expect(Object.keys(data)).toEqual([
+        'likes',
         'userId',
         'imageId',
         'image',

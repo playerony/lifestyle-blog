@@ -9,6 +9,7 @@ describe('Comment Types', () => {
   describe('CommentType Type', () => {
     it('should contain proper fields', () => {
       const data: Required<CommentType> = {
+        likes: 1,
         commentId: 1,
         articleId: 1,
         content: 'content',
@@ -19,6 +20,7 @@ describe('Comment Types', () => {
       }
 
       expect(Object.keys(data)).toEqual([
+        'likes',
         'commentId',
         'articleId',
         'content',
@@ -33,6 +35,7 @@ describe('Comment Types', () => {
   describe('CommentModel Type', () => {
     it('should contain proper fields', () => {
       const data: Partial<CommentModel> = {
+        likes: 1,
         commentId: 1,
         articleId: 1,
         content: 'content',
@@ -43,6 +46,7 @@ describe('Comment Types', () => {
       }
 
       expect(Object.keys(data)).toEqual([
+        'likes',
         'commentId',
         'articleId',
         'content',
