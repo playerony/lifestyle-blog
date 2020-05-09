@@ -1,6 +1,10 @@
 import { CommentType } from '@type/Comment'
 
-const findCommentMock = jest.fn().mockImplementation(() => COMMENT_MOCK)
+const findCommentMock = jest
+  .fn()
+  .mockImplementation(({ where }) =>
+    [COMMENT_MOCK].find(comment => comment.commentId === where.commentId)
+  )
 
 const setupSequelizeMock = (
   findComment: Function = findCommentMock
@@ -22,7 +26,8 @@ const setupSequelizeMock = (
     return {
       Model,
       DataTypes,
-      Sequelize
+      Sequelize,
+      literal: jest.fn()
     }
   })
 
@@ -92,9 +97,57 @@ describe('Comment Service', () => {
       expect(result).toEqual([COMMENT_MOCK])
     })
   })
+
+  describe('findAll Method', () => {
+    it('should return all comments', async () => {
+      setupSequelizeMock()
+
+      const commentService = setUp()
+      const result = await commentService.findAll()
+
+      expect(result).toEqual([COMMENT_MOCK])
+    })
+  })
+
+  describe('incrementCommentLikes Method', () => {
+    it('should throw an error if comment does not exist', async () => {
+      const commentService = setUp()
+
+      try {
+        await commentService.incrementCommentLikes(2)
+      } catch (e) {
+        expect(e.message).toEqual('{"commentId":["No such comment found."]}')
+      }
+    })
+
+    it('should return incremented number of likes', async () => {
+      const commentService = setUp()
+
+      expect(await commentService.incrementCommentLikes(1)).toEqual(2)
+    })
+  })
+
+  describe('decrementCommentLikes Method', () => {
+    it('should throw an error if comment does not exist', async () => {
+      const commentService = setUp()
+
+      try {
+        await commentService.decrementCommentLikes(2)
+      } catch (e) {
+        expect(e.message).toEqual('{"commentId":["No such comment found."]}')
+      }
+    })
+
+    it('should return incremented number of likes', async () => {
+      const commentService = setUp()
+
+      expect(await commentService.decrementCommentLikes(1)).toEqual(0)
+    })
+  })
 })
 
 const COMMENT_MOCK: CommentType = {
+  likes: 1,
   commentId: 1,
   articleId: 1,
   content: 'content',
