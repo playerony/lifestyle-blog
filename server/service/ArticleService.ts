@@ -3,6 +3,8 @@ import { WhereOptions, literal } from 'sequelize'
 import { Article } from '@model/Article'
 import { ArticleCategory } from '@model/ArticleCategory'
 
+import CategoryService from '@service/CategoryService'
+
 import { ArticleType, ArticleModel, ArticleSaveRequest } from '@type/Article'
 
 import articleMapping from '@mapping/articleMapping'
@@ -10,6 +12,10 @@ import articleMapping from '@mapping/articleMapping'
 import ValidationError from '@utility/ValidationError'
 
 export default class ArticleService {
+  constructor(
+    private categoryService: CategoryService = new CategoryService()
+  ) {}
+
   async create(
     { categoryIdList, ...articleData }: ArticleSaveRequest,
     userId: number
@@ -112,6 +118,13 @@ export default class ArticleService {
   }
 
   async findAllByCategoryId(categoryId: number): Promise<ArticleType[]> {
+    const foundCategory = this.categoryService.findById(categoryId)
+    if (!foundCategory) {
+      throw new ValidationError({
+        categoryId: ['No such article found.']
+      })
+    }
+
     const result = await Article.scope([
       'withImage',
       'withCategoryList'
