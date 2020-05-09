@@ -10,6 +10,11 @@ jest.doMock('sequelize', () => {
     public static findAll = jest
       .fn()
       .mockImplementation(() => CATEGORY_LIST_MOCK)
+    public static findOne = jest.fn().mockImplementation(({ where }) => {
+      return CATEGORY_LIST_MOCK.find(
+        category => category.categoryId === where.categoryId
+      )
+    })
   }
 
   return {
@@ -19,15 +24,43 @@ jest.doMock('sequelize', () => {
   }
 })
 
+const setUp = () => {
+  const CategoryService = require('../CategoryService').default
+
+  return new CategoryService()
+}
+
 describe('Category Service', () => {
   describe('findAll Method', () => {
     it('should return category list', async () => {
-      const CategoryService = require('../CategoryService').default
-      const categoryService = new CategoryService()
+      const categoryService = setUp()
 
       const result = await categoryService.findAll()
 
       expect(result).toEqual(CATEGORY_LIST_MOCK)
+    })
+  })
+
+  describe('findById Method', () => {
+    it('should return found category', async () => {
+      const categoryService = setUp()
+
+      const result = await categoryService.findById(1)
+
+      expect(result).toEqual({
+        categoryId: 1,
+        name: 'Name 1',
+        createdAt: undefined,
+        updatedAt: undefined
+      })
+    })
+
+    it('should return null when category does not exist', async () => {
+      const categoryService = setUp()
+
+      const result = await categoryService.findById(3)
+
+      expect(result).toBeNull()
     })
   })
 })

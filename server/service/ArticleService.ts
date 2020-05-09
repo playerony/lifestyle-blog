@@ -118,7 +118,7 @@ export default class ArticleService {
   }
 
   async findAllByCategoryId(categoryId: number): Promise<ArticleType[]> {
-    const foundCategory = this.categoryService.findById(categoryId)
+    const foundCategory = await this.categoryService.findById(categoryId)
     if (!foundCategory) {
       throw new ValidationError({
         categoryId: ['No such article found.']
