@@ -7,6 +7,8 @@ import { CommentType, CommentSaveRequest } from '@type/Comment'
 import {
   createCommentValidation,
   updateCommentValidation,
+  incrementCommentLikesValidation,
+  decrementCommentLikesValidation,
   commentListByArticleIdValidation
 } from './CommentResolver.validator'
 
@@ -51,6 +53,8 @@ export default class CommentResolver {
   async incrementCommentLikes(
     @Arg('commentId', type => Int) commentId: number
   ): Promise<number> {
+    incrementCommentLikesValidation(commentId)
+
     return this.commentService.incrementCommentLikes(commentId)
   }
 
@@ -58,6 +62,8 @@ export default class CommentResolver {
   async decrementCommentLikes(
     @Arg('commentId', type => Int) commentId: number
   ): Promise<number> {
+    decrementCommentLikesValidation(commentId)
+
     return this.commentService.decrementCommentLikes(commentId)
   }
 }

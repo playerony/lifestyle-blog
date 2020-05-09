@@ -12,6 +12,7 @@ import {
   articleByIdValidation,
   createArticleValidation,
   updateArticleValidation,
+  incrementArticleLikesValidation,
   toggleArticlePublicFlagValidation
 } from './ArticleResolver.validator'
 
@@ -64,6 +65,8 @@ export default class ArticleResolver {
   async incrementArticleLikes(
     @Arg('articleId', type => Int) articleId: number
   ): Promise<number> {
+    incrementArticleLikesValidation(articleId)
+
     return this.articleService.incrementArticleLikes(articleId)
   }
 

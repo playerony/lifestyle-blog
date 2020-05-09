@@ -64,3 +64,31 @@ export const commentListByArticleIdValidation = (articleId: number): void => {
     throw new ValidationError(validationResult)
   }
 }
+
+export const incrementCommentLikesValidation = (commentId: number): void => {
+  const validationResult = validate({ commentId })
+    .setCheckList([
+      check('commentId')
+        .isExist()
+        .isNumber()
+    ])
+    .check()
+
+  if (!isValid(validationResult)) {
+    throw new ValidationError(validationResult)
+  }
+}
+
+export const decrementCommentLikesValidation = (commentId: number): void => {
+  const validationResult = validate({ commentId })
+    .setCheckList([
+      check('commentId')
+        .isExist()
+        .isNumber()
+    ])
+    .check()
+
+  if (!isValid(validationResult)) {
+    throw new ValidationError(validationResult)
+  }
+}

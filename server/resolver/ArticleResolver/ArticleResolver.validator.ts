@@ -101,3 +101,17 @@ export const articleByIdValidation = (articleId: number): void => {
     throw new ValidationError(validationResult)
   }
 }
+
+export const incrementArticleLikesValidation = (articleId: number): void => {
+  const validationResult = validate({ articleId })
+    .setCheckList([
+      check('articleId')
+        .isExist()
+        .isNumber()
+    ])
+    .check()
+
+  if (!isValid(validationResult)) {
+    throw new ValidationError(validationResult)
+  }
+}
