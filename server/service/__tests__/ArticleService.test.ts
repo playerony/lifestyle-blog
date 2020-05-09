@@ -44,7 +44,8 @@ const setupSequelizeMock = (
     return {
       Model,
       DataTypes,
-      Sequelize
+      Sequelize,
+      literal: jest.fn()
     }
   })
 
@@ -219,9 +220,40 @@ describe('Article Service', () => {
       expect(result).toEqual([])
     })
   })
+
+  describe('incrementArticleLikes Method', () => {
+    beforeAll(() => {
+      setupSequelizeMock(
+        jest
+          .fn()
+          .mockImplementation(({ where }) =>
+            [ARTICLE_MOCK].find(
+              article => article.articleId === where.articleId
+            )
+          )
+      )
+    })
+
+    it('should throw an error if article does not exist', async () => {
+      const articleService = setUp()
+
+      try {
+        await articleService.incrementArticleLikes(2)
+      } catch (e) {
+        expect(e.message).toEqual('{"articleId":["No such article found."]}')
+      }
+    })
+
+    it('should return incremented number of likes', async () => {
+      const articleService = setUp()
+
+      expect(await articleService.incrementArticleLikes(1)).toEqual(3)
+    })
+  })
 })
 
 const ARTICLE_MOCK: ArticleType = {
+  likes: 2,
   userId: 1,
   imageId: 1,
   image: null,
