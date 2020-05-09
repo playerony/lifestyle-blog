@@ -28,7 +28,7 @@ describe('Log Resolver', () => {
     _LogService.findAll().mimicks(async () => LOG_LIST_MOCK)
   })
 
-  describe('categoryList Method', () => {
+  describe('categoryList Query', () => {
     it('should return proper data', async () => {
       const token = jwt.sign({ userId: 1 }, keys.appSecret!)
       const context: Context = {

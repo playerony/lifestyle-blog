@@ -28,7 +28,7 @@ describe('User Resolver', () => {
     _UserService.signup(Arg.any()).mimicks(async () => SIGNUP_METHOD_MOCK)
   })
 
-  describe('login mutation', () => {
+  describe('login Mutation', () => {
     it('should not pass validation', async () => {
       try {
         await resolver.login('admin', 'Ma1@')
@@ -44,7 +44,7 @@ describe('User Resolver', () => {
     })
   })
 
-  describe('signup mutation', () => {
+  describe('signup Mutation', () => {
     it('should not pass validation', async () => {
       try {
         await resolver.signup('admin', 'Ma1@')

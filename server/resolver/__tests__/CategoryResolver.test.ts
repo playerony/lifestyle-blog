@@ -19,7 +19,7 @@ describe('Category Resolver', () => {
     _CategoryService.findAll().mimicks(async () => CATEGORY_LIST_MOCK)
   })
 
-  describe('categoryList Method', () => {
+  describe('categoryList Query', () => {
     it('should return proper data', async () => {
       const result = await resolver.categoryList()
 

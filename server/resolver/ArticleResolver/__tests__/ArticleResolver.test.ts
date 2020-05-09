@@ -291,7 +291,7 @@ describe('Article Resolver', () => {
     })
   })
 
-  describe('incrementArticleLikes Query', () => {
+  describe('incrementArticleLikes Mutation', () => {
     it('should return proper data', async () => {
       const result = await resolver.incrementArticleLikes(1)
 

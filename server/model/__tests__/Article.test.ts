@@ -21,6 +21,7 @@ jest.doMock('sequelize', () => {
 describe('Article Model', () => {
   it('should call Article.init with the correct parameters', () => {
     require('../Article')
+
     const { User } = require('../User')
     const { Image } = require('../Image')
 

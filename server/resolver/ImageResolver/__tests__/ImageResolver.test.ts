@@ -31,7 +31,7 @@ describe('Image Resolver', () => {
       .mimicks(async () => UPLOAD_METHOD_MOCK)
   })
 
-  describe('uploadImage mutation', () => {
+  describe('uploadImage Mutation', () => {
     describe('should throw an error', () => {
       it('if token is wrong', async () => {
         const context: Context = {

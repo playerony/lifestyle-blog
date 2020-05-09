@@ -1,8 +1,6 @@
 {
-  "ignore": [
-    "node_modules"
-  ],
+  "ignore": ["node_modules"],
+  "ext": "ts",
   "watch": ["."],
-  "exec": "babel-node --extensions \".ts\" index.ts",
-  "ext": "ts"
+  "exec": "babel-node --extensions \".ts\" index.ts"
 }

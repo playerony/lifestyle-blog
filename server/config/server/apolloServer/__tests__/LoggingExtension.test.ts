@@ -1,6 +1,6 @@
 import LoggingExtension from '../LoggingExtension'
 
-describe('LoggingExtension class', () => {
+describe('LoggingExtension Class', () => {
   it('should have defined proper fields', () => {
     const classPropertyList = Object.getOwnPropertyNames(
       LoggingExtension.prototype

@@ -25,8 +25,8 @@ describe('Visitor Resolver', () => {
       )
   })
 
-  describe('visitorList Method', () => {
-    it('should return all articles', async () => {
+  describe('visitorList Query', () => {
+    it('should return all visitors', async () => {
       const result = await resolver.visitorList()
 
       expect(result).toEqual(VISITOR_LIST_MOCK)

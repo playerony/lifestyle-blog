@@ -10,7 +10,7 @@ jest.doMock('../sequelize', () => {
   }
 })
 
-describe('synchronizeModel Configuration', () => {
+describe('synchronizeModel Function', () => {
   it('should synchronize models with database', async () => {
     await require('../synchronizeModel').default()
 

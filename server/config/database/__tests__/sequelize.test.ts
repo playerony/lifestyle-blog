@@ -1,4 +1,4 @@
-describe('sequelize Instance', () => {
+describe('sequelize Configuration', () => {
   const OLD_ENV = process.env
 
   beforeEach(() => {

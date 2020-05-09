@@ -105,7 +105,7 @@ describe('Comment Resolver', () => {
     })
   })
 
-  describe('commentList Method', () => {
+  describe('commentList Query', () => {
     it('should return all comments', async () => {
       const result = await resolver.commentList()
 
