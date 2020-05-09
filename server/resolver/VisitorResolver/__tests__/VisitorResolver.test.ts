@@ -1,6 +1,6 @@
-import Substitute from '@fluffy-spoon/substitute'
+import Substitute, { Arg } from '@fluffy-spoon/substitute'
 
-import VisitorResolver from '../VisitorResolver'
+import VisitorResolver from '..'
 
 import VisitorService from '@service/VisitorService'
 
@@ -16,14 +16,26 @@ describe('Visitor Resolver', () => {
   })
 
   beforeAll(() => {
-    _VisitorService.findAll().mimicks(async () => VISITOR_LIST_MOCK)
+    _VisitorService
+      .findAll(Arg.any())
+      .mimicks(async onlyArticles =>
+        onlyArticles
+          ? VISITOR_LIST_MOCK.filter(element => element.articleId)
+          : VISITOR_LIST_MOCK
+      )
   })
 
   describe('visitorList Method', () => {
-    it('should return proper data', async () => {
+    it('should return all articles', async () => {
       const result = await resolver.visitorList()
 
       expect(result).toEqual(VISITOR_LIST_MOCK)
+    })
+
+    it('should return only article page visitors', async () => {
+      const result = await resolver.visitorList(true)
+
+      expect(result).toEqual([VISITOR_LIST_MOCK[0]])
     })
   })
 })
@@ -37,7 +49,7 @@ const VISITOR_LIST_MOCK: VisitorType[] = [
   },
   {
     visitorId: 2,
-    articleId: 1,
+    articleId: null,
     userAgent: 'userAgent',
     ipAddress: 'ipAddress'
   }

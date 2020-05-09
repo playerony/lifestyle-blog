@@ -39,7 +39,7 @@ export default class VisitorService {
 
   async findAll(onlyArticles?: boolean): Promise<VisitorType[]> {
     const whereOptions: WhereOptions = {}
-    if (onlyArticles !== undefined) {
+    if (onlyArticles) {
       whereOptions.articleId = {
         [Op.not]: null
       }
