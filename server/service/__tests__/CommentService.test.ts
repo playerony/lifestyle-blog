@@ -138,7 +138,7 @@ describe('Comment Service', () => {
       }
     })
 
-    it('should return incremented number of likes', async () => {
+    it('should return decremented number of likes', async () => {
       const commentService = setUp()
 
       expect(await commentService.decrementCommentLikes(1)).toEqual(0)

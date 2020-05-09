@@ -2,6 +2,7 @@ import {
   articleByIdValidation,
   createArticleValidation,
   updateArticleValidation,
+  incrementArticleLikesValidation,
   toggleArticlePublicFlagValidation
 } from '../ArticleResolver.validator'
 
@@ -260,6 +261,27 @@ describe('ArticleResolver.validator Functions', () => {
       it('should contain proper validators', () => {
         try {
           toggleArticlePublicFlagValidation(null as any, true)
+        } catch (e) {
+          const { articleId } = JSON.parse(e.message)
+
+          expect(articleId).toEqual([
+            'Provided value does not exist.',
+            'Provided value is not a number.'
+          ])
+        }
+      })
+    })
+  })
+
+  describe('incrementArticleLikesValidation Function', () => {
+    it('import incrementArticleLikesValidation', () => {
+      expect(typeof incrementArticleLikesValidation).toEqual('function')
+    })
+
+    describe('articleId Field', () => {
+      it('should contain proper validators', () => {
+        try {
+          incrementArticleLikesValidation(null as any)
         } catch (e) {
           const { articleId } = JSON.parse(e.message)
 
