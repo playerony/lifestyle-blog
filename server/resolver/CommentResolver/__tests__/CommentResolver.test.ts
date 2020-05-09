@@ -27,6 +27,16 @@ describe('Comment Resolver', () => {
 
     _CommentService.create(Arg.any()).mimicks(async () => COMMENT_RECORD_MOCK)
 
+    _CommentService.findAll().mimicks(async () => [COMMENT_RECORD_MOCK])
+
+    _CommentService
+      .incrementCommentLikes(Arg.any())
+      .mimicks(async () => COMMENT_RECORD_MOCK.likes + 1)
+
+    _CommentService
+      .decrementCommentLikes(Arg.any())
+      .mimicks(async () => COMMENT_RECORD_MOCK.likes - 1)
+
     _CommentService
       .findAllByArticleId(Arg.any())
       .mimicks(async articleId =>
@@ -34,7 +44,7 @@ describe('Comment Resolver', () => {
       )
   })
 
-  describe('createComment mutation', () => {
+  describe('createComment Mutation', () => {
     describe('should throw an error', () => {
       it('if passed content data is wrong', async () => {
         try {
@@ -64,7 +74,7 @@ describe('Comment Resolver', () => {
     })
   })
 
-  describe('updateComment mutation', () => {
+  describe('updateComment Mutation', () => {
     describe('should throw an error', () => {
       it('if passed content data is wrong', async () => {
         try {
@@ -95,6 +105,14 @@ describe('Comment Resolver', () => {
     })
   })
 
+  describe('commentList Method', () => {
+    it('should return all comments', async () => {
+      const result = await resolver.commentList()
+
+      expect(result).toEqual([COMMENT_RECORD_MOCK])
+    })
+  })
+
   describe('commentListByArticleId Query', () => {
     it('should return proper data', async () => {
       const result = await resolver.commentListByArticleId(1)
@@ -117,6 +135,52 @@ describe('Comment Resolver', () => {
       }
     })
   })
+
+  describe('incrementCommentLikes Query', () => {
+    it('should return proper data', async () => {
+      const result = await resolver.incrementCommentLikes(1)
+
+      expect(result).toEqual(2)
+    })
+
+    it('should throw an error if articleId is wrong', async () => {
+      try {
+        await resolver.incrementCommentLikes(null as any)
+      } catch (e) {
+        expect(e.message).toEqual(
+          JSON.stringify({
+            commentId: [
+              'Provided value does not exist.',
+              'Provided value is not a number.'
+            ]
+          })
+        )
+      }
+    })
+  })
+
+  describe('decrementCommentLikes Query', () => {
+    it('should return proper data', async () => {
+      const result = await resolver.decrementCommentLikes(1)
+
+      expect(result).toEqual(0)
+    })
+
+    it('should throw an error if articleId is wrong', async () => {
+      try {
+        await resolver.decrementCommentLikes(null as any)
+      } catch (e) {
+        expect(e.message).toEqual(
+          JSON.stringify({
+            commentId: [
+              'Provided value does not exist.',
+              'Provided value is not a number.'
+            ]
+          })
+        )
+      }
+    })
+  })
 })
 
 const COMMENT_SAVE_REQUEST_MOCK: Required<CommentSaveRequest> = {
@@ -127,6 +191,7 @@ const COMMENT_SAVE_REQUEST_MOCK: Required<CommentSaveRequest> = {
 }
 
 const COMMENT_RECORD_MOCK: Required<CommentType> = {
+  likes: 1,
   commentId: 1,
   articleId: 1,
   content: 'content',
