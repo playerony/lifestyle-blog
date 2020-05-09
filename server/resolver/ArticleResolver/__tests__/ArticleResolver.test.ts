@@ -38,6 +38,8 @@ describe('Article Resolver', () => {
       .togglePublicFlag(Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
 
+    _ArticleService.incrementArticleLikes(Arg.any()).mimicks(async () => 2)
+
     _ArticleService
       .create(Arg.any(), Arg.any())
       .mimicks(async () => ARTICLE_SAVE_RESULT_MOCK)
@@ -59,7 +61,7 @@ describe('Article Resolver', () => {
       .mimicks(async () => VISITOR_MOCK)
   })
 
-  describe('createArticle mutation', () => {
+  describe('createArticle Mutation', () => {
     describe('should throw an error', () => {
       it('if token is wrong', async () => {
         const context: Context = {
@@ -119,7 +121,7 @@ describe('Article Resolver', () => {
     })
   })
 
-  describe('updateArticle mutation', () => {
+  describe('updateArticle Mutation', () => {
     describe('should throw an error', () => {
       it('if token is wrong', async () => {
         const context: Context = {
@@ -180,7 +182,7 @@ describe('Article Resolver', () => {
     })
   })
 
-  describe('toggleArticlePublicFlag mutation', () => {
+  describe('toggleArticlePublicFlag Mutation', () => {
     describe('should throw an error', () => {
       it('if token is wrong', async () => {
         const context: Context = {
@@ -283,6 +285,29 @@ describe('Article Resolver', () => {
         expect(e.message).toEqual(
           JSON.stringify({
             articleId: ['Provided value is not a number.']
+          })
+        )
+      }
+    })
+  })
+
+  describe('incrementArticleLikes Query', () => {
+    it('should return proper data', async () => {
+      const result = await resolver.incrementArticleLikes(1)
+
+      expect(result).toEqual(2)
+    })
+
+    it('should throw an error if articleId is wrong', async () => {
+      try {
+        await resolver.incrementArticleLikes(null as any)
+      } catch (e) {
+        expect(e.message).toEqual(
+          JSON.stringify({
+            articleId: [
+              'Provided value does not exist.',
+              'Provided value is not a number.'
+            ]
           })
         )
       }
