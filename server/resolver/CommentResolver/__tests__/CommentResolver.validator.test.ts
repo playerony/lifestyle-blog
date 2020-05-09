@@ -1,6 +1,8 @@
 import {
   createCommentValidation,
   updateCommentValidation,
+  incrementCommentLikesValidation,
+  decrementCommentLikesValidation,
   commentListByArticleIdValidation
 } from '../CommentResolver.validator'
 
@@ -161,6 +163,48 @@ describe('CommentResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
+            'Provided value does not exist.',
+            'Provided value is not a number.'
+          ])
+        }
+      })
+    })
+  })
+
+  describe('incrementCommentLikesValidation Function', () => {
+    it('import incrementCommentLikesValidation', () => {
+      expect(typeof incrementCommentLikesValidation).toEqual('function')
+    })
+
+    describe('commentId Field', () => {
+      it('should contain proper validators', () => {
+        try {
+          incrementCommentLikesValidation(null as any)
+        } catch (e) {
+          const { commentId } = JSON.parse(e.message)
+
+          expect(commentId).toEqual([
+            'Provided value does not exist.',
+            'Provided value is not a number.'
+          ])
+        }
+      })
+    })
+  })
+
+  describe('decrementCommentLikesValidation Function', () => {
+    it('import decrementCommentLikesValidation', () => {
+      expect(typeof decrementCommentLikesValidation).toEqual('function')
+    })
+
+    describe('commentId Field', () => {
+      it('should contain proper validators', () => {
+        try {
+          decrementCommentLikesValidation(null as any)
+        } catch (e) {
+          const { commentId } = JSON.parse(e.message)
+
+          expect(commentId).toEqual([
             'Provided value does not exist.',
             'Provided value is not a number.'
           ])
