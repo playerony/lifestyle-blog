@@ -211,6 +211,13 @@ export default {
           }
         })
     }
+  },
+  watch: {
+    articleById: function() {
+      if (this.articleById === null) {
+        window.location.pathname = '/error/404'
+      }
+    }
   }
 }
 </script>
