@@ -45,6 +45,7 @@ describe('useArticleList Hook', () => {
 const ARTICLE_LIST_RESULT_DATA = {
   articleList: [
     {
+      likes: 1,
       articleId: 1,
       title: 'title',
       isPublic: true,
