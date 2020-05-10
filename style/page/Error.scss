@@ -1,0 +1,55 @@
+.error-page {
+  width: 100%;
+  height: calc(100vh - 70px - #{$paddingBig} * 2);
+
+  @include flexbox();
+  @include align-items(center);
+  @include flex-direction(column);
+  @include justify-content(center);
+
+  @include respond-to('medium') {
+    height: calc(100vh - 70px - #{$paddingMedium} * 2);
+  }
+
+  @include respond-to('small') {
+    height: calc(100vh - 70px - #{$paddingSmall} * 2);
+  }
+
+  @include respond-to('mobile') {
+    height: calc(100vh - 70px - #{$paddingSmall});
+  }
+
+  &__icon {
+    width: 40%;
+
+    @include respond-to('mobile') {
+      width: 60%;
+    }
+  }
+
+  &__code {
+    margin-top: $paddingMedium;
+
+    @include font-size(100px);
+
+    @include respond-to('large') {
+      @include font-size(90px);
+    }
+
+    @include respond-to('medium') {
+      @include font-size(75px);
+    }
+  }
+
+  &__description {
+    margin-bottom: $paddingMedium;
+  }
+
+  & > button {
+    max-width: 40%;
+
+    @include respond-to('small') {
+      max-width: 45%;
+    }
+  }
+}
