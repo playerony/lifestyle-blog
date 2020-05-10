@@ -15,7 +15,7 @@ export const createArticleValidation = (data: ArticleSaveRequest): void => {
         .isNumber(),
       check('title')
         .isExist()
-        .isMaxLength(30),
+        .isMaxLength(40),
       check('description')
         .isExist()
         .isMaxLength(100),

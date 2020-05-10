@@ -35,11 +35,11 @@ Article.init(
       onDelete: 'CASCADE'
     },
     title: {
-      type: DataTypes.STRING(30),
+      type: DataTypes.STRING(40),
       unique: true,
       allowNull: false,
       validate: {
-        max: 30,
+        max: 40,
         notEmpty: true
       }
     },
