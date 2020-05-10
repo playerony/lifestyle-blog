@@ -2,8 +2,8 @@
   <Container>
     <div class="error-page">
       <RobotSVG class="error-page__icon" />
-      <h1>{{ code }}</h1>
-      <label>{{ errorMessage }}</label>
+      <h1 class="error-page__code">{{ code }}</h1>
+      <label class="error-page__description">{{ errorMessage }}</label>
       <Button :onClick="handleRefreshClick">Refresh</Button>
     </div>
   </Container>
