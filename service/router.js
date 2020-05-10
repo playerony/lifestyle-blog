@@ -43,6 +43,10 @@ const router = new VueRouter({
       component: ErrorPage,
       path: routeList.error,
       ...verifyNumberParamBeforeEnter('code')
+    },
+    {
+      path: '*',
+      redirect: '/error/404'
     }
   ]
 })
