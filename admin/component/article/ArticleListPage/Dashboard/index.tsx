@@ -41,6 +41,19 @@ const renderArticleListSortedByCreatedAt = (
   return <ArticleList label="Newest" articleList={result.reverse()} />
 }
 
+const renderArticleListSortedByLikes = (
+  articleList: IArticleList[]
+): JSX.Element | null => {
+  const articleListCopy = articleList.slice(0)
+  const result = articleListCopy.sort((a, b) => b.likes! - a.likes!)
+
+  if (!result?.length) {
+    return null
+  }
+
+  return <ArticleList label="Top rated" articleList={result} />
+}
+
 const renderArticleListSortedByTotalVisitor = (
   articleList: IArticleList[]
 ): JSX.Element | null => {
@@ -87,6 +100,7 @@ const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {
   const renderContent = (): JSX.Element[] =>
     [
       renderArticleListSortedByCreatedAt(articleList),
+      renderArticleListSortedByLikes(articleList),
       renderArticleListSortedByTotalVisitor(articleList),
       renderArticleListSortedByTodayVisitor(articleList),
       ...renderCategorySectionList()

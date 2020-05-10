@@ -28,6 +28,7 @@ const ArticleListMock = (): JSX.Element => <h1>Article List</h1>
 
 const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
   {
+    likes: 1,
     userId: 1,
     imageId: 1,
     articleId: 1,
@@ -50,6 +51,7 @@ const ARTICLE_LIST_MOCK: Required<IArticleList>[] = [
     ]
   },
   {
+    likes: 1,
     userId: 1,
     imageId: 1,
     articleId: 2,

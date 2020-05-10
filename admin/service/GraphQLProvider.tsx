@@ -43,7 +43,7 @@ const GraphQLProvider = ({ children }: IGraphQLProviderProps): JSX.Element => {
   })
 
   const errorLink = onError(
-    ({ graphQLErrors, networkError, forward }: ErrorResponse): void => {
+    ({ graphQLErrors, networkError }: ErrorResponse): void => {
       if (graphQLErrors) {
         graphQLErrors.map(
           ({ message, path, extensions }: GraphQLError): void => {

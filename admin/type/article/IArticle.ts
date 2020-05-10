@@ -2,6 +2,7 @@ import IImage from '../image/IImage'
 import ICategory from '../category/ICategory'
 
 export default interface IArticle {
+  likes?: number
   title?: string
   image?: IImage
   userId?: number

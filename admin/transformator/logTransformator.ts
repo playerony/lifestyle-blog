@@ -4,6 +4,8 @@ import ILog from '@type/log/ILog'
 
 import formatDate from '@utility/formatDate'
 
+import { LOG_CHART_RECORDS_LIMIT } from '@config/constant'
+
 import variable from '@style/variable'
 
 export default (logList: ILog[]) => {
@@ -16,11 +18,11 @@ export default (logList: ILog[]) => {
   const labels = Object.keys(logListGroupedByMonth)
     .map(element => logListGroupedByMonth[element][0])
     .map(log => formatDate(log.createdAt).slice(3))
-    .slice(-5)
+    .slice(LOG_CHART_RECORDS_LIMIT)
 
   const data = Object.keys(logListGroupedByMonth)
     .map(element => logListGroupedByMonth[element].length)
-    .slice(-5)
+    .slice(LOG_CHART_RECORDS_LIMIT)
 
   return {
     labels,

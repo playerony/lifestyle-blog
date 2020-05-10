@@ -190,6 +190,7 @@ describe('ArticleCard Component', () => {
 })
 
 const ARTICLE_MOCK: Required<IArticleList> = {
+  likes: 1,
   userId: 1,
   imageId: 1,
   articleId: 1,
