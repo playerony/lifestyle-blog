@@ -33,6 +33,7 @@ export default {
     errorMessage() {
       const errorMessages = {
         404: 'Not found.',
+        400: 'Bad request.',
         500: 'Internal Server Error.'
       }
 
