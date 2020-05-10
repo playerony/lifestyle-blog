@@ -73,6 +73,10 @@ export const StyledEditorWrapper = styled.div`
   position: relative;
   margin-top: ${variable.paddingSmall}px;
 
+  & .public-DraftEditor-content > div > * {
+    margin: ${variable.paddingSmall}px 0;
+  }
+
   .DraftEditor-root {
     min-height: 500px;
   }
@@ -98,6 +102,10 @@ export const StyledEditorWrapper = styled.div`
   .public-DraftStyleDefault-pre {
     padding: ${variable.paddingSmall}px;
     background-color: ${variable.color.gray300};
+
+    & > pre {
+      white-space: break-spaces;
+    }
   }
 
   .align-right {
