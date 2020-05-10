@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '@page/Home'
 import Article from '@page/Article'
+import ErrorPage from '@page/Error'
 import ArticleList from '@page/ArticleList'
 
 import scrollToTop from '@utility/scrollToTop'
@@ -10,6 +11,16 @@ import scrollToTop from '@utility/scrollToTop'
 import routeList from '@config/routeList'
 
 Vue.use(VueRouter)
+
+const verifyNumberParamBeforeEnter = key => ({
+  beforeEnter(to, from, next) {
+    if (isNaN(Number(to.params[key]))) {
+      next('/error/404')
+    } else {
+      next()
+    }
+  }
+})
 
 const router = new VueRouter({
   mode: 'history',
@@ -20,11 +31,18 @@ const router = new VueRouter({
     },
     {
       component: Article,
-      path: routeList.article
+      path: routeList.article,
+      ...verifyNumberParamBeforeEnter('articleId')
     },
     {
       component: ArticleList,
-      path: routeList.articles
+      path: routeList.articles,
+      ...verifyNumberParamBeforeEnter('categoryId')
+    },
+    {
+      component: ErrorPage,
+      path: routeList.error,
+      ...verifyNumberParamBeforeEnter('code')
     }
   ]
 })

@@ -33,7 +33,7 @@ export default {
       progress: 0,
       showNavbar: true,
       lastScrollPosition: 0,
-      isArticlePage: this.$route.matched[0].path === routeList.article
+      isArticlePage: this.$route.matched[0]?.path === routeList.article
     }
   },
   components: {
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     redirectToHome() {
-      if (this.$route.path !== routeList.base) {
+      if (this.$route?.path !== routeList.base) {
         this.$router.push(routeList.base)
       }
     },
@@ -108,7 +108,7 @@ export default {
   },
   watch: {
     $route(to) {
-      this.isArticlePage = to.matched[0].path === routeList.article
+      this.isArticlePage = to.matched[0]?.path === routeList.article
 
       if (this.isArticlePage) {
         this.recalculateProgress()
