@@ -5,10 +5,6 @@
   @include flexbox();
   @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
 
-  @include respond-to('mobile') {
-    @include flex-direction(column-reverse);
-  }
-
   &__border {
     width: 10px;
 
@@ -34,19 +30,19 @@
 
     @include respond-to('medium') {
       $padding: calc(#{$paddingMedium} * 2);
-      width: calc(50% - 5px - #{$paddingMedium} * 4);
+      width: calc(50% - 10px - #{$paddingMedium} * 4);
       padding: $padding $padding calc(#{$padding} * 4) $padding;
     }
 
     @include respond-to('small') {
-      width: calc(50% - 5px - #{$paddingMedium} * 2);
+      width: calc(50% - 10px - #{$paddingMedium} * 2);
       padding: $paddingMedium $paddingMedium calc(#{$paddingMedium} * 5)
         $paddingMedium;
     }
 
     @include respond-to('mobile') {
-      padding: $paddingSmall;
-      width: calc(100% - #{$paddingSmall} * 2);
+      padding-bottom: calc(#{$paddingSmall} * 5);
+      width: calc(100% - 10px - #{$paddingMedium} * 2);
     }
 
     & > .content__button {
@@ -75,7 +71,7 @@
     width: calc(50% - 5px);
 
     @include respond-to('mobile') {
-      width: 100%;
+      display: none;
     }
   }
 }
