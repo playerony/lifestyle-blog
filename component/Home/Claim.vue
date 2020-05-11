@@ -1,6 +1,8 @@
 <template>
   <div class="claim">
-    <img class="claim__image" src="https://i.imgur.com/EyME0a9.png" />
+    <Tooltip class="claim__image" title="Yes, this is my face">
+      <img src="https://i.imgur.com/EyME0a9.png" />
+    </Tooltip>
     <h1 class="claim__text">
       My friend who designed it forced me to write here something. So with this
       blog, I wanna share my experience with
@@ -13,7 +15,12 @@
 </template>
 
 <script>
+import Tooltip from '../common/Tooltip'
+
 export default {
-  name: 'home-claim'
+  name: 'home-claim',
+  components: {
+    Tooltip
+  }
 }
 </script>

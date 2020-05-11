@@ -17,10 +17,24 @@
   }
 
   &__image {
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
     margin-right: $paddingBig;
+
+    & > img {
+      width: 200px;
+      height: 200px;
+
+      @include border-radius(100%);
+
+      @include respond-to('medium') {
+        width: 180px;
+        height: 180px;
+      }
+
+      @include respond-to('mobile') {
+        width: 120px;
+        height: 120px;
+      }
+    }
 
     @include respond-to('medium') {
       width: 180px;
