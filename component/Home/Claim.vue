@@ -9,7 +9,8 @@
       <span class="claim__rainbow">meditation</span>,
       <span class="claim__rainbow">habits</span> and share things that changed
       totally my life. It is writing down my knowledge in order to systematize
-      it and <span class="claim__rainbow">exchange knowledge</span>.
+      it and <span class="claim__rainbow">exchange knowledge</span>. I hope to
+      help someone who need it.
     </h1>
   </div>
 </template>

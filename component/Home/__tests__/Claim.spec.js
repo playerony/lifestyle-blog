@@ -42,7 +42,8 @@ describe('Claim Component', () => {
     meditation,
     habits and share things that changed
     totally my life. It is writing down my knowledge in order to systematize
-    it and exchange knowledge.`
+    it and exchange knowledge. I hope to
+    help someone who need it.`
     )
   })
 })
