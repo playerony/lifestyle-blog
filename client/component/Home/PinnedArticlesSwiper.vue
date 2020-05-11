@@ -7,8 +7,14 @@
       >
         <ArticleCard :article="article" />
       </swiper-slide>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
+      <LeftArrowSVG
+        class="swiper-button-prev"
+        slot="button-prev"
+      ></LeftArrowSVG>
+      <RightArrowSVG
+        class="swiper-button-next"
+        slot="button-next"
+      ></RightArrowSVG>
     </swiper>
   </div>
 </template>
@@ -17,6 +23,8 @@
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 import ArticleCard from '../common/ArticleCard'
+import LeftArrowSVG from '@asset/svg/left-arrow.svg'
+import RightArrowSVG from '@asset/svg/right-arrow.svg'
 
 import { PINNED_CATEGORY_ID } from '@config/constant'
 
@@ -28,6 +36,7 @@ export default {
   data() {
     return {
       swiperOption: {
+        speed: 500,
         spaceBetween: 0,
         slidesPerView: 1,
         slidesPerGroup: 1,
@@ -40,19 +49,19 @@ export default {
           prevEl: '.swiper-button-prev'
         },
         autoplay: {
-          delay: 5000,
+          delay: 7500,
           disableOnInteraction: false
         },
         breakpoints: {
           1367: {
-            spaceBetween: -40,
+            spaceBetween: -28,
             slidesPerView: 3,
             slidesPerGroup: 3
           },
           750: {
             slidesPerView: 2,
             slidesPerGroup: 2,
-            spaceBetween: -30
+            spaceBetween: -26
           }
         }
       }
@@ -61,7 +70,9 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-    ArticleCard
+    ArticleCard,
+    LeftArrowSVG,
+    RightArrowSVG
   },
   methods: {
     getPinnedArticles() {
