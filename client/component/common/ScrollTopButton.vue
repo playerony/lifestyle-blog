@@ -14,7 +14,8 @@ export default {
   name: 'common-scroll-top-button',
   data() {
     return {
-      isVisible: false
+      isVisible: false,
+      wasClicked: false
     }
   },
   components: {
@@ -22,7 +23,7 @@ export default {
   },
   computed: {
     buttonStyle() {
-      if (!this.isVisible) {
+      if (!this.isVisible || this.wasClicked) {
         return 'scroll-top-button--hidden'
       }
 
@@ -40,9 +41,15 @@ export default {
   methods: {
     handleButtonClick() {
       scrollToTop()
+
+      this.wasClicked = true
     },
     checkVisibility() {
       const currentScrollPosition = getCurrentScrollPosition()
+
+      if (this.wasClicked && currentScrollPosition === 0) {
+        this.wasClicked = false
+      }
 
       this.isVisible = currentScrollPosition > window.outerHeight
     }
