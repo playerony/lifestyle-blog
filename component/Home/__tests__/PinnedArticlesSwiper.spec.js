@@ -1,13 +1,17 @@
-import { shallowMount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 
 import PinnedArticlesSwiper from '../PinnedArticlesSwiper'
 
 const setUp = () =>
-  shallowMount(PinnedArticlesSwiper, {
+  mount(PinnedArticlesSwiper, {
     propsData: { articles: ARTICLES_MOCK }
   })
 
 describe('PinnedArticlesSwiper Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
     const wrapper = setUp()
 
@@ -20,16 +24,10 @@ describe('PinnedArticlesSwiper Component', () => {
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
-  it('should return swiper component', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.find('swiper-stub').exists()).toBeTruthy()
-  })
-
   it('should return two article cards', () => {
     const wrapper = setUp()
 
-    expect(wrapper.findAll('articlecard-stub').length).toEqual(2)
+    expect(wrapper.findAll('article').length).toEqual(2)
   })
 
   it('should contain proper swiper configuration', () => {
@@ -146,6 +144,7 @@ const ARTICLES_MOCK = [
 ]
 
 const SWIPER_OPTIONS = {
+  speed: 500,
   spaceBetween: 0,
   slidesPerView: 1,
   slidesPerGroup: 1,
@@ -158,19 +157,19 @@ const SWIPER_OPTIONS = {
     prevEl: '.swiper-button-prev'
   },
   autoplay: {
-    delay: 5000,
+    delay: 7500,
     disableOnInteraction: false
   },
   breakpoints: {
     1367: {
-      spaceBetween: -40,
+      spaceBetween: -28,
       slidesPerView: 3,
       slidesPerGroup: 3
     },
     750: {
       slidesPerView: 2,
       slidesPerGroup: 2,
-      spaceBetween: -30
+      spaceBetween: -26
     }
   }
 }

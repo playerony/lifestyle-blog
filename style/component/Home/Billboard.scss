@@ -30,12 +30,12 @@
 
     @include respond-to('medium') {
       $padding: calc(#{$paddingMedium} * 2);
-      width: calc(50% - 10px - #{$paddingMedium} * 4);
+      width: calc(50% - 5px - #{$paddingMedium} * 4);
       padding: $padding $padding calc(#{$padding} * 4) $padding;
     }
 
     @include respond-to('small') {
-      width: calc(50% - 10px - #{$paddingMedium} * 2);
+      width: calc(50% - 5px - #{$paddingMedium} * 2);
       padding: $paddingMedium $paddingMedium calc(#{$paddingMedium} * 5)
         $paddingMedium;
     }
