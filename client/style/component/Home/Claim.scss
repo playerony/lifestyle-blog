@@ -4,12 +4,16 @@
   @include flexbox();
   @include align-items(center);
 
-  @include respond-to("medium") {
+  @include respond-to('medium') {
     padding: $paddingMedium 0;
   }
 
-  @include respond-to("mobile") {
-    padding: $paddingSmall 0;
+  @include respond-to('small') {
+    @include flex-direction(column);
+  }
+
+  @include respond-to('mobile') {
+    padding: 0 $paddingSmall;
   }
 
   &__image {
@@ -18,16 +22,21 @@
     border-radius: 100%;
     margin-right: $paddingBig;
 
-    @include respond-to("medium") {
+    @include respond-to('medium') {
       width: 180px;
       height: 180px;
       margin-right: $paddingMedium;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('small') {
+      margin-right: 0;
+      margin-bottom: $paddingMedium;
+    }
+
+    @include respond-to('mobile') {
       width: 120px;
       height: 120px;
-      margin-right: $paddingSmall;
+      margin-bottom: $paddingSmall;
     }
   }
 
@@ -35,16 +44,21 @@
     width: 60%;
     line-height: 1.3;
 
-    @include respond-to("medium") {
-      width: 80%;
+    @include respond-to('medium') {
+      width: 70%;
       line-height: 1.2;
     }
 
-    @include respond-to("mobile") {
+    @include respond-to('small') {
+      width: 85%;
+      text-align: center;
+    }
+
+    @include respond-to('mobile') {
       width: 100%;
       line-height: 1.1;
-      
-      @include font-size(18px);
+
+      @include font-size(24px);
     }
   }
 
