@@ -9,38 +9,34 @@
         :class="selectedItemStyle(menuOption.sortingBy)"
       />
     </ul>
-    <transition-group
-      tag="div"
-      name="list-transition"
-      class="article-list__content"
+    <RecycleScroller
+      :buffer="1000"
+      :itemSize="rowHeight"
+      :page-mode="isPageMode"
+      :items="getArticleList()"
+      v-slot="{ item: row, active }"
+      :key="gridRowElements * rowHeight"
     >
-      <ArticleCard
-        :article="article"
-        :key="article.articleId"
-        v-for="article in getArticleList"
-      />
-    </transition-group>
-    <Tooltip
-      title="Show more"
-      :onClick="showMoreClick"
-      v-if="shouldRenderShowMoreButton"
-      class="article-list__show-more-icon"
-    >
-      <DynamicIcon icon="left-arrow" />
-    </Tooltip>
+      <div :v-if="active" class="article-list__content">
+        <ArticleCard
+          :article="article"
+          :key="article.articleId"
+          v-for="article in row.items"
+        />
+      </div>
+    </RecycleScroller>
   </div>
 </template>
 
 <script>
-import Tooltip from '../Tooltip'
+import { RecycleScroller } from 'vue-virtual-scroller'
+
 import MenuItem from './MenuItem'
 import ArticleCard from '../ArticleCard'
-import DynamicIcon from '../DynamicIcon'
 
 import sortArticleList from '@utility/sortArticleList'
 
 import menuOptions from './menuOptions'
-import { ARTICLE_LIST_PAGE_SIZE } from '@config/constant'
 
 export default {
   name: 'common-article-list',
@@ -51,26 +47,27 @@ export default {
   data() {
     return {
       menuOptions,
-      sortingBy: 'latest',
-      pageSize: ARTICLE_LIST_PAGE_SIZE,
-      limitItems: ARTICLE_LIST_PAGE_SIZE
+      rowHeight: 300,
+      gridRowElements: 3,
+      sortingBy: 'latest'
     }
   },
   components: {
-    Tooltip,
     MenuItem,
     ArticleCard,
-    DynamicIcon
+    RecycleScroller
+  },
+  mounted() {
+    window.addEventListener('resize', this.onResize)
+
+    this.onResize()
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   },
   computed: {
-    getArticleList() {
-      return sortArticleList(this.articles, this.sortingBy).slice(
-        0,
-        this.limitItems
-      )
-    },
-    shouldRenderShowMoreButton() {
-      return this.articles.length - this.limitItems >= 1
+    isPageMode() {
+      return this.articles.length > 9
     }
   },
   methods: {
@@ -84,8 +81,46 @@ export default {
     setSortingBy(sortingBy) {
       this.sortingBy = sortingBy
     },
-    showMoreClick() {
-      this.limitItems = this.limitItems + this.pageSize
+    onResize() {
+      const windowWidth = document.body.clientWidth
+
+      if (windowWidth < 750) {
+        this.rowHeight = 270
+        this.gridRowElements = 1
+      } else if (windowWidth < 1367) {
+        this.rowHeight = 320
+        this.gridRowElements = 2
+      } else if (windowWidth < 1919) {
+        this.rowHeight = 340
+        this.gridRowElements = 3
+      } else {
+        this.rowHeight = 360
+        this.gridRowElements = 3
+      }
+    },
+    getArticleList() {
+      const articleList = sortArticleList(this.articles, this.sortingBy)
+
+      let index = 0
+      let result = []
+      let rowItems = []
+      for (index = 0; index < articleList.length; index++) {
+        if (index % this.gridRowElements === 0 && index !== 0) {
+          result.push({ id: index, items: rowItems })
+          rowItems = []
+        }
+
+        rowItems.push({
+          ...articleList[index],
+          id: articleList[index].articleId
+        })
+      }
+
+      if (rowItems.length) {
+        result.push({ id: index, items: rowItems })
+      }
+
+      return result
     }
   }
 }
