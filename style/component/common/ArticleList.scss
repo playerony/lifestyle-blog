@@ -84,6 +84,8 @@
   }
 
   &__content {
+    height: 100%;
+    min-height: auto;
     grid-gap: $paddingBig;
     grid-template-columns: 1fr 1fr 1fr;
 
@@ -94,11 +96,6 @@
     }
 
     @include respond-to('medium') {
-      grid-gap: $paddingSmall;
-      grid-template-columns: 1fr 1fr;
-    }
-
-    @include respond-to('small') {
       grid-gap: $paddingSmall;
       grid-template-columns: 1fr 1fr;
     }
