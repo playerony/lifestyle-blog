@@ -10,14 +10,16 @@
       />
     </ul>
     <RecycleScroller
-      :buffer="1000"
+      :key-field="id"
       :itemSize="rowHeight"
+      v-slot="{ item: row }"
       :page-mode="isPageMode"
       :items="getArticleList()"
-      v-slot="{ item: row, active }"
+      :preload="preloadElements"
+      style="height: 100%; overflow: auto;"
       :key="gridRowElements * rowHeight"
     >
-      <div :v-if="active" class="article-list__content">
+      <div class="article-list__content">
         <ArticleCard
           :article="article"
           :key="article.articleId"
@@ -66,8 +68,11 @@ export default {
     window.removeEventListener('resize', this.onResize)
   },
   computed: {
+    preloadElements() {
+      return Math.min(this.articles.length / this.gridRowElements, 6)
+    },
     isPageMode() {
-      return this.articles.length > 9
+      return this.articles.length / this.gridRowElements > 5
     }
   },
   methods: {
@@ -106,7 +111,7 @@ export default {
       let rowItems = []
       for (index = 0; index < articleList.length; index++) {
         if (index % this.gridRowElements === 0 && index !== 0) {
-          result.push({ id: index, items: rowItems })
+          result.push({ id: `row_${index}`, items: rowItems })
           rowItems = []
         }
 
@@ -117,7 +122,7 @@ export default {
       }
 
       if (rowItems.length) {
-        result.push({ id: index, items: rowItems })
+        result.push({ id: `row_${index}`, items: rowItems })
       }
 
       return result
