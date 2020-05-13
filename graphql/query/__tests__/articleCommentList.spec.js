@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 import articleCommentListQuery from '../articleCommentList'
 
-describe('commentList query', () => {
+describe('commentList Query', () => {
   it('should import', () => {
     expect(typeof articleCommentListQuery).toBeDefined()
   })

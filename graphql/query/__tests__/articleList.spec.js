@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 import articleListQuery from '../articleList'
 
-describe('articleList query', () => {
+describe('articleList Query', () => {
   it('should import', () => {
     expect(typeof articleListQuery).toBeDefined()
   })
