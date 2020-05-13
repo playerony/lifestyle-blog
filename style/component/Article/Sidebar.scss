@@ -2,7 +2,7 @@
   position: fixed;
   top: calc(110px + #{$paddingBig});
 
-  @include respond-to("mobile") {
+  @include respond-to('mobile') {
     display: none;
   }
 
@@ -12,15 +12,24 @@
   }
 
   &__back-button {
-    width: 50px;
-    height: 50px;
-    margin: 0 auto;
     cursor: pointer;
-    margin-top: 50px;
+    width: $paddingBig;
+    height: $paddingBig;
+    margin-top: $paddingBig;
     clip-path: polygon(20% 50%, 100% 100%, 100% 0);
 
     @include transition(all 500ms linear);
-    @include linear-gradient(to bottom, $blue600 5%, $purple700 56%, $red300 100%);
+    @include linear-gradient(
+      to bottom,
+      $blue600 5%,
+      $purple700 56%,
+      $red300 100%
+    );
+
+    @include respond-to('medium') {
+      width: 55px;
+      height: 55px;
+    }
 
     &:hover {
       @include transform(scale(1.1));
@@ -31,14 +40,20 @@
     margin-top: $paddingBig;
 
     & > .category-list__icon {
-      width: 45px;
-      height: 45px;
+      width: 55px;
+      height: 55px;
+      display: block;
       fill: $gray700;
       cursor: pointer;
       margin-top: 10px;
       margin-left: auto;
 
       @include transition(fill 500ms linear);
+
+      @include respond-to('medium') {
+        width: 50px;
+        height: 50px;
+      }
 
       &:hover {
         fill: $purple700;

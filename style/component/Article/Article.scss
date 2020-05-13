@@ -2,12 +2,12 @@
   position: relative;
 
   &__content-wrapper {
-    padding-left: calc(#{$paddingBig} * 2);
-    width: calc(100% - #{$paddingBig} * 2);
+    padding: 0 calc(#{$paddingBig} * 2);
+    width: calc(100% - #{$paddingBig} * 4);
 
     @include respond-to('medium') {
-      padding-left: calc(#{$paddingMedium} * 2);
-      width: calc(100% - #{$paddingMedium} * 2);
+      padding: 0 calc(#{$paddingMedium} * 2);
+      width: calc(100% - #{$paddingMedium} * 4);
     }
 
     @include respond-to('mobile') {
