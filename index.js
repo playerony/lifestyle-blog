@@ -5,7 +5,6 @@ import router from '@service/router'
 import apolloProvider from '@service/graphql'
 
 import '@service/portal'
-import '@service/fragment'
 import '@style/index.scss'
 
 Vue.config.productionTip = false
