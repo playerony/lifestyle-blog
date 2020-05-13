@@ -12,6 +12,7 @@ describe('routeList Configuration', () => {
 
 const ROUTE_LIST = {
   base: '/',
+  error: '/error/:code',
   article: '/article/:articleId',
   articles: '/articles/:categoryId'
 }
