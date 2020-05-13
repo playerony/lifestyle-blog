@@ -1,14 +1,14 @@
 import gql from 'graphql-tag'
 
-import metricCommentListQuery from '../metricCommentList'
+import categoryListQuery from '../categoryList'
 
-describe('metricCommentList Query', () => {
+describe('categoryList Query', () => {
   it('should import', () => {
-    expect(typeof metricCommentListQuery).toBeDefined()
+    expect(typeof categoryListQuery).toBeDefined()
   })
 
   it('should contain proper query and fetch policy', () => {
-    expect(metricCommentListQuery).toEqual({
+    expect(categoryListQuery).toEqual({
       query: QUERY_FORMULA,
       fetchPolicy: 'cache-first'
     })
@@ -17,9 +17,9 @@ describe('metricCommentList Query', () => {
 
 const QUERY_FORMULA = gql`
   query {
-    commentList {
-      articleId
-      createdAt
+    categoryList {
+      name
+      categoryId
     }
   }
 `
