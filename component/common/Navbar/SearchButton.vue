@@ -39,6 +39,12 @@ export default {
     onStorageUpdate(event) {
       if (event.key === SEARCH_PAGE_VISIBILITY) {
         this.showSearchPage = event.newValue === 'true'
+
+        if (this.showSearchPage) {
+          document.body.classList.add('overflow')
+        } else {
+          document.body.classList.remove('overflow')
+        }
       }
     }
   },
