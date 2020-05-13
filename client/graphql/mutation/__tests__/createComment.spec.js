@@ -2,7 +2,7 @@ import gql from 'graphql-tag'
 
 import { CREATE_COMMENT_MUTATION } from '../createComment'
 
-describe('createComment mutation', () => {
+describe('createComment Mutation', () => {
   it('should import', () => {
     expect(typeof CREATE_COMMENT_MUTATION).toBeDefined()
   })
