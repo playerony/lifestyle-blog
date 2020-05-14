@@ -7,7 +7,7 @@ const setUp = () =>
     propsData: { articles: ARTICLE_LIST_MOCK, category: CATEGORY_MOCK }
   })
 
-describe('Tooltip Component', () => {
+describe('CategoryArticleList Component', () => {
   it('should render', () => {
     const wrapper = setUp()
 

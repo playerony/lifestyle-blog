@@ -21,14 +21,14 @@ import categoryVisitorListQuery from '@graphql/query/categoryVisitorList'
 import articleListTransformator from '@transformator/articleListTransformator'
 
 export default {
-  name: 'page-article-list',
+  name: 'page-category-article-list',
   data() {
     return {
       articleList: [],
-      visitorListByCategoryId: [],
       commentList: [],
       categoryList: [],
-      categoryId: Number(this.$route.params.categoryId)
+      visitorListByCategoryId: [],
+      categoryId: Number(this.$route?.params?.categoryId)
     }
   },
   components: {
@@ -65,7 +65,7 @@ export default {
     getArticleList() {
       const categoryArticles = this.articleList.filter(article =>
         article.categoryList.find(
-          element => element.categoryId === this.categoryId
+          category => category.categoryId === this.categoryId
         )
       )
 
@@ -74,6 +74,16 @@ export default {
         this.visitorListByCategoryId,
         this.commentList
       )
+    }
+  },
+  watch: {
+    $route: function(to, from) {
+      if (
+        to?.matched[0]?.path === from?.matched[0]?.path &&
+        to?.params?.categoryId !== from?.params?.categoryId
+      ) {
+        this.categoryId = Number(to?.params?.categoryId)
+      }
     }
   }
 }
