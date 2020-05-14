@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '@page/Home'
 import Article from '@page/Article'
 import ErrorPage from '@page/Error'
-import ArticleList from '@page/ArticleList'
+import CategoryArticleList from '@page/CategoryArticleList'
 
 import scrollToTop from '@utility/scrollToTop'
 
@@ -35,8 +35,8 @@ const router = new VueRouter({
       ...verifyNumberParamBeforeEnter('articleId')
     },
     {
-      component: ArticleList,
       path: routeList.articles,
+      component: CategoryArticleList,
       ...verifyNumberParamBeforeEnter('categoryId')
     },
     {
