@@ -20,10 +20,10 @@ import ArticleList from './common/ArticleList'
 import DynamicIcon from './common/DynamicIcon'
 
 export default {
-  name: 'CategoryArticleList',
+  name: 'category-article-list',
   props: {
-    category: { type: Object, required: true },
-    articles: { type: Array, required: true }
+    articles: { type: Array, required: true },
+    category: { type: Object, required: true }
   },
   components: {
     Title,

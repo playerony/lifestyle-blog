@@ -7,7 +7,7 @@
         :key="category.categoryId"
         class="category-list__icon"
         v-for="category in categories"
-        @click="redirectToCategory(category.categoryId)"
+        :onClick="redirectToCategory(category.categoryId)"
       >
         <DynamicIcon :icon="category.name.toLowerCase()" />
       </Tooltip>
