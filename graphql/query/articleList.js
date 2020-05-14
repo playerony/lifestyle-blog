@@ -5,7 +5,6 @@ const ARTICLE_LIST_QUERY = gql`
     articleList(onlyPublic: true) {
       title
       likes
-      isPublic
       articleId
       createdAt
       description
