@@ -1,7 +1,7 @@
 <template>
-  <nav :class="'navbar ' + getNavbarStyle">
+  <nav :class="'navbar ' + navbarStyle">
     <div class="navbar__content">
-      <LogoSVG class="logo-icon" @click="redirectToHome()" />
+      <LogoSVG :class="'logo-icon ' + logoStyle" @click="redirectToHome" />
       <SearchButton />
       <ThemeSwitch />
     </div>
@@ -27,12 +27,13 @@ import routeList from '@config/routeList'
 import LogoSVG from '@asset/svg/logo.svg'
 
 export default {
-  name: 'Navbar',
+  name: 'common-navbar',
   data() {
     return {
       progress: 0,
       showNavbar: true,
       lastScrollPosition: 0,
+      isHomePage: this.$route.matched[0]?.path === '',
       isArticlePage: this.$route.matched[0]?.path === routeList.article
     }
   },
@@ -50,9 +51,16 @@ export default {
     window.removeEventListener('scroll', this.calculateProgress)
   },
   computed: {
-    getNavbarStyle() {
+    navbarStyle() {
       if (!this.showNavbar) {
         return 'navbar--hidden'
+      }
+
+      return ''
+    },
+    logoStyle() {
+      if (this.isHomePage) {
+        return 'logo-icon--in-active'
       }
 
       return ''
@@ -108,6 +116,7 @@ export default {
   },
   watch: {
     $route(to) {
+      this.isHomePage = to.matched[0]?.path === ''
       this.isArticlePage = to.matched[0]?.path === routeList.article
 
       if (this.isArticlePage) {

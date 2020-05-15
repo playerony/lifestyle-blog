@@ -77,11 +77,8 @@ export default {
     }
   },
   watch: {
-    $route: function(to, from) {
-      if (
-        to?.matched[0]?.path === from?.matched[0]?.path &&
-        to?.params?.categoryId !== from?.params?.categoryId
-      ) {
+    $route: function(to) {
+      if (!isNaN(Number(to?.params?.categoryId))) {
         this.categoryId = Number(to?.params?.categoryId)
       }
     }
