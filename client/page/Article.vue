@@ -218,11 +218,8 @@ export default {
         window.location.pathname = '/error/404'
       }
     },
-    $route: function(to, from) {
-      if (
-        to?.matched[0]?.path === from?.matched[0]?.path &&
-        to?.params?.articleId !== from?.params?.articleId
-      ) {
+    $route: function(to) {
+      if (!isNaN(Number(to?.params?.articleId))) {
         this.articleId = Number(to?.params?.articleId)
       }
     }

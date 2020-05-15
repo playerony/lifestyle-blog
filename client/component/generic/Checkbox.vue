@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'Checkbox',
+  name: 'generic-checkbox',
   props: {
     isChecked: { type: Boolean, required: false, default: false }
   },

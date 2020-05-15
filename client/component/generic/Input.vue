@@ -21,10 +21,17 @@
 
 <script>
 export default {
-  name: 'Input',
+  name: 'generic-input',
   data: () => ({
     isFocus: false
   }),
+  props: {
+    label: { type: String, required: false, default: '' },
+    value: { type: String, required: false, default: '' },
+    type: { type: String, required: false, default: 'text' },
+    placeholder: { type: String, required: false, default: '' },
+    errorMessage: { type: String, required: false, default: '' }
+  },
   computed: {
     inputLabelStyle() {
       if (this.errorMessage) {
@@ -44,13 +51,6 @@ export default {
 
       return ''
     }
-  },
-  props: {
-    label: { type: String, required: false, default: '' },
-    value: { type: String, required: false, default: '' },
-    type: { type: String, required: false, default: 'text' },
-    placeholder: { type: String, required: false, default: '' },
-    errorMessage: { type: String, required: false, default: '' }
   },
   model: {
     prop: 'value',

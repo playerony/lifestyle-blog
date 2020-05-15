@@ -6,11 +6,11 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'generic-button',
   props: {
     onClick: { type: Function, required: true },
-    disabled: { type: Boolean, required: false },
-    className: { type: String, required: false, default: '' }
+    className: { type: String, required: false, default: '' },
+    disabled: { type: Boolean, required: false, default: false }
   }
 }
 </script>

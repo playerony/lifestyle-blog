@@ -16,7 +16,7 @@ import { SEARCH_PAGE_VISIBILITY } from '@config/constant'
 import SearchSVG from '@asset/svg/search.svg'
 
 export default {
-  name: 'SearchButton',
+  name: 'common-search-button',
   components: {
     SearchSVG,
     SearchPage
@@ -25,6 +25,17 @@ export default {
     return {
       showSearchPage: false
     }
+  },
+  mounted() {
+    if (localStorage.getItem(SEARCH_PAGE_VISIBILITY)) {
+      this.showSearchPage =
+        localStorage.getItem(SEARCH_PAGE_VISIBILITY) === 'true'
+    }
+
+    window.addEventListener('storage', this.onStorageUpdate)
+  },
+  beforeDestroy() {
+    window.removeEventListener('storage', this.onStorageUpdate)
   },
   methods: {
     toggleModal() {
@@ -47,17 +58,6 @@ export default {
         }
       }
     }
-  },
-  mounted() {
-    if (localStorage.getItem(SEARCH_PAGE_VISIBILITY)) {
-      this.showSearchPage =
-        localStorage.getItem(SEARCH_PAGE_VISIBILITY) === 'true'
-    }
-
-    window.addEventListener('storage', this.onStorageUpdate)
-  },
-  beforeDestroy() {
-    window.removeEventListener('storage', this.onStorageUpdate)
   },
   watch: {
     showSearchPage(newSearchPageState) {
