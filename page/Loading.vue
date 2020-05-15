@@ -8,7 +8,7 @@
 import Loader from '@component/common/Loader'
 
 export default {
-  name: 'LoaderPage',
+  name: 'page-loading',
   components: {
     Loader
   }
