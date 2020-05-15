@@ -33,13 +33,6 @@ const setUp = isLoading => {
     }
   })
 
-  wrapper.setData({
-    commentList: [],
-    visitorListByCategoryId: [],
-    articleList: ARTICLE_LIST_MOCK,
-    categoryList: CATEGORY_LIST_MOCK
-  })
-
   return wrapper
 }
 

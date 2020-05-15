@@ -39,7 +39,7 @@ import CloseSVG from '@asset/svg/close.svg'
 import SearchSVG from '@asset/svg/search.svg'
 
 export default {
-  name: 'SearchPage',
+  name: 'page-search',
   components: {
     CloseSVG,
     SearchSVG,

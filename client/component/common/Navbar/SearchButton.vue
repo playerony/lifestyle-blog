@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import SearchPage from '@page/SearchPage'
+import SearchPage from '@page/Search'
 
 import { SEARCH_PAGE_VISIBILITY } from '@config/constant'
 
