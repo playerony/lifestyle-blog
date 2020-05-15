@@ -9,8 +9,8 @@
   padding: $paddingBig 0;
   pointer-events: visible;
   background: rgba(255, 255, 255, 0.95);
-  
-  @include respond-to("small") {
+
+  @include respond-to('small') {
     padding: $paddingMedium 0;
   }
 
@@ -24,17 +24,17 @@
       height: 50px;
       fill: $gray600;
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         width: 45px;
         height: 45px;
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         width: 40px;
         height: 40px;
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         width: 35px;
         height: 35px;
       }
@@ -57,19 +57,19 @@
         color: $gray600;
       }
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         width: calc(100% - 130px);
 
         @include font-size(28px);
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         width: calc(100% - 120px);
 
         @include font-size(26px);
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         width: calc(100% - 110px);
 
         @include font-size(24px);
@@ -92,17 +92,17 @@
         @include transform(scale(1.1));
       }
 
-      @include respond-to("medium") {
+      @include respond-to('medium') {
         width: 45px;
         height: 45px;
       }
 
-      @include respond-to("small") {
+      @include respond-to('small') {
         width: 40px;
         height: 40px;
       }
 
-      @include respond-to("mobile") {
+      @include respond-to('mobile') {
         width: 35px;
         height: 35px;
       }
