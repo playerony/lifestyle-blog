@@ -21,7 +21,7 @@ export default {
   name: 'page-error',
   data() {
     return {
-      code: Number(this.$route.params.code)
+      code: Number(this.$route.params?.code)
     }
   },
   components: {
