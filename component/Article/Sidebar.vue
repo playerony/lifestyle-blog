@@ -24,13 +24,18 @@ export default {
   props: {
     categories: { type: Array, required: true }
   },
+  data() {
+    return {
+      previousRoute: {}
+    }
+  },
   components: {
     Tooltip,
     DynamicIcon
   },
   methods: {
     goBack() {
-      this.$router.go(-1)
+      this.$router.back()
     },
     redirectToCategory(categoryId) {
       this.$router.push(`/articles/${categoryId}`)

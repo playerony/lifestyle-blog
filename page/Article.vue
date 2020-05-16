@@ -217,11 +217,6 @@ export default {
       if (this.articleById === null) {
         window.location.pathname = '/error/404'
       }
-    },
-    $route: function(to) {
-      if (!isNaN(Number(to?.params?.articleId))) {
-        this.articleId = Number(to?.params?.articleId)
-      }
     }
   }
 }
