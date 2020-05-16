@@ -6,8 +6,6 @@ import Article from '@page/Article'
 import ErrorPage from '@page/Error'
 import CategoryArticleList from '@page/CategoryArticleList'
 
-import scrollToTop from '@utility/scrollToTop'
-
 import routeList from '@config/routeList'
 
 Vue.use(VueRouter)
@@ -24,6 +22,13 @@ const verifyNumberParamBeforeEnter = key => ({
 
 const router = new VueRouter({
   mode: 'history',
+  scrollBehavior() {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        resolve({ x: 0, y: 0 })
+      }, 500)
+    })
+  },
   routes: [
     {
       component: Home,
@@ -49,16 +54,6 @@ const router = new VueRouter({
       redirect: '/error/404'
     }
   ]
-})
-
-router.beforeEach(function(to, from, next) {
-  scrollToTop()
-
-  setTimeout(() => {
-    scrollToTop('auto')
-  }, 250)
-
-  next()
 })
 
 export default router

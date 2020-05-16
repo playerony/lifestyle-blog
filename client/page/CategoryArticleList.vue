@@ -75,13 +75,6 @@ export default {
         this.commentList
       )
     }
-  },
-  watch: {
-    $route: function(to) {
-      if (!isNaN(Number(to?.params?.categoryId))) {
-        this.categoryId = Number(to?.params?.categoryId)
-      }
-    }
   }
 }
 </script>

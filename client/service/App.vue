@@ -3,9 +3,7 @@
     <Navbar />
     <main class="app__content">
       <transition name="fade" mode="out-in" appear>
-        <keep-alive>
-          <router-view />
-        </keep-alive>
+        <router-view :key="$route.fullPath" />
       </transition>
     </main>
     <ScrollTopButton />
@@ -18,7 +16,7 @@ import Navbar from '@component/common/Navbar'
 import ScrollTopButton from '@component/common/ScrollTopButton'
 
 export default {
-  name: 'App',
+  name: 'service-app',
   components: {
     Navbar,
     ScrollTopButton
