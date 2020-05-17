@@ -54,7 +54,15 @@ export default {
       searchValue: '',
       articleList: [],
       visitorList: [],
-      commentList: []
+      commentList: [],
+      articleId: null
+    }
+  },
+  mounted() {
+    const routeParams = this.$route.params
+
+    if (Object.keys(routeParams).length) {
+      this.articleId = Number(routeParams.articleId)
     }
   },
   apollo: {
@@ -84,8 +92,9 @@ export default {
       return transformedArticleList
         .filter(
           article =>
-            includesString(article.title, this.searchValue) ||
-            includesString(article.description, this.searchValue)
+            (includesString(article.title, this.searchValue) ||
+              includesString(article.description, this.searchValue)) &&
+            article.articleId !== this.articleId
         )
         .slice(0, SEARCH_PAGE_RESULTS)
     }
