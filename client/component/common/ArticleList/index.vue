@@ -15,8 +15,6 @@
       v-slot="{ item: row }"
       :page-mode="isPageMode"
       :items="getArticleList()"
-      :preload="preloadElements"
-      style="height: 100%; overflow: auto;"
       :key="gridRowElements * rowHeight"
     >
       <div class="article-list__content">
@@ -68,9 +66,6 @@ export default {
     window.removeEventListener('resize', this.onResize)
   },
   computed: {
-    preloadElements() {
-      return Math.min(this.articles.length / this.gridRowElements, 6)
-    },
     isPageMode() {
       return this.articles.length / this.gridRowElements > 5
     }

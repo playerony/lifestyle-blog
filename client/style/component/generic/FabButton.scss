@@ -1,0 +1,24 @@
+.fab-button {
+  position: fixed;
+  left: $paddingSmall;
+  bottom: $paddingSmall;
+
+  &__element {
+    display: block;
+    width: $paddingBig;
+    height: $paddingBig;
+    pointer-events: none;
+    margin-bottom: $paddingSmall;
+
+    @include transition(all 500ms linear);
+    @include transform(
+      translateY(
+        calc((var(--index) * #{$paddingSmall} + #{$paddingBig} * var(--index)))
+      )
+    );
+
+    &--visible {
+      @include transform(translateY(0));
+    }
+  }
+}
