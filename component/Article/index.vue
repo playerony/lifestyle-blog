@@ -28,6 +28,7 @@
         />
       </div>
       <Sidebar :categories="article.categoryList" />
+      <MobileMenu :categories="article.categoryList" />
     </Container>
   </div>
 </template>
@@ -37,6 +38,7 @@ import draftToHtml from 'draftjs-to-html'
 
 import Disqus from './Disqus'
 import Sidebar from './Sidebar'
+import MobileMenu from './MobileMenu'
 import Container from '../common/Container'
 import ArticleDetails from '../common/ArticleDetails'
 
@@ -83,6 +85,7 @@ export default {
     Sidebar,
     HeartSVG,
     Container,
+    MobileMenu,
     HeartRedSVG,
     ArticleDetails
   }

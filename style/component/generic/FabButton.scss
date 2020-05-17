@@ -8,17 +8,16 @@
     width: $paddingBig;
     height: $paddingBig;
     pointer-events: none;
-    margin-bottom: $paddingSmall;
+    margin-bottom: 10px;
 
-    @include transition(all 500ms linear);
+    @include transition(all 500ms ease);
     @include transform(
-      translateY(
-        calc((var(--index) * #{$paddingSmall} + #{$paddingBig} * var(--index)))
-      )
+      translateY(calc((var(--index) * 10px + #{$paddingBig} * var(--index))))
+        scale(0)
     );
 
     &--visible {
-      @include transform(translateY(0));
+      @include transform(translateY(0) scale(0.9));
     }
   }
 }
