@@ -1,23 +1,9 @@
 .side-navbar {
   position: fixed;
-  pointer-events: none;
   top: calc(110px + #{$paddingBig});
 
   @include respond-to('mobile') {
-    width: 50px;
-    height: 50px;
-    top: initial;
-    cursor: pointer;
-    left: $paddingSmall;
-    pointer-events: all;
-    bottom: $paddingSmall;
-    background-color: $white;
-
-    @include flexbox();
-    @include border-radius(100%);
-    @include align-items(center);
-    @include justify-content(center);
-    @include box-shadow(0 2px 4px 0 rgba(0, 0, 0, 0.5));
+    display: none;
   }
 
   & > * {
@@ -29,7 +15,6 @@
     cursor: pointer;
     width: $paddingBig;
     height: $paddingBig;
-    pointer-events: all;
     margin-top: $paddingBig;
     clip-path: polygon(20% 50%, 100% 100%, 100% 0);
 
@@ -46,12 +31,6 @@
       height: 55px;
     }
 
-    @include respond-to('mobile') {
-      width: 20px;
-      height: 20px;
-      margin-top: 0;
-    }
-
     &:hover {
       @include transform(scale(1.1));
     }
@@ -59,10 +38,6 @@
 
   &__category-list {
     margin-top: $paddingBig;
-
-    @include respond-to('mobile') {
-      display: none;
-    }
 
     & > .category-list__icon {
       width: 55px;
