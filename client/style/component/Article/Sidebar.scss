@@ -18,7 +18,7 @@
     margin-top: $paddingBig;
     clip-path: polygon(20% 50%, 100% 100%, 100% 0);
 
-    @include transition(all 500ms linear);
+    @include transition(all 500ms ease);
     @include linear-gradient(
       to bottom,
       $blue600 5%,

@@ -1,23 +1,22 @@
 <template>
   <div class="reply">
-    <h2 class="reply__header">
-      Leave a reply
-    </h2>
-    <Input
-      label="Creator"
-      v-model="creator"
-      placeholder="Your name..."
-      :errorMessage="getCreatorFieldError()"
-    />
-    <Textarea
-      label="Content"
-      v-model="content"
-      placeholder="Join the discussion..."
-      :errorMessage="getContentFieldError()"
-    />
-    <Button className="reply__button" :onClick="this.handleClick">
-      Reply
-    </Button>
+    <div class="reply__content">
+      <Input
+        label="Creator"
+        v-model="creator"
+        placeholder="Your name..."
+        :errorMessage="getCreatorFieldError()"
+      />
+      <Textarea
+        label="Content"
+        v-model="content"
+        placeholder="Join the discussion..."
+        :errorMessage="getContentFieldError()"
+      />
+      <Button className="reply__button" :onClick="this.handleClick">
+        Reply
+      </Button>
+    </div>
   </div>
 </template>
 
