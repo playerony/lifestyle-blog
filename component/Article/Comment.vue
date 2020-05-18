@@ -2,10 +2,30 @@
   <div class="comment">
     <div class="comment__content">
       <header class="content__header">
-        <h1>{{ comment.creator }}</h1>
-        <p>{{ formattedDate }}</p>
+        <div class="header__title">
+          <h2>{{ comment.creator }}</h2>
+          <div class="title__likes">
+            <LeftArrowSVG
+              :class="'likes__like-icon ' + likeArrowStyle"
+              @click="handleLike"
+            />
+            <p>{{ comment.likes }}</p>
+            <LeftArrowSVG
+              :class="'likes__dislike-icon ' + dislikeArrowStyle"
+              @click="handleDislike"
+            />
+          </div>
+        </div>
+        <p class="header__date">{{ formattedDate }}</p>
       </header>
-      <label>{{ comment.content }}</label>
+      <p>{{ comment.content }}</p>
+      <div class="content__action">
+        <LeftArrowSVG
+          :class="'action__expand-icon ' + arrowStyle"
+          @click="isReplyFormVisible = !isReplyFormVisible"
+        />
+        <p>leave your reply</p>
+      </div>
       <div class="content__reply">
         <transition
           name="accordion"
@@ -23,23 +43,6 @@
           />
         </transition>
       </div>
-      <footer class="content__footer">
-        <LeftArrowSVG
-          :class="'footer__expand-icon ' + arrowStyle"
-          @click="isReplyFormVisible = !isReplyFormVisible"
-        />
-        <div class="footer__likes">
-          <LeftArrowSVG
-            :class="'likes__like-icon ' + likeArrowStyle"
-            @click="handleLike"
-          />
-          <p>{{ comment.likes }}</p>
-          <LeftArrowSVG
-            :class="'likes__dislike-icon ' + dislikeArrowStyle"
-            @click="handleDislike"
-          />
-        </div>
-      </footer>
     </div>
     <article-comment
       :comment="comment"
@@ -83,7 +86,7 @@ export default {
   computed: {
     arrowStyle() {
       if (this.isReplyFormVisible) {
-        return 'footer__expand-icon--open'
+        return 'action__expand-icon--open'
       }
 
       return ''

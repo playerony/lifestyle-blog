@@ -4,6 +4,10 @@
 
   @include transition(height 500ms ease);
 
+  &__content {
+    padding-top: $paddingSmall;
+  }
+
   &__button {
     width: initial;
     padding: $paddingSmall $paddingBig;
@@ -11,9 +15,5 @@
     @include respond-to('mobile') {
       padding: calc(#{$paddingSmall} / 2) $paddingMedium;
     }
-  }
-
-  &__header {
-    padding: $paddingSmall;
   }
 }

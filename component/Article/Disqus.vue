@@ -1,6 +1,7 @@
 <template>
   <div class="disqus">
     <Title label="Comments" />
+    <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
       class="disqus__first-depth"
       v-for="comment in getCommentList()"
@@ -10,7 +11,6 @@
       :handleLikeComment="handleLikeComment"
       :handleDislikeComment="handleDislikeComment"
     />
-    <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
   </div>
 </template>
 
