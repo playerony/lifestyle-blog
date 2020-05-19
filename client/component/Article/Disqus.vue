@@ -3,11 +3,11 @@
     <Title label="Comments" />
     <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
+      :comment="comment"
+      :key="comment.commentId"
+      :handleReply="handleReply"
       class="disqus__first-depth"
       v-for="comment in getCommentList()"
-      :key="comment.commentId"
-      :comment="comment"
-      :handleReply="handleReply"
       :handleLikeComment="handleLikeComment"
       :handleDislikeComment="handleDislikeComment"
     />
@@ -22,7 +22,7 @@ import Title from '../common/Title'
 import commentListTransformator from '@transformator/commentListTransformator'
 
 export default {
-  name: 'Disqus',
+  name: 'article-disqus',
   components: {
     Reply,
     Title,
