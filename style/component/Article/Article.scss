@@ -21,6 +21,8 @@
     color: var(--text-color);
 
     & > p,
+    ul,
+    li,
     blockquote {
       line-height: 1.6;
 
@@ -142,21 +144,23 @@
   }
 
   &__likes {
+    margin: 0 auto;
     cursor: pointer;
-    width: fit-content;
+    padding-top: $paddingSmall;
 
     @include flexbox();
     @include align-items(center);
+    @include justify-content(center);
+
+    @include respond-to('medium') {
+      padding-top: 0;
+    }
 
     & > svg {
       width: 40px;
       height: 40px;
       fill: $red500;
-      margin-right: 10px;
-
-      @include respond-to('mobile') {
-        margin-right: 5px;
-      }
+      padding: 0 5px;
     }
 
     & > #heart:hover {
