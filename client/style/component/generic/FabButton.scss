@@ -7,8 +7,8 @@
     display: block;
     width: $paddingBig;
     height: $paddingBig;
-    pointer-events: none;
     margin-bottom: 10px;
+    pointer-events: none;
 
     @include transition(all 500ms ease);
     @include transform(
@@ -17,7 +17,7 @@
     );
 
     &--visible {
-      @include transform(translateY(0) scale(0.9));
+      @include transform(translateY(0) scale(0.8));
     }
   }
 }

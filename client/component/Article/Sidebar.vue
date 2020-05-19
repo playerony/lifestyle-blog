@@ -20,7 +20,7 @@ import Tooltip from '../common/Tooltip'
 import DynamicIcon from '../common/DynamicIcon'
 
 export default {
-  name: 'Sidebar',
+  name: 'article-sidebar',
   props: {
     categories: { type: Array, required: true }
   },
