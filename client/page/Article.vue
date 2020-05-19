@@ -9,7 +9,7 @@
       :details="getArticleDetails()"
       :replyErrorData="replyErrorData"
       :comments="commentListByArticleId"
-      :handleAddLike="handleArticleLike"
+      :handleLikeArticle="handleAddArticleLike"
       :handleLikeComment="handleAddCommentLike"
       :handleDislikeComment="handleRemoveCommentLike"
     />
@@ -141,7 +141,7 @@ export default {
           }
         })
     },
-    handleArticleLike() {
+    handleAddArticleLike() {
       if (this.isLike) {
         return
       }
