@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: 'common-fab-button',
+  name: 'generic-fab-button',
   data() {
     return {
       isVisible: false
@@ -8,16 +8,18 @@ export default {
   },
   render(createElement) {
     const list = []
+    const slotElements = this.$slots.default.length
+
     this.$slots.default.forEach((element, index) => {
       if (element.tag) {
-        const isLastElement = this.$slots.default.length === index + 1
+        const isLastElement = slotElements === index + 1
 
         if (!isLastElement) {
           list.push(
             createElement(
               'li',
               {
-                style: `--index: ${this.$slots.default.length - index - 1}`,
+                style: `--index: ${slotElements - index - 1}`,
                 class: `fab-button__element ${
                   this.isVisible ? 'fab-button__element--visible' : ''
                 }`

@@ -13,9 +13,9 @@
 
   &__back-button {
     cursor: pointer;
+    margin-top: 70px;
     width: $paddingBig;
     height: $paddingBig;
-    margin-top: $paddingBig;
     clip-path: polygon(20% 50%, 100% 100%, 100% 0);
 
     @include transition(all 500ms ease);
@@ -29,6 +29,11 @@
     @include respond-to('medium') {
       width: 55px;
       height: 55px;
+      margin-top: 50px;
+    }
+
+    @include respond-to('small') {
+      margin-top: 10px;
     }
 
     &:hover {

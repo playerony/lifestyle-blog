@@ -13,7 +13,7 @@
         placeholder="Join the discussion..."
         :errorMessage="getContentFieldError()"
       />
-      <Button className="reply__button" :onClick="this.handleClick">
+      <Button className="reply__button" :onClick="this.handleButtonClick">
         Reply
       </Button>
     </div>
@@ -28,7 +28,7 @@ import Textarea from '../generic/Textarea'
 import getFieldError from '@utility/getFieldError'
 
 export default {
-  name: 'Reply',
+  name: 'article-reply',
   components: {
     Input,
     Button,
@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    handleClick() {
+    handleButtonClick() {
       this.handleReply({
         creator: this.creator,
         content: this.content,
