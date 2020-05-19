@@ -1,32 +1,32 @@
 <template>
-  <div class="comment">
-    <div class="comment__content">
-      <header class="content__header">
-        <div class="header__title">
-          <h2>{{ comment.creator }}</h2>
-          <div class="title__likes">
-            <LeftArrowSVG
-              :class="'likes__like-icon ' + likeArrowStyle"
-              @click="handleLike"
-            />
-            <p>{{ comment.likes }}</p>
-            <LeftArrowSVG
-              :class="'likes__dislike-icon ' + dislikeArrowStyle"
-              @click="handleDislike"
-            />
+  <transition name="list-transition" :appear="true">
+    <div class="comment">
+      <div class="comment__content">
+        <header class="content__header">
+          <div class="header__title">
+            <h2>{{ comment.creator }}</h2>
+            <div class="title__likes">
+              <LeftArrowSVG
+                :class="'likes__like-icon ' + likeArrowStyle"
+                @click="handleLike"
+              />
+              <p>{{ comment.likes }}</p>
+              <LeftArrowSVG
+                :class="'likes__dislike-icon ' + dislikeArrowStyle"
+                @click="handleDislike"
+              />
+            </div>
           </div>
+          <p class="header__date">{{ formattedDate }}</p>
+        </header>
+        <p>{{ comment.content }}</p>
+        <div class="content__action">
+          <LeftArrowSVG
+            :class="'action__expand-icon ' + arrowStyle"
+            @click="isReplyFormVisible = !isReplyFormVisible"
+          />
+          <p>leave your reply</p>
         </div>
-        <p class="header__date">{{ formattedDate }}</p>
-      </header>
-      <p>{{ comment.content }}</p>
-      <div class="content__action">
-        <LeftArrowSVG
-          :class="'action__expand-icon ' + arrowStyle"
-          @click="isReplyFormVisible = !isReplyFormVisible"
-        />
-        <p>leave your reply</p>
-      </div>
-      <div class="content__reply">
         <transition
           name="accordion"
           v-on:before-enter="beforeEnter"
@@ -43,16 +43,16 @@
           />
         </transition>
       </div>
+      <article-comment
+        :comment="comment"
+        :key="comment.commentId"
+        :handleReply="handleReply"
+        v-for="comment in comment.comments"
+        :handleLikeComment="handleLikeComment"
+        :handleDislikeComment="handleDislikeComment"
+      />
     </div>
-    <article-comment
-      :comment="comment"
-      :key="comment.commentId"
-      :handleReply="handleReply"
-      v-for="comment in comment.comments"
-      :handleLikeComment="handleLikeComment"
-      :handleDislikeComment="handleDislikeComment"
-    />
-  </div>
+  </transition>
 </template>
 
 <script>

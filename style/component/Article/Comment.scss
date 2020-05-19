@@ -92,11 +92,21 @@
           }
 
           & > .likes__icon--success {
+            cursor: default;
             fill: $purple700;
+
+            &:hover {
+              fill: $purple700;
+            }
           }
 
           & > .likes__icon--disable {
             fill: $gray600;
+            cursor: default;
+
+            &:hover {
+              fill: $gray600;
+            }
           }
         }
       }
@@ -117,31 +127,29 @@
       }
 
       & > .action__expand-icon {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 35px;
         display: block;
         cursor: pointer;
+        fill: $purple700;
         margin-right: 10px;
-        fill: var(--icon-color);
+        --scale: 1;
 
         @include transition(all 500ms ease);
-        @include transform(rotateX(0deg) rotateZ(-90deg));
+        @include transform(rotateX(0deg) rotateZ(-90deg) scale(var(--scale)));
 
         &--open {
-          @include transform(rotateX(180deg) rotateZ(-90deg));
+          @include transform(
+            rotateX(180deg) rotateZ(-90deg) scale(var(--scale))
+          );
         }
 
         &:hover {
-          fill: $purple700;
-        }
-
-        @include respond-to('small') {
-          width: 35px;
-          height: 35px;
+          --scale: 1.1;
         }
 
         @include respond-to('mobile') {
-          width: 30px;
+          width: 25px;
           height: 30px;
         }
       }
