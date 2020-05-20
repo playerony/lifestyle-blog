@@ -45,7 +45,7 @@
     height: 100%;
     position: absolute;
 
-    @include transition(width 500ms ease-in-out);
+    @include transition(width 500ms ease);
 
     & > img {
       width: 100%;

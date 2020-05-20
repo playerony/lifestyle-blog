@@ -37,13 +37,14 @@ describe('Claim Component', () => {
     const wrapper = setUp()
 
     expect(wrapper.find('h1').text()).toEqual(
-      `My friend who designed it forced me to write here something. So with this
-    blog, I wanna share my experience with
+      `My friend who designed this website for me forced me to write something
+    here. So with this blog, I would like
+    to share my experiences regarding
     meditation,
-    habits and share things that changed
-    totally my life. It is writing down my knowledge in order to systematize
-    it and exchange knowledge. I hope to
-    help someone who need it.`
+    habits, and the like. This is a kind
+    of therapy for me to sort out what I know. I hope that maybe I can help
+    someone with similar problems I encountered in my life.
+    Hope you will enjoy.`
     )
   })
 })
