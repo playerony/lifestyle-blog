@@ -4,7 +4,12 @@ import App from '../App'
 
 const setUp = () =>
   shallowMount(App, {
-    stubs: ['router-link', 'router-view']
+    stubs: ['router-link', 'router-view'],
+    mocks: {
+      $route: {
+        fullPath: '/'
+      }
+    }
   })
 
 describe('App Component', () => {

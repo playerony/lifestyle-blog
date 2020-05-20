@@ -10,7 +10,6 @@
       />
     </ul>
     <RecycleScroller
-      :key-field="id"
       :itemSize="rowHeight"
       v-slot="{ item: row }"
       :page-mode="isPageMode"

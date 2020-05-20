@@ -1,13 +1,13 @@
 .article-list {
   width: 100%;
-  padding: $paddingBig 0;
+  padding-top: $paddingBig;
 
   @include respond-to('medium') {
-    padding: $paddingMedium 0;
+    padding-top: $paddingMedium;
   }
 
   @include respond-to('mobile') {
-    padding: $paddingSmall 0;
+    padding-top: $paddingSmall;
   }
 
   &__menu {

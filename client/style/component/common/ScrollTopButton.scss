@@ -2,6 +2,7 @@
   --size: calc(#{$paddingBig} * 2);
 
   opacity: 1;
+  z-index: 50;
   cursor: pointer;
   position: fixed;
   right: $paddingBig;
