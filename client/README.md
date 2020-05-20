@@ -23,11 +23,11 @@ You need to have installed the following software:
 
 ### Build
 
-- `build` - Build application by using vue-cli-service
+- `build` - Build application by using vue-cli-service 👷
 
 ### Test
 
-- `test` - Run tests
+- `test` - Run tests ✅
 
 ### Analyze
 
