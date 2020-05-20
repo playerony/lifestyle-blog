@@ -20,6 +20,9 @@ const setUp = isLoading => {
             loading: isLoading
           }
         }
+      },
+      $route: {
+        params: {}
       }
     }
   })

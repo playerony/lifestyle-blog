@@ -1,6 +1,6 @@
 <template>
   <div class="pinned-articles-swiper">
-    <swiper class="swiper" :options="swiperOption">
+    <swiper ref="mySwiper" class="swiper" :options="swiperOption">
       <swiper-slide
         :key="article.articleId"
         v-for="article in getPinnedArticles()"
@@ -73,6 +73,9 @@ export default {
     ArticleCard,
     LeftArrowSVG,
     RightArrowSVG
+  },
+  mounted() {
+    this.$refs.mySwiper.destroySwiper = () => {}
   },
   methods: {
     getPinnedArticles() {

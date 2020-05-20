@@ -4,7 +4,7 @@
   font-size: 20px;
   cursor: pointer;
   position: relative;
-  background: $blue500;
+  background: $purple700;
 
   @include border-radius(50px);
   @include transition(background 500ms ease);
@@ -27,7 +27,7 @@
   }
 
   &--checked {
-    background: $green400;
+    background: $red300;
 
     & > .switch__circle {
       left: 22px;

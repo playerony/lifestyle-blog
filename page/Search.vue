@@ -15,6 +15,7 @@
           v-if="!isLoading()"
           :displayMenu="false"
           :articles="getArticleList()"
+          class="search-page__article-list"
         />
       </Container>
     </div>
@@ -40,12 +41,6 @@ import SearchSVG from '@asset/svg/search.svg'
 
 export default {
   name: 'page-search',
-  components: {
-    CloseSVG,
-    SearchSVG,
-    Container,
-    ArticleList
-  },
   props: {
     onClose: { type: Function, required: true }
   },
@@ -57,6 +52,12 @@ export default {
       commentList: [],
       articleId: null
     }
+  },
+  components: {
+    CloseSVG,
+    SearchSVG,
+    Container,
+    ArticleList
   },
   mounted() {
     const routeParams = this.$route.params

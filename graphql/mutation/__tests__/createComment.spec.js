@@ -15,6 +15,7 @@ describe('createComment Mutation', () => {
 const MUTATION_FORMULA = gql`
   mutation CreateComment($comment: CommentSaveRequest) {
     createComment(comment: $comment) {
+      likes
       content
       creator
       createdAt
