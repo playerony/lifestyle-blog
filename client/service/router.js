@@ -13,7 +13,7 @@ Vue.use(VueRouter)
 const verifyNumberParamBeforeEnter = key => ({
   beforeEnter(to, from, next) {
     if (isNaN(Number(to.params[key]))) {
-      next('/error/404')
+      next(`${routeList.error.base}/404`)
     } else {
       next()
     }
@@ -36,22 +36,22 @@ const router = new VueRouter({
     },
     {
       component: Article,
-      path: routeList.article,
+      path: routeList.article.path,
       ...verifyNumberParamBeforeEnter('articleId')
     },
     {
-      path: routeList.articles,
+      path: routeList.articles.path,
       component: CategoryArticleList,
       ...verifyNumberParamBeforeEnter('categoryId')
     },
     {
       component: ErrorPage,
-      path: routeList.error,
+      path: routeList.error.path,
       ...verifyNumberParamBeforeEnter('code')
     },
     {
       path: '*',
-      redirect: '/error/404'
+      redirect: `${routeList.error.base}/404`
     }
   ]
 })

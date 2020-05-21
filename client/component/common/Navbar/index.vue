@@ -34,7 +34,7 @@ export default {
       showNavbar: true,
       lastScrollPosition: 0,
       isHomePage: this.$route.matched[0]?.path === '',
-      isArticlePage: this.$route.matched[0]?.path === routeList.article
+      isArticlePage: this.$route.matched[0]?.path === routeList.article.path
     }
   },
   components: {
@@ -117,7 +117,7 @@ export default {
   watch: {
     $route(to) {
       this.isHomePage = to.matched[0]?.path === ''
-      this.isArticlePage = to.matched[0]?.path === routeList.article
+      this.isArticlePage = to.matched[0]?.path === routeList.article.path
 
       if (this.isArticlePage) {
         this.recalculateProgress()

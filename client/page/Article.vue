@@ -34,6 +34,8 @@ import tryParseJSON from '@utility/tryParseJSON'
 
 import articleTransformator from '@transformator/articleTransformator'
 
+import routeList from '@config/routeList'
+
 export default {
   name: 'page-article',
   data() {
@@ -215,7 +217,7 @@ export default {
   watch: {
     articleById: function() {
       if (this.articleById === null) {
-        window.location.pathname = '/error/404'
+        window.location.pathname = `${routeList.error.base}/404`
       }
     }
   }

@@ -7,6 +7,7 @@ import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
 import keys from '@config/keys'
+import routeList from '@config/routeList'
 
 Vue.use(VueApollo)
 
@@ -20,12 +21,12 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
       switch (extensions?.code) {
         case 'VALIDATION_ERROR':
           if (!path.includes('createComment')) {
-            window.location.pathname = '/error/400'
+            window.location.pathname = `${routeList.error.base}/404`
           }
           break
 
         case 'INTERNAL_SERVER_ERROR':
-          window.location.pathname = '/error/500'
+          window.location.pathname = `${routeList.error.base}/500`
           break
       }
 

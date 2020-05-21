@@ -2,6 +2,11 @@ import { shallowMount } from '@vue/test-utils'
 
 import Claim from '../Claim'
 
+import '../../../config/keys'
+jest.mock('../../../config/keys', () => ({
+  claimImage: 'https://i.imgur.com/EyME0a9.png'
+}))
+
 const setUp = () => shallowMount(Claim)
 
 describe('Claim Component', () => {

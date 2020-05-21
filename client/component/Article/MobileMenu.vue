@@ -21,6 +21,8 @@ import Tooltip from '../common/Tooltip'
 import FabButton from '../generic/FabButton'
 import DynamicIcon from '../common/DynamicIcon'
 
+import routeList from '@config/routeList'
+
 export default {
   name: 'article-mobile-menu',
   props: {
@@ -36,7 +38,7 @@ export default {
       this.$router.back()
     },
     redirectToCategory(categoryId) {
-      this.$router.push(`/articles/${categoryId}`)
+      this.$router.push(`${routeList.articles.base}/${categoryId}`)
     }
   }
 }
