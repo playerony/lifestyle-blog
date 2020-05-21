@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 
-import ArticleList from '../index'
+import ArticleList from '..'
 
 const setUp = (articles = ARTICLES_MOCK, displayMenu = true) =>
   shallowMount(ArticleList, {

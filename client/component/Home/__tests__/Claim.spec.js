@@ -4,7 +4,7 @@ import Claim from '../Claim'
 
 import '../../../config/keys'
 jest.mock('../../../config/keys', () => ({
-  claimImage: 'https://i.imgur.com/EyME0a9.png'
+  claimImage: 'claimImage'
 }))
 
 const setUp = () => shallowMount(Claim)
@@ -33,9 +33,7 @@ describe('Claim Component', () => {
   it('should render image', () => {
     const wrapper = setUp()
 
-    expect(wrapper.find('img').attributes().src).toEqual(
-      'https://i.imgur.com/EyME0a9.png'
-    )
+    expect(wrapper.find('img').attributes().src).toEqual('claimImage')
   })
 
   it('should render proper text', () => {
@@ -49,7 +47,7 @@ describe('Claim Component', () => {
     habits, and the like. This is a kind
     of therapy for me to sort out what I know. I hope that maybe I can help
     someone with similar problems I encountered in my life.
-    Hope you will enjoy.`
+    I hope you will enjoy it.`
     )
   })
 })

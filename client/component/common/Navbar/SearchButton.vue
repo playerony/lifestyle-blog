@@ -17,14 +17,14 @@ import SearchSVG from '@asset/svg/search.svg'
 
 export default {
   name: 'common-search-button',
-  components: {
-    SearchSVG,
-    SearchPage
-  },
   data() {
     return {
       showSearchPage: false
     }
+  },
+  components: {
+    SearchSVG,
+    SearchPage
   },
   mounted() {
     if (localStorage.getItem(SEARCH_PAGE_VISIBILITY)) {

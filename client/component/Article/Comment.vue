@@ -1,5 +1,5 @@
 <template>
-  <transition name="list-transition" :appear="true">
+  <transition name="slide-in" :appear="true">
     <div class="comment">
       <div class="comment__content">
         <header class="content__header">

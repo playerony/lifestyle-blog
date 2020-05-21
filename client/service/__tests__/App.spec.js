@@ -13,6 +13,10 @@ const setUp = () =>
   })
 
 describe('App Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
     const wrapper = setUp()
 

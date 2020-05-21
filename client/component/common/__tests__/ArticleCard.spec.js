@@ -6,6 +6,10 @@ const setUp = () =>
   shallowMount(ArticleCard, { propsData: { article: ARTICLE_MOCK } })
 
 describe('ArticleCard Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
     const wrapper = setUp()
 

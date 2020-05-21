@@ -19,7 +19,7 @@
 }
 
 :root {
-  --swiper-theme-color: #007aff;
+  --swiper-theme-color: #{$purple700};
 }
 
 .swiper-container {
@@ -205,6 +205,8 @@
   justify-content: center;
   fill: var(--swiper-navigation-color, var(--swiper-theme-color));
   color: var(--swiper-navigation-color, var(--swiper-theme-color));
+
+  @include transition(all 500ms ease);
 }
 
 .swiper-button-prev.swiper-button-disabled,

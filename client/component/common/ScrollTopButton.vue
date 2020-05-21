@@ -21,6 +21,14 @@ export default {
   components: {
     DynamicIcon
   },
+  mounted() {
+    window.addEventListener('scroll', this.checkVisibility)
+
+    this.checkVisibility()
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.checkVisibility)
+  },
   computed: {
     buttonStyle() {
       if (!this.isVisible || this.wasClicked) {
@@ -29,14 +37,6 @@ export default {
 
       return ''
     }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.checkVisibility)
-
-    this.checkVisibility()
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.checkVisibility)
   },
   methods: {
     handleButtonClick() {

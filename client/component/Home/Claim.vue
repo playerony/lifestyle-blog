@@ -11,7 +11,7 @@
       <span class="claim__rainbow">habits</span>, and the like. This is a kind
       of therapy for me to sort out what I know. I hope that maybe I can help
       someone with similar problems I encountered in my life.
-      <span class="claim__rainbow">Hope you will enjoy</span>.
+      <span class="claim__rainbow">I hope you will enjoy it</span>.
     </h1>
   </div>
 </template>
