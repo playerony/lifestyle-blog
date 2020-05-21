@@ -15,6 +15,8 @@
 import Button from '../generic/Button'
 import ArticleDetails from '../common/ArticleDetails'
 
+import routeList from '@config/routeList'
+
 export default {
   name: 'home-billboard',
   props: {
@@ -26,7 +28,7 @@ export default {
   },
   methods: {
     redirectToArticle() {
-      this.$router.push(`/article/${this.article.articleId}`)
+      this.$router.push(`${routeList.article.base}/${this.article.articleId}`)
     }
   }
 }

@@ -13,10 +13,11 @@ describe('keys Object', () => {
 
   it('will receive all process.env variables', () => {
     process.env.NODE_ENV = 'development'
-    process.env.SERVER_URL = 'SERVER_URL'
+    process.env.VUE_APP_SERVER_URL = 'VUE_APP_SERVER_URL'
+    process.env.VUE_APP_CLAIM_IMAGE = 'VUE_APP_CLAIM_IMAGE'
 
     const keys = require('../keys').default
 
-    expect(Object.keys(keys)).toHaveLength(2)
+    expect(Object.keys(keys)).toHaveLength(3)
   })
 })

@@ -19,6 +19,7 @@
 import Button from '../generic/Button'
 import ArticleDetails from './ArticleDetails'
 
+import routeList from '@config/routeList'
 import { SEARCH_PAGE_VISIBILITY } from '@config/constant'
 
 export default {
@@ -39,7 +40,7 @@ export default {
         })
       )
 
-      this.$router.push(`/article/${this.article.articleId}`)
+      this.$router.push(`${routeList.article.base}/${this.article.articleId}`)
     }
   }
 }

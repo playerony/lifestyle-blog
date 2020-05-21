@@ -19,6 +19,8 @@
 import Tooltip from '../common/Tooltip'
 import DynamicIcon from '../common/DynamicIcon'
 
+import routeList from '@config/routeList'
+
 export default {
   name: 'article-sidebar',
   props: {
@@ -33,7 +35,7 @@ export default {
       this.$router.back()
     },
     redirectToCategory(categoryId) {
-      this.$router.push(`/articles/${categoryId}`)
+      this.$router.push(`${routeList.articles.base}/${categoryId}`)
     }
   }
 }
