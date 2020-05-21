@@ -17,7 +17,6 @@ describe('CategoryArticleList Component', () => {
   it('is a Vue instance', () => {
     const wrapper = setUp()
 
-    console.warn(wrapper.html())
     expect(wrapper.isVueInstance()).toBeTruthy()
   })
 

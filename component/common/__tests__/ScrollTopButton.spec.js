@@ -5,6 +5,10 @@ import ScrollTopButton from '../ScrollTopButton'
 const setUp = () => shallowMount(ScrollTopButton)
 
 describe('ScrollTopButton Component', () => {
+  beforeAll(() => {
+    console.error = jest.fn()
+  })
+
   it('should render', () => {
     const wrapper = setUp()
 

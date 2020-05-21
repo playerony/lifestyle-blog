@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 
-import Navbar from '../index'
+import Navbar from '..'
 
 const $route = {
   matched: [

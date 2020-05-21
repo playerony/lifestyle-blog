@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 
-import Home from '../index'
+import Home from '..'
 
 const setUp = () =>
   shallowMount(Home, {
