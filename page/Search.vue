@@ -61,10 +61,14 @@ export default {
   },
   mounted() {
     const routeParams = this.$route.params
+    document.body.classList.add('overflow')
 
     if (Object.keys(routeParams).length) {
       this.articleId = Number(routeParams.articleId)
     }
+  },
+  beforeDestroy() {
+    document.body.classList.remove('overflow')
   },
   apollo: {
     articleList: articleListQuery,

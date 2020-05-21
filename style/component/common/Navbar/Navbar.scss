@@ -63,5 +63,20 @@
 
     @include transition(all 500ms linear);
     @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
+
+    @include respond-to('medium') {
+      height: 8px;
+      bottom: -8px;
+    }
+
+    @include respond-to('small') {
+      height: 7px;
+      bottom: -7px;
+    }
+
+    @include respond-to('mobile') {
+      height: 6px;
+      bottom: -6px;
+    }
   }
 }
