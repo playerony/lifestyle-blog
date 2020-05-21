@@ -9,7 +9,7 @@
   padding: $paddingSmall;
   background-color: $purple700;
 
-  @include flexbox;
+  @include flexbox();
   @include border-radius(12px);
   @include align-items(center);
   @include justify-content(center);
@@ -32,4 +32,3 @@
     }
   }
 }
-  

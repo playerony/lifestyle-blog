@@ -1,7 +1,7 @@
 <template>
   <div class="claim">
     <Tooltip class="claim__image" title="Yes, this is my face">
-      <img src="https://i.imgur.com/EyME0a9.png" />
+      <img :src="claimImage" />
     </Tooltip>
     <h1 class="claim__text">
       My friend who designed this website for me forced me to write something
@@ -19,8 +19,15 @@
 <script>
 import Tooltip from '../common/Tooltip'
 
+import keys from '@config/keys'
+
 export default {
   name: 'home-claim',
+  data() {
+    return {
+      claimImage: keys.claimImage
+    }
+  },
   components: {
     Tooltip
   }
