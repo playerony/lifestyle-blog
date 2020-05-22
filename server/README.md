@@ -1,4 +1,4 @@
-# ✨The Blog of Author Paweł Wojtasiński
+# ⚡️ The Blog of Author Paweł Wojtasiński - Server
 
 ## 📖Table of Contents
 
@@ -8,7 +8,7 @@
 
 ## 👀What's inside:
 
-It is a code of my personal blog about lifestyle. Here is a backend and two app panels configured in the one project.
+This is the Server application. This project is created for learning purposes of code quality, testing and architecture design.
 
 ## ⚠️ Prerequisites
 
@@ -23,14 +23,12 @@ You need to have installed the following software:
 
 ### Build
 
-- `start` - Run application in development mode
-- `install-all` - Run instalation for each project
+- `build` - Build application by using typescript compiler 👷
 
 ### Test
 
-- `test` - Run tests
+- `test` - Run tests ✅
 
 ### Analyze
 
 - `lint` - Run `eslint`. Output any errors 🚨
-- `format` - Run `prettier` to format _.ts and _.tsx files

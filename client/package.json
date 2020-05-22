@@ -1,13 +1,17 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
+  "name": "lifestyle-blog-client",
+  "version": "1.0.0",
+  "description": "This is the Client application. This project is created for learning a Vue.js library and also learning purposes of code quality, testing.",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test": "jest"
   },
+  "keywords": [
+    "lifestyle",
+    "blog"
+  ],
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.5",
     "apollo-client": "^2.6.8",

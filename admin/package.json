@@ -1,7 +1,7 @@
 {
-  "name": "admin",
+  "name": "lifestyle-blog-admin",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is the Admin application. This project is created for learning purposes of code quality, testing and architecture design.",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --open --config ./config/webpack.dev.ts",
@@ -9,9 +9,11 @@
     "test": "jest --env=jsdom",
     "lint": "eslint --ext=ts,tsx ./"
   },
-  "keywords": [],
-  "author": "",
-  "license": "GPLv3",
+  "keywords": [
+    "lifestyle",
+    "blog"
+  ],
+  "author": "Paweł Wojtasiński",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.4",
     "@apollo/react-testing": "^3.1.4",
