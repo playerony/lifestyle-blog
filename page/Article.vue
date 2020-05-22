@@ -97,13 +97,13 @@ export default {
         .then(response => {
           const createdComment = response.data.createComment
 
-          const commentIdWithErrorData = this.commentListByArticleId.findIndex(
+          const foundCommentIndex = this.commentListByArticleId.findIndex(
             comment => comment.commentId === createdComment.parentCommentId
           )
 
-          if (commentIdWithErrorData !== -1) {
+          if (foundCommentIndex !== -1) {
             Vue.set(
-              this.commentListByArticleId[commentIdWithErrorData],
+              this.commentListByArticleId[foundCommentIndex],
               'replyErrorData',
               {}
             )
@@ -111,10 +111,7 @@ export default {
             this.replyErrorData = {}
           }
 
-          this.commentListByArticleId = [
-            ...this.commentListByArticleId,
-            createdComment
-          ]
+          this.commentListByArticleId.push(createdComment)
         })
         .catch(error => {
           const errorMessage = error?.graphQLErrors[0]?.message
@@ -128,13 +125,13 @@ export default {
                 commentId: reply.parentCommentId
               }
 
-              const commentIndex = this.commentListByArticleId.findIndex(
+              const foundCommentIndex = this.commentListByArticleId.findIndex(
                 comment => comment.commentId === reply.parentCommentId
               )
 
-              if (!isNaN(Number(commentIndex))) {
+              if (!isNaN(Number(foundCommentIndex))) {
                 Vue.set(
-                  this.commentListByArticleId[commentIndex],
+                  this.commentListByArticleId[foundCommentIndex],
                   'replyErrorData',
                   this.replyErrorData
                 )
@@ -176,13 +173,13 @@ export default {
         .then(response => {
           const currentCommentLikes = response.data.incrementCommentLikes
 
-          const commentWithErrorData = this.commentListByArticleId.findIndex(
+          const foundCommentIndex = this.commentListByArticleId.findIndex(
             comment => comment.commentId === commentId
           )
 
-          if (commentWithErrorData !== -1) {
+          if (foundCommentIndex !== -1) {
             Vue.set(
-              this.commentListByArticleId[commentWithErrorData],
+              this.commentListByArticleId[foundCommentIndex],
               'likes',
               currentCommentLikes
             )
@@ -200,13 +197,13 @@ export default {
         .then(response => {
           const currentCommentLikes = response.data.decrementCommentLikes
 
-          const commentWithErrorData = this.commentListByArticleId.findIndex(
+          const foundCommentIndex = this.commentListByArticleId.findIndex(
             comment => comment.commentId === commentId
           )
 
-          if (commentWithErrorData !== -1) {
+          if (foundCommentIndex !== -1) {
             Vue.set(
-              this.commentListByArticleId[commentWithErrorData],
+              this.commentListByArticleId[foundCommentIndex],
               'likes',
               currentCommentLikes
             )

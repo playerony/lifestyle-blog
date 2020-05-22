@@ -17,16 +17,16 @@ import articleListTransformator from '@transformator/articleListTransformator'
 
 export default {
   name: 'page-home',
-  components: {
-    Home,
-    LoadingPage
-  },
   data() {
     return {
       articleList: [],
       visitorList: [],
       commentList: []
     }
+  },
+  components: {
+    Home,
+    LoadingPage
   },
   apollo: {
     articleList: articleListQuery,
