@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "This is the Server application. This project is created for learning purposes of code quality, testing and architecture design.",
   "scripts": {
+    "test": "jest",
     "start": "nodemon",
     "lint": "eslint --ext=ts .",
-    "test": "jest"
+    "build": "tsc -p ./tsconfig.build.json",
+    "publish": "cd ../ && git subtree push --prefix server heroku-server master"
   },
   "repository": {
     "type": "git",
