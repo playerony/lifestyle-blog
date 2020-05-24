@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ESNext", 
-    "module": "CommonJS", 
-    "moduleResolution": "Node",  
-    "strict": true,  
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "strict": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
@@ -15,16 +15,14 @@
     "baseUrl": ".",
     "paths": {
       "@server/*": ["./*"],
-      "@config/*": ["./config/*"],
+      "@type/*": ["./type/*"],
       "@model/*": ["./model/*"],
-      "@resolver/*": ["./resolver/*"],
+      "@config/*": ["./config/*"],
       "@service/*": ["./service/*"],
       "@utility/*": ["./utility/*"],
-      "@type/*": ["./type/*"],
-      "@mapping/*": ["./mapping/*"]
-    },
+      "@mapping/*": ["./mapping/*"],
+      "@resolver/*": ["./resolver/*"]
+    }
   },
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

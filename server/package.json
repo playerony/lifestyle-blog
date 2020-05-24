@@ -86,12 +86,12 @@
     "wait-for-expect": "^3.0.2"
   },
   "_moduleAliases": {
+    "@type": "./dist/type",
     "@model": "./dist/model",
     "@config": "./dist/config",
-    "@resolver": "./dist/resolver",
     "@service": "./dist/service",
     "@utility": "./dist/utility",
-    "@type": "./dist/type",
-    "@mapping": "./dist/mapping"
+    "@mapping": "./dist/mapping",
+    "@resolver": "./dist/resolver"
   }
 }

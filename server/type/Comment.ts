@@ -17,7 +17,7 @@ export class CommentType {
   @Field()
   commentId?: number
 
-  @Field(type => [Int])
+  @Field(type => Int, { nullable: true })
   parentCommentId?: number | null
 
   @Field()
@@ -41,7 +41,7 @@ export class CommentType {
 
 @InputType()
 export class CommentSaveRequest {
-  @Field(type => [Int])
+  @Field(type => Int, { nullable: true })
   parentCommentId?: number | null
 
   @Field()

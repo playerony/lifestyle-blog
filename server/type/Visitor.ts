@@ -15,7 +15,7 @@ export class VisitorType {
   @Field()
   visitorId?: number
 
-  @Field(type => [Int])
+  @Field(type => Int, { nullable: true })
   articleId?: number | null
 
   @Field()
