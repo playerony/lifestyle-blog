@@ -1,11 +1,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "target": "es6",
     "rootDir": "./",
     "outDir": "dist",
-    "sourceMap": false,
-    "incremental": true
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["./**/*"],
-  "exclude": ["build", "node_modules", "./**/*.test.ts"]
+  "exclude": ["dist", "node_modules", "./**/*.test.ts"]
 }

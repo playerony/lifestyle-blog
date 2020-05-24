@@ -1,5 +1,5 @@
 import { Model } from 'sequelize'
-import { Field, ObjectType } from 'type-graphql'
+import { Field, ObjectType, Int } from 'type-graphql'
 
 export class VisitorModel extends Model {
   visitorId?: number
@@ -15,7 +15,7 @@ export class VisitorType {
   @Field()
   visitorId?: number
 
-  @Field()
+  @Field(type => [Int])
   articleId?: number | null
 
   @Field()

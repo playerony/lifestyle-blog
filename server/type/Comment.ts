@@ -1,5 +1,5 @@
 import { Model } from 'sequelize'
-import { Field, ObjectType, InputType } from 'type-graphql'
+import { Field, ObjectType, InputType, Int } from 'type-graphql'
 
 export class CommentModel extends Model {
   commentId?: number
@@ -17,7 +17,7 @@ export class CommentType {
   @Field()
   commentId?: number
 
-  @Field()
+  @Field(type => [Int])
   parentCommentId?: number | null
 
   @Field()
@@ -41,7 +41,7 @@ export class CommentType {
 
 @InputType()
 export class CommentSaveRequest {
-  @Field()
+  @Field(type => [Int])
   parentCommentId?: number | null
 
   @Field()
