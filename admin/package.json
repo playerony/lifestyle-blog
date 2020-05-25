@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest --env=jsdom",
     "lint": "eslint --ext=ts,tsx ./",
+    "heroku-postbuild": "webpack --config ./config/webpack.prod.ts",
     "start": "webpack-dev-server --open --config ./config/webpack.dev.ts",
-    "build": "webpack --mode production --config ./config/webpack.prod.ts",
     "publish": "cd ../ && git subtree push --prefix admin heroku-admin master"
   },
   "keywords": [

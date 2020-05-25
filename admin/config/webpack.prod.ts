@@ -1,6 +1,5 @@
 import path from 'path'
 import webpack from 'webpack'
-import Dotenv from 'dotenv-webpack'
 import HtmlWebPackPlugin from 'html-webpack-plugin'
 
 import alias from './alias'
@@ -29,7 +28,17 @@ const config: webpack.Configuration = {
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' }
     ]
   },
-  plugins: [htmlPlugin, new Dotenv()]
+  plugins: [
+    htmlPlugin,
+    new webpack.DefinePlugin({
+      'process.env': {
+        SERVER_URL: JSON.stringify(process.env.SERVER_URL),
+        JWT_PREFIX: JSON.stringify(process.env.JWT_PREFIX),
+        CRYPTO_KEY: JSON.stringify(process.env.CRYPTO_KEY),
+        CAPTCHA_KEY: JSON.stringify(process.env.CAPTCHA_KEY)
+      }
+    })
+  ]
 }
 
 export default config

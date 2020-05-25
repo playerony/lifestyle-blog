@@ -23,10 +23,12 @@ interface IGraphQLProviderProps {
 
 const GraphQLProvider = ({ children }: IGraphQLProviderProps): JSX.Element => {
   const httpLink = new HttpLink({
+    credentials: 'include',
     uri: `${keys.serverUrl}/graphql`
   })
 
   const uploadLink = createUploadLink({
+    credentials: 'include',
     uri: `${keys.serverUrl}/graphql`
   })
 
