@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 
 const htmlPlugin = new HtmlWebPackPlugin({
@@ -15,7 +16,7 @@ module.exports = {
     entry: './index.js',
     resolve: {
       alias: {
-        '@asset': path.resolve(__dirname, '../asset/'),
+        '@asset': path.resolve(__dirname, 'asset/'),
 
         '@page': path.resolve(__dirname, 'page/'),
         '@style': path.resolve(__dirname, 'style/'),
@@ -52,6 +53,14 @@ module.exports = {
         }
       ]
     },
-    plugins: [htmlPlugin]
+    plugins: [
+      htmlPlugin,
+      new webpack.DefinePlugin({
+        'process.env': {
+          VUE_APP_SERVER_URL: JSON.stringify(process.env.VUE_APP_SERVER_URL),
+          VUE_APP_CLAIM_IMAGE: JSON.stringify(process.env.VUE_APP_CLAIM_IMAGE)
+        }
+      })
+    ]
   }
 }
