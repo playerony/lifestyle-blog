@@ -32,7 +32,7 @@ const config: IKeys = {
 
   jwtPrefix: process.env.JWT_PREFIX,
   appSecret: process.env.APP_SECRET,
-  serverPort: process.env.SERVER_PORT,
+  serverPort: process.env.PORT || process.env.SERVER_PORT || '8080',
   hashSalt: Number(process.env.HASH_SALT),
   jwtExpiresIn: Number(process.env.JWT_EXPIRES_IN),
 
