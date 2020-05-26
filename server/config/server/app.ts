@@ -9,6 +9,8 @@ import apolloServer from './apolloServer'
 export default async (): Promise<Express> => {
   const app = express()
 
+  console.warn(keys)
+
   try {
     app.set('port', keys.serverPort)
 
