@@ -12,7 +12,7 @@
     "server:install": "npm install --prefix server",
     "install-all": "concurrently \"npm i\" \"npm run server:install\" \"npm run admin:install\" \"npm run client:install\"",
     "admin": "npm start --prefix admin",
-    "server": "npm start --prefix server",
+    "server": "npm run start:dev --prefix server",
     "client": "npm run serve --prefix client",
     "start": "concurrently \"npm run server\" \"npm run admin\" \"npm run client\"",
     "admin:lint": "npm run lint --prefix admin",
@@ -45,5 +45,9 @@
     "hooks": {
       "pre-commit": "pretty-quick --staged --verbose"
     }
+  },
+  "engines": {
+    "npm": "6.14.4",
+    "node": "12.17.0"
   }
 }

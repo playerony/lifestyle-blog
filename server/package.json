@@ -14,10 +14,6 @@
     "type": "git",
     "url": "git+https://github.com/playerony/lifestyle-blog.git"
   },
-  "keywords": [
-    "lifestyle",
-    "blog"
-  ],
   "author": "Paweł Wojtasiński",
   "bugs": {
     "url": "https://github.com/playerony/lifestyle-blog/issues"
@@ -94,5 +90,9 @@
     "@utility": "./dist/utility",
     "@mapping": "./dist/mapping",
     "@resolver": "./dist/resolver"
+  },
+  "engines": {
+    "npm": "6.14.4",
+    "node": "12.17.0"
   }
 }
