@@ -13,7 +13,7 @@
     "install-all": "concurrently \"npm i\" \"npm run server:install\" \"npm run admin:install\" \"npm run client:install\"",
     "admin": "npm start --prefix admin",
     "server": "npm run start:dev --prefix server",
-    "client": "npm run serve --prefix client",
+    "client": "npm run start:dev --prefix client",
     "start": "concurrently \"npm run server\" \"npm run admin\" \"npm run client\"",
     "admin:lint": "npm run lint --prefix admin",
     "server:lint": "npm run lint --prefix server",
