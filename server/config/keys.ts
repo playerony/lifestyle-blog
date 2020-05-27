@@ -7,10 +7,10 @@ interface IKeys {
   databaseServer?: string
   databasePassword?: string
 
+  port?: string
   hashSalt?: number
   jwtPrefix?: string
   appSecret?: string
-  serverPort?: string
   jwtExpiresIn?: number
 
   adminUrl?: string
@@ -30,9 +30,9 @@ const config: IKeys = {
   databasePort: Number(process.env.DATABASE_PORT),
   databasePassword: process.env.DATABASE_PASSWORD,
 
+  port: process.env.PORT || '8080',
   jwtPrefix: process.env.JWT_PREFIX,
   appSecret: process.env.APP_SECRET,
-  serverPort: process.env.PORT || process.env.SERVER_PORT || '8080',
   hashSalt: Number(process.env.HASH_SALT),
   jwtExpiresIn: Number(process.env.JWT_EXPIRES_IN),
 

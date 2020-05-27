@@ -29,7 +29,7 @@ describe('app Configuration', () => {
     process.env = { ...OLD_ENV }
     delete process.env.NODE_ENV
 
-    process.env.SERVER_PORT = '1000'
+    process.env.PORT = '1000'
     process.env.ADMIN_URL = 'ADMIN_URL'
     process.env.CLIENT_URL = 'CLIENT_URL'
 
