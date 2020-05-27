@@ -4,7 +4,6 @@
 
   @include respond-to('mobile') {
     display: initial;
-    pointer-events: initial;
   }
 
   &:last-child {
