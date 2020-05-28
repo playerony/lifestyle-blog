@@ -18,12 +18,14 @@
   }
 
   &__border {
-    width: 10px;
+    max-width: 10px;
+    min-width: 10px;
 
     @include linear-gradient(179deg, $blue600 5%, $purple700 56%, $red300 100%);
 
     @include respond-to('medium') {
-      width: 7px;
+      max-width: 7px;
+      min-width: 7px;
     }
   }
 
