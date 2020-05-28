@@ -8,7 +8,7 @@
 
 ## 👀What's inside:
 
-It is a code of my personal blog about lifestyle. Here is a backend and two app panels configured in the one project.
+This is a code of my personal blog about lifestyle. Here is a backend and two app panels configured in the one project.
 
 ## ⚠️ Prerequisites
 

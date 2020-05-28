@@ -39,7 +39,7 @@
     "pretty-quick": "^2.0.1"
   },
   "dependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.2.0"
   },
   "husky": {
     "hooks": {

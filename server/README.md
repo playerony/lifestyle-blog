@@ -8,7 +8,7 @@
 
 ## 👀What's inside:
 
-This is the Server application. This project is created for learning purposes of code quality, testing and architecture design.
+This is the server application. This project is created for learning purposes of code quality, testing and architecture design.
 
 ## ⚠️ Prerequisites
 
