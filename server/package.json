@@ -1,7 +1,7 @@
 {
   "name": "lifestyle-blog-server",
   "version": "1.0.0",
-  "description": "This is the Server application. This project is created for learning purposes of code quality, testing and architecture design.",
+  "description": "This is the server application. This project is created for learning purposes of code quality, testing and architecture design.",
   "scripts": {
     "test": "jest",
     "start:dev": "nodemon",

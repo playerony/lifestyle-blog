@@ -8,7 +8,7 @@
 
 ## 👀What's inside:
 
-This is the Admin application. This project is created for learning purposes of code quality, testing and architecture design.
+This is the admin application. This project is created for learning purposes of code quality, testing and architecture design.
 
 ## ⚠️ Prerequisites
 

@@ -8,7 +8,7 @@
 
 ## 👀What's inside:
 
-This is the Client application. This project is created for learning a Vue.js library and also learning purposes of code quality, testing.
+This is the client application. This project is created for learning a Vue.js library and also learning purposes of code quality, testing.
 
 ## ⚠️ Prerequisites
 
