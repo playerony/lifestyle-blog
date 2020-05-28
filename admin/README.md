@@ -23,6 +23,9 @@ You need to have installed the following software:
 
 ### Build
 
+- `publish` - Push application to heroku 🚀
+- `start:dev` - Run application in development mode 🔥
+- `start:prod` - Run application in production mode 🔥
 - `build` - Build application by using typescript compiler 👷
 
 ### Test

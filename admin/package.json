@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --env=jsdom",
+    "start:prod": "node server.js",
     "lint": "eslint --ext=ts,tsx ./",
     "heroku-postbuild": "webpack --config ./config/webpack.prod.ts",
-    "start": "webpack-dev-server --open --config ./config/webpack.dev.ts",
+    "start:dev": "webpack-dev-server --open --config ./config/webpack.dev.ts",
     "publish": "cd ../ && git subtree push --prefix admin heroku-admin master"
   },
   "author": "Paweł Wojtasiński",
