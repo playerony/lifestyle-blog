@@ -11,7 +11,7 @@
     "client:install": "npm install --prefix client",
     "server:install": "npm install --prefix server",
     "install-all": "concurrently \"npm i\" \"npm run server:install\" \"npm run admin:install\" \"npm run client:install\"",
-    "admin": "npm start --prefix admin",
+    "admin": "npm run start:dev --prefix admin",
     "server": "npm run start:dev --prefix server",
     "client": "npm run start:dev --prefix client",
     "start": "concurrently \"npm run server\" \"npm run admin\" \"npm run client\"",

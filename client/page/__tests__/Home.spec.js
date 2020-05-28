@@ -38,13 +38,6 @@ describe('Home Page', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp(true)
-
-    console.warn(wrapper.html())
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should render loader when data is during loading', () => {
     const wrapper = setUp(true)
 

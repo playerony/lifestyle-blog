@@ -11,12 +11,6 @@ describe('Loading Page', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should render loader component', () => {
     const wrapper = setUp()
 
