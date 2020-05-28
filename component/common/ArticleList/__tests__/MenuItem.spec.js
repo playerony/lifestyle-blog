@@ -16,12 +16,6 @@ describe('MenuItem Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should render menu option with proper label', () => {
     const wrapper = setUp()
 

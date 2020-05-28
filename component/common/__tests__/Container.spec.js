@@ -11,15 +11,11 @@ describe('Container Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should contain proper class name', () => {
     const wrapper = setUp()
 
-    expect(wrapper.find(Container).attributes().class).toEqual('container')
+    expect(wrapper.findComponent(Container).attributes().class).toEqual(
+      'container'
+    )
   })
 })

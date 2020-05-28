@@ -12,21 +12,15 @@ describe('Loader Component', () => {
     expect(wrapper.findAll('div').length).toEqual(21)
   })
 
-  it('is a Vue instance', () => {
+  it('should contain proper class name', () => {
     const wrapper = setUp()
 
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.findComponent(Loader).attributes().class).toEqual('loader')
   })
 
   it('should contain proper class name', () => {
     const wrapper = setUp()
 
-    expect(wrapper.find(Loader).attributes().class).toEqual('loader')
-  })
-
-  it('should contain proper class name', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.find(Loader).attributes().class).toEqual('loader')
+    expect(wrapper.findComponent(Loader).attributes().class).toEqual('loader')
   })
 })

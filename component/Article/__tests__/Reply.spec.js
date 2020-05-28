@@ -19,12 +19,6 @@ describe('Reply Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   describe('input component', () => {
     it('should render', () => {
       const wrapper = setUp()

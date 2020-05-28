@@ -11,12 +11,6 @@ describe('Title Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should contain proper title label', () => {
     const wrapper = setUp()
 

@@ -14,12 +14,6 @@ describe('CategoryArticleList Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should render icon attached to the category', () => {
     const wrapper = setUp()
 

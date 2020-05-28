@@ -14,12 +14,6 @@ describe('ArticleList Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp()
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   describe('sorting menu', () => {
     it('should render', () => {
       const wrapper = setUp()

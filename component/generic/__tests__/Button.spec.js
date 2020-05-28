@@ -11,12 +11,6 @@ describe('Button Component', () => {
     expect(wrapper.exists()).toBeTruthy()
   })
 
-  it('is a Vue instance', () => {
-    const wrapper = setUp({ onClick: jest.fn() })
-
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   it('should contain optional disabled property with default value', () => {
     const wrapper = setUp({ onClick: jest.fn() })
 
