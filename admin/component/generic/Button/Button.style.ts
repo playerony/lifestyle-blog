@@ -15,6 +15,7 @@ import getRem from '@style/helper/getRem'
 
 export const StyledButton = styled.button<IButtonProps>`
   width: 100%;
+  border: none;
   cursor: pointer;
   max-width: 500px;
   position: relative;
