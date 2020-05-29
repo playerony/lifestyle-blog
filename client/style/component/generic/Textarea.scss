@@ -11,7 +11,12 @@
 
     @include border-radius(4px);
     @include transition(all 500ms linear);
-    @include linear-gradient(180deg, rgba(0, 0, 0, 0) 44%, var(--input-color) 0, var(--input-color) 100%);
+    @include linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 44%,
+      var(--input-color) 0,
+      var(--input-color) 100%
+    );
 
     &--error {
       color: $red500;
@@ -28,6 +33,7 @@
     padding: $paddingSmall;
     width: calc(100% - 44px);
     color: var(--text-color);
+    font-family: $normal-font-family;
     background-color: var(--input-color);
     border: 2px solid var(--border-color);
 
