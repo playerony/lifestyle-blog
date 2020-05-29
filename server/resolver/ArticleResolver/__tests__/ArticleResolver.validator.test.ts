@@ -165,7 +165,7 @@ describe('ArticleResolver.validator Functions', () => {
 
           expect(title).toEqual([
             'Provided value does not exist.',
-            `Provided value's length is longer than 30.`
+            `Provided value's length is longer than 40.`
           ])
         }
       })
