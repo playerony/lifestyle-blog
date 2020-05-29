@@ -54,7 +54,6 @@ describe('Article Model', () => {
         },
         title: {
           type: DataTypes.STRING(40),
-          unique: true,
           allowNull: false,
           validate: {
             max: 40,
