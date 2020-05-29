@@ -38,6 +38,7 @@
   }
 
   &__title {
+    word-break: break-word;
     margin-top: $paddingMedium;
 
     @include respond-to('mobile') {

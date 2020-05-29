@@ -62,7 +62,7 @@
           @include flexbox();
 
           & > p {
-            width: 30px;
+            padding: 0 10px;
             text-align: center;
 
             @include flexbox();
