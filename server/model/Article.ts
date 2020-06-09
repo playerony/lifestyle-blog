@@ -52,10 +52,7 @@ Article.init(
     },
     content: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        min: 160
-      }
+      allowNull: false
     },
     isPublic: {
       type: DataTypes.BOOLEAN,

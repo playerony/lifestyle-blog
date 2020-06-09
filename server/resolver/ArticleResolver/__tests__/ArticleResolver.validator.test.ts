@@ -82,7 +82,7 @@ describe('ArticleResolver.validator Functions', () => {
 
           expect(content).toEqual([
             'Provided value does not exist.',
-            `Provided value's length is shorter than 160.`
+            `Provided value's length is shorter than 20.`
           ])
         }
       })
@@ -203,7 +203,7 @@ describe('ArticleResolver.validator Functions', () => {
 
           expect(content).toEqual([
             'Provided value does not exist.',
-            `Provided value's length is shorter than 160.`
+            `Provided value's length is shorter than 20.`
           ])
         }
       })

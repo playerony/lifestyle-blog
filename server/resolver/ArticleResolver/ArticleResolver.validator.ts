@@ -21,7 +21,7 @@ export const createArticleValidation = (data: ArticleSaveRequest): void => {
         .isMaxLength(100),
       check('content')
         .isExist()
-        .isMinLength(160),
+        .isMinLength(20),
       check('categoryIdList')
         .isExist()
         .isArray()
@@ -58,7 +58,7 @@ export const updateArticleValidation = (
         .isMaxLength(100),
       check('content')
         .isExist()
-        .isMinLength(160),
+        .isMinLength(20),
       check('categoryIdList')
         .isExist()
         .isArray()
