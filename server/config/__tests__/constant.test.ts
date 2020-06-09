@@ -14,6 +14,6 @@ describe('constant Configuration', () => {
   })
 
   it('should have defined WORDS_PER_MINUTE property', () => {
-    expect(constant.WORDS_PER_MINUTE).toEqual(300)
+    expect(constant.WORDS_PER_MINUTE).toEqual(200)
   })
 })

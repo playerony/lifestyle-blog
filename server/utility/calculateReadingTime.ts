@@ -9,5 +9,5 @@ export default (content: string | null | undefined): number => {
 
   const contentText = getArticleContentText(content)
 
-  return Math.ceil(contentText.length / WORDS_PER_MINUTE)
+  return Math.ceil(contentText.split(' ').length / WORDS_PER_MINUTE)
 }

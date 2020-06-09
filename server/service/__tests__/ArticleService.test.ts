@@ -259,10 +259,17 @@ const ARTICLE_MOCK: ArticleType = {
   image: null,
   articleId: 1,
   title: '123',
+  readingTime: 1,
   content: '123',
   isPublic: false,
-  readingTime: 0,
-  categoryList: [{ categoryId: 1 }],
+  categoryList: [
+    {
+      categoryId: 1,
+      createdAt: undefined,
+      name: undefined,
+      updatedAt: undefined
+    }
+  ],
   description: '123',
   createdAt: new Date('2019'),
   updatedAt: new Date('2019')

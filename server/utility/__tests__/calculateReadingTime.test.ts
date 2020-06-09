@@ -16,7 +16,7 @@ describe('calculateReadingTime Function', () => {
     it('when passed content is not an object', () => {
       const result = calculateReadingTime('123')
 
-      expect(result).toEqual(0)
+      expect(result).toEqual(1)
     })
 
     it('when passed content`s object does not contain blocks property', () => {
@@ -24,7 +24,7 @@ describe('calculateReadingTime Function', () => {
         JSON.stringify({ otherKey: 'otherKey' })
       )
 
-      expect(result).toEqual(0)
+      expect(result).toEqual(1)
     })
   })
 
@@ -36,6 +36,6 @@ describe('calculateReadingTime Function', () => {
       })
     )
 
-    expect(result).toEqual(2)
+    expect(result).toEqual(1)
   })
 })
