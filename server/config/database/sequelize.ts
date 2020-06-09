@@ -3,6 +3,9 @@ import { Sequelize } from 'sequelize'
 import keys from '@config/keys'
 
 export const sequelize = new Sequelize({
+  dialectOptions: {
+    ssl: true
+  },
   storage: ':memory:',
   dialect: 'postgres',
   port: keys.databasePort,
