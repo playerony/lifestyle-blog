@@ -23,7 +23,7 @@ export default class ImageService {
         },
         (err, image) => {
           if (image) {
-            resolve(image.url)
+            resolve(image.secure_url)
           } else {
             reject(err)
           }

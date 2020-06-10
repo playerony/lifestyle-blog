@@ -4,7 +4,7 @@ import keys from '@config/keys'
 
 export const sequelize = new Sequelize({
   dialectOptions: {
-    ssl: true
+    ssl: keys.nodeEnv !== 'development'
   },
   storage: ':memory:',
   dialect: 'postgres',
