@@ -9,7 +9,17 @@ const _CategoryService = Substitute.for<CategoryService>()
 
 const bulkCreateMock = jest.fn()
 const scopeCallMock = jest.fn()
-const findArticleMock = jest.fn().mockImplementation(() => ARTICLE_MOCK)
+const findArticleMock = jest.fn().mockImplementation(whereOptions => {
+  const { isPublic, articleId } = whereOptions.where
+
+  return isPublic !== undefined
+    ? [ARTICLE_MOCK].find(
+        article =>
+          isPublic === article.isPublic && articleId === article.articleId
+      )
+    : [ARTICLE_MOCK].find(article => articleId === article.articleId)
+})
+
 const findAllArticlesMock = jest.fn().mockImplementation(whereOptions => {
   const onlyPublic = whereOptions.where.isPublic
 
@@ -136,6 +146,15 @@ describe('Article Service', () => {
       const result = await articleService.findById(1)
 
       expect(result).toEqual(ARTICLE_MOCK)
+    })
+
+    it('should return article when it`s public', async () => {
+      setupSequelizeMock()
+
+      const articleService = setUp()
+      const result = await articleService.findById(1, true)
+
+      expect(result).toBeNull()
     })
   })
 

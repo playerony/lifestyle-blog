@@ -54,7 +54,9 @@ describe('Article Resolver', () => {
           : [ARTICLE_RECORD_MOCK]
       )
 
-    _ArticleService.findById(Arg.any()).mimicks(async () => ARTICLE_RECORD_MOCK)
+    _ArticleService
+      .findById(Arg.any(), Arg.any())
+      .mimicks(async () => ARTICLE_RECORD_MOCK)
 
     _VisitorService
       .create(Arg.any(), Arg.any())

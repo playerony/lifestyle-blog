@@ -90,14 +90,20 @@ export default class ArticleService {
     return foundArticle
   }
 
-  async findById(articleId: number): Promise<ArticleType | null> {
+  async findById(
+    articleId: number,
+    onlyPublic?: boolean
+  ): Promise<ArticleType | null> {
+    const whereOptions: WhereOptions = { articleId }
+    if (onlyPublic !== undefined) {
+      whereOptions.isPublic = onlyPublic
+    }
+
     const foundArticle = await Article.scope([
       'withImage',
       'withCategoryList'
     ]).findOne<ArticleModel>({
-      where: {
-        articleId
-      }
+      where: whereOptions
     })
 
     return foundArticle ? articleMapping(foundArticle) : null

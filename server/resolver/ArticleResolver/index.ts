@@ -89,6 +89,9 @@ export default class ArticleResolver {
 
     await this.visitorService.create(articleId, context)
 
-    return this.articleService.findById(articleId)
+    return this.articleService.findById(
+      articleId,
+      context?.token === '' ? true : undefined
+    )
   }
 }
