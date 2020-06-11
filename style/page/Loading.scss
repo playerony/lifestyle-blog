@@ -1,9 +1,21 @@
 .loading-page {
   width: 100%;
-  height: 100vh;
   position: relative;
+  height: calc(100vh - 70px - #{$paddingBig} * 2);
 
-  @include flexbox;
+  @include flexbox();
   @include align-items(center);
   @include justify-content(center);
+
+  @include respond-to('medium') {
+    height: calc(100vh - 70px - #{$paddingMedium} * 2);
+  }
+
+  @include respond-to('small') {
+    height: calc(100vh - 70px - #{$paddingSmall} * 2);
+  }
+
+  @include respond-to('mobile') {
+    height: calc(100vh - 70px - #{$paddingSmall});
+  }
 }
