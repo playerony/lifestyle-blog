@@ -32,8 +32,8 @@ export default async (): Promise<ApolloServer> => {
   return new ApolloServer({
     schema,
     context: ({ req }) => ({
-      ipAddress: req.ip,
       userAgent: req.headers['user-agent'],
+      ipAddress: req.connection.remoteAddress,
       token: req?.headers?.authorization || ''
     }),
     extensions: [() => new LoggingExtension()]
