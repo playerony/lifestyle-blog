@@ -33,8 +33,8 @@ export default async (): Promise<ApolloServer> => {
     schema,
     context: ({ req }) => ({
       userAgent: req.headers['user-agent'],
-      ipAddress: req.connection.remoteAddress,
-      token: req?.headers?.authorization || ''
+      token: req?.headers?.authorization || '',
+      ipAddress: req.headers['x-forwarded-for'] || req.connection.remoteAddress
     }),
     extensions: [() => new LoggingExtension()]
   })
