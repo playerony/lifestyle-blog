@@ -86,8 +86,6 @@ video {
   font-size: 100%;
   vertical-align: baseline;
   -webkit-tap-highlight-color: transparent;
-
-  @include user-select(none);
 }
 
 :focus {
@@ -295,8 +293,9 @@ textarea {
 }
 
 ::selection {
+  color: $white;
   text-shadow: none;
-  background: $white;
+  background: $purple700;
 }
 
 img {

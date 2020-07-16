@@ -2,7 +2,6 @@ body {
   font-family: $normal-font-family;
   background-color: var(--background-color);
 
-  @include user-select(none);
   @include transition(background-color 500ms linear);
 }
 
@@ -12,7 +11,6 @@ body {
 
 label {
   display: block;
-  cursor: default;
   color: $gray600;
 
   @include font-size(24px);
@@ -36,7 +34,6 @@ label {
 }
 
 p {
-  cursor: default;
   color: var(--text-color);
 
   @include font-size(18px);
@@ -60,7 +57,6 @@ p {
 }
 
 h1 {
-  cursor: default;
   font-weight: bold;
   color: var(--text-color);
   font-family: $bold-font-family;
@@ -86,7 +82,6 @@ h1 {
 }
 
 h2 {
-  cursor: default;
   font-weight: bold;
   color: var(--text-color);
   font-family: $bold-font-family;
@@ -112,7 +107,6 @@ h2 {
 }
 
 h3 {
-  cursor: default;
   font-weight: bold;
   color: var(--text-color);
   font-family: $bold-font-family;
@@ -138,7 +132,6 @@ h3 {
 }
 
 h4 {
-  cursor: default;
   font-weight: bold;
   color: var(--text-color);
   font-family: $bold-font-family;
@@ -164,7 +157,6 @@ h4 {
 }
 
 h5 {
-  cursor: default;
   font-weight: bold;
   color: var(--text-color);
   font-family: $bold-font-family;
@@ -190,7 +182,6 @@ h5 {
 }
 
 h6 {
-  cursor: default;
   font-weight: bold;
   color: var(--text-color);
   font-family: $bold-font-family;
@@ -218,10 +209,10 @@ h6 {
 a {
   border: 0;
   font-weight: bold;
-  text-decoration: none;
-  position: relative;
-  display: inline-block;
   color: $purple700;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
   font-family: $bold-font-family;
 
   @include font-size(23px);
