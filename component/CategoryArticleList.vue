@@ -10,10 +10,15 @@
       </header>
       <ArticleList :articles="articles" />
     </div>
+    <VueHeadful
+      :title="category.name + ' | The Blog of Author Paweł Wojtasiński'"
+    />
   </Container>
 </template>
 
 <script>
+import VueHeadful from 'vue-headful'
+
 import Title from './common/Title'
 import Container from './common/Container'
 import ArticleList from './common/ArticleList'
@@ -28,6 +33,7 @@ export default {
   components: {
     Title,
     Container,
+    VueHeadful,
     ArticleList,
     DynamicIcon
   }
