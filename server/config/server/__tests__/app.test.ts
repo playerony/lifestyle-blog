@@ -43,7 +43,7 @@ describe('app Configuration', () => {
   it('should use proper middlewares', async () => {
     await appConfig()
 
-    expect(useMock).toHaveBeenCalledTimes(2)
+    expect(useMock).toHaveBeenCalled()
   })
 
   it('should prepare a server configuration', async () => {
