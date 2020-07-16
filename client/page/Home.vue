@@ -2,10 +2,13 @@
   <div>
     <LoadingPage v-if="isLoading()" />
     <Home v-if="!isLoading()" :articles="getArticleList()" />
+    <VueHeadful title="The Blog of Author Paweł Wojtasiński" />
   </div>
 </template>
 
 <script>
+import VueHeadful from 'vue-headful'
+
 import Home from '@component/Home'
 import LoadingPage from './Loading'
 
@@ -26,6 +29,7 @@ export default {
   },
   components: {
     Home,
+    VueHeadful,
     LoadingPage
   },
   apollo: {

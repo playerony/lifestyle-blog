@@ -31,10 +31,14 @@
       <Sidebar :categories="article.categoryList" />
       <MobileMenu :categories="article.categoryList" />
     </Container>
+    <VueHeadful
+      :title="article.title + ' | The Blog of Author Paweł Wojtasiński'"
+    />
   </div>
 </template>
 
 <script>
+import VueHeadful from 'vue-headful'
 import draftToHtml from 'draftjs-to-html'
 
 import Disqus from './Disqus'
@@ -86,6 +90,7 @@ export default {
     Sidebar,
     HeartSVG,
     Container,
+    VueHeadful,
     MobileMenu,
     HeartRedSVG,
     ArticleDetails

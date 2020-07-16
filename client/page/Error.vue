@@ -6,10 +6,15 @@
       <label class="error-page__description">{{ errorMessage }}</label>
       <Button :onClick="handleRefreshClick">Refresh</Button>
     </div>
+    <VueHeadful
+      :title="errorMessage + ' | The Blog of Author Paweł Wojtasiński'"
+    />
   </Container>
 </template>
 
 <script>
+import VueHeadful from 'vue-headful'
+
 import Button from '@component/generic/Button'
 import Container from '@component/common/Container'
 
@@ -27,7 +32,8 @@ export default {
   components: {
     Button,
     RobotSVG,
-    Container
+    Container,
+    VueHeadful
   },
   computed: {
     errorMessage() {
