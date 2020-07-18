@@ -26,6 +26,8 @@ app.use(
   })
 )
 
+app.use(referrerPolicy({ policy: 'strict-origin-when-cross-origin' }))
+
 app.use(
   featurePolicy({
     features: {
