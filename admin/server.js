@@ -34,8 +34,6 @@ app.use(
       midi: ["'none'"],
       camera: ["'none'"],
       payment: ["'none'"],
-      vibrate: ["'none'"],
-      speaker: ["'none'"],
       autoplay: ["'none'"],
       gyroscope: ["'none'"],
       fullscreen: ["'self'"],
@@ -43,8 +41,7 @@ app.use(
       geolocation: ["'none'"],
       magnetometer: ["'none'"],
       accelerometer: ["'none'"],
-      documentDomain: ["'none'"],
-      ambientLightSensor: ["'none'"]
+      documentDomain: ["'none'"]
     }
   })
 )
