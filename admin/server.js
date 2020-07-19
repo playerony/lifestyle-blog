@@ -60,7 +60,7 @@ app.use(
       manifestSrc: ["'self'"],
       frameSrc: ["'self'", 'https://www.google.com'],
       fontSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
-      styleSrc: ["'self'", 'https://cdnjs.cloudflare.com'],
+      styleSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com'],
       scriptSrc: [
         "'self'",
         'https://www.google.com/recaptcha/api.js',
