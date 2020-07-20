@@ -64,7 +64,12 @@ app.use(
         'https://www.gstatic.com/recaptcha/releases/6uMSoEJtPugDt7Qm0Uu5iuSY/recaptcha__en_gb.js'
       ],
       connectSrc: ["'self'", 'https://lifestyle-blog-server.herokuapp.com'],
-      imgSrc: ["'self'", 'https://i.imgur.com', 'https://res.cloudinary.com']
+      imgSrc: [
+        'data:',
+        "'self'",
+        'https://i.imgur.com',
+        'https://res.cloudinary.com'
+      ]
     }
   })
 )
