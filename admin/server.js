@@ -61,7 +61,7 @@ app.use(
       scriptSrc: [
         "'self'",
         'https://www.google.com/recaptcha/api.js',
-        'https://www.gstatic.com/recaptcha/releases/6uMSoEJtPugDt7Qm0Uu5iuSY/recaptcha__en_gb.js'
+        'https://www.gstatic.com/recaptcha/releases/*'
       ],
       connectSrc: ["'self'", 'https://lifestyle-blog-server.herokuapp.com'],
       imgSrc: [
