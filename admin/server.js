@@ -60,8 +60,8 @@ app.use(
       styleSrc: ["'self'", "'unsafe-inline'", 'https://cdnjs.cloudflare.com'],
       scriptSrc: [
         "'self'",
-        'https://www.google.com/recaptcha/api.js',
-        'https://www.gstatic.com/recaptcha/releases/*'
+        'https://www.gstatic.com',
+        'https://www.google.com/recaptcha/api.js'
       ],
       connectSrc: ["'self'", 'https://lifestyle-blog-server.herokuapp.com'],
       imgSrc: [
