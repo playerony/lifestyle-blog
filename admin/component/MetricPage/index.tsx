@@ -23,13 +23,13 @@ const MetricPage = ({ visitorList = [] }: IMetricPageProps): JSX.Element => {
 
   return (
     <Container>
-      <StyledHeader>Miesięczna liczba odwiedzających</StyledHeader>
+      <StyledHeader>Miesięczna liczba wejść</StyledHeader>
       <StyledChartWrapper>
         <Bar data={visitorsChartData} />
       </StyledChartWrapper>
 
       <StyledDoughnutChartHeader>
-        Wyświetlenia dla listy artykułów oraz samych artykułów
+        Ludzie którzy weszli na stronę przeczytać jakieś artykuł
       </StyledDoughnutChartHeader>
       <Doughnut data={pageVisitorsChartData} />
 

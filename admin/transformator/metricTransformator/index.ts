@@ -53,7 +53,7 @@ const getVisitorsChartData = (visitorList: IVisitor[]) => {
     labels,
     datasets: [
       {
-        label: 'Miesięczna liczba odwiedzających',
+        label: 'Miesięczna liczba wejść',
         borderColor: variable.color.blue500,
         backgroundColor: variable.color.blue500,
         data

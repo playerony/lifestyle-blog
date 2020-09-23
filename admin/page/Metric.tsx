@@ -8,7 +8,7 @@ import useLoader from '@hook/context/useLoader'
 import useVisitorList from '@hook/visitor/useVisitorList'
 
 const Metric = (): JSX.Element | null => {
-  useTitle('Analiza')
+  useTitle('Analiza dotycząca odwiedzających')
 
   const { toggleLoader } = useLoader()
   const { data, loading } = useVisitorList()

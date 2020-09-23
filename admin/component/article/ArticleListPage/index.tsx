@@ -28,21 +28,21 @@ const ArticleListPage = ({
     <>
       <Dashboard articleList={articleList} />
       <FabButton>
-        <Tooltip title="Logi">
+        <Tooltip title="Analiza logów">
           <Button circle={true} onClick={handleLogPageRedirect}>
             <StyledIcon>
               <use xlinkHref="#log" />
             </StyledIcon>
           </Button>
         </Tooltip>
-        <Tooltip title="Analiza">
+        <Tooltip title="Analiza odwiedzających">
           <Button circle={true} onClick={handleMetricPageRedirect}>
             <StyledIcon>
               <use xlinkHref="#metric" />
             </StyledIcon>
           </Button>
         </Tooltip>
-        <Tooltip title="Utwórz artykuł">
+        <Tooltip title="Dodaj artykuł">
           <Button circle={true} onClick={handleArticleCreatePageRedirect}>
             +
           </Button>
