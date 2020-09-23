@@ -50,9 +50,10 @@ const CategorySelect = ({
   return (
     <Select
       isMulti={true}
-      label="Category"
+      label="Kategoria"
       isLoading={loading}
       onChange={handleChange}
+      placeholder="Wybierz..."
       defaultValue={getValue()}
       errorMessage={errorMessage}
       options={getOptionList(data)}

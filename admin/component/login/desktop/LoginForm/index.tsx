@@ -35,7 +35,7 @@ const LoginForm = ({
           name="login"
           label="Login"
           onChange={onInputChange}
-          placeholder="What is your login?"
+          placeholder="Jaki jest Twój login?"
           errorMessage={getFieldError(errorData, 'login')}
         />
       </StyledInputWrapper>
@@ -43,9 +43,9 @@ const LoginForm = ({
         <Input
           name="password"
           type="password"
-          label="Password"
+          label="Hasło"
           onChange={onInputChange}
-          placeholder="What is your password?"
+          placeholder="Jakie jest Twoje hasło?"
           errorMessage={getFieldError(errorData, 'password')}
         />
         <StyledButton onClick={execute} disabled={preventNextRequest}>

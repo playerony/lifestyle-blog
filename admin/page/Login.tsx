@@ -26,7 +26,7 @@ const initialErrorData: TResponseError<ILoginRequest> = {
 }
 
 const Login = (): JSX.Element => {
-  useTitle('Login')
+  useTitle('Logowanie')
 
   const [loginData, setLoginData] = useState<ILoginRequest>(initialLoginData)
   const [errorData, setErrorData] = useState<TResponseError<ILoginRequest>>(

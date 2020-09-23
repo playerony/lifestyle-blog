@@ -16,7 +16,7 @@ const Error = (): JSX.Element => {
   const history = useHistory()
   const { code } = useParams<{ code: string }>()
 
-  useTitle(`${code} Error`)
+  useTitle(`Błąd ${code}`)
 
   const handleRefreshClick = (): void => history.push(routeList.base)
 
@@ -28,7 +28,7 @@ const Error = (): JSX.Element => {
         </svg>
         <StyledCode>{code}</StyledCode>
         <StyledDescription>{getErrorMessage(code)}</StyledDescription>
-        <Button onClick={handleRefreshClick}>Refresh</Button>
+        <Button onClick={handleRefreshClick}>Odśwież</Button>
       </StyledWrapper>
     </Container>
   )

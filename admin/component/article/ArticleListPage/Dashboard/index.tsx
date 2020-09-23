@@ -38,7 +38,7 @@ const renderArticleListSortedByCreatedAt = (
     return null
   }
 
-  return <ArticleList label="Newest" articleList={result.reverse()} />
+  return <ArticleList label="Najnowsze" articleList={result.reverse()} />
 }
 
 const renderArticleListSortedByLikes = (
@@ -51,7 +51,7 @@ const renderArticleListSortedByLikes = (
     return null
   }
 
-  return <ArticleList label="Top rated" articleList={result} />
+  return <ArticleList label="Najwyżej oceniane" articleList={result} />
 }
 
 const renderArticleListSortedByTotalVisitor = (
@@ -66,7 +66,12 @@ const renderArticleListSortedByTotalVisitor = (
     return null
   }
 
-  return <ArticleList label="Most Viewed - all time" articleList={result} />
+  return (
+    <ArticleList
+      label="Najczęściej oglądane - cały czas"
+      articleList={result}
+    />
+  )
 }
 
 const renderArticleListSortedByTodayVisitor = (
@@ -81,7 +86,9 @@ const renderArticleListSortedByTodayVisitor = (
     return null
   }
 
-  return <ArticleList label="Most Viewed - today" articleList={result} />
+  return (
+    <ArticleList label="Najczęściej oglądane - dzisiaj" articleList={result} />
+  )
 }
 
 const Dashboard = ({ articleList }: IDashboardProps): JSX.Element => {

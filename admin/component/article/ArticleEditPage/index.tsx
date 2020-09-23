@@ -13,7 +13,7 @@ const ArticleEditPage = ({
   initialData
 }: IArticleEditPageProps): JSX.Element => (
   <Container>
-    <StyledHeader>Editing an article</StyledHeader>
+    <StyledHeader>Edycja artykułu</StyledHeader>
     <ArticleForm
       onSave={onEdit}
       errorData={errorData}

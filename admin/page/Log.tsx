@@ -8,7 +8,7 @@ import useLogList from '@hook/log/useLogList'
 import useLoader from '@hook/context/useLoader'
 
 const Log = (): JSX.Element | null => {
-  useTitle('Log')
+  useTitle('Logi')
 
   const { toggleLoader } = useLoader()
   const { data, loading } = useLogList()

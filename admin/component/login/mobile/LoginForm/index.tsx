@@ -38,15 +38,15 @@ const LoginForm = ({
           name="login"
           label="Login"
           onChange={handleInputChange}
-          placeholder="What is your login?"
+          placeholder="Jaki jest Twój login?"
           errorMessage={getFieldError(errorData, 'login')}
         />
         <Input
           name="password"
           type="password"
-          label="Password"
+          label="Hasło"
           onChange={handleInputChange}
-          placeholder="What is your password?"
+          placeholder="Jakie jest Twoje hasło?"
           errorMessage={getFieldError(errorData, 'password')}
         />
         <Input

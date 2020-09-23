@@ -28,7 +28,7 @@ import {
 } from './EditorInput.style'
 
 const inlineToolbarPlugin = createInlineToolbarPlugin()
-const linkPlugin = createLinkPlugin({ placeholder: 'Provide an url...' })
+const linkPlugin = createLinkPlugin({ placeholder: 'Podaj adres URL ...' })
 
 const { InlineToolbar } = inlineToolbarPlugin
 const plugins = [inlineToolbarPlugin, linkPlugin]

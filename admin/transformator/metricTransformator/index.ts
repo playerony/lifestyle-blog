@@ -53,7 +53,7 @@ const getVisitorsChartData = (visitorList: IVisitor[]) => {
     labels,
     datasets: [
       {
-        label: 'Visitors per month',
+        label: 'Miesięczna liczba odwiedzających',
         borderColor: variable.color.blue500,
         backgroundColor: variable.color.blue500,
         data
@@ -68,7 +68,7 @@ const getPageVisitorsChartData = (visitorList: IVisitor[]) => {
   const articleListVisitors = calculateArticleListVisitors(visitorList)
 
   return {
-    labels: ['Total', 'Article page', 'Article list page'],
+    labels: ['Całkowita', 'Strona artykułu', 'Lista artykułów'],
     datasets: [
       {
         data: [allWebsiteVisitors, articlePageVisitors, articleListVisitors],
@@ -88,7 +88,7 @@ const getDevicesChartData = (visitorList: IVisitor[]) => {
   const desktopVisitors = visitorList.length - mobileVisitors - tabletVisitors
 
   return {
-    labels: ['Tablet', 'Mobile', 'Desktop'],
+    labels: ['Tablet', 'Telefon', 'Komputer'],
     datasets: [
       {
         data: [tabletVisitors, mobileVisitors, desktopVisitors],
