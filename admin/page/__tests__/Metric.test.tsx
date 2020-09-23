@@ -41,9 +41,7 @@ describe('Metric Page', () => {
   it('should set a proper document title', () => {
     setUp()
 
-    expect(useTitleMock).toHaveBeenCalledWith(
-      'Analiza dotycząca odwiedzających'
-    )
+    expect(useTitleMock).toHaveBeenCalledWith('Analiza odwiedzających')
   })
 
   describe('loading data', () => {
