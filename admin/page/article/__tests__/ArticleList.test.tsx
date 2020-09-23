@@ -45,7 +45,7 @@ describe('ArticleList Page', () => {
   it('should set a proper document title', () => {
     setUp()
 
-    expect(useTitleMock).toHaveBeenLastCalledWith('Dashboard')
+    expect(useTitleMock).toHaveBeenLastCalledWith('Główny panel')
   })
 
   describe('loading data', () => {

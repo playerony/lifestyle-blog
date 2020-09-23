@@ -49,7 +49,7 @@ describe('ArticleForm Component', () => {
         .first()
         .props()
       expect(inputProps.name).toEqual('title')
-      expect(inputProps.label).toEqual('Title')
+      expect(inputProps.label).toEqual('Tytuł')
       expect(inputProps.onChange).toBeDefined()
       expect(inputProps.errorMessage).toEqual('')
     })
@@ -64,7 +64,7 @@ describe('ArticleForm Component', () => {
       expect(inputProps.onChange).toBeDefined()
       expect(inputProps.errorMessage).toEqual('')
       expect(inputProps.name).toEqual('description')
-      expect(inputProps.label).toEqual('Description')
+      expect(inputProps.label).toEqual('Opis')
     })
   })
 
@@ -90,7 +90,7 @@ describe('ArticleForm Component', () => {
     const editorInputProps = wrapper.find(EditorInput).props()
     expect(editorInputProps.onChange).toBeDefined()
     expect(editorInputProps.errorMessage).toEqual('')
-    expect(editorInputProps.label).toEqual('Content')
+    expect(editorInputProps.label).toEqual('Treść')
   })
 
   it('should render Save Button', () => {

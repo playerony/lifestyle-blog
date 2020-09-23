@@ -29,7 +29,7 @@ const LoginForm = ({
 
   return (
     <StyledWrapper>
-      <StyledHeader>Login</StyledHeader>
+      <StyledHeader>Logowanie</StyledHeader>
       <StyledInputWrapper>
         <Input
           name="login"

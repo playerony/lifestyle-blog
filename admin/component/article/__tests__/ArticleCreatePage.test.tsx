@@ -43,7 +43,9 @@ describe('ArticleCreatePage Component', () => {
       <ArticleCreatePage onCreate={onCreateMock} errorData={ERROR_DATA_MOCK} />
     )
 
-    expect(wrapper.find('h1').props().children).toEqual('Adding a new article')
+    expect(wrapper.find('h1').props().children).toEqual(
+      'Dodawanie nowego artykułu'
+    )
   })
 
   it('should render ArticleForm Component', () => {

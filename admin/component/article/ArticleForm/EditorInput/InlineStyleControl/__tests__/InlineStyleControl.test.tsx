@@ -22,13 +22,15 @@ describe('InlineStyleControl Component', () => {
     const wrapper = mountComponent(<InlineStyleControl {...PROPS_MOCK} />)
 
     expect(wrapper.exists('h4')).toBeTruthy()
-    expect(wrapper.find('h4').props().children).toEqual('Inline style section')
+    expect(wrapper.find('h4').props().children).toEqual(
+      'Sekcja styli typu inline'
+    )
   })
 
   it('should render ControlButton list', () => {
     const wrapper = mountComponent(<InlineStyleControl {...PROPS_MOCK} />)
 
-    expect(wrapper.find(ControlButton)).toHaveLength(7)
+    expect(wrapper.find(ControlButton)).toHaveLength(6)
   })
 })
 

@@ -13,7 +13,7 @@ describe('useTitle Hook', () => {
     })
 
     expect(document.title).toEqual(
-      'The Blog of Author Paweł Wojtasiński - Admin | Title'
+      'Paweł Wojtasiński Blog - Panel Administratora | Title'
     )
   })
 })

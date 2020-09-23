@@ -13,9 +13,9 @@ const BLOCK_TYPE_LIST = [
   { label: 'H4', style: 'header-four' },
   { label: 'H5', style: 'header-five' },
   { label: 'H6', style: 'header-six' },
-  { label: 'Blockquote', style: 'blockquote' },
-  { label: 'Image', style: 'image' },
+  { label: 'Cytat', style: 'blockquote' },
+  { label: 'Obrazek', style: 'image' },
   { label: 'UL', style: 'unordered-list-item' },
   { label: 'OL', style: 'ordered-list-item' },
-  { label: 'Code Block', style: 'code-block' }
+  { label: 'Blok kodu', style: 'code-block' }
 ]

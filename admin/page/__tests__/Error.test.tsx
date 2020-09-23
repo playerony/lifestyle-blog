@@ -49,13 +49,13 @@ describe('Error Page', () => {
   it('should render proper message', () => {
     const wrapper = setUp({ code: '404' })
 
-    expect(wrapper.find('label').props().children).toEqual('Not found.')
+    expect(wrapper.find('label').props().children).toEqual('Nie znaleziono.')
   })
 
   it('should render refresh button', () => {
     const wrapper = setUp({ code: '404' })
 
     expect(wrapper.find(Button).props().onClick).toBeDefined()
-    expect(wrapper.find(Button).props().children).toEqual('Refresh')
+    expect(wrapper.find(Button).props().children).toEqual('Odśwież')
   })
 })

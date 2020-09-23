@@ -46,7 +46,7 @@ describe('CategorySelect Component', () => {
     expect(selectProps.isMulti).toBeTruthy()
     expect(selectProps.isLoading).toBeTruthy()
     expect(selectProps.onChange).toBeDefined()
-    expect(selectProps.label).toEqual('Category')
+    expect(selectProps.label).toEqual('Kategoria')
   })
 
   it('should select with loaded data', () => {
@@ -71,7 +71,7 @@ describe('CategorySelect Component', () => {
     expect(selectProps.isMulti).toBeTruthy()
     expect(selectProps.isLoading).toBeFalsy()
     expect(selectProps.onChange).toBeDefined()
-    expect(selectProps.label).toEqual('Category')
+    expect(selectProps.label).toEqual('Kategoria')
   })
 })
 

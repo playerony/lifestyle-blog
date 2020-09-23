@@ -22,7 +22,9 @@ describe('BlockTypeControl Component', () => {
     const wrapper = mountComponent(<BlockTypeControl {...PROPS_MOCK} />)
 
     expect(wrapper.exists('h4')).toBeTruthy()
-    expect(wrapper.find('h4').props().children).toEqual('Block type section')
+    expect(wrapper.find('h4').props().children).toEqual(
+      'Sekcja styli typu blokowego'
+    )
   })
 
   it('should render ControlButton list', () => {

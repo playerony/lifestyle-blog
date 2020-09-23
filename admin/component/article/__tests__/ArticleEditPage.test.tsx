@@ -44,7 +44,7 @@ describe('ArticleEditPage Component', () => {
       <ArticleEditPage onEdit={onEditMock} errorData={ERROR_DATA_MOCK} />
     )
 
-    expect(wrapper.find('h1').props().children).toEqual('Editing an article')
+    expect(wrapper.find('h1').props().children).toEqual('Edycja artykułu')
   })
 
   it('should render ArticleForm Component', () => {
