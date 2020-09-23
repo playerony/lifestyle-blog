@@ -65,14 +65,14 @@ const ArticleForm = ({
     <>
       <Input
         name="title"
-        label="Title"
+        label="Tytuł"
         defaultValue={state.title}
         onChange={handleInputChange}
         errorMessage={getFieldError<IArticleSave>(errorData, 'title')}
       />
       <Input
+        label="Opis"
         name="description"
-        label="Description"
         onChange={handleInputChange}
         defaultValue={state.description}
         errorMessage={getFieldError<IArticleSave>(errorData, 'description')}
@@ -88,7 +88,7 @@ const ArticleForm = ({
         errorMessage={getFieldError<IArticleSave>(errorData, 'imageId')}
       />
       <EditorInput
-        label="Content"
+        label="Treść"
         initialValue={state.content}
         onChange={handleContentChange}
         errorMessage={getFieldError<IArticleSave>(errorData, 'content')}

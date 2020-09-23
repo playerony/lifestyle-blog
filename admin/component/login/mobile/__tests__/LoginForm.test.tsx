@@ -54,7 +54,7 @@ describe('LoginForm Component', () => {
       expect(inputProps.label).toEqual('Login')
       expect(inputProps.onChange).toBeDefined()
       expect(inputProps.errorMessage).toEqual('error message')
-      expect(inputProps.placeholder).toEqual('What is your login?')
+      expect(inputProps.placeholder).toEqual('Jaki jest Twój login?')
     })
 
     it('should render password input', () => {
@@ -65,8 +65,8 @@ describe('LoginForm Component', () => {
       expect(inputProps.errorMessage).toEqual('')
       expect(inputProps.name).toEqual('password')
       expect(inputProps.type).toEqual('password')
-      expect(inputProps.label).toEqual('Password')
-      expect(inputProps.placeholder).toEqual('What is your password?')
+      expect(inputProps.label).toEqual('Hasło')
+      expect(inputProps.placeholder).toEqual('Jakie jest Twoje hasło?')
     })
 
     it('should render submit input', () => {

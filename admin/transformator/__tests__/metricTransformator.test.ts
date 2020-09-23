@@ -18,7 +18,7 @@ describe('metricTransformator Transformator', () => {
             data: [0, 0, 0]
           }
         ],
-        labels: ['Tablet', 'Mobile', 'Desktop']
+        labels: ['Tablet', 'Telefon', 'Komputer']
       },
       pageVisitorsChartData: {
         datasets: [
@@ -27,7 +27,7 @@ describe('metricTransformator Transformator', () => {
             data: [0, 0, 0]
           }
         ],
-        labels: ['Total', 'Article page', 'Article list page']
+        labels: ['Całkowita', 'Strona artykułu', 'Lista artykułów']
       },
       visitorsChartData: {
         datasets: [
@@ -35,7 +35,7 @@ describe('metricTransformator Transformator', () => {
             backgroundColor: '#48adf1',
             borderColor: '#48adf1',
             data: [],
-            label: 'Visitors per month'
+            label: 'Miesięczna liczba wejść'
           }
         ],
         labels: []
@@ -54,7 +54,7 @@ describe('metricTransformator Transformator', () => {
             data: [2, 8, 0]
           }
         ],
-        labels: ['Tablet', 'Mobile', 'Desktop']
+        labels: ['Tablet', 'Telefon', 'Komputer']
       },
       pageVisitorsChartData: {
         datasets: [
@@ -63,7 +63,7 @@ describe('metricTransformator Transformator', () => {
             data: [3, 2, 1]
           }
         ],
-        labels: ['Total', 'Article page', 'Article list page']
+        labels: ['Całkowita', 'Strona artykułu', 'Lista artykułów']
       },
       visitorsChartData: {
         datasets: [
@@ -71,7 +71,7 @@ describe('metricTransformator Transformator', () => {
             backgroundColor: '#48adf1',
             borderColor: '#48adf1',
             data: [1, 1, 1],
-            label: 'Visitors per month'
+            label: 'Miesięczna liczba wejść'
           }
         ],
         labels: ['03.2020', '04.2020', '05.2020']

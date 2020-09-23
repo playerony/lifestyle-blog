@@ -21,7 +21,7 @@ const initialErrorData: TResponseError<IArticleSave> = {
 }
 
 const ArticleCreate = (): JSX.Element => {
-  useTitle('Create')
+  useTitle('Dodawanie nowego artykułu')
 
   const [errorData, setErrorData] = useState<TResponseError<IArticleSave>>(
     initialErrorData

@@ -29,7 +29,7 @@ describe('ArticleCreate Page', () => {
   it('should set a proper document title', () => {
     setUp()
 
-    expect(useTitleMock).toHaveBeenCalledWith('Create')
+    expect(useTitleMock).toHaveBeenCalledWith('Dodawanie nowego artykułu')
   })
 
   describe('ArticleCreatePage Component', () => {

@@ -53,7 +53,7 @@ describe('MetricPage Component', () => {
           .find('h1')
           .first()
           .props().children
-      ).toEqual('Total visitors per month')
+      ).toEqual('Miesięczna liczba wejść')
     })
 
     it('should render Total visitors chart without a visitorList prop', () => {
@@ -65,7 +65,7 @@ describe('MetricPage Component', () => {
             backgroundColor: '#48adf1',
             borderColor: '#48adf1',
             data: [],
-            label: 'Visitors per month'
+            label: 'Miesięczna liczba wejść'
           }
         ],
         labels: []
@@ -83,7 +83,7 @@ describe('MetricPage Component', () => {
             backgroundColor: '#48adf1',
             borderColor: '#48adf1',
             data: [3],
-            label: 'Visitors per month'
+            label: 'Miesięczna liczba wejść'
           }
         ],
         labels: ['01.2020']
@@ -107,7 +107,7 @@ describe('MetricPage Component', () => {
       const wrapper = mountComponent(<MetricPage />)
 
       expect(wrapper.find('h1').get(1).props.children).toEqual(
-        'Visitors for the article and list page'
+        'Ludzie którzy weszli na stronę przeczytać jakieś artykuł'
       )
     })
 
@@ -126,7 +126,7 @@ describe('MetricPage Component', () => {
             data: [0, 0, 0]
           }
         ],
-        labels: ['Total', 'Article page', 'Article list page']
+        labels: ['Całkowita', 'Strona artykułu', 'Lista artykułów']
       })
     })
 
@@ -147,7 +147,7 @@ describe('MetricPage Component', () => {
             data: [3, 2, 1]
           }
         ],
-        labels: ['Total', 'Article page', 'Article list page']
+        labels: ['Całkowita', 'Strona artykułu', 'Lista artykułów']
       })
     })
   })
@@ -172,7 +172,7 @@ describe('MetricPage Component', () => {
           .find('h1')
           .last()
           .props().children
-      ).toEqual('What devices users use')
+      ).toEqual('Z jakich urządzeń korzystają użytkownicy')
     })
 
     it('should render Devices chart without a visitorList prop', () => {
@@ -190,7 +190,7 @@ describe('MetricPage Component', () => {
             data: [0, 0, 0]
           }
         ],
-        labels: ['Tablet', 'Mobile', 'Desktop']
+        labels: ['Tablet', 'Telefon', 'Komputer']
       })
     })
 
@@ -211,7 +211,7 @@ describe('MetricPage Component', () => {
             data: [2, 1, 0]
           }
         ],
-        labels: ['Tablet', 'Mobile', 'Desktop']
+        labels: ['Tablet', 'Telefon', 'Komputer']
       })
     })
   })

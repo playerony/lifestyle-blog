@@ -90,7 +90,9 @@ const ArticleCard = ({ article }: IArticleCardProps): JSX.Element => {
     } else {
       setVisibility(isPublic)
       toast.add(
-        `Article with ID: ${articleId} is now ${isPublic ? 'shown' : 'hidden'}`,
+        `Artykuł od ID: ${articleId} jest teraz ${
+          isPublic ? 'widoczny' : 'ukryty'
+        }`,
         EToastType.INFO
       )
     }

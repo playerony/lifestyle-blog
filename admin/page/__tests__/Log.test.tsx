@@ -41,7 +41,7 @@ describe('LogPage Page', () => {
   it('should set a proper document title', () => {
     setUp()
 
-    expect(useTitleMock).toHaveBeenCalledWith('Log')
+    expect(useTitleMock).toHaveBeenCalledWith('Analiza logów')
   })
 
   describe('loading data', () => {

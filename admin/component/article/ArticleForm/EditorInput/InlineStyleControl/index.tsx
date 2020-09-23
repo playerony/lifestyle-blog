@@ -29,7 +29,7 @@ const InlineStyleControl = ({
 
   return (
     <>
-      <StyledLabel>Inline style section</StyledLabel>
+      <StyledLabel>Sekcja styli typu inline</StyledLabel>
       <StyledListWrapper>{renderInlineStyleList()}</StyledListWrapper>
     </>
   )

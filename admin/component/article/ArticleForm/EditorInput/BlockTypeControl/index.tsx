@@ -33,7 +33,7 @@ const BlockTypeControl = ({
 
   return (
     <>
-      <StyledLabel>Block type section</StyledLabel>
+      <StyledLabel>Sekcja styli typu blokowego</StyledLabel>
       <StyledListWrapper>{renderBlockTypeList()}</StyledListWrapper>
     </>
   )

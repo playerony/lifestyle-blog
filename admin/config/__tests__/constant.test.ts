@@ -18,66 +18,62 @@ describe('constant Configuration', () => {
 
     it('should have defined IMAGE_UPLOAD_START_MESSAGE property', () => {
       expect(constant.IMAGE_UPLOAD_START_MESSAGE).toEqual(
-        'The image starts generating...'
+        'Obraz zaczyna się uploadować...'
       )
     })
 
     it('should have defined IMAGE_UPLOAD_ERROR_MESSAGE property', () => {
-      expect(constant.IMAGE_UPLOAD_ERROR_MESSAGE).toEqual(
-        'Something went wrong.'
-      )
+      expect(constant.IMAGE_UPLOAD_ERROR_MESSAGE).toEqual('Coś poszło nie tak.')
     })
 
     it('should have defined IMAGE_UPLOAD_SUCCESS_MESSAGE property', () => {
       expect(constant.IMAGE_UPLOAD_SUCCESS_MESSAGE).toEqual(
-        'Image was uploaded successfully.'
+        'Obraz został pomyślnie przesłany.'
       )
     })
   })
 
   describe('article values', () => {
     it('should have defined ARTICLE_TOGGLE_ERROR property', () => {
-      expect(constant.ARTICLE_TOGGLE_ERROR).toEqual('Something went wrong.')
+      expect(constant.ARTICLE_TOGGLE_ERROR).toEqual('Coś poszło nie tak.')
     })
 
     it('should have defined ARTICLE_EDIT_SUCCESS property', () => {
       expect(constant.ARTICLE_EDIT_SUCCESS).toEqual(
-        'Successfully edited an article.'
+        'Pomyślnie zredagowano artykuł.'
       )
     })
 
     it('should have defined ARTICLE_EDIT_ERROR property', () => {
-      expect(constant.ARTICLE_EDIT_ERROR).toEqual('Something went wrong.')
+      expect(constant.ARTICLE_EDIT_ERROR).toEqual('Coś poszło nie tak.')
     })
 
     it('should have defined ARTICLE_CREATE_SUCCESS property', () => {
-      expect(constant.ARTICLE_CREATE_SUCCESS).toEqual(
-        'Successfully created a new article.'
-      )
+      expect(constant.ARTICLE_CREATE_SUCCESS).toEqual('Utworzono nowy artykuł.')
     })
 
     it('should have defined ARTICLE_CREATE_ERROR property', () => {
-      expect(constant.ARTICLE_CREATE_ERROR).toEqual('Something went wrong.')
+      expect(constant.ARTICLE_CREATE_ERROR).toEqual('Coś poszło nie tak.')
     })
   })
 
   describe('captcha values', () => {
     it('should have defined CAPTCHA_ERROR_MESSAGE property', () => {
       expect(constant.CAPTCHA_ERROR_MESSAGE).toEqual(
-        'Unexpected captcha error.'
+        'Nieoczekiwany błąd Captcha.'
       )
     })
 
     it('should have defined CAPTCHA_EXIPRED_MESSAGE property', () => {
       expect(constant.CAPTCHA_EXIPRED_MESSAGE).toEqual(
-        'Captcha challenge expired.'
+        'Wyzwanie Captcha wygasło.'
       )
     })
   })
 
   describe('backend error messages', () => {
     it('should have defined FORBIDDEN_ERROR_MESSAGE property', () => {
-      expect(constant.FORBIDDEN_ERROR_MESSAGE).toEqual('Token expired.')
+      expect(constant.FORBIDDEN_ERROR_MESSAGE).toEqual('Token stracił ważność.')
     })
   })
 
@@ -101,7 +97,7 @@ describe('constant Configuration', () => {
 
   it('should have defined BASE_DOCUMENT_TITLE property', () => {
     expect(constant.BASE_DOCUMENT_TITLE).toEqual(
-      'The Blog of Author Paweł Wojtasiński - Admin |'
+      'Paweł Wojtasiński Blog - Panel Administratora |'
     )
   })
 

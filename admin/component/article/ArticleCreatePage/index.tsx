@@ -12,7 +12,7 @@ const ArticleCreatePage = ({
   errorData
 }: IArticleCreatePageProps): JSX.Element => (
   <Container>
-    <StyledHeader>Adding a new article</StyledHeader>
+    <StyledHeader>Dodawanie nowego artykułu</StyledHeader>
     <ArticleForm onSave={onCreate} errorData={errorData} />
   </Container>
 )

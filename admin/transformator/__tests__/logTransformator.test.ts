@@ -13,7 +13,7 @@ describe('logTransformator Transformator', () => {
       datasets: [
         {
           data: [],
-          label: 'Logs per month',
+          label: 'Liczba logów w miesiącu',
           backgroundColor: '#48adf1'
         }
       ]
@@ -26,7 +26,7 @@ describe('logTransformator Transformator', () => {
       datasets: [
         {
           data: [1, 2, 1, 1, 1],
-          label: 'Logs per month',
+          label: 'Liczba logów w miesiącu',
           backgroundColor: '#48adf1'
         }
       ]

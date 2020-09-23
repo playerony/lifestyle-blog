@@ -38,7 +38,7 @@ describe('Login Page', () => {
   it('should set a proper document title', () => {
     setUp()
 
-    expect(useTitleMock).toHaveBeenCalledWith('Login')
+    expect(useTitleMock).toHaveBeenCalledWith('Logowanie')
   })
 
   describe('Login Component', () => {

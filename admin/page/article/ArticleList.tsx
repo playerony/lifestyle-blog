@@ -11,7 +11,7 @@ import useVisitorList from '@hook/visitor/useVisitorList'
 import articleListTransformator from '@transformator/articleListTransformator'
 
 const ArticleList = (): JSX.Element | null => {
-  useTitle('Dashboard')
+  useTitle('Główny panel')
 
   const { toggleLoader } = useLoader()
 

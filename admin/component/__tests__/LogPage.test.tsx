@@ -36,7 +36,9 @@ describe('LogPage Component', () => {
     const wrapper = mountComponent(<LogPage />)
 
     expect(wrapper.exists('h1')).toBeTruthy()
-    expect(wrapper.find('h1').props().children).toEqual('Logs per month chart')
+    expect(wrapper.find('h1').props().children).toEqual(
+      'Wykres przedstawiający liczbę logów dla każdego miesiąca'
+    )
   })
 
   describe('Chart Component', () => {
@@ -54,7 +56,7 @@ describe('LogPage Component', () => {
         datasets: [
           {
             data: [],
-            label: 'Logs per month',
+            label: 'Liczba logów w miesiącu',
             backgroundColor: '#48adf1'
           }
         ]
@@ -69,7 +71,7 @@ describe('LogPage Component', () => {
         datasets: [
           {
             data: [1, 2],
-            label: 'Logs per month',
+            label: 'Liczba logów w miesiącu',
             backgroundColor: '#48adf1'
           }
         ]
