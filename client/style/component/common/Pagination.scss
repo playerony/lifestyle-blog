@@ -1,0 +1,50 @@
+.pagination {
+  cursor: pointer;
+  text-align: center;
+  padding-top: $paddingBig;
+
+  @include respond-to('medium') {
+    padding-top: $paddingMedium;
+  }
+
+  @include respond-to('mobile') {
+    padding-top: $paddingSmall;
+  }
+
+  &__button {
+    font-weight: 400;
+    color: $purple700;
+    padding: 10px 30px;
+    display: inline-block;
+    margin: $paddingSmall;
+    border: 2px solid $purple700;
+    font-family: $bold-font-family;
+
+    @include border-radius(30px);
+
+    @include respond-to('medium') {
+      margin: 10px;
+    }
+
+    @include respond-to('mobile') {
+      margin: 5px;
+      padding: 10px 15px;
+    }
+
+    & > .button__arrow {
+      width: 12px;
+      margin-left: 8px;
+      fill: $purple700;
+
+      @include respond-to('medium') {
+        width: 10px;
+        margin-left: 7px;
+      }
+
+      @include respond-to('mobile') {
+        width: 9px;
+        margin-left: 5px;
+      }
+    }
+  }
+}

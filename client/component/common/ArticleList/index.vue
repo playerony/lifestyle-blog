@@ -9,28 +9,26 @@
         :class="selectedItemStyle(menuOption.sortingBy)"
       />
     </ul>
-    <RecycleScroller
-      :itemSize="rowHeight"
-      v-slot="{ item: row }"
-      :page-mode="isPageMode"
-      :items="getArticleList()"
-      :key="gridRowElements * rowHeight"
-    >
-      <div class="article-list__content">
-        <ArticleCard
-          :article="article"
-          :key="article.articleId"
-          v-for="article in row.items"
-        />
-      </div>
-    </RecycleScroller>
+    <div class="article-list__content">
+      <ArticleCard
+        :article="article"
+        :key="article.articleId"
+        v-for="article in articleList"
+      />
+    </div>
+    <Pagination
+      :pageSize="pageSize"
+      :sortingBy="sortingBy"
+      :currentPage="currentPage"
+      :allElements="articles.length"
+      :setCurrentPage="setCurrentPage"
+    />
   </div>
 </template>
 
 <script>
-import { RecycleScroller } from 'vue-virtual-scroller'
-
 import MenuItem from './MenuItem'
+import Pagination from './Pagination'
 import ArticleCard from '../ArticleCard'
 
 import sortArticleList from '@utility/sortArticleList'
@@ -46,15 +44,15 @@ export default {
   data() {
     return {
       menuOptions,
-      rowHeight: 300,
-      gridRowElements: 3,
+      pageSize: 1,
+      currentPage: 1,
       sortingBy: 'latest'
     }
   },
   components: {
     MenuItem,
-    ArticleCard,
-    RecycleScroller
+    Pagination,
+    ArticleCard
   },
   mounted() {
     window.addEventListener('resize', this.onResize)
@@ -65,8 +63,17 @@ export default {
     window.removeEventListener('resize', this.onResize)
   },
   computed: {
-    isPageMode() {
-      return this.articles.length / this.gridRowElements > 5
+    displayBackButton() {
+      return Math.ceil(this.articles.length / this.pageSize) > this.currentPage
+    },
+    displayNextButton() {
+      return this.currentPage > 1
+    },
+    articleList() {
+      const articles = sortArticleList(this.articles, this.sortingBy)
+      const offset = (this.currentPage - 1) * this.pageSize
+
+      return articles.slice(offset, offset + this.pageSize)
     }
   },
   methods: {
@@ -77,49 +84,28 @@ export default {
 
       return ''
     },
+    setCurrentPage(currentPage) {
+      this.currentPage = currentPage
+    },
     setSortingBy(sortingBy) {
+      this.currentPage = 1
       this.sortingBy = sortingBy
     },
     onResize() {
-      const windowWidth = document.body.clientWidth
-
-      if (windowWidth < 750) {
-        this.rowHeight = 270
-        this.gridRowElements = 1
-      } else if (windowWidth < 1367) {
-        this.rowHeight = 320
-        this.gridRowElements = 2
-      } else if (windowWidth < 1919) {
-        this.rowHeight = 340
-        this.gridRowElements = 3
-      } else {
-        this.rowHeight = 360
-        this.gridRowElements = 3
-      }
-    },
-    getArticleList() {
-      const articleList = sortArticleList(this.articles, this.sortingBy)
-
-      let index = 0
-      let result = []
-      let rowItems = []
-      for (index = 0; index < articleList.length; index++) {
-        if (index % this.gridRowElements === 0 && index !== 0) {
-          result.push({ id: `row_${index}`, items: rowItems })
-          rowItems = []
-        }
-
-        rowItems.push({
-          ...articleList[index],
-          id: articleList[index].articleId
-        })
-      }
-
-      if (rowItems.length) {
-        result.push({ id: `row_${index}`, items: rowItems })
-      }
-
-      return result
+      // const windowWidth = document.body.clientWidth
+      // if (windowWidth < 750) {
+      //   this.pageSize = 1
+      //   this.currentPage = 1
+      // } else if (windowWidth < 1367) {
+      //   this.pageSize = 6
+      //   this.currentPage = 1
+      // } else if (windowWidth < 1919) {
+      //   this.pageSize = 9
+      //   this.currentPage = 1
+      // } else {
+      //   this.pageSize = 9
+      //   this.currentPage = 1
+      // }
     }
   }
 }
