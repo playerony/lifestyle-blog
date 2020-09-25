@@ -1,17 +1,15 @@
 <template>
-  <div class="pagination">
+  <div class="pagination" v-if="displayPagination">
     <p
-      v-if="displayNextButton"
-      class="pagination__button"
-      @click="setCurrentPage(currentPage - 1)"
+      :class="'pagination__button ' + nextButtonClassName"
+      @click="setCurrentPage(currentPage - 1, !displayNextButton)"
     >
-      <LeftArrowSVG class="button__arrow" />
+      <LeftArrowSVG class="button__arrow button__arrow__newer" />
       NOWSZE ARTYKUŁY
     </p>
     <p
-      v-if="displayBackButton"
-      class="pagination__button"
-      @click="setCurrentPage(currentPage + 1)"
+      :class="'pagination__button ' + backButtonClassName"
+      @click="setCurrentPage(currentPage + 1, !displayBackButton)"
     >
       STARSZE ARTYKUŁY
       <RightArrowSVG class="button__arrow" />
@@ -27,7 +25,6 @@ export default {
   name: 'common-pagination',
   props: {
     pageSize: { type: Number, required: true },
-    sortingBy: { type: String, required: true },
     allElements: { type: Number, required: true },
     currentPage: { type: Number, required: true },
     setCurrentPage: { type: Function, required: true }
@@ -37,35 +34,28 @@ export default {
     RightArrowSVG
   },
   computed: {
+    displayPagination() {
+      return this.allElements > this.pageSize
+    },
     displayBackButton() {
       return Math.ceil(this.allElements / this.pageSize) > this.currentPage
     },
     displayNextButton() {
       return this.currentPage > 1
     },
-    nextButtonLabel() {
-      switch (this.sortingBy) {
-        case 'latest':
-          return 'NOWSZE ARTYKUŁY'
-        case 'top-rated':
-          return 'WYŻEJ OCENIANE ARTYKUŁY'
-        case 'most-commented':
-          return 'CZĘŚCIEJ KOMENTOWANE ARTYKUŁY'
-        default:
-          return 'CZĘŚCIEJ CZYTANE ARTYKUŁY'
+    backButtonClassName() {
+      if (!this.displayBackButton) {
+        return 'pagination__button--disabled'
       }
+
+      return ''
     },
-    backButtonLabel() {
-      switch (this.sortingBy) {
-        case 'latest':
-          return 'STARSZE ARTYKUŁY'
-        case 'top-rated':
-          return 'GORZEJ OCENIANE ARTYKUŁY'
-        case 'most-commented':
-          return 'RZADZIEJ KOMENTOWANE ARTYKUŁY'
-        default:
-          return 'RZADZIEJ CZYTANE ARTYKUŁY'
+    nextButtonClassName() {
+      if (!this.displayNextButton) {
+        return 'pagination__button--disabled'
       }
+
+      return ''
     }
   }
 }

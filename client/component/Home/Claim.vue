@@ -4,14 +4,15 @@
       <img :src="claimImage" />
     </Tooltip>
     <h1 class="claim__text">
-      My friend who designed this website for me forced me to write something
-      here. So with this <span class="claim__rainbow">blog</span>, I would like
-      to share my experiences regarding
-      <span class="claim__rainbow">meditation</span>,
-      <span class="claim__rainbow">habits</span>, and the like. This is a kind
-      of therapy for me to sort out what I know. I hope that maybe I can help
-      someone with similar problems I encountered in my life.
-      <span class="claim__rainbow">I hope you will enjoy it</span>.
+      Mój kolega, który zaprojektował dla mnie tę stronę, zmusił mnie żebym
+      tutaj coś napisał. Tak więc za pośrednictwem
+      <span class="claim__rainbow">tego bloga</span>, chciałbym podzielić się
+      swoimi doświadczeniami dotyczącymi
+      <span class="claim__rainbow">medytacji</span>,
+      <span class="claim__rainbow">budowy nawyków</span> i tym podobnych. Jest
+      to dla mnie forma terapii mająca na celu
+      <span class="claim__rainbow">uporządkowanie</span> tego co już wiem. Mam
+      nadzieję, że uda mi się pomóc ludziom z podobnymi problemami.
     </h1>
   </div>
 </template>

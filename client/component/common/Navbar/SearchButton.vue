@@ -1,6 +1,6 @@
 <template>
   <div class="search-button" @click="toggleModal">
-    <label class="search-button__label">Search blog</label>
+    <label class="search-button__label">Znajdź artykuł</label>
     <SearchSVG class="search-button__icon" />
     <portal to="modals">
       <SearchPage v-if="showSearchPage" :onClose="toggleModal" />
