@@ -9,6 +9,7 @@
     </div>
     <Pagination
       :pageSize="pageSize"
+      v-if="displayPagination"
       :currentPage="currentPage"
       :allElements="articles.length"
       :setCurrentPage="setCurrentPage"
@@ -24,11 +25,11 @@ export default {
   name: 'common-article-list',
   props: {
     articles: { type: Array, required: true },
-    displayMenu: { type: Boolean, required: false, default: true }
+    displayPagination: { type: Boolean, required: false, default: true }
   },
   data() {
     return {
-      pageSize: 1,
+      pageSize: 6,
       currentPage: 1
     }
   },
@@ -74,16 +75,16 @@ export default {
       const windowWidth = document.body.clientWidth
 
       if (windowWidth < 750) {
-        this.pageSize = 1
+        this.pageSize = 4
         this.currentPage = 1
       } else if (windowWidth < 1367) {
-        this.pageSize = 6
+        this.pageSize = 4
         this.currentPage = 1
       } else if (windowWidth < 1919) {
-        this.pageSize = 9
+        this.pageSize = 6
         this.currentPage = 1
       } else {
-        this.pageSize = 9
+        this.pageSize = 6
         this.currentPage = 1
       }
     }

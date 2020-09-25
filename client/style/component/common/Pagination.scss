@@ -1,13 +1,13 @@
 .pagination {
   text-align: center;
-  padding-top: $paddingBig;
+  padding: $paddingBig 0;
 
   @include respond-to('medium') {
-    padding-top: $paddingMedium;
+    padding: $paddingMedium 0;
   }
 
   @include respond-to('mobile') {
-    padding-top: $paddingSmall;
+    padding: $paddingSmall 0;
   }
 
   &__button {
@@ -42,6 +42,12 @@
     @include respond-to('mobile') {
       margin: 5px;
       padding: 10px 15px;
+
+      &:first-child {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+      }
     }
 
     & > .button__arrow {
@@ -77,6 +83,7 @@
     }
 
     &--disabled {
+      cursor: default;
       color: $gray500;
       border-color: $gray500;
 

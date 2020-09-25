@@ -13,7 +13,7 @@
         </header>
         <ArticleList
           v-if="!isLoading()"
-          :displayMenu="false"
+          :displayPagination="false"
           :articles="getArticleList()"
           class="search-page__article-list"
         />

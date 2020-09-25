@@ -1,11 +1,13 @@
 .article-card {
   height: 300px;
   cursor: pointer;
+  overflow: hidden;
   max-height: 300px;
   position: relative;
   background-color: var(--card-color);
 
   @include flexbox();
+  @include border-radius(15px);
   @include transition(all 500ms linear);
   @include box-shadow(
     9px 9px 16px -12px $gray600,
@@ -59,7 +61,7 @@
     & > .hover__button {
       top: 50%;
       left: 50%;
-      width: 70%;
+      width: 60%;
       overflow: hidden;
       position: absolute;
       padding: $paddingSmall 0;

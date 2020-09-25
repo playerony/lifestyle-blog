@@ -12,7 +12,7 @@
       <span class="claim__rainbow">budowy nawyków</span> i tym podobnych. Jest
       to dla mnie forma terapii mająca na celu
       <span class="claim__rainbow">uporządkowanie</span> tego co już wiem. Mam
-      nadzieję, że uda mi się pomóc ludziom z podobnymi problemami.
+      nadzieję, że uda mi się komuś pomóc.
     </h1>
   </div>
 </template>
