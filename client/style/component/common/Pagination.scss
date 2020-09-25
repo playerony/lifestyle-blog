@@ -83,8 +83,8 @@
     }
 
     &--disabled {
-      cursor: default;
       color: $gray500;
+      cursor: not-allowed;
       border-color: $gray500;
 
       & > .button__arrow {
