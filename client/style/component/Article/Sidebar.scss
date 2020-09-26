@@ -16,15 +16,10 @@
     margin-top: 70px;
     width: $paddingBig;
     height: $paddingBig;
+    background-color: $purple700;
     clip-path: polygon(20% 50%, 100% 100%, 100% 0);
 
     @include transition(all 500ms ease);
-    @include linear-gradient(
-      to bottom,
-      $blue600 5%,
-      $purple700 56%,
-      $red300 100%
-    );
 
     @include respond-to('medium') {
       width: 55px;
@@ -37,7 +32,7 @@
     }
 
     &:hover {
-      @include transform(scale(1.1));
+      background-color: $red300;
     }
   }
 

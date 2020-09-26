@@ -20,7 +20,7 @@ describe('Claim Component', () => {
     const wrapper = setUp()
 
     expect(wrapper.find('tooltip-stub').attributes().title).toEqual(
-      'Yes, this is my face'
+      'To moja morda'
     )
   })
 
@@ -34,14 +34,15 @@ describe('Claim Component', () => {
     const wrapper = setUp()
 
     expect(wrapper.find('h1').text()).toEqual(
-      `My friend who designed this website for me forced me to write something
-    here. So with this blog, I would like
-    to share my experiences regarding
-    meditation,
-    habits, and the like. This is a kind
-    of therapy for me to sort out what I know. I hope that maybe I can help
-    someone with similar problems I encountered in my life.
-    I hope you will enjoy it.`
+      `Mój kolega, który zaprojektował dla mnie tę stronę, zmusił mnie żebym
+    tutaj coś napisał. Tak więc za pośrednictwem
+    tego bloga, chciałbym podzielić się
+    swoimi doświadczeniami dotyczącymi
+    medytacji,
+    budowy nawyków i tym podobnych. Jest
+    to dla mnie forma terapii mająca na celu
+    uporządkowanie tego co już wiem. Mam
+    nadzieję, że uda mi się komuś pomóc.`
     )
   })
 })

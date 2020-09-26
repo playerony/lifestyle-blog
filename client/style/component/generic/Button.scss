@@ -1,26 +1,45 @@
 .button {
+  z-index: 1;
   width: 100%;
   color: $white;
   border-width: 0;
   cursor: pointer;
+  overflow: hidden;
   font-weight: bold;
-  position: relative;
+  position: absolute;
   white-space: nowrap;
   padding: $paddingSmall;
   background-color: $purple700;
 
   @include flexbox();
-  @include border-radius(12px);
+  @include border-radius(30px);
   @include align-items(center);
   @include justify-content(center);
-  @include transition(background-color 500ms linear);
+  @include transition(color 500ms ease, background-color 500ms linear);
 
   @include respond-to('small') {
     padding: calc(#{$paddingSmall} / 2);
   }
 
+  &::before {
+    left: 0;
+    bottom: 0;
+    height: 0px;
+    content: '';
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    background-color: $red300;
+
+    @include transition(all 500ms ease);
+  }
+
   &:hover {
-    background-color: $blue600;
+    color: $white;
+
+    &::before {
+      height: 100%;
+    }
   }
 
   &:disabled {

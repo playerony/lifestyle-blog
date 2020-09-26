@@ -1,5 +1,5 @@
 .search-button {
-  width: 200px;
+  width: 210px;
   height: 25px;
   margin: auto;
   padding: 10px;
@@ -8,20 +8,19 @@
   margin-left: auto;
   position: relative;
   margin-right: $paddingBig;
+  background-color: $purple700;
 
   @include flexbox();
   @include border-radius(50px);
   @include align-items(center);
   @include justify-content(center);
-  @include transition(background 500ms linear);
-  @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
 
   @include respond-to('medium') {
-    width: 180px;
+    width: 190px;
   }
 
   @include respond-to('small') {
-    width: 160px;
+    width: 170px;
     margin-right: $paddingMedium;
   }
 
@@ -82,14 +81,14 @@
     }
 
     & > .search-button__icon {
-      left: 175px;
+      left: 185px;
 
       @include respond-to('medium') {
-        left: 160px;
+        left: 170px;
       }
 
       @include respond-to('small') {
-        left: 140px;
+        left: 150px;
       }
 
       @include respond-to('mobile') {

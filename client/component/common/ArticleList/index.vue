@@ -1,60 +1,41 @@
 <template>
   <div class="article-list">
-    <ul v-if="displayMenu" class="article-list__menu">
-      <MenuItem
-        :onClick="setSortingBy"
-        :key="menuOption.label"
-        :menuOption="menuOption"
-        v-for="menuOption in menuOptions"
-        :class="selectedItemStyle(menuOption.sortingBy)"
+    <div class="article-list__content">
+      <ArticleCard
+        :article="article"
+        :key="article.articleId"
+        v-for="article in articleList"
       />
-    </ul>
-    <RecycleScroller
-      :itemSize="rowHeight"
-      v-slot="{ item: row }"
-      :page-mode="isPageMode"
-      :items="getArticleList()"
-      :key="gridRowElements * rowHeight"
-    >
-      <div class="article-list__content">
-        <ArticleCard
-          :article="article"
-          :key="article.articleId"
-          v-for="article in row.items"
-        />
-      </div>
-    </RecycleScroller>
+    </div>
+    <Pagination
+      :pageSize="pageSize"
+      v-if="displayPagination"
+      :currentPage="currentPage"
+      :allElements="articles.length"
+      :setCurrentPage="setCurrentPage"
+    />
   </div>
 </template>
 
 <script>
-import { RecycleScroller } from 'vue-virtual-scroller'
-
-import MenuItem from './MenuItem'
+import Pagination from './Pagination'
 import ArticleCard from '../ArticleCard'
-
-import sortArticleList from '@utility/sortArticleList'
-
-import menuOptions from './menuOptions'
 
 export default {
   name: 'common-article-list',
   props: {
     articles: { type: Array, required: true },
-    displayMenu: { type: Boolean, required: false, default: true }
+    displayPagination: { type: Boolean, required: false, default: true }
   },
   data() {
     return {
-      menuOptions,
-      rowHeight: 300,
-      gridRowElements: 3,
-      sortingBy: 'latest'
+      pageSize: 6,
+      currentPage: 1
     }
   },
   components: {
-    MenuItem,
-    ArticleCard,
-    RecycleScroller
+    Pagination,
+    ArticleCard
   },
   mounted() {
     window.addEventListener('resize', this.onResize)
@@ -65,8 +46,16 @@ export default {
     window.removeEventListener('resize', this.onResize)
   },
   computed: {
-    isPageMode() {
-      return this.articles.length / this.gridRowElements > 5
+    displayBackButton() {
+      return Math.ceil(this.articles.length / this.pageSize) > this.currentPage
+    },
+    displayNextButton() {
+      return this.currentPage > 1
+    },
+    articleList() {
+      const offset = (this.currentPage - 1) * this.pageSize
+
+      return this.articles.slice(offset, offset + this.pageSize)
     }
   },
   methods: {
@@ -77,49 +66,27 @@ export default {
 
       return ''
     },
-    setSortingBy(sortingBy) {
-      this.sortingBy = sortingBy
+    setCurrentPage(currentPage, disabled) {
+      if (!disabled) {
+        this.currentPage = currentPage
+      }
     },
     onResize() {
       const windowWidth = document.body.clientWidth
 
       if (windowWidth < 750) {
-        this.rowHeight = 270
-        this.gridRowElements = 1
+        this.pageSize = 4
+        this.currentPage = 1
       } else if (windowWidth < 1367) {
-        this.rowHeight = 320
-        this.gridRowElements = 2
+        this.pageSize = 4
+        this.currentPage = 1
       } else if (windowWidth < 1919) {
-        this.rowHeight = 340
-        this.gridRowElements = 3
+        this.pageSize = 6
+        this.currentPage = 1
       } else {
-        this.rowHeight = 360
-        this.gridRowElements = 3
+        this.pageSize = 6
+        this.currentPage = 1
       }
-    },
-    getArticleList() {
-      const articleList = sortArticleList(this.articles, this.sortingBy)
-
-      let index = 0
-      let result = []
-      let rowItems = []
-      for (index = 0; index < articleList.length; index++) {
-        if (index % this.gridRowElements === 0 && index !== 0) {
-          result.push({ id: `row_${index}`, items: rowItems })
-          rowItems = []
-        }
-
-        rowItems.push({
-          ...articleList[index],
-          id: articleList[index].articleId
-        })
-      }
-
-      if (rowItems.length) {
-        result.push({ id: `row_${index}`, items: rowItems })
-      }
-
-      return result
     }
   }
 }

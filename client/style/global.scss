@@ -244,10 +244,10 @@ a {
     color: $purple700;
     position: absolute;
     font-weight: normal;
+    background-color: $purple700;
     font-family: $normal-font-family;
 
     @include transition(all 500ms);
-    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
 
     @include respond-to('medium') {
       height: 4px;

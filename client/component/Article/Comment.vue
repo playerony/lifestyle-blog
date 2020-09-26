@@ -25,7 +25,7 @@
             :class="'action__expand-icon ' + arrowStyle"
             @click="isReplyFormVisible = !isReplyFormVisible"
           />
-          <p>leave your reply</p>
+          <p>zostaw swoją odpowiedź</p>
         </div>
         <transition
           name="accordion"

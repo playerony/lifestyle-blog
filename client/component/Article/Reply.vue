@@ -2,19 +2,19 @@
   <div class="reply">
     <div class="reply__content">
       <Input
-        label="Creator"
+        label="Imię"
         v-model="creator"
-        placeholder="Your name..."
+        placeholder="Twoje imię..."
         :errorMessage="getCreatorFieldError()"
       />
       <Textarea
-        label="Content"
+        label="Treść"
         v-model="content"
-        placeholder="Join the discussion..."
+        placeholder="Dołącz do dyskusji..."
         :errorMessage="getContentFieldError()"
       />
       <Button className="reply__button" :onClick="this.handleButtonClick">
-        Reply
+        Odpowiedz
       </Button>
     </div>
   </div>

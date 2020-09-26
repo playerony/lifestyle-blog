@@ -9,7 +9,7 @@
     <div class="article-card__hover" :src="article.image.photoUrl">
       <img :src="article.image.photoUrl" />
       <Button :onClick="redirectToArticle" className="hover__button">
-        Read now
+        Czytaj
       </Button>
     </div>
   </article>

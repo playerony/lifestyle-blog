@@ -4,11 +4,11 @@
       <RobotSVG class="error-page__icon" />
       <h1 class="error-page__code">{{ code }}</h1>
       <label class="error-page__description">{{ errorMessage }}</label>
-      <Button :onClick="handleRefreshClick">Refresh</Button>
+      <div style="position: relative; width: 40%;">
+        <Button :onClick="handleRefreshClick">Odśwież</Button>
+      </div>
     </div>
-    <VueHeadful
-      :title="errorMessage + ' | The Blog of Author Paweł Wojtasiński'"
-    />
+    <VueHeadful :title="errorMessage + ' | Paweł Wojtasiński Blog'" />
   </Container>
 </template>
 
@@ -38,12 +38,12 @@ export default {
   computed: {
     errorMessage() {
       const errorMessages = {
-        404: 'Not found.',
-        400: 'Bad request.',
-        500: 'Internal Server Error.'
+        400: 'Zła prośba',
+        404: 'Nie znaleziono',
+        500: 'Wewnętrzny błąd serwera'
       }
 
-      return errorMessages[this.code] || 'An error occured.'
+      return errorMessages[this.code] || 'Wystąpił błąd.'
     }
   },
   methods: {

@@ -32,8 +32,8 @@ describe('Reply Component', () => {
       const inputProps = wrapper.find('input-stub').attributes()
       expect(inputProps.value).toEqual('')
       expect(inputProps.errormessage).toEqual('')
-      expect(inputProps.label).toEqual('Creator')
-      expect(inputProps.placeholder).toEqual('Your name...')
+      expect(inputProps.label).toEqual('Imię')
+      expect(inputProps.placeholder).toEqual('Twoje imię...')
     })
   })
 
@@ -50,8 +50,8 @@ describe('Reply Component', () => {
       const inputProps = wrapper.find('textarea-stub').attributes()
       expect(inputProps.value).toEqual('')
       expect(inputProps.errormessage).toEqual('')
-      expect(inputProps.label).toEqual('Content')
-      expect(inputProps.placeholder).toEqual('Join the discussion...')
+      expect(inputProps.label).toEqual('Treść')
+      expect(inputProps.placeholder).toEqual('Dołącz do dyskusji...')
     })
   })
 
@@ -65,7 +65,7 @@ describe('Reply Component', () => {
     it('should contain proper props', () => {
       const wrapper = setUp()
 
-      expect(wrapper.find('button-stub').text()).toEqual('Reply')
+      expect(wrapper.find('button-stub').text()).toEqual('Odpowiedz')
     })
   })
 })

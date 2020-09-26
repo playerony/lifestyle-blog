@@ -30,13 +30,7 @@
     height: 30px;
     margin-left: -10px;
     padding-right: 5px;
+    background-color: $purple700;
     clip-path: polygon(20% 50%, 100% 100%, 100% 0);
-
-    @include linear-gradient(
-      to bottom,
-      $blue600 5%,
-      $purple700 56%,
-      $red300 100%
-    );
   }
 }

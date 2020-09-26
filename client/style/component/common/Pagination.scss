@@ -1,0 +1,99 @@
+.pagination {
+  text-align: center;
+  padding: $paddingBig 0;
+
+  @include respond-to('medium') {
+    padding: $paddingMedium 0;
+  }
+
+  @include respond-to('mobile') {
+    padding: $paddingSmall 0;
+  }
+
+  &__button {
+    cursor: pointer;
+    font-weight: 400;
+    color: $purple700;
+    padding: 10px 30px;
+    display: inline-block;
+    margin: $paddingSmall;
+    border: 2px solid $purple700;
+    font-family: $bold-font-family;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+    @include border-radius(30px);
+    @include transition(all 500ms ease);
+
+    &:hover {
+      @include transform(scale(1.1));
+    }
+
+    @include respond-to('medium') {
+      margin: 10px;
+    }
+
+    @include respond-to('mobile') {
+      margin: 5px;
+      padding: 10px 15px;
+
+      &:first-child {
+        display: block;
+        margin: 0 auto;
+        width: fit-content;
+      }
+    }
+
+    & > .button__arrow {
+      width: 12px;
+      margin-left: 8px;
+      fill: $purple700;
+      @include transition(fill 500ms ease);
+
+      @include respond-to('medium') {
+        width: 10px;
+        margin-left: 7px;
+      }
+
+      @include respond-to('mobile') {
+        width: 9px;
+        margin-left: 5px;
+      }
+
+      &__newer {
+        margin-left: 0px;
+        margin-right: 8px;
+
+        @include respond-to('medium') {
+          margin-left: 0px;
+          margin-right: 7px;
+        }
+
+        @include respond-to('mobile') {
+          margin-left: 0px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    &--disabled {
+      color: $gray500;
+      cursor: not-allowed;
+      border-color: $gray500;
+
+      & > .button__arrow {
+        fill: $gray500;
+      }
+
+      &:hover {
+        @include transform(scale(1));
+      }
+    }
+  }
+}

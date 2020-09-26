@@ -1,16 +1,22 @@
 .article-card {
   height: 300px;
   cursor: pointer;
+  overflow: hidden;
   max-height: 300px;
   position: relative;
   background-color: var(--card-color);
 
   @include flexbox();
+  @include border-radius(10px);
   @include transition(all 500ms linear);
   @include box-shadow(
     9px 9px 16px -12px $gray600,
     -9px 9px 16px -7px var(--background-color)
   );
+
+  [theme='dark'] {
+    @include box-shadow(none);
+  }
 
   @include respond-to('mobile') {
     height: 250px;
@@ -20,8 +26,7 @@
   &__border {
     max-width: 10px;
     min-width: 10px;
-
-    @include linear-gradient(179deg, $blue600 5%, $purple700 56%, $red300 100%);
+    background-color: $purple700;
 
     @include respond-to('medium') {
       max-width: 7px;
@@ -59,7 +64,7 @@
     & > .hover__button {
       top: 50%;
       left: 50%;
-      width: 70%;
+      width: 60%;
       overflow: hidden;
       position: absolute;
       padding: $paddingSmall 0;
