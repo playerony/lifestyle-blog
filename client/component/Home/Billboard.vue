@@ -1,6 +1,5 @@
 <template>
   <div class="billboard">
-    <div class="billboard__border" />
     <section class="billboard__content">
       <ArticleDetails :article="article" />
       <Button :onClick="redirectToArticle" className="content__button">

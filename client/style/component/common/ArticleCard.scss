@@ -7,7 +7,7 @@
   background-color: var(--card-color);
 
   @include flexbox();
-  @include border-radius(15px);
+  @include border-radius(10px);
   @include transition(all 500ms linear);
   @include box-shadow(
     9px 9px 16px -12px $gray600,
@@ -26,8 +26,7 @@
   &__border {
     max-width: 10px;
     min-width: 10px;
-
-    @include linear-gradient(179deg, $blue600 5%, $purple700 56%, $red300 100%);
+    background-color: $purple700;
 
     @include respond-to('medium') {
       max-width: 7px;

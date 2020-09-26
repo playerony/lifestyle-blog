@@ -77,9 +77,6 @@
   }
 
   &__rainbow {
-    @include linear-gradient(94deg, $blue600 5%, $purple700 59%, $red300 104%);
-
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: $purple700;
   }
 }
