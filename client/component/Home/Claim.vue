@@ -1,6 +1,6 @@
 <template>
   <div class="claim">
-    <Tooltip class="claim__image" title="Yes, this is my face">
+    <Tooltip class="claim__image" title="To moja morda">
       <img :src="claimImage" />
     </Tooltip>
     <h1 class="claim__text">

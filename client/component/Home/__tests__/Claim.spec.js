@@ -20,7 +20,7 @@ describe('Claim Component', () => {
     const wrapper = setUp()
 
     expect(wrapper.find('tooltip-stub').attributes().title).toEqual(
-      'Yes, this is my face'
+      'To moja morda'
     )
   })
 
