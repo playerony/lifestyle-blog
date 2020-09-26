@@ -1,9 +1,21 @@
 .billboard {
   width: 100%;
+  min-height: 70vh;
+  max-height: 70vh;
   position: relative;
 
   @include flexbox();
   @include box-shadow(9px 9px 16px -12px $gray600, -9px -9px 16px -7px $white);
+
+  @include respond-to('medium') {
+    min-height: 60vh;
+    max-height: 60vh;
+  }
+
+  @include respond-to('small') {
+    min-height: 50vh;
+    max-height: 50vh;
+  }
 
   &__border {
     width: 10px;
@@ -17,49 +29,60 @@
   }
 
   &__content {
-    $padding: calc(#{$paddingBig} * 2);
+    min-width: 30%;
     background-color: var(--card-color);
-    width: calc(50% - 5px - #{$paddingBig} * 4);
-    padding: $padding $padding calc(#{$padding} * 3) $padding;
+    padding-left: calc(#{$paddingBig} * 2);
+    padding-right: calc(#{$paddingBig} * 2);
 
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(flex-start);
     @include transition(background-color 500ms linear);
 
-    @include respond-to('large') {
-      padding: $padding $padding calc(#{$padding} * 3) $padding;
-    }
-
     @include respond-to('medium') {
-      $padding: calc(#{$paddingMedium} * 2);
-      width: calc(50% - 5px - #{$paddingMedium} * 4);
-      padding: $padding $padding calc(#{$padding} * 4) $padding;
+      padding-left: calc(#{$paddingMedium} * 2);
+      padding-right: calc(#{$paddingMedium} * 2);
     }
 
     @include respond-to('small') {
-      width: calc(50% - 5px - #{$paddingMedium} * 2);
-      padding: $paddingMedium $paddingMedium calc(#{$paddingMedium} * 5)
-        $paddingMedium;
+      min-width: 35%;
+      padding-left: calc(#{$paddingSmall} * 2);
+      padding-right: calc(#{$paddingSmall} * 2);
     }
 
     @include respond-to('mobile') {
-      padding-bottom: calc(#{$paddingSmall} * 5);
-      width: calc(100% - 10px - #{$paddingMedium} * 2);
+      left: 0;
+      right: 0;
+      z-index: 1;
+      height: 100%;
+      min-width: 60%;
+      max-width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      background-color: transparent;
+      padding-left: $paddingMedium;
+      padding-right: $paddingMedium;
+
+      @include flexbox();
+      @include align-items(center);
     }
 
     & > .content__button {
-      width: initial;
+      width: 70%;
+      position: relative;
       margin-top: $paddingBig;
-      padding-left: calc(#{$paddingBig} * 2);
-      padding-right: calc(#{$paddingBig} * 2);
-
-      @include respond-to('medium') {
-        padding-left: calc(#{$paddingMedium} * 2);
-        padding-right: calc(#{$paddingMedium} * 2);
-      }
 
       @include respond-to('mobile') {
         margin-top: $paddingMedium;
-        padding-left: $paddingMedium;
-        padding-right: $paddingMedium;
+      }
+    }
+
+    & > .article-details {
+      @include respond-to('mobile') {
+        padding: $paddingSmall;
+        background-color: var(--card-color);
       }
     }
   }
@@ -68,10 +91,5 @@
     overflow: hidden;
     object-fit: cover;
     position: relative;
-    width: calc(50% - 5px);
-
-    @include respond-to('mobile') {
-      display: none;
-    }
   }
 }

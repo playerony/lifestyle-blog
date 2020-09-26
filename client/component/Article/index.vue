@@ -8,7 +8,7 @@
         />
         <div id="article-content" v-html="content" class="article__content" />
         <h3 class="article__likes">
-          Do you
+          Czy
           <transition name="fade" mode="out-in">
             <HeartSVG
               id="heart"
@@ -18,7 +18,7 @@
             />
             <HeartRedSVG key="heard-red" v-if="isLike" />
           </transition>
-          this article?
+          ten artykuł?
         </h3>
         <Disqus
           :comments="comments"
