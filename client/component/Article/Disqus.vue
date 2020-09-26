@@ -1,6 +1,6 @@
 <template>
   <div class="disqus">
-    <Title label="Comments" />
+    <Title label="Komentarze" />
     <Reply :handleReply="handleReply" :errorData="getReplyErrorData()" />
     <Comment
       :comment="comment"

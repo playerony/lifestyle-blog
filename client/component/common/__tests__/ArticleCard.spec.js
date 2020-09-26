@@ -39,7 +39,7 @@ describe('ArticleCard Component', () => {
   it('should render read now button', () => {
     const wrapper = setUp()
 
-    expect(wrapper.find('button-stub').text()).toEqual('Read now')
+    expect(wrapper.find('button-stub').text()).toEqual('Czytaj')
   })
 })
 

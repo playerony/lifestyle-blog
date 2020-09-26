@@ -1,4 +1,5 @@
-const addSuffix = (base, value) => `${value} ${base}${value > 1 ? 's' : ''} ago`
+const addSuffix = (base, value) =>
+  `${value} ${value > 1 ? base[1] : base[0]} temu`
 
 export default (source, compareWith = new Date()) => {
   const sourceDate = source ? source : new Date()
@@ -12,17 +13,17 @@ export default (source, compareWith = new Date()) => {
   const seconds = Math.ceil(difference / 1013)
 
   if (years > 1) {
-    return addSuffix('year', years)
+    return addSuffix(['rok', 'lata'], years)
   } else if (months > 1) {
-    return addSuffix('month', months)
+    return addSuffix(['miesiąc', 'miesiące'], months)
   } else if (days > 1) {
-    return addSuffix('day', days)
+    return addSuffix(['dzień', 'dni'], days)
   } else if (hours > 1) {
-    return addSuffix('hour', hours)
+    return addSuffix(['godzinę', 'godziny'], hours)
   } else if (minutes > 1) {
-    return addSuffix('minute', minutes)
+    return addSuffix(['minutę', 'minuty'], minutes)
   } else if (seconds > 1) {
-    return addSuffix('second', seconds)
+    return addSuffix(['sekunda', 'sekundy'], seconds)
   }
 
   return 'A moment ago'

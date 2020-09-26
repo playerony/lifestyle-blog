@@ -10,9 +10,7 @@
       </header>
       <ArticleList :articles="articles" />
     </div>
-    <VueHeadful
-      :title="category.name + ' | The Blog of Author Paweł Wojtasiński'"
-    />
+    <VueHeadful :title="category.name + ' | Paweł Wojtasiński Blog'" />
   </Container>
 </template>
 

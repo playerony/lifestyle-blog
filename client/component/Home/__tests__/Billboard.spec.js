@@ -24,7 +24,7 @@ describe('Billboard Component', () => {
     const wrapper = setUp()
 
     expect(wrapper.find('button-stub').exists()).toBeTruthy()
-    expect(wrapper.find('button-stub').text()).toEqual('Read now')
+    expect(wrapper.find('button-stub').text()).toEqual('Czytaj')
   })
 
   it('should render article image', () => {

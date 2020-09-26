@@ -3,7 +3,7 @@
     <section class="billboard__content">
       <ArticleDetails :article="article" />
       <Button :onClick="redirectToArticle" className="content__button">
-        Read now
+        Czytaj
       </Button>
     </section>
     <img class="billboard__image" :src="article.image.photoUrl" />

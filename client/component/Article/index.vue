@@ -31,9 +31,7 @@
       <Sidebar :categories="article.categoryList" />
       <MobileMenu :categories="article.categoryList" />
     </Container>
-    <VueHeadful
-      :title="article.title + ' | The Blog of Author Paweł Wojtasiński'"
-    />
+    <VueHeadful :title="article.title + ' | Paweł Wojtasiński Blog'" />
   </div>
 </template>
 

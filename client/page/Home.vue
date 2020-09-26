@@ -2,7 +2,7 @@
   <div>
     <LoadingPage v-if="isLoading()" />
     <Home v-if="!isLoading()" :articles="getArticleList()" />
-    <VueHeadful title="The Blog of Author Paweł Wojtasiński" />
+    <VueHeadful title="Paweł Wojtasiński Blog" />
   </div>
 </template>
 
