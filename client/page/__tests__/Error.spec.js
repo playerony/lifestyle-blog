@@ -34,7 +34,7 @@ describe('Error Page', () => {
   it('should render refresh button', () => {
     const wrapper = setUp(404)
 
-    expect(wrapper.find('button').text()).toEqual('Refresh')
+    expect(wrapper.find('button').text()).toEqual('Odśwież')
   })
 
   it('should render error code', () => {
@@ -46,6 +46,6 @@ describe('Error Page', () => {
   it('should render proper error message', () => {
     const wrapper = setUp(400)
 
-    expect(wrapper.find('label').text()).toEqual('Bad request.')
+    expect(wrapper.find('label').text()).toEqual('Zła prośba')
   })
 })
