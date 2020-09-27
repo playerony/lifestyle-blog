@@ -30,15 +30,15 @@ export default (
 const messageList = (
   functionParameters?: IFunctionParameterList
 ): { [key in TFunctionName]: string } => ({
-  isEqual: 'Provided values are not same.',
-  isExist: 'Provided value does not exist.',
-  isArray: 'Provided value is not an array.',
-  isString: 'Provided value is not a string.',
-  isNumber: 'Provided value is not a number.',
-  isDigit: 'Provided value does not contain any digit.',
-  isLetter: 'Provided value does not contain any letter.',
-  isBigLetter: 'Provided value does not contain any big letter.',
-  isSpecialCharacter: 'Provided value does not contain any special character.',
-  isMaxLength: `Provided value's length is longer than ${functionParameters?.length}.`,
-  isMinLength: `Provided value's length is shorter than ${functionParameters?.length}.`
+  isExist: 'Podana wartość nie istnieje.',
+  isArray: 'Podana wartość nie jest tablicą.',
+  isNumber: 'Podana wartość nie jest liczbą.',
+  isEqual: 'Podane wartości nie są takie same.',
+  isString: 'Podana wartość nie jest ciągiem znaków.',
+  isDigit: 'Podana wartość nie zawiera żadnej cyfry.',
+  isLetter: 'Podana wartość nie zawiera żadnej litery.',
+  isBigLetter: 'Podana wartość nie zawiera żadnej dużej litery.',
+  isSpecialCharacter: 'Podana wartość nie zawiera żadnych znaków specjalnych.',
+  isMaxLength: `Podany ciąg znaków jest większy od ${functionParameters?.length}.`,
+  isMinLength: `Podany ciąg znaków jest mniejszy od ${functionParameters?.length}.`
 })

@@ -72,7 +72,7 @@ describe('User Resolver', () => {
         try {
           await resolver.isAuthenticated(context)
         } catch (e) {
-          expect(e.message).toEqual('Forbidden Error.')
+          expect(e.message).toEqual('Brak dostępu.')
         }
       })
     })

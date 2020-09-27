@@ -15,11 +15,11 @@ describe('UserResolver.validator Functions', () => {
         const errorObject = JSON.parse(e.message)
 
         expect(
-          errorObject.login.includes('Provided value does not exist.')
+          errorObject.login.includes('Podana wartość nie istnieje.')
         ).toBeTruthy()
 
         expect(
-          errorObject.password.includes('Provided value does not exist.')
+          errorObject.password.includes('Podana wartość nie istnieje.')
         ).toBeTruthy()
       }
     })
@@ -34,9 +34,7 @@ describe('UserResolver.validator Functions', () => {
           const errorObject = JSON.parse(e.message)
 
           expect(
-            errorObject.login.includes(
-              "Provided value's length is shorter than 3."
-            )
+            errorObject.login.includes('Podany ciąg znaków jest mniejszy od 3.')
           ).toBeTruthy()
         }
       })
@@ -53,9 +51,7 @@ describe('UserResolver.validator Functions', () => {
           const errorObject = JSON.parse(e.message)
 
           expect(
-            errorObject.login.includes(
-              "Provided value's length is longer than 50."
-            )
+            errorObject.login.includes('Podany ciąg znaków jest większy od 50.')
           ).toBeTruthy()
         }
       })
@@ -72,7 +68,7 @@ describe('UserResolver.validator Functions', () => {
 
           expect(
             errorObject.password.includes(
-              "Provided value's length is shorter than 5."
+              'Podany ciąg znaków jest mniejszy od 5.'
             )
           ).toBeTruthy()
         }
@@ -92,7 +88,7 @@ describe('UserResolver.validator Functions', () => {
 
           expect(
             errorObject.password.includes(
-              "Provided value's length is longer than 100."
+              'Podany ciąg znaków jest większy od 100.'
             )
           ).toBeTruthy()
         }
@@ -114,11 +110,11 @@ describe('UserResolver.validator Functions', () => {
         const errorObject = JSON.parse(e.message)
 
         expect(
-          errorObject.login.includes('Provided value does not exist.')
+          errorObject.login.includes('Podana wartość nie istnieje.')
         ).toBeTruthy()
 
         expect(
-          errorObject.password.includes('Provided value does not exist.')
+          errorObject.password.includes('Podana wartość nie istnieje.')
         ).toBeTruthy()
       }
     })
@@ -133,9 +129,7 @@ describe('UserResolver.validator Functions', () => {
           const errorObject = JSON.parse(e.message)
 
           expect(
-            errorObject.login.includes(
-              "Provided value's length is shorter than 3."
-            )
+            errorObject.login.includes('Podany ciąg znaków jest mniejszy od 3.')
           ).toBeTruthy()
         }
       })
@@ -152,9 +146,7 @@ describe('UserResolver.validator Functions', () => {
           const errorObject = JSON.parse(e.message)
 
           expect(
-            errorObject.login.includes(
-              "Provided value's length is longer than 50."
-            )
+            errorObject.login.includes('Podany ciąg znaków jest większy od 50.')
           ).toBeTruthy()
         }
       })
@@ -171,7 +163,7 @@ describe('UserResolver.validator Functions', () => {
 
           expect(
             errorObject.password.includes(
-              "Provided value's length is shorter than 5."
+              'Podany ciąg znaków jest mniejszy od 5.'
             )
           ).toBeTruthy()
         }
@@ -191,7 +183,7 @@ describe('UserResolver.validator Functions', () => {
 
           expect(
             errorObject.password.includes(
-              "Provided value's length is longer than 100."
+              'Podany ciąg znaków jest większy od 100.'
             )
           ).toBeTruthy()
         }
@@ -210,19 +202,19 @@ describe('UserResolver.validator Functions', () => {
 
           expect(
             errorObject.password.includes(
-              'Provided value does not contain any letter.'
+              'Podana wartość nie zawiera żadnej litery.'
             )
           ).toBeTruthy()
 
           expect(
             errorObject.password.includes(
-              'Provided value does not contain any big letter.'
+              'Podana wartość nie zawiera żadnej dużej litery.'
             )
           ).toBeTruthy()
 
           expect(
             errorObject.password.includes(
-              'Provided value does not contain any special character.'
+              'Podana wartość nie zawiera żadnych znaków specjalnych.'
             )
           ).toBeTruthy()
         }
@@ -241,7 +233,7 @@ describe('UserResolver.validator Functions', () => {
 
           expect(
             errorObject.password.includes(
-              'Provided value does not contain any digit.'
+              'Podana wartość nie zawiera żadnej cyfry.'
             )
           ).toBeTruthy()
         }

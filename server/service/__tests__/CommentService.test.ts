@@ -62,7 +62,9 @@ describe('Comment Service', () => {
       try {
         await commentService.update(1, COMMENT_MOCK)
       } catch (e) {
-        expect(e.message).toEqual('{"commentId":["No such comment found."]}')
+        expect(e.message).toEqual(
+          '{"commentId":["Nie znaleziono takiego komentarza."]}'
+        )
       }
     })
 
@@ -116,7 +118,9 @@ describe('Comment Service', () => {
       try {
         await commentService.incrementCommentLikes(2)
       } catch (e) {
-        expect(e.message).toEqual('{"commentId":["No such comment found."]}')
+        expect(e.message).toEqual(
+          '{"commentId":["Nie znaleziono takiego komentarza."]}'
+        )
       }
     })
 
@@ -134,7 +138,9 @@ describe('Comment Service', () => {
       try {
         await commentService.decrementCommentLikes(2)
       } catch (e) {
-        expect(e.message).toEqual('{"commentId":["No such comment found."]}')
+        expect(e.message).toEqual(
+          '{"commentId":["Nie znaleziono takiego komentarza."]}'
+        )
       }
     })
 

@@ -24,8 +24,8 @@ describe('CommentResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -43,8 +43,8 @@ describe('CommentResolver.validator Functions', () => {
           const { content } = JSON.parse(e.message)
 
           expect(content).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is shorter than 3.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest mniejszy od 3.'
           ])
         }
       })
@@ -62,9 +62,9 @@ describe('CommentResolver.validator Functions', () => {
           const { creator } = JSON.parse(e.message)
 
           expect(creator).toEqual([
-            'Provided value does not exist.',
-            "Provided value's length is shorter than 2.",
-            "Provided value's length is longer than 20."
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest mniejszy od 2.',
+            'Podany ciąg znaków jest większy od 20.'
           ])
         }
       })
@@ -84,8 +84,8 @@ describe('CommentResolver.validator Functions', () => {
           const { commentId } = JSON.parse(e.message)
 
           expect(commentId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -103,8 +103,8 @@ describe('CommentResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -122,8 +122,8 @@ describe('CommentResolver.validator Functions', () => {
           const { content } = JSON.parse(e.message)
 
           expect(content).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is shorter than 3.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest mniejszy od 3.'
           ])
         }
       })
@@ -141,9 +141,9 @@ describe('CommentResolver.validator Functions', () => {
           const { creator } = JSON.parse(e.message)
 
           expect(creator).toEqual([
-            'Provided value does not exist.',
-            "Provided value's length is shorter than 2.",
-            "Provided value's length is longer than 20."
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest mniejszy od 2.',
+            'Podany ciąg znaków jest większy od 20.'
           ])
         }
       })
@@ -163,8 +163,8 @@ describe('CommentResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -184,8 +184,8 @@ describe('CommentResolver.validator Functions', () => {
           const { commentId } = JSON.parse(e.message)
 
           expect(commentId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -205,8 +205,8 @@ describe('CommentResolver.validator Functions', () => {
           const { commentId } = JSON.parse(e.message)
 
           expect(commentId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })

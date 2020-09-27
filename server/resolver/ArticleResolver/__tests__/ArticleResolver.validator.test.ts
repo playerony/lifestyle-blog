@@ -24,8 +24,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { imageId } = JSON.parse(e.message)
 
           expect(imageId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -43,8 +43,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { title } = JSON.parse(e.message)
 
           expect(title).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is longer than 40.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest większy od 40.'
           ])
         }
       })
@@ -62,8 +62,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { description } = JSON.parse(e.message)
 
           expect(description).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is longer than 100.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest większy od 100.'
           ])
         }
       })
@@ -81,8 +81,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { content } = JSON.parse(e.message)
 
           expect(content).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is shorter than 20.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest mniejszy od 20.'
           ])
         }
       })
@@ -100,9 +100,9 @@ describe('ArticleResolver.validator Functions', () => {
           const { categoryIdList } = JSON.parse(e.message)
 
           expect(categoryIdList).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not an array.',
-            `Provided value's length is shorter than 1.`
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest tablicą.',
+            'Podany ciąg znaków jest mniejszy od 1.'
           ])
         }
       })
@@ -126,8 +126,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -145,8 +145,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { imageId } = JSON.parse(e.message)
 
           expect(imageId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -164,8 +164,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { title } = JSON.parse(e.message)
 
           expect(title).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is longer than 40.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest większy od 40.'
           ])
         }
       })
@@ -183,8 +183,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { description } = JSON.parse(e.message)
 
           expect(description).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is longer than 100.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest większy od 100.'
           ])
         }
       })
@@ -202,8 +202,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { content } = JSON.parse(e.message)
 
           expect(content).toEqual([
-            'Provided value does not exist.',
-            `Provided value's length is shorter than 20.`
+            'Podana wartość nie istnieje.',
+            'Podany ciąg znaków jest mniejszy od 20.'
           ])
         }
       })
@@ -221,9 +221,9 @@ describe('ArticleResolver.validator Functions', () => {
           const { categoryIdList } = JSON.parse(e.message)
 
           expect(categoryIdList).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not an array.',
-            `Provided value's length is shorter than 1.`
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest tablicą.',
+            `Podany ciąg znaków jest mniejszy od 1.`
           ])
         }
       })
@@ -246,7 +246,7 @@ describe('ArticleResolver.validator Functions', () => {
         } catch (e) {
           const { articleId } = JSON.parse(e.message)
 
-          expect(articleId).toEqual(['Provided value is not a number.'])
+          expect(articleId).toEqual(['Podana wartość nie jest liczbą.'])
         }
       })
     })
@@ -265,8 +265,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })
@@ -286,8 +286,8 @@ describe('ArticleResolver.validator Functions', () => {
           const { articleId } = JSON.parse(e.message)
 
           expect(articleId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })

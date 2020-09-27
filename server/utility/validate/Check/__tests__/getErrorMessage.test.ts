@@ -7,43 +7,45 @@ describe('getErrorMessage Function', () => {
 
   it('should return a default error message', () => {
     expect(getErrorMessage('isArray')).toEqual(
-      'Provided value is not an array.'
+      'Podana wartość nie jest tablicą.'
     )
 
     expect(getErrorMessage('isBigLetter')).toEqual(
-      'Provided value does not contain any big letter.'
+      'Podana wartość nie zawiera żadnej dużej litery.'
     )
 
     expect(getErrorMessage('isDigit')).toEqual(
-      'Provided value does not contain any digit.'
+      'Podana wartość nie zawiera żadnej cyfry.'
     )
 
-    expect(getErrorMessage('isExist')).toEqual('Provided value does not exist.')
+    expect(getErrorMessage('isExist')).toEqual('Podana wartość nie istnieje.')
 
     expect(getErrorMessage('isLetter')).toEqual(
-      'Provided value does not contain any letter.'
+      'Podana wartość nie zawiera żadnej litery.'
     )
 
     expect(getErrorMessage('isMaxLength')).toEqual(
-      `Provided value's length is longer than undefined.`
+      `Podany ciąg znaków jest większy od undefined.`
     )
 
     expect(getErrorMessage('isMinLength')).toEqual(
-      `Provided value's length is shorter than undefined.`
+      `Podany ciąg znaków jest mniejszy od undefined.`
     )
 
     expect(getErrorMessage('isString')).toEqual(
-      'Provided value is not a string.'
+      'Podana wartość nie jest ciągiem znaków.'
     )
 
     expect(getErrorMessage('isSpecialCharacter')).toEqual(
-      'Provided value does not contain any special character.'
+      'Podana wartość nie zawiera żadnych znaków specjalnych.'
     )
 
-    expect(getErrorMessage('isEqual')).toEqual('Provided values are not same.')
+    expect(getErrorMessage('isEqual')).toEqual(
+      'Podane wartości nie są takie same.'
+    )
 
     expect(getErrorMessage('isNumber')).toEqual(
-      'Provided value is not a number.'
+      'Podana wartość nie jest liczbą.'
     )
   })
 
@@ -53,11 +55,11 @@ describe('getErrorMessage Function', () => {
 
   it('should pass function parameters to the message', () => {
     expect(getErrorMessage('isMaxLength', undefined, { length: 3 })).toEqual(
-      `Provided value's length is longer than 3.`
+      `Podany ciąg znaków jest większy od 3.`
     )
 
     expect(getErrorMessage('isMinLength', undefined, { length: 4 })).toEqual(
-      `Provided value's length is shorter than 4.`
+      `Podany ciąg znaków jest mniejszy od 4.`
     )
   })
 })

@@ -52,7 +52,7 @@ describe('Log Resolver', () => {
       try {
         await resolver.logList(context)
       } catch (e) {
-        expect(e.message).toEqual('Forbidden Error.')
+        expect(e.message).toEqual('Brak dostępu.')
       }
     })
   })

@@ -70,7 +70,7 @@ describe('validate Functions', () => {
 
     expect(result).toEqual({
       login: [],
-      password: ['Provided value does not contain any special character.']
+      password: ['Podana wartość nie zawiera żadnych znaków specjalnych.']
     })
   })
 })

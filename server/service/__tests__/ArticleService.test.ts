@@ -90,7 +90,9 @@ describe('Article Service', () => {
       try {
         await articleService.update(1, ARTICLE_MOCK, 1)
       } catch (e) {
-        expect(e.message).toEqual('{"articleId":["No such article found."]}')
+        expect(e.message).toEqual(
+          '{"articleId":["Nie znaleziono takiego artykułu."]}'
+        )
       }
     })
 
@@ -113,7 +115,9 @@ describe('Article Service', () => {
       try {
         await articleService.update(1, ARTICLE_MOCK, 1)
       } catch (e) {
-        expect(e.message).toEqual('{"articleId":["No such article found."]}')
+        expect(e.message).toEqual(
+          '{"articleId":["Nie znaleziono takiego artykułu."]}'
+        )
       }
     })
 
@@ -221,7 +225,9 @@ describe('Article Service', () => {
       try {
         await articleService.findAllByCategoryId(3)
       } catch (e) {
-        expect(e.message).toEqual('{"categoryId":["No such article found."]}')
+        expect(e.message).toEqual(
+          '{"categoryId":["Nie znaleziono takiego artykułu."]}'
+        )
       }
     })
 
@@ -259,7 +265,9 @@ describe('Article Service', () => {
       try {
         await articleService.incrementArticleLikes(2)
       } catch (e) {
-        expect(e.message).toEqual('{"articleId":["No such article found."]}')
+        expect(e.message).toEqual(
+          '{"articleId":["Nie znaleziono takiego artykułu."]}'
+        )
       }
     })
 

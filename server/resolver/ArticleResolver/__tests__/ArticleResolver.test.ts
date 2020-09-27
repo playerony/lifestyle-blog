@@ -75,7 +75,7 @@ describe('Article Resolver', () => {
         try {
           await resolver.createArticle(context, ARTICLE_MOCK)
         } catch (e) {
-          expect(e.message).toEqual('Forbidden Error.')
+          expect(e.message).toEqual('Brak dostępu.')
         }
       })
 
@@ -99,8 +99,8 @@ describe('Article Resolver', () => {
               title: [],
               description: [],
               content: [
-                'Provided value does not exist.',
-                `Provided value's length is shorter than 20.`
+                'Podana wartość nie istnieje.',
+                `Podany ciąg znaków jest mniejszy od 20.`
               ],
               categoryIdList: []
             })
@@ -135,7 +135,7 @@ describe('Article Resolver', () => {
         try {
           await resolver.updateArticle(context, 1, ARTICLE_MOCK)
         } catch (e) {
-          expect(e.message).toEqual('Forbidden Error.')
+          expect(e.message).toEqual('Brak dostępu.')
         }
       })
 
@@ -160,8 +160,8 @@ describe('Article Resolver', () => {
               title: [],
               description: [],
               content: [
-                'Provided value does not exist.',
-                `Provided value's length is shorter than 20.`
+                'Podana wartość nie istnieje.',
+                `Podany ciąg znaków jest mniejszy od 20.`
               ],
               categoryIdList: []
             })
@@ -196,7 +196,7 @@ describe('Article Resolver', () => {
         try {
           await resolver.toggleArticlePublicFlag(context, 1, true)
         } catch (e) {
-          expect(e.message).toEqual('Forbidden Error.')
+          expect(e.message).toEqual('Brak dostępu.')
         }
       })
 
@@ -286,7 +286,7 @@ describe('Article Resolver', () => {
       } catch (e) {
         expect(e.message).toEqual(
           JSON.stringify({
-            articleId: ['Provided value is not a number.']
+            articleId: ['Podana wartość nie jest liczbą.']
           })
         )
       }
@@ -307,8 +307,8 @@ describe('Article Resolver', () => {
         expect(e.message).toEqual(
           JSON.stringify({
             articleId: [
-              'Provided value does not exist.',
-              'Provided value is not a number.'
+              'Podana wartość nie istnieje.',
+              'Podana wartość nie jest liczbą.'
             ]
           })
         )

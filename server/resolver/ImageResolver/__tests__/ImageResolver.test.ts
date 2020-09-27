@@ -43,7 +43,7 @@ describe('Image Resolver', () => {
         try {
           await resolver.uploadImage(context, FILE_MOCK)
         } catch (e) {
-          expect(e.message).toEqual('Forbidden Error.')
+          expect(e.message).toEqual('Brak dostępu.')
         }
       })
 
@@ -64,7 +64,7 @@ describe('Image Resolver', () => {
           expect(e.message).toEqual(
             JSON.stringify({
               filename: [],
-              mimetype: ['Provided values are not same.'],
+              mimetype: ['Podane wartości nie są takie same.'],
               encoding: [],
               createReadStream: []
             })

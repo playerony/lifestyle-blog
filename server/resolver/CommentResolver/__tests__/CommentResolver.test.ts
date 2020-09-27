@@ -57,8 +57,8 @@ describe('Comment Resolver', () => {
             JSON.stringify({
               articleId: [],
               content: [
-                'Provided value does not exist.',
-                `Provided value's length is shorter than 3.`
+                'Podana wartość nie istnieje.',
+                'Podany ciąg znaków jest mniejszy od 3.'
               ],
               creator: []
             })
@@ -88,8 +88,8 @@ describe('Comment Resolver', () => {
               commentId: [],
               articleId: [],
               content: [
-                'Provided value does not exist.',
-                `Provided value's length is shorter than 3.`
+                'Podana wartość nie istnieje.',
+                'Podany ciąg znaków jest mniejszy od 3.'
               ],
               creator: []
             })
@@ -127,8 +127,8 @@ describe('Comment Resolver', () => {
         expect(e.message).toEqual(
           JSON.stringify({
             articleId: [
-              'Provided value does not exist.',
-              'Provided value is not a number.'
+              'Podana wartość nie istnieje.',
+              'Podana wartość nie jest liczbą.'
             ]
           })
         )
@@ -150,8 +150,8 @@ describe('Comment Resolver', () => {
         expect(e.message).toEqual(
           JSON.stringify({
             commentId: [
-              'Provided value does not exist.',
-              'Provided value is not a number.'
+              'Podana wartość nie istnieje.',
+              'Podana wartość nie jest liczbą.'
             ]
           })
         )
@@ -173,8 +173,8 @@ describe('Comment Resolver', () => {
         expect(e.message).toEqual(
           JSON.stringify({
             commentId: [
-              'Provided value does not exist.',
-              'Provided value is not a number.'
+              'Podana wartość nie istnieje.',
+              'Podana wartość nie jest liczbą.'
             ]
           })
         )

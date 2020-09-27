@@ -24,7 +24,7 @@ export default class CommentService {
     const foundComment = await this.findById(commentId)
     if (!foundComment) {
       throw new ValidationError({
-        commentId: ['No such comment found.']
+        commentId: ['Nie znaleziono takiego komentarza.']
       })
     }
 
@@ -66,7 +66,7 @@ export default class CommentService {
     const foundComment = await this.findById(commentId)
     if (!foundComment) {
       throw new ValidationError({
-        commentId: ['No such comment found.']
+        commentId: ['Nie znaleziono takiego komentarza.']
       })
     }
 
@@ -82,7 +82,7 @@ export default class CommentService {
     const foundComment = await this.findById(commentId)
     if (!foundComment) {
       throw new ValidationError({
-        commentId: ['No such comment found.']
+        commentId: ['Nie znaleziono takiego komentarza.']
       })
     }
 

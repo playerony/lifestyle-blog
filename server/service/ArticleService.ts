@@ -45,7 +45,7 @@ export default class ArticleService {
     const foundArticle = await this.findById(articleId)
     if (!foundArticle) {
       throw new ValidationError({
-        articleId: ['No such article found.']
+        articleId: ['Nie znaleziono takiego artykułu.']
       })
     }
 
@@ -80,7 +80,7 @@ export default class ArticleService {
     const foundArticle = await this.findById(articleId)
     if (!foundArticle) {
       throw new ValidationError({
-        articleId: ['No such article found.']
+        articleId: ['Nie znaleziono takiego artykułu.']
       })
     }
 
@@ -127,7 +127,7 @@ export default class ArticleService {
     const foundCategory = await this.categoryService.findById(categoryId)
     if (!foundCategory) {
       throw new ValidationError({
-        categoryId: ['No such article found.']
+        categoryId: ['Nie znaleziono takiego artykułu.']
       })
     }
 
@@ -150,7 +150,7 @@ export default class ArticleService {
     const foundArticle = await this.findById(articleId)
     if (!foundArticle) {
       throw new ValidationError({
-        articleId: ['No such article found.']
+        articleId: ['Nie znaleziono takiego artykułu.']
       })
     }
 

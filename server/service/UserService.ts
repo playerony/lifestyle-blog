@@ -17,7 +17,7 @@ export default class UserService {
 
     if (foundUser) {
       throw new ValidationError({
-        login: ['User with this login already exists.']
+        login: ['Użytkownik z tym loginem już istnieje.']
       })
     }
 
@@ -42,12 +42,14 @@ export default class UserService {
     })
 
     if (!foundUser) {
-      throw new ValidationError({ login: ['No such user found'] })
+      throw new ValidationError({
+        login: ['Nie znaleziono takiego użytkownika.']
+      })
     }
 
     const isValid = await bcrypt.compare(password!, foundUser.password!)
     if (!isValid) {
-      throw new ValidationError({ password: ['Invalid password'] })
+      throw new ValidationError({ password: ['Nieprawidłowe hasło.'] })
     }
 
     const token = jwt.sign({ userId: foundUser.userId }, keys.appSecret!, {

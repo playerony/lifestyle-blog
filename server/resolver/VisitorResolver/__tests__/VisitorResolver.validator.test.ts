@@ -14,8 +14,8 @@ describe('VisitorResolver.validator Functions', () => {
           const { categoryId } = JSON.parse(e.message)
 
           expect(categoryId).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a number.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest liczbą.'
           ])
         }
       })

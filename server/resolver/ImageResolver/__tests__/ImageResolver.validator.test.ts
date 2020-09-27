@@ -18,8 +18,8 @@ describe('ImageResolver.validator Functions', () => {
           const { filename } = JSON.parse(e.message)
 
           expect(filename).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a string.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest ciągiem znaków.'
           ])
         }
       })
@@ -37,9 +37,9 @@ describe('ImageResolver.validator Functions', () => {
           const { mimetype } = JSON.parse(e.message)
 
           expect(mimetype).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a string.',
-            'Provided values are not same.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest ciągiem znaków.',
+            'Podane wartości nie są takie same.'
           ])
         }
       })
@@ -57,9 +57,9 @@ describe('ImageResolver.validator Functions', () => {
           const { encoding } = JSON.parse(e.message)
 
           expect(encoding).toEqual([
-            'Provided value does not exist.',
-            'Provided value is not a string.',
-            'Provided values are not same.'
+            'Podana wartość nie istnieje.',
+            'Podana wartość nie jest ciągiem znaków.',
+            'Podane wartości nie są takie same.'
           ])
         }
       })
@@ -76,7 +76,7 @@ describe('ImageResolver.validator Functions', () => {
         } catch (e) {
           const { createReadStream } = JSON.parse(e.message)
 
-          expect(createReadStream).toEqual(['Provided value does not exist.'])
+          expect(createReadStream).toEqual(['Podana wartość nie istnieje.'])
         }
       })
     })

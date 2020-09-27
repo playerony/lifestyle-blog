@@ -54,7 +54,7 @@ describe('User Service', () => {
         await userService.signup({ login: 'test', password: 'test' })
       } catch (e) {
         expect(e.message).toEqual(
-          '{"login":["User with this login already exists."]}'
+          '{"login":["Użytkownik z tym loginem już istnieje."]}'
         )
       }
     })
@@ -84,7 +84,9 @@ describe('User Service', () => {
       try {
         await userService.login({ login: 'test', password: 'test' })
       } catch (e) {
-        expect(e.message).toEqual('{"login":["No such user found"]}')
+        expect(e.message).toEqual(
+          '{"login":["Nie znaleziono takiego użytkownika."]}'
+        )
       }
     })
 
@@ -98,7 +100,7 @@ describe('User Service', () => {
       try {
         await userService.login({ login: 'test', password: 'test' })
       } catch (e) {
-        expect(e.message).toEqual('{"password":["Invalid password"]}')
+        expect(e.message).toEqual('{"password":["Nieprawidłowe hasło."]}')
       }
     })
 

@@ -6,7 +6,7 @@ describe('constant Configuration', () => {
   })
 
   it('should have defined FORBIDDEN_ERROR_MESSAGE property', () => {
-    expect(constant.FORBIDDEN_ERROR_MESSAGE).toEqual('Forbidden Error.')
+    expect(constant.FORBIDDEN_ERROR_MESSAGE).toEqual('Brak dostępu.')
   })
 
   it('should have defined VALIDATION_ERROR property', () => {
