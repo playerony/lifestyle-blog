@@ -61,9 +61,9 @@
       margin-left: auto;
       margin-right: auto;
       position: absolute;
-      background-color: transparent;
       padding-left: $paddingMedium;
       padding-right: $paddingMedium;
+      background-color: transparent;
 
       @include flexbox();
       @include align-items(center);
@@ -83,6 +83,8 @@
       @include respond-to('mobile') {
         padding: $paddingSmall;
         background-color: var(--card-color);
+
+        @include transition(background-color 500ms linear);
       }
     }
   }

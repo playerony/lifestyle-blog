@@ -30,7 +30,8 @@ export default {
   data() {
     return {
       pageSize: 6,
-      currentPage: 1
+      currentPage: 1,
+      prevWindowsWidth: 0
     }
   },
   components: {
@@ -74,18 +75,22 @@ export default {
     onResize() {
       const windowWidth = document.body.clientWidth
 
-      if (windowWidth < 750) {
-        this.pageSize = 4
-        this.currentPage = 1
-      } else if (windowWidth < 1367) {
-        this.pageSize = 4
-        this.currentPage = 1
-      } else if (windowWidth < 1919) {
-        this.pageSize = 6
-        this.currentPage = 1
-      } else {
-        this.pageSize = 6
-        this.currentPage = 1
+      if (this.prevWindowsWidth !== windowWidth) {
+        if (windowWidth < 750) {
+          this.pageSize = 4
+          this.currentPage = 1
+        } else if (windowWidth < 1367) {
+          this.pageSize = 4
+          this.currentPage = 1
+        } else if (windowWidth < 1919) {
+          this.pageSize = 6
+          this.currentPage = 1
+        } else {
+          this.pageSize = 6
+          this.currentPage = 1
+        }
+
+        this.prevWindowsWidth = windowWidth
       }
     }
   }
