@@ -30,7 +30,7 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
   font-size: 20px;
   cursor: pointer;
   position: relative;
-  background: ${variable.color.blue500};
+  background: ${variable.color.purple700};
 
   ${borderRadius('50px')}
   ${transition('background 500ms linear')}
@@ -38,7 +38,7 @@ export const StyledWrapper = styled.div<IStyledWrapperProps>`
   ${({ isChecked }: IStyledWrapperProps) =>
     isChecked &&
     css`
-      background: ${variable.color.green400};
+      background: ${variable.color.red300};
 
       & > ${StyledCircle} {
         left: 22px;

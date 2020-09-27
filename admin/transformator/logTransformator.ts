@@ -30,7 +30,7 @@ export default (logList: ILog[]) => {
       {
         data,
         label: 'Liczba logów w miesiącu',
-        backgroundColor: variable.color.blue500
+        backgroundColor: variable.color.purple700
       }
     ]
   }

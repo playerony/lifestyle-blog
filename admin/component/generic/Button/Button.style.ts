@@ -21,7 +21,7 @@ export const StyledButton = styled.button<IButtonProps>`
   position: relative;
   font-size: ${getRem(32)};
   color: ${variable.color.white};
-  background-color: ${variable.color.green400};
+  background-color: ${variable.color.purple700};
 
   ${flexbox()}
   ${borderRadius('4px')}
@@ -88,7 +88,7 @@ export const StyledButton = styled.button<IButtonProps>`
     `}
 
   &:hover {
-    background-color: ${variable.color.blue500};
+    background-color: ${variable.color.red300};
   }
 
   &:disabled {

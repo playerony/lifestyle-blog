@@ -95,6 +95,6 @@ export const StyledLogoutIcon = styled.svg`
   ${transition('fill 500ms linear')}
 
   &:hover {
-    fill: ${variable.color.blue700};
+    fill: ${variable.color.red300};
   }
 `

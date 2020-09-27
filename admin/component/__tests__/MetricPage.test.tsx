@@ -62,8 +62,8 @@ describe('MetricPage Component', () => {
       expect(wrapper.find(Bar).props().data).toEqual({
         datasets: [
           {
-            backgroundColor: '#48adf1',
-            borderColor: '#48adf1',
+            backgroundColor: '#6084fa',
+            borderColor: '#6084fa',
             data: [],
             label: 'Miesięczna liczba wejść'
           }
@@ -80,8 +80,8 @@ describe('MetricPage Component', () => {
       expect(wrapper.find(Bar).props().data).toEqual({
         datasets: [
           {
-            backgroundColor: '#48adf1',
-            borderColor: '#48adf1',
+            backgroundColor: '#6084fa',
+            borderColor: '#6084fa',
             data: [3],
             label: 'Miesięczna liczba wejść'
           }
@@ -122,7 +122,7 @@ describe('MetricPage Component', () => {
       ).toEqual({
         datasets: [
           {
-            backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
+            backgroundColor: ['#debae2', '#ccccff', '#6084fa'],
             data: [0, 0, 0]
           }
         ],
@@ -143,7 +143,7 @@ describe('MetricPage Component', () => {
       ).toEqual({
         datasets: [
           {
-            backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
+            backgroundColor: ['#debae2', '#ccccff', '#6084fa'],
             data: [3, 2, 1]
           }
         ],
@@ -186,7 +186,7 @@ describe('MetricPage Component', () => {
       ).toEqual({
         datasets: [
           {
-            backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
+            backgroundColor: ['#debae2', '#ccccff', '#6084fa'],
             data: [0, 0, 0]
           }
         ],
@@ -207,7 +207,7 @@ describe('MetricPage Component', () => {
       ).toEqual({
         datasets: [
           {
-            backgroundColor: ['#48adf1', '#48f1b4', '#ccccff'],
+            backgroundColor: ['#debae2', '#ccccff', '#6084fa'],
             data: [2, 1, 0]
           }
         ],

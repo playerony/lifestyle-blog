@@ -8,7 +8,6 @@ import {
   transition,
   borderRadius,
   flexDirection,
-  linearGradient,
   justifyContent
 } from '@style/mixin'
 import variable from '@style/variable'
@@ -65,14 +64,10 @@ export const StyledArticleNumber = styled.p`
     height: 6px;
     content: '';
     margin-right: 10px;
+    background-color: ${variable.color.purple700};
 
     ${flexbox()}
     ${borderRadius('50px')}
-    ${linearGradient(
-      'to bottom',
-      variable.color.green400,
-      variable.color.blue700
-    )}
   }
 `
 
@@ -117,7 +112,7 @@ export const StyledEyeIcon = styled.svg`
 `
 
 export const StyledTodayVisitorLabel = styled.p`
-  color: ${variable.color.green400};
+  color: ${variable.color.purple700};
 `
 
 export const StyledContentSection = styled.section`
@@ -162,6 +157,6 @@ export const StyledControlIcon = styled.svg`
   `}
 
   &:hover {
-    fill: ${variable.color.blue700};
+    fill: ${variable.color.red300};
   }
 `

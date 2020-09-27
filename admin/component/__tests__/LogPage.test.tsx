@@ -57,7 +57,7 @@ describe('LogPage Component', () => {
           {
             data: [],
             label: 'Liczba logów w miesiącu',
-            backgroundColor: '#48adf1'
+            backgroundColor: '#6084fa'
           }
         ]
       })
@@ -72,7 +72,7 @@ describe('LogPage Component', () => {
           {
             data: [1, 2],
             label: 'Liczba logów w miesiącu',
-            backgroundColor: '#48adf1'
+            backgroundColor: '#6084fa'
           }
         ]
       })

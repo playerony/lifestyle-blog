@@ -83,7 +83,7 @@ export const StyledButton = styled.div`
   cursor: pointer;
   font-size: ${getRem(32)};
   color: ${variable.color.white};
-  background-color: ${variable.color.green400};
+  background-color: ${variable.color.purple700};
 
   ${flexbox()}
   ${alignItems('center')}
@@ -102,7 +102,7 @@ export const StyledButton = styled.div`
   `}
 
   &:hover {
-    background-color: ${variable.color.blue500};
+    background-color: ${variable.color.red300};
   }
 `
 

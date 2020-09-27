@@ -7,6 +7,7 @@ import {
   animation
 } from '@style/mixin'
 import variable from '@style/variable'
+import { ThemeProps } from '@style/theme'
 import getLightenDarkenColor from '@style/helper/getLightenDarkenColor'
 
 const SIZE = 32
@@ -39,7 +40,7 @@ export const StyledBox = styled.div`
     height: 100%;
     bottom: auto;
     position: absolute;
-    background: ${variable.color.blue500};
+    background: ${variable.color.purple700};
 
     ${transform(`rotateY(0deg) rotateX(0deg) translateZ(${SIZE / 2}px)`)}
 
@@ -50,13 +51,13 @@ export const StyledBox = styled.div`
 
     &:nth-child(2) {
       right: 0;
-      background: ${getLightenDarkenColor(variable.color.blue500, -30)};
+      background: ${getLightenDarkenColor(variable.color.purple700, -30)};
 
       ${transform(`rotateY(90deg) rotateX(0deg) translateZ(${SIZE / 2}px)`)}
     }
 
     &:nth-child(3) {
-      background: ${getLightenDarkenColor(variable.color.blue500, -10)};
+      background: ${getLightenDarkenColor(variable.color.purple700, -10)};
 
       ${transform(`rotateY(90deg) rotateX(-90deg) translateZ(${SIZE / 2}px)`)}
     }
@@ -64,7 +65,7 @@ export const StyledBox = styled.div`
     &:nth-child(4) {
       top: 0;
       left: 0;
-      background: ${variable.color.purple200};
+      background: ${({ theme }: ThemeProps) => theme.color.icon};
 
       ${transform(
         `rotateY(-180deg) rotateX(-180deg) translateZ(${SIZE * -3}px)`

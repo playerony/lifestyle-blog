@@ -54,8 +54,8 @@ const getVisitorsChartData = (visitorList: IVisitor[]) => {
     datasets: [
       {
         label: 'Miesięczna liczba wejść',
-        borderColor: variable.color.blue500,
-        backgroundColor: variable.color.blue500,
+        borderColor: variable.color.purple700,
+        backgroundColor: variable.color.purple700,
         data
       }
     ]
@@ -73,9 +73,9 @@ const getPageVisitorsChartData = (visitorList: IVisitor[]) => {
       {
         data: [allWebsiteVisitors, articlePageVisitors, articleListVisitors],
         backgroundColor: [
-          variable.color.blue500,
-          variable.color.green500,
-          variable.color.purple500
+          variable.color.red300,
+          variable.color.purple500,
+          variable.color.purple700
         ]
       }
     ]
@@ -93,9 +93,9 @@ const getDevicesChartData = (visitorList: IVisitor[]) => {
       {
         data: [tabletVisitors, mobileVisitors, desktopVisitors],
         backgroundColor: [
-          variable.color.blue500,
-          variable.color.green500,
-          variable.color.purple500
+          variable.color.red300,
+          variable.color.purple500,
+          variable.color.purple700
         ]
       }
     ]

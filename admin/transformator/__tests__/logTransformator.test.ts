@@ -14,7 +14,7 @@ describe('logTransformator Transformator', () => {
         {
           data: [],
           label: 'Liczba logów w miesiącu',
-          backgroundColor: '#48adf1'
+          backgroundColor: '#6084fa'
         }
       ]
     })
@@ -27,7 +27,7 @@ describe('logTransformator Transformator', () => {
         {
           data: [1, 2, 1, 1, 1],
           label: 'Liczba logów w miesiącu',
-          backgroundColor: '#48adf1'
+          backgroundColor: '#6084fa'
         }
       ]
     })

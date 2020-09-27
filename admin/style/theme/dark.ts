@@ -4,11 +4,11 @@ import variable from '../variable'
 
 const theme: ITheme = {
   color: {
-    icon: variable.color.white,
-    text: variable.color.white,
+    icon: variable.color.gray600,
+    text: variable.color.gray600,
     card: variable.color.gray900,
-    border: variable.color.white,
     input: variable.color.gray900,
+    border: variable.color.gray600,
     background: variable.color.black
   }
 }

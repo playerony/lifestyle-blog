@@ -8,11 +8,11 @@ describe('dark theme', () => {
 
 const DARK_THEME = {
   color: {
-    background: '#111933',
-    border: '#ffffff',
-    card: '#33393e',
-    icon: '#ffffff',
-    input: '#33393e',
-    text: '#ffffff'
+    icon: '#979797',
+    text: '#979797',
+    card: '#26282b',
+    input: '#26282b',
+    border: '#979797',
+    background: '#16161a'
   }
 }
