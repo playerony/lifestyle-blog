@@ -20,7 +20,7 @@
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "apollo-upload-client": "^12.1.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "crypto-js": "^3.3.0",
     "dotenv-webpack": "^1.8.0",
     "draft-js-anchor-plugin": "^2.0.3",
