@@ -11,7 +11,7 @@
     "publish": "cd ../ && git subtree push --prefix client heroku-client master"
   },
   "dependencies": {
-    "@vue/cli-service": "~4.2.0",
+    "@vue/cli-service": "~5.0.8",
     "apollo-cache-inmemory": "^1.6.6",
     "apollo-client": "^2.6.10",
     "apollo-link-http": "^1.5.17",
@@ -46,7 +46,7 @@
     "jest": "^25.5.4",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
-    "vue-jest": "^3.0.7",
+    "vue-jest": "^4.0.1",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.2"
